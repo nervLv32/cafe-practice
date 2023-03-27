@@ -1,0 +1,145 @@
+.checkbox {
+  position: absolute;
+  display: none;
+}
+
+.checkbox+label:before {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+
+.checkbox+label:after {
+  top: 5px;
+  left: 8px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 6px;
+  height: 12px;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  border-width: .123rem;
+  border-style: solid;
+  border-color: #fff;
+  border-top: 0;
+  border-left: 0;
+}
+
+.checkbox+label {
+  position: relative;
+  padding-left: 28px;
+  cursor: pointer;
+  line-height: 27px;
+  display: inline-block;
+  font-size: 15px;
+  font-weight: 500;
+  color: #666;
+  margin-right: 1px;
+  white-space: nowrap;
+}
+
+.checkbox+label:hover:before {
+  -webkit-animation-duration: .4s;
+  -moz-animation-duration: .4s;
+  animation-duration: .4s;
+  -webkit-animation-fill-mode: both;
+  -moz-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-name: hover-color;
+  -moz-animation-name: hover-color;
+  animation-name: hover-color;
+}
+
+.checkbox+label:before {
+  position: absolute;
+  top: 2px;
+  left: 0;
+  display: inline-block;
+  width: 2px;
+  height: 2px;
+  content: "";
+  border: 1px solid #ccc;
+  background: #fff;
+}
+
+.checkbox+label:after {
+  position: absolute;
+  display: none;
+  content: "";
+}
+
+.checkbox.small+label:before {
+  position: absolute;
+  top: 1px;
+  left: 0;
+  width: 13px;
+  height: 13px;
+}
+
+.checkbox.small+label {
+  position: relative;
+  padding-left: 18px;
+  cursor: pointer;
+  line-height: 100%;
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 300;
+  color: #333;
+  margin-right: 15px;
+}
+
+.checkbox.small+label:after {
+  top: 2px;
+  left: 4px;
+  width: 5px;
+  height: 8px;
+}
+
+.checkbox:checked+label:before {
+  border: 1px solid #0075ff;
+  background: #0075ff;
+}
+
+.checkbox:checked+label:before {
+  -webkit-animation-name: none;
+  -moz-animation-name: none;
+  animation-name: none;
+}
+
+.checkbox:checked+label:after {
+  display: block;
+}
+
+.checkbox[disabled] {
+  cursor: not-allowed;
+}
+
+.checkbox[disabled]+label {
+  cursor: not-allowed;
+  color: #e4e4e4;
+}
+
+.checkbox[disabled]+label:after,
+.checkbox[disabled]+label:before,
+.checkbox[disabled]+label:hover {
+  cursor: not-allowed;
+}
+
+.checkbox[disabled]+label:hover:before {
+  border: 1px solid #e4e4e4;
+  -webkit-animation-name: none;
+  -moz-animation-name: none;
+  animation-name: none;
+}
+
+.checkbox[disabled]+label:before {
+  border-color: #e4e4e4;
+}
+
+.checkbox:checked[disabled]+label:before {
+  border: #0075ff;
+  background: #0075ff;
+}

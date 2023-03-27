@@ -1,0 +1,2649 @@
+//calendar-arrow
+.calendar-box {
+    .form-control {
+        /*! 2023-02-09 EZP-6948 캘린더 arrow 추가 */
+        display: flex;
+        button {
+            &.left-arrow {
+                /*! 2023-02-09 EZP-6948 캘린더 arrow 추가 */
+                display: inline-block;
+                width: 28px;
+                height: 28px;
+                background: url("../assets/images/icons/calendar-left-arrow.png") no-repeat 50% 50%;
+                border: 1px solid #D8E2EC;
+                border-right: 0px;
+            }
+            &.right-arrow {
+                /*! 2023-02-09 EZP-6948 캘린더 arrow 추가 */
+                display: inline-block;
+                width: 28px;
+                height: 28px;
+                background: url("../assets/images/icons/calendar-right-arrow.png") no-repeat 50% 50%;
+                border: 1px solid #D8E2EC;
+                border-left: 0px;
+            }
+        }
+    }
+}
+
+//green bg 공통 btn
+.re-green-btn {
+    /*! 2022-11-04 EZP-6964 공통버튼 css 추가 */
+    background-color: #00C8A4;
+    width: auto;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 400;
+    color: #ffffff;
+    border-radius: 4px;
+    margin-left: 10px;
+
+    &.scenario-btn {
+        /*! 2022-11-04 EZP-6964 시나리오 버튼 css 추가 */
+        position: relative;
+        width: 257px;
+
+        &::after {
+            /*! 2022-11-04 EZP-6964 시나리오 버튼 css 추가 */
+            content: '';
+            display: block;
+            position: relative;
+            top: 0;
+            right: 0;
+            width: 12px;
+            height: 12px;
+            background: url("../assets/images/icons/icon_window_new_white.svg") no-repeat 50% 50%;
+            margin-left: 5px;
+        }
+    }
+}
+
+//title옆 매칭 state label 추가
+.tit {
+    .tit-label {
+        /*! 2022-12-15 EZP-6415 옵션선택 타이틀 옆 라벨 추가 */
+        display: inline-block;
+        height: 24px;
+        border-radius: 50px;
+        padding: 0 8px;
+        background-color: #9eb5c8;
+        font-size: 12px;
+        font-weight: 700;
+        color: #ffffff;
+        line-height: 24px;
+
+        &.red {
+            /*! 2022-12-15 EZP-6415 옵션선택 타이틀 옆 라벨 추가 */
+            background-color: #ff2052;
+        }
+    }
+}
+
+// 초기화 공통 버튼 추가
+.btn-lg {
+    &.reset {
+        /*! 2022-12-01 EZP-6415 초기화 버튼 추가 */
+        background-color: #ffffff;
+        border: 1px solid #DAE3E9;
+        color: #666666;
+    }
+}
+
+//공통 pointer css 등록
+.c-pointer {
+    /*! 2022-11-29 EZP-7612 cursor -> pointer 로 변경할 경우 */
+    cursor: pointer !important;
+}
+
+.c-none-pointer {
+    /*! 2022-11-29 EZP-7612 cursor -> default 로 변경할 경우 */
+    cursor:default !important;
+}
+
+//자동주문등록 버튼
+.auto-order-btn {
+    /*! 2022-10-27 EZP-6964 자동주문등록버튼 추가 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 142px;
+    height: 22px;
+    font-size: 12px;
+    font-weight: 500;
+    color: #ffffff;
+    background-color: #00C8A4;
+    border-radius: 4px;
+    margin-left: 10px;
+
+    i {
+        /*! 2022-10-27 EZP-6964 자동주문등록버튼 추가 */
+        margin-left: 5px;
+    }
+}
+
+.form-inline {
+    &.f-wrap {
+        /*! 2023-02-01 EZP-6415 주문매칭 유형 작은디바이스에서 깨지는 현상 수정 */
+        flex-wrap: wrap;
+        gap: 10px 18px;
+        .form-control {
+            & + .form-control {
+                /*! 2023-02-01 EZP-6415 주문매칭 유형 작은디바이스에서 깨지는 현상 수정 */
+                margin-left: 0;
+            }
+        }
+    }
+}
+
+//캘린더 모달창에서는 뒤로감
+#ui-datepicker-div {
+    /*! 2022-12-09 EZP-6764 캘린더 z-index올리기 */
+    z-index: 9999 !important;
+}
+
+//테이블 유형품목 앞에 빨간색 세로선 case 추가
+.mGridTable {
+    &.grid-resize {
+        tbody {
+            td {
+                &.re-red-line {
+                    /*! 2023-01-06 EZP-7970 빨간띠 case 추가 */
+                    position: relative;
+                    &::after {
+                        /*! 2023-01-06 EZP-7970 빨간띠 case 추가 */
+                        content: '';
+                        position: absolute;
+                        top: 50%;
+                        left: 0;
+                        transform: translateY(-50%);
+                        height: 100%;
+                        width: 4px;
+                        background-color: #ff7c48;
+                    }
+                }
+            }
+        }
+    }
+    &.order-matching-table {
+        table {
+            tr {
+                &.hover {
+                    /*! 2023-02-17 EZP-8343 주문매칭 hover시 bg color 추가 */
+                    background-color: #f5f5f5;
+                }
+            }
+        }
+    }
+}
+
+td {
+    &.null-bg {
+        /*! 2022-10-18 EZP-7210 */
+        background-color: #f9f9f9;
+    }
+}
+
+li {
+    &.excel-short-line {
+        /*! 2022-10-18 EZP-4011 엑셀항목설정 list 짧은 type 마지막 li border-bottom추가 */
+        border-bottom: 1px solid #eaf1f6;
+    }
+}
+
+.mk-header {
+    /*! 2022-10-04 EZP-7009 */
+    /*! 2022-10-31 EZP-7312 z-index 조정 */
+    z-index: 8999;
+}
+
+.content-footer-acc-btn {
+    /*! 2022-10-06 EZP-7004 */
+    position: fixed;
+    bottom: 125px;
+    left: 210px;
+    z-index: 99; /*! 2022-10-13 EZP-7004 index 지정 */
+
+    &.bottom-none {
+        /*! 2022-11-02 EZP-7344 */
+        bottom: 23px;
+    }
+
+    a {
+         /*! 2022-10-06 EZP-7004 */
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: left;
+        height: 50px;
+        background-color: #bf5c00;
+        border-radius: 25px; 
+        padding: 0 20px; 
+
+        &::after {
+             /*! 2022-10-06 EZP-7004 */
+            content: '';
+            position: relative;
+            width: 26px;
+            height: 26px;
+            background: url("../assets/images/icons/new-product-btn-arrow.png") no-repeat 50% 50% / contain;
+        }
+        
+        i {
+             /*! 2022-10-06 EZP-7004 */
+            margin-right: 10px;
+        }
+        
+        p {
+             /*! 2022-10-06 EZP-7004 */
+            font-size: 14px;
+            font-weight: 500;
+            color: #ffffff;
+            padding-right: 10px;
+
+            span{
+                 /*! 2022-10-06 EZP-7004 */
+                color: #fff741;
+            }
+        }
+    }
+}
+
+.mk-snb-hide {
+    .content-footer-acc-btn {
+        /*! 2022-10-31 EZP-7306 snb 숨길때 left값 조정 */
+        left: 30px;
+    }
+}
+
+.direct-cart-btn {
+    /*! 2022-09-28 EZP-6975 */
+    margin-left: 10px;
+    display: block;
+    height: 21px;
+    line-height: 14px;
+    border-radius: 4px;
+    padding: 3px 10px 3px 25px;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 400;
+    background: #00c8a4 url("../assets/images/icons/direct-cart-ico.png") no-repeat 10px 50%;
+
+}
+
+/*! 2022-09-22 EZP-6931 시작 */
+.easypick-link-wrap{
+    /*! 2022-11-21 EZP-7385 margin 제거
+    margin: 0 -15px;
+    */
+    &.nav-inner-type {
+        /*! 2022-11-21 EZP-7385 margin-bottom 23px에서 수정 */
+        margin-bottom: 10px;
+    }
+
+    .easypick-btn{
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        /*! 2022-11-21 EZP-7385 height 48, line-height 48 에서 조정 */
+        height: 40px;
+        line-height: 40px;
+        width: 100%;
+        background-color: #4AB85E;
+        text-align: center;
+        /*! 2022-11-21 EZP-7385 font-size 14에서 변경 */
+        font-size: 11px;
+        color: #ffffff;
+        border-radius: 6px;
+
+        &::after{
+            content: '';
+            display: inline-block;
+            position: relative;
+            top: 1px;
+            right: 0;
+            transform: rotate(-45deg);
+            width: 7px;
+            height: 7px;
+            margin-left: 5px;
+            box-sizing: border-box;
+            border-right: 1px solid #ffffff;
+            border-bottom: 1px solid #ffffff;
+        }
+
+        i {
+            margin-right: 5px;
+            /*! 2022-11-21 EZP-7385 margin-right 제외한 추가 */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 42px;
+        }
+    }
+}
+/*! 2022-09-22 EZP-6931 끝 */
+
+
+//2022 08 23
+/* 오늘입고상품, 검수대기상품에 있는 툴팁 btn */
+.tool-tip-btnbox{
+    position: relative;
+    
+    .tool-tip-wrap:not(.tooltip-case2){
+        position: absolute;
+        top: 50%;
+        right: 11px;
+        transform: translateY(-50%);
+    }
+    .tooltip-case2{
+        display: flex;
+    }
+}
+
+
+/* 거래처 정산내역 가격 hover시 css 변경 */
+.cor-account-list-case02{
+    td{
+        a:hover{
+            text-decoration: underline;
+        }
+    }
+}
+
+
+//2022 08 25 popup info-box width 수정
+.account-popup-case02-2{
+    .hover-box{
+        .info-box{
+            width: auto;
+            min-height: auto;
+        }
+    }
+}
+
+// 바로주문 검색결과 없음 case만 적용
+.mGridTable{
+    .tr-empty {
+        /*! 2022-11-17 EZP-7314 검색결과 없음 case 가운데 고정 */
+        position: relative;
+    }
+
+    &.no-data-type {
+        div {
+            &.txt {
+                /*! 2022-11-17 EZP-7314 검색결과 없음 case 가운데 고정 시작 */
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                /*! 2022-11-17 EZP-7314 검색결과 없음 case 가운데 고정 끝 */
+            }
+        }
+    }
+
+}
+
+
+//2022 08 29 옵션명 툴팁 추가
+.re-opction-hover-box{
+    display: block;
+    width: 100%;
+    .re-opction-tooltip{
+        > span{
+            display: block;
+            width: 100%;
+            white-space: nowrap !important;
+            text-overflow: ellipsis !important;
+            overflow: hidden !important;
+        }
+    }
+    .opction-info-box{
+        width: 100% !important;
+    }
+    .hover-btn:hover+.info-box{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align:center;
+    }
+    .info-box{
+        text-align: center;
+        .shop-name {
+            &.gray {
+                /*! 2022-12-27 EZP-6818 거래처명 툴팁문구 색상 변경 */
+                font-size: 11px;
+                font-weight: 500;
+                color: #7d8693;
+            }
+        }
+    }
+}
+
+
+.cart-wrapper{
+    .ico-memo-off{
+        cursor: pointer !important; /* 2022-09-06 EZP-6913 */
+    }
+}
+
+.mk-snb{
+    /*! 2022-10-04 EZP-7009 z-index: 999999 에서 낮추기 */
+    /*! 2022-10-31 EZP-7312 z-index 조정 */
+    z-index: 8900; 
+
+}
+
+
+.form-control{
+    label{
+        > span{
+            white-space: nowrap; /*! 2022-09-15 EZP-5891 label 글자 떨어지는 것 수정 */
+        }
+    }
+}
+
+// label + tooltip case
+.label-tooltip{
+    /*! 2022-09-20 EZP-6321 label + tooltip case 추가 */
+    position: relative;
+    display: inline-block;
+    height: 16px;
+    padding: 0 5px;
+    border-radius: 3px;
+    line-height: 13px;
+    font-size: 11px;
+
+    .tip{
+        /*! 2022-09-20 EZP-6321 label + tooltip case 추가 */
+        display: none;
+        position: absolute;
+        top: 25px;
+        left: 0;
+        padding: 5px 10px;
+        min-width: 150px;
+        background-color: #ffffff;
+        border: 1px solid #d8e2ec;
+        border-radius: 5px;
+        z-index: 999;
+
+        &::after{
+            /*! 2022-09-20 EZP-6321 label + tooltip case 추가 */
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: 10px;
+            width: 10px;
+            height: 10px;
+            border-top: 1px solid #d8e2ec;
+            border-left: 1px solid #d8e2ec;
+            background-color: #ffffff;
+            transform: rotate(45deg) translateY(-50%);
+            z-index: -2;
+        }
+
+        .tit{
+            /*! 2022-09-20 EZP-6321 label + tooltip case 추가 */
+            display: block;
+            font-size: 11px;
+            font-weight: 400;
+            color: #2e3031;
+            margin-bottom: 5px;
+        }
+
+        p{
+            /*! 2022-09-20 EZP-6321 label + tooltip case 추가 */
+            font-size: 10px;
+            font-weight: 400;
+            color: #888888;
+        }
+    }
+
+    &:hover .tip{
+        /*! 2022-09-20 EZP-6321 label + tooltip case 추가 */
+        display: block;
+    }
+}
+
+
+// 상품명 list에 x버튼 같이 있는 case
+.result-box {
+    ul {
+        li {
+            label {
+                &.w-clear {
+                    /*! 2022-10-04 EZP-5857 삭제버튼 추가 */
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+            
+                    &:hover {
+                        /*! 2022-10-04 EZP-5857 */
+                        background-color: #198cff;
+                        color: #ffffff;
+                    }
+            
+                    .hover-box {
+                        /*! 2022-10-04 EZP-5857 */
+                        width: calc(100% - 25px);
+            
+                        &:hover{
+                            /*! 2022-10-04 EZP-5857 */
+                            background-color: transparent;
+                        }
+                    }
+                    .clear-btn {
+                        /*! 2022-10-04 EZP-5857 */
+                        display: block;
+                        width: 25px;
+                        /*! 2022-10-25 EZP-7272 height 변경 25px -> 35px */
+                        height: 35px;
+                        background: url("../img/icons/ico_tooltip_close.svg") no-repeat 50% 50%;
+                    }
+            
+                    &:hover .clear-btn {
+                        /*! 2022-10-04 EZP-5857 */
+                        background: url("../img/icons/ico_tooltip_close_white.svg") no-repeat 50% 50%;
+                    }
+            
+                }
+            
+                &.w-clear-tip {
+                    /*! 2022-10-04 EZP-5857 */
+                    flex-wrap: wrap;
+            
+                    &:hover {
+                        /*! 2022-10-04 EZP-5857 */
+                        background-color: transparent;
+                    }
+            
+                    > p {
+                        /*! 2022-10-04 EZP-5857 */
+                        display: flex;
+                        align-items: center;
+                        font-size: 13px;
+                        font-weight: 500;
+                        color: #2e3031;
+            
+                        &:hover {
+                            /*! 2022-10-04 EZP-5857 */
+                            background-color: #198cff;
+                        }
+            
+                        &:hover .clear-btn {
+                            /*! 2022-10-04 EZP-5857 */
+                            background: url("../img/icons/ico_tooltip_close_white.svg") no-repeat 50% 50%;
+                        }
+                    }
+            
+                    &:hover .clear-btn {
+                        /*! 2022-10-04 EZP-5857 */
+                        background: url("../img/icons/ico_tooltip_close.svg") no-repeat 50% 50%;
+                    }
+                }
+            }
+        }
+    }
+    
+}
+
+//popup 엑셀 항목 설정 - 사입 > 미송내역, 제작관리, 불량관리
+.autoHeight {
+    .mk-container {
+        .re-modal-excel {
+            .tab-content {
+                /*! 2022-10-17 EZP-4011 */
+                overflow: unset !important;
+            }
+        }
+    }
+}
+
+.modal-inner {
+    &.w1120 {
+        /*! 2022-10-17 EZP-4011 */
+        width: 1120px;
+
+        .modal-body {
+            /*! 2022-10-17 EZP-4011 */
+            max-height: 900px;
+        }
+    }
+}
+
+
+@media all and (max-height : 1190px) {
+    .modal-inner {
+        &.w1120 {
+            .modal-body {
+            /*! 2022-10-17 EZP-4011 */
+                max-height: 750px;
+            }
+        }
+    }
+    
+}
+
+@media all and (max-height : 960px) {
+    .modal-inner {
+        &.w1120 {
+            /*! 2022-10-17 EZP-4011 */
+            width: 900px;
+            .modal-body {
+                /*! 2022-10-17 EZP-4011 */
+                max-height: 650px;
+            }
+        }
+    }
+    
+}
+
+@media all and (max-height : 840px) {
+    .modal-inner {
+        &.w1120 {
+            /*! 2022-10-17 EZP-4011 */
+            width: 800px;
+            .modal-body {
+                /*! 2022-10-17 EZP-4011 */
+                max-height: 480px;
+            }
+        }
+    }
+    
+}
+
+
+//filter modal 글자 떨어지게 수정
+.goods-filter-modal {
+    .form-control {
+        label {
+            > span {
+                /*! 2022-10-19 EZP-7217 */
+                white-space: normal;
+            }
+        }
+    }
+}
+
+//(new)자동주문등록 - 2022-11-04
+.notice-wrap {
+    &.new-type1 {
+        > div {
+            /*! 2022-11-04 EZP-6964 상단 엑셀업로드 영역 */
+            padding-left: 30px;
+
+            &:first-child {
+                /*! 2022-11-04 EZP-6964 상단 엑셀업로드 영역 */
+                width: calc(50% - 100px);
+                margin-right: 100px;
+            }
+            &:last-child {
+                /*! 2022-11-04 EZP-6964 상단 엑셀업로드 영역 */
+                width: 50%;
+            }
+
+            .tit {
+                /*! 2022-11-04 EZP-6964 상단 엑셀업로드 영역 */
+                font-size: 13px;
+                font-weight: 400;
+                color: #4f5f71;
+            }
+
+            ol {
+                li {
+                    /*! 2022-11-04 EZP-6964 상단 엑셀업로드 영역 */
+                    display: flex;
+                    align-items: baseline;
+                    flex-wrap: wrap;
+                    
+                    em {
+                        /*! 2022-11-04 EZP-6964 상단 엑셀업로드 영역 */
+                        padding-right: 5px;
+                    }
+
+                    p {
+                        /*! 2022-11-04 EZP-6964 상단 엑셀업로드 영역 */
+                        font-size: 12px;
+                        font-weight: 400;
+                        color: #4b4d4d;
+                    }
+                }
+            }
+
+            .table-box {
+                table {
+                    /*! 2022-11-04 EZP-6964 상단 엑셀업로드 영역 */
+                    border: 1px solid #eeeeee;
+
+                th {
+                    /*! 2022-11-04 EZP-6964 상단 엑셀업로드 영역 */
+                    text-align: center ;
+                    padding: 5px 0;
+                    font-size: 10px;
+                    font-weight: 300;
+                    color: #4b4d4d;
+                    border-bottom: 1px solid #eeeeee;
+                    &:nth-child(n + 2) {
+                        /*! 2022-11-04 EZP-6964 상단 엑셀업로드 영역 */
+                        border-left: 1px solid #eeeeee;
+                    }
+                }
+                td {
+                    /*! 2022-11-04 EZP-6964 상단 엑셀업로드 영역 */
+                    text-align: center ;
+                    padding: 5px 0;
+                    font-size: 10px;
+                    font-weight: 300;
+                    color: #4b4d4d;
+
+                    &:nth-child(n + 2) {
+                        /*! 2022-11-04 EZP-6964 상단 엑셀업로드 영역 */
+                        border-left: 1px solid #eeeeee;
+                    }
+                }
+            }
+            }
+        }
+    }
+
+    .easy-pick-text {
+        ul {
+            li {
+                /*! 2022-12-27 EZP-6818 샘플지원 */
+                font-size: 12px;
+                font-weight: 400;
+                color: #4B4D4D;
+                &:nth-child(n + 2){
+                    /*! 2022-12-27 EZP-6818 샘플지원 */
+                    margin-top: 5px;
+                }
+                > small {
+                    /*! 2022-12-27 EZP-6818 샘플지원 */
+                    display: block;
+                    padding-left: 5px;
+                    font-size: 12px;
+                    font-weight: 400;
+                    color: #4B4D4D;
+                    padding-top: 5px;
+                }
+            }
+        }
+    }
+
+    &.today-info-wrap {
+        > div {
+            /*! 2023-02-02 EZP-6948 입고예정일 쇼핑몰 연동 페이지 info box */
+            width: 50%;
+            padding-right: 5px;
+            .easy-pick-text {
+                ol {
+                    li {
+                        /*! 2023-02-02 EZP-6948 입고예정일 쇼핑몰 연동 페이지 info box */
+                        line-height: 1.5;
+                    }
+                }
+            }
+            .iframe-url-info {
+                /*! 2023-02-02 EZP-6948 입고예정일 쇼핑몰 연동 페이지 info box */
+                position: relative;
+                height: 100%;
+                .iframe-source-box {
+                    /*! 2023-02-02 EZP-6948 입고예정일 쇼핑몰 연동 페이지 info box */
+                    background-color: #FFFFEB;
+                    min-height: 139px;
+                    height: calc(100% - 60px);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border: 1px solid rgba(0,0,0,0.03);
+                    margin: 5px 0 10px;
+                    p {
+                        /*! 2023-02-02 EZP-6948 입고예정일 쇼핑몰 연동 페이지 info box */
+                        font-size: 12px;
+                        font-weight: 400;
+                        color: #4b4d4d;
+                    }
+                }
+                ol {
+                    li {
+                        /*! 2023-02-02 EZP-6948 입고예정일 쇼핑몰 연동 페이지 info box */
+                        font-size: 12px;
+                        font-weight: 400;
+                        color: #4B4D4D;
+                        line-height: 1.4;
+                    }
+                }
+                button {
+                    /*! 2023-02-02 EZP-6948 입고예정일 쇼핑몰 연동 페이지 info box */
+                    position: absolute;
+                    bottom: 20px;
+                    right: 0;
+                    background-color: #fff;
+                    color: #999999;
+                }
+            }
+        }
+    }
+    + .title-area {
+        /*! 2023-02-02 EZP-6948 입고예정일 쇼핑몰 연동 페이지 info box */
+        justify-content: space-between;
+        margin-bottom: 10px;
+        .title {
+            /*! 2023-02-02 EZP-6948 입고예정일 쇼핑몰 연동 페이지 info box */
+            font-size: 18px;
+            font-weight: 700;
+            color: #222222;
+        }
+    }
+}
+
+.store-order-info-box {
+    /*! 2023-02-02 EZP-6948 입고예정일 쇼핑몰 연동 페이지 info box */
+    padding: 10px 20px;
+    background-color: #EBEFF1;
+    border-radius: 10px;
+    ul {
+        /*! 2023-02-02 EZP-6948 입고예정일 쇼핑몰 연동 페이지 info box */
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        li {
+            /*! 2023-02-02 EZP-6948 입고예정일 쇼핑몰 연동 페이지 info box */
+            font-size: 12px;
+            font-weight: 400;
+            color: #484d4d;
+            span {
+                &:last-child {
+                    /*! 2023-02-02 EZP-6948 입고예정일 쇼핑몰 연동 페이지 info box */
+                    display: block;
+                    width: 100%;
+                    padding-left: 104px;
+                    margin-top: 5px;
+                }
+            }
+        }
+    }
+}
+
+//발주일버튼 주문내역 상세에서 적용되는 부분
+.f-right {
+    .dflex {
+        .input-wrap{
+            /*! 2022-12-09 EZP-6764 발주일 설정 버튼 추가 */
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 4px;
+            padding: 5px;
+            background-color: #F5F5F5;
+            margin-top: -5px;
+    
+            input {
+                /*! 2022-12-09 EZP-6764 발주일 설정 버튼 추가 */
+                height: 26px;
+                font-size: 12px;
+                border: 1px solid #999999;
+                width: 150px;
+                border-radius: 3px;
+                color: #666666;
+                padding-left: 30px;
+                background-color: #ffffff;
+            }
+
+            .tool-tip-wrap {
+                /*! 2022-12-09 EZP-6764 발주일 설정 버튼 추가 */
+                position: absolute;
+                top: 50%;
+                left: 10px;
+                transform: translateY(-50%);
+            }
+        }
+    }
+}
+
+.re-shopping-goods {
+    .modal-body {
+        /*! 2022-12-15 EZP-6415 내 쇼핑몰 상품으로 등록 팝업 높이 조절 */
+        max-height: 70vh;
+        overflow: hidden;
+        overflow-y: auto;
+
+        .notice-wrap {
+            /*! 2022-12-15 EZP-6415 내 쇼핑몰 상품으로 등록 상단 인포 css */
+            margin-top: initial;
+            margin-bottom: 27px;
+        }
+        .txt-cont {
+            /*! 2022-12-15 EZP-6415 내 쇼핑몰 상품으로 content영역 */
+            padding-bottom: 30px;
+            .easypick-popup-info {
+                dl {
+                    dt {
+                        /*! 2022-12-15 EZP-6415 내 쇼핑몰 상품으로 제목 */
+                        display: flex;
+                        align-items: center;
+                        /*! 2023-01-18 EZP-6415 justify-content: space-between -> flex-start로 변경 후 gap 추가 시작 */
+                        justify-content: flex-start;
+                        gap: 10px;
+                        /*! 2023-01-18 EZP-6415 justify-content: space-between -> flex-start로 변경 후 gap 추가 끝 */
+                        font-size: 16px;
+                        font-weight: 700;
+                        color: #2e3031;
+                        padding-bottom: 14px;
+                        border-bottom: 2px solid #d8e2ec;
+                        margin-bottom: 5px;
+                    }
+                    dd {
+                        .tbl-register-row {
+                            /*! 2022-12-15 EZP-6415 내 쇼핑몰 상품으로 table border 제거 */
+                            border: none;
+
+                            tbody {
+                                tr {
+                                    th {
+                                        /*! 2022-12-15 EZP-6415 내 쇼핑몰 상품으로 table 제목 */
+                                        border: none;
+                                        background: none;
+                                        > span {
+                                            /*! 2022-12-15 EZP-6415 내 쇼핑몰 상품으로 table 제목 */
+                                            font-size: 14px;
+                                            font-weight: 400;
+                                            color: #0c233d;
+                                            padding-right: 3px;
+                                            border: none;
+                                        }
+                                        &.top {
+                                            + td {
+                                                /*! 2022-12-15 EZP-6415 내 쇼핑몰 상품으로 리뉴얼 */
+                                                font-size: 14px;
+                                                font-weight: 400;
+                                                color: #2e3031;
+
+                                                .account-info {
+                                                    /*! 2022-12-15 EZP-6415 내 쇼핑몰 상품으로 리뉴얼 */
+                                                    display: flex;
+                                                    align-items: center;
+                                                    width: max-content;
+                                                    height: 29px;
+                                                    background-color: #f8f8f8;
+                                                    border-radius: 15px;
+                                                    padding: 0 10px;
+
+                                                    > i{
+                                                        /*! 2022-12-15 EZP-6415 내 쇼핑몰 상품으로 리뉴얼 */
+                                                        display: block;
+                                                        width: 18px;
+                                                        height: 18px;
+                                                        background: url('../assets/images/ico_Exlamation_mark.png') no-repeat 50% 50%;
+                                                        &.check {
+                                                            /*! 2023-02-15 EZP-6415 거래처등록 라벨 추가 */
+                                                            background: url('../assets/images/medium-check.svg') no-repeat 50% 50%;
+                                                            margin-left: 5px;
+                                                        }
+                                                    }
+
+                                                    span {
+                                                        /*! 2022-12-15 EZP-6415 내 쇼핑몰 상품으로 리뉴얼 */
+                                                        font-size: 14px;
+                                                        font-weight: 400;
+                                                        color: #2e3031;
+                                                        padding-left: 5px;
+                                                    }
+                                                }
+                                            }
+                                        }
+
+                                        .btn-switch {
+                                            /*! 2022-12-15 EZP-6415 내 쇼핑몰 상품으로 리뉴얼 */
+                                            vertical-align: bottom;
+                                            min-width: 50px;
+                                            margin-left: 3px;
+                                        }
+                                    }
+                                    td {
+                                        /*! 2022-12-15 EZP-6415 내 쇼핑몰 상품으로 리뉴얼 */
+                                        border: none;
+                                        padding: 7px 0px;
+                                        font-size: 14px;
+                                        font-weight: 400;
+                                        color: #0c233d;
+                                        height: auto;
+
+                                        .form-control {
+                                            input[type="text"] {
+                                                /*! 2022-12-15 EZP-6415 내 쇼핑몰 상품으로 리뉴얼 */
+                                                height: 40px;
+                                                font-size: 14px;
+                                                font-weight: 400;
+                                                color: #333333;
+                                                &::placeholder {
+                                                    /*! 2022-12-15 EZP-6415 내 쇼핑몰 상품으로 리뉴얼 */
+                                                    font-weight: 400 !important;
+                                                    color: #c8c8c8;
+                                                }
+                                            }
+                                            &.calc-input {
+                                                /*! 2022-12-15 EZP-6415 내 쇼핑몰 상품으로 리뉴얼 */
+                                                display: flex;
+                                                align-items: center;
+                                                justify-content: space-between;
+                                            }
+                                        }
+                                        p {
+                                            &.dot {
+                                                /*! 2023-01-05 EZP-6415 테이블하단 텍스트 추가 */
+                                                font-size: 12px;
+                                                color: #a3a3a3;
+                                                margin-top: 10px;
+                                                padding-left: 15px;
+
+                                                &::after {
+                                                    /*! 2023-01-05 EZP-6415 테이블하단 텍스트 추가 */
+                                                    width: 3px;
+                                                    height: 3px;
+                                                    background-color: #a3a3a3;
+                                                    left: 6px;
+                                                }
+                                            }
+                                        }
+                                        .category-box {
+                                            /*! 2022-12-15 EZP-6415 내 쇼핑몰 상품으로 상품기본정보 > 상품분류 리뉴얼 */
+                                            display: flex;
+                                            height: 356px;
+                                            overflow: hidden;
+                                            /*! 2023-02-14 EZP-6415 overflow-y 제거
+                                            overflow-y: auto;
+                                            */
+                                            border: 1px solid #d8e2ec;
+                                            .icon-cate-box {
+                                                /*! 2022-12-15 EZP-6415 내 쇼핑몰 상품으로 상품기본정보 > 상품분류 리뉴얼 */
+                                                width: 55%;
+                                                min-height: 100%;
+                                                padding: 20px;
+                                                border-right: 1px solid #d8e2ec;
+                                                margin-right: -1px;
+                                                /*! 2023-02-14 height: max-content; 에서 변경, overflow-y 추가 */
+                                                height: 100%;
+                                                overflow-y: auto;
+
+                                                li {
+                                                    /*! 2022-12-15 EZP-6415 내 쇼핑몰 상품으로 상품기본정보 > 상품분류 리뉴얼 */
+                                                    display: flex;
+                                                    align-items: center;
+                                                    flex-wrap: wrap;
+                                                    width: 100%;
+                                                    &:not(:last-child) {
+                                                        /*! 2022-12-15 EZP-6415 내 쇼핑몰 상품으로 상품기본정보 > 상품분류 리뉴얼 */
+                                                        margin-bottom: 5px;
+                                                    }
+                                                    > i {
+                                                        /*! 2022-12-15 EZP-6415 내 쇼핑몰 상품으로 상품기본정보 > 상품분류 리뉴얼 */
+                                                        width: 18px;
+                                                        height: 18px;
+                                                        display: inline-block;
+                                                        margin-right: 10px;
+                                                        background: url("../assets/images/icons/catebox-ico-1deps.png") no-repeat 50% 50%;
+                                                        /*! 2023-02-14 EZP-6415 cursor : pointer 추가 */
+                                                        cursor: pointer;
+                                                    }
+                                                    &.not-selected {
+                                                        > i {
+                                                            /*! 2022-12-15 EZP-6415 내 쇼핑몰 상품으로 상품기본정보 > 상품분류 리뉴얼 */
+                                                            background: url("../assets/images/icons/catebox-ico-1deps.png") no-repeat 50% 50%;
+                                                        }
+                                                        * {
+                                                            /*! 2023-02-14 EZP-6415 cursor : default 추가 */
+                                                            cursor: default !important;
+                                                        }
+                                                    }
+
+                                                    &.deps {
+                                                        > i {
+                                                            /*! 2022-12-15 EZP-6415 내 쇼핑몰 상품으로 상품기본정보 > 상품분류 리뉴얼 */
+                                                            background: url("../assets/images/icons/catebox-ico-2deps.png") no-repeat 50% 50%;
+                                                        }
+                                                    }
+
+                                                    .icon-cate-text {
+                                                        /*! 2022-12-15 EZP-6415 내 쇼핑몰 상품으로 상품기본정보 > 상품분류 리뉴얼 */
+                                                        input[type="text"] {
+                                                            width: 200px;
+                                                            border: 1px solid #d8e2ec;
+                                                            height: 28px;
+                                                            padding: 0 10px;
+                                                            white-space: nowrap;
+                                                            text-overflow: ellipsis;
+                                                            overflow: hidden;
+                                                            font-size: 14px;
+                                                            font-weight: 400;
+                                                            color: #0c233d;
+                                                            /*! 2023-02-14 EZP-6415 cursor : auto -> pointer로 변경 */
+                                                            cursor: pointer;
+                                                        }
+                                                    }
+                                                    &.active{
+                                                        > i {
+                                                            /*! 2023-02-16 EZP-6415 &.on case 제거 */
+                                                            /*! 2022-12-15 EZP-6415 내 쇼핑몰 상품으로 상품기본정보 > 상품분류 리뉴얼 */
+                                                            background: url("../assets/images/icons/catebox-ico-active.png") no-repeat 50% 50%;
+                                                        }
+                                                    }
+                                                    &.on {
+                                                        > .icon-cate-text {
+                                                            > input[type="text"] {
+                                                                /*! 2023-02-16 EZP-6415 &.active > &.on case 변경 */
+                                                                /*! 2022-12-15 EZP-6415 내 쇼핑몰 상품으로 상품기본정보 > 상품분류 리뉴얼 */
+                                                                /*! 2023-02-15 EZP-6415 기존 &.active, &.on 일때 -> &.active일때만 적용 */
+                                                                border: 1px solid #198cff;
+                                                                color: #198cff;
+                                                                font-weight: 500;
+                                                            }
+                                                        }
+                                                    }
+
+                                                    &.last.on {
+                                                        > i {
+                                                            /*! 2022-12-15 EZP-6415 내 쇼핑몰 상품으로 상품기본정보 > 상품분류 리뉴얼 */
+                                                            /*! 2023-02-16 EZP-6415 last 상태에서 폴더아이콘 변화 없어야해서 제거
+                                                            background: url("../assets/images/icons/catebox-last-ico-active.png") no-repeat 50% 50%;
+                                                             */
+                                                        }
+                                                    }
+
+                                                    .open-2deps {
+                                                        > li {
+                                                            /*! 2022-12-15 EZP-6415 내 쇼핑몰 상품으로 상품기본정보 > 상품분류 리뉴얼 */
+                                                            padding-left: 25px;
+                                                            margin-top: 5px;
+                                                        }
+                                                    }
+                                                    .open-3deps {
+                                                        > li {
+                                                            /*! 2022-12-15 EZP-6415 내 쇼핑몰 상품으로 상품기본정보 > 상품분류 리뉴얼 */
+                                                            padding-left: 25px;
+                                                            margin-top: 5px;
+                                                        }
+                                                    }
+                                                    .open-4deps {
+                                                        /*! 2022-12-15 EZP-6415 내 쇼핑몰 상품으로 상품기본정보 > 상품분류 리뉴얼 */
+                                                        padding-left: 25px;
+                                                        margin-top: 5px;
+                                                    }
+                                                    &.last {
+                                                        i {
+                                                            /*! 2023-02-15 EZP-6415 하위메뉴가 없을 경우 */
+                                                            background: url("../assets/images/icons/catebox-ico-1deps.png") no-repeat 50% 50% !important;
+                                                        }
+                                                        &.on {
+                                                            i {
+                                                                /*! 2023-02-15 EZP-6415 하위메뉴가 없을 경우 */
+                                                                /*! 2023-02-16 EZP-6415 last 상태에서 폴더아이콘 변화 없어야해서 제거
+                                                                background: url("../assets/images/icons/catebox-last-ico-active.png") no-repeat 50% 50% !important;
+                                                                */
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                            .text-cate-box {
+                                                /*! 2022-12-15 EZP-6415 내 쇼핑몰 상품으로 상품기본정보 > 상품분류 리뉴얼 */
+                                                width: 45%;
+                                                padding: 20px;
+                                                border-left: 1px solid #d8e2ec;
+                                                min-height: 100%;
+                                                /*! 2023-02-14 height: max-content; 에서 변경, overflow-y 추가 */
+                                                height: 100%;
+                                                overflow-y: auto;
+                                                .mycate {
+                                                    /*! 2022-12-15 EZP-6415 내 쇼핑몰 상품으로 상품기본정보 > 상품분류 리뉴얼 */
+                                                    display: flex;
+                                                    align-items: center;
+                                                    justify-content: space-between;
+                                                    width: 240px;
+                                                    border: 1px solid #d8e2ec;
+                                                    padding: 5px 0px 5px 10px;
+                                                    font-size: 14px;
+                                                    font-weight: 400;
+                                                    color: #333333;
+
+                                                    &:nth-child(n + 2) {
+                                                        /*! 2022-12-15 EZP-6415 내 쇼핑몰 상품으로 상품기본정보 > 상품분류 리뉴얼 */
+                                                        margin-top: 5px;
+                                                    }
+
+                                                    > span {
+                                                        /*! 2022-12-15 EZP-6415 내 쇼핑몰 상품으로 상품기본정보 > 상품분류 리뉴얼 */
+                                                        width: calc(100% - 20px);
+                                                        > i {
+                                                            /*! 2022-12-15 EZP-6415 내 쇼핑몰 상품으로 상품기본정보 > 상품분류 리뉴얼 */
+                                                            display: inline-block;
+                                                            padding: 0 5px;
+                                                        }
+                                                    }
+                                                    button {
+                                                        /*! 2022-12-15 EZP-6415 내 쇼핑몰 상품으로 상품기본정보 > 상품분류 리뉴얼 */
+                                                        width: 20px;
+                                                        height: 28px;
+                                                        text-indent: -99999em;
+                                                        border: none;
+                                                        background: url("../assets/images/x.png")no-repeat 50% ;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        &.option {
+                                            > div {
+                                                /*! 2022-12-15 EZP-6415 내 쇼핑몰 상품으로 상품기본정보 > 상품분류 리뉴얼 */
+                                                display: flex;
+                                                align-items: stretch;
+                                                min-height: 80px;
+                                                height: 100%;
+                                                border: 1px solid #d8e2ec;
+
+                                                &.color {
+                                                    /*! 2022-12-15 EZP-6415 내 쇼핑몰 상품으로 상품기본정보 > 상품분류 리뉴얼 */
+                                                    border-bottom: 0px;
+                                                }
+                                                > span {
+                                                    /*! 2022-12-15 EZP-6415 내 쇼핑몰 상품으로 상품기본정보 > 상품분류 리뉴얼 */
+                                                    display: flex;
+                                                    align-items: center;
+                                                    justify-content: center;
+                                                    width: 120px;
+                                                    background-color: #f0f7ff;
+                                                    font-size: 14px;
+                                                    font-weight: 400;
+                                                    color: #0c233d;
+                                                }
+                                                .option-box {
+                                                    /*! 2022-12-15 EZP-6415 내 쇼핑몰 상품으로 상품기본정보 > 상품분류 리뉴얼 */
+                                                    width: calc(100% - 120px);
+
+                                                    ul {
+                                                        /*! 2022-12-15 EZP-6415 내 쇼핑몰 상품으로 상품기본정보 > 상품분류 리뉴얼 */
+                                                        display: flex;
+                                                        align-items: flex-start;
+                                                        flex-wrap: wrap;
+                                                        padding: 8px 20px;
+                                                        gap: 8px;
+
+                                                        li {
+                                                            button {
+                                                                /*! 2022-12-15 EZP-6415 내 쇼핑몰 상품으로 상품기본정보 > 상품분류 리뉴얼 */
+                                                                display: inline-block;
+                                                                width: auto;
+                                                                padding: 5px 20px;
+                                                                background-color: #cccccc;
+                                                                color: #ffffff;
+                                                                font-size: 13px;
+                                                                font-weight: 500;
+                                                                border-radius: 3px;
+                                                            }
+                                                            &.on button {
+                                                                /*! 2022-12-15 EZP-6415 내 쇼핑몰 상품으로 상품기본정보 > 상품분류 리뉴얼 */
+                                                                background-color: #198cff;
+                                                            }
+                                                            &.ex-input-box {
+                                                                input[type="text"] {
+                                                                    /*! 2022-12-15 EZP-6415 내 쇼핑몰 상품으로 상품기본정보 > 상품분류 리뉴얼 */
+                                                                    border: 1px solid #cccccc;
+                                                                    background-color: #ffffff;
+                                                                    height: 28px;
+                                                                    border-radius: 3px;
+                                                                    min-width: 63px;
+                                                                    max-width: 80px;
+                                                                    padding: 0 5px;
+                                                                }
+                                                            }
+
+                                                            &.empty-option {
+                                                                /*! 2023-02-07 EZP-6415 선택가능 옵션 없을 시 */
+                                                                width: 100%;
+                                                                text-align: left;
+                                                                font-size: 13px;
+                                                                font-weight: 400;
+                                                                color: #a3a3a3;
+                                                            }
+                                                        }
+
+                                                        
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+
+                                    &.toggle-area1 {
+                                        td {
+                                            &.off {
+                                                /*! 2022-12-15 EZP-6415 토글버튼 off 되었을 경우 */
+                                                color: #c8c8c8;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            
+
+                            &.product-detail {
+                                tbody {
+                                    tr {
+                                        th {
+                                            /*! 2022-12-15 EZP-6415 내 쇼핑몰 상품으로 리뉴얼 */
+                                            height: auto;
+                                        }
+                                        td {
+                                            /*! 2022-12-15 EZP-6415 내 쇼핑몰 상품으로 리뉴얼 */
+                                            padding: 10px 0;
+                                            ul{
+                                                &.dot {
+                                                    &::after{
+                                                        /*! 2022-12-15 EZP-6415 내 쇼핑몰 상품으로 리뉴얼 */
+                                                        display: none;
+                                                    }
+                                                    li {
+                                                        /*! 2022-12-15 EZP-6415 내 쇼핑몰 상품으로 리뉴얼 */
+                                                        position: relative;
+                                                        font-size: 14px;
+                                                        font-weight: 400;
+                                                        color: #2e3031; 
+                                                        &::after {
+                                                            /*! 2022-12-15 EZP-6415 내 쇼핑몰 상품으로 리뉴얼 */
+                                                            content: '';
+                                                            position: absolute;
+                                                            top: 50%;
+                                                            left: -10px;
+                                                            width: 3px;
+                                                            height: 3px;
+                                                            background-color: #2e3031;
+                                                            border-radius: 50%;
+                                                            transform: translateY(-50%);
+                                                        }
+                                                    }
+                                                }
+
+                                                &.img-txt {
+                                                    /*! 2022-12-15 EZP-6415 내 쇼핑몰 상품으로 리뉴얼 */
+                                                    display: flex;
+                                                    flex-wrap: wrap;
+                                                    gap: 25px;
+                                                    li {
+                                                        /*! 2022-12-15 EZP-6415 내 쇼핑몰 상품으로 리뉴얼 */
+                                                        display: flex;
+                                                        align-items: center;
+                                                        justify-content: center;
+                                                        flex-direction: column;
+                                                        width: 80px;
+                                                        gap: 15px;
+
+                                                        > i {
+                                                            /*! 2022-12-15 EZP-6415 내 쇼핑몰 상품으로 리뉴얼 */
+                                                            display: block;
+                                                            width: 56px;
+                                                            height: 56px;
+
+                                                            &.wash1 {
+                                                                /*! 2022-12-15 EZP-6415 내 쇼핑몰 상품으로 리뉴얼 */
+                                                                background: url("../assets/images/icons/laundry-icon01.png") no-repeat 50% 50%;
+                                                            }
+                                                            &.wash2 {
+                                                                /*! 2022-12-15 EZP-6415 내 쇼핑몰 상품으로 리뉴얼 */
+                                                                background: url("../assets/images/icons/laundry-icon02.png") no-repeat 50% 50%;
+                                                            }
+                                                            &.wash3 {
+                                                                /*! 2022-12-15 EZP-6415 내 쇼핑몰 상품으로 리뉴얼 */
+                                                                background: url("../assets/images/icons/laundry-icon03.png") no-repeat 50% 50%;
+                                                            }
+                                                            &.wash4 {
+                                                                /*! 2022-12-15 EZP-6415 내 쇼핑몰 상품으로 리뉴얼 */
+                                                                background: url("../assets/images/icons/laundry-icon04.png") no-repeat 50% 50%;
+                                                            }
+                                                            &.wash5 {
+                                                                /*! 2022-12-15 EZP-6415 내 쇼핑몰 상품으로 리뉴얼 */
+                                                                background: url("../assets/images/icons/laundry-icon05.png") no-repeat 50% 50%;
+                                                            }
+                                                            &.wash6 {
+                                                                /*! 2022-12-15 EZP-6415 내 쇼핑몰 상품으로 리뉴얼 */
+                                                                background: url("../assets/images/icons/laundry-icon06.png") no-repeat 50% 50%;
+                                                            }
+                                                            &.wash7 {
+                                                                /*! 2022-12-15 EZP-6415 내 쇼핑몰 상품으로 리뉴얼 */
+                                                                background: url("../assets/images/icons/laundry-icon07.png") no-repeat 50% 50%;
+                                                            }
+                                                            &.wash8 {
+                                                                /*! 2022-12-15 EZP-6415 내 쇼핑몰 상품으로 리뉴얼 */
+                                                                background: url("../assets/images/icons/laundry-icon08.png") no-repeat 50% 50%;
+                                                            }
+                                                            &.wash9 {
+                                                                /*! 2022-12-15 EZP-6415 내 쇼핑몰 상품으로 리뉴얼 */
+                                                                background: url("../assets/images/icons/laundry-icon09.png") no-repeat 50% 50%;
+                                                            }
+                                                            &.wash10 {
+                                                                /*! 2022-12-15 EZP-6415 내 쇼핑몰 상품으로 리뉴얼 */
+                                                                background: url("../assets/images/icons/laundry-icon10.png") no-repeat 50% 50%;
+                                                            }
+                                                        }
+                                                        p {
+                                                            /*! 2022-12-15 EZP-6415 내 쇼핑몰 상품으로 리뉴얼 */
+                                                            font-size: 13px;
+                                                            font-weight: 500;
+                                                            color: #888888;
+                                                            text-align: center;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+
+                                &.off {
+                                    tbody * {
+                                        /*! 2022-12-15 EZP-6415 상품상세정보 토글버튼 off시 */
+                                        color:#c8c8c8 !important;
+                                    }
+                                    ul {
+                                        &.dot {
+                                            li {
+                                                &::after {
+                                                    /*! 2023-02-14 EZP-6415 상품상세정보 토글버튼 off시 */
+                                                    background-color: #c8c8c8;
+                                                }
+                                            }
+                                        }
+                                        &.img-txt {
+                                            i {
+                                                /*! 2023-02-14 EZP-6415 상품상세정보 토글버튼 off시 */
+                                                opacity: 0.4;
+                                            }
+                                            img {
+                                                /*! 2023-02-16 EZP-6415 상품상세정보 토글버튼 off시 */
+                                                opacity: 0.4;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        
+                    }
+                    &.toggle-area2 {
+                        .empty {
+                            /*! 2023-02-21 EZP-6415 등록된 정보가 없을 경우 */
+                            font-size: 14px;
+                            font-weight: 400;
+                            color: #c8c8c8;
+                            padding: 20px 0 0 20px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+//발주일변경 모달창 input 가운데로
+.modal-order-change-date {
+    .tbl-register-row {
+        th {
+            /*! 2022-12-13 EZP-6764 발주일변경 txt 가운데로 */
+            text-align: center;
+        }
+    }
+    .form-inline {
+        &.center {
+            /*! 2022-12-13 EZP-6764 발주일변경 모달창 가운데로 */
+            justify-content: center;
+
+            input[type="text"]{
+                /*! 2022-12-13 EZP-6764 발주일변경 날짜 가운데로 */
+                text-align: center;
+            }
+        }
+    }
+}
+
+
+//주문매칭 리뉴얼 css
+.re-stock-matching-modal {
+    .modal-inner {
+        .modal-body {
+            /*! 2022-12-15 EZP-6415 옵션선택창 리뉴얼 */
+            padding: 40px 20px 20px 20px;
+            /*! 2023-01-05 EZP-6415 height 제거
+            max-height: 840px;
+            */
+            .matching-popup {
+                .matching-info-box {
+                    > ul {
+                        /*! 2022-12-15 EZP-6415 옵션선택창 리뉴얼 */
+                        display: flex;
+                        justify-content: center; /*! 2023-01-05 EZP-6415 justify-content 추가 */
+                        gap: 20px;
+                        > li {
+                            /*! 2022-12-15 EZP-6415 옵션선택창 리뉴얼 */
+                            width: 373px;
+                            > .tit {
+                                /*! 2022-12-15 EZP-6415 옵션선택창 리뉴얼 */
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                gap: 6px;
+                                height: 50px;
+                                margin-bottom: 16px;
+                                border-bottom: 1px solid #2e3031;
+                                > span {
+                                    /*! 2022-12-15 EZP-6415 옵션선택창 리뉴얼 */
+                                    font-size: 16px;
+                                    font-weight: 700;
+                                    color: #2e3031;
+                                }
+                            }
+                            .scroll-wrap {
+                                /*! 2022-12-15 EZP-6415 옵션선택창 리뉴얼 */
+                                /*! 2023-01-05 EZP-6415 제거
+                                height: 646px;
+                                overflow: hidden;
+                                overflow-y: auto;
+                                */
+                                border-bottom: 1px solid #b4c7d6;
+                            }
+                            > .form-inline {
+                                /*! 2022-12-15 EZP-6415 옵션선택창 리뉴얼 */
+                                justify-content: space-between;
+                                padding-bottom: 15px;
+                                margin-bottom: 12px;
+                                border-bottom: 1px solid #eeeeee;
+                                margin-left: 0px;
+                                .form-control {
+                                    /*! 2022-12-15 EZP-6415 옵션선택창 리뉴얼 */
+                                    position: relative;
+                                    input[type="text"] {
+                                        /*! 2022-12-15 EZP-6415 옵션선택창 리뉴얼 */
+                                        padding-right: 25px;
+                                    }
+                                    .search-btn {
+                                        /*! 2022-12-15 EZP-6415 옵션선택창 리뉴얼 */
+                                        position: absolute;
+                                        top: 50%;
+                                        right: 5px;
+                                        transform: translateY(-50%);
+                                        width: 16px;
+                                        height: 16px;
+                                        z-index: 1;
+                                        background: url("../assets/images/icon_search-btn.png") no-repeat 50% 50%;
+                                        padding: 0px;
+                                    }
+                                }
+                            }
+                            .search-txt {
+                                /*! 2022-12-15 EZP-6415 옵션선택창 리뉴얼 */
+                                font-size: 12px;
+                                font-weight: 400;
+                                color: #222222;
+                                span {
+                                    em{
+                                        /*! 2022-12-15 EZP-6415 옵션선택창 리뉴얼 */
+                                        font-weight: 700;
+                                        &.gray {
+                                            /*! 2022-12-15 EZP-6415 옵션선택창 리뉴얼 */
+                                            font-weight: 400;
+                                            color: #666666;
+                                        }
+                                    }
+                                    &:not(:first-child) {
+                                        /*! 2022-12-15 EZP-6415 옵션선택창 리뉴얼 */
+                                        position: relative;
+                                        padding-left: 8px;
+                                        margin-left: 8px;
+                                        &::after{
+                                            /*! 2022-12-15 EZP-6415 옵션선택창 리뉴얼 */
+                                            content: '';
+                                            position: absolute;
+                                            top: 50%;
+                                            left: 0;
+                                            transform: translateY(-50%);
+                                            width: 1px;
+                                            height: 8px;
+                                            background-color: #cccccc;
+                                        }
+                                    }
+                                }
+                            }
+                            .product-list {
+                                /*! 2022-12-15 EZP-6415 옵션선택창 리뉴얼 */
+                                height: 560px;
+                                margin-top: 12px;
+                                padding-bottom: 10px;
+                                border-top: 1px solid #b4c7d6;
+                                border-bottom: 1px solid #b4c7d6;
+                                overflow: hidden;
+                                overflow-y: auto;
+
+                                .item {
+                                    /*! 2022-12-15 EZP-6415 옵션선택창 리뉴얼 */
+                                    border-bottom: 1px solid #eaf1f6;
+
+                                    &.emtpy {
+                                        /*! 2022-12-15 EZP-6415 옵션선택창 리뉴얼 */
+                                        display: flex;
+                                        flex-direction: column;
+                                        align-items: center !important;
+                                        justify-content: center !important;
+                                        gap: 8px;
+                                        width: 100%;
+                                        height: 100%;
+                                        text-align: center;
+                                        background-color: #f5f7f8;
+                                        /*! 2023-02-16 EZP-6415 검색결과 없을때 height 조정
+                                        min-height: 529px;
+                                        margin: 15px 0;
+                                        */
+                                        /*! 2023-02-16 EZP-6415 검색결과 없을때 height 조정 시작 */
+                                        max-height: 528px;
+                                        margin: 15px 0 5px;
+                                        /*! 2023-02-16 EZP-6415 검색결과 없을때 height 조정 끝 */
+
+                                        i {
+                                            /*! 2022-12-15 EZP-6415 옵션선택창 리뉴얼 */
+                                            display: block;
+                                            width: 52px;
+                                            height: 52px;
+                                            background: url("../assets/images/img_no_list_blue.png") no-repeat 50% 50%;
+                                        }
+                                        > p {
+                                            /*! 2022-12-15 EZP-6415 옵션선택창 리뉴얼 */
+                                            font-size: 14px;
+                                            font-weight: 400;
+                                            color: #0c233d;
+                                        }
+                                        button {
+                                            /*! 2022-12-15 EZP-6415 옵션선택창 리뉴얼 */
+                                            display: flex;
+                                            align-items: center;
+                                            justify-content: center;
+                                            padding: 0 25px;
+                                            height: 36px;
+                                            background-color: #ffffff;
+                                            border-radius: 24px;
+                                            border: 1px solid #198cff;
+                                            color: #198cff;
+                                            font-size: 14px;
+                                            font-weight: 500;
+
+                                        }
+                                    }
+
+                                    > a {
+                                        /*! 2022-12-15 EZP-6415 옵션선택창 리뉴얼 */
+                                        position: relative;
+                                        display: flex;
+                                        align-items: flex-start;
+                                        flex-direction: column;
+                                        padding: 10px;
+                                        &::after {
+                                            /*! 2022-12-15 EZP-6415 옵션선택창 리뉴얼 */
+                                            content: '';
+                                            position: absolute;
+                                            top: 50%;
+                                            right: 15px;
+                                            transform: translateY(-50%);
+                                            width: 18px;
+                                            height: 18px;
+                                            background: url("../assets/images/arrow_down.png") no-repeat 50% 50%;
+                                        }
+
+                                        &:hover {
+                                            /*! 2022-12-15 EZP-6415 옵션선택창 리뉴얼 */
+                                            background-color: #e8eef1;
+                                        }
+
+                                        .img {
+                                            /*! 2022-12-15 EZP-6415 옵션선택창 리뉴얼 */
+                                            display: flex;
+                                            align-items: center;
+                                            justify-content: center;
+                                            width: 68px;
+                                            height: 68px;
+                                            /*! 2023-02-15 EZP-6415 기존 배경 제거
+                                            background: url("../assets/images/hashtag-short-img03.png") no-repeat 50% 50% / 100% 100%;
+                                            */
+                                            &.no-img {
+                                                /*! 2023-02-15 EZP-6415 no-img일 경우 추가 */
+                                                background: #eeeeee url('../assets/images/icons/einmarket_no-img.png') no-repeat 50% 50%;
+                                            }
+                                        }
+                                        .text-box {
+                                            /*! 2022-12-15 EZP-6415 옵션선택창 리뉴얼 */
+                                            width: calc(100% - 110px);
+                                            display: flex;
+                                            flex-direction: column;
+                                            align-items: flex-start;
+                                        }
+                                    }
+                                    .hover-box {
+                                        /*! 2022-12-15 EZP-6415 옵션선택창 리뉴얼 */
+                                        position: relative;
+                                        width: 100%;
+                                        display: block;
+                                        .info-box {
+                                            /*! 2022-12-15 EZP-6415 옵션선택창 리뉴얼 */
+                                            width: 250px;
+                                            min-height: fit-content;
+                                            .tip {
+                                                /*! 2022-12-15 EZP-6415 옵션선택창 리뉴얼 */
+                                                word-break: break-all;
+                                                white-space: normal;
+                                            }
+                                        }
+
+                                    }
+                                    .sotre-name {
+                                        /*! 2022-12-15 EZP-6415 옵션선택창 리뉴얼 */
+                                        font-size: 12px;
+                                        font-weight: 400;
+                                        column-rule-color: #666666;
+                                        font-weight: 400;
+                                        display: block;
+                                        width: 100%;
+                                        white-space: nowrap;
+                                        text-overflow: ellipsis;
+                                        overflow: hidden;
+                                        text-align: left;
+                                    }
+                                    .product-name {
+                                        /*! 2022-12-15 EZP-6415 옵션선택창 리뉴얼 */
+                                        text-align: left;
+                                        font-size: 13px;
+                                        font-weight: 500;
+                                        color: #2e3031;
+                                        display: block;
+                                        width: 100%;
+                                        white-space: nowrap;
+                                        overflow: hidden;
+                                        text-overflow: ellipsis;
+                                    }
+                                }
+                                .radio-list {
+                                    /*! 2022-12-15 EZP-6415 옵션선택창 리뉴얼 */
+                                    display: flex;
+                                    flex-direction: column;
+                                    padding-right: 10px;
+                                    margin-bottom: 10px;
+                                    display: none;
+
+                                    .re-radio {
+                                        /*! 2022-12-15 EZP-6415 옵션선택창 리뉴얼 */
+                                        position: relative;
+                                        display: flex;
+                                        align-items: center;
+                                        margin-top: 4px;
+                                        cursor: pointer;
+
+                                        input {
+                                            /*! 2022-12-15 EZP-6415 옵션선택창 리뉴얼 */
+                                            position: absolute;
+                                            top: 50%;
+                                            left: 15px;
+                                            display: block;
+                                            width: 14px;
+                                            height: 14px;
+                                            opacity: 0;
+                                            transform: translateY(-50%);
+                                            cursor: pointer;
+
+                                            + label {
+                                                /*! 2022-12-15 EZP-6415 옵션선택창 리뉴얼 */
+                                                position: relative;
+                                                display: flex;
+                                                align-items: center;
+                                                justify-content: space-between;
+                                                width: 100%;
+                                                height: 44px;
+                                                background-color: #f8f8f8;
+                                                border: 1px solid #eeeeee;
+                                                padding: 0 15px 0 34px;
+                                                cursor: pointer;
+
+
+                                                &::before {
+                                                    /*! 2022-12-15 EZP-6415 옵션선택창 리뉴얼 */
+                                                    content: '';
+                                                    position: absolute;
+                                                    top: 50%;
+                                                    left: 15px;
+                                                    width: 14px;
+                                                    height: 14px;
+                                                    transform: translateY(-50%);
+                                                    background: url("../assets/images/radio-btn.png") no-repeat 0 0;
+                                                    vertical-align: middle;
+                                                }
+
+                                                &:hover {
+                                                    /*! 2022-12-15 EZP-6415 옵션선택창 리뉴얼 */
+                                                    background-color: #e8eef1;
+                                                }
+                                                
+                                                span {
+                                                    /*! 2022-12-15 EZP-6415 옵션선택창 리뉴얼 */
+                                                    font-size: 13px;
+                                                    font-weight: 500;
+                                                    color: #2e3031;
+                                                    &.state {
+                                                        /*! 2022-12-15 EZP-6415 옵션선택창 리뉴얼 */
+                                                        font-size: 12px;
+                                                        font-weight: 400;
+                                                    }
+                                                    &:not(.state){
+                                                        /*! 2023-02-20 EZP-6415 말줄임말 추가 시작 */
+                                                        display: block;
+                                                        width: calc(100% - 60px);
+                                                        white-space: nowrap;
+                                                        overflow: hidden;
+                                                        text-overflow: ellipsis;
+                                                        /*! 2023-02-20 EZP-6415 말줄임말 추가 끝 */
+                                                    }
+                                                }
+                                                .hover-box {
+                                                    /*! 2023-02-15 EZP-6415 with 추가 */
+                                                    width: calc(100% - 60px);
+
+                                                    > span {
+                                                        /*! 2023-02-15 EZP-6415 툴팁 추가로 말줄임말 추가 시작 */
+                                                        display: block;
+                                                        width: 100%;
+                                                        white-space: nowrap;
+                                                        text-overflow: ellipsis;
+                                                        overflow: hidden;
+                                                        /*! 2023-02-15 EZP-6415 툴팁 추가로 말줄임말 추가 끝 */
+                                                    }
+                                                }
+                                            }
+                                            &:checked{
+                                                + label {
+                                                    /*! 2022-12-15 EZP-6415 옵션선택창 리뉴얼 */
+                                                    border: 1px solid #dce8f6;
+                                                    background-color: #f0f7ff;
+
+                                                    &::before{
+                                                        /*! 2022-12-15 EZP-6415 옵션선택창 리뉴얼 */
+                                                        background: url("../assets/images/radio-checked-btn.png") no-repeat 0 0;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                .item {
+                                    &.on {
+                                        /*! 2022-12-15 EZP-6415 옵션선택창 리뉴얼 */
+                                        border-top: 1px solid #198cff;
+                                        a {
+                                            &::after {
+                                                /*! 2022-12-15 EZP-6415 옵션선택창 리뉴얼 */
+                                                background: url("../assets/images/arrow_up.png") no-repeat 50% 50%;
+                                            }
+                                            .product-name, .sotre-name {
+                                                /*! 2022-12-15 EZP-6415 옵션선택창 리뉴얼 */
+                                                color: #198cff;
+                                            }
+                                        }
+                                        .radio-list{
+                                            /*! 2022-12-15 EZP-6415 옵션선택창 리뉴얼 */
+                                            display: flex;
+                                        }
+                                    }
+                                }
+
+                                &.ec {
+                                    .item {
+                                        /*! 2022-12-15 EZP-6415 옵션선택창 리뉴얼 */
+                                        justify-content: space-between;
+                                        gap: initial;
+                                        
+                                        > a {
+                                            /*! 2022-12-15 EZP-6415 옵션선택창 리뉴얼 */
+                                            flex-direction: row;
+                                            align-items: center;
+                                            gap: 12px;
+                                            height: 96px;
+                                        }
+                                        
+                                        .option-list {
+                                            /*! 2022-12-15 EZP-6415 옵션선택창 리뉴얼 */
+                                            display: none;
+                                            .option-box {
+                                                /*! 2022-12-15 EZP-6415 옵션선택창 리뉴얼 */
+                                                display: flex;
+                                                align-items: center;
+                                                justify-content: space-between;
+                                                height: 44px;
+                                                padding: 0 14px;
+                                                border: 1px solid #eeeeee;
+                                                background-color: #f8f8f8;
+                                                margin-top: 4px;
+
+                                                &:hover {
+                                                    /*! 2022-12-15 EZP-6415 옵션선택창 리뉴얼 */
+                                                    background-color: #e8eef1;
+                                                }
+                                                span {
+                                                    /*! 2023-02-21 EZP-6415 ec 옵션명 말줄임말 시작 */
+                                                    display: block;
+                                                    width: calc(100% - 60px);
+                                                    white-space: nowrap;
+                                                    text-overflow: ellipsis;
+                                                    overflow: hidden;
+                                                    /*! 2023-02-21 EZP-6415 ec 옵션명 말줄임말 끝 */
+                                                }
+                                            }
+                                        }
+
+                                        &.on {
+                                            .option-list {
+                                                /*! 2022-12-15 EZP-6415 옵션선택창 리뉴얼 */
+                                                display: block;
+                                                padding-bottom: 10px;
+                                            }
+                                        }
+                                        &.with-btn {
+                                            /*! 2022-12-15 EZP-6415 옵션선택창 리뉴얼 */
+                                            display: flex;
+                                            align-items: center;
+                                            height: 96px;
+                                            padding: 10px;
+
+                                            &:hover {
+                                                /*! 2022-12-15 EZP-6415 옵션선택창 리뉴얼 */
+                                                background-color: #f1f4f6;
+                                            }
+
+                                            .left {
+                                                /*! 2022-12-15 EZP-6415 옵션선택창 리뉴얼 */
+                                                display: flex;
+                                                align-items: center;
+                                                gap: 12px;
+                                                width: calc(100% - 70px);
+
+                                                .img {
+                                                    /*! 2022-12-15 EZP-6415 옵션선택창 리뉴얼 */
+                                                    display: flex;
+                                                    align-items: center;
+                                                    justify-content: center;
+                                                    width: 68px;
+                                                    height: 68px;
+                                                    /*! 2023-02-15 EZP-6415 기존 이미지 제거
+                                                    background: url("../assets/images/hashtag-short-img03.png") no-repeat 50% 50% / 100% 100%; */
+                                                    &.no-img {
+                                                        /*! 2023-02-15 EZP-6415 no-img일 경우 추가 */
+                                                        background: #eeeeee url('../assets/images/icons/einmarket_no-img.png') no-repeat 50% 50%;
+                                                    }
+                                                }
+                                            }
+                                        }
+
+                                        button.btn {
+                                            /*! 2022-12-15 EZP-6415 옵션선택창 리뉴얼 */
+                                            color: #666666;
+                                            font-weight: 500;
+                                        }
+                                    }
+                                }
+
+                            }
+                            &:first-child {
+                                .item {
+                                    .sotre-name {
+                                        /*! 2022-12-15 EZP-6415 옵션선택창 리뉴얼 */
+                                        width: calc(100% - 50px);
+                                        color: #666666;
+                                    }
+                                    .product-name {
+                                        /*! 2022-12-15 EZP-6415 옵션선택창 리뉴얼 */
+                                        width: calc(100% - 50px);
+                                    }
+                                }
+                            }
+                            .sub-tit {
+                                /*! 2022-12-15 EZP-6415 옵션선택창 리뉴얼 */
+                                display: flex;
+                                align-items: center;
+                                /*! 2023-01-05 EZP-6415 제거
+                                justify-content: space-between;
+                                */
+                                font-size: 14px;
+                                font-weight: 700;
+                                color: #2e3031;
+                                padding-bottom: 12px;
+                                border-bottom: 1px solid #b4c7d6;
+                                padding-top: 12px;
+
+                                em {
+                                    /*! 2022-12-15 EZP-6415 옵션선택창 리뉴얼 */
+                                    /*! 2023-01-05 EZP-6415 제거
+                                    font-size: 12px;
+                                    color: #666666;
+                                    font-weight: 400;
+                                    */
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .easypick-list {
+                    .inner-scroll-wrap {
+                        /*! 2023-01-05 EZP-6415 ec영역만 scroll로 변경 */
+                        height: 445px;
+                        overflow: hidden;
+                        overflow-y: auto;
+                    }
+                    .item {
+                        /*! 2022-12-15 EZP-6415 옵션선택창 리뉴얼 */
+                        display: flex;
+                        align-items: center;
+                        justify-content: flex-start;
+                        gap: 12px;
+                        padding: 10px 13px;
+                        border-bottom: 1px solid #eaf1f6;
+
+                        &.emtpy {
+                            /*! 2022-12-15 EZP-6415 옵션선택창 리뉴얼 */
+                            flex-direction: column;
+                            justify-content: center;
+                            align-items: center;
+                            margin: 15px 0;
+                            border-bottom: 0px;
+                            background-color: #f5f7f8;
+                            gap: 8px;
+                            /*! 2023-02-16 EZP-6415 min-height 제거 
+                            min-height: 440px;
+                            */
+                            /*! 2023-02-16 EZP-6415 검색결과 없을 시 scroll 제거 시작 */
+                            max-height: 415px;
+                            height: 100%;
+                            /*! 2023-02-16 EZP-6415 검색결과 없을 시 scroll 제거 끝 */
+
+                            i {
+                                /*! 2022-12-15 EZP-6415 옵션선택창 리뉴얼 */
+                                display: block;
+                                width: 52px;
+                                height: 52px;
+                                background: url("../assets/images/img_no_list_blue.png") no-repeat 50% 50%;
+                            }
+                            p {
+                                /*! 2022-12-15 EZP-6415 옵션선택창 리뉴얼 */
+                                text-align: center;
+                                font-size: 14px;
+                                color: #2e3031;
+                            }
+                        }
+                        .left {
+                            /*! 2022-12-15 EZP-6415 옵션선택창 리뉴얼 */
+                            display: flex;
+                            align-items: center;
+                            gap: 12px;
+                            width: calc(100% - 70px);
+                            
+                            + button {
+                                /*! 2022-12-15 EZP-6415 옵션선택창 리뉴얼 */
+                                padding: 0 5px;
+                                color: #666666;
+                                font-weight: 500;
+                            }
+                        }
+
+                        .img {
+                            /*! 2022-12-15 EZP-6415 옵션선택창 리뉴얼 */
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            width: 68px;
+                            height: 68px;
+                            /*! 2023-02-06 EZP-6415 로딩시 이미지 겹침으로 bg제거
+                            background: url("../assets/images/hashtag-short-img03.png") no-repeat 50% 50% / 100% 100%; */
+                            &.no-img {
+                                /*! 2023-02-15 EZP-6415 no-img일 경우 추가 */
+                                background: #eeeeee url('../assets/images/icons/einmarket_no-img.png') no-repeat 50% 50%;
+                            }
+                        }
+                        .text-box {
+                            /*! 2022-12-15 EZP-6415 옵션선택창 리뉴얼 */
+                            width: calc(100% - 110px);
+                            display: flex;
+                            flex-direction: column;
+                            align-items: flex-start;
+                            .hover-box {
+                                /*! 2022-12-15 EZP-6415 옵션선택창 리뉴얼 */
+                                width: 100%;
+                                .sotre-name {
+                                    /*! 2022-12-15 EZP-6415 옵션선택창 리뉴얼 */
+                                    display: block;
+                                    width: 100%;
+                                    text-align: left;
+                                    white-space: nowrap;
+                                    text-overflow: ellipsis;
+                                    overflow: hidden;
+                                    color: #666666;
+                                    font-size: 12px;
+                                }
+                                .product-name {
+                                    /*! 2022-12-15 EZP-6415 옵션선택창 리뉴얼 */
+                                    display: block;
+                                    width: 100%;
+                                    text-align: left;
+                                    white-space: nowrap;
+                                    text-overflow: ellipsis;
+                                    overflow: hidden;
+                                    font-size: 14px;
+                                }
+                                .size{
+                                    /*! 2022-12-15 EZP-6415 옵션선택창 리뉴얼 */
+                                    font-size: 12px;
+                                    /*! 2023-02-16 EZP-6415 말줄임말 추가 시작 */
+                                    display: block;
+                                    width: 100%;
+                                    text-align: left;
+                                    white-space: nowrap;
+                                    text-overflow: ellipsis;
+                                    overflow: hidden;
+                                    /*! 2023-02-16 EZP-6415 말줄임말 추가 끝 */
+                                }
+                                .info-box {
+                                    /*! 2022-12-15 EZP-6415 옵션선택창 리뉴얼 */
+                                    width: 250px;
+                                    min-height: fit-content;
+                                    .tip {
+                                        /*! 2022-12-15 EZP-6415 옵션선택창 리뉴얼 */
+                                        white-space: normal;
+                                    }
+                                }
+                            }
+
+                            .sotre-name {
+                                /*! 2022-12-15 EZP-6415 옵션선택창 리뉴얼 */
+                                display: block;
+                                width: 100%;
+                                text-align: left;
+                                white-space: nowrap;
+                                text-overflow: ellipsis;
+                                overflow: hidden;
+                                color: #666666;
+                                font-size: 12px;
+                            }
+                            .product-name {
+                                /*! 2022-12-15 EZP-6415 옵션선택창 리뉴얼 */
+                                display: block;
+                                width: 100%;
+                                text-align: left;
+                                white-space: nowrap;
+                                text-overflow: ellipsis;
+                                overflow: hidden;
+                                font-size: 14px;
+                                color: #2e3031;
+                                font-weight: 500;
+                            }
+
+                            .size {
+                                /*! 2022-12-15 EZP-6415 옵션선택창 리뉴얼 */
+                                font-size: 12px;
+                                font-weight: 500;
+                                color: #2e3031;
+                                /*! 2023-02-20 EZP-6415 말줄임말 추가 시작 */
+                                display: block;
+                                width: 100%;
+                                white-space: nowrap;
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                                text-align: left;
+                                /*! 2023-02-20 EZP-6415 말줄임말 추가 끝 */
+                            }
+                        }
+                        &.fill {
+                            .text-box{
+                                /*! 2022-12-15 EZP-6415 옵션선택창 리뉴얼 */
+                                width: 100%;
+                            }
+                        }
+                    }
+                    &:not(.ec){
+                        .item {
+                            height: 89px; /*! 2023-01-05 EZP-6415 height 추가 */
+                        }
+                    }
+
+                    &.ec {
+                        .item {
+                            .text-box {
+                                /*! 2023-02-21 EZP-6415 width 추가 */
+                                width: calc(100% - 80px);
+                                * {
+                                    /*! 2023-02-14 EZP-6415 cursor default 추가 */
+                                    cursor: default;
+                                }
+                            }
+                        }
+                    }
+                }
+            }            
+        }
+    }
+}
+
+//샘플제안관리 (2022.12.27 신규페이지)
+.mypick-setting-section {
+    &.sample {
+        > .sub-tit {
+            /*! 2022-12-27 EZP-6818 샘플제안관리 서브 타이틀 css 전체추가 */
+            display: block;
+            margin-top: 36px;
+            font-size: 18px;
+            font-weight: 500;
+            color: #222222;
+        }
+
+        .notice-wrap {
+            /*! 2022-12-27 EZP-6818 샘플제안관리 샘플진행안내 영역 margin 조정 */
+            margin: 10px 0;
+        }
+
+        .sample-info-wrap {
+            /*! 2022-12-27 EZP-6818 샘플제안관리 샘플 info영역 추가 */
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            padding: 30px 35px;
+
+            &.bg-gray {
+                /*! 2022-12-27 EZP-6818 샘플제안관리 샘플 info영역 - bg gray 추가 */
+                background-color: #98A2B0;
+            }
+
+            .left {
+                /*! 2022-12-27 EZP-6818 샘플제안관리 샘플 info영역 추가 */
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                width: calc(100% - 150px);
+
+                .store {
+                    /*! 2022-12-27 EZP-6818 샘플제안관리 샘플 info영역 추가 */
+                    display: block;
+                    font-size: 15px;
+                    font-weight: 700;
+                    color: #ffffff;
+                    margin-bottom: 10px;
+
+                    + strong {
+                        /*! 2022-12-27 EZP-6818 샘플제안관리 샘플 info영역 추가 */
+                        font-size: 26px;
+                        font-weight: 500;
+                        color: #ffffff;
+                        margin-bottom: 10px;
+                    }
+                }
+                > p {
+                    /*! 2022-12-27 EZP-6818 샘플제안관리 샘플 info영역 추가 */
+                    font-size: 14px;
+                    font-weight: 500;
+                    color: #ffffff;
+                }
+            }
+            .right {
+                /*! 2022-12-27 EZP-6818 샘플제안관리 샘플 info영역 추가 */
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                > .date {
+                    /*! 2022-12-27 EZP-6818 샘플제안관리 샘플 info영역 추가 */
+                    font-size: 13px;
+                    font-weight: 500;
+                    color: #eeeeee;
+                    text-align: right;
+                }
+                .pick-shop {
+                    /*! 2022-12-27 EZP-6818 샘플제안관리 샘플 info영역 추가 */
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin-top: 20px;
+                    width: 80px;
+                    height: 33px;
+                    background-color: #ffffff;
+                    border-radius: 25px;
+                    cursor: pointer;
+                    i {
+                        /*! 2022-12-27 EZP-6818 샘플제안관리 샘플 info영역 추가 */
+                        display: block;
+                        width: 16px;
+                        height: 16px;
+                        background: url("../assets/images/icons/mypick-tab-icon01.png") no-repeat 50% 50% / cover;
+                        margin-right: 3px;
+                    }
+                    &.on {
+                        i {
+                        /*! 2022-12-27 EZP-6818 샘플제안관리 샘플 info영역 추가 */
+                        background: url("../assets/images/icons/mypick-tab-icon01-on.png") no-repeat 50% 50% / cover;
+                        }
+                    }
+                    span{
+                        /*! 2022-12-27 EZP-6818 샘플제안관리 샘플 info영역 추가 */
+                        font-size: 12px;
+                        font-weight: 400;
+                        color: #222222;
+                    }
+                }
+            }
+
+        }
+        .hover-box {
+            .info-box {
+                /*! 2023-03-12 EZP-8723 툴팁 밖으로 글자 나가는 부분 수정 css 추가 시작 */
+                white-space: inherit;
+                word-break: break-all;
+                /*! 2023-03-12 EZP-8723 툴팁 밖으로 글자 나가는 부분 수정  css 추가 끝 */
+            }
+        }
+    }
+}
+
+//샘플제안관리 옵션선택 모달 - 2023.01.02
+.sample-option-case {
+    .option-area {
+        /*! 2023-01-02 EZP-6818 옵션 모달 css 전체추가 */
+        margin-bottom: 15px;
+        overflow: hidden;
+        overflow-y: auto;
+        max-height: 30vh;
+        tr {
+            /*! 2023-01-02 EZP-6818 옵션 모달 css 전체추가 */
+            border-top: 1px solid #d8e2ec;
+            border-bottom: 1px solid #d8e2ec;
+            &:first-child {
+                /*! 2023-01-02 EZP-6818 옵션 모달 css 전체추가 */
+                border-bottom: 0px;
+            }
+            th {
+                /*! 2023-01-02 EZP-6818 옵션 모달 css 전체추가 */
+                background-color: #f0f7ff;
+                font-size: 14px;
+                font-weight: 400;
+                color: #0c233d;
+                padding-left: 20px;
+            }
+            td {
+                /*! 2023-01-02 EZP-6818 옵션 모달 css 전체추가 */
+                padding: 10px 20px;
+                > div {
+                    /*! 2023-01-02 EZP-6818 옵션 모달 css 전체추가 */
+                    display: flex;
+                    align-items: center;
+                    flex-wrap: wrap;
+                    gap: 5px;
+                    button {
+                        /*! 2023-01-02 EZP-6818 옵션 모달 css 전체추가 */
+                        display: inline-block;
+                        height: 28px;
+                        border: 1px solid #cfd9dd;
+                        border-radius: 2px;
+                        padding: 0 10px;
+                        font-size: 15px;
+                        font-weight: 400;
+                        color: #888888;
+                        box-sizing: border-box;
+
+                        &.on {
+                            /*! 2023-01-02 EZP-6818 옵션 모달 css 전체추가 */
+                            border: 1px solid #222222 !important;
+                            color: #222222;
+                        }
+                        &.disabled {
+                            /*! 2023-01-02 EZP-6818 옵션 모달 css 전체추가 */
+                            background-color: #f6f6f6;
+                            cursor: default;
+                        }
+                        &.dot-outline {
+                            /*! 2023-01-02 EZP-6818 옵션 모달 css 전체추가 */
+                            border: 1px dashed #cfd9dd;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .option-btn-list-box {
+        /*! 2023-01-02 EZP-6818 옵션 모달 css 전체추가 */
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 5px;
+        overflow: hidden;
+        overflow-y: auto;
+        max-height: 75px;
+        li {
+            /*! 2023-01-02 EZP-6818 옵션 모달 css 전체추가 */
+            display: flex;
+            align-items: center;
+            height: 28px;
+            padding: 0 15px;
+            background-color: #8c96a4;
+            border-radius: 20px;
+            span {
+                /*! 2023-01-02 EZP-6818 옵션 모달 css 전체추가 */
+                font-size: 13px;
+                font-weight: 500;
+                color: #ffffff;
+                padding-right: 10px;
+            }
+            .clear {
+                /*! 2023-01-02 EZP-6818 옵션 모달 css 전체추가 */
+                display: block;
+                width: 10px;
+                height: 10px;
+                padding: 2px;
+                background: url("../assets/images/white-close-ico.png") no-repeat 50% 50% / contain;
+                cursor: pointer;
+            }
+        }
+    }
+    .txt-list {
+        /*! 2023-01-02 EZP-6818 옵션 모달 css 전체추가 */
+        margin: 30px 0 20px;
+        li {
+            /*! 2023-01-02 EZP-6818 옵션 모달 css 전체추가 */
+            font-size: 12px;
+            font-weight: 400;
+            color: #333333;
+        }
+    }
+}
+
+//샘플제안관리 상세페이지 - 2023.01.02
+.sample-list-area {
+    .top-txt-inline {
+        /*! 2023-01-02 EZP-6818 샘플제안관리 상세 css 전체추가 */
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .txt-inline {
+            /*! 2023-01-02 EZP-6818 샘플제안관리 상세 css 전체추가 */
+            font-size: 13px;
+            font-weight: 400; /*! 2023-03-14 EZP-8696 font-weight: 700 -> 400 으로 변경 */
+            color: #222222;
+        }
+    }
+    .bottom-item-list {
+        /*! 2023-01-02 EZP-6818 샘플제안관리 상세 css 전체추가 */
+        padding: 25px 30px;
+        background-color: #ffffff;
+        border: 1px solid #e6ecef;
+        border-radius: 10px;
+        ul {
+            /*! 2023-01-02 EZP-6818 샘플제안관리 상세 css 전체추가 */
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+            li {
+                /*! 2023-01-02 EZP-6818 샘플제안관리 상세 css 전체추가 */
+                display: flex;
+                width: calc(50% - 12.5555px);
+                gap: 12px;
+                .img-box {
+                    /*! 2023-03-14 EZP-8635 .img-box > a , .like-btn 경로로 변경 */
+                    /*! 2023-01-02 EZP-6818 샘플제안관리 상세 css 전체추가 */
+                    position: relative;
+                    display: block;
+                    width: 310px;
+                    height: 405px;
+                    background: url("../assets/images/goods-images/goods-img03.png") no-repeat 50% 50% / cover;
+                    &.sold-out{
+                        a{
+                            &::after {
+                                /*! 2023-01-02 EZP-6818 샘플제안관리 상세 css 전체추가 */
+                                content: 'Sold Out';
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+                                width: 100%;
+                                height: 100%;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                font-size: 30px;
+                                font-weight: 700;
+                                color: #ffffff;
+                                background-color: rgba(0,0,0,0.3); /*! 2023-03-13 EZP-8635 기존 opacity 0.5 -> 0.3으로 변경 */
+                                z-index: 11;
+                            }
+                        }
+                    }
+                    a {
+                        /*! 2023-03-14 EZP-8635 .img-box > a , .like-btn 경로로 변경 */
+                        /*! 2023-01-02 EZP-6818 샘플제안관리 상세 css 전체추가 */
+                        position: relative;
+                        display: block;
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+                .right {
+                    /*! 2023-01-02 EZP-6818 샘플제안관리 상세 css 전체추가 */
+                    width: calc(100% - 330px);
+                    .history-label {
+                        /*! 2023-01-02 EZP-6818 샘플제안관리 상세 css 전체추가 */
+                        display: flex;
+                        align-items: center;
+                        width: max-content;
+                        height: 25px;
+                        padding: 0 10px;
+                        border-radius: 50px;
+                        border: 1px solid #ff2052;
+                        font-size: 12px;
+                        font-weight: 500;
+                        margin-bottom: 5px;
+                    }
+                    .product-name {
+                        /*! 2023-01-02 EZP-6818 샘플제안관리 상세 css 전체추가 */
+                        display: block;
+                        width: 100%;
+                        font-size: 22px;
+                        font-weight: 700;
+                        color: #2e3031;
+                        margin-bottom: 10px;
+                        text-align: left;
+                    }
+                    .price {
+                        display: flex;
+                        align-items: center;
+                        margin-bottom: 20px;
+                        p {
+                            /*! 2023-01-02 EZP-6818 샘플제안관리 상세 css 전체추가 */
+                            font-size: 19px;
+                            font-weight: 400;
+                            color: #2e3031;
+                            display: block;
+                            text-align: left;
+                        }
+                        .tool-red {
+                            /*! 2023-01-02 EZP-6818 샘플제안관리 상세 css 전체추가 */
+                            padding: 0;
+                            .tool-tip{
+                                /*! 2023-01-02 EZP-6818 샘플제안관리 상세 css 전체추가 */
+                                margin-left: 8px;
+                                width: 20px;
+                                height: 20px;
+                                background: url("../assets/images/red-tool-ico.png") no-repeat 50% 50%;
+                            }
+                            section {
+                                p {
+                                    /*! 2023-01-02 EZP-6818 샘플제안관리 상세 css 전체추가 */
+                                    font-size: 11px;
+                                    font-weight: 500;
+                                    color: #7d8693;
+                                    padding-right: 10px;
+                                }
+                            }
+                        }
+                    }
+                    .option-box {
+                        /*! 2023-01-02 EZP-6818 샘플제안관리 상세 css 전체추가 */
+                        display: flex;
+                        flex-direction: column;
+                        align-items: flex-start;
+                        gap: 5px;
+                        /*! 2023-02-28 EZP-7883 option box */
+                        max-height: 260px;
+                        overflow: hidden;
+                        & + .over-option-text {
+                          font-size: 17px;
+                          font-weight: 400;
+                          color: #0075FF;
+                          min-height: 21px;
+                        }
+                        p {
+                            /*! 2023-01-02 EZP-6818 샘플제안관리 상세 css 전체추가 */
+                            display: block;
+                            width: 100%;
+                            white-space: nowrap;
+                            text-overflow: ellipsis;
+                            overflow: hidden;
+                            font-size: 17px;
+                            font-weight: 400;
+                            color: #888888;
+                            min-height: 21px;
+                            &.option-btn {
+                                /*! 2023-03-13 EZP-8695 button case 추가 */
+                                position: relative;
+                                display: flex;
+                                align-items: center;
+                                color: #2E3031;
+                                gap: 5px;
+                                padding-bottom: 2px;
+                                width: fit-content;
+                                &::after {
+                                    /*! 2023-03-13 EZP-8695 button case 추가 */
+                                    content: '';
+                                    position: absolute;
+                                    bottom: 0px;
+                                    width: 100%;
+                                    height: 1px;
+                                    background-color: #2E3031;
+                                }
+                                i {
+                                    /*! 2023-03-13 EZP-8695 button case 추가 */
+                                    display: block;
+                                    width: 10px;
+                                    height: 10px;
+                                    background: url("../assets/images/icons/re-sample-option-plus-btn.svg") no-repeat 50% 50%;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+

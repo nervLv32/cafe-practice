@@ -1,0 +1,1149 @@
+/*! 스퀘어 화면 넓이 */
+body, header, .search-wrap {
+    min-width: 1600px;
+}
+  
+header .inner, .search-wrap .inner, .date-tab, .search-result-wrap, .result-table {
+    width: 98%;
+}
+  
+/*! 푸터를 항상 화면 맨 아래에 붙이기 위해 컨테이너 값 계산 */
+#container {
+    min-height: calc(100% - 74px - 160px);
+}
+  
+/*! 로딩 바 */
+.ui-load {
+    z-index: 9999; /*! 2022-07-18 EZP-3157 */
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    position: fixed;
+    top: 0;
+    left: 0;
+  
+    img {
+      display: block;
+      width: 48px;
+      height: 48px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+    }
+  }
+  
+  /*! 인풋창 높이 조절 클래스 */
+  
+  .height-adjust {
+    height: 38px !important;
+    padding: 0 0 0 15px;
+  }
+  
+  /*! 테이블의 불량 로우 붉은색 적용 */
+  
+  .result-table tr.red td {
+    background-color: #ffe9d5f2;
+  }
+  
+  /*! 스퀘어 리스트의 투명도 50% 적용 */
+  
+  tr {
+    &.transparent td {
+      opacity: 0.5;
+    }
+  
+    &.header-transparent {
+      .text-group {
+        opacity: 0.5;
+      }
+  
+      td {
+        background-color: #f9f9f980 !important;
+      }
+    }
+  }
+  
+  /*! 샘플 뱃지 */
+  /*! 시작 : 2020-08-12 EZP-798 */
+  
+  .result-table tr {
+    td.detail {
+      i {
+        &.new {
+          font-size: 12px;
+          line-height: 24px;
+          display: inline-block;
+          min-width: 31px;
+          height: 24px;
+          padding: 0 6px;
+          text-align: center;
+          vertical-align: middle;
+          color: #ffffff;
+          border-radius: 2px;
+          background: #33a7e3;
+        }
+  
+        &.type1 {
+          font-size: 12px;
+          line-height: 24px;
+          display: inline-block;
+          min-width: 31px;
+          height: 24px;
+          padding: 0 6px;
+          text-align: center;
+          vertical-align: middle;
+          color: #ffffff;
+          border-radius: 2px;
+          background: #23c35f;
+        }
+  
+        &.type2 {
+          font-size: 12px;
+          line-height: 24px;
+          display: inline-block;
+          min-width: 31px;
+          height: 24px;
+          padding: 0 6px;
+          text-align: center;
+          vertical-align: middle;
+          color: #ffffff;
+          border-radius: 2px;
+          background: #666666;
+        }
+  
+        &.type3 {
+          font-size: 12px;
+          line-height: 24px;
+          display: inline-block;
+          min-width: 31px;
+          height: 24px;
+          padding: 0 6px;
+          text-align: center;
+          vertical-align: middle;
+          color: #ffffff;
+          border-radius: 2px;
+          background: #b07df3; /*! 2022-05-23 아이콘 컬러변경 */
+        }
+  
+        &.type4 {
+          font-size: 12px;
+          line-height: 24px;
+          display: inline-block;
+          min-width: 31px;
+          height: 24px;
+          padding: 0 6px;
+          text-align: center;
+          vertical-align: middle;
+          color: #ffffff;
+          border-radius: 2px;
+          background: #eeaa62;
+        }
+  
+        &.type5 {
+          font-size: 12px;
+          line-height: 24px;
+          display: inline-block;
+          min-width: 31px;
+          height: 24px;
+          padding: 0 6px;
+          text-align: center;
+          vertical-align: middle;
+          color: #ffffff;
+          border-radius: 2px;
+          background: #ff4800;
+        }
+  
+        &.t_new {
+          font-size: 14px;
+          color: #33a7e3;
+          margin-right: 5px;
+        }
+  
+        &.t_type1 {
+          font-size: 14px;
+          color: #23c35f;
+          margin-right: 5px;
+        }
+  
+        &.t_type2 {
+          font-size: 14px;
+          color: #666666;
+          margin-right: 5px;
+        }
+  
+        &.t_type3 {
+          font-size: 14px;
+          color: #a983d6;
+          margin-right: 5px;
+        }
+  
+        &.t_type4 {
+          font-size: 14px;
+          color: #ef9a58;
+          margin-right: 5px;
+        }
+      }
+  
+      span {
+        &.badge {
+          vertical-align: top;
+          /*! 2022-10-31 EZP-6245 display 추가 */
+          display: inline-block;
+        }
+  
+        &.pr5 {
+          white-space: normal;
+          /*! 2022-10-31 EZP-6245 display 추가 */
+          display: inline; 
+  
+          strong.withDate {
+            display: inline-block;
+            font-size: 13px;
+          }
+        }
+      }
+    }
+  
+    &.opener.trdetailOpener {
+      td {
+        background-color: #ffffff;
+        height: auto;
+  
+        &.tac {
+          padding-right: 0;
+        }
+      }
+  
+      + tr td {
+        border-top: 1px solid #e2e2e2;
+      }
+    }
+  
+    &.indetail {
+      &.detail-hidden + tr:not(.opener) td {
+        border-top: 1px solid #e2e2e2;
+      }
+  
+      td {
+        background: #f9f9f9;
+      }
+  
+      .btn {
+        background: #ffffff;
+      }
+    }
+  }
+  
+  tr.detail-hidden {
+    /*! 2022-12-20 EZP-7708 tr.detail-hidden 추가 */
+    display: none;
+  }
+  
+  /*! 종료 : 2020-08-12 EZP-798 */
+  
+  .result-table tr {
+    td i.mismatch {
+      font-size: 12px;
+      line-height: 24px;
+      display: inline-block;
+      min-width: 31px;
+      height: 24px;
+      padding: 0 6px;
+      text-align: center;
+      vertical-align: 1px;
+      color: #ffffff;
+      border-radius: 2px;
+      background: #ff4800;
+      margin-left: 4px;
+    }
+
+    &.opener td strong.vertical-bar {
+      /*! 2021-08-09 EZP-3825 시작 */  
+      /*! 도매처의 마켓 | 표시용 스타일 */
+      position: relative;
+      display: inline-block;
+      margin-left: 18px;
+      padding-left: 22px;
+      color: #333333;
+  
+      &:before {
+        width: 1px;
+        height: 12px;
+        margin-top: -6px;
+        background-color: #d6d6d6;
+        display: block;
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 0;
+        /*! 2021-08-09 EZP-3825 끝 */
+      }
+    }
+
+    &.opener {
+      &.seller {
+        td {
+          strong {
+            &.vertical-bar {
+              /*! 2022-11-16 EZP-6245 가게명옆 밤시장 txt color / weight 변경 시작 */
+              font-weight: 400;
+              color: #666666;
+              /*! 2022-11-16 EZP-6245 가게명옆 밤시장 txt color / weight 변경 끝 */
+
+              &:before {
+                /*! 2022-11-16 EZP-6245 가게명 옆 border color 진한 색으로 변경 */
+                background-color: #999999;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  /*! 입고 수량 변경 테두리 */
+  
+  .small-amount input {
+    border: 1px solid #d6d6d6;
+  }
+  
+  /*! 인쇄하기 버튼 */
+  
+  /*! 2022-10-31 EZP-6245 이미지경로 변경 */
+  button.btn.line.printer:hover img {
+    content: url('../img/square/printer_white.png');
+  }
+  
+  /*! 메모 텍스트 길어질 시 생략 기호 */
+  
+  .view_memo {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  
+  /*! 메모 입력창 */
+  
+  .edit_memo {
+    width: 153px;
+    line-height: 26px;
+    height: 28px;
+    padding: 0 0 0 5px;
+    text-align: left;
+    border: 1px solid #ddd;
+  }
+  
+  /*! 담당자 관리 테이블 상단 검색결과 */
+  
+  .search-result-wrap span {
+    &.chargeCount {
+      position: absolute;
+      bottom: 0;
+  
+      strong {
+        margin-left: 7px;
+      }
+    }
+  
+    &.chargeAlert {
+      position: absolute;
+      bottom: 5px;
+      right: 155px;
+      font-size: 14px;
+    }
+  }
+  
+  /*! Font Color Red */
+  
+  .fcr {
+    color: #ff4800 !important;
+  }
+  
+  /*! Font Color Blue */
+  
+  .fcb {
+    color: #0066ff !important;
+  }
+  
+  /*! Hidden */
+  
+  .hidden {
+    display: none !important;
+  }
+  
+  /*! 멀티 셀렉트 리스트와 삭제 버튼 */
+  
+  .tag-area {
+    position: absolute;
+    top: 25px;
+    left: 740px;
+  
+    span {
+      font-size: 12px;
+      line-height: 24px;
+      position: relative;
+      display: inline-block;
+      height: 24px;
+      margin-right: 5px;
+      margin-bottom: 5px;
+      padding: 0 22px 0 10px;
+      color: #666;
+      background-color: #e1f9e7;
+      -webkit-border-radius: 12px;
+      -moz-border-radius: 12px;
+      border-radius: 12px;
+  
+      button {
+        display: block;
+        overflow: hidden;
+        width: 6px;
+        height: 6px;
+        margin-top: -3px;
+        text-indent: -9999px;
+        background: url('../img/square/spr-product.png') -30px 0 no-repeat;
+        position: absolute;
+        top: 50%;
+        right: 10px;
+      }
+    }
+  }
+  
+  /*! 엑셀 다운로드 버튼 */
+  
+  button.btn.line.btnExcelDown {
+    img {
+      width: 24px;
+      height: 24px;
+    }
+  
+    &:hover img {
+      /*! 2022-10-31 EZP-6245 이미지경로 변경 */
+      content: url('../img/square/excel_white.png');
+    }
+  }
+  
+  /*! 품절처리 라디오 버튼 */
+  
+  .divSoldOutProc > label {
+    border: 1px solid #cccccc;
+    display: inline-block;
+    padding: 5px 10px;
+    text-align: center;
+  }
+  
+  input[type='radio'] {
+    &.rdoToggle {
+      display: none;
+  
+      + label {
+        cursor: pointer;
+        background: #ffffff;
+      }
+  
+      &:checked + label {
+        cursor: default;
+        color: #ffffff;
+        background: #36c25d;
+      }
+    }
+  
+    &.rdoToggleRight + label {
+      margin-left: -5px;
+    }
+  }
+  
+  /*! 상품 상태 버튼 */
+  
+  button.btnItemStatus {
+    color: #333333;
+    background: #eee;
+    padding: 5px 10px;
+    margin-right: 5px;
+  }
+  
+  /*! 소매처 헤더 */
+  
+  .result-table tr.opener td {
+    &.tdBuyerHeader {
+      background-color: #f2f2f2;
+    }
+  
+    &.tdSpecHeader {
+      background-color: #f5f5f5;
+      height: 50px;
+    }
+  }
+  
+  /*! 체크박스 */
+  
+  .search-wrap .inner .divCustomCheckBox {
+    height: 50px;
+    padding-top: 17px;
+    margin-bottom: 10px;
+  
+    strong {
+      font-size: 14px;
+      line-height: 14px;
+      position: relative;
+      display: inline-block;
+      margin-right: -8px;
+      padding-right: 13px;
+      vertical-align: middle;
+      color: #666666;
+  
+      &:before {
+        width: 1px;
+        height: 12px;
+        margin-top: -6px;
+        background-color: #d6d6d6;
+        display: block;
+        content: '';
+        position: absolute;
+        top: 50%;
+        right: 0;
+      }
+    }
+  
+    .checkbox {
+      margin-left: 20px;
+    }
+  
+    label {
+      font-size: 14px;
+      color: #666666;
+    }
+  }
+  
+  div {
+    &.divInline {
+      display: inline !important;
+    }
+
+    &.divCustomCheckToggle {
+      /*! 토글 버튼 시작 */
+      text-align: center;
+  
+      button {
+        font-size: 16px;
+        height: 45px;
+        line-height: 35px;
+        padding: 0 20px;
+        min-width: 100px;
+        color: #333333;
+        background-color: #ffffff;
+        border: 1px solid #333333;
+        margin: 0 10px;
+        /*! 토글 버튼 끝 */
+      }
+    }
+  }
+  
+  /*! 2020-05-04 시작 */
+  
+  .prd-date {
+    font-size: 13px;
+    color: #333333;
+    padding: 10px 0;
+  
+    em {
+      font-size: 13px;
+      color: #333333;
+      vertical-align: top;
+      display: inline-block;
+      margin-top: 2px;
+    }
+  
+    span {
+      font-family: 'Titillium Web';
+      font-size: 16px;
+      display: inline-block;
+    }
+  }
+  
+  div.divCustomCheckToggle.new {
+    margin-bottom: 10px;
+  }
+  
+  #targetItemSoldoutStatus p.notice {
+    font-size: 14px;
+    color: #666666;
+    margin: 15px 0 40px;
+    text-align: center;
+  }
+  
+  div {
+    &.divCustomCheckToggle.new button {
+      margin: 0 0 0 8px;
+      padding: 0;
+      color: #666666;
+      border: 1px solid #d6d6d6;
+      font-size: 14px;
+  
+      &:first-child {
+        margin: 0;
+      }
+    }
+  
+    &.min-count {
+      font-size: 0;
+  
+      input {
+        height: 45px;
+        line-height: 45px;
+        width: 100px;
+        box-sizing: border-box;
+        padding: 0 5px;
+        border: 1px solid #d6d6d6;
+        text-align: center;
+        color: #999999;
+        font-size: 14px;
+      }
+  
+      button {
+        height: 45px;
+        line-height: 45px;
+        min-width: 100px;
+        margin: 0 0 0 8px;
+        padding: 0;
+        font-size: 14px;
+        background: #414150;
+      }
+    }
+  
+    &.divCustomCheckToggle {
+      button:hover {
+        min-width: 100px;
+        color: #f9f9f9;
+        border-color: #36c25d;
+        background-color: #36c25d;
+        opacity: 0.5;
+      }
+  
+      &.new button:hover {
+        min-width: 100px;
+        color: #f9f9f9;
+        border-color: #268742;
+        background-color: #268742;
+        opacity: 1;
+  
+        /*! 2020-05-04 종료*/
+      }
+  
+      button.active {
+        min-width: 100px;
+        color: #f9f9f9;
+        border-color: #36c25d;
+        background-color: #36c25d;
+      }
+    }
+  }
+  
+  /*! 도매처 헤더 발주 실패 셀렉트 */
+  /*! 2021-05-06 EZP-2964 */
+  /*! 2021-07-19 EZP-3405 */
+  
+  .divSellerHeader {
+    width: 120px;
+    margin-left: 5px;
+    display: inline-block;
+  
+    .ui-select {
+      width: 120px;
+      height: 20px;
+      top: -10px;
+  
+      > button:before {
+        margin-top: 6px;
+      }
+    }
+
+    &.url-select {
+      .ui-select {
+        /* 2022-11-30 EZP-7447 select 조정 */
+        width: 160px;
+      }
+    }
+  }
+  
+  /*! 가게 정보 관리 > 가게 정보 변경 팝업 스타일 */
+  
+  a.eSellerModify {
+    cursor: pointer;
+  }
+  
+  /*! 2021-10-14 EZP-4344 */
+  
+  .divSellerModifyRow {
+    display: flex;
+  
+    + .divSellerModifyRow {
+      margin-top: 15px;
+    }
+  
+    .row-tit {
+      width: 120px;
+      padding-top: 5px;
+      font-weight: 700;
+      line-height: 1.6;
+    }
+  
+    .row-cont {
+      flex: 1;
+    }
+  
+    input[type='text'] {
+      width: 80px;
+      height: 34px;
+    }
+  
+    .ui-select {
+      height: 34px;
+      vertical-align: middle;
+  
+      button {
+        height: 34px;
+        line-height: 0;
+      }
+  
+      ul {
+        top: 34px;
+      }
+    }
+  
+    &.divAddr {
+      input[type='text'] {
+        margin-left: 10px;
+      }
+  
+      .ui-select-wrap {
+        display: inline-block;
+      }
+    }
+  
+    .row-cont {
+      .notice-wrap {
+        margin-top: 10px; /*! 2022-09-26 EZP-6359 margin-top: 20px 에서 수정 */
+  
+        .title {
+          /*! 2022-09-26 EZP-6359 시작 */
+          position: relative;
+          padding-left: 10px;
+  
+          &::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            margin-top: -1px;
+            width: 2px;
+            height: 2px;
+            border-radius: 100%;
+            background-color: #333333;
+          }
+  
+          margin-bottom: 0;
+        }
+  
+        .tel-list {
+          padding-left: 10px;
+          font-size: 14px;
+          margin-bottom: 0px;
+          color: #999999;
+  
+          > span {
+            color: #999999;
+            font-size: 14px;
+            font-weight: 500;
+          }
+        }
+      }
+  
+      .checkbox {
+        display: flex;
+        align-items: center;
+        margin-top: 15px;
+  
+        input {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+  
+  /*!
+  .divSellerModifyRow .row-cont .notice-wrap .tel-list > li {
+      margin-top: 5px;
+      color: #999999;
+  }
+  */
+  
+  /*! 2022-09-26 EZP-6359 끝 */
+  
+  .ui-popup div.divWarningMsg {
+    font-size: 14px;
+    line-height: 20px;
+    margin-bottom: 30px;
+  }
+  
+  div.divDisableButton div.ui-select button[disabled] {
+    background-color: #f9f9f9;
+    color: #666666;
+  }
+  
+  /*! 입고 예정일 팝업 */
+  
+  .divExpectedDateContainer {
+    position: absolute;
+    top: 20px;
+    right: 100px;
+    z-index: 999;
+    display: none;
+    background-color: #ffffff;
+    width: 480px;
+    border: #666666 1px solid;
+    padding: 10px;
+  
+    .head {
+      text-align: left;
+      margin: 5px;
+      font-size: 15px;
+      font-weight: bold;
+    }
+  
+    button.btnDate {
+      width: 100px;
+      height: 30px;
+      color: #333333;
+      background: #eee;
+      margin: 5px;
+  
+      &.active {
+        background-color: #36c25d;
+        color: #ffffff;
+      }
+    }
+  
+    #btnMemoModify {
+      margin: 5px;
+    }
+  }
+  
+  .btnExpectedDate {
+    width: 80px;
+    padding: 5px 0;
+    background-color: transparent;
+    border-radius: 5px;
+  
+    &.tdNoneSelected {
+      background-color: #ffffff;
+      border: 1px solid #cccccc;
+    }
+  }
+  
+  /*! 상품 상태 버튼 */
+  
+  .btnItemSoldoutStatus {
+    width: 80px;
+    padding: 5px 0;
+    background-color: transparent;
+    border-radius: 5px;
+  
+    &.tdNoneStatus {
+      background-color: #ffffff;
+      border: 1px solid #cccccc;
+    }
+  }
+  
+  /*! 진행 상태 버튼 */
+  
+  .result-table tr.opener td .btn-group .btnStatus {
+    width: 80px;
+    font-size: 14px;
+    line-height: 30px;
+    display: inline-block;
+    min-width: 0;
+    height: 30px;
+    margin: 0 17px 0 30px;
+    padding: 0 12px;
+    color: #ffffff;
+    border-radius: 15px;
+    cursor: auto;
+  
+    &.completed {
+      background-color: #cccccc;
+    }
+  
+    &.wait {
+      background-color: #50cc21;
+    }
+  
+    &.working {
+      background-color: #f79822;
+    }
+  }
+  
+  .ui-select button:disabled {
+    background-color: #e9e9e9;
+  }
+  
+  /*! 아코디언 동작 */
+  
+  tr {
+    &.seller-hidden, &.buyer-hidden {
+      display: none;
+    }
+  }
+  
+  /*! 입고수량 인풋창 disabled 스타일 */
+  
+  .txtInQty[disabled] {
+    background-color: transparent !important;
+    border: transparent !important;
+  }
+  
+  /*! 2020-09-03 EZP-1062 시작 */
+  
+  #alert-order-deadline.ui-popup .order p {
+    line-height: 1.5;
+  }
+  
+  #all-order-deadline.ui-popup .order p span, #mall-order-deadline.ui-popup .order p span {
+    display: inline-block;
+    color: #fc6547;
+  }
+  
+  #all-order-deadline.ui-popup .password-box, #mall-order-deadline.ui-popup .password-box {
+    text-align: center;
+    margin-top: 30px;
+  }
+  
+  #all-order-deadline.ui-popup .password-box input, #mall-order-deadline.ui-popup .password-box input {
+    width: 250px;
+    height: 40px;
+    border: 1px solid #d6d6d6;
+    color: #999999;
+  }
+  
+  #all-order-deadline.ui-popup .order div.text-wrap p, #mall-order-deadline.ui-popup .order div.text-wrap p {
+    margin: -10px 0 15px 0;
+    color: #333333;
+    font-size: 16px;
+  }
+  
+  #all-order-deadline.ui-popup .order div.text-wrap span, #mall-order-deadline.ui-popup .order div.text-wrap span {
+    color: #ff4800;
+    font-size: 14px;
+    display: block;
+    text-align: center;
+  }
+  
+  #all-order-deadline.ui-popup .order div.text-wrap em, #mall-order-deadline.ui-popup .order div.text-wrap em {
+    color: #36c25d;
+    font-size: 14px;
+    display: block;
+    text-align: center;
+  }
+  
+  #all-order-deadline.ui-popup .order ul, #mall-order-deadline.ui-popup .order ul {
+    padding: 15px 30px;
+    background: #f9f9f9;
+    margin-top: 30px;
+  }
+  
+  #all-order-deadline.ui-popup .order ul li, #mall-order-deadline.ui-popup .order ul li {
+    margin-top: 2px;
+  }
+  
+  #all-order-deadline.ui-popup .order ul li span, #mall-order-deadline.ui-popup .order ul li span {
+    color: #333333;
+    font-size: 14px;
+    display: inline-block;
+    width: 100px;
+  }
+  
+  #all-order-deadline.ui-popup .order ul li em, #mall-order-deadline.ui-popup .order ul li em {
+    color: #666666;
+    font-size: 14px;
+    display: inline-block;
+  }
+  
+  #all-order-deadline.ui-popup .order ul li em.ellipsis, #mall-order-deadline.ui-popup .order ul li em.ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    word-wrap: break-word;
+    width: calc(100% - 105px);
+    height: auto;
+    vertical-align: top;
+    display: -webkit-inline-box;
+  }
+  
+  .alert-pop.ui-popup .order p {
+    line-height: 1.5;
+  
+    &.scroll-cont {
+      max-height: 144px;
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
+  }
+  
+  /*! 2020-09-03 EZP-1062 종료 */
+  
+  /*! 2020-07-14 EZP-811 */
+  
+  div.date-uipopup {
+    position: absolute;
+    top: 50px;
+    right: 25px;
+    width: 378px;
+    border: 1px solid #b5b5b5;
+    padding: 20px;
+    border-radius: 2px;
+    background: #ffffff;
+    text-align: left;
+    display: none;
+    z-index: 2;
+  
+    > div {
+      font-size: 0;
+      display: flex;
+      flex-wrap: wrap;
+      /* 2022-12-12 EZP-7273 height 65에서 변경 */
+      height: auto;
+    }
+  
+    strong {
+      color: #383838;
+      font-size: 14px;
+      font-weight: bold;
+      display: block;
+      margin-bottom: 10px;
+    }
+  
+    button.btn-item {
+      width: 80px;
+      height: 30px;
+      line-height: 30px;
+      color: #666666;
+      font-size: 14px;
+      border: 1px solid #d6d6d6;
+      border-radius: 2px;
+      background: #ffffff;
+      margin: 0 0 5px 5px;
+    }
+  
+    div button.btn-item {
+      &:nth-child(4n-3) {
+        margin-left: 0;
+      }
+  
+      &.on {
+        background: #23c35f;
+        border: 1px solid #23c35f;
+        color: #ffffff;
+      }
+    }
+  
+    button.btn_close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 20px;
+      height: 20px;
+  
+      span {
+        position: relative;
+        display: inline-block;
+        width: 2px;
+        height: 20px;
+        padding: 0;
+        transform: rotate(45deg);
+        text-indent: -9999px;
+        color: transparent;
+        border-radius: 5px;
+        background: #000000;
+  
+        &:before {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          display: block;
+          width: 20px;
+          height: 2px;
+          content: '';
+          transform: translate(-50%, -50%);
+          border-radius: 5px;
+          background: #000000;
+        }
+      }
+    }
+  }
+  
+  td.pop-wrap {
+    position: relative;
+  }
+  
+  /*! 2020-11-13 EZP-1149 */
+  
+  .result-table tr.indetail td.pop-wrap > button.on, td.pop-wrap > button.on {
+    background: #ff4800;
+    border: 1px solid #ff4800;
+    color: #ffffff;
+  }
+  
+  .pop-wrap .btn.state {
+    max-width: 100%;
+    padding: 0 10px;
+    width: auto;
+  }
+  
+  /*! 데이터 없을 시 td 스타일 */
+  
+  td.tdNoData {
+    text-align: center !important;
+    padding: 0 !important;
+    font-size: 17px !important;
+    border-top: 1px solid #b5b5b5;
+    height: 400px !important;
+  }
+  
+  /*! 2020-12-22 EZP-1149 */
+  
+  .ico-new {
+    display: inline-block;
+    height: 18px;
+    line-height: 18px;
+    border-radius: 2px;
+    background: #eb5050;
+    font-size: 12px;
+    font-weight: bold;
+    color: #ffffff;
+    text-align: center;
+    margin-left: 7px;
+    padding: 0 2px;
+  }
+  
+  /*! 2020-12-15 EZP-1894 */
+  
+  #memoTooltip * {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+  }
+  
+  /*! 2021-11-02 EZP-3980 */
+  
+  .divSoldOutProc input[type='radio'].rdoToggle {
+    + label {
+      position: relative;
+      z-index: 1;
+    }
+  
+    &:disabled + label {
+      border-color: #eaeaea;
+      color: #cccccc;
+      z-index: 0;
+    }
+  }

@@ -1,0 +1,1019 @@
+{% extends "../_templates/layout.njk" %}
+{% block content %}
+
+<div class="wrapper" id="wrap">
+  <!-- container -->
+  <div class="container" id="container">
+    <!-- content -->
+    <div class="content" id="content">
+
+      <div class="content-head">
+        <div class="page-title">
+          <h3 class="h3-tit">이지톡</h3>
+          <a href="#" class="btn-manual" target="_blank" title="매뉴얼">매뉴얼</a>
+          <div class="form-box">
+            <form onsubmit="return submitHandler();">
+              <fieldset>
+                <legend class="skip">통합검색</legend>
+                <label for="total-search" class="skip">검색어 입력</label>
+                <input type="search" name="total-search" id="total-search" title="검색어 입력" class="text"
+                  placeholder="상품을 검색해보세요.">
+                <input type="submit" value="검색" class="submit">
+              </fieldset>
+            </form>
+          </div>
+        </div>
+        <div class="cont-info-right">
+          <ul class="breadcrumb">
+            <li>공급</li>
+            <li class="now" title="이지톡">이지톡</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Easy-talk Area Start -->
+      <div class="easy-talk">
+        <!-- Aside Area Start -->
+        <div class="aside">
+          <!-- Easy-talk-search Area Start -->
+          <div class="easy-talk-search">
+            <div class="talk-head">
+              <select name="" id="" class="default-select w120">
+                <option value="">전체 메시지</option>
+                <option value="">안 읽은 메시지</option>
+                <option value="">중요 메시지</option>
+              </select>
+              <button type="button" class="member-plus" onclick="targetModalPopup('modal-add-contact')">대화상대 추가<i
+                  class="plus-ico"></i></button>
+            </div>
+            <div class="form-control">
+              <input type="text" class="inp-search" placeholder="가게명을 입력해 주세요">
+              <button type="button" class="btn btn-search"></button>
+            </div>
+          </div><!-- Easy-talk-search Area End -->
+          <!-- caht-box Area Start -->
+          <div class="chat-box">
+            <ul class="chat-list">
+              <!-- chat-item Area Start -->
+              <li class="chat-item">
+                <a href="javascript: void(0);" data-tab="chat1">
+                  <div class="store-profile" style="background-color: #30a8e4;">
+                    <span class="store-initial">
+                      가
+                    </span>
+                  </div>
+                  <div class="msg-container">
+                    <div class="msg-info-box">
+                      <div class="store-name">
+                        가게명이 길면 줄여서 표시됩니다.
+                      </div>
+                      <div class="info">
+                        <span class="date">오후 15:26</span>
+                      </div>
+                    </div>
+                    <div class="msg-text-box">
+                      <div class="msg-text">가장 최근 대화 내용이 길면 줄여서 표시됩니다.</div>
+                      <span class="msg-count">123</span>
+                    </div>
+                  </div>
+                </a>
+                <i class="favorite-ico on"></i>
+              </li>
+              <!-- chat-item Area Start -->
+              <li class="chat-item">
+                <a href="javascript: void(0);" data-tab="chat2">
+                  <div class="store-profile" style="background-color: #55cb76;">
+                    <span class="store-initial">
+                      8
+                    </span>
+                  </div>
+                  <div class="msg-container">
+                    <div class="msg-info-box">
+                      <div class="store-name">
+                        8(에잇)마일
+                      </div>
+                      <div class="info">
+                        <span class="date">YY.MM.DD</span>
+                      </div>
+                    </div>
+                    <div class="msg-text-box">
+                      <div class="msg-text">가장 최근 대화 내용 표시</div>
+                    </div>
+                  </div>
+                </a>
+                <i class="favorite-ico"></i>
+              </li>
+              <!-- chat-item Area Start -->
+              <li class="chat-item">
+                <a href="javascript: void(0);" data-tab="chat3">
+                  <div class="store-profile" style="background-color: #b07df3;">
+                    <span class="store-initial">
+                      셀
+                    </span>
+                  </div>
+                  <div class="msg-container">
+                    <div class="msg-info-box">
+                      <div class="store-name">
+                        셀러미가입/미매칭
+                      </div>
+                      <div class="info">
+                        <span class="date">YY.MM.DD</span>
+                      </div>
+                    </div>
+                    <div class="msg-text-box">
+                      <div class="msg-text">가장 최근 대화 내용 표시</div>
+                    </div>
+                  </div>
+                </a>
+                <i class="favorite-ico"></i>
+              </li>
+              <!-- chat-item Area Start -->
+              <li class="chat-item">
+                <a href="javascript: void(0);" data-tab="chat4">
+                  <div class="store-profile" style="background-color: #666;">
+                    <span class="store-initial">
+                      탈
+                    </span>
+                  </div>
+                  <div class="msg-container">
+                    <div class="msg-info-box">
+                      <div class="store-name">
+                        탈퇴한가게명
+                      </div>
+                      <div class="info">
+                        <span class="date">YY.MM.DD</span>
+                      </div>
+                    </div>
+                    <div class="msg-text-box">
+                      <div class="msg-text">가장 최근 대화 내용 표시</div>
+                    </div>
+                  </div>
+                </a>
+                <i class="favorite-ico"></i>
+              </li>
+              <!-- chat-item Area Start -->
+              <li class="chat-item">
+                <a href="javascript: void(0);">
+                  <div class="store-profile" style="background-color: #55cb76;">
+                    <span class="store-initial">
+                      8
+                    </span>
+                  </div>
+                  <div class="msg-container">
+                    <div class="msg-info-box">
+                      <div class="store-name">
+                        8(에잇)마일
+                      </div>
+                      <div class="info">
+                        <span class="date">YY.MM.DD</span>
+                      </div>
+                    </div>
+                    <div class="msg-text-box">
+                      <div class="msg-text">가장 최근 대화 내용 표시</div>
+                    </div>
+                  </div>
+                </a>
+                <i class="favorite-ico"></i>
+              </li>
+              <!-- chat-item Area Start -->
+              <li class="chat-item">
+                <a href="javascript: void(0);">
+                  <div class="store-profile" style="background-color: #b07df3;">
+                    <span class="store-initial">
+                      셀
+                    </span>
+                  </div>
+                  <div class="msg-container">
+                    <div class="msg-info-box">
+                      <div class="store-name">
+                        셀러미가입/미매칭
+                      </div>
+                      <div class="info">
+                        <span class="date">YY.MM.DD</span>
+                      </div>
+                    </div>
+                    <div class="msg-text-box">
+                      <div class="msg-text">가장 최근 대화 내용 표시</div>
+                    </div>
+                  </div>
+                </a>
+                <i class="favorite-ico"></i>
+              </li>
+              <!-- chat-item Area Start -->
+              <li class="chat-item">
+                <a href="javascript: void(0);">
+                  <div class="store-profile" style="background-color: #55cb76;">
+                    <span class="store-initial">
+                      8
+                    </span>
+                  </div>
+                  <div class="msg-container">
+                    <div class="msg-info-box">
+                      <div class="store-name">
+                        8(에잇)마일
+                      </div>
+                      <div class="info">
+                        <span class="date">YY.MM.DD</span>
+                      </div>
+                    </div>
+                    <div class="msg-text-box">
+                      <div class="msg-text">가장 최근 대화 내용 표시</div>
+                    </div>
+                  </div>
+                </a>
+                <i class="favorite-ico"></i>
+              </li>
+              <!-- chat-item Area Start -->
+              <li class="chat-item">
+                <a href="javascript: void(0);">
+                  <div class="store-profile" style="background-color: #b07df3;">
+                    <span class="store-initial">
+                      셀
+                    </span>
+                  </div>
+                  <div class="msg-container">
+                    <div class="msg-info-box">
+                      <div class="store-name">
+                        셀러미가입/미매칭
+                      </div>
+                      <div class="info">
+                        <span class="date">YY.MM.DD</span>
+                      </div>
+                    </div>
+                    <div class="msg-text-box">
+                      <div class="msg-text">가장 최근 대화 내용 표시</div>
+                    </div>
+                  </div>
+                </a>
+                <i class="favorite-ico"></i>
+              </li>
+              <!-- chat-item Area Start -->
+              <li class="chat-item">
+                <a href="javascript: void(0);">
+                  <div class="store-profile" style="background-color: #55cb76;">
+                    <span class="store-initial">
+                      8
+                    </span>
+                  </div>
+                  <div class="msg-container">
+                    <div class="msg-info-box">
+                      <div class="store-name">
+                        8(에잇)마일
+                      </div>
+                      <div class="info">
+                        <span class="date">YY.MM.DD</span>
+                      </div>
+                    </div>
+                    <div class="msg-text-box">
+                      <div class="msg-text">가장 최근 대화 내용 표시</div>
+                    </div>
+                  </div>
+                </a>
+                <i class="favorite-ico"></i>
+              </li>
+              <!-- chat-item Area Start -->
+              <li class="chat-item">
+                <a href="javascript: void(0);">
+                  <div class="store-profile" style="background-color: #b07df3;">
+                    <span class="store-initial">
+                      셀
+                    </span>
+                  </div>
+                  <div class="msg-container">
+                    <div class="msg-info-box">
+                      <div class="store-name">
+                        셀러미가입/미매칭
+                      </div>
+                      <div class="info">
+                        <span class="date">YY.MM.DD</span>
+                      </div>
+                    </div>
+                    <div class="msg-text-box">
+                      <div class="msg-text">가장 최근 대화 내용 표시</div>
+                    </div>
+                  </div>
+                </a>
+                <i class="favorite-ico"></i>
+              </li>
+              <!-- chat-item Area Start -->
+              <li class="chat-item">
+                <a href="javascript: void(0);">
+                  <div class="store-profile" style="background-color: #55cb76;">
+                    <span class="store-initial">
+                      8
+                    </span>
+                  </div>
+                  <div class="msg-container">
+                    <div class="msg-info-box">
+                      <div class="store-name">
+                        8(에잇)마일
+                      </div>
+                      <div class="info">
+                        <span class="date">YY.MM.DD</span>
+                      </div>
+                    </div>
+                    <div class="msg-text-box">
+                      <div class="msg-text">가장 최근 대화 내용 표시</div>
+                    </div>
+                  </div>
+                </a>
+                <i class="favorite-ico"></i>
+              </li>
+              <!-- chat-item Area Start -->
+              <li class="chat-item">
+                <a href="javascript: void(0);">
+                  <div class="store-profile" style="background-color: #b07df3;">
+                    <span class="store-initial">
+                      셀
+                    </span>
+                  </div>
+                  <div class="msg-container">
+                    <div class="msg-info-box">
+                      <div class="store-name">
+                        셀러미가입/미매칭
+                      </div>
+                      <div class="info">
+                        <span class="date">YY.MM.DD</span>
+                      </div>
+                    </div>
+                    <div class="msg-text-box">
+                      <div class="msg-text">가장 최근 대화 내용 표시</div>
+                    </div>
+                  </div>
+                </a>
+                <i class="favorite-ico"></i>
+              </li>
+              <!-- chat-item Area Start -->
+              <li class="chat-item">
+                <a href="javascript: void(0);">
+                  <div class="store-profile" style="background-color: #55cb76;">
+                    <span class="store-initial">
+                      8
+                    </span>
+                  </div>
+                  <div class="msg-container">
+                    <div class="msg-info-box">
+                      <div class="store-name">
+                        8(에잇)마일
+                      </div>
+                      <div class="info">
+                        <span class="date">YY.MM.DD</span>
+                      </div>
+                    </div>
+                    <div class="msg-text-box">
+                      <div class="msg-text">가장 최근 대화 내용 표시</div>
+                    </div>
+                  </div>
+                </a>
+                <i class="favorite-ico"></i>
+              </li>
+              <!-- chat-item Area Start -->
+              <li class="chat-item">
+                <a href="javascript: void(0);">
+                  <div class="store-profile" style="background-color: #b07df3;">
+                    <span class="store-initial">
+                      셀
+                    </span>
+                  </div>
+                  <div class="msg-container">
+                    <div class="msg-info-box">
+                      <div class="store-name">
+                        셀러미가입/미매칭
+                      </div>
+                      <div class="info">
+                        <span class="date">YY.MM.DD</span>
+                      </div>
+                    </div>
+                    <div class="msg-text-box">
+                      <div class="msg-text">가장 최근 대화 내용 표시</div>
+                    </div>
+                  </div>
+                </a>
+                <i class="favorite-ico"></i>
+              </li>
+              <!-- chat-item Area Start -->
+              <li class="chat-item">
+                <a href="javascript: void(0);">
+                  <div class="store-profile" style="background-color: #55cb76;">
+                    <span class="store-initial">
+                      8
+                    </span>
+                  </div>
+                  <div class="msg-container">
+                    <div class="msg-info-box">
+                      <div class="store-name">
+                        8(에잇)마일
+                      </div>
+                      <div class="info">
+                        <span class="date">YY.MM.DD</span>
+                      </div>
+                    </div>
+                    <div class="msg-text-box">
+                      <div class="msg-text">가장 최근 대화 내용 표시</div>
+                    </div>
+                  </div>
+                </a>
+                <i class="favorite-ico"></i>
+              </li>
+              <!-- chat-item Area Start -->
+              <li class="chat-item">
+                <a href="javascript: void(0);">
+                  <div class="store-profile" style="background-color: #b07df3;">
+                    <span class="store-initial">
+                      셀
+                    </span>
+                  </div>
+                  <div class="msg-container">
+                    <div class="msg-info-box">
+                      <div class="store-name">
+                        셀러미가입/미매칭
+                      </div>
+                      <div class="info">
+                        <span class="date">YY.MM.DD</span>
+                      </div>
+                    </div>
+                    <div class="msg-text-box">
+                      <div class="msg-text">가장 최근 대화 내용 표시</div>
+                    </div>
+                  </div>
+                </a>
+                <i class="favorite-ico"></i>
+              </li>
+            </ul>
+          </div><!-- chat-box Area End -->
+        </div><!-- Aside Area End -->
+
+        <!-- No-data Area Start -->
+        <div id="no-data" class="contents">
+          <div class="no-data">
+            <img src="../assets/images/easy-talk-no-data-img.png" alt="no-data">
+          </div>
+        </div><!-- No-data Area End -->
+
+        <!-- Contents Area Start -->
+        <div id="chat1" class="contents">
+          <!-- Msg-stage Area Start -->
+          <div class="msg-stage">
+            <div class="chat-messages">
+              <div class="system-message">
+                <span>2022-04-25</span>
+              </div>
+              <div class="message msg-type1">
+                <div class="msg-container">
+                  <div class="msg-shop">
+                    <div class="shop-info">
+                      <div class="figure">
+                        <a href="javascript: void(0);"
+                          style="background: url('../assets/images/easy-talk-product-img.png') no-repeat center / cover;"></a>
+                      </div>
+                      <div class="info">
+                        <span class="shop-name">상품명이 길면 줄여서 표시됩니다.</span>
+                        <span class="price">12,345</span>
+                      </div>
+                    </div>
+                    <a href="javascript: void(0);" class="btn-confirm">확인하기</a>
+                  </div>
+                  <div class="send-date">
+                    <span>오후 09:12</span>
+                  </div>
+                </div>
+              </div>
+              <div class="message msg-type1">
+                <div class="msg-container">
+                  <div class="msg-item">
+                    <span class="msg-text">안녕하세요~ 요거 핑크 언제 품절 풀리나요~?</span>
+                  </div>
+                  <div class="send-date">
+                    <span>오후 09:12</span>
+                  </div>
+                </div>
+              </div>
+              <div class="message msg-type1">
+                <div class="msg-container">
+                  <div class="msg-order">
+                    <div class="order-info-hd">
+                      <div class="order-date">
+                        주문일 <span>2022.04.25</span>
+                      </div>
+                      <div class="order-code">
+                        20220425000005045
+                      </div>
+                    </div>
+                    <div class="order-info-bd info-type1">
+                      <dl>
+                        <dt>상품명</dt>
+                        <dd>상품명 표시</dd>
+                      </dl>
+                      <dl>
+                        <dt>옵션</dt>
+                        <dd>색상 / 사이즈</dd>
+                      </dl>
+                      <dl>
+                        <dt>판매가</dt>
+                        <dd>56,000원</dd>
+                      </dl>
+                      <a href="javascript: void(0);" class="btn-confirm">확인하기</a>
+                    </div>
+                  </div>
+                  <div class="send-date">
+                    <span>오후 09:12</span>
+                  </div>
+                </div>
+              </div>
+              <div class="message msg-type2">
+                <div class="msg-container">
+                  <div class="msg-item">
+                    <span class="msg-text">확인해볼게요.</span>
+                  </div>
+                  <div class="send-date">
+                    <span>오후 09:12</span>
+                  </div>
+                </div>
+              </div>
+              <div class="message msg-type1">
+                <div class="msg-container">
+                  <div class="msg-item">
+                    <span class="msg-text">네. 감사합니다.</span>
+                  </div>
+                  <div class="send-date">
+                    <span>오후 09:12</span>
+                  </div>
+                </div>
+              </div>
+              <div class="message msg-type1">
+                <div class="msg-container">
+                  <div class="msg-item">
+                    <span class="msg-text">
+                      메시지 내용이 길 경우 말줌임 하지 않고 계속 길게 표시합니다.
+                      메시지 내용이 길 경우 말줌임 하지 않고 계속 길게 표시합니다.
+                      메시지 내용이 길 경우 말줌임 하지 않고 계속 길게 표시합니다.
+                    </span>
+                  </div>
+                  <div class="send-date">
+                    <span>오후 09:12</span>
+                  </div>
+                </div>
+              </div>
+              <div class="message msg-type1">
+                <div class="msg-container">
+                  <div class="msg-order">
+                    <div class="order-info-hd">
+                      <div class="order-date">
+                        주문일 <span>2022.04.25</span>
+                      </div>
+                      <div class="order-code">
+                        20220425000005045
+                      </div>
+                    </div>
+                    <div class="order-info-bd info-type2">
+                      <dl>
+                        <dt>주문 품목 수</dt>
+                        <dd>2</dd>
+                      </dl>
+                      <a href="javascript: void(0);" class="btn-confirm">확인하기</a>
+                    </div>
+                  </div>
+                  <div class="send-date">
+                    <span>오후 09:12</span>
+                  </div>
+                </div>
+              </div>
+              <div class="message msg-type2">
+                <div class="msg-container">
+                  <div class="msg-item">
+                    <span class="msg-text">내용입니다.</span>
+                  </div>
+                  <div class="send-date">
+                    <span>오후 09:12</span>
+                  </div>
+                </div>
+              </div>
+              <div class="message msg-type2">
+                <div class="msg-container">
+                  <div class="msg-item">
+                    <span class="msg-text">메시지 내용이 길경우 여러줄로 표시됩니다.메시지 내용이 길경우 여러줄로 표시됩니다.</span>
+                  </div>
+                  <div class="send-date">
+                    <span>오후 09:12</span>
+                  </div>
+                </div>
+              </div>
+              <div class="message msg-type2">
+                <div class="msg-container">
+                  <div class="msg-item">
+                    <span class="msg-text">메시지 내용이 길경우 여러줄로 표시됩니다.메시지 내용이 길경우 여러줄로 표시됩니다.</span>
+                  </div>
+                  <div class="send-date">
+                    <span>오후 09:12</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="write-box">
+              <textarea name="" id=""
+                placeholder="메시지를 입력해주세요. (Enter : 전송, Shift+Enter : 줄바꿈)&#13;&#10;비밀번호를 포함한 이용자의 개인정보가 노출되지 않도록 유의 부탁드립니다."></textarea>
+              <button type="button" class="btn-chat-write"><i class="send-icon"></i>전송</button>
+            </div>
+          </div><!-- Msg-stage Area End -->
+          <!-- store-info Area Start -->
+          <div class="store-info">
+            <div class="store-profile" style="background-color: #30a8e4;">
+              <span class="store-initial">
+                가
+              </span>
+            </div>
+            <div class="store-name">
+              가게명이 아주 길면
+              줄내림하여 모두 표시
+            </div>
+            <div class="hashtag">
+              <span>#20대</span>
+              <span>#30대</span>
+              <span>#여성</span>
+              <span>#베이직</span>
+              <span>#클래식</span>
+              <span>#모던</span>
+              <span>#태그가길면줄내림하여모두표시</span>
+            </div>
+            <ul class="info">
+              <li>
+                <div class="title">주소</div>
+                <div class="text">
+                  마켓명 동 층 열 호 길면 줄내림하여
+                  모두 표시 마켓명 동 층 열 호
+                </div>
+              </li>
+              <li>
+                <div class="title">연락처</div>
+                <div class="text">
+                  010-1234-5678
+                </div>
+              </li>
+            </ul>
+            <div class="leave-chat">
+              <button type="button" class="btn-leave">이 가게와 채팅 끝내기</button>
+            </div>
+          </div><!-- store-info Area End -->
+        </div><!-- Contents Area End -->
+
+        <!-- Contents Area Start -->
+        <div id="chat2" class="contents">
+          <!-- Msg-stage Area Start -->
+          <div class="msg-stage">
+            <div class="chat-messages">
+              <div class="system-message">
+                <span>2022-04-25</span>
+              </div>
+              <div class="message msg-type1">
+                <div class="msg-container">
+                  <div class="msg-item">
+                    <span class="msg-text">안녕하세요~ 요거 핑크 언제 품절 풀리나요~?</span>
+                  </div>
+                  <div class="send-date">
+                    <span>오후 09:12</span>
+                  </div>
+                </div>
+              </div>
+              <div class="message msg-type2">
+                <div class="msg-container">
+                  <div class="msg-item">
+                    <span class="msg-text">확인해드리도록 할게요.</span>
+                  </div>
+                  <div class="send-date">
+                    <span>오후 09:12</span>
+                  </div>
+                </div>
+              </div>
+              <div class="system-message">
+                <span>2022-04-25</span>
+              </div>
+              <div class="message msg-type1">
+                <div class="msg-container">
+                  <div class="msg-item">
+                    <span class="msg-text">네 감사합니다.</span>
+                  </div>
+                  <div class="send-date">
+                    <span>오후 09:12</span>
+                  </div>
+                </div>
+              </div>
+              <div class="system-message">
+                <span>여기까지 읽음</span>
+              </div>
+            </div>
+            <div class="write-box">
+              <textarea name="" id=""
+                placeholder="메시지를 입력해주세요. (Enter : 전송, Shift+Enter : 줄바꿈)&#13;&#10;비밀번호를 포함한 이용자의 개인정보가 노출되지 않도록 유의 부탁드립니다."></textarea>
+              <button type="button" class="btn-chat-write"><i class="send-icon"></i>전송</button>
+            </div>
+          </div><!-- Msg-stage Area End -->
+          <!-- store-info Area Start -->
+          <div class="store-info">
+            <div class="store-profile" style="background-color: #55cb76;">
+              <span class="store-initial">
+                8
+              </span>
+            </div>
+            <div class="store-name">
+              8(에잇)마일
+            </div>
+            <div class="hashtag">
+              <span>#20대</span>
+              <span>#30대</span>
+              <span>#여성</span>
+              <span>#베이직</span>
+              <span>#클래식</span>
+              <span>#모던</span>
+            </div>
+            <ul class="info">
+              <li>
+                <div class="title">주소</div>
+                <div class="text">
+                  마켓명 동 층 열 호 길면 줄내림하여
+                  모두 표시 마켓명 동 층 열 호
+                </div>
+              </li>
+              <li>
+                <div class="title">연락처</div>
+                <div class="text">
+                  010-1234-5678
+                </div>
+              </li>
+            </ul>
+            <div class="leave-chat">
+              <button type="button" class="btn-leave">이 가게와 채팅 끝내기</button>
+            </div>
+          </div><!-- store-info Area End -->
+        </div><!-- Contents Area End -->
+
+        <!-- Contents Area Start -->
+        <div id="chat3" class="contents">
+          <!-- Msg-stage Area Start -->
+          <div class="msg-stage">
+            <div class="chat-messages">
+              <div class="system-message">
+                <span>2022-04-25</span>
+              </div>
+              <div class="message msg-type1">
+                <div class="msg-container">
+                  <div class="msg-item">
+                    <span class="msg-text">안녕하세요!</span>
+                  </div>
+                  <div class="send-date">
+                    <span>오후 09:12</span>
+                  </div>
+                </div>
+              </div>
+              <div class="message msg-type1">
+                <div class="msg-container">
+                  <div class="msg-item">
+                    <span class="msg-text">요 상품 문의 좀 드리려구요!</span>
+                  </div>
+                  <div class="send-date">
+                    <span>오후 09:12</span>
+                  </div>
+                </div>
+              </div>
+              <div class="message msg-type2">
+                <div class="msg-container">
+                  <div class="msg-item">
+                    <span class="msg-text">확인하고 말씀드릴게요<br>지금 사장님 식사중이셔서요.</span>
+                  </div>
+                  <div class="send-date">
+                    <span>오후 09:12</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="write-box">
+              <textarea name="" id=""
+                placeholder="메시지를 입력해주세요. (Enter : 전송, Shift+Enter : 줄바꿈)&#13;&#10;비밀번호를 포함한 이용자의 개인정보가 노출되지 않도록 유의 부탁드립니다."></textarea>
+              <button type="button" class="btn-chat-write"><i class="send-icon"></i>전송</button>
+            </div>
+          </div><!-- Msg-stage Area End -->
+          <!-- store-info Area Start -->
+          <div class="store-info">
+            <div class="store-profile" style="background-color: #b07df3;">
+              <span class="store-initial">
+                셀
+              </span>
+            </div>
+            <div class="store-name">
+              셀러미가입
+            </div>
+            <div class="hashtag">
+              <span>큐레이션 정보를 준비 중입니다.</span>
+            </div>
+            <div class="guide-txt">
+              문의사항에 답변이 늦어지는 경우,<br>
+              가게로 직접 연락 부탁드립니다.
+            </div>
+            <ul class="info">
+              <li>
+                <div class="title">주소</div>
+                <div class="text">
+                  마켓명 동 층 열 호 길면 줄내림하여
+                  모두 표시 마켓명 동 층 열 호
+                </div>
+              </li>
+              <li>
+                <div class="title">연락처</div>
+                <div class="text">
+                  010-1234-5678
+                </div>
+              </li>
+            </ul>
+            <div class="leave-chat">
+              <button type="button" class="btn-leave">이 가게와 채팅 끝내기</button>
+            </div>
+          </div><!-- store-info Area End -->
+        </div><!-- Contents Area End -->
+
+        <!-- Contents Area Start -->
+        <div id="chat4" class="contents">
+          <!-- Msg-stage Area Start -->
+          <div class="msg-stage">
+            <div class="chat-messages">
+              <div class="system-message">
+                <span>2022-04-25</span>
+              </div>
+              <div class="message msg-type1">
+                <div class="msg-container">
+                  <div class="msg-item">
+                    <span class="msg-text">안녕하세요!</span>
+                  </div>
+                  <div class="send-date">
+                    <span>오후 09:12</span>
+                  </div>
+                </div>
+              </div>
+              <div class="message msg-type1">
+                <div class="msg-container">
+                  <div class="msg-item">
+                    <span class="msg-text">요 상품 문의 좀 드리려구요!</span>
+                  </div>
+                  <div class="send-date">
+                    <span>오후 09:12</span>
+                  </div>
+                </div>
+              </div>
+              <div class="message msg-type1">
+                <div class="msg-container">
+                  <div class="msg-shop">
+                    <div class="shop-info">
+                      <div class="figure">
+                        <a href="javascript: void(0);"
+                          style="background: url('../assets/images/easy-talk-product-img.png') no-repeat center / cover;"></a>
+                      </div>
+                      <div class="info">
+                        <span class="shop-name">상품명이 길면 줄여서 표시됩니다.</span>
+                        <span class="price">12,345</span>
+                      </div>
+                    </div>
+                    <a href="javascript: void(0);" class="btn-confirm">확인하기</a>
+                  </div>
+                  <div class="send-date">
+                    <span>오후 09:12</span>
+                  </div>
+                </div>
+              </div>
+              <div class="message msg-type1">
+                <div class="msg-container">
+                  <div class="msg-item">
+                    <span class="msg-text">요 아이 혹시 낱장구매하면 깔별 필수인가요?<br>아이랑 노랑만 구매해도 상관없을까요?</span>
+                  </div>
+                  <div class="send-date">
+                    <span>오후 09:12</span>
+                  </div>
+                </div>
+              </div>
+              <div class="message msg-type2">
+                <div class="msg-container">
+                  <div class="msg-item">
+                    <span class="msg-text">확인하고 말씀드릴게요<br>지금 사장님 식사중이셔서요.</span>
+                  </div>
+                  <div class="send-date">
+                    <span>오후 09:12</span>
+                  </div>
+                </div>
+              </div>
+              <div class="message msg-type2">
+                <div class="msg-container">
+                  <div class="msg-item">
+                    <span class="msg-text">상관없으시다네요.</span>
+                  </div>
+                  <div class="send-date">
+                    <span>오후 09:12</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="write-box">
+              <textarea name="" id=""
+                placeholder="메시지를 입력해주세요. (Enter : 전송, Shift+Enter : 줄바꿈)&#13;&#10;비밀번호를 포함한 이용자의 개인정보가 노출되지 않도록 유의 부탁드립니다."></textarea>
+              <button type="button" class="btn-chat-write"><i class="send-icon"></i>전송</button>
+            </div>
+          </div><!-- Msg-stage Area End -->
+          <!-- store-info Area Start -->
+          <div class="store-info">
+            <div class="store-profile" style="background-color: #666;">
+              <span class="store-initial">
+                탈
+              </span>
+            </div>
+            <div class="store-name">
+              탈퇴한가게명
+            </div>
+            <div class="guide-txt">
+              탈퇴한 가게입니다.
+            </div>
+            <ul class="info">
+              <li>
+                <div class="title">주소</div>
+                <div class="text">
+                  마켓명 동 층 열 호 길면 줄내림하여
+                  모두 표시 마켓명 동 층 열 호
+                </div>
+              </li>
+              <li>
+                <div class="title">연락처</div>
+                <div class="text">
+                  010-1234-5678
+                </div>
+              </li>
+            </ul>
+            <div class="leave-chat">
+              <button type="button" class="btn-leave">이 가게와 채팅 끝내기</button>
+            </div>
+          </div><!-- store-info Area End -->
+        </div><!-- Contents Area End -->
+
+      </div><!-- Easy-talk Area End -->
+
+    </div>
+    <!-- //content -->
+  </div>
+  <!-- container -->
+</div>
+
+
+<script>
+  $(document).ready(function () {
+
+    // 전송 버튼 textarea에 값이 있을경우 이벤트
+    $(".easy-talk .msg-stage .write-box textarea").on("propertychange change keyup paste", function () {
+      if ($(this).val() != "") {
+        $('.easy-talk .msg-stage .write-box .btn-chat-write').addClass('on');
+      } else {
+        $('.easy-talk .msg-stage .write-box .btn-chat-write').removeClass('on');
+      }
+    });
+
+    // textarea   shift + enter 키 입력확인
+    $('.easy-talk .msg-stage .write-box textarea').on('keydown', function (event) {
+      if (event.keyCode == 13)
+        if (!event.shiftKey) {
+          event.preventDefault();
+        }
+    });
+
+    // 이지톡 채팅방 선택시 show / hide
+    $('.easy-talk .contents').hide();
+    $('.easy-talk .contents').first().show();
+
+    $('.easy-talk .aside .chat-box .chat-list .chat-item a').click(function () {
+      const chat = $(this).attr('data-tab');
+      $('.easy-talk .contents').hide().removeClass('active');
+      $('#' + chat).show().addClass('active');
+      $('.easy-talk .aside .chat-box .chat-list .chat-item').removeClass('on');
+      $(this).parent('.chat-item').addClass('on');
+      $('.easy-talk .aside .msg-count').hide();
+    })
+
+    // 채팅 끝내기
+    $('.easy-talk .contents .store-info .leave-chat .btn-leave').click(function () {
+      $('.easy-talk .contents').hide();
+      $('#no-data').show();
+    })
+
+    // favorite 아이콘 클릭 이벤트
+    $('.easy-talk .aside .chat-box .chat-list .chat-item .favorite-ico').click(function () {
+      $(this).toggleClass('on');
+    });
+
+    // 대화상대 추가 팝업 클릭
+    $('.modal-add-contact .modal-body .contact-list ul li').click(function () {
+      if ($(this).hasClass('on') == true) {
+        $(this).removeClass('on');
+      } else {
+        $('.modal-add-contact .modal-body .contact-list ul li').removeClass('on');
+        $(this).addClass('on');
+      }
+    })
+  })
+</script>
+
+
+{% include("./modals/easy-talk/easy-talk.njk") %}
+
+{% endblock %}

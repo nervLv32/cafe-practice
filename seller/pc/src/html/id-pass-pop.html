@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="shortcut icon" type="image/x-icon" href="/img/favicon/ezp.ico">
+
+	<link rel="stylesheet" type="text/css" href="../css/pc/default.css">
+
+	<script type="text/javascript" src="../js/pc/jquery-3.5.1.min.js"></script>
+	<script type="text/javascript" src="../js/pc/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="../js/pc/swiper-bundle.min.js"></script>
+	<script type="text/javascript" src="../js/pc/common_front.js"></script>
+	<script type="text/javascript" src="../js/pc/ui.js"></script>
+	<script type="text/javascript" src="../js/pc/pub.js"></script>
+
+	<title>마이페이지 팝업</title>
+</head>
+<body>
+    <header></header>
+
+	<div id="container" class="active">
+		<aside></aside>
+
+		<section class="mypage">
+			<button type="button" name="button" class="ui-popup-call" data-target="#alert1" style="display: block; margin-bottom: 10px;">가입자 이름을 입력하세요.</button>
+			<button type="button" name="button" class="ui-popup-call" data-target="#alert2" style="display: block; margin-bottom: 10px;">휴대폰 번호를 입력하세요.</button>
+			<button type="button" name="button" class="ui-popup-call" data-target="#alert3" style="display: block; margin-bottom: 10px;">해당 정보로 가입된 아이디가 없습니다.</button>
+		</section>
+
+	</div>
+	<footer></footer>
+
+	<div class="ui-popup alert" id="alert1">
+		<div class="content">
+			<button type="button" class="btn-close">닫기</button>
+			<div class="body">
+				<p>가입자 이름을 입력하세요.</p>
+			</div>
+			<div class="btn-wrap">
+				<button type="button" name="button" class="btn-close">확인</button>
+			</div>
+		</div>
+	</div>
+
+	<div class="ui-popup alert" id="alert2">
+		<div class="content">
+			<button type="button" class="btn-close">닫기</button>
+			<div class="body">
+				<p>휴대폰 번호를 입력하세요.</p>
+			</div>
+			<div class="btn-wrap">
+				<button type="button" name="button" class="btn-close">확인</button>
+			</div>
+		</div>
+	</div>
+
+	<div class="ui-popup alert" id="alert3">
+		<div class="content">
+			<button type="button" class="btn-close">닫기</button>
+			<div class="body">
+				<p>해당 정보로 가입된 아이디가 없습니다.<br>문의사항은 고객센터(02-6296-8794)로 연락 바랍니다.</p>
+			</div>
+			<div class="btn-wrap">
+				<button type="button" name="button" class="btn-close">확인</button>
+			</div>
+		</div>
+	</div>
+
+
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+			// include
+			$('header').load('include/header.html');
+			$('footer').load('include/footer.html');
+			$('aside').load('include/aside.html');
+		});
+	</script>
+</body>
+</html>

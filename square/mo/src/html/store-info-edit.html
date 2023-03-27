@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<meta name="format-detection" content="telephone=no">
+	<title>이지픽스퀘어</title>
+	<link rel="stylesheet" type="text/css" href="./css/mobile/jquery-ui.min.css">
+	<link href="css/mobile/style.css" rel="stylesheet">
+</head>
+
+<body>
+	<div class="eps-container">
+		<header>
+			<span class="back">
+				<a href="#" title="이전"><svg class="svg-icon"><use xlink:href="#icon-arrow-hor1"></use></svg></a>
+			</span>
+			<h1>가게정보변경</h1>
+		</header>
+		<main class="store-management">
+			<div class="input-form">
+				<div class="item">
+					<strong>가게</strong>
+					<div>
+						<input type="text" class="input-default" value="가게명" disabled>
+					</div>
+				</div>
+				<div class="item">
+					<strong>마켓</strong>
+					<div class="input-wrap">
+						<input type="text" class="input-default" value="마켓명명" disabled>
+					</div>
+					<div class="dropdown-list" style="margin-top:5px;"><!-- class disabled -->
+						<em class="btn"><button type="button">전체</button></em>
+						<div class="dropdown-menu">
+							<span class="input">
+								<input type="text" placeholder="마켓 검색">
+								<i></i>
+							</span>
+							<ul>
+								<li><button type="button">마켓 전체</button></li>
+								<li><button type="button">디오트</button></li>
+								<li><button type="button">테크노</button></li>
+								<li><button type="button">동원프라자</button></li>
+								<li><button type="button">디오트</button></li>
+								<li><button type="button">테크노</button></li>
+								<li><button type="button">동원프라자</button></li>
+								<li><button type="button">디오트</button></li>
+								<li><button type="button">테크노</button></li>
+								<li><button type="button">동원프라자</button></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="item">
+					<strong>주소</strong>
+					<div class="addr-wrap">
+						<div class="input-wrap">
+							<input type="text" class="input-default" value="1402" disabled>
+							동
+						</div>
+						<div class="input-wrap">
+							<input type="text" class="input-default" value="27" disabled>
+							층
+						</div>
+					</div>
+					<div class="addr-wrap">
+						<div class="input-wrap">
+							<div class="dropdown-list">
+								<em class="btn"><button type="button">전체</button></em>
+								<div class="dropdown-menu">
+								<span class="input">
+									<input type="text" placeholder="동 검색">
+									<i></i>
+								</span>
+									<ul>
+										<li><button type="button">전체</button></li>
+										<li><button type="button">A동</button></li>
+										<li><button type="button">B동</button></li>
+										<li><button type="button">C동</button></li>
+									</ul>
+								</div>
+							</div>
+							동
+						</div>
+						<div class="input-wrap">
+							<div class="dropdown-list">
+								<em class="btn"><button type="button">전체</button></em>
+								<div class="dropdown-menu">
+								<span class="input">
+									<input type="text" placeholder="동 검색">
+									<i></i>
+								</span>
+									<ul>
+										<li><button type="button">전체</button></li>
+										<li><button type="button">A동</button></li>
+										<li><button type="button">B동</button></li>
+										<li><button type="button">C동</button></li>
+									</ul>
+								</div>
+							</div>
+							층
+						</div>
+					</div>
+					<div class="addr-wrap" style="margin-top:10px;">
+						<div class="input-wrap">
+							<input type="text" class="input-default" value="1402" disabled>
+							열
+						</div>
+						<div class="input-wrap">
+							<input type="text" class="input-default" value="27" disabled>
+							호
+						</div>
+					</div>
+					<div class="addr-wrap">
+						<div class="input-wrap">
+							<input type="text" class="input-default">
+							열
+						</div>
+						<div class="input-wrap">
+							<input type="text" class="input-default">
+							호
+						</div>
+					</div>
+				</div>
+
+				<div class="item">
+					<strong>알림톡수신 대표번호</strong><!-- 2021-10-14 EZP-4344 -->
+					<div class="tel-wrap">
+						<input type="text" class="input-default" value="010" disabled>
+						<span class="hyphen">-</span>
+						<input type="text" class="input-default" value="1234" disabled>
+						<span class="hyphen">-</span>
+						<input type="text" class="input-default" value="4567" disabled>
+					</div>
+					<div class="tel-wrap">
+						<select name="" class="select-default">
+							<option value="">010</option>
+							<option value="">011</option>
+							<option value="">016</option>
+							<option value="">017</option>
+							<option value="">018</option>
+							<option value="">019</option>
+						</select>
+						<span class="hyphen">-</span>
+						<input type="text" class="input-default">
+						<span class="hyphen">-</span>
+						<input type="text" class="input-default">
+					</div>
+				</div>
+				<!-- 2022-09-28 EZP-6359 시작 -->
+				<div class="tel-add-wrap">
+					<p class="title">* 그 외 번호 전체</p>
+					<p class="tel-list">010-1234-5678, 010-1234-5678, 010-1234-5678</p>
+				</div>
+
+				<div class="item">
+					<strong>세금계산서 요청 번호</strong>
+					<div class="tel-wrap">
+						<input type="text" class="input-default" value="010" disabled>
+						<span class="hyphen">-</span>
+						<input type="text" class="input-default" value="1234" disabled>
+						<span class="hyphen">-</span>
+						<input type="text" class="input-default" value="4567" disabled>
+					</div>
+					<div class="tel-wrap">
+						<select name="" class="select-default">
+							<option value="">010</option>
+							<option value="">011</option>
+							<option value="">016</option>
+							<option value="">017</option>
+							<option value="">018</option>
+							<option value="">019</option>
+						</select>
+						<span class="hyphen">-</span>
+						<input type="text" class="input-default">
+						<span class="hyphen">-</span>
+						<input type="text" class="input-default">
+					</div>
+
+					<div class="checkbox">
+						<input type="checkbox">
+						<label></label>
+						<span>알림톡 대표번호와 동일</span>
+					</div>
+				</div>
+				<!-- 2022-09-28 EZP-6359 끝 -->
+			</div>
+
+			<div class="notice-wrap">
+				<!-- 2022-09-28 EZP-6359 위치변경 
+				<p class="title">* 그 외 번호 전체</p>
+				<ul class="tel-list">
+					<li>010-1234-5678</li>
+					<li>010-1234-5678</li>
+				</ul>
+				-->
+				<div class="warn">
+					<p>※ 변경된 가게 정보는 관리자 승인 완료 시 반영됩니다.</p>
+					<p>※ 변경된 담당삼촌은 다음 발주서 생성시부터 반영됩니다.</p>
+				</div>
+			</div>
+			<!-- 2022-12-14 EZP-7627 위치 이동 시작 -->
+			<div class="fixed-btns">
+				<!-- 2022-12-06 EZP-7448 : top 버튼 추가 -->
+				<div class="floating-menu">
+					<div class="top"><a href="#" title="위로">TOP</a></div>
+				</div>
+				<button type="button" class="cancel">취소</button>
+				<!-- 2022-09-29 EZP-6359 .ui-popup-open 추가 -->
+				<button type="button" class="confirm ui-popup-open" data-open="#pop-full-stock">변경</button>
+			</div><!-- 2022-12-14 EZP-7627 위치 이동 끝 -->
+		</main>
+	</div>
+
+	<!-- 2022-09-29 EZP-6359 popup 추가 시작 -->
+	<!-- 변경 확인 popup -->
+	<div class="full-layer new-type pop-full-stock" id="pop-full-stock">
+		<div class="wrap">
+			<div class="contents txt-content">
+				<p>변경하시겠습니까?</p>
+			</div>
+			<div class="btns">
+				<button type="button" class="cancel">취소</button>
+				<button type="submit" class="submit ui-popup-open" data-open="#alert-confirm">확인</button>
+			</div>
+		</div>
+	</div>
+
+	<!-- popup에서 변경 버튼 눌렀을 시 나오는 alert창 -->
+	<div class="alert-layer ex" id="alert-confirm">
+		<!-- display class "on" -->
+		<div class="alert-inner">
+			<!-- case1. 정상(변경완료) -->
+			<div class="content">
+				<p>정상적으로 처리되었습니다.</p>
+				<div class="btns">
+					<button type="button" class="ok re-check">확인</button>
+				</div>
+			</div>
+
+			<!-- case2. 변경된 항목 없음 -->
+			<div class="content">
+				<p>동일한 정보로 변경할 수 없습니다.</p>
+				<div class="btns">
+					<button type="button" class="ok re-check">확인</button>
+				</div>
+			</div>
+
+			<!-- case3. 가게명 미입력 -->
+			<div class="content">
+				<p>가게명 항목은 필수 입력값입니다.</p>
+				<div class="btns">
+					<button type="button" class="ok re-check">확인</button>
+				</div>
+			</div>
+
+			<!-- case4. '사용함'상태의 동일가게가 있을 경우 -->
+			<div class="content">
+				<p>동일한 가게정보가 존재합니다.<br/>
+					다시 확인해주세요.</p>
+				<div class="btns">
+					<button type="button" class="ok re-check">확인</button>
+				</div>
+			</div>
+
+			<!-- case5. 가게명 + 주소와 동일한 매칭 키워드가 타 가게에 등록된 경우 -->
+			<div class="content">
+				<p>가게명, 주소가 [$가게명] 가게의<br/>
+					매칭 키워드로 등록되어 있습니다.<br/>
+					확인해주세요.</p>
+				<div class="btns">
+					<button type="button" class="ok re-check">확인</button>
+				</div>
+			</div>
+
+			<!-- case6. 주소의 '층'항목 미선택 -->
+			<div class="content">
+				<p>주소를 입력해주세요.</p>
+				<div class="btns">
+					<button type="button" class="ok re-check">확인</button>
+				</div>
+			</div>
+
+			<!-- case7. 알림톡수신 대표번호 미입력 또는 사양 오류 -->
+			<div class="content">
+				<p>알림톡 수신 대표번호를 다시 확인해주세요.</p>
+				<div class="btns">
+					<button type="button" class="ok re-check">확인</button>
+				</div>
+			</div>
+
+			<!-- case8. 세금계산서 요청번호 미입력 또는 사양 오류 -->
+			<div class="content">
+				<p>세금계산서 요청 번호를 다시 확인해주세요.</p>
+				<div class="btns">
+					<button type="button" class="ok re-check">확인</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- 2022-09-29 EZP-6359 popup 추가 끝 -->
+
+	<div id="modal"></div>
+	<!-- ui check -->
+	<script type="text/javascript" src="./jquery-3.5.1.min.js"></script>
+	<script src="./ui.js"></script>
+	<script type="text/javascript" src="jquery-ui.min.js"></script>
+</body>
+
+</html>

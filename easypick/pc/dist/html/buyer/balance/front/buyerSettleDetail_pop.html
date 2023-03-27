@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="ko" data-livestyle-extension="available" class="js">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="format-detection" content="telephone=no">
+	<meta content="lK0RWxdehsio/icXlDgOD1/0XccqggRiBvNtJOsCkmw=" name="csrf-token">
+	<meta content="T" name="login-required">
+	<link rel="shortcut icon" type="image/x-icon" href="https://easypick.co.kr/img/favicon/ezp.ico">
+
+	<!-- css -->
+	<link rel="stylesheet" type="text/css" href="../../../../css/default.css">
+	<link rel="stylesheet" type="text/css" href="../../../../css/month.picker.css">
+
+	<title>이지픽</title>
+</head>
+
+<!-- 2022-09-20 EZP-7005 body .scroll제거 -->
+<!-- 2022-11-29 EZP-7577 max class 추가 (max-width를 max-content로 변경하기위해)-->
+<body class="window-pop-wrap max">
+	<!--container// -->
+	<!-- 2022-09-20 EZP-7005 div.add-set-pop추가 -->
+	<div class="add-set-pop">
+		<!-- 2022-09-19 EZP-7005 #container에 .scroll-container 제거 -->
+		<div id="container">
+			<div class="order-list-wrap popup complete">
+				<div class="list-right" style="width:1040px !important; padding-bottom:100px">
+					<div class="table-wrap mb0">
+						<p class="tit">거래처별 정산</p>
+						<form id="frmBuyerOrderInspectlist" name="frmBuyerOrderInspectlist" action="/buyer/order/front/inspectList">
+							<input type="hidden" name="bs_complete_no" value="">
+						</form>
+					</div>
+					<div class="table-wrap order-list mb0">
+						<div class="tit wrap new-type mt0">
+							<div class="tit-right">
+								<!-- 2021-06-02 EZP-2995 -->
+								<button type="button" class="btn small line ml0 ui-popup-open" data-target="#finalamount">거래처검색</button>
+								<button type="button" class="btn small btnExcelDown mrl0" href="/buyer/order/front/inspectSellerListExcel">
+									엑셀다운로드
+								</button>
+							</div>
+						</div>
+
+						<!-- 2021-07-27 EZP-3550 -->
+						<div class="scroll-head" style="width:1040px;">
+							<!--2020-04-13 원 표시 seller-table클레스 추가-->
+							<table class="th-hor seller-table" style="margin-top:0px !important;">
+								<!-- 21-03-04 colgroup 수정 -->
+								<colgroup>
+									<col width="50">
+									<col width="120">
+									<col width="100">
+									<col width="110">
+									<col width="110">
+									<col width="*">
+									<col width="180">
+									<col width="160">
+								</colgroup>
+								<thead>
+									<tr class="sub-th">
+										<th>
+											<span class="checkbox">
+												<input type="checkbox" id="" class="allChk">
+												<label for=""></label>
+											</span>
+										</th>
+										<th>거래처명</th>
+										<th>주소</th>
+										<th>
+											결제금액
+										</th>
+										<th>
+											조정금액
+										</th>
+										<th>
+											사유
+										</th>
+										<th class="bg-gr">합계</th>
+										<th>정산상태</th>
+									</tr>
+								</thead>
+							</table>
+						</div>
+
+						<div class="scroll-tbody">
+							<!--2020-04-13 원 표시 seller-table클레스 추가-->
+							<table class="th-hor seller-table" style="margin-top:0px !important;">
+								<!-- 21-03-04 colgroup 수정 -->
+								<colgroup>
+									<col width="50">
+									<col width="120">
+									<col width="100">
+									<col width="110">
+									<col width="110">
+									<col width="*">
+									<col width="180">
+									<col width="160">
+								</colgroup>
+								<!-- 2020-04-24 eListArea 클레스 추가 -->
+								<tfoot class="eListArea">
+								<tr class="sub-tit eSumTr">
+									<td>
+											<span class="checkbox">
+												<input type="checkbox" id="" disabled>
+												<label for=""></label>
+											</span>
+									</td>
+									<td>가스나</td>
+									<td class="tal">
+										디오트<br> 2층 F열 3호
+									</td>
+									<td class="">
+										<em class="price">1,030,000</em>원
+									</td>
+									<td>
+										<em class="price">1,030,000</em>원
+									</td>
+									<td class="tal">
+										금액이 안맞아서 조정금액 입력
+									</td>
+									<td class="bg-gr tar pr10">
+										<button type="button" class="ui-popup-open btn mini line" data-target="#finalamount">설정</button>
+										<em class="price eSettlePrice" data-settle_price="9,999,999">9,999,999</em>원
+									</td>
+									<td class="txt-red">
+										정산요청
+									</td>
+								</tr>
+								<tr class="sub-tit eSumTr">
+									<td>
+											<span class="checkbox">
+												<input type="checkbox" id="">
+												<label for=""></label>
+											</span>
+									</td>
+									<td>가스나</td>
+									<td class="tal">
+										디오트<br> 2층 F열 3호
+									</td>
+									<td class="">
+										<em class="price">1,030,000</em>원
+									</td>
+									<td>
+										<em class="price">1,030,000</em>원
+									</td>
+									<td class="tal">
+										금액이 안맞아서 조정금액 입력
+									</td>
+									<td class="bg-gr tar pr10">
+										<button type="button" class="ui-popup-open btn mini line" data-target="#finalamount">설정</button>
+										<em class="price eSettlePrice" data-settle_price="13000">13,000</em>원
+									</td>
+									<td>
+										정산확인
+										<p class="Enfont small txt-gray">(2020-03-10 20:28:55)</p>
+									</td>
+								</tr>
+								<tr class="sub-tit eSumTr">
+									<td>
+											<span class="checkbox">
+												<input type="checkbox" id="">
+												<label for=""></label>
+											</span>
+									</td>
+									<td>가스나</td>
+									<td class="tal">
+										디오트<br> 2층 F열 3호
+									</td>
+									<td class="">
+										<em class="price">1,030,000</em>원
+									</td>
+									<td>
+										<em class="price">1,030,000</em>원
+									</td>
+									<td class="tal">
+										금액이 안맞아서 조정금액 입력
+									</td>
+									<td class="bg-gr tar pr10">
+										<button type="button" class="ui-popup-open btn mini line" data-target="#finalamount">설정</button>
+										<em class="price eSettlePrice" data-settle_price="13000">13,000</em>원
+									</td>
+									<td class="txt-gray2">
+										정산보류
+										<p class="Enfont small txt-gray">(2020-03-10 20:28:55)</p>
+									</td>
+								</tr>
+								<tr class="sub-tit eSumTr">
+									<td>
+											<span class="checkbox">
+												<input type="checkbox" id="">
+												<label for=""></label>
+											</span>
+									</td>
+									<td>가스나</td>
+									<td class="tal">
+										디오트<br> 2층 F열 3호
+									</td>
+									<td class="">
+										<em class="price">1,030,000</em>원
+									</td>
+									<td>
+										<em class="price">1,030,000</em>원
+									</td>
+									<td class="tal">
+										금액이 안맞아서 조정금액 입력
+									</td>
+									<td class="bg-gr tar pr10">
+										<button type="button" class="ui-popup-open btn mini line" data-target="#finalamount">설정</button>
+										<em class="price eSettlePrice" data-settle_price="13000">13,000</em>원
+									</td>
+									<td class="txt-green">
+										정산확정
+										<p class="Enfont small txt-gray">(2020-03-10 20:28:55)</p>
+									</td>
+								</tr>
+								</tfoot>
+								<tbody>
+								<tr class="all-price eSumTr">
+									<td></td>
+									<td colspan="2">합 계</td>
+									<td class="">
+										<em class="price">1,030,000</em>원
+									</td>
+									<td class="">
+										<em class="price">1,030,000</em>원
+									</td>
+									<td class="">-</td>
+									<td class="bg-darkgr tar pr10">
+										<em class="price">3,870,000</em>원
+									</td>
+									<td></td>
+								</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<p>
+						선택한 가게를 '정산확인' 처리 하시겠습니까?
+					</p>
+				</div>
+			</div>
+			<div id="footer">
+				<button type="button" class="btn small line eClosePopup" style="width:100px;">닫기</button>
+				<button type="button" class="btn small point ">선택 가게 정산확인</button>
+			</div>
+		</div>
+	</div>
+
+	<!-- 2020-06-23 EZP-787 종료 -->
+
+	<!-- 2020-06-23 EZP-787 -->
+	<div id="finalamount" class="ui-popup settings-pop">
+		<div class="content" style="width:520px;" tabindex="-1">
+			<div class="header">
+				<h3>최종금액 조정</h3>
+			</div>
+			<div class="body reconfirm">
+				<div class="txt-cont">
+					<div class="txt-cont reorder">
+						<p class="txt-info">
+							가게를 검색 하여 최종정산금액을 입력 할 수 있습니다.<br>
+							<span>최종정산금액을 입력</span>하시면,<br>
+							'조정금액 항목'에 차액이 자동으로 저장됩니다.
+						</p>
+						<div class="table-wrap">
+							<table class="th-ver ">
+								<colgroup>
+									<col width="80px">
+									<col width="*">
+								</colgroup>
+								<tbody>
+									<tr>
+										<th>가게명</th>
+										<td class="sort keyword">
+											<input type="text" placeholder="가게명을 입력해주세요." class="autoframe-input">
+											<ul class="autoframe">
+												<!-- 2020-07-03 EZP-787 -->
+												<li>프롬디오트 (청평화 C동 2층) 내용 길어지면 이렇게 표기됩니다.</li>
+												<li>프롬디오트 (청평화 C동 2층)</li>
+												<li>프롬디오트 (청평화 C동 2층)</li>
+												<li>프롬디오트 (청평화 C동 2층)</li>
+												<li>프롬디오트 (청평화 C동 2층)</li>
+												<li>프롬디오트 (청평화 C동 2층)</li>
+											</ul>
+										</td>
+									</tr>
+									<tr>
+										<th>결제금액</th>
+										<td>
+											1,030,000원
+										</td>
+									</tr>
+									<tr>
+										<th>조정금액입력</th>
+										<td class="sort">
+											<input type="text" placeholder="금액을 입력해주세요.">
+										</td>
+									</tr>
+									<tr>
+										<th class="valign-top pt10">사유입력</th>
+										<td class="sort">
+											<textarea name="bad_memo">&nbsp;</textarea>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+				<div class="btn_wrap mt40 tac">
+					<button type="button" class="btn medium btn_close ui-popup-open" style="width:150px;" data-target="#layer-settings-cancel">취소</button>
+					<button type="button" class="btn point medium eBadRegistered ui-popup-open" style="width:150px;"  data-target="#layer-settings-alert">저장</button>
+				</div>
+			</div><!-- //body -->
+			<button type="button" class="btn_close reconfirm"><span>닫기</span></button>
+		</div>
+	</div>
+
+
+	<!--2020-04-24 시작-->
+	<div id="layerOrderMemo" class="ui-popup">
+		<div class="content" style="width:520px;" tabindex="-1">
+			<div class="header">
+				<h3>매입환불 요청 메모</h3>
+			</div>
+			<div class="body reconfirm mt40">
+				<div class="txt-cont memo reorder">
+					<div class="table-wrap">
+						<form id="frmLayerBad" name="frmLayerBad">
+							<input type="hidden" name="order_item_no">
+							<input type="hidden" name="ss_item_no">
+							<table class="th-ver">
+								<colgroup>
+									<col width="30%">
+									<col width="*">
+								</colgroup>
+								<tbody>
+									<tr>
+										<th>관리자 메모</th>
+										<td class="tdShippingMemo">요청대로 매입환불 해드리겠습니다.</td>
+									</tr>
+									<tr>
+										<th>고객 메모</th>
+										<td class="tdUncleMemo">
+											환불요청
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</form>
+					</div>
+				</div>
+				<div class="btn_wrap mt40 tac">
+					<button type="button" class="btn point medium btn_close" style="width:150px;">확인</button>
+				</div>
+			</div><!-- //body -->
+			<button type="button" class="btn_close reconfirm"><span>닫기</span></button>
+		</div>
+	</div>
+	<!--2020-04-24 종료-->
+
+	<!-- Alert Layer -->
+	<!-- 2020-05-12 -->
+	<div id="layersettings" class="ui-popup settings-pop">
+		<div class="content" style="width:520px;" tabindex="-1">
+			<div class="header">
+				<h3>조정금액 설정</h3>
+			</div>
+			<div class="body reconfirm mt40">
+				<div class="txt-cont">
+					<div class="txt-cont reorder">
+
+						<div class="table-wrap">
+							<table class="th-ver ">
+								<colgroup>
+									<col width="18%">
+									<col width="*">
+								</colgroup>
+								<tbody>
+									<tr>
+										<th>금액입력</th>
+										<td class="sort">
+											<div class="ui-select">
+												<button type="button">+</button>
+												<ul>
+													<li>+</li>
+													<li>-</li>
+												</ul>
+											</div>
+											<input type="text" placeholder="금액을 입력해주세요.">
+										</td>
+									</tr>
+									<tr>
+										<th class="valign-top pt10">사유입력</th>
+										<td>
+											<textarea name="bad_memo" style="width:248px; height:100px;">&nbsp;</textarea>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+				<div class="btn_wrap mt40 tac">
+					<button type="button" class="btn medium btn_close ui-popup-open" style="width:150px;" data-target="#layer-settings-cancel">취소</button>
+					<button type="button" class="btn point medium eBadRegistered ui-popup-open" style="width:150px;"  data-target="#layer-settings-alert">확인</button>
+				</div>
+			</div><!-- //body -->
+			<button type="button" class="btn_close reconfirm"><span>닫기</span></button>
+		</div>
+	</div>
+
+	<div id="layer-settings-alert" class="ui-popup">
+		<div class="content" style="min-width:412px; max-width: 700px;" tabindex="-1">
+			<div class="body">
+				<div class="txt-cont">
+					<div class="txt-cont result order">
+						<div class="confirm">
+							<p id="commLayerContents">
+								<!-- 저장 정상저장 -->
+								입력된 조정금액 및 사유를 저장하시겠습니까?<br>
+								저장 시 재계산된 정산금액으로 처리 됩니다.
+
+								<!-- 저장금액 미입력 -->
+								조정금액이 입력되지 않았습니다.<br>
+								선택된 항목의 금액을 입력해주시기 바랍니다.
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="btn_wrap mt40 tac">
+					<span class="commLayerCancel"><button type="button" class="btn medium btn_close" style="width:150px;">취소</button></span>
+					<span id="commLayerConfirm"><button class="btn point medium btn_close" style="width:150px;">확인</button></span>
+				</div>
+			</div>
+			<button type="button" class="btn_close">
+				<div class="commLayerConfirm"><span>닫기</span></div>
+			</button>
+		</div>
+	</div>
+	<div id="layer-settings-cancel" class="ui-popup">
+		<div class="content" style="min-width:412px; max-width: 700px;" tabindex="-1">
+			<div class="body">
+				<div class="txt-cont">
+					<div class="txt-cont result order">
+						<div class="confirm">
+							<p id="commLayerContents">
+								<!-- 취소 -->
+								조정금액을 저장하기 전으로 초기화 하시겠습니까?
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="btn_wrap mt40 tac">
+					<span class="commLayerCancel"><button type="button" class="btn medium btn_close" style="width:150px;">취소</button></span>
+					<span id="commLayerConfirm"><button class="btn point medium btn_close" style="width:150px;">확인</button></span>
+				</div>
+			</div>
+			<button type="button" class="btn_close">
+				<div class="commLayerConfirm"><span>닫기</span></div>
+			</button>
+		</div>
+	</div>
+	<!-- 2020-05-12 종료 -->
+
+	<!-- Confirm Layer -->
+	<div id="layerConfirmOpen" class="ui-popup-open" data-target="#layerConfirm" style="display:none"></div>
+	<div id="layerConfirm" class="ui-popup">
+		<div class="content" style="min-width:412px; max-width: 700px;" tabindex="-1">
+			<div class="body">
+				<div class="txt-cont">
+					<div class="txt-cont result order">
+						<h3 id="commLayerTitle"></h3>
+						<div class="confirm">
+							<p id="commLayerContents"></p>
+						</div>
+					</div>P
+				</div>
+				<div class="btn-wrap mt40 tac">
+					<span class="commLayerCancel"><button type="button" class="btn medium btn_close" style="width:150px;">취소</button></span>
+					<span id="commLayerConfirm"><button class="btn point medium btn_close" style="width:150px;">확인</button></span>
+				</div>
+			</div>
+			<button type="button" class="btn_close">
+				<div class="commLayerCancel"><span>닫기</span></div>
+			</button>
+		</div>
+	</div>
+
+     <!-- 21-01-18 수정-->
+		<script src="../../../../js/jquery.min.js"></script><!--jquery default-->
+		<script src="../../../../js/jquery-ui.min.js"></script>
+		<script src="../../../../js/swiper-ie9.min.js"></script>
+		<script src="../../../../js/default.input.js"></script> <!-- 2022-10-04 -->
+		<script src="../../../../js/addclear.min.js"></script>
+		<script src="../../../../js/common.front.js"></script>
+		<script src="../../../../js/ui.js"></script>
+		<script src="../../../../js/pub.js"></script>
+		<script src="../../../../js/jquery.scrollbar.min.js"></script>
+
+		<!-- //21-01-18 수정-->
+
+	<!-- <script type="text/javascript" src="../../../../js/script.js"> </script>
+	<script type="text/javascript">
+		LocalStorage.set("csrf-token", "Tl/xTwvuzfHiBvogO2OJ4A7hb/vHr3+HrqcuRD4TQbY=", "ses");
+	</script> -->
+
+	<div class="ui-load" style="display:none"><img src="/img/common/loading.svg"></div>
+<script>
+/* 2021-07-01 EZP-3375  */
+$(function(){
+	var pos_top = $('.scroll-head').offset().top;
+	$(window).scroll(function(){
+		if($(this).scrollTop() >= pos_top ){
+			$('.scroll-head').addClass('fix');
+		}else{
+			$('.scroll-head').removeClass('fix');
+		}
+	});
+
+	$('td.keyword input[type="text"]').on( 'focus keyup', function() {
+      var inputLenght = $('td.keyword input[type="text"]').val();
+	  if (inputLenght.length >= 2) {
+		$('.keyword .autoframe').css('display','block');
+	  }else {
+		$('.keyword .autoframe').css('display','none');
+	  }
+    } );
+});
+</script>
+</body>
+
+</html>

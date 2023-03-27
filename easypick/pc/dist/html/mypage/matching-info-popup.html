@@ -1,0 +1,1196 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="shortcut icon" type="image/x-icon" href="https://easypick.co.kr/img/favicon/ezp.ico">
+	<link rel="stylesheet" type="text/css" href="../../css/default.css">
+	<link rel="stylesheet" type="text/css" href="../../css/month.picker.css">
+	<title>이지픽</title>
+</head>
+
+<body class="window-pop-wrap">
+	<!-- 2022-11-23 EZP-6415 카페24 상품등록시 alert case -->
+	<div id="container" class="scroll-popup">
+		<div class="matching-popup">
+			<div class="content">
+				<div class="header"><h3>주문매칭</h3></div>
+				<div class="body reconfirm">
+					<div class="matching-info-box">
+						<ul>
+							<li>
+								<div class="tit">
+									<span>이지픽 상품 선택</span>
+									<div class="tip-wrap ml5">
+										<a href="javascript: void(0);" class="btn-tip"></a>
+										<div class="tip" style="width: 310px;">
+											<span class="tit">이지픽 상품 선택</span>
+											<span class="txt sort" style="padding-bottom: 20px;">- 리스트에 이지픽 상품이 한개만 있을 경우,<br/>
+											상품의 모든 옵션이 목록에 표시됩니다.</span>
+											<span class="tit">이지픽 상품 검색</span>
+											<span class="txt sort">- 주문일로 지정한 기간 내에 조회된 상품에 한하여<br/>
+											검색 결과가 표시됩니다.</span>
+										</div>
+									</div>
+								</div>
+								<div class="list-searchBox">
+									<input type="hidden" name="search_key" id="search_key" value="" />
+									<div class="ui-select" data-target_id="#search_key">
+									  <button type="button" data-target_id="#search_key" data-value="">이지픽상품명</button>
+									  <ul>
+										<li data-key="" class="active">이지픽상품명</li>
+										<li data-key="seller_name">거래처명</li>
+									  </ul>
+									</div>
+									<div class="search-wrap">
+										<input type="text" title="기본 입력란" name="search_value" value="" style="padding-right: 20px" placeholder="검색어를 입력해주세요"/><a
+										href="#" class="search-btn ui-popup-open" data-target="#search-alert1"><i><img src="../../img/common/search_ico.png"></i></a>
+									</div>
+								</div>
+								<p class="search-txt"><span>검색결과 <em class="green">5</em><em class="gray">개</em></span><span>매칭완료 <em class="green">1</em><em class="gray">개</em>,미매칭 <em class="txt-red">4</em><em class="gray">개</em></span></p>
+								<div class="product-list">
+									<!-- 가게명, 상품명이 길어서 말줄임말이 되는 경우 툴팁 구조 -->
+									<div class="item">
+										<a href="#">
+											<div class="prd-wrap">
+												<!-- 2023-02-20 EZP-6415 기본 브라우저 툴팁으로 변경으로 title 추가 -->
+												<span class="sotre-name prd" title="진짜피카소(퀸즈스퀘어 3층 49호)진짜피카소(퀸즈스퀘어 3층 49호)진짜피카소(퀸즈스퀘어 3층 49호)">진짜피카소(퀸즈스퀘어 3층 49호)진짜피카소(퀸즈스퀘어 3층 49호)</span>
+												<!-- 2023-02-20 EZP-6415 기본 브라우저 툴팁으로 변경으로 제거
+												<div class="tip-wrap">
+													<div class="tip">진짜피카소(퀸즈스퀘어 3층 49호)진짜피카소(퀸즈스퀘어 3층 49호)진짜피카소(퀸즈스퀘어 3층 49호)</div>
+												</div>
+												-->
+											</div>
+											<div class="prd-wrap">
+												<!-- 2023-02-20 EZP-6415 기본 브라우저 툴팁으로 변경으로 title 추가 -->
+												<span class="product-name prd" title="상품명이 길경우 나오는 툴팁입니다.">터틀넥 스트랩 울 코트 터틀넥 스트랩 울 코트 터틀넥 스트랩 울 코트</span>
+												<!-- 2023-02-20 EZP-6415 기본 브라우저 툴팁으로 변경으로 제거
+												<div class="tip-wrap">
+													<div class="tip">상품명이 길경우 나오는 툴팁입니다.</div>
+												</div>
+												-->
+											</div>
+										</a>
+										<div class="radio-list">
+											<span class="re-radio">
+												<input type="radio" id="a1" name="a1">
+												<label for="a1">
+													<!-- 2023-02-15 EZP-6415 툴팁 추가로 구조 변경
+														<span>네이비,S</span> -->
+													<!-- 2023-02-15 EZP-6415 툴팁 추가로 구조 변경 시작 -->
+													<div class="prd-wrap">
+														<!-- 2023-02-20 EZP-6415 기본 브라우저 툴팁으로 변경으로 title 추가 -->
+														<p class="prd" title="네이비,S네이비,S네이비,S네이비,S네이비,S네이비,S네이비,S">네이비,S네이비,S네이비,S네이비,S네이비,S네이비,S네이비,S</p>
+														<!-- 2023-02-20 EZP-6415 기본 브라우저 툴팁으로 변경으로 제거
+														<div class="tip-wrap">
+															<div class="tip">
+																<span>디오트 3층 F열 11호 (010-0000-0000)</span>
+															</div>
+														</div>
+														-->
+													</div>
+													<!-- 2023-02-15 EZP-6415 툴팁 추가로 구조 변경 끝 -->
+													<span class="state txt-red">미매칭</span>
+												</label>
+											</span>
+											<span class="re-radio"><input type="radio" id="a2" name="a1"><label for="a2"><span>블랙,M</span><span class="state">매칭완료</span></label></span>
+										</div>
+									</div>
+									<div class="item">
+										<a href="#">
+											<span class="sotre-name">진짜피카소(퀸즈스퀘어 3층 49호)</span>
+											<span class="product-name">터틀넥 스트랩 울 코트</span>
+										</a>
+										<div class="radio-list">
+											<span class="re-radio"><input type="radio" id="a3" name="a1"><label for="a3"><span>네이비,S</span><span class="state txt-red">미매칭</span></label></span>
+											<span class="re-radio"><input type="radio" id="a4" name="a1"><label for="a4"><span>블랙,M</span><span class="state">매칭완료</span></label></span>
+										</div>
+									</div>
+									<div class="item">
+										<a href="#">
+											<span class="sotre-name">진짜피카소(퀸즈스퀘어 3층 49호)</span>
+											<span class="product-name">터틀넥 스트랩 울 코트</span>
+										</a>
+										<div class="radio-list">
+											<span class="re-radio"><input type="radio" id="a5" name="a1"><label for="a5"><span>네이비,S</span><span class="state txt-red">미매칭</span></label></span>
+											<span class="re-radio"><input type="radio" id="a6" name="a1"><label for="a6"><span>블랙,M</span><span class="state">매칭완료</span></label></span>
+										</div>
+									</div>
+									<div class="item">
+										<a href="#">
+											<span class="sotre-name">진짜피카소(퀸즈스퀘어 3층 49호)</span>
+											<span class="product-name">터틀넥 스트랩 울 코트</span>
+										</a>
+										<div class="radio-list">
+											<span class="re-radio"><input type="radio" id="a7" name="a1"><label for="a7"><span>네이비,S</span><span class="state txt-red">미매칭</span></label></span>
+											<span class="re-radio"><input type="radio" id="a8" name="a1"><label for="a8"><span>블랙,M</span><span class="state">매칭완료</span></label></span>
+										</div>
+									</div>
+									<div class="item">
+										<a href="#">
+											<span class="sotre-name">진짜피카소(퀸즈스퀘어 3층 49호)</span>
+											<span class="product-name">터틀넥 스트랩 울 코트</span>
+										</a>
+										<div class="radio-list">
+											<span class="re-radio"><input type="radio" id="a3" name="a1"><label for="a3"><span>네이비,S</span><span class="state txt-red">미매칭</span></label></span>
+											<span class="re-radio"><input type="radio" id="a4" name="a1"><label for="a4"><span>블랙,M</span><span class="state">매칭완료</span></label></span>
+										</div>
+									</div>
+									<div class="item">
+										<a href="#">
+											<span class="sotre-name">진짜피카소(퀸즈스퀘어 3층 49호)</span>
+											<span class="product-name">터틀넥 스트랩 울 코트</span>
+										</a>
+										<div class="radio-list">
+											<span class="re-radio"><input type="radio" id="a3" name="a1"><label for="a3"><span>네이비,S</span><span class="state txt-red">미매칭</span></label></span>
+											<span class="re-radio"><input type="radio" id="a4" name="a1"><label for="a4"><span>블랙,M</span><span class="state">매칭완료</span></label></span>
+										</div>
+									</div>
+									<div class="item">
+										<a href="#">
+											<span class="sotre-name">진짜피카소(퀸즈스퀘어 3층 49호)</span>
+											<span class="product-name">터틀넥 스트랩 울 코트</span>
+										</a>
+										<div class="radio-list">
+											<span class="re-radio"><input type="radio" id="a3" name="a1"><label for="a3"><span>네이비,S</span><span class="state txt-red">미매칭</span></label></span>
+											<span class="re-radio"><input type="radio" id="a4" name="a1"><label for="a4"><span>블랙,M</span><span class="state">매칭완료</span></label></span>
+										</div>
+									</div>
+									<div class="item">
+										<a href="#">
+											<span class="sotre-name">진짜피카소(퀸즈스퀘어 3층 49호)</span>
+											<span class="product-name">터틀넥 스트랩 울 코트</span>
+										</a>
+										<div class="radio-list">
+											<span class="re-radio"><input type="radio" id="a3" name="a1"><label for="a3"><span>네이비,S</span><span class="state txt-red">미매칭</span></label></span>
+											<span class="re-radio"><input type="radio" id="a4" name="a1"><label for="a4"><span>블랙,M</span><span class="state">매칭완료</span></label></span>
+										</div>
+									</div>
+									<div class="item">
+										<a href="#">
+											<span class="sotre-name">진짜피카소(퀸즈스퀘어 3층 49호)</span>
+											<span class="product-name">터틀넥 스트랩 울 코트</span>
+										</a>
+										<div class="radio-list">
+											<span class="re-radio"><input type="radio" id="a3" name="a1"><label for="a3"><span>네이비,S</span><span class="state txt-red">미매칭</span></label></span>
+											<span class="re-radio"><input type="radio" id="a4" name="a1"><label for="a4"><span>블랙,M</span><span class="state">매칭완료</span></label></span>
+										</div>
+									</div>
+									<div class="item">
+										<a href="#">
+											<span class="sotre-name">진짜피카소(퀸즈스퀘어 3층 49호)</span>
+											<span class="product-name">터틀넥 스트랩 울 코트</span>
+										</a>
+										<div class="radio-list">
+											<span class="re-radio"><input type="radio" id="a3" name="a1"><label for="a3"><span>네이비,S</span><span class="state txt-red">미매칭</span></label></span>
+											<span class="re-radio"><input type="radio" id="a4" name="a1"><label for="a4"><span>블랙,M</span><span class="state">매칭완료</span></label></span>
+										</div>
+									</div>
+								</div>
+								<div class="pagination mt25"><a href="#none;" class="first none" style="cursor:unset;">처음</a><a href="#none;" class="prev none" style="cursor:unset;">이전</a><a href="#none;" class="active">1</a> <a
+									href="/buyer/order/front/reserveList?page=2&amp;order=order_ts&amp;sort=descend&amp;limit=10&amp;view_type=sum&amp;date_type=order_ts&amp;period=30&amp;start_date=2020-02-09&amp;end_date=2020-03-10&amp;reserve_status%5B0%5D=10&amp;shop_name=%EB%94%9C%EB%9D%BC%EC%9E%87%EB%AC%B8&amp;user_type=B&amp;user_ip=211.110.58.242&amp;buyer_no=991">2</a>
+								<a
+									href="/buyer/order/front/reserveList?page=3&amp;order=order_ts&amp;sort=descend&amp;limit=10&amp;view_type=sum&amp;date_type=order_ts&amp;period=30&amp;start_date=2020-02-09&amp;end_date=2020-03-10&amp;reserve_status%5B0%5D=10&amp;shop_name=%EB%94%9C%EB%9D%BC%EC%9E%87%EB%AC%B8&amp;user_type=B&amp;user_ip=211.110.58.242&amp;buyer_no=991">3</a>
+								<a
+									href="/buyer/order/front/reserveList?page=4&amp;order=order_ts&amp;sort=descend&amp;limit=10&amp;view_type=sum&amp;date_type=order_ts&amp;period=30&amp;start_date=2020-02-09&amp;end_date=2020-03-10&amp;reserve_status%5B0%5D=10&amp;shop_name=%EB%94%9C%EB%9D%BC%EC%9E%87%EB%AC%B8&amp;user_type=B&amp;user_ip=211.110.58.242&amp;buyer_no=991">4</a>
+									<a
+									href="/buyer/order/front/reserveList?page=4&amp;order=order_ts&amp;sort=descend&amp;limit=10&amp;view_type=sum&amp;date_type=order_ts&amp;period=30&amp;start_date=2020-02-09&amp;end_date=2020-03-10&amp;reserve_status%5B0%5D=10&amp;shop_name=%EB%94%9C%EB%9D%BC%EC%9E%87%EB%AC%B8&amp;user_type=B&amp;user_ip=211.110.58.242&amp;buyer_no=991">5</a>
+									<a
+									href="/buyer/order/front/reserveList?page=4&amp;order=order_ts&amp;sort=descend&amp;limit=10&amp;view_type=sum&amp;date_type=order_ts&amp;period=30&amp;start_date=2020-02-09&amp;end_date=2020-03-10&amp;reserve_status%5B0%5D=10&amp;shop_name=%EB%94%9C%EB%9D%BC%EC%9E%87%EB%AC%B8&amp;user_type=B&amp;user_ip=211.110.58.242&amp;buyer_no=991">6</a>
+								<a href="#none" class="next" style="cursor:unset;">다음</a><a
+									href="/buyer/order/front/reserveList?page=4&amp;order=order_ts&amp;sort=descend&amp;limit=10&amp;view_type=sum&amp;date_type=order_ts&amp;period=30&amp;start_date=2020-02-09&amp;end_date=2020-03-10&amp;reserve_status%5B0%5D=10&amp;shop_name=%EB%94%9C%EB%9D%BC%EC%9E%87%EB%AC%B8&amp;user_type=B&amp;user_ip=211.110.58.242&amp;buyer_no=991"
+									class="last">다음</a></div>
+							</li>
+							<li>
+								<div class="tit">
+									<span>매칭정보 <em class="tit-label">매칭완료</em><em class="tit-label red">미매칭</em></span>
+								</div>
+								<div class="scroll-wrap">
+									<div class="easypick-list">
+										<strong class="sub-tit">이지픽 상품</strong>
+										<!-- 상품명이 길어 말줄임말될시 툴팁 구조 -->
+										<div class="item">
+											<div class="img"></div>
+											<div class="text-box">
+												<div class="prd-wrap">
+													<!-- 2023-02-20 EZP-6415 기본 브라우저 툴팁으로 변경으로 title 추가 -->
+													<span class="sotre-name prd" title="진짜피카소(퀸즈스퀘어 3층 49호)진짜피카소(퀸즈스퀘어 3층 49호)진짜피카소(퀸즈스퀘어 3층 49호)">진짜피카소(퀸즈스퀘어 3층 49호)진짜피카소(퀸즈스퀘어 3층 49호)</span>
+													<!-- 2023-02-20 EZP-6415 기본 브라우저 툴팁으로 변경으로 제거
+														<div class="tip-wrap">
+														<div class="tip">진짜피카소(퀸즈스퀘어 3층 49호)진짜피카소(퀸즈스퀘어 3층 49호)진짜피카소(퀸즈스퀘어 3층 49호)</div>
+													</div> -->
+												</div>
+												<div class="prd-wrap">
+													<!-- 2023-02-20 EZP-6415 기본 브라우저 툴팁으로 변경으로 title 추가 -->
+													<a href="#" class="product-name prd" title="상품명이 길경우 나오는 툴팁입니다.">터틀넥 스트랩 울 코트 터틀넥 스트랩 울 코트 터틀넥 스트랩 울 코트</a>
+													<!-- 2023-02-20 EZP-6415 기본 브라우저 툴팁으로 변경으로 제거
+													<div class="tip-wrap">
+														<div class="tip">상품명이 길경우 나오는 툴팁입니다.</div>
+													</div>
+													-->
+												</div>
+												<!-- 2023-02-16 EZP-6415 툴팁추가로 구조변경
+													<span class="size">네이비,s</span> -->
+												<div class="prd-wrap">
+													<!-- 2023-02-20 EZP-6415 기본 브라우저 툴팁으로 변경으로 title 추가 -->
+													<span class="size prd" title="네이비,s네이비,s네이비,s네이비,s">네이비,s네이비,s네이비,s네이비,s네이비,s네이비,s</span>
+													<!-- 2023-02-20 EZP-6415 기본 브라우저 툴팁으로 변경으로 제거
+													<div class="tip-wrap">
+														<div class="tip">네이비,s네이비,s네이비,s네이비,s</div>
+													</div>
+													-->
+												</div>
+											</div>
+										</div>
+										<!-- 바로주문시 이미지 없는 case --> 
+										<!-- <div class="item">
+											<div class="text-box">
+												<span class="sotre-name">진짜피카소(퀸즈스퀘어 3층 49호)</span>
+												<span class="product-name">터틀넥 스트랩 울 코트</span>
+											</div>
+										</div> -->
+									</div>
+									<div class="easypick-list ec mt20">
+										<strong class="sub-tit mt0">EC 상품 
+											<!-- 2023-01-04 EZP-6415 워딩 제거
+												<em><i>*</i> 최대 5개 매칭 가능</em> -->
+												<!-- 2023-01-04 EZP-6415 상품개수 추가 -->
+												<span>(<em>0</em>)</span>
+										</strong>
+										<!-- nodata건 -->
+										<!-- 2023-01-05 EZP-6415 scroll형성하기위해 inner-scroll-wrap으로 한번더 감싸줬음 -->
+										<div class="inner-scroll-wrap">
+											<div class="item emtpy">
+												<i><img src="../../img/product/img_no_list_green.svg"></i>
+												<p class="pt10">
+													'EC 상품 선택' 에서<br/>
+													상품을 검색하여 매칭해주세요.
+												</p>
+											</div>
+											<div class="item">
+												<div class="left">
+													<div class="img"></div>
+													<div class="text-box">
+														<span class="sotre-name">P000000J</span>
+														<!-- 2023-02-20 EZP-6415 기본 브라우저 툴팁으로 변경으로 title 추가 -->
+														<a href="#" class="product-name" title="터틀넥 스트랩 울 코트 터틀넥 스트랩 울 코트 터틀넥 스트랩 울 코트 터틀넥 스트랩 울 코트">터틀넥 스트랩 울 코트 터틀넥 스트랩 울 코트 터틀넥 스트랩 울 코트 터틀넥 스트랩 울 코트</a>
+														<!-- 2023-02-20 EZP-6415 기본 브라우저 툴팁으로 변경으로 title 추가 -->
+														<span class="size" title="네이비,s 네이비,s 네이비,s 네이비,s 네이비,s">네이비,s 네이비,s 네이비,s 네이비,s 네이비,s</span>
+													</div>
+												</div>
+												<button type="button" class="btn small line ui-popup-open" data-target="#unmatching-alert1">매칭해제</button>
+											</div>
+											<div class="item">
+												<div class="left">
+													<div class="img"></div>
+													<div class="text-box">
+														<span class="sotre-name">P000000J</span>
+														<a href="#" class="product-name">터틀넥 스트랩 울 코트</a>
+														<span class="size">네이비,s</span>
+													</div>
+												</div>
+												<button type="button" class="btn small line ui-popup-open" data-target="#unmatching-alert1">매칭해제</button>
+											</div>
+											<div class="item">
+												<div class="left">
+													<div class="img no-img"></div>
+													<div class="text-box">
+														<span class="sotre-name">P000000J</span>
+														<a href="#" class="product-name">터틀넥 스트랩 울 코트</a>
+														<span class="size">네이비,s</span>
+													</div>
+												</div>
+												<button type="button" class="btn small line ui-popup-open" data-target="#unmatching-alert1">매칭해제</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="tit">
+									<span>EC 상품 선택</span>
+								</div>
+								<div class="list-searchBox">
+									<input type="hidden" name="search_key" id="search_key" value="" />
+									<div class="ui-select" data-target_id="#search_key">
+									  <button type="button" data-target_id="#search_key" data-value="">EC상품명</button>
+									  <ul>
+										<li data-key="" class="active">EC상품명</li>
+										<li data-key="seller_name">EC품목코드</li>
+									  </ul>
+									</div>
+									<div class="search-wrap">
+										<input type="text" title="기본 입력란" name="search_value" value="" style="padding-right: 20px" placeholder="검색어를 입력해주세요"/><a
+										href="#" class="search-btn ui-popup-open" data-target="#search-alert1"><i><img src="../../img/common/search_ico.png"></i></a>
+									</div>
+								</div>
+								<p class="search-txt"><span>검색결과 <em class="green">8</em><em class="gray">건</em></span></p>
+								<div class="product-list ec">
+									<!-- nodata건 -->
+									<div class="item emtpy long">
+										<i><img src="../../img/product/img_no_list_green.svg"></i>
+										<p class="pt10">
+											검색 결과가 없습니다.
+										</p>
+										<button type="button" class="mt25 ui-popup-open" data-target="#product-registraion-popup">선택한 이지픽 상품을 EC상품으로 등록</button>
+									</div>
+									<!-- 상품명이 길어 말줄임말될시 툴팁 구조 -->
+									<div class="item">
+										<a href="#">
+											<div class="img"></div>
+											<div class="text-box">
+												<span class="sotre-name">P000000J</span>
+												<div class="prd-wrap">
+													<!-- 2023-02-20 EZP-6415 기본 브라우저 툴팁으로 변경으로 title 추가 -->
+													<span class="product-name prd" title="터틀넥 스트랩 울 코트 터틀넥 스트랩 울 코트 터틀넥 스트랩 울 코트">터틀넥 스트랩 울 코트 터틀넥 스트랩 울 코트 터틀넥 스트랩 울 코트</span>
+													<!-- 2023-02-20 EZP-6415 기본 브라우저 툴팁으로 변경으로 제거
+														<div class="tip-wrap">
+														<div class="tip">상품명이 길경우 나오는 툴팁입니다.</div>
+													</div> -->
+												</div>
+											</div>
+										</a>
+										<div class="option-list">
+											<div class="option-box">
+												<!-- 2023-02-20 EZP-6415 기본 브라우저 툴팁으로 변경으로 title 추가 -->
+												<span title="네이비,s네이비,s네이비,s네이비,s">네이비,s네이비,s네이비,s네이비,s네이비,s네이비,s</span>
+												<button type="button" class="btn small line ui-popup-open" data-target="#matching-complete-alert1">매칭</button>
+											</div>
+											<div class="option-box">
+												<span>블랙,M</span>
+												<button type="button" class="btn small line ui-popup-open" data-target="#matching-complete-alert1">매칭</button>
+											</div>
+										</div>
+									</div>
+									<div class="item with-btn">
+										<div class="left">
+											<div class="img"></div>
+											<div class="text-box">
+												<span class="sotre-name">P000000J</span>
+												<span class="product-name">터틀넥 스트랩 울 코트</span>
+											</div>
+										</div>
+										<button type="button" class="btn small line ui-popup-open" data-target="#matching-complete-alert1">매칭</button>
+									</div>
+									<div class="item with-btn">
+										<div class="left">
+											<div class="img"></div>
+											<div class="text-box">
+												<span class="sotre-name">P000000J</span>
+												<span class="product-name">터틀넥 스트랩 울 코트</span>
+											</div>
+										</div>
+										<button type="button" class="btn small line ui-popup-open" data-target="#matching-complete-alert1">매칭</button>
+									</div>
+									<div class="item with-btn">
+										<div class="left">
+											<div class="img"></div>
+											<div class="text-box">
+												<span class="sotre-name">P000000J</span>
+												<span class="product-name">터틀넥 스트랩 울 코트</span>
+											</div>
+										</div>
+										<button type="button" class="btn small line ui-popup-open" data-target="#matching-complete-alert1">매칭</button>
+									</div>
+									<div class="item">
+										<a href="#">
+											<div class="img"></div>
+											<div class="text-box">
+												<span class="sotre-name">P000000J</span>
+												<span class="product-name">터틀넥 스트랩 울 코트</span>
+											</div>
+										</a>
+										<div class="option-list">
+											<div class="option-box">
+												<span>네이비,S</span>
+												<button type="button" class="btn small line ui-popup-open" data-target="#matching-complete-alert1">매칭</button>
+											</div>
+											<div class="option-box">
+												<span>블랙,M</span>
+												<button type="button" class="btn small line ui-popup-open" data-target="#matching-complete-alert1">매칭</button>
+											</div>
+										</div>
+									</div>
+									<div class="item with-btn">
+										<div class="left">
+											<div class="img"></div>
+											<div class="text-box">
+												<span class="sotre-name">P000000J</span>
+												<span class="product-name">터틀넥 스트랩 울 코트</span>
+											</div>
+										</div>
+										<button type="button" class="btn small line ui-popup-open" data-target="#matching-complete-alert1">매칭</button>
+									</div>
+									<div class="item with-btn">
+										<div class="left">
+											<div class="img no-img"></div>
+											<div class="text-box">
+												<span class="sotre-name">P000000J</span>
+												<span class="product-name">터틀넥 스트랩 울 코트</span>
+											</div>
+										</div>
+										<button type="button" class="btn small line ui-popup-open" data-target="#matching-complete-alert1">매칭</button>
+									</div>
+								</div>
+								<div class="pagination mt25"><a href="#none;" class="first none" style="cursor:unset;">처음</a><a href="#none;" class="prev none" style="cursor:unset;">이전</a><a href="#none;" class="active">1</a> <a
+									href="/buyer/order/front/reserveList?page=2&amp;order=order_ts&amp;sort=descend&amp;limit=10&amp;view_type=sum&amp;date_type=order_ts&amp;period=30&amp;start_date=2020-02-09&amp;end_date=2020-03-10&amp;reserve_status%5B0%5D=10&amp;shop_name=%EB%94%9C%EB%9D%BC%EC%9E%87%EB%AC%B8&amp;user_type=B&amp;user_ip=211.110.58.242&amp;buyer_no=991">2</a>
+								<a
+									href="/buyer/order/front/reserveList?page=3&amp;order=order_ts&amp;sort=descend&amp;limit=10&amp;view_type=sum&amp;date_type=order_ts&amp;period=30&amp;start_date=2020-02-09&amp;end_date=2020-03-10&amp;reserve_status%5B0%5D=10&amp;shop_name=%EB%94%9C%EB%9D%BC%EC%9E%87%EB%AC%B8&amp;user_type=B&amp;user_ip=211.110.58.242&amp;buyer_no=991">3</a>
+								<a
+									href="/buyer/order/front/reserveList?page=4&amp;order=order_ts&amp;sort=descend&amp;limit=10&amp;view_type=sum&amp;date_type=order_ts&amp;period=30&amp;start_date=2020-02-09&amp;end_date=2020-03-10&amp;reserve_status%5B0%5D=10&amp;shop_name=%EB%94%9C%EB%9D%BC%EC%9E%87%EB%AC%B8&amp;user_type=B&amp;user_ip=211.110.58.242&amp;buyer_no=991">4</a>
+									<a
+									href="/buyer/order/front/reserveList?page=4&amp;order=order_ts&amp;sort=descend&amp;limit=10&amp;view_type=sum&amp;date_type=order_ts&amp;period=30&amp;start_date=2020-02-09&amp;end_date=2020-03-10&amp;reserve_status%5B0%5D=10&amp;shop_name=%EB%94%9C%EB%9D%BC%EC%9E%87%EB%AC%B8&amp;user_type=B&amp;user_ip=211.110.58.242&amp;buyer_no=991">5</a>
+									<a
+									href="/buyer/order/front/reserveList?page=4&amp;order=order_ts&amp;sort=descend&amp;limit=10&amp;view_type=sum&amp;date_type=order_ts&amp;period=30&amp;start_date=2020-02-09&amp;end_date=2020-03-10&amp;reserve_status%5B0%5D=10&amp;shop_name=%EB%94%9C%EB%9D%BC%EC%9E%87%EB%AC%B8&amp;user_type=B&amp;user_ip=211.110.58.242&amp;buyer_no=991">6</a>
+								<a href="#none" class="next" style="cursor:unset;">다음</a><a
+									href="/buyer/order/front/reserveList?page=4&amp;order=order_ts&amp;sort=descend&amp;limit=10&amp;view_type=sum&amp;date_type=order_ts&amp;period=30&amp;start_date=2020-02-09&amp;end_date=2020-03-10&amp;reserve_status%5B0%5D=10&amp;shop_name=%EB%94%9C%EB%9D%BC%EC%9E%87%EB%AC%B8&amp;user_type=B&amp;user_ip=211.110.58.242&amp;buyer_no=991"
+									class="last">다음</a></div>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<!-- 2023-02-15 EZP-6415 로딩추가 -->
+				<div class="loading"><span>로딩중</span></div>
+			</div>
+		</div>
+		<div id="footer" class="popup-matching-btn">
+			<button type="button" class="btn small line btn_close" style="width:90px;">닫기</button>
+		</div>
+	</div>
+
+	<!-- 2022-11-30 EZP-6415 매칭해제시 -->
+	<div id="unmatching-alert1" class="ui-popup">
+		<div class="content" style="min-width:412px; max-width: 700px;" tabindex="-1">
+			<div class="body">
+				<div class="txt-cont">
+					<p>
+						매칭 해제 하시겠습니까?
+					</p>
+				</div>
+				<div class="btn_wrap mt30 tac">
+					<button type="button" class="btn small btn_close" style="width:95px; min-width: initial;">취소</button>
+					<button type="button" class="btn point small btn_close ui-popup-open" style="width:95px; min-width: initial;" data-target="#unmatching-alert2">확인</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- 매칭해제 > 확인 눌렀으시 나오는 alert -->
+	<div id="unmatching-alert2" class="ui-popup">
+		<div class="content" style="min-width:412px; max-width: 700px;" tabindex="-1">
+			<div class="body">
+				<div class="txt-cont">
+					<p>
+						매칭 해제가 완료되었습니다.
+					</p>
+				</div>
+				<div class="btn_wrap mt30 tac">
+					<button type="button" class="btn point small btn_close" style="width:95px; min-width: initial;">확인</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- 매칭버튼 클릭시 나오는 alert -->
+	<div id="matching-complete-alert1" class="ui-popup">
+		<!-- case1. 정상 -->
+		<div class="content" style="min-width:412px; max-width: 700px;" tabindex="-1">
+			<div class="body">
+				<div class="txt-cont">
+					<p class="matching-txt">
+						상품을 매칭하시겠습니까?
+						<span class="pt20">이지픽 상품<br/><em>터틀넥 스트랩 울 코트 (네이비,S)</em></span>
+						<span class="pt20">EC 상품<br/><em>폴라 스트랩 울 코트 (블랙,S)</em></span>
+					</p>
+				</div>
+				<div class="btn_wrap mt30 tac">
+					<button type="button" class="btn small btn_close" style="width:95px; min-width: initial;">취소</button>
+					<button type="button" class="btn point small btn_close ui-popup-open" style="width:95px; min-width: initial;" data-target="#matching-complete-alert2">확인</button>
+				</div>
+			</div>
+		</div>
+
+		<!-- case2. 이미 다른 이지픽상품에 매칭된 EC상품 -->
+		<div class="content" style="min-width:412px; max-width: 700px;" tabindex="-1">
+			<div class="body">
+				<div class="txt-cont">
+					<p class="matching-txt">
+						이미 다른 이지픽 상품과 매칭된 상품입니다.<br/>
+						기존 매칭을 해제하고 새로 매칭 하시겠습니까?
+						<span class="pt20" style="font-weight: bold;">매칭된 이지픽 상품</span>
+						<em style="font-size: 12px;">씨솔트(테크노 A동 1층 30호)</em>
+						<span>터틀넥 울 코트 / 블랙,FREE</span>
+					</p>
+				</div>
+				<div class="btn_wrap mt30 tac">
+					<button type="button" class="btn small btn_close" style="width:95px; min-width: initial;">취소</button>
+					<button type="button" class="btn point small btn_close ui-popup-open" style="width:95px; min-width: initial;" data-target="#matching-complete-alert2">확인</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- 매칭버튼 > 확인 클릭시 나오는 alert -->
+	<div id="matching-complete-alert2" class="ui-popup">
+		<div class="content" style="min-width:412px; max-width: 700px;" tabindex="-1">
+			<div class="body">
+				<div class="txt-cont">
+					<p>
+						매칭이 완료되었습니다.
+					</p>
+				</div>
+				<div class="btn_wrap mt30 tac">
+					<button type="button" class="btn point small btn_close" style="width:95px; min-width: initial;">확인</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- 검색버튼 클릭 > 검색어 입력안되었을 경우 -->
+	<div id="search-alert1" class="ui-popup">
+		<div class="content" style="min-width:412px; max-width: 700px;" tabindex="-1">
+			<div class="body">
+				<div class="txt-cont">
+					<p>
+						검색어를 입력해주세요.
+					</p>
+				</div>
+				<div class="btn_wrap mt30 tac">
+					<button type="button" class="btn point small btn_close" style="width:95px; min-width: initial;">확인</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- 2022-11-23 EZP-6415 카페24 상품등록시 alert case -->
+	<div id="product-registraion-popup" class="ui-popup alert product-registraion">
+		<div class="content" style="min-width:412px; max-width: 900px;" tabindex="-1">
+			<div class="header"><h3>내 쇼핑몰 상품으로 등록</h3></div>
+			<div class="body reconfirm">
+				<div class="txt-cont pb30">
+					<ul>
+						<li>이지픽 상품을 카페24 쇼핑몰(자사몰) 상품으로 등록할 수 있습니다.</li>
+						<!-- 2023-02-06 EZP-6415 txt-link 추가 -->
+						<li>등록된 상품은 <a href="javascript: void(0);" class="txt-link">EC Admin>상품관리>상품 목록</a>에서 확인할 수 있습니다.</li>
+						<!-- 2023-01-17 EZP-6415 워딩 추가 -->
+						<li>등록된 상품의 진열 및 판매 상태는 '진열안함', '판매안함'으로 기본 설정되어 있으며, EC에서 수정할 수 있습니다.</li>
+					</ul>
+					<div class="easypick-popup-info">
+						<dl>
+							<dt>상품 기본 정보</dt>
+							<dd>
+								<table class="tbl-register-row">
+									<colgroup>
+										<col style="width: 150px;">
+										<col style="width: auto;">
+									</colgroup>
+									<tbody>
+										<tr>
+											<th><span class="essential">상품명</span></th>
+											<td>
+												<div class="form-control">
+													<input type="text" placeholder="상품명 입력" value="기본 T 롱 원피스">
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<!-- 2023-02-23 EZP-8513 워딩변경 및, 툴팁추가 -->
+											<th>
+												<span class="essential">판매가(공급가)</span>
+												<div class="tip-wrap">
+													<a href="javascript: void(0);" class="btn-tip"></a>
+													<div class="tip" style="width: 315px;">
+														<span class="tit">판매가(공급가)</span>
+														<span class="txt sort" style="text-indent: -6px;">- EC 상품 판매가,공급가로 등록되는 금액입니다.</span>
+													</div>
+												</div>
+											</th>
+											<td>
+												<div class="form-control calc-input">
+													<input type="text"placeholder="판매가 입력" value="99,000,000">원
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<th>
+												<span class="essential">상품분류</span>
+												<div class="tip-wrap">
+													<a href="javascript: void(0);" class="btn-tip"></a>
+													<div class="tip" style="width: 280px;">
+														<span class="tit">상품분류</span>
+														<span class="txt sort" style="text-indent: -6px;">- 상품분류를 지정하지 않을 경우<br/>
+														'(대분류)이지픽상품'으로 자동 설정됩니다.</span>
+													</div>
+												</div>
+											</th>
+											<td>
+												<div class="category-box">
+													<div class="icon-cate-box">
+														<ul id="product-category">
+															<li class="not-selected" id="c01">
+																<i></i>
+																<div class="icon-cate-text">
+																	<input type="text" value="(대분류) 이지픽상품" class="not-addclear" readonly>
+																</div>
+															</li>
+															<li class="deps2 deps cate1" id="c02">
+																<i></i>
+																<div class="icon-cate-text">
+																	<input type="text" value="(대분류) 이지픽상품 이지픽상품" class="not-addclear" readonly>
+																</div>
+																<ul class="open-2deps">
+																	<!-- 2023-02-16 EZP-6415 class last 추가 -->
+																	<li class="deps cate2 last" id="c02-1">
+																		<i></i>
+																		<div class="icon-cate-text">
+																			<input type="text" value="(중분류) 이지픽상품" class="not-addclear" readonly>
+																		</div>
+																	</li>
+																	<!-- 2023-02-16 EZP-6415 class last 추가 -->
+																	<li class="deps cate2 last" id="c02-2">
+																		<i></i>
+																		<div class="icon-cate-text">
+																			<input type="text" value="(중분류) 이지픽상품" class="not-addclear" readonly>
+																		</div>
+																	</li>
+																</ul>
+															</li>
+															<li class="deps2 deps cate1" id="c03">
+																<i></i>
+																<div class="icon-cate-text">
+																	<input type="text" value="(대분류) 이지픽상품" class="not-addclear" readonly>
+																</div>
+																<ul class="open-2deps">
+																	<li class="cate2 deps" id="c03-1">
+																		<i></i>
+																		<div class="icon-cate-text">
+																			<input type="text" value="(중분류) 이지픽상품" class="not-addclear" readonly>
+																		</div>
+																		<ul class="open-3deps">
+																			<li class="cate3 deps" id="c03-1-1">
+																				<i></i>
+																				<div class="icon-cate-text">
+																					<input type="text" value="(소분류) 이지픽상품" class="not-addclear" readonly>
+																				</div>
+																				<ul class="open-4deps">
+																					<!-- 2023-02-16 EZP-6415 class last 추가 -->
+																					<li class="cate4 last" id="c03-1-2">
+																						<i></i>
+																						<div class="icon-cate-text">
+																							<input type="text" value="(상세분류) 이지픽상품" class="not-addclear" readonly>
+																						</div>
+																					</li>
+																				</ul>
+																			</li>
+																		</ul>
+																	</li>
+																	<!-- 2023-02-16 EZP-6415 class last 추가 -->
+																	<li class="deps cate2 last" id="c03-2">
+																		<i></i>
+																		<div class="icon-cate-text">
+																			<input type="text" value="(중분류) 이지픽상품" class="not-addclear" readonly>
+																		</div>
+																	</li>
+																</ul>
+															</li>
+															<!-- 2023-02-16 EZP-6415 class last 추가 -->
+															<li class="cate1 deps last" id="c04">
+																<i></i>
+																<div class="icon-cate-text">
+																	<input type="text" value="(대분류) 이지픽상품" class="not-addclear" readonly>
+																</div>
+															</li>
+															<!-- 2023-02-16 EZP-6415 class last 추가 -->
+															<li class="cate1 deps last" id="c05">
+																<i></i>
+																<div class="icon-cate-text">
+																	<input type="text" value="(대분류) 이지픽상품" class="not-addclear" readonly>
+																</div>
+															</li>
+														</ul>
+													</div>
+													<div class="text-cate-box">
+														<ul id="my-category"></ul>
+													</div>
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<th>
+												<span>상품옵션</span>
+												<div class="tip-wrap">
+													<a href="javascript: void(0);" class="btn-tip"></a>
+													<div class="tip" style="width: 320px;">
+														<span class="tit">상품옵션 표시</span>
+														<!-- 202301-04 EZP-6415 padding-bottom style 제거 -->
+														<span class="txt sort">- 상품의 모든 옵션이 표시됩니다.</span>
+														<!-- 2023-01-04 EZP-6415 상품옵션 수정 제거
+															<span class="tit">상품옵션 수정</span>
+														<span class="txt sort">- 버튼을 더블클릭하여 옵션명을 수정할 수 있습니다.</span> -->
+													</div>
+												</div>
+											</th>
+											<td class="option">
+												<div class="color">
+													<span>색상</span>
+													<div class="option-box">
+														<ul>
+															<li class="option on">
+																<button type="button">블랙</button>
+															</li>
+															<li class="option on">
+																<button type="button">브라운</button>
+															</li>
+															<li class="option">
+																<button type="button">아이보리</button>
+															</li>
+															<li class="option">
+																<button type="button">네이비</button>
+															</li>
+															<li class="option">
+																<button type="button">레드</button>
+															</li>
+															<li class="option active">
+																<button type="button">화이트</button>
+															</li>
+															<li class="option on">
+																<button type="button">화이트</button>
+															</li>
+															<li class="option">
+																<button type="button">머스타드</button>
+															</li>
+															<li class="option">
+																<button type="button">퍼플</button>
+															</li>
+															<li class="option">
+																<button type="button">그린</button>
+															</li>
+															<li class="ex-input-box">
+																<input type="text" placeholder="예시) 화이트" value="">
+															</li>
+															<!-- 2023-02-07 EZP-6415 선택가능 옵션없을시 -->
+															<li class="empty-option">선택 가능한 옵션이 없습니다.</li>
+														</ul>
+													</div>
+												</div>
+												<div class="size">
+													<span>사이즈</span>
+													<div class="option-box">
+														<ul>
+															<li class="option">
+																<button type="button">S</button>
+															</li>
+															<li class="option">
+																<button type="button">M</button>
+															</li>
+															<li class="option on">
+																<button type="button">L</button>
+															</li>
+															<li class="ex-input-box">
+																<input type="text" placeholder="예시) XL" value="">
+															</li>
+															<!-- 2023-02-07 EZP-6415 선택가능 옵션없을시 -->
+															<li class="empty-option">선택 가능한 옵션이 없습니다.</li>
+														</ul>
+													</div>
+												</div>
+												<!-- 2023-01-04 EZP-6415 텍스트 추가 -->
+												<p class="dot">버튼을 더블클릭하여 옵션명을 수정할 수 있습니다.</p>
+											</td>
+										</tr>
+										<tr>
+											<th class="top">거래처</th>
+											<td >
+												톰과 체리나무 (디오트 1동 2층 A열 345호)
+												<!-- 2023-02-15 EZP-6415 m-t-5 -> mt5로 class 변경 -->
+												<div class="account-info mt5">
+													<i><img src="../../img/product/ico_Exclamation_mark.png"></i>
+													<span>거래처 정보가 EC 공급사로 등록됩니다.</span>
+												</div>
+												<!-- 2023-02-15 EZP-6415 거래처등록 완료 표시 추가 시작 -->
+												<div class="account-info type2 mt5">
+													<span>거래처 등록</span>
+													<i class="check ml5"></i>
+												</div>
+												<!-- 2023-02-15 EZP-6415 거래처등록 완료 표시 추가 끝 -->
+											</td>
+										</tr>
+										<tr class="toggle-change1">
+											<th>제조국가
+												<span class="switch eIsRefundedSwitch">
+													<input type="checkbox" name="is_refunded" checked>
+													<div class="slider round">
+														<span class="on active"></span>
+														<span class="off"></span>
+													</div>
+												</span>
+											</th>
+											<td class="on-off">
+												대한민국
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</dd>
+						</dl>
+						<dl class="mt40 toggle-change2">
+							<dt>
+								<span>상품 상세 정보</span>
+								<span class="switch eIsRefundedSwitch">
+									<input type="checkbox" name="is_refunded" checked>
+									<div class="slider round">
+										<span class="on active"></span>
+										<span class="off"></span>
+									</div>
+								</span>
+							</dt>
+							<dd>
+								<table class="tbl-register-row product-detail">
+									<colgroup>
+										<col style="width: 150px;">
+										<col style="width: auto;">
+									</colgroup>
+									<tbody>
+										<tr>
+											<th>소재</th>
+											<td>
+												<ul class="dot">
+													<li><em class="mr5">겉감</em> : 면 32, 레이온 65%,스판덱스 3%</li>
+													<li><em class="mr5">안감</em> : 폴리에스테르 100%</li>
+												</ul>
+											</td>
+										</tr>
+										<tr>
+											<th>상품부가정보</th>
+											<td>
+												<ul class="dot">
+													<li><em class="mr5">계절감</em> : 여름</li>
+													<li><em class="mr5">착용감</em> : 루즈핏</li>
+													<li><em class="mr5">신축성</em> : 적당함</li>
+													<li><em class="mr5">두께감</em> : 얇음</li>
+													<li><em class="mr5">비침</em> : 조금비침</li>
+												</ul>
+											</td>
+										</tr>
+										<tr>
+											<th>상품특성</th>
+											<td>
+												<ul class="dot">
+													<li><em class="mr5">스타일</em> : 캐주얼,레트로</li>
+													<li><em class="mr5">패턴</em> : 도트</li>
+													<li><em class="mr5">디테일</em> : V넥,X스트랩,글리터,노카라,니트꽈배기</li>
+												</ul>
+											</td>
+										</tr>
+										<tr>
+											<th>세탁방법</th>
+											<td>
+												<ul class="img-txt">
+													<li><i><img src="../../img/product/Washing01.svg"></i><p>약하게</p></li>
+													<li><i><img src="../../img/product/Washing02.svg"></i><p>단독손세탁</p></li>
+													<li><i><img src="../../img/product/Washing03.svg"></i><p>기계세탁가능</p></li>
+													<li><i><img src="../../img/product/Washing04.svg"></i><p>비틀기금지</p></li>
+													<li><i><img src="../../img/product/Washing05.svg"></i><p>표백금지</p></li>
+													<li><i><img src="../../img/product/Washing06.svg"></i><p>그늘에건조</p></li>
+													<li><i><img src="../../img/product/Washing07.svg"></i><p>중성세제</p></li>
+													<li><i><img src="../../img/product/Washing08.svg"></i><p>드라이크리닝</p></li>
+													<li><i><img src="../../img/product/Washing09.svg"></i><p>천대고다림질</p></li>
+													<li><i><img src="../../img/product/Washing10.svg"></i><p>전용세제</p></li>
+												</ul>
+											</td>
+										</tr>
+										<tr>
+											<th>상세설명</th>
+											<td>
+												<ul>
+													<li>허리 힙 허벅지 밑위 밑단 총기장</li>
+													<li>S 32.5 41 23 28 24 99</li>
+													<li>M 34.5 43 24 29 25 100</li>
+													<li>L 36.5 45 25 30 26 101</li>
+												</ul>
+												<p>제작 가능합니다.<br/>
+												샘플요청 가능합니다 연락 해주세요.</p>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+								<!-- 2023-02-21 EZP-6415 등록된 정보 없을경우 추가 -->
+								<p class="empty">등록된 정보가 없습니다.</p>
+							</dd>
+					</div>
+				</div>
+				<div class="btn_wrap pt30 tac">
+					<button type="button" class="btn medium btn_close" style="width:150px;">취소</button>
+					<button type="button" class="btn point medium ui-popup-open" style="width:150px;" data-target="#product-comfirm-alert1">등록</button>
+				</div>
+			</div>
+			<button type="button" class="btn_close">
+				<div class="commLayerConfirm"><span>닫기</span></div>
+			</button>
+		</div>
+	</div>
+
+  <!-- 2022-11-22 EZP-6415 내쇼핑몰 상품으로 등록 alert case -->
+  <!-- 성공 / 실패 case -->
+  <div id="product-comfirm-alert1" class="ui-popup alert">
+    <div class="content" style="min-width:412px; max-width: 700px;" tabindex="-1">
+      <div class="body">
+        <div class="txt-cont">
+          <p>
+            입력하신 상품정보로<br/>
+            쇼핑몰에 상품을 등록하시겠습니까?
+          </p>
+        </div>
+        <div class="btn_wrap mt30 tac">
+          <button type="button" class="btn medium btn_close" style="width:150px;">취소</button>
+          <button type="button" class="btn point medium btn_close ui-popup-open" style="width:150px;" data-target="#product-comfirm-alert2">확인</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="content" style="min-width:412px; max-width: 700px;" tabindex="-1">
+      <div class="body">
+        <div class="txt-cont">
+          <!-- 상품명 미입력 case -->
+          <p>
+            상품명을 입력해주세요.
+          </p>
+          <!-- 판매가 미입력 case -->
+          <p>
+            판매가를 입력해주세요.
+          </p>
+        </div>
+        <div class="btn_wrap mt30 tac">
+          <button type="button" class="btn point medium btn_close" style="width:150px;">확인</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2022-11-22 EZP-6415 내쇼핑몰 상품으로 등록 > 확인 클릭시 alert case -->
+  <div id="product-comfirm-alert2" class="ui-popup alert">
+    <div class="content" style="min-width:412px; max-width: 700px;" tabindex="-1">
+      <div class="body">
+        <div class="txt-cont">
+          <!-- 정상 case -->
+          <p>
+            상품이 등록되었습니다.
+          </p>
+          <!-- 실패 case -->
+          <p>
+            상품 등록에 실패했습니다.<br/>
+            반복 실패 시 관리자에게 문의 바랍니다.
+          </p>
+        </div>
+        <div class="btn_wrap mt30 tac">
+          <button type="button" class="btn point medium btn_close" style="width:150px;">확인</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 내 쇼핑몰 공급사로 등록시 alert -->
+  <div id="store-comfirm-alert1" class="ui-popup alert">
+    <div class="content" style="min-width:412px; max-width: 700px;" tabindex="-1">
+      <div class="body">
+        <div class="txt-cont">
+          <p>
+            '{가게명}'가게를 EC 공급사로 등록 하시겠습니까?
+          </p>
+        </div>
+        <div class="btn_wrap mt30 tac">
+          <button type="button" class="btn medium btn_close" style="width:150px;">취소</button>
+          <button type="button" class="btn point medium btn_close ui-popup-open" style="width:150px;" data-target="#store-comfirm-alert2">확인</button>
+        </div>
+      </div>
+    </div>
+   </div>
+
+   <!-- 내 쇼핑몰 공급사로 등록시 > 확인후 alert -->
+   <div id="store-comfirm-alert2" class="ui-popup alert">
+    <div class="content" style="min-width:412px; max-width: 700px;" tabindex="-1">
+      <div class="body">
+        <div class="txt-cont">
+		  <!-- 성공 case -->
+          <p>
+            공급사 등록 완료되었습니다.
+          </p>
+		  <!-- 실패 case -->
+		  <p>
+            공급사 등록에 실패했습니다.<br/>
+			다시 시도해주세요.
+          </p>
+        </div>
+        <div class="btn_wrap mt30 tac">
+          <button type="button" class="btn point medium btn_close" style="width: 150px;">확인</button>
+        </div>
+      </div>
+    </div>
+   </div>
+
+
+	<!-- 21-01-18 수정-->
+	<script src="../../js/jquery.min.js"></script><!--jquery default-->
+
+	<script src="../../js/jquery-ui.min.js"></script>
+	<script src="../../js/swiper-ie9.min.js"></script>
+	<script src="../../js/default.input.js"></script><!-- 2022-10-04 -->
+	<script src="../../js/addclear.min.js"></script>
+	<script src="../../js/common.front.js"></script>
+	<script src="../../js/ui.js"></script>
+	<script src="../../js/pub.js"></script>
+	<script src="../../js/jquery.scrollbar.min.js"></script>
+	<!-- //21-01-18 수정-->
+
+	<script>
+		$(document).ready(function () {
+			//검색창 자동완성
+			$(".autoframe-wrap").on('click', function () {
+				$(this).children(".autoframe-ui-select").toggleClass("on");
+
+			});
+
+			// 외부영역 클릭 시 팝업 닫기
+			$(document).mouseup(function (e) {
+				var LayerPopup = $(".autoframe-ui-select");
+				if (LayerPopup.has(e.target).length === 0) {
+					LayerPopup.removeClass("on");
+				}
+			});
+
+			//2022-11-30 EZP-6415 주문매칭 팝업 list 클릭시
+			$('.matching-popup .product-list .item > a').click(function(){
+				$(this).parent().toggleClass('on');
+			})
+
+			// 2022-12-14 EZP-6415 상품상세 상품등록 모달 (이인마에서 가져옴)
+			$('#product-category .deps2 .open-2deps').hide();
+			$('#product-category .deps2 .open-3deps').hide();
+			$('#product-category .deps2 .open-4deps').hide();
+			$('#product-category>.deps2>i').click(function () {
+				$(this).parent('li').toggleClass('active');
+				if ($(this).parent('li').hasClass('active') == true) {
+				$(this).parent('li').find('.open-2deps').show();
+				} else {
+				$(this).parent('li').find('.open-2deps').hide();
+				}
+			})
+			$('#product-category .open-2deps > .cate2 >i').click(function () {
+				$(this).parent('li').toggleClass('active');
+				if ($(this).parent('li').hasClass('active') == true) {
+				$(this).parent('li').find('.open-3deps').show();
+				} else {
+				$(this).parent('li').find('.open-3deps').hide();
+				}
+			})
+			$('#product-category .open-3deps > .cate3 >i').click(function () {
+				$(this).parent('li').toggleClass('active');
+				if ($(this).parent('li').hasClass('active') == true) {
+				$(this).parent('li').find('.open-4deps').show();
+				} else {
+				$(this).parent('li').find('.open-4deps').hide();
+				}
+			})
+
+			const cate1 = $('#product-category .cate1 > .icon-cate-text');
+			const cate2 = $('#product-category .cate2 > .icon-cate-text');
+			const cate3 = $('#product-category .cate3 > .icon-cate-text');
+			const cate4 = $('#product-category .cate4 > .icon-cate-text');
+
+			const myCate = $('#my-category');
+			cate1.click(function () {
+				const val1 = $(this).find('input').val();
+				const dep1 = $(this).parent('li');
+				const dataCode1 = dep1.attr('id');
+				if (dep1.hasClass('on') == false) {
+				myCate.append(
+					`<li class="mycate" data-code="${dataCode1}"><span>${val1}</span><button type="button" name="button" class="btn btn-del">삭제</button></li>`
+					);
+				}
+				dep1.addClass('on');
+				$('#my-category li button').click(function () {
+				const dep2 = $(this).parent('li');
+				const dataCode2 = dep2.attr('data-code');
+				$('#' + dataCode2).removeClass('on');
+				dep2.remove();
+				})
+			})
+			cate2.click(function () {
+				const val1 = $(this).find('input').val();
+				const val2 = $(this).parents('.deps').find('input').val();
+				const dep1 = $(this).parent('li');
+				const dataCode1 = dep1.attr('id');
+				if (dep1.hasClass('on') == false) {
+				myCate.append(
+					`<li class="mycate" data-code="${dataCode1}"><span>${val2}<i>&gt;</i>${val1}</span><button type="button" name="button" class="btn btn-del">삭제</button></li>`
+					);
+				}
+				dep1.addClass('on');
+				$('#my-category li button').click(function () {
+				const dep2 = $(this).parent('li');
+				const dataCode2 = dep2.attr('data-code');
+				$('#' + dataCode2).removeClass('on');
+				dep2.remove();
+				})
+			})
+			cate3.click(function () {
+				const val1 = $(this).find('input').val();
+				const val2 = $(this).parents('.cate2').find('input').val();
+				const val3 = $(this).parents('.deps').find('input').val();
+				const dep1 = $(this).parent('li');
+				const dataCode1 = dep1.attr('id');
+				if (dep1.hasClass('on') == false) {
+				// 2023-02-16 EZP-6415 <span>${val3}<i>&gt;</i><span>${val2}<i>&gt;</i> 에서 중간에 span 제거
+					myCate.append(
+					`<li class="mycate" data-code="${dataCode1}"><span>${val3}<i>&gt;</i>${val2}<i>&gt;</i>${val1}</span><button type="button" name="button" class="btn btn-del">삭제</button></li>`
+					);
+				}
+				dep1.addClass('on');
+				$('#my-category li button').click(function () {
+				const dep2 = $(this).parent('li');
+				const dataCode2 = dep2.attr('data-code');
+				$('#' + dataCode2).removeClass('on');
+				dep2.remove();
+				})
+			})
+			cate4.click(function () {
+				const val1 = $(this).find('input').val();
+				const val2 = $(this).parents('.cate3').find('input').val();
+				const val3 = $(this).parents('.cate2').find('input').val();
+				const val4 = $(this).parents('.deps').find('input').val();
+				const dep1 = $(this).parent('li');
+				const dataCode1 = dep1.attr('id');
+				if (dep1.hasClass('on') == false) {
+				myCate.append(
+					`<li class="mycate" data-code="${dataCode1}"><span>${val4}<i>&gt;</i>${val3}<i>&gt;</i>${val2}<i>&gt;</i>${val1}</span><button type="button" name="button" class="btn btn-del">삭제</button></li>`
+					);
+				}
+				dep1.addClass('on');
+				$('#my-category li button').click(function () {
+				const dep2 = $(this).parent('li');
+				const dataCode2 = dep2.attr('data-code');
+				$('#' + dataCode2).removeClass('on');
+				dep2.remove();
+				})
+			})
+
+			//2022-12-12 EZP-6415 쇼핑몰 상품등록 버튼
+			$('.product-registraion .option-box li.option').click(function(){
+        		$(this).toggleClass('on');
+    		})
+
+			//2022-12-14 EZP-6415 상품 모달 인풋 숨겨놓기
+			$('.product-registraion.ui-popup .tbl-register-row td.option .option-box ul .ex-input-box').hide();
+			$('.product-registraion.ui-popup .tbl-register-row td.option .option-box').click(function(e){
+				if(!$(e.target).parent().hasClass('option')){
+					$(this).find('.ex-input-box').show();
+				}
+			})
+		});
+	</script>
+</body>
+
+</html>

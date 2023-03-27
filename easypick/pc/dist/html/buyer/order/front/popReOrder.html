@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="ko" data-livestyle-extension="available" class="js">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width"/>
+        <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+        <meta name="format-detection" content="telephone=no"/>
+        <meta content="T" name="login-required"/>
+        <link
+            rel="shortcut icon"
+            type="image/x-icon"
+            href="https://easypick.co.kr/img/favicon/ezp.ico"/>
+
+        <!-- css -->
+        <link rel="stylesheet" type="text/css" href="../../../../css/default.css"/>
+        <link rel="stylesheet" type="text/css" href="../../../../css/month.picker.css"/>
+
+        <style>
+            .pop-cont {
+                width: 1400px;
+                margin: auto;
+            }
+
+            .pop-cont h3 {
+                font-size: 20px;
+                color: #333333;
+                margin-bottom: 20px;
+                font-weight: 600;
+            }
+
+            .pop-cont .box {
+                margin-bottom: 30px;
+            }
+        </style>
+
+        <div class="pop-cont">
+            <div class="box">
+                <h3>재주문</h3>
+                <div class="btn-wrap">
+                    <button
+                        type="button"
+                        class="btn small line ui-popup-open"
+                        data-target="#pop_reorder_chk_prd">검수대기(옵션2)</button>
+                    <button
+                        type="button"
+                        class="btn small line ui-popup-open"
+                        data-target="#pop_reorder_sellpick">셀픽재주문(옵션4)</button>
+                </div>
+            </div>
+
+            <div class="box">
+                <h3>메세지</h3>
+                <div class="btn-wrap">
+                    <button
+                        type="button"
+                        class="btn small line ui-popup-open"
+                        data-target="#pop-reorder-alert1">구매불가상품</button>
+                    <button
+                        type="button"
+                        class="btn small line ui-popup-open"
+                        data-target="#pop-reorder-alert2">재주문확인</button>
+                    <button
+                        type="button"
+                        class="btn small line ui-popup-open"
+                        data-target="#pop-reorder-alert3">장바구니</button>
+                    <button
+                        type="button"
+                        class="btn small line ui-popup-open"
+                        data-target="#pop-reorder-alert4">장바구니2</button>
+                    <button
+                        type="button"
+                        class="btn small line ui-popup-open"
+                        data-target="#pop-reorder-alert5">바로주문리스트 추가</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 검수대기 재주문 팝업 //-->
+        <div id="pop_reorder_chk_prd" class="ui-popup pop-reorder">
+            <div class="content" style="width: 500px" tabindex="-1">
+                <input type="hidden" name="ss_item_no" value=""/>
+                <input type="hidden" name="is_refund_requested" value=""/>
+                <div class="body">
+                    <div class="txt-cont">
+                        <h3>재주문</h3>
+                        <div class="confirm">
+                            <!-- <p><strong class="txt-red">7</strong>개의 품목을 재주문하시겠습니까?</p> -->
+                            <p>원하는 유형을 선택해주세요</p>
+
+                            <div class="radio-box-wrap">
+                                <span class="radio">
+                                    <input type="radio" name="reorder-radio" id="reorder-radio1" value="txt-blue" checked="checked">
+                                    <label for="reorder-radio1">상품주문</label>
+                                </span>
+                                <span class="radio">
+                                    <input type="radio" name="reorder-radio" id="reorder-radio3" value="txt-purple">
+                                    <label for="reorder-radio3">샘플주문</label>
+                                </span>
+                            </div>
+                            <p>
+                                재주문은 원상품의 유형과 관계없이<br>
+                                <strong class="type txt-blue">상품주문</strong>
+                                <strong class="type txt-green">미송주문</strong>
+                                <strong class="type txt-purple">샘플주문</strong>
+                                <strong class="type txt-pink">제작주문</strong>
+                                으로 등록됩니다.
+                            </p>
+                            <!-- <p>'확인' 버튼을 누르시면<br> 장바구니페이지로 이동 됩니다.</p> -->
+                        </div>
+                    </div>
+                    <div class="btn_wrap mt40 tac">
+                        <button type="button" class="btn medium btn_close" style="width: 150px">취소</button>
+                        <button
+                            type="button"
+                            class="btn point medium eReordered"
+                            style="width: 150px"
+                            href="/buyer/order/action/reordered">확인</button>
+                    </div>
+                </div>
+                <!-- //body -->
+                <button type="button" class="btn_close">
+                    <span>닫기</span></button>
+            </div>
+        </div>
+        <!-- 검수대기 재주문 팝업 //-->
+
+
+        <!-- 셀픽 재주문 팝업 //-->
+        <div id="pop_reorder_sellpick" class="ui-popup pop-reorder">
+            <div class="content" style="width: 500px" tabindex="-1">
+                <input type="hidden" name="ss_item_no" value=""/>
+                <input type="hidden" name="is_refund_requested" value=""/>
+                <div class="body">
+                    <div class="txt-cont">
+                        <h3>재주문</h3>
+                        <div class="confirm">
+                            <p>원하는 유형을 선택해주세요.</p>
+
+                            <div class="radio-box-wrap">
+                                <span class="radio">
+                                    <input type="radio" name="reorder-radio" id="reorder-radio1" value="txt-blue" checked="checked">
+                                    <label for="reorder-radio1">상품주문</label>
+                                </span>
+                                <span class="radio">
+                                    <input type="radio" name="reorder-radio" id="reorder-radio2" value="txt-green">
+                                    <label for="reorder-radio2">미송주문</label>
+                                </span>
+                                <span class="radio">
+                                    <input type="radio" name="reorder-radio" id="reorder-radio3" value="txt-purple">
+                                    <label for="reorder-radio3">샘플주문</label>
+                                </span>
+                                <span class="radio">
+                                    <input type="radio" name="reorder-radio" id="reorder-radio4" value="txt-pink">
+                                    <label for="reorder-radio4">제작주문</label>
+                                </span>
+                            </div>
+                            <p>
+                                재주문은 원상품의 유형과 관계없이<br>
+                                <strong class="type txt-blue">상품주문</strong>
+                                <strong class="type txt-green">미송주문</strong>
+                                <strong class="type txt-purple">샘플주문</strong>
+                                <strong class="type txt-pink">제작주문</strong>
+                                으로 등록됩니다.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="btn_wrap mt40 tac">
+                        <button type="button" class="btn medium btn_close" style="width: 150px">취소</button>
+                        <button
+                            type="button"
+                            class="btn point medium eReordered"
+                            style="width: 150px"
+                            href="/buyer/order/action/reordered">확인</button>
+                    </div>
+                </div>
+                <!-- //body -->
+                <button type="button" class="btn_close"><span>닫기</span></button>
+            </div>
+        </div>
+        <!--// 셀픽 재주문 팝업 -->
+
+        <!-- 재주문 관련 팝업 (텍스트만) -->
+        <div class="ui-popup pop-reorder" id="pop-reorder-alert1">
+            <div class="content" style="width: 400px">
+                <div class="body">
+                    <div class="inner">
+                        <p class="tac">
+                            선택하신 상품은 구매불가한 상품입니다.<br>
+                            확인 후 다시 이용해주세요.
+                        </p>
+                    </div>
+                     <div class="btn_wrap mt40 tac">
+                        <button
+                            type="button"
+                            class="btn point medium eReordered"
+                            style="width: 150px"
+                            href="/buyer/order/action/reordered">확인</button>
+                    </div>
+                </div>
+                <button type="button" class="btn_close"><span>닫기</span></button>
+            </div>
+        </div>
+
+        <div class="ui-popup pop-reorder" id="pop-reorder-alert2">
+            <div class="content" style="width: 400px">
+                <div class="body">
+                    <div class="inner">
+                        <p class="tac">
+                            재주문 하시겠습니까?
+                        </p>
+                    </div>
+                     <div class="btn_wrap mt40 tac">
+                        <button
+                            type="button"
+                            class="btn point medium eReordered"
+                            style="width: 150px"
+                            href="/buyer/order/action/reordered">확인</button>
+                    </div>
+                </div>
+                <button type="button" class="btn_close"><span>닫기</span></button>
+            </div>
+        </div>
+
+        <div class="ui-popup pop-reorder" id="pop-reorder-alert3">
+            <div class="content" style="width: 400px">
+                <div class="body">
+                    <div class="inner">
+                        <p class="tac">
+                            장바구니에 동알한 상품이 있습니다.<br>
+                            재주문 하시겠습니까?
+                        </p>
+                    </div>
+                     <div class="btn_wrap mt40 tac">
+                        <button
+                            type="button"
+                            class="btn point medium eReordered"
+                            style="width: 150px"
+                            href="/buyer/order/action/reordered">확인</button>
+                    </div>
+                </div>
+                <button type="button" class="btn_close"><span>닫기</span></button>
+            </div>
+        </div>
+
+        <div class="ui-popup pop-reorder" id="pop-reorder-alert4">
+            <div class="content" style="width: 400px">
+                <div class="body">
+                    <div class="inner">
+                        <p class="tac">
+                            장바구니에 담겼습니다.<br>
+                            장바구니에서 이어서 접수를 진행해주세요.<br>
+                            확인 버튼을 누르시면 이동합니다.
+                        </p>
+                    </div>
+                     <div class="btn_wrap mt40 tac">
+                        <button
+                            type="button"
+                            class="btn point medium eReordered"
+                            style="width: 150px"
+                            href="/buyer/order/action/reordered">확인</button>
+                    </div>
+                </div>
+                <button type="button" class="btn_close"><span>닫기</span></button>
+            </div>
+        </div>
+
+        <div class="ui-popup pop-reorder" id="pop-reorder-alert5">
+            <div class="content" style="width: 420px">
+                <div class="body">
+                    <div class="inner">
+                        <p class="tac">
+                            바로주문 리스트에 추가되었습니다.<br>
+                            바로주문 페이지에서 이어서 접수를 진행해주세요.<br>
+                            확인 버튼을 누르시면 이동합니다.
+                        </p>
+                    </div>
+                     <div class="btn_wrap mt40 tac">
+                        <button
+                            type="button"
+                            class="btn point medium eReordered"
+                            style="width: 150px"
+                            href="/buyer/order/action/reordered">확인</button>
+                    </div>
+                </div>
+                <button type="button" class="btn_close"><span>닫기</span></button>
+            </div>
+        </div>
+
+        
+        <!-- 21-01-18 수정-->
+        <script src="../../../../js/jquery.min.js"></script>
+        <!--jquery default-->
+        <script src="../../../../js/jquery-ui.min.js"></script>
+        <script src="../../../../js/swiper-ie9.min.js"></script>
+        <script src="../../../../js/default.input.js"></script><!-- 2022-10-04 -->
+        <script src="../../../../js/addclear.min.js"></script>
+        <script src="../../../../js/freeze-table.js"></script>
+        <!-- 2021-12-07 EZP-4641 -->
+        <script src="../../../../js/common.front.js"></script>
+        <script src="../../../../js/ui.js"></script>
+        <script src="../../../../js/pub.js"></script>
+        <script src="../../../../js/jquery.scrollbar.min.js"></script>
+
+        <script type="text/javascript">
+            //재주문 팝업 라디오버튼 체크
+            $('.type.txt-blue').show();   // 초깃값 설정
+            $('input[name="reorder-radio"]').click(function(){
+                var val = $(this).attr("value");
+                var target = $("." + val);
+                $(".type").not(target).hide();
+                $(target).show();
+            });
+        </script>
+    </body>
+</html>

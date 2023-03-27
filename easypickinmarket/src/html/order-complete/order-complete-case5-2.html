@@ -1,0 +1,90 @@
+{% extends "../_templates/layout.njk" %}
+{% block content %}
+<div id="wrap">
+
+    <div class="content-head">
+        <div class="page-title">
+            <h3 class="h3-tit">주문완료</h3>
+            <a href="#" class="btn-manual" target="_blank" title="매뉴얼">매뉴얼</a>
+            <div class="form-box">
+                <form onsubmit="return submitHandler();">
+                    <fieldset>
+                        <legend class="skip">통합검색</legend>
+                        <label for="total-search" class="skip">검색어 입력</label>
+                        <input type="search" name="total-search" id="total-search" title="검색어 입력" class="text"
+                            placeholder="상품을 검색해보세요.">
+                        <input type="submit" value="검색" class="submit">
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+
+        <div class="cont-info-right green-caption">
+            <ul class="breadcrumb">
+                <li>공급</li>
+                <li>이지픽사입하기</li>
+                <li class="now" title="현재 페이지">주문완료</li>
+            </ul>
+        </div>
+    </div>
+
+    <section class="order-complete-section">
+        <div class="order-complete-inner">
+            
+            <div class="ordersheet-wrap">
+                <div class="ordersheet-title-wrap">
+                    <i><img src="../assets/images/icons/order-complete-titleico.png" alt="order complete"></i>
+                    <div class="text-wrap">
+                        <h6>감사합니다!</h6>
+                        <p>샘플 상품 결제 접수가 완료되었습니다.</p>
+                    </div>
+                </div>
+                <div class="ordersheet-content-wrap case5-2">
+                    <h4 class="order-number">
+                        샘플주문번호
+                        <!-- 2022 08 04 a태그 > span태그 -->
+                        <span>200204140001234</span>
+                    </h4>
+                    <table class="tbl-register-row">
+                        <colgroup>
+                            <col style="width:150px;">
+                            <col style="width:auto;">
+                        </colgroup>
+                        <tbody>
+                            <tr>
+                                <th>임급은행</th>
+                                <td>KEB하나은행</td>
+                            </tr>
+                            <tr>
+                                <th>입금계좌</th>
+                                <td>233-910010-51104</td>
+                            </tr>
+                            <tr>
+                                <th>예금주</th>
+                                <td>(주)제이씨어패럴</td>
+                            </tr>
+                            <tr>
+                                <th>입금금액</th>
+                                <td>123,456,789원</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p class="ordersheet-msg">
+                        주문 마감시간은 21시(밤시장), 23시(낮시장)까지 입니다. <br />
+                        주문하신 상품은 주문 마감시간 이후 일괄 발주가 진행되며 이후 주문취소는 불가합니다.
+                    </p>
+                </div>
+                <div class="ordersheet-btn-wrap">
+                    <a href="#" class="btn btn-lg  btn-outline-gray mr10">상품 보러가기</a>
+                    <a href="#" class="btn btn-lg btn-point mr10">주문내역 확인</a>
+                    <a href="#" class="btn btn-lg  btn-outline-blue mr10">샘플상품 관리</a>
+                </div>
+            </div>
+    
+    
+        </div>
+    </section>
+
+</div>
+
+{% endblock %}

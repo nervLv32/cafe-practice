@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="format-detection" content="telephone=yes">
+	<link rel="stylesheet" href="../../css/orderbook.css">
+
+	<script src="../../js/libs/jquery.min.js"></script>
+	<script src="../../js/libs/jquery-ui.min.js"></script>
+	<script src="../../js/libs/addclear.min.js"></script>
+	<script src="../../js/common_front.js"></script>
+	<script src="../../js/ui.js"></script>
+	<script src="../../js/pub.js"></script>
+
+	<title>사입삼촌주문서 -전체발주상세</title>
+</head>
+
+<body>
+	<!-- header// -->
+	<header class="bg-green">
+		<button type="button" name="button" id="back" class="btn-back"><img src="../../img/orderbook/btn-back.png" alt="뒤로"></button>
+		<h1>
+			<span class="header-title">{쇼핑몰명}주문서</span>
+		</h1>
+		<button class="icon-memo ui-popup-open" data-target="#pop-memo">메모</button>
+		<!--//메모없음 케이스 .no-memo 추가 //2022-07-20 EZP-5433
+			<button class="icon-memo ui-popup-open" data-target="#pop-memo">메모</button>-->
+	</header>
+	<!-- //header -->
+
+	<!--container// -->
+	<div id="container" class="sellpick-order cellup-detail">
+		<div class="order-btn-wrap">
+			<button type="button" class="btn-excel"><span>엑셀다운</span></button>
+			<button type="button" class="btn-allPick ui-popup-open" data-target="#pop-pickup">전체픽업완료</button>
+		</div>
+
+		<div class="order-info">
+			<div class="left">
+				<p class="total">총 <span class="txt-red">N</span> 가게</p>
+				<div class="ico-tip-wrap">
+					<button type="button" class="btn-tip">!</button>
+					<div class="tip">
+						<div class="txt">
+							<ul class="dot-list mt0">
+								<li>
+									품목 클릭 시 입고 수량과 메모 입력이 가능합니다.
+								</li>
+								<li>
+									포장완료인 품목은 <span class="txt-green">●</span> 준비중인 품목은 <span class="txt-dark">●</span>로 표시됩니다.<br>
+									(거래완료, 취소완료 처리된 품목은 표시되지 않습니다.)<!--2022-07-20 EZP-5433 워딩변경-->
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<button type="button" name="button" class="filter ui-popup-open" data-target="#market-pop">필터</button>
+		</div>
+
+		<div class="order-list sp-order-list">
+			<div class="in-detail sp-detail pickup-detail">
+				<div class="pickup-shop">
+					<div class="inner">
+						<div class="left">
+							<div class="title">
+								<span class="txt-red">[미매칭] </span>
+								<span class="name">퍼니샵</span>
+								<div class="ico-tip-wrap">
+									<button type="button" class="btn-tip">?</button>
+									<div class="tip">
+										<div class="txt">
+											이지픽에서 관리되고 있지 않은 가게의 경우(바로주문에서 가게 정보를 직접 입력한 경우), 가게에 주문내역이 전달되지 않을 수 있습니다.
+										</div>
+									</div>
+								</div>
+							</div>
+							<p class="infomation">(청평화 1층 3열 1호 / 010-1234-5678)</p>
+						</div>
+						<button class="bt-arrow"></button>
+					</div>
+					<p class="btn-wrap select-btn-wrap">
+						<span class="msg-complete">거래완료</span>
+						<button type="button" class="btn-ready on">픽업대기</button>
+						<button type="button" class="btn-finish">픽업완료</button>
+					</p>
+					</div>
+				<ul class="item">
+					<li class="shop-tl circle-green ui-popup-open" data-target="#popCount">
+						<span class="ico-type big blue">신규</span>
+						<strong>SMP009하이부츠컷</strong>
+					</li>
+					<li>
+						<div class="left">
+							<span class="option">
+								Dark Dark Blue (다크블루) / S
+							</span>
+							<div class="place tip-wrap">
+								<span class="evt-tag">14,000<i>원</i></span>
+								<div class="tip-cont">
+									<p>쇼핑몰상품명</p>
+								</div>
+							</div>
+						</div>
+
+						<div class="right">
+							<span class="pcs count">
+								<em class="txt-red">0</em><em class="division">/</em><em class="num">20</em><i>개</i>
+							</span>
+							<p class="order-count">주문(04/25)</p>
+						</div>
+					</li>
+				</ul>
+				<ul class="item">
+					<li class="shop-tl circle-green ui-popup-open" data-target="#popCountCancel">
+						<span class="ico-type big blue">신규</span>
+						<strong class="ico-new">멜로우블라우스<em class="new"></em></strong>
+					</li>
+					<li>
+						<div class="left">
+							<span class="option">
+								Beige(베이지)-모델착용컬러/S
+							</span>
+							<div class="place tip-wrap">
+								<span class="evt-tag">14,000<i>원</i></span>
+								<button class="c-red">**</button>
+								<button class="img-type">이미지</button>
+								<div class="tip-cont">
+									<p>쇼핑몰상품명</p>
+								</div>
+							</div>
+						</div>
+						<div class="right">
+							<span class="pcs count cancel">
+								<em class="txt-red">0</em><em class="division">/</em><em class="num">20</em><i>개</i></span>
+							<button class="ui-popup-open btn-cancel" data-target="#popup-cancel" type="button">주문취소</button>
+							<p class="order-count">주문(04/25)</p>
+						</div>
+					</li>
+					<p class="txt-sky">·후드기모티셔츠 미송 잡아주세요. 후드기모티셔츠</p>
+				</ul>
+				<ul class="item">
+					<li class="shop-tl circle-green ui-popup-open" data-target="#popCount">
+						<span class="ico-type big blue">신규</span>
+						<strong>반더블JK</strong>
+					</li>
+					<li>
+						<div class="left">
+							<span class="option">
+								Dark Dark Blue Blue (다크다크블루블루) - 모델착용컬러-Free(44-66)
+							</span>
+							<div class="place tip-wrap">
+								<span class="evt-tag">14,000<i>원</i></span>
+								<!--<button class="c-red">12,000<i>원</i></button>-->
+								<button class="img-type">이미지</button>
+								<div class="tip-cont">
+									<p>쇼핑몰상품명</p>
+								</div>
+							</div>
+						</div>
+
+						<div class="right">
+							<span class="pcs count cancel ui-popup-open" data-target="#popCount">
+								<em class="txt-red">0</em><em class="division">/</em><em class="num">20</em><i>개</i></span>
+							<button class="ui-popup-open btn-cancel" data-target="#popup-cancel" type="button">주문취소</button>
+							<p class="order-count">주문(04/25)</p>
+						</div>
+					</li>
+				</ul>
+				<ul class="item green">
+					<li class="shop-tl ui-popup-open" data-target="#popCount">
+						<span class="ico-type green">미송</span>
+						<strong>반더블JK</strong>
+					</li>
+					<li>
+						<div class="left">
+							<span class="option">
+								Dark Dark Blue Blue (다크다크블루블루) - 모델착용컬러-Free(44-66)
+							</span>
+							<div class="place tip-wrap">
+								<span class="evt-tag">14,000<i>원</i></span>
+								<div class="tip-cont">
+									<p>쇼핑몰상품명</p>
+								</div>
+							</div>
+						</div>
+
+						<div class="right">
+							<span class="pcs count">
+								<em>0</em><em class="division">/</em><em class="num">20</em><i>개</i>
+							</span>
+							<p class="order-count">주문(04/25)</p>
+						</div>
+					</li>
+				</ul>
+			</div>
+
+			<div class="in-detail sp-detail pickup-detail">
+				<div class="pickup-shop">
+					<div class="inner">
+						<div class="left">
+							<div class="title">
+								<!-- <span class="txt-red">[미매칭] </span> -->
+								<span class="name">퍼니샵</span>
+								<!-- <div class="ico-tip-wrap">
+									<button type="button" class="btn-tip">?</button>
+									<div class="tip">
+										<div class="txt">
+											이지픽에서 관리되고 있지 않은 가게의 경우(바로주문에서 가게 정보를 직접 입력한 경우), 가게에 주문내역이 전달되지 않을 수 있습니다.
+										</div>
+									</div>
+								</div> -->
+							</div>
+							<p class="infomation">(청평화 1층 3열 1호 / 010-1234-5678)</p>
+						</div>
+						<button class="bt-arrow"></button>
+					</div>
+					<p class="btn-wrap select-btn-wrap">
+						<span class="msg-complete" style="display: block;">거래완료</span>
+						<button type="button" class="btn-ready">픽업대기</button>
+						<button type="button" class="btn-finish on">픽업완료</button>
+					</p>
+				</div>
+				<ul class="item red">
+					<li class="shop-tl circle-dark ui-popup-open" data-target="#popCount">
+						<span class="ico-type big">불량</span>
+						<strong>멜로우블라우스</strong>
+					</li>
+					<li>
+						<div class="left">
+							<span class="option">
+								Dark Dark Blue Blue (다크다크블루블루) - 모델착용컬러-Free(44-66)
+							</span>
+							<div class="place tip-wrap">
+								<span class="evt-tag">14,000<i>원</i></span>
+								<div class="tip-cont">
+									<p>쇼핑몰상품명</p>
+								</div>
+							</div>
+						</div>
+
+						<div class="right">
+							<span class="pcs count cancel ui-popup-open" data-target="#popCount">
+								<em class="txt-red">0</em><em class="division">/</em><em class="num">20</em><i>개</i>
+							</span>
+							<button class="ui-popup-open btn-cancel" data-target="#popup-cancel" type="button">주문취소</button>
+							<p class="order-count">주문(04/25)</p>
+						</div>
+					</li>
+				</ul>
+				<ul class="item">
+					<li class="shop-tl circle-dark ui-popup-open" data-target="#popCount">
+						<span class="ico-type big line2 purple">샘플<br>요청</span>
+						<strong>멜로우블라우스</strong>
+					</li>
+					<li>
+						<div class="left">
+							<span class="option">
+								Dark Dark Blue Blue (다크다크블루블루) - 모델착용컬러-Free(44-66)
+							</span>
+							<div class="place tip-wrap">
+								<span class="evt-tag">14,000<i>원</i></span>
+								<div class="tip-cont">
+									<p>쇼핑몰상품명</p>
+								</div>
+							</div>
+						</div>
+
+						<div class="right">
+							<span class="pcs count ui-popup-open" data-target="#popCount">
+								<em class="txt-red">0</em><em class="division">/</em><em class="num">20</em><i>개</i>
+							</span>
+							<p class="order-count">주문(04/25)</p>
+						</div>
+					</li>
+				</ul>
+				<ul class="item">
+					<li class="shop-tl ui-popup-open" data-target="#popCount">
+						<span class="ico-type pink">제작신규</span>
+						<strong>반더블JK</strong>
+					</li>
+					<li>
+						<div class="left">
+							<span class="option">
+								Dark Dark Blue Blue (다크다크블루블루) - 모델착용컬러-Free(44-66)
+							</span>
+							<div class="place tip-wrap">
+								<span class="evt-tag">14,000<i>원</i></span>
+								<div class="tip-cont">
+									<p>쇼핑몰상품명</p>
+								</div>
+							</div>
+						</div>
+
+						<div class="right">
+							<span class="pcs count cancel ui-popup-open" data-target="#popCount">
+								<em class="txt-red">0</em><em class="division">/</em><em class="num">20</em><i>개</i>
+							</span>
+							<button class="ui-popup-open btn-cancel" data-target="#popup-cancel" type="button">주문취소</button>
+							<p class="order-count">주문(04/25)</p>
+						</div>
+					</li>
+				</ul>
+				<ul class="item">
+					<li class="shop-tl ui-popup-open" data-target="#popCount">
+						<span class="ico-type yellow">샘플반납</span>
+						<strong>반더블JK</strong>
+					</li>
+					<li>
+						<div class="left">
+							<span class="option">
+								Dark Dark Blue Blue (다크다크블루블루) - 모델착용컬러-Free(44-66)
+							</span>
+							<div class="place tip-wrap">
+								<span class="evt-tag">14,000<i>원</i></span>
+								<div class="tip-cont">
+									<p>쇼핑몰상품명</p>
+								</div>
+							</div>
+						</div>
+
+						<div class="right">
+							<span class="pcs count ui-popup-open" data-target="#popCount">
+								<em class="txt-red">0</em><em class="division">/</em><em class="num">20</em><i>개</i>
+							</span>
+							<p class="order-count">주문(04/25)</p>
+						</div>
+					</li>
+				</ul>
+			</div>
+
+		</div>
+	</div>
+	<!--//container -->
+
+	<!-- footer// -->
+	<footer>
+		<a href="list.html">목록</a>
+	</footer>
+	<!-- //footer -->
+	<div id="popup1" class="ui-popup login">
+		<div class="content" style="width:320px;">
+			<div class="header">
+				<h1>입고 로그인</h1>
+			</div>
+			<div class="body">
+				<div class="bg">
+					<strong>비밀번호</strong>
+					<div class="input-box">
+						<input type="text" placeholder="아이디(이메일) 입력" style="width: 100%; padding-right: 20px;">
+						<em>비밀번호를 다시 입력해주세요.</em>
+					</div>
+				</div>
+			</div>
+			<div class="btn-wrap tac">
+				<button type="button" class="btn medium btn_close" style="width:110px;">닫기</button>
+				<!-- <button type="button" class="btn point medium" style="width:110px;">확인</button> -->
+			</div>
+			<button type="button" class="btn_close"><span>닫기</span></button>
+		</div>
+	</div>
+
+
+	<!-- 2022-06-08 EZP-5433 출고팝업(일반) 팝업 -->
+	<div id="popCount" class="ui-popup product-list sellpick-list">
+		<div class="content" style="width:320px;">
+			<div class="header">
+				<h1>메이크라이트</h1>
+			</div>
+			<div class="body">
+				<div class="prd-info-wrap">
+					<div class="sec1">
+						<span class="ico-type blue">신규</span>
+						<a href="#">멜로우블라우스</a>
+						<p>
+							[소녀made]앤더슨 프리티 후드기모 글렌체크 CT후드기모 글렌체크 CT후드기모 CT후드기모
+						</p>
+						<span class="option">ivory / FREE</span>
+					</div>
+					<div class="sec2">
+						<div class="left" style="width:100px">
+							<strong calss="s-title">수량 : <em>9999</em></strong>
+						</div>
+						<div class="right">
+							<button class="refresh"></button>
+							<div class="amount">
+								<button type="button" class="minus">-</button>
+								<div style="display:inline; position:relative;" class="add-clear-span"><input type="number" value="1" style="padding-right: 20px;"><a href="#clear" style="color: rgb(204, 204, 204); text-decoration: none; overflow: hidden; position: absolute; right: 12px; top: 1px; line-height: 1; display: block;">✖</a></div>
+								<button type="button" class="plus">+</button>
+							</div>
+						</div>
+					</div>
+
+					<div class="sec6">
+						<strong calss="s-title">고객요청메모</strong>
+						<p>
+							사이즈 품절이면 미송 잡아주세요. 색상 품절이면 환불 해주세요. 재입고 예정이면 미송 잡아주세요.
+						</p>
+					</div>
+
+					<div class="sec7">
+						<strong calss="s-title">출고 메모</strong><!--2022-07-09 EZP-5433-->
+						<textarea>오늘 오전에 꼭 방문.사입삼촌이 입력한 내용이 저장됩니다.</textarea>
+					</div>
+				</div>
+			</div>
+			<div class="btn-wrap">
+				<button type="button" class="btn medium btn_close" style="width:110px;">닫기</button>
+				<button type="button" class="btn point medium" style="width:110px;">확인</button><!--2022-07-23 EZP-5433-->
+			</div>
+			<button type="button" class="btn_close"><span>닫기</span></button>
+		</div>
+	</div>
+
+	<!-- 2022-06-08 EZP-5433 출고팝업(주문취소) 팝업 -->
+	<div id="popCountCancel" class="ui-popup product-list sellpick-list">
+		<div class="content" style="width:320px;">
+			<div class="header">
+				<h1>메이크라이트</h1>
+			</div>
+			<div class="body">
+				<div class="prd-info-wrap">
+					<div class="sec1">
+						<span class="ico-type blue">신규</span>
+						<a href="#">멜로우블라우스</a>
+						<p>
+							[소녀made]앤더슨 프리티 후드기모 글렌체크 CT후드기모 글렌체크 CT후드기모 CT후드기모
+						</p>
+						<span class="option">ivory / FREE</span>
+					</div>
+					<div class="sec2">
+						<div class="left" style="width:100px">
+							<strong calss="s-title">수량 : <em style="text-decoration:line-through">9999</em></strong>
+							<button class="btn-cancel" type="button">주문취소</button>
+						</div>
+						<div class="right">
+							<button class="refresh"></button>
+							<div class="amount">
+								<button type="button" class="minus">-</button>
+								<div style="display:inline; position:relative;" class="add-clear-span"><input type="number" value="1" style="padding-right: 20px;"><a href="#clear" style="color: rgb(204, 204, 204); text-decoration: none; overflow: hidden; position: absolute; right: 12px; top: 1px; line-height: 1; display: block;">✖</a></div>
+								<button type="button" class="plus">+</button>
+							</div>
+						</div>
+					</div>
+
+					<div class="sec6">
+						<strong calss="s-title">고객요청메모</strong>
+						<p>
+							사이즈 품절이면 미송 잡아주세요. 색상 품절이면 환불 해주세요. 재입고 예정이면 미송 잡아주세요.
+						</p>
+					</div>
+
+					<div class="sec7">
+						<strong calss="s-title">출고 메모</strong><!--2022-07-23 EZP-5433-->
+						<textarea>오늘 오전에 꼭 방문.사입삼촌이 입력한 내용이 저장됩니다.</textarea>
+					</div>
+				</div>
+			</div>
+			<div class="btn-wrap">
+				<button type="button" class="btn medium btn_close" style="width:110px;">닫기</button>
+				<button type="button" class="btn point medium" style="width:110px;">확인</button>
+			</div>
+			<button type="button" class="btn_close"><span>닫기</span></button>
+		</div>
+	</div>
+
+	<!-- 2022-06-08 EZP-5433 출고 로그인 팝업 -->
+	<div id="pop-login" class="ui-popup login">
+		<div class="content" style="width:350px;">
+			<div class="header">
+				<h1>출고 로그인</h1>
+			</div>
+			<div class="body no-line">
+				<div class="bg">
+					<strong>비밀번호</strong>
+					<div class="input-box">
+						<input type="text" placeholder="비밀번호를 입력해주세요">
+						<em>비밀번호를 다시 입력해주세요.</em>
+					</div>
+				</div>
+			</div>
+			<div class="btn-wrap tac">
+				<button type="button" class="btn medium btn_close" style="width:110px;">취소</button>
+				<button type="button" class="btn point medium" style="width:110px;">확인</button>
+			</div>
+		</div>
+	</div>
+
+	<!-- 2022-06-08 EZP-5433 거래완료 팝업 -->
+	<div id="pop-completed" class="ui-popup">
+		<div class="content" style="width:350px;">
+			<div class="header">
+			</div>
+			<div class="body no-line cont-txt">
+				<p>해당 주문의 상태를<br>거래완료 처리하시겠습니까?</p>
+				<p class="txt-blue txt-small mt15">*거래완료 처리 시 이전 상태로 되돌릴 수 없습니다.</p>
+			</div>
+			<div class="btn-wrap tac">
+				<button type="button" class="btn medium btn_close" style="width:110px;">취소</button>
+				<button type="button" class="btn point medium" style="width:110px;">확인</button>
+			</div>
+		</div>
+	</div>
+
+	<!-- 2022-06-20 EZP-5433 발주마감 출고처리 팝업 -->
+	<div id="popup3" class="ui-popup deadline-pop">
+		<div class="content" style="width:260px;">
+			<div class="header"></div>
+			<div class="body">
+				<p>
+					발주 마감되어 출고처리를<br>
+					할 수 없습니다.
+				</p>
+			</div>
+			<div class="btn-wrap tac">
+				<button type="button" class="btn point medium ui-popup-open btn_close" data-target="#popup3" style="width:110px;">확인</button>
+			</div>
+		</div>
+	</div>
+
+	<div id="popup5" class="ui-popup order-detail-pop alert"><!-- 2022-06-08 EZP-5433 alert 클래스 추가-->
+		<div class="content" style="width:320px;">
+			<div class="header">
+				<h1>쇼핑몰 발주상세</h1>
+			</div>
+			<div class="body">
+				<div class="prd-wrap">
+					<span class="ico-type blue">신규</span>
+					<strong class="prd-name">멜로우블라우스</strong>
+					<span class="price">14,000원</span>
+				</div>
+				<p class="option">
+					Beige(베이지)-모델착용컬러 / S
+				</p>
+				<div class="scroll-wrap">
+					<table>
+						<colgroup>
+							<col width="*">
+							<col width="90">
+						</colgroup>
+						<thead>
+							<tr>
+								<th>
+									쇼핑몰별
+								</th>
+								<th>
+									발주수량
+								</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>소녀레시피</td>
+								<td class="txt-red">1</td><!-- 2021-12-15 EZP-4620 -->
+							</tr>
+							<tr>
+								<td>소녀레시피</td>
+								<td>1</td>
+							</tr>
+							<tr>
+								<td>소녀레시피</td>
+								<td>1</td>
+							</tr>
+							<tr>
+								<td>소녀레시피</td>
+								<td>1</td>
+							</tr>
+							<tr>
+								<td>소녀레시피</td>
+								<td>1</td>
+							</tr>
+							<tr>
+								<td>소녀레시피</td>
+								<td>1</td>
+							</tr>
+							<tr>
+								<td>소녀레시피</td>
+								<td>1</td>
+							</tr>
+							<tr>
+								<td>소녀레시피</td>
+								<td>1</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="btn-wrap">
+				<button type="button" class="btn large btn_close">닫기</button>
+			</div>
+			<button type="button" class="btn_close"><span>닫기</span></button>
+		</div>
+	</div>
+
+	<!-- 2022-06-20 EZP-5433 [메모팝업] 팝업 시작 -->
+	<div class="ui-popup full pop-memo" id="pop-memo">
+        <div class="content" style="background-color: #f8f8f8;;">
+			<div class="header pop-tl">
+				<button type="button" class="btn_close icon_close">닫기</button>
+				<h1>확인메모</h1>
+				<button type="button" class="reset txt-green"></button>
+            </div>
+				<div class="body" style="background-color:transparent;">
+					<p class="total memo-total">총 <span class="txt-green">N</span> 건</p>
+					<ul class="memo-list">
+						<li>
+							<div class="date">2022-04-09(목) 10:00 주문</div>
+							<div class="cont">
+								<span class="bg-red">대기</span>
+								<p>장끼 꼭 챙겨주세요! :)</p>
+							</div>
+						</li>
+						<li>
+							<div class="date">2022-04-09(목) 10:00 주문</div>
+							<div class="cont">
+								<span class="bg-red">대기</span>
+								<p>장끼 챙겨주세요</p>
+							</div>
+						</li>
+						<li>
+							<div class="date">2022-04-09(목) 10:00 주문</div>
+							<div class="cont">
+								<span class="bg-red">대기</span>
+								<p>미송장끼 꼭 챙겨주세요!</p>
+							</div>
+						</li>
+						<li>
+							<div class="date">2022-04-09(목) 10:00 주문</div>
+							<div class="cont">
+								<span class="bg-red">대기</span>
+								<p>교환X</p>
+							</div>
+						</li>
+						<li>
+							<div class="date">2022-04-09(목) 10:00 주문</div>
+							<div class="cont">
+								<span class="bg-darker">완료</span>
+								<p>교환 진행 시 따로 메모 남겨주세요~</p>
+							</div>
+						</li>
+						<li class="no-memo">
+							<p>메모가 없습니다.</p>
+						</li>
+					</ul>
+				</div>
+		</div>
+	</div>
+
+	<!-- 2022-05-27 EZP-5433 [검색필터] 팝업 시작 -->
+	<div class="ui-popup full product-list pop-market" id="market-pop">
+		<div class="content">
+			<div class="header pop-tl">
+				<button type="button" class="btn_close icon_close">닫기</button>
+				<h1>검색필터</h1>
+				<button type="button" class="reset txt-green">초기화</button>
+			</div>
+			<div class="body">
+				<div class="prd-info-wrap">
+					<div class="type-chk">
+						<strong calss="s-title">마켓선택</strong>
+						<p class="sub-txt">픽업대기 건이 있는 경우 <span class="cirlce"></span>으로 표시됩니다.</p>
+						<div class="market-list">
+							<div>
+								<input type="checkbox" id="chk1">
+								<label for="chk1">전체</label>
+							</div>
+							<div>
+								<input type="checkbox" id="chk2">
+								<label for="chk2">DDP(유어스)</label>
+							</div>
+							<div class="active">
+								<input type="checkbox" id="chk3">
+								<label for="chk3">동평화</label>
+							</div>
+							<div class="active">
+								<input type="checkbox" id="chk4">
+								<label for="chk4">청평화</label>
+							</div>
+							<div>
+								<input type="checkbox" id="chk5">
+								<label for="chk5">APM</label>
+							</div>
+							<div>
+								<input type="checkbox" id="chk6">
+								<label for="chk6">마켓2</label>
+							</div>
+							<div>
+								<input type="checkbox" id="chk7">
+								<label for="chk7">마켓3</label>
+							</div>
+							<div>
+								<input type="checkbox" id="chk8">
+								<label for="chk8">마켓4</label>
+							</div>
+							<div>
+								<input type="checkbox" id="chk9">
+								<label for="chk9">마켓5</label>
+							</div>
+						</div>
+					</div>
+
+					<div class="sec3 type-chk">
+						<strong calss="s-title">픽업 상태</strong>
+						<div class="modal-box col3">
+							<div>
+								<input type="checkbox" id="pick1">
+								<label for="pick1">전체</label>
+							</div>
+							<div>
+								<input type="checkbox" id="pick2">
+								<label for="pick2">픽업대기</label>
+							</div>
+							<div>
+								<input type="checkbox" id="pick3">
+								<label for="pick3">픽업완료</label>
+							</div>
+						</div>
+					</div>
+
+					<div class="sec1">
+						<strong class="title mt10">
+						<select name="shop-select" class="shop-select">
+							<option selected="selected">가게</option>
+							<option>주소</option>
+						</select> <!--2022-07-20 EZP-5433-->
+						</strong>
+						<div class="input search">
+							<input type="text" placeholder="검색어를 입력해 주세요." name="search_text" class="search-input" autocomplete="off" required>
+							<!-- <button type="button" name="button"><i class="icon">삭제</i></button>
+							<ul class="list">
+								<li class="no-data">검색결과가 없습니다.</li>
+								<li><a href="#">거래처명1거래처명1거래처명1거래처명1거래처명1거래처명1거래 처명1</a></li>
+								<li><a href="#">거래처명2</a></li>
+								<li><a href="#">거래처명3</a></li>
+								<li><a href="#">거래처명4</a></li>
+							</ul> --> <!--2022-07-20 EZP-5433-->
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="btn-wrap btn-bottom">
+				<button type="button" class="btn submit point w100">검색하기</button>
+			</div>
+		</div>
+	</div>
+
+	<!-- 2022-07-20 EZP-5433 픽업대기 팝업 -->
+	<div id="pop-pickup" class="ui-popup">
+		<div class="content" style="width:300px;">
+			<div class="header">
+			</div>
+			<div class="body no-line cont-txt">
+				<p>픽업대기 상태의 주문 건이 없습니다.</p>
+			</div>
+			<div class="btn-wrap tac">
+				<button type="button" class="btn point medium btn_close" style="width:110px;">확인</button>
+			</div>
+		</div>
+	</div>
+
+	<!-- ui check -->
+	<script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
+	<script src="../../js/jquery-ui.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="../../css/jquery-ui.min.css">
+
+	<script>
+		$(document).ready(function() {
+			$('#back').on('click', function() {
+				window.history.back();
+			});
+
+			if (!$(e.target).is('.btn-tip')) {
+		 $('.tip').hide();
+ }
+
+		});
+
+		$(".pickup-detail .item").hide();
+		//content 클래스를 가진 div를 표시/숨김(토글)
+		$(".pickup-shop .bt-arrow").click(function(){
+			$(this).closest('.pickup-detail').children('.item').slideToggle(300);
+
+            if($(this).closest('.pickup-detail').children('.pickup-shop').hasClass("active")){
+                $(this).closest('.pickup-detail').children('.pickup-shop').removeClass("active");
+            } else{
+                $(this).closest('.pickup-detail').children('.pickup-shop').addClass("active");
+            }
+		});
+
+			$('.search-input').on('focus', function () {
+				$(this).siblings('ul.list').show();
+			});
+
+			$('.search-input').on('blur', function () {
+				$(this).siblings('ul.list').hide();
+			});
+
+			// $('.search-input').on('change keyup paste', function() {
+			// 	if ($(this).val() != '') {
+			// 		$(this).siblings('ul.list').show();
+			// 	} else {
+			// 		$(this).siblings('ul.list').hide();
+			// 	}
+			// })
+
+			$(' ul.list li a').click(function () {
+				$(this).parents('.input').find('input').val($(this).text())
+				$(this).parents('ul.list').hide()
+
+			})
+
+			// 2022-07-20 EZP-5433 전체픽업완료 버튼
+			$('.btn-allPick').on('click', function () {
+				if ($(".btn-ready").hasClass("on") === true) {
+					$('.btn-finish').addClass("on");
+					$('.btn-ready').removeClass("on");
+				}
+			});
+
+			//2022-07-20 EZP-5433 셀렉트박스
+			$(".shop-select").selectmenu();
+
+			//2022-07-26 EZP-6161 독스 65번
+			$('.btn-tip').click(function() {
+			    $(this).next('.tip').show();
+			});
+
+			$(document).click(function(e){
+		    if (!$(e.target).is('.btn-tip')) {
+		        $('.tip').hide();
+		    }
+			});
+	</script>
+</body>
+
+</html>

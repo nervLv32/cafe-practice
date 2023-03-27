@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="ko" class="js">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="format-detection" content="telephone=no">
+	<meta content="7GTEAaj9OHm/B6t8WELAc+6jTv9Fwyjj4nGViJpKFoc=" name="csrf-token">
+	<meta content="T" name="login-required">
+	<link rel="shortcut icon" type="image/x-icon" href="/img/favicon/ezp.ico">
+
+
+	<link rel="stylesheet" type="text/css" href="../../../css/default.css">
+	<link rel="stylesheet" type="text/css" href="../../../css/month.picker.css">
+
+	<title>이지픽</title>
+</head>
+
+<body id="login">
+	<header></header>
+	<!-- 2020-12-14 EZP-1908 -->
+	<div class="login-wrap">
+		<div class="inner">
+			<div class="left-cont">
+				<div class="inner">
+					<h1><img src="../../../img/common/gate-login.png" alt="no.1동대문 사입서비스 이지픽"></h1>
+					<form class="form-signin">
+						<!-- 2021-03-09 수정// -->
+						<div class="input-info">
+							<input type="text" id="txtSignInUserId" value="" placeholder="이메일 입력 (easypick@easypick.com)" data-test="aaaa" style="width: 350px; padding-right: 20px;">
+							<div class="mb10"></div>
+							<input type="password" id="txtSignInUserPassword" placeholder="패스워드 입력" style="width: 350px; padding-right: 20px;">
+						</div>
+						<!-- //2021-03-09 수정 -->
+						<span class="checkbox">
+							<input type="checkbox" name="" id="chkActiveLogin">
+							<label for="chkActiveLogin">로그인 상태 유지</label>
+							<div class="right">
+								<a href="/html/sign/front/up.html">회원가입</a><!--2022-07-06 EZP-5388-->
+								<a href="#" class="openLayerFindId">ID/PW찾기</a>
+							</div>
+						</span>
+						<button type="submit" name="button" class="btn point login" id="btnSignIn">로그인</button>
+						<!-- EZP-728 2020-05-27 -->
+						<!-- <button type="button" name="button" class="btn point login ui-popup-open" data-target="#signupAlert">case6 회원가입 거부시</button> -->
+					</form>
+					<!-- 2022-07-06 EZP-5388 -->
+					<p class="join-tl"><span>다른 계정으로 로그인</span></p>
+					<a href="/html/sign/front/up.html" class="btn line join">CAFE24로 로그인
+						<div class="tip-wrap">
+							<i class="btn-tip"></i>
+							<div class="tip" style="width:346px; z-index: 9;">
+								CAFE24 계정으로 로그인 시, 마켓플러스 내 공급서비스를
+								신청한 계정에 한해 로그인 가능합니다.
+							</div>
+						</div>
+					</a>
+					<!-- <p class="alert">아이디 또는 비밀번호를 다시 확인하세요.<br>등록되지 않은 아이디이거나, 아이디 또는 비밀번호를 잘못 입력하셨습니다.</p> -->
+					<p class="info-sub"><em class="symbol">*</em> 이지픽은 <strong>구글 크롬(Chrome) 브라우저</strong>에 최적화 되어있습니다.</p>
+					<!-- // 2021-09-14 EZP-4079 -->
+				</div>
+			</div>
+			<div class="right-cont">
+				<!--2022-08-31 EZP-EZP-5609 앱출시 팝업추가-->
+				<div class="topBanner">
+					<img src="../../../img/login/topPop.png" alt="">
+					<div class="bottom">
+						<span class="checkbox" id="check">
+							<!-- 2022-09-15 EZP-5609 텍스트 수정 다시보지않기에서 아래문구 -->
+							<input type="checkbox" value="checkbox" name="chkbox" id="chkday" /><label for="chkday">오늘 하루 동안 다시 보지 않기</label>
+						</span>
+						<span id="close"><img src="../../../img/common/close-gray.svg" alt=""></span>
+					</div>
+				</div>
+				<div class="swiper-container">
+					<!-- //21-03-03 -->
+					<div class="swiper-wrapper">
+						<!-- 2021-05-11 EZP-2970 -->
+						<div class="swiper-slide sec1" style="background-image:url('../../../img/login/login-img1_0511.jpg');"> <!--2022-07-07 EZP-5388-->
+							<h2>
+								<span>이미 실력으로 검증된 <em>넘버원 동대문 사입서비스</em></span>
+								가장 쉬운 사입 <em>이지픽</em>
+							</h2>
+							<span>주문</span>
+							<strong>
+								동대문 넘버원 사입서비스<br>
+								이지픽에서 쉽게 주문하세요!
+							</strong>
+							<!-- 2023-03-13 EZP-8631 br 추가 -->
+							<p>
+								매일 업데이트되는 신상품 주문부터<br>
+								거래 상품을 대량으로<br/>
+								주문할 수 있는 '바로주문',<br>
+								원하는 상품을 제작하는 '제작상품 주문'까지<br>
+								클릭 한번에 가능합니다.
+							</p>
+							<a href="#" class="btn">무료상담 신청</a>
+						</div>
+						<div class="swiper-slide sec2" style="background-image:url('../../../img/login/login-img2.jpg');">
+							<h2>
+								<span>이미 실력으로 검증된 <em>넘버원 동대문 사입서비스</em></span>
+								가장 쉬운 사입 <em>이지픽</em>
+							</h2>
+							<span>미송/환불/불량</span>
+							<strong>
+								복잡하게 관리했던 미송/불량/환불을<br>
+								편리하게 관리할 수 있어요
+							</strong>
+							<p>
+								복잡한 미송/불량/환불 관리의 불편함을 <br>
+								덜어드리기 위해 가장 편리하게 관리할 수 있는 방법을 <br>
+								이지픽이 대신 고민해왔습니다.<br>
+								이제 이지픽이 제공하는 기능으로 <br>
+								쉽고 편리하게 관리해보세요.
+							</p>
+							<a href="#" class="btn">무료상담 신청</a>
+						</div>
+						<div class="swiper-slide sec3" style="background-image:url('../../../img/login/login-img3.jpg');">
+							<h2>
+								<span>이미 실력으로 검증된 <em>넘버원 동대문 사입서비스</em></span>
+								가장 쉬운 사입 <em>이지픽</em>
+							</h2>
+							<span>정산</span>
+							<strong>
+								어렵고 번거로운 정산 및 세금계산서 발행을<br>
+								쉽고 빠르게 처리할 수 있어요
+							</strong>
+							<p>
+								매일 쌓여 처리해야하는 수많은 정산내역을<br>
+								이지픽에서 실시간으로 확인하고 관리할 수 있습니다!<br>
+								번거로운 세금계산서 발행도 이지픽에서 도와드리니<br>
+								시간이 절약되고 업무 효율도 개선됩니다.
+							</p>
+							<a href="#" class="btn">무료상담 신청</a>
+						</div>
+						<div class="swiper-slide sec4" style="background-image:url('../../../img/login/login-img4.jpg');">
+							<h2>
+								<span>이미 실력으로 검증된 <em>넘버원 동대문 사입서비스</em></span>
+								가장 쉬운 사입 <em>이지픽</em>
+							</h2>
+							<span>다양한 기능</span>
+							<strong>
+								사입을 위한 다양한 기능으로<br>
+								최상의 사입 서비스를 경험하세요
+							</strong>
+							<p>
+								사입 업무를 위한 다양한 특화 기능을 제공합니다.<br>
+								똑똑한 이지픽이 추천하는 '고객 맞춤 상품 큐레이션 기능',<br>
+								그 외 내 상품 관리, 제작 주문 등 이지픽만의 관리 기능으로<br>
+								보다 쉽게 사입할 수 있습니다.
+							</p>
+							<a href="#" class="btn">무료상담 신청</a>
+						</div>
+					</div>
+					<!-- 21-03-03// -->
+					<!-- Add Arrows -->
+					<div class="swiper-button-next"></div>
+					<div class="swiper-button-prev"></div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+	<!-- footer// -->
+	<footer>
+		<div class="inner">
+			<div class="info">
+				<p>
+					<span>고객센터: <em>02-6296-8794</em></span>
+					주중 10:00 ~ 18:00 | 점심시간 12:30 ~ 13:30 (토,일 / 공휴일 휴무)<br>
+					<span>회사명: 제이씨어패럴(주)</span> 대표자: 정문섭 <br> <span>사업자등록번호: 204-86-42339</span> 통신판매업신고: 제2016-서울동대문-1326호 <a href="http://www.ftc.go.kr/bizCommPop.do?wrkr_no=2048642339" target="_blank">사업자 정보확인</a><br> 주소: 서울특별시 동대문구 천호대로17길 6 (용두동)
+					제이씨어패럴빌딩 <br> <span>대표번호: 02-6296-8794</span>
+					<span>팩스번호: 02-929-4332</span> 대표이메일: jcapparel@jcapparel.co.kr <br> <span>호스팅 제공자: 카페24(주)</span> 개인정보보호 책임자: 김용해 <span class="copyright">Copyright ⓒ EasyPick. All Rights Reserved.</span>
+				</p>
+			</div>
+
+			<ul class="link">
+				<li><a href="/site/front/service">서비스 소개</a></li>
+				<li><a href="/site/terms/front/detail">서비스 이용약관</a></li>
+				<li><a href="/site/privacy/front/detail" class="personal">개인정보처리방침</a></li>
+				<li><a href="/site/front/consult">서비스 상담신청</a></li>
+			</ul>
+		</div>
+	</footer>
+	<!-- //footer -->
+
+	<!-- Id 찾기 Layer -->
+	<button type="button" class="ui-popup-open" data-target="#layer_find_id">아이디 찾기 step1</button>
+
+	<div id="layer_find_id" class="ui-popup">
+		<div class="content" style="width:412px; height:465px;" tabindex="-1">
+			<div class="body">
+				<div class="tab">
+					<ul>
+						<li class="on"><a href="#none">아이디 찾기</a></li>
+						<li><a href="#none" class="openLayerFindPasswd">비밀번호 찾기</a></li>
+					</ul>
+				</div>
+				<div class="tab-cont">
+					<div class="txt-cont">
+						<strong>가입자 정보에 등록한 휴대폰 번호로 인증</strong>
+						<em>회원가입시 등록한 담당자 이름과 휴대폰번호로<br>아이디 찾기가 가능합니다.</em>
+					</div>
+					<form id="frmFindId" name="frmFindId">
+						<div class="search_form">
+							<div>
+								<span>이름</span>
+								<div style="display:inline; position:relative;" class="add-clear-span">
+									<!-- 2023-01-25 EZP-8050 width: 266px -> 251px로 변경 / placeholder 추가 -->
+									<!-- 2023-02-17 EZP-8436 width: 251 -> 261으로 변경 -->
+									<!-- 2023-03-16 EZP-8907 width 261px -> 271로 변경 시작 -->
+									<div style="display:inline-block; position:relative;" class="add-clear-span"><input type="text" name="manager_name" title="이름 입력" style="width: 271px; padding-right: 33px;" tabindex="1" placeholder="이름 입력"><a href="#clear" style="color: rgb(204, 204, 204); text-decoration: none; display: none; overflow: hidden; position: absolute; right: 12px; top: 1px; line-height: 1;" tabindex="-1">✖</a></div><a href="#clear" style="display: none; color: rgb(204, 204, 204); text-decoration: none; overflow: hidden; position: absolute; right: 12px; top: 1px; line-height: 1;">✖</a></div>
+							</div>
+							<div>
+								<span>휴대폰 번호</span>
+								<div class="phone">
+									<input type="hidden" name="business_cell1" id="business_cell1" value="010">
+									<!-- 2023-01-25 EZP-8050 width: 78 -> 73으로 변경 -->
+									<div class="ui-select" data-target_id="#business_cell1" style="width:73px;">
+										<button type="button" data-target_id="#business_cell1" data-value="">010</button>
+										<ul>
+											<li data-key="010" class="active">010</li>
+											<li data-key="011">011</li>
+											<li data-key="016">016</li>
+											<li data-key="017">017</li>
+											<li data-key="018">018</li>
+											<li data-key="019">019</li>
+											<li data-key="070">070</li>
+										</ul>
+									</div>
+									<!-- 2023-03-16 EZP-8907 select, input 기존 width 80px -> 85로 변경 시작 -->
+									<div style="display:inline; position:relative;" class="add-clear-span">
+										<!-- 2023-01-25 EZP-8050 width: 80 -> 75으로 변경 -->
+										<!-- 2023-02-17 EZP-8436 width: 75 -> 80으로 변경 -->
+										<div style="display:inline-block; position:relative;" class="add-clear-span"><input type="text" name="business_cell2" class="fNum" title="휴대폰 번호 가운데 4자리 입력" maxlength="4" style="width: 85px; padding-right: 33px;" tabindex="2"><a href="#clear" style="color: rgb(204, 204, 204); text-decoration: none; display: none; overflow: hidden; position: absolute; right: 12px; top: 1px; line-height: 1;" tabindex="-1">✖</a></div><a href="#clear" style="display: none; color: rgb(204, 204, 204); text-decoration: none; overflow: hidden; position: absolute; right: 12px; top: 1px; line-height: 1;">✖</a></div>
+									<div style="display:inline; position:relative;" class="add-clear-span">
+										<!-- 2023-01-25 EZP-8050 width: 80 -> 75으로 변경 -->
+										<!-- 2023-02-17 EZP-8436 width: 75 -> 80으로 변경 -->
+										<div style="display:inline-block; position:relative;" class="add-clear-span"><input type="text" name="business_cell3" class="fNum" title="휴대폰 번호 끝 4자리 입력" maxlength="4" style="width: 85px; padding-right: 33px;" tabindex="3"><a href="#clear" style="color: rgb(204, 204, 204); text-decoration: none; display: none; overflow: hidden; position: absolute; right: 12px; top: 1px; line-height: 1;" tabindex="-1">✖</a></div><a href="#clear" style="display: none; color: rgb(204, 204, 204); text-decoration: none; overflow: hidden; position: absolute; right: 12px; top: 1px; line-height: 1;">✖</a></div>
+								</div>
+								<!-- 2023-03-16 EZP-8907 select, input 기존 width 80px -> 85로 변경 끛 -->
+							</div>
+						</div>
+						<div class="btn_wrap mt40 tac">
+							<button type="button" class="btn medium btn_close" style="width:150px;">닫기</button>
+							<button type="button" class="btn point medium" id="btnFindId" style="width:150px;">아이디 찾기</button>
+						</div>
+					</form>
+				</div><!-- //tab-cont -->
+			</div><!-- //body -->
+		</div>
+	</div>
+
+	<button type="button" class="ui-popup-open" data-target="#layer_finded_id">아이디 찾기 step2</button>
+	<div id="layer_finded_id" class="ui-popup">
+		<div class="content" style="width:412px;" tabindex="-1">
+			<div class="body">
+				<div class="tab">
+					<ul>
+						<li class="on"><a href="#none">아이디 찾기</a></li>
+						<li><a href="#none" class="openLayerFindPasswd">비밀번호 찾기</a></li>
+					</ul>
+				</div>
+				<div class="tab-cont">
+					<div class="txt-cont">
+						<div class="txt-cont result">
+							<span>회원님의 아이디는</span><br>
+							<span class="mail-result eUserEmail">easypick77@naver.com</span> 입니다.
+							<div>
+								<span>가입일</span>
+								<em class="eUserRegistDate">2019-11-15</em>
+							</div>
+						</div>
+					</div>
+					<div class="btn_wrap mt40 tac">
+						<button type="button" class="btn medium btn_close" style="width:150px;">닫기</button>
+						<button type="button" class="btn point medium openLayerSignIn" style="width:150px;">로그인</button>
+					</div>
+				</div><!-- //tab-cont -->
+			</div><!-- //body -->
+		</div>
+	</div>
+
+	<button type="button" class="ui-popup-open" data-target="#layer_error">아이디 error</button>
+	<div id="layer_error" class="ui-popup">
+		<div class="content" style="width:412px;" tabindex="-1">
+			<div class="body">
+				<p class="error_msg"></p>
+				<div class="btn_wrap mt40 tac">
+					<button type="button" class="btn point small openLayerFindId btn_close" style="width:100px;">확인</button>
+				</div>
+			</div><!-- //body -->
+			<button type="button" class="btn_close"><span>닫기</span></button>
+		</div>
+	</div>
+
+
+	<!-- 비밀번호 찾기 Layer -->
+	<button type="button" class="ui-popup-open" data-target="#layer_find_passwd">비밀번호 찾기 step1</button>
+
+	<!-- 2023-03-16 EZP-8907 class .pw-pop 추가 -->
+	<div id="layer_find_passwd" class="ui-popup pw-pop">
+		<div class="content" style="width:412px; height:465px;" tabindex="">
+			<div class="body">
+				<div class="tab">
+					<ul>
+						<li><a href="#none" class="openLayerFindId">아이디 찾기</a></li>
+						<li class="on"><a href="#none">비밀번호 찾기</a></li>
+					</ul>
+				</div>
+				<div class="tab-cont">
+					<div class="txt-cont">
+						<strong>가입한 아이디를 통해 비밀번호 찾기</strong> <em>회원가입시 등록한 담당자 이름과 아이디로<br>비밀번호 찾기가 가능합니다.</em>
+					</div>
+					<form id="frmFindPasswd">
+						<div class="search_form">
+							<div>
+								<span>이름</span>
+								<div style="display:inline; position:relative;" class="add-clear-span">
+									<!-- 2023-01-25 EZP-8050 width: 266px -> 251px로 변경 / placeholder 추가 -->
+                  <input type="text" title="이름 입력" name="manager_name" style="width: 251px; padding-right: 20px;" tabindex="1" placeholder="이름 입력"><a href="#clear"
+										style="display: none; color: rgb(204, 204, 204); text-decoration: none; overflow: hidden; position: absolute; right: 12px; top: 1px; line-height: 1;">✖</a></div>
+							</div>
+							<div>
+                <!-- 2023-01-25 EZP-8050 워딩추가 -->
+                <span>아이디(이메일)</span>
+								<div class="email">
+									<div style="display:inline; position:relative;" class="add-clear-span">
+										<!-- 2023-01-25 EZP-8050 width: 120px -> 118px로 변경 / placeholder 추가 -->
+                    <input type="text" placeholder="아이디 입력" title="이메일 아이디 입력" name="user_id" style="width: 118px; padding-right: 20px;" tabindex="2"><a href="#clear"
+											style="display: none; color: rgb(204, 204, 204); text-decoration: none; overflow: hidden; position: absolute; right: 12px; top: 1px; line-height: 1;">✖</a></div> <span>@</span>
+									<input type="hidden" name="email" id="email" value="naver.com">
+									<div class="ui-select" data-target_id="#email">
+										<button type="button" data-target_id="#email" data-value="">네이버</button>
+										<ul>
+											<li data-key="">직접입력</li>
+											<li data-key="naver.com" class="active">네이버</li>
+											<li data-key="gmail.com">지메일</li>
+											<li data-key="daum.net">다음</li>
+											<li data-key="hanmail.net">한메일</li>
+											<li data-key="hotmail.com">핫메일</li>
+										</ul>
+									</div>
+									<div style="display:inline; position:relative;" class="add-clear-span">
+										<input type="text" placeholder="직접입력" title="이메일 주소 직접입력" id="email_direct" name="email_direct" style="width: 266px; display: none; padding-right: 20px;"
+											disabled="disabled"><a href="#clear" style="display: none; color: rgb(204, 204, 204); text-decoration: none; overflow: hidden; position: absolute; right: 12px; top: 1px; line-height: 1;">✖</a></div>
+								</div>
+							</div>
+						</div>
+						<div class="btn_wrap mt40 tac">
+							<button type="button" class="btn medium btn_close" style="width:150px;">닫기</button>
+							<button type="button" class="btn point medium" id="btnFindPasswd" style="width:150px;">비밀번호 찾기</button>
+						</div>
+					</form>
+				</div><!-- //tab-cont -->
+			</div><!-- //body -->
+		</div>
+	</div>
+
+	<button type="button" class="ui-popup-open" data-target="#layer_finded_passwd">비밀번호 찾기 step2</button>
+	<div id="layer_finded_passwd" class="ui-popup">
+		<div class="content" style="width:412px;" tabindex="-1">
+			<div class="body">
+				<div class="tab">
+					<ul>
+						<li><a href="#" class="openLayerFindId">아이디 찾기</a></li>
+						<li class="on"><a href="#">비밀번호 찾기</a></li>
+					</ul>
+				</div>
+				<div class="tab-cont">
+					<div class="txt-cont">
+						<div class="txt-cont result">
+							<span><span class="mail-result eUserEmail">easy pick77@naver.com</span> 주소로<br>
+								임시 비밀번호가 전송되었습니다.</span>
+							<div>
+								<span>개인정보 보안을 위해 임시 발급된 비밀번호로 로그인 후<br>비밀번호 변경을 해주시기 바랍니다.</span>
+							</div>
+						</div>
+					</div>
+					<div class="btn_wrap mt30 tac">
+						<button type="button" class="btn medium btn_close" style="width:150px;">닫기</button>
+						<button type="button" class="btn point medium openLayerSignIn" style="width:150px;">로그인</button>
+					</div>
+				</div><!-- //tab-cont -->
+			</div><!-- //body -->
+		</div>
+	</div>
+
+	<!-- EZP-728 2020-05-27 -->
+	<div id="signupAlert" class="ui-popup">
+		<div class="content" style="min-width:412px; max-width: 700px;" tabindex="-1">
+			<div class="body">
+				<div class="txt-cont">
+					<div class="txt-cont result order">
+						<h3 id="commLayerTitle"></h3>
+						<div class="confirm mt0">
+							<p>
+								<strong class="bold">회원 가입 승인이 반려되었습니다.</strong><br>
+								<span>(반려 사유 : 관리자 입력 반려사유 표기)</span><br>
+							</p>
+						</div>
+						<p>
+							자세한 사항은 고객센터로 문의 바랍니다.<br>
+							(02-6296-8794)
+						</p>
+					</div>
+				</div>
+				<div class="txt-cont">
+					<div class="txt-cont result order">
+						<h3 id="commLayerTitle"></h3>
+						<div class="confirm mt0">
+							<p>
+								<strong class="bold">회원 가입 승인이 반려되었습니다.</strong>
+							</p>
+						</div>
+						<p>
+							자세한 사항은 고객센터로 문의 바랍니다.<br>
+							(02-6296-8794)
+						</p>
+					</div>
+				</div>
+				<div class="btn_wrap mt40 tac">
+					<span class="commLayerConfirm"><button type="button" class="btn point medium btn_close" style="width:150px;">확인</button></span>
+				</div>
+			</div>
+
+		</div>
+	</div>
+	<!-- EZP-728 2020-05-27 -->
+
+	<!-- //footer -->
+	<!-- <script type="text/javascript"
+		src="https://easypick.co.kr/optimizer.php?filename=ldLBasMwDAbge_F1zyF63EPstheQHSVRYlueZJO1T79A20NbWBIQ6PJ_CAnBKInA44wZesVEi-gMSiZNA0HjgmGG6aeRXu7t7M5ruck-4Dg-JR4UK73yxF0XX_xk0CpH8CqLkTqroji8UbqWZ8MQ2T_mNXaJ806DXRcioR4gtzHOgkqM_hC1hQvpienzAPpeiPIX_u4kQVKS7HqVXHfE12tth0rzWykbpWxmeMjwvsR_n9BzrOsjTPYH&amp;type=js&amp;k=8ba9d4b69ce62fdb435697529450187a41a73956&amp;t=1587529960">
+	</script> -->
+	<!-- 21-01-18 수정-->
+	<script src="../../../js/jquery.min.js"></script><!--jquery default-->
+	<script src="../../../js/jquery-ui.min.js"></script>
+	<script src="../../../js/swiper-ie9.min.js"></script>
+	<script src="../../../js/default.input.js"></script><!-- 2022-10-04 -->
+	<script src="../../../js/addclear.min.js"></script>
+	<script src="../../../js/common.front.js"></script>
+	<script src="../../../js/ui.js"></script>
+	<script src="../../../js/pub.js"></script>
+	<script src="../../../js/jquery.scrollbar.min.js"></script>
+	<!-- //21-01-18 수정-->
+
+	<script type="text/javascript">
+		$(document).ready(function () {
+
+			// 2022-08-31 EZP-5609
+			// 쿠키 가져오기
+			var getCookie = function (cname) {
+				var name = cname + "=";
+				var ca = document.cookie.split(';');
+				for (var i = 0; i < ca.length; i++) {
+					var c = ca[i];
+					while (c.charAt(0) == ' ') c = c.substring(1);
+					if (c.indexOf(name) != -1) return c.substring(name.length, c.length);
+				}
+				return "";
+			}
+
+			// 24시간 기준 쿠키 설정하기  
+			var setCookie = function (cname, cvalue, exdays) {
+				var todayDate = new Date();
+				todayDate.setTime(todayDate.getTime() + (exdays * 24 * 60 * 60 * 1000));
+				var expires = "expires=" + todayDate.toUTCString(); // UTC기준의 시간에 exdays인자로 받은 값에 의해서 cookie가 설정 됩니다.
+				document.cookie = cname + "=" + cvalue + "; " + expires;
+			}
+
+			var couponClose = function () {
+				if ($("input[name='chkbox']").is(":checked") == true) {
+					setCookie("close", "Y", 1);   //기간( ex. 1은 하루, 7은 일주일)
+				}
+				$(".topBanner").css("display", "none");
+			}
+
+			$(document).ready(function () {
+				var cookiedata = document.cookie;
+				if (cookiedata.indexOf("close=Y") < 0) {
+					$(".topBanner").css("display", "block");
+				} else {
+					$(".topBanner").css("display", "none");
+				}
+				$("#close").click(function () {
+					couponClose();
+				});
+			});
+		});
+	</script>
+	<script>
+	$(function(){
+		var visualSwiper = new Swiper('.right-cont .swiper-container', {
+	      loop: true,
+
+				autoplayDisableOnInteraction: false,
+	  });
+		$('.right-cont .swiper-button-prev').on('click', function (e) {
+        e.preventDefault()
+        visualSwiper.swipePrev();
+    });
+    $('.right-cont .swiper-button-next').on('click', function (e) {
+        e.preventDefault()
+        visualSwiper.swipeNext();
+    });
+	})
+
+	</script>
+	<!-- <script type="text/javascript">
+		LocalStorage.set("csrf-token", "w12Iim7ipjLdBuPZNGm3iCULo01kGmXiBAQu29qJSjw=", "ses");
+	</script> -->
+
+	<div class="ui-load" style="display:none"><img src="https://easypick.co.kr/img/common/loading.svg"></div>
+</body>
+
+</html>

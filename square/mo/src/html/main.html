@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<meta name="format-detection" content="telephone=no">
+	<title>이지픽스퀘어</title>
+	<link href="css/mobile/style.css" rel="stylesheet">
+</head>
+<body><!-- full-layer "on", add class "fixed" -->
+	<div class="eps-container main"><!-- 2021-08-18 EZP-3403 : index에만 main 추가 -->
+		<header>
+			<span class="logout">
+				<a href="#" title="로그아웃"><svg class="svg-icon"><use xlink:href="#icon-person2"></use></svg></a>
+			</span>
+			<h1><svg class="svg-icon easypicksquare"><use xlink:href="#icon-easypicksquare2"></use></svg></h1>
+			<span class="memo"><!-- 2021-08-18 EZP-3403 -->
+				<a href="./memo.html" title="메모">
+					<svg class="svg-icon"><use xlink:href="#icon-letter"></use></svg>
+					<em class="new">N</em>
+				</a>
+			</span>
+			<span class="notice">
+				<a href="./notice.html" title="알림">
+					<svg class="svg-icon"><use xlink:href="#icon-bell"></use></svg> 
+					<em class="new">N</em>
+				</a>
+			</span>
+		</header>
+		<main>
+			<div class="eps-home">
+				<div class="date">
+					<strong>1월 10일(월)</strong>
+					<!-- 2022-12-06 EZP-7448 : 문구 수정 -->
+					<em class="finished">발주가 마감되었습니다.</em>
+				</div>
+				<div class="menu">
+					<ul>
+						<li class="order"><a href="./order-mall-list.html"><svg class="svg-icon"><use xlink:href="#icon-bag"></use></svg> 주문픽업</a></li>
+						<li class="mismatch"><a href="./mismatch-mall-list.html"><svg class="svg-icon"><use xlink:href="#icon-box"></use></svg> 미매칭 픽업</a></li>
+						<!-- 2020-12-31 EZP-1765 -->
+						<li class="order-management"><a href="./mismatch-mall-list.html"><img src="../assets/images/ico-order.svg" alt="" class="svg-icon"> 발주관리</a></li>
+						<li class="search"><a href="./mall-search-list.html"><svg class="svg-icon"><use xlink:href="#icon-store"></use></svg> 쇼핑몰 주문검색</a></li>
+						<!-- 2021-08-30 EZP-3427 -->
+						<li class="search"><a href="./store-info-list.html"><svg class="svg-icon"><use xlink:href="#icon-store-manage"></use></svg> 가게정보관리</a><li>
+							<!-- 2021-10-31 EZP-6245 -->
+						<li class="pickup"><a href="./pickup-store-list.html"><img src="../assets/images/pickup-expected-ico.png"> 픽업예정목록</a><li>
+					</ul>
+				</div>
+			</div>
+		</main>
+		<div class="alert-layer"><!-- display class "on" -->
+			<div class="content">
+				<p>로그아웃 하시겠습니까?</p>
+				<div class="btns">
+					<button type="button" class="cancel">취소</button>
+					<button type="button" class="ok" onclick="location.href='./login.html';">확인</button>
+				</div>
+			</div>
+			<div class="content">
+				<p>아이디를 입력해주세요.</p>
+				<div class="btns">
+					<button type="button" class="ok">확인</button>
+				</div>
+			</div>
+			<div class="content">
+				<p>네이버세컨드스토리에 발주된<br>모든 신규/미송 품목을 전량입고 하시겠습니까?</p>
+				<div class="btns">
+					<button type="button" class="cancel">취소</button>
+					<button type="button" class="ok">확인</button>
+				</div>
+			</div>
+		</div>
+
+		<div class="loading"><!-- display class "on" -->
+			<div class="circle">로딩중입니다.</div>
+		</div>
+	</div>
+
+	<!-- ui check -->
+	<script type="text/javascript" src="./jquery-3.5.1.min.js"></script>
+	<script src="./ui.js"></script>
+</body>
+</html>

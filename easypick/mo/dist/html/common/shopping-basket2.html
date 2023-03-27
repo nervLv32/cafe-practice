@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="UTF-8">
+    <!--EZP-5398-->
+  	<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width, viewport-fit=cover">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="format-detection" content="telephone=no">
+	<meta content="lK0RWxdehsio/icXlDgOD1/0XccqggRiBvNtJOsCkmw=" name="csrf-token">
+	<meta content="T" name="login-required">
+	<link rel="shortcut icon" type="image/x-icon" href="https://easypick.co.kr/img/favicon/ezp.ico">
+
+	<link rel="stylesheet" href="../../css/mobile/swiper.css">
+	<link rel="stylesheet" href="../../css/mobile/default.css">
+	<script src="../../js/lib/jquery-3.5.1.min.js" type="text/javascript"></script>
+	<script src="../../js/lib/jquery-ui.min.js" type="text/javascript"></script>
+	<script src="../../js/lib/swiper.js" type="text/javascript"></script>
+	<script src="../../js/ui/common_front.js" type="text/javascript"></script>
+	<script src="../../js/ui/ui.js" type="text/javascript"></script>
+	<script src="../../js/ui/pub.js" type="text/javascript"></script>
+
+	<title>이지픽 mobile > 장바구니 </title>
+
+</head>
+<body>
+<!-- header// -->
+<header class="sub">
+    <h1>장바구니</h1>
+    <a href="javascript:history.back();" id="eHistoryBack"><button type="button" name="button" class="btn-back">뒤로</button></a>
+</header>
+<!-- //header -->
+
+<!-- fnb// -->
+<nav class="">
+     <button type="button" name="button" class="btn-top">TOP</button><ul> <li class="home">      <a href="/mobile" class="">           <i class="icon">                <img src="../../img/mobile/icons/icon-home.svg" alt="">          </i>      </a>    </li> <li class="category">      <a href="/mobile/search/front/category" class="">           <i class="icon">                <img src="../../img/mobile/icons/icon-category.svg" alt="">          </i>      </a>    </li> <li class="search">      <a href="/mobile/search/front/unified" class="">           <i class="icon">                <img src="../../img/mobile/icons/icon-search.svg" alt="">          </i>      </a>    </li> <li class="pick">      <a href="/mobile/buyer/pick/front/product" class="">           <i class="icon">                <img src="../../img/mobile/icons/icon-pick.svg" alt="">          </i>      </a>    </li> <li class="my">      <a href="/mobile/buyer/front/mypage" class="">           <i class="icon">                <img src="../../img/mobile/icons/icon-my.svg" alt="">          </i>      </a>    </li></ul>
+</nav>
+<!-- //fnb -->
+<div id="container" class="sub-content">
+    <!-- 2022-10-05 EZP-5609 .cart-nav 추가 -->
+    <div class="ui-tab line cart-nav">
+        <div class="tab-nav">
+          <ul>
+            <li data-tab-target="#pick_tab_01" >장바구니 (2)</li>
+            <li data-tab-target="#pick_tab_02" class="">불량 장바구니 (0)</li>
+            <li data-tab-target="#pick_tab_03" class="active" >샘플 장바구니 (2)</li>
+          </ul>
+        </div>
+        <div class="tab-content">
+            <div id="pick_tab_01" >
+                장바구니
+
+            </div>
+            <div id="pick_tab_02" >
+                불량 장바구니
+
+            </div>
+            <div id="pick_tab_03" class="active">
+                <div class="shopping-basket order-info">
+                    <!--상단-->
+                    <div class="top-tit">
+                        <span class="checkbox"> <input type="checkbox" class="allChk" id="allChk" checked="checked">
+                        <label for="allChk">전체 <span>(<em id="emCount">2</em>)</span></label>
+                        </span>
+                        <ul class="btn-list-wrap">
+                            <li class="active">
+                                <button type="button" class="ui-popup-call btnChkDeleted">선택삭제</button>
+                            </li>
+                        </ul>
+                    </div>
+                    <!--//상단-->
+
+                    <section>
+                        <form name="frmCart" id="frmCart">
+                            <input type="hidden" name="commission_rate" value="0"/>
+                            <input type="hidden" name="shipping_price" value="0.00"/>
+
+                            <div class="order-list">
+                                <div class="item ">
+                                    <input type="hidden" name="item_no[]" value="79211" />
+                                    <input type="hidden" name="item_price[]" value="9000" /> <input type="hidden" name="min_order_qty[]" value="1" />
+                                    <input type="hidden" name="access_type[]" value="1" /> <input type="hidden" name="product_no[]" value="16124" />
+
+                                    <div class="img-cont "> <span class="checkbox">
+                                        <input type="checkbox" class="rowChk" name="cart_no[]" id="cart_no0"
+                                                value="654" checked="checked"> <label for="cart_no0"></label> </span>
+                                        <div class="img"> <img
+                                                src="https://s3.ap-northeast-2.amazonaws.com/bakan/devsdkwms1001/productMain/2022/02/08/2c341003a9ce42d7d70b089a333d7df3"
+                                                alt="" class="layerProductDetail" data-product_no="16124"> </div>
+                                        <div class="info layerProductDetail" data-product_no="16124">
+                                            <span class="store-name">[디오트] 닥스08 긴 줄바꿈하여 표시 마켓명 20자 </span>
+                                            <span class="prd-name">버리체크크롭 남방</span>
+                                            <span class="option">베지 / FREE</span>
+                                            <div class="h-sort">
+                                                <span class="price"  ><em>9,000</em>원</span>
+                                                <!--20220317 EZP-1526 -->
+                                                <!--button type="button" class="memo ui-popup-call" data-target="#pop_cart-memo">메모</button-->
+                                                <!--// 20220317 EZP-1526 -->
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <!--20220317 EZP-1526 -->
+                                    <button type="button" class="btn-del-x btnDeleted-x"></button>
+                                </div>
+
+                                <div class="item disabled ">
+                                    <input type="hidden" name="item_no[]" value="85274" />
+                                    <input type="hidden" name="item_price[]" value="9000" />
+                                    <input type="hidden" name="min_order_qty[]" value="1" />
+                                    <input type="hidden"
+                                        name="access_type[]" value="1" /> <input type="hidden" name="product_no[]" value="17381" />
+                                    <div class="img-cont ">
+                                        <span class="checkbox">
+                                            <input type="checkbox" class="rowChk" name="cart_no[]" id="cart_no1"
+                                                value="655" disabled="disabled" > <label for="cart_no1" ></label> </span>
+                                        <div class="img"> <img
+                                                src="https://s3.ap-northeast-2.amazonaws.com/bakan/devsdkwms1001/productMain/2022/03/15/87e7c37ac3fda9a6120ab299954987f6"
+                                                alt="" class="layerProductDetail" data-product_no="17381"> </div>
+                                        <div class="info layerProductDetail" data-product_no="17381">
+                                            <span class="store-name"><span class="label">구매불가</span> [동평화] 앤트</span>
+                                            <span class="prd-name">hm17-1_숄더 백 낱장가능 </span>
+                                            <span class="option">블랙 / FREE</span>
+                                            <div class="h-sort">
+                                                <span class="price"><em>9,000</em>원</span>
+                                                 <!--20220317 EZP-1526 삭제 -->
+                                                <!--button type="button" class="memo disabled ">메모</button-->
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--20220317 EZP-1526 -->
+
+                                    <button type="button" class="btn-del-x btnDeleted-x"></button>
+                                </div>
+
+                                <div class="item ">
+                                    <input type="hidden" name="item_no[]" value="67436" /> <input type="hidden" name="item_price[]"
+                                        value="16000" /> <input type="hidden" name="min_order_qty[]" value="1" /> <input type="hidden"
+                                        name="access_type[]" value="1" /> <input type="hidden" name="product_no[]" value="13730" />
+                                    <div class="img-cont "> <span class="checkbox"> <input type="checkbox" class="rowChk" name="cart_no[]"  id="cart_no2"
+                                                value="656" checked="checked"> <label for="cart_no2"></label> </span>
+                                        <div class="img"> <img
+                                                src="https://s3.ap-northeast-2.amazonaws.com/bakan/devsdkwms1001/productMain/2021/08/31/0b4f70f2f87a99baaffb51899e771298"
+                                                alt="" class="layerProductDetail" data-product_no="13730"> </div>
+                                        <div class="info layerProductDetail" data-product_no="13730">
+                                            <span class="store-name">[신발상가 B동] 걸스</span>
+                                            <span class="prd-name">r 8181 통굽 심플 워커</span>
+                                            <span class="option">화이트 / 235</span>
+                                            <div class="h-sort" >
+                                                <span class="price "><em>16,000</em>원</span>
+                                                <!--20220317 EZP-1526 삭제 -->
+                                                <!--button type="button" class="memo disabled">메모</button-->
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <!--20220317 EZP-1526 -->
+                                    <button type="button" class="btn-del-x btnDeleted-x"></button>
+                                </div>
+                            </div>
+                            </form>
+                    </section>
+
+
+
+                    <section style="">
+                        <div class="item-list-wrap">
+                            <div class="item">
+                                <div>
+                                    <span>판매가 합계</span>
+                                </div>
+                                <span class="price" id="spnOrderAmount">0
+                                <em>원</em></span>
+                            </div>
+                            <div class="item">
+                                <div>
+                                    <span>부가가치세</span>
+                                </div>
+                                <span class="price" id="spnVatAmount">0
+                                <em>원</em></span>
+                            </div>
+                            <div class="item">
+                                <div>
+                                    <span>배송비</span>
+                                </div>
+                                <span class="price" id="spnShippingPrice">0                    <em>원</em></span>
+                            </div>
+                            <div class="item total">
+                                <div>
+                                    <span>총 합계금액</span>
+                                </div>
+                                <span class="price" id="spnPayAmount">0
+                                <em>원</em></span>
+                            </div>
+                        </div>
+                    </section>
+
+                    <div class="btn-wrap sub-nav">
+                        <a href="#" class="btn fill large" id="btnChkOrder" style=""><span id="spnFinalPayAmount">0</span>원 주문하기</a>
+                        <a href="/" class="btn large" id="btnGoShopping" style="display: none;">쇼핑 계속하기</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+<script type="text/javascript" src="/optimizer.php?filename=nZPNTgMxDITvkCvPYVUIiddxEm_xrhMHJ1EFT8_yK5UilPSUy3yaGduBJ00EHjfMsBgmOqltYFS1WyBYK_DhMbu13sH_ys4Fwwbrcyd7-Xru3YM7XMneJD4aNvqNJ6pn8RaWRnah4hjlsktvLCAaUGiG8KanupvUpobHKXQ-XvyjNL2WM2FSz0Kf-vcyOaKNMgzC_nvInV3iPIhGWrBLGzcKmpLm28U0T1B7pmFt6X6ud1Vr6IUmqRMXGp0wp7KbQDGNPbSdr-06MlJDlklWSy_O79_J-d6aju62kgjZoOXH3WHSPrzWgPYziTc&type=js&k=90232550284462f8bcf05a4074b4c003848251f4&t=1646193670"></script>
+<script type="text/javascript">
+LocalStorage.set("csrf-token", "WyXmvKI/a9LGM6xAXjI5QaicUVGCiW7ayU8IVzFaYyU=", "ezp");
+</script><div class="ui-popup full prd-detail eBackEvent " id="layerProductDetail" style="padding-bottom: env(safe-area-inset-bottom); padding-bottom: constant(safe-area-inset-bottom);">
+    <div class="content">
+        <div class="header">
+            <h1 id="hSellerName" class="pSellerDetail" data-seller_no=""></h1><!--가게명-->
+            <button type="button" class="btn-close">닫기</button>
+            <button type="button" class="btn-pickshop big ">픽샵</button>
+        </div>
+        <div class="body">
+            <div class="swiper-container img-slide">
+                <div class="swiper-wrapper">
+                    <!--
+                    <div class="swiper-slide"><img src="../../img/mobile/temp/thumb.png" alt=""></div>
+                    <div class="swiper-slide"><img src="../../img/mobile/temp/thumb.png" alt=""></div>
+                    <div class="swiper-slide"><img src="../../img/mobile/temp/thumb.png" alt=""></div>
+                    <div class="swiper-slide"><img src="../../img/mobile/temp/thumb.png" alt=""></div>
+                    <div class="swiper-slide"><img src="../../img/mobile/temp/thumb.png" alt=""></div>
+                    <div class="swiper-slide"><img src="../../img/mobile/temp/thumb.png" alt=""></div>
+                    <div class="swiper-slide"><img src="../../img/mobile/temp/thumb.png" alt=""></div>
+                    <div class="swiper-slide"><img src="../../img/mobile/temp/thumb.png" alt=""></div>
+                    -->
+                </div>
+                <!-- Add Pagination -->
+                <div class="swiper-pagination"></div>
+            </div>
+            <div class="inner">
+                <div class="prd-txt">
+                    <div class="label-list" id="divHashTag">
+                        <!-- 해시태그 -->
+                    </div>
+                    <div class="prd-name">
+                        <h2 class="" id="hProductName"><!-- 상품명 --></h2><!--신상품 일경우 new 추가-->
+                        <strong><span id="spnProductPrice">0</span> 원</strong>
+                        <ul>
+                            <li>
+                                <strong>색상</strong>
+                                <p id="pColorName"><!-- 색상 --></p>
+                            </li>
+                            <li>
+                                <strong>사이즈</strong>
+                                <p id="pSizeName"><!-- 사이즈 --></p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!--tab-->
+                <div class="ui-tab line item2">
+                    <div class="tab-nav">
+                        <ul>
+                            <li data-tab-target="#tab_product" class="active">상품 상세정보</li>
+                            <li data-tab-target="#tab_refund">반품·교환·환불</li>
+                        </ul>
+                    </div>
+                    <div class="tab-content">
+                        <!--상품 상세정보-->
+                        <div id="tab_product" class="active">
+                            <ul class="prd-list">
+                                <li class="full">
+                                    <span>상세설명</span>
+                                    <p id="pProductContent" style="white-space: pre-line">판매자가 입력한 상품 설명이 표시됩니다.<br> 빠른거래 원할 시 주문/입금 먼저 하지 마시고 매장으로 전화하셔서 재고 확인 꼭 부탁 드려요~!
+                                    </p>
+                                </li>
+                                <li>
+                                    <span>가게</span>
+                                    <p id="pSellerName"><!-- 가게 --></p>
+                                </li>
+                                <li>
+                                    <span>위치</span>
+                                    <p id="pSellerAddr"><!-- 위치 --></p>
+                                </li>
+                                <li>
+                                    <span>상품코드</span>
+                                    <p id="pProductCode"><!-- 상품콛, --></p>
+                                </li>
+                                <li>
+                                    <span>카테고리</span>
+                                    <div id="divCategoryName"><!-- 카테고리 --></div>
+                                </li>
+                                <li id="liProductFit">
+                                    <span>상품 부가 정보</span>
+                                    <div class="dot-list">
+                                        <p id="pProductSeason"></p>
+                                        <p id="pProductFit"></p>
+                                        <p id="pProductFlex"></p>
+                                        <p id="pProductThick"></p>
+                                        <p id="pProductReflection"></p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span>상품 특성</span>
+                                    <div class="dot-list" id="divProductSpec">
+                                        <p id="pProductStyle"></p>
+                                        <p id="pProductPattern"></p>
+                                        <p id="pProductDetail"></p>
+                                    </div>
+                                </li>
+                                <li id="liProductMaterial">
+                                    <span>소재</span>
+                                    <div class="dot-list" id="divProductMaterial">
+                                        <!-- 겉감/안감 -->
+                                    </div>
+                                </li>
+                                <li class="full">
+                                    <span>세탁방법</span>
+                                    <div class="wash" id="divProductWash">
+                                        <!-- 세탁방법 -->
+                                    </div>
+                                </li>
+                                <li>
+                                    <span>제조국가</span>
+                                    <p id="pCountryName"><!-- 제조국 --></p>
+                                </li>
+                                <li>
+                                    <span>A/S 정보 및 담당자</span>
+                                    <p>고객센터 / 02-6296-8794</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <!--반품/교환/환불-->
+                        <div id="tab_refund" class="num-type">
+                            <!--상품 배송 안내-->
+                            <!--
+                            <div>
+                                <h3>상품 배송 안내</h3>
+                                <ul class="prd-list">
+                                    <li class="full">
+                                        <span>국내 직배송</span>
+                                        <p><em>①</em> 주문한 시점으로 익일 오전에 이지픽 사입삼촌이 상품을 직접 배송 해드립니다.</p>
+                                        <p><em>②</em> 배송비는 배송과 사입량(중량/부피)에 따라 차이가 있으며, 별도 계약으로 진행됩니다.</p>
+                                    </li>
+                                    <li class="full">
+                                        <span>국내 택배</span>
+                                        <p><em>①</em> 대금결제 확인 후 익일로부터 2~3 영업일 정도가 소요됩니다.</p>
+                                        <p><em>②</em> 택배를 통해 배송되며, 3,000원(부가세 별도)의 배송비가 적용됩니다.</p>
+                                        <p>※ 도서산간 지역은 추가배송비가 발생할 수 있습니다.</p>
+                                    </li>
+                                    <li class="full">
+                                        <span>해외 택배</span>
+                                        <p><em>①</em> 해외 택배 배송기간은 국가별 배송 정책, 물류 상황 및 현지 택배사에 따라 달라질 수 있습니다.</p>
+                                        <p><em>②</em> 해외 배송 전 국내에서 발송 준비 기간은 3 영업일 정도가 소요됩니다.</p>
+                                        <p><em>③</em> 사입 전에는 상품의 중량을 측정할 수 없기 때문에 총 상품 금액의 일정 %만큼 배송비를 추가로 선결제 청구합니다.
+                                        </p>
+                                        <p><em>④</em> 사입 후 배송하기 직전 상품의 정확한 중량 및 실 배송비가 책정이 되면 선결제한 배송비를 기준으로 정산됩니다.</p>
+                                        <div class="mt20 ml12">
+                                            <p>※ 모든 배송은 평일에만 진행됩니다. (*공휴일, 주말, 마켓 휴무일 제외)</p>
+                                            <p>※ 도서산간 지역은 1~2영업일의 배송기간이 추가적으로 소요됩니다.</p>
+                                            <p>※ 배송사의 사정 또는 천재지변, 도매처의 상황, 통관 문제 등으로 예상보다 더 지연될 수 있습니다.</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            -->
+                            <!--상품 교환 안내-->
+                            <!--
+                            <div>
+                                <h3>상품 교환 안내</h3>
+                                <ul class="prd-list">
+                                    <li class="full">
+                                        <p class="pd0">1) 하자 상품의 수량</p>
+                                        <p class="pd0">2) 하자인 사유</p>
+                                        <p class="pd0">※ 위와 같은 교환신청을 하지 않고 상품을 반송지로 보내실 경우에는 교환처리가 불가할 수 있으며, 상품 분실 및
+                                            불이익에 대해서 당사는 책임지지 않습니다.
+                                        </p>
+                                        <p><em>①</em> 또는 [바로주문-불량주문] 페이지를 통해 아래 내용들을 함께 작성하여 불량접수 신청을 하실 수 있습니다.</p>
+                                        <p class="pl25">
+                                            1) 거래처명<br> 2) 거래처주소<br> 3) 연락처<br> 4) 거래처 상품명<br> 5) 색상 및 사이즈<br> 6) 단가와 수량
+                                        </p>
+                                        <p><em>③</em> 상품은 처음에 배송된대로의 상태를 그대로 유지하여 반드시 도착하여야 합니다. 상품에 포함된 가격표, 관련 기프트 및
+                                            무료 샘플이 배송되었다면 동봉하여 반송되어야 합니다.
+                                        </p>
+                                        <p><em>④</em> 반송된 상품이 불완전하거나 손상, 사용, 개조된 경우, 청결하지 못한 경우, 또는 그 외 기타 사용의 흔적이 보이는
+                                            경우에는 교환이 불가능합니다.
+                                        </p>
+                                        <p><em>⑤</em>안내해드린 주소로 반드시 상품이 도착해야지만 교환이 가능합니다.</p>
+                                    </li>
+                                </ul>
+                            </div>
+                            -->
+                            <!--상품 품절 및 환불 안내-->
+                            <!--
+                            <div>
+                                <h3>상품 품절 및 환불 안내</h3>
+                                <ul class="prd-list">
+                                    <li class="full">
+                                        <span>품절상품 환불</span>
+                                        <p><em>①</em> 품절상품 환불 내역 확인 : '검수완료' 즉시 [주문관리] 메뉴의 [환불내역] 페이지를 통해 확인이 가능합니다.</p>
+                                        <p><em>③</em> 환불 방법 : 환불 처리는 '검수완료' 즉시 완료되며, 예치금으로 적립됩니다.</p>
+                                        <p class="ml25 pl10"><em>*</em>회원 탈퇴 시 예치금 잔액이 환불계좌로 지급됩니다.<br> 회원 탈퇴 전 예치금 잔액을
+                                            환불계좌로 지급받기를 원하실 경우 이지픽 고객센터(02-6296-8794) 로 문의해주시기 바랍니다.
+                                        </p>
+                                    </li>
+                                    <li class="full">
+                                        <span>환불계좌 변경</span>
+                                        <p><em>①</em> 환불계좌는 가입하실 때 입력한 회원 본인 명의의 계좌로만 변경 가능합니다.</p>
+                                        <p><em>③</em> 환불계좌 변경은 [마이페이지] 메뉴 > [회원정보수정] 페이지에서 가능합니다.</p>
+                                    </li>
+                                </ul>
+                            </div>
+                            -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--장바구니 버튼-->
+            <div class="shopping-box scroll">
+                <div class="dimmed"></div>
+                <div class="option">
+                    <!--<button type="button" class="btn-arrow">옵션 닫기</button>-->
+                    <div class="shop-inner">
+                        <form id="frmProductDetail" name="frmProductDetail">
+                            <input type="hidden" name="product_no" value=""> <input type="hidden" name="seller_no" value="">
+                            <input type="hidden" name="access_type" value="3">
+                            <input type="hidden" name="is_check_min_order_qty" value=""/>
+                            <p>옵션선택</p>
+                            <ul class="btn-box">
+                                <li id="liColor">
+                                    <strong>색상 선택</strong>
+                                    <div id="divColorName">
+                                        <!--
+                                        <button type="button" name="">블랙</button>
+                                        <button type="button" name="" disabled="disabled">화이트</button>
+                                        -->
+                                    </div>
+                                </li>
+                                <li id="liSize">
+                                    <strong>사이즈 선택</strong>
+                                    <div id="divSizeName">
+                                        <!--
+                                        <button type="button" name="" class="active">S</button>
+                                        <button type="button" name="">M</button>
+                                        <button type="button" name="">L</button>
+                                        -->
+                                    </div>
+                                </li>
+                            </ul>
+                            <ul class="amount-box" id="ulOrderItem">
+
+                            </ul>
+                            <div class="price-input">
+                                <span>총 금액</span>
+                                <div>
+                                    <p>(<span id="spnTotalOrderQty">0</span>개)</p>
+                                    <p class="big"><span id="spnTotalOrderAmount">0</span>원</p>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="btn-wrap">
+                    <button type="button" class="btn btn-pick bg-green"></button>
+                    <button type="button" class="btn large btn-basket ui-popup-call" id="btnCart">장바구니</button>
+                    <button type="button" class="btn large fill btn-buying ui-popup-call" id="btnOrder">바로구매</button>
+                    <button type="button" class="btn large fill btn-soldout" style="display: none;" id="btnSoldOut">Sold Out
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="ui-popup shop dim-evt" id="layerAlert">
+    <div class="content">
+        <div class="header">
+            <h1 id="eLayerTitle"></h1>
+            <button type="button" class="btn-close">닫기</button>
+        </div>
+        <div class="body">
+            <div class="inner">
+                <p id="eLayerContents" class="tac"></p>
+            </div>
+            <div class="btn-wrap">
+                <button type="button" name="button" id="btnLayerConfirm" class="btn fill btn-close">확인</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="ui-popup shop dim-evt" id="layerConfirm">
+    <div class="content">
+        <div class="header">
+            <h1 id="eLayerTitle"></h1>
+            <button type="button" class="btn-close">닫기</button>
+        </div>
+        <div class="body">
+            <div class="inner">
+                <p class="tac" id="eLayerContents"></p>
+            </div>
+            <div class="btn-wrap">
+                <button type="button" name="button" id="btnLayerCancel" class="btn btn-close">취소</button>
+                <button type="button" name="button" id="btnLayerConfirm" class="btn fill btn-close">확인</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="loading-wrap" id="divLoadingBar" style="display: none;">
+    <div class="loading"><span>로딩중</span></div>
+</div>
+
+<!-- 도매처 상세 -->
+<div class="ui-popup full eBackEvent" id="shop-detail" style="z-index: 888;"></div>
+
+<!-- 20220317 EZP-1526  -->
+<!-- 메모 팝업 -->
+<!--div class="ui-popup memo " id="pop_cart-memo">
+    <div class="content">
+        <div class="header">
+            <h1>메모입력 </h1>
+            <button type="button" class="btn-close">닫기</button>
+        </div>
+        <div class="body">
+            <div class="inner pop-contact-seller">
+                <textarea name="name" rows="8" cols="80" placeholder="내용을 입력해주세요."></textarea>
+            </div>
+            <div class="btn-wrap">
+                <button type="button" name="button" class="btn btn-close">취소</button>
+                <button type="button" name="button" class="btn fill btn-close">확인</button>
+            </div>
+        </div>
+    </div>
+</div-->
+<!-- //20220317 EZP-1526  -->
+
+</body>
+</html>

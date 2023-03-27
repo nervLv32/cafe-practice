@@ -1,0 +1,70 @@
+
+	<button type="button" name="button" class="btn-lnb-opener">열기/닫기</button>
+
+	<div class="profile">
+		<span class="shop-initial blue kor">
+        	<em>미</em>
+		</span>
+		<strong>씨엘제로</strong>
+		<em>디오트 B1층 A열 12</em>
+	</div>
+	<nav>
+		<div class="product">
+			<button type="button" name="button" class="depth1">상품관리</button>
+			<div class="depth2">
+				<a href="#">상품관리</a>
+				<a href="#">상품등록</a>
+			</div>
+		</div>
+		<!-- 2022-12-16 EZP-6818 샘플제안 추가 시작 -->
+		<div class="sample">
+			<button type="button" name="button" class="depth1">샘플제안관리</button>
+			<div class="depth2">
+				<a href="#">샘플제안관리</a>
+				<a href="#">샘플제안등록</a>
+			</div>
+		</div>
+		<!-- 2022-12-16 EZP-6818 샘플제안 추가 끝 -->
+		<div class="order">
+			<button type="button" name="button" class="depth1">발주관리</button>
+			<div class="depth2">
+				<a href="#">이지픽주문 발주관리</a> <!-- 2022-06-04 EZP-5433 워딩변경 -->
+				<a href="#">셀픽주문 발주관리</a> <!-- 2022-06-04 EZP-5433 추가 -->
+			</div>
+		</div>
+		<div class="calc">
+			<button type="button" name="button" class="depth1">정산관리</button>
+			<div class="depth2">
+				<!-- 2022-11-21 EZP-7114 기존 매입현황 > 정산현황에서 순서변경
+				정산현황 > 매입현황으로 -->
+				<a href="#">정산현황</a>
+				<a href="#">매입현황</a>
+				<a href="#">세금계산서 발행요청</a>
+			</div>
+		</div>
+	</nav>
+	<div class="link">
+		<a href="#" class="easytalk">이지톡</a><!-- 2021-11-16 EZP-3866 -->
+		<a href="#" class="question">1:1 문의하기</a>
+		<a href="#" class="notice">공지사항</a>
+	</div>
+
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		// lnb
+		$('.btn-lnb-opener').on('click', function(){
+			$('#container').toggleClass('active');
+		});
+
+		$('nav .depth1').on('click', function(){
+			$(this).parent().toggleClass('close');
+		});
+		$('nav .depth2 a').on('click', function(){
+			$('nav a, .depth1').removeClass('active');
+			$(this).addClass('active');
+			$(this).parent().prev().addClass('active');
+		});
+
+	});
+</script>

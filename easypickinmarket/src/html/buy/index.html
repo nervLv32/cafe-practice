@@ -1,0 +1,543 @@
+{% extends "../_templates/layout.njk" %}
+{% block content %}
+
+<div class="wrapper" id="wrap">
+  <!-- container -->
+  <div class="container" id="container">
+    <!-- content -->
+    <div class="content" id="content">
+      <div class="content-head">
+        <div class="page-title">
+          <h3 class="h3-tit">주문내역</h3>
+          <a href="#" class="btn-manual" target="_blank" title="매뉴얼">매뉴얼</a>
+          <div class="form-box">
+            <form onsubmit="return submitHandler();">
+              <fieldset>
+                <legend class="skip">통합검색</legend>
+                <label for="total-search" class="skip">검색어 입력</label>
+                <input type="search" name="total-search" id="total-search" title="검색어 입력" class="text"
+                  placeholder="상품을 검색해보세요.">
+                <input type="submit" value="검색" class="submit">
+              </fieldset>
+            </form>
+          </div>
+        </div>
+        <div class="cont-info-right">
+          <ul class="breadcrumb">
+            <li>공급</li>
+            <li>사입내역조회</li>
+            <li class="now" title="현재 페이지">주문내역</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tab-top-round">
+        <ul class="tab-rounds tab">
+          <li data-tab="conttab1" class="active">
+            <a href="../buy/index.html"><span>주문내역</span></a>
+          </li>
+          <li data-tab="conttab2">
+            <a href="../buy/buy-sample.html">샘플주문내역</a>
+          </li>
+          <li data-tab="conttab3">
+            <a href="../buy/failure.html">불량주문내역</a>
+          </li>
+        </ul>
+      </div>
+      <!-- 2022-09-14 EZP-5891 검색유형 추가로 전체적으로 위치 변경 시작 -->
+      <div class="mSearchEngine folder">
+        <form name="" id="">
+          <input type="hidden" name="" value="">
+          <div class="tborder-box">
+            <div class="tbl-top-search">
+              <div class="table-row">
+                <table class="tbl-top">
+                  <colgroup>
+                    <col style="width:80px;">
+                    <col style="width:38%">
+                    <col style="width:25px;">
+                    <col style="width:80px;">
+                    <col style="width:42%">
+                  </colgroup>
+                  <tbody>
+                    <tr class="rowFix rowFold">
+                      <th>기간</th>
+                      <td>
+                        <div class="form-inline">
+                          <select name="" id="" class="default-select w120">
+                            <option value="">주문일시</option>
+                            <option value="">결제일시</option>
+                            <option value="">최근수정일시</option>
+                          </select>
+                          <div class="sel-date-type">
+                            <button type="button" class="label-date active">1개월</button>
+                            <ul class="sel-date-list">
+                              <li class="label-date">오늘</li>
+                              <li class="label-date">3일</li>
+                              <li class="label-date">7일</li>
+                              <li class="label-date active">1개월</li>
+                              <li class="label-date">3개월</li>
+                              <li class="label-date">6개월</li>
+                              <li class="label-date">1년</li>
+                              <li class="label-date">선택</li>
+                            </ul>
+                          </div>
+                          <div class="calendar-box">
+                            <div class="form-inline">
+                              <div class="form-control">
+                                <input type="text" class="cal-input" value="2019-04-01" data-range="cal01">
+                              </div>
+                              <div class="wave-txt">~</div>
+                              <div class="form-control">
+                                <input type="text" class="cal-input" value="2019-04-01" data-range="cal01">
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                      <td></td>
+                      <th>검색</th>
+                      <td>
+                        <div class="form-inline">
+                          <select name="" id="" class="default-select w120">
+                            <option value="">전체</option>
+                            <option value="">주문번호</option>
+                            <option value="">거래처명</option>
+                            <option value="">거래처명(주문)</option>
+                            <option value="">상품명</option>
+                            <option value="">쇼핑몰상품명</option>
+                            <option value="">쇼핑몰상품코드</option>
+                          </select>
+                          <div class="form-control searchValue">
+                            <input type="text" class="search-input-w2" name="" id="" value="" placeholder="">
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <!-- 2022-09-14 EZP-5891 검색유형 새로추가 시작-->
+                    <tr class="rowFold">
+                      <th>유형</th>
+                      <td>
+                        <div class="form-inline">
+                          <div class="form-control">
+                            <label>
+                              <input type="checkbox" class="custom-control-input" checked="checked">
+                              <span>전체</span>
+                            </label>
+                          </div>
+                          <div class="form-control">
+                            <label>
+                              <input type="checkbox">
+                              <span>신규</span>
+                            </label>
+                          </div>
+                          <div class="form-control">
+                            <label>
+                              <input type="checkbox">
+                              <span>미송</span>
+                            </label>
+                          </div>
+                          <div class="form-control">
+                            <label>
+                              <input type="checkbox" class="custom-control-input">
+                              <span>제작신규</span>
+                            </label>
+                          </div>
+                        </div>
+                      </td>
+                      <td></td>
+                      <th>주문상태</th>
+                      <td>
+                        <div class="form-inline">
+                          <div class="form-control">
+                            <label>
+                              <input type="checkbox" class="custom-control-input" checked="checked">
+                              <span>전체</span>
+                            </label>
+                          </div>
+                          <div class="form-control">
+                            <label>
+                              <input type="checkbox">
+                              <span>결제요청</span>
+                            </label>
+                          </div>
+                          <div class="form-control">
+                            <label>
+                              <input type="checkbox">
+                              <span>결제완료</span>
+                            </label>
+                          </div>
+                          <div class="form-control">
+                            <label>
+                              <input type="checkbox" class="custom-control-input">
+                              <span>취소완료</span>
+                            </label>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <!-- 2022-09-14 EZP-5891 검색유형 새로추가 끝-->
+                  </tbody>
+                </table>
+              </div>
+              <div class="top-btn-search">
+                <button type="button" name="button" class="btn btn-lg btn-point">검색</button>
+                <div class="search-btns">
+                  <a href="#" class="serchsortbtn">
+                    <button type="button" class="btn btn-lg btn-sub-primary sarchsortbtn">검색관리</button>
+                    <div class="top-search-sort">
+                      <button type="button" class="reset"><i class="ico ico-reset"></i>초기화</button>
+                      <div class="top-search-depth">
+                        <button type="button" class="add-search-save"><i class="ico ico-plus-blue"></i>검색조건 저장</button>
+                        <ul class="add-search-element">
+                          <li class="dflex">
+                            <div class="form-control">
+                              <input type="text" value="저장1" readonly="readonly">
+                            </div>
+                            <div class="s-search-btns">
+                              <button type="button" class="btn btn-write">쓰기</button>
+                              <button type="button" class="btn btn-del">삭제</button>
+                            </div>
+                          </li>
+                          <li class="dflex">
+                            <div class="form-control">
+                              <input type="text" value="저장2" readonly="readonly">
+                            </div>
+                            <div class="s-search-btns">
+                              <button type="button" class="btn btn-write">쓰기</button>
+                              <button type="button" class="btn btn-del">삭제</button>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <!-- 2022-09-14 EZP-5891 검색유형 추가로 전체적으로 위치 변경 끝 -->
+      <div class="gridTableArea">
+        <div class="table-top-info">
+          <div class="top-txt-inline">
+            <span class="txt-inline">검색결과 <strong>1,000</strong>건
+          </div>
+          <div class="sort-sel-area">
+            <select id="list_limit" class="default-select">
+              <option value="20" selected="selected">20개씩 보기</option>
+              <option value="30">30개씩 보기</option>
+              <option value="50">50개씩 보기</option>
+              <option value="100">100개씩 보기</option>
+              <option value="200">200개씩 보기</option>
+              <!-- 2023-02-17 EZP-7830 보기 옵션 추가 시작 -->
+              <option value="300">300개씩 보기</option>
+              <option value="500">500개씩 보기</option>
+              <!-- 2023-02-17 EZP-7830 보기 옵션 추가 끝 -->
+            </select>
+          </div>
+        </div>
+        <div class="tround-box">
+          <div class="tbl-round ">
+            <div class="tbl-info-area">
+              <div class="f-right">
+                <div class="dflex">
+                  <div class="btns-multi">
+                    <button type="button" name="button" class="btn btn-sm btn-outline-gray"><i
+                        class="ico ico-excel"></i>엑셀다운로드</button>
+                    <button type="button" name="button" class="btn btn-ico btn-outline-gray"><i
+                        class="ico ico-sort"></i>설정</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- 그리드 테이블-->
+            <div class="mGridTable td-height-60 tbl-height01">
+              <table id="eMultiTable" class="eChkColor">
+                <thead>
+                  <tr>
+                    <th scope="col" style="width:50px;" class="resizable">
+                      No
+                    </th>
+                    <th scope="col" style="width:70px;" class="resizable">
+                      주문구분
+                    </th>
+                    <th scope="col" style="width:100px;" class="resizable">
+                      유형
+                    </th>
+                    <th scope="col" style="width:200px;" class="resizable">
+                      주문번호(주문일시)
+                    </th>
+                    <th scope="col" style="width:348px;" class="resizable">
+                      품목정보
+                    </th>
+                    <th scope="col" style="width:92px;" class="resizable">
+                      주문수량
+                    </th>
+                    <th scope="col" style="width:92px;" class="resizable">
+                      입고수량
+                    </th>
+                    <th scope="col" style="width:139px;" class="resizable">
+                      주문금액 (취소금액)
+                    </th>
+                    <th scope="col" style="width:139px;" class="resizable">
+                      최종결제금액
+                    </th>
+                    <th scope="col" style="width:186px;" class="resizable">
+                      주문상태(최근 수정일)
+                    </th>
+                    <th scope="col" style="width:84px;" class="resizable">
+                      메모
+                    </th>
+                    <th scope="col" style="width:90px;">
+                      관리
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for list in order %}
+                  <tr>
+                    <td>{{list.no}}</td>
+                    <td>
+                      {% if list.no === "6" %}
+                      <div class="easy-pick-text-step add">
+                        {{list.type}}
+                      </div>
+                      {% elseif list.no === "3" %}
+                      <div class="easy-pick-text-step add">
+                        {{list.type}}
+                      </div>
+                      {% else %}
+                      <div class="easy-pick-text-step">
+                        {{list.type}}
+                      </div>
+                      {% endif %}
+                    </td>
+                    <td>
+                      {% if list.case === "신규" %}
+                      <div class="easy-pick-case">
+                        <span class="new">{{list.case}}</span>
+                      </div>
+                      {% elseif list.case === "제작신규" %}
+                      <div class="easy-pick-case">
+                        <span class="new-produce no-br">제작신규</span>
+                      </div>
+                      {% elseif list.case === "미송" %}
+                      <div class="easy-pick-case">
+                        <span class="undeliver">미송</span>
+                      </div>
+                      {% else %}
+                      <div class="easy-pick-case">
+                        <span class="undeliver">{{list.case}}</span>
+                      </div>
+                      {% endif %}
+                    </td>
+                    <td>
+                      {{list.ordernum}}
+                      <br />
+                      {{list.orderdate}}
+                    </td>
+                    <td class="overflow-unset">
+                      <div class="hover-btn">
+                        {% if list.prdouctInfo !== "" %}
+                        <a href="../buy/buy-detail.html">
+                          <span class="txt-link">[{{list.prdouctInfo}}]</span><br>
+                          <span class="txt-link">
+                            {{list.name}}
+                          </span>
+                        </a>
+                        {% elseif list.prdouctInfo2 !== "" %}
+                        <a href="../buy/buy-option-detail.html">
+                          <!-- 2022-12-20 EZP-7230 미송옵변경 case 추가 -->
+                          <span class="txt-link text-purple">{{list.prdouctInfo2}}</span><br>
+                          <span class="txt-link">
+                            {{list.name}}
+                          </span>
+                        </a>
+                        {% else %}
+                        <a href="../buy/buy-detail.html">
+                          <span class="txt-link">
+                            {{list.name}}
+                          </span>
+                        </a>
+                        {% endif %}
+                      </div>
+                    </td>
+                    <td>{{list.cnt}}</td>
+                    <td>{{list.cnt1}}</td>
+                    <td class="tar">
+                      {{list.price}}<br>
+                      {% if list.cancelPrice !== "0" %}
+                      ({{list.cancelPrice}})
+                      {% endif %}
+                    </td>
+                    <td class="tar">
+                      <strong>{{list.totalPrice}}</strong>
+                    </td>
+                    <td>
+                      {% if list.status === "취소완료" %}
+                      <span class="easy-pick-text-step cancel-complete">
+                        {{list.status}}
+                      </span><br>
+                      <span class="easy-pick-text-step cancel-complete">
+                        ({{list.completDate}})
+                      </span>
+                      {% elseif list.status === "결제요청" %}
+                      <span>{{list.status}}</span><br>
+                      <span>({{list.completDate}})</span>
+                      {% elseif list.status === "결제완료" %}
+                      <span class="ftpointcolor1">{{list.status}}</span><br>
+                      <span>({{list.completDate}})</span>
+                      {% endif %}
+                    </td>
+                    <td>
+                      {% if list.no === "7" %}
+                      <a href="#" onclick="targetModalPopup('modal-orderMemo-popup')">
+                        <i class="ico-easy-pick ico-memo-on"></i>
+                      </a>
+                      {% else %}
+                      <!-- 2022 08 26 a링크 수정 -->
+                        <i class="ico-easy-pick ico-memo-off"></i>
+                      {% endif %}
+                    </td>
+                    <td>
+                      <button class="btn btn-btn btn-sm btn-outline-gray">{{list.management}}</button>
+                    </td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <!-- //그리드 테이블-->
+        </div>
+        {% include("./default/pagination.njk") %}
+      </div>
+
+      <!-- 데이터없을시 -->
+      <div class="gridTableArea">
+        <div class="table-top-info">
+          <div class="top-txt-inline">
+            <span class="txt-inline">검색결과 <strong>1,000</strong>건
+          </div>
+          <div class="sort-sel-area">
+            <select id="list_limit" class="default-select">
+              <option value="20" selected="selected">20개씩 보기</option>
+              <option value="30">30개씩 보기</option>
+              <option value="50">50개씩 보기</option>
+              <option value="100">100개씩 보기</option>
+              <option value="200">200개씩 보기</option>
+              <!-- 2023-02-17 EZP-7830 보기 옵션 추가 시작 -->
+              <option value="300">300개씩 보기</option>
+              <option value="500">500개씩 보기</option>
+              <!-- 2023-02-17 EZP-7830 보기 옵션 추가 끝 -->
+            </select>
+          </div>
+        </div>
+        <div class="tround-box">
+          <div class="tbl-round ">
+            <div class="tbl-info-area">
+              <div class="f-right">
+                <div class="dflex">
+                  <div class="btns-multi">
+                    <button type="button" name="button" class="btn btn-sm btn-outline-gray"><i
+                        class="ico ico-excel"></i>엑셀다운로드</button>
+                    <button type="button" name="button" class="btn btn-ico btn-outline-gray"><i
+                        class="ico ico-sort"></i>설정</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- 그리드 테이블-->
+            <div class="mGridTable td-height-60 tbl-height01">
+              <table id="eMultiTable1" class="eChkColor">
+                <thead>
+                  <tr>
+                    <th scope="col" style="width:50px;" class="resizable">
+                      No
+                    </th>
+                    <th scope="col" style="width:70px;" class="resizable">
+                      주문구분
+                    </th>
+                    <th scope="col" style="width:100px;" class="resizable">
+                      유형
+                    </th>
+                    <th scope="col" style="width:200px;" class="resizable">
+                      주문번호(주문일시)
+                    </th>
+                    <th scope="col" style="width:348px;" class="resizable">
+                      품목정보
+                    </th>
+                    <th scope="col" style="width:92px;" class="resizable">
+                      주문수량
+                    </th>
+                    <th scope="col" style="width:92px;" class="resizable">
+                      입고수량
+                    </th>
+                    <th scope="col" style="width:139px;" class="resizable">
+                      주문금액 (취소금액)
+                    </th>
+                    <th scope="col" style="width:139px;" class="resizable">
+                      최종결제금액
+                    </th>
+                    <th scope="col" style="width:186px;" class="resizable">
+                      주문상태(최근 수정일)
+                    </th>
+                    <th scope="col" style="width:84px;" class="resizable">
+                      메모
+                    </th>
+                    <th scope="col" style="width:90px;">
+                      관리
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="tr-empty">
+                    <td>
+                      <div class="txt">
+                        <i><img src="../assets/images/guide-ico.png" alt="guide-icon"></i>
+                        <span>검색 결과가 없습니다.</span>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <!-- //그리드 테이블-->
+        </div>
+        {% include("./default/pagination.njk") %}
+      </div>
+    </div>
+    <!-- //content -->
+  </div>
+  <!-- container -->
+</div>
+
+<script>
+  $(document).ready(function () {
+    $('#eMultiTable').fixResize({
+      colResize: true,
+      resizeVer: 'flex'
+    });
+    // 데이터 없을시 새로운 테이블
+    $('#eMultiTable1').fixResize({
+      colResize: true,
+      resizeVer: 'flex'
+    });
+
+    // 검색결과 없을때 tr 높이 조절
+    const emptyTh = $('.tr-empty').parents('table').find('thead tr th').length;
+    const emptyMt = $('.tr-empty').parents('table').css('margin-top').replace('-', '');
+    const emptyMg = emptyMt.replace('px', '');
+    $('.tr-empty td').attr('colspan', emptyTh);
+    $('.tr-empty').parents('table').css('height', `calc(100% + ${emptyMg}px)`);
+  });
+</script>
+
+{% include("./modals/memo/modal-common-memo-view.njk") %}
+
+<!-- 메모 작성 -->
+{% include("./modals/memo/modal-memo.njk") %}
+
+{% endblock %}

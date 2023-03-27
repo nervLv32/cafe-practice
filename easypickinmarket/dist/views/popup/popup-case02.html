@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html lang="ko" xml:lang="ko">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="title">
+  <meta name="copyright" content="Copyright ⓒ Cafe24 Corp.All Rights Reserved.">
+  <meta name="description" content="">
+  <title>Cafe24 이지픽 마켓플러스</title>
+
+  <!-- cafe24 운영에서 바로가져온다-->
+  <link rel="shortcut icon" type="image/x-icon" href="https://m-img.cafe24.com/images/event/common/market_favicon.ico">
+  <link rel="stylesheet" type="text/css" href="https://wmsplus07.shopcafe.cafe24.com/mp/css/common.css?ver=1649196508">
+  <link rel="stylesheet" type="text/css" href="https://wmsplus07.shopcafe.cafe24.com/mp/css/market.css?ver=1652220163">
+  <link rel="stylesheet" type="text/css" href="https://wmsplus07.shopcafe.cafe24.com/mp/css/jquery-ui.css?ver=1632873099" />
+  <!--// cafe24 운영에서 바로가져온다-->
+
+  <!--1.비온미  추가할 부분 -->
+  <link rel="stylesheet" type="text/css" href="../../css/style.css">
+  <!--// 비온미  추가할 부분-->
+
+  <!-- jquery -->
+  <script src="../../js/ui/lib/jquery-1.11.1.min.js"></script>
+
+  <!-- bonme -->
+  <script src="../../js/ui/easypick-ui.js" type="text/javascript"></script>
+
+  <!-- tooltip -->
+  <link rel="stylesheet" href="../../js/ui/lib/protip.min.css">
+  <script src="../../js/ui/lib/protip.min.js"></script>
+
+  <!-- slick slide -->
+  <link rel="stylesheet" type="text/css" href="../../js/ui/lib/slick.css"/>
+  <script type="text/javascript" src="../../js/ui/lib/slick.min.js"></script>
+
+  <!-- table resizable -->
+  <script type="text/javascript" src="../../js/ui/cp/suio.table.fix.resize.js"></script>
+
+  <!-- modal -->
+  <script src="../../js/ui/cp/jquery-ui.js" type="text/javascript"></script>
+  <script src="../../js/ui/cp/ui.js" type="text/javascript"></script>
+  <script src="../../js/ui/cp/wickedpicker.js" type="text/javascript"></script>
+</head>
+
+<body>
+    
+
+<div class="modal-pop window active inspection-modal-case02" id="content">
+    <div class="modal-dialog">
+        <div class="modal-inner">
+            <section class="modal-head">
+                <div class="modal-head-inner">
+                    <!-- 2022-10-25 EZP-5397-->
+                    <h1>검수대기 거래처별 정산금액 <span class="date">(10/24 입고)</span></h1>
+                    <a href="#" class="btn-manual" target="_blank" title="매뉴얼">매뉴얼</a>
+                </div>
+            </section>
+            <div class="modal-body inspection-modal">
+                <div class="top-info mb20">
+                    <div class="f-left">
+                        <span class="txt-tooltip"></span>
+                        <!-- 2022-10-25 EZP-5397 p class추가 (.with-tool-p) -->
+                        <p class="with-tool-p">매입환불 요청금액 (거래처 별 매입금 사용)</p>
+                        <!-- 2022-10-25 EZP-5397 문구 변경 
+                        <ul>
+                            <li>- '매입환불 가능금액' 이하로 '매입환불 요청금액'을 입력해주세요.</li>
+                            <li>- [검수완료] 시, 거래처 별 ‘매입 잔액’에서 입력한 ‘매입환불 요청금액’ 만큼 차감됩니다.</li>
+                            <li>- 가장 과거의 입고일인 경우에만 매입 금액을 설정할 수 있습니다.</li>
+                        </ul>
+                        -->
+                        <!-- 2022-10-25 EZP-5397 문구 변경 시작 -->
+                        <ul>
+                            <li>- 거래처 별 '매입 잔액'에서 차감 가능한 '결제 금액' 만큼이 자동 입력되어 표시되며, 이 금액을 초과하여 입력할 수 없습니다.
+                                <ol>
+                                    <li>* 매입 잔액 : 거래처에 남아있는 매입금 잔액</li>
+                                    <li>* 걸제 금액 : 신규입고 + 신규미송 + 샘플입고 - 반품에 대한 합산금액</li>
+                                </ol>
+                            </li>
+                            <li>- [검수완료] 시, 거래처 별 ‘매입 잔액’에서 입력한 ‘매입환불 요청금액’ 만큼 차감됩니다.</li>
+                            <li>- 가장 과거의 입고일인 경우에만 매입 금액을 설정할 수 있습니다.</li>
+                        </ul>
+                        <!-- 2022-10-25 EZP-5397 문구 변경 끝 -->
+                        <p>‘재확인 요청’ 중인 건은 요청 전 수량 및 금액으로 집계되며, ‘재확인 승인 완료’ 시 변경된 정보가 적용되어 금액이 변경될 수 있습니다.</p>
+                        <p>거래처별 정산 금액은 총 금액을 표시하고 있으며 검색이 적용되지 않습니다.</p>
+                    </div>
+                    <div class="btns-multi f-right">
+                        <button type="button" name="button" class="btn btn-sm btn-outline-gray">
+                            <i class="ico ico-excel"></i>
+                            엑셀다운로드
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 07/13 테이블 가로스크롤 수정 -->
+                <div class="gridTableArea">
+                    <div class="mGridTable tbl-height01 height-60">
+                        <table id="eMultiTable" class="eChkColor">
+                            <thead>
+                                <tr>
+                                    <th scope="col" style="width: 130px;" class="resizable">거래처명</th>
+                                    <th scope="col" style="width: 130px;" class="resizable">주소</th>
+                                    <th scope="col" style="width: 90px;" class="resizable">신규주문</th>
+                                    <th scope="col" style="width: 90px;" class="resizable">신규입고</th>
+                                    <th scope="col" style="width: 90px;" class="resizable">신규미송</th>
+                                    <th scope="col" style="width: 90px;" class="resizable">샘플입고</th>
+                                    <th scope="col" style="width: 90px;" class="resizable">반품</th>
+                                    <!-- 2022-10-25 EZP-5397 매입환불 가능금액 제거 
+                                    <th scope="col" style="width: 90px;" class="resizable">매입환불<br>가능금액</th>
+                                    -->
+                                    <!-- 2022-10-25 EZP-5397 width수정 / 툴팁추가 / th > .d-flex 추가 시작 -->
+                                    <th scope="col" style="width: 220px;" class="resizable">
+                                        <div class="d-flex">
+                                            <span>매입환불<br>요청금액</span>
+                                            <div class="tool-tip-wrap tool-gray">
+                                                <a href="javascript:void(0)" class="tool-tip">툴팁</a>
+                                                <div class="tool-tip-area w-auto">
+                                                    <section class="tool-tip-title">
+                                                        <h1>매입환불 요청금액?</h1>
+                                                        <div class="tool-tip-inner">
+                                                            <h2 class="dot">
+                                                                거래처별 매입잔액에서 차감 가능한 결제금액 만큼이<br/>
+                                                                자동 입력되어 표시되며, 이 금액을 초과하여 입력할 수 없습니다.
+                                                            </h2>
+                                                            <ul class="list-dash mt-0">
+                                                                <li>초과 입력 시 최초에 표시되었던 값으로 자동 변경됩니다.</li>
+                                                            </ul>
+                                                        </div>
+                                                    </section>
+                                                    <button type="button" class="tool-tip-close">닫기</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </th>
+                                    <!-- 2022-10-25 EZP-5397 툴팁추가 끝 -->
+                                    <th scope="col" style="width: 125px;" class="resizable">총 결제금액</th>
+                                    <th scope="col" style="width: 100px;">매입금<br>적립금액</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- 2022 08 18 가격단위 추가 -->
+                                <tr class="tbl-gray">
+                                    <td scope="col"></td>
+                                    <td scope="col"><strong>합계<strong></td>
+                                    <td scope="col" class="text-ar"><strong>16,773,000원<strong></td>
+                                    <td scope="col" class="text-ar"><strong>7,728,000원<strong></td>
+                                    <td scope="col" class="text-ar"><strong>1,251,000원<strong></td>
+                                    <td scope="col" class="text-ar"><strong>1,251,000원<strong></td>
+                                    <td scope="col" class="text-ar"><strong>340,000원<strong></td>
+                                    <!-- 2022-10-25 EZP-5397 매입환불 가능금액 제거 
+                                    <td scope="col" class="text-ar"><strong>80,000원<strong></td>
+                                    -->
+                                    <td scope="col" class="text-ar"><strong>50,000원<strong></td>
+                                    <td scope="col" class="text-ar"><strong>8,639,000원<strong></td>
+                                    <td scope="col" class="text-ar"><strong>50,000원<strong></td>
+                                </tr>
+                                <!-- 2022 08 16 가게명 a class 추가 -->
+                                <tr>
+                                    <td class="text-al"><a href="javascript: void(0);" class="white-space-normal" onclick="window.open('../popup/popup-case03.html','주문내역','width=1120,height=800,location=no,status=no,scrollbars=yes');">mean it (민잇)</a></td>
+                                    <td class="text-al">디오트<br>B1층 E열 12-1호</td>
+                                    <td class="text-ar">32,000원</td>
+                                    <td class="text-ar">0원</td>
+                                    <td class="text-ar">18,000원</td>
+                                    <td class="text-ar">18,000원</td>
+                                    <td class="text-ar">0원</td>
+                                    <!-- 2022-10-25 EZP-5397 매입환불 가능금액 제거 
+                                    <td class="text-ar">0원</td>
+                                    -->
+                                    <td class="text-ar">0원</td>
+                                    <td class="text-ar">18,000원</td>
+                                    <td class="text-ar">0원</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-al"><a href="javascript: void(0);" class="white-space-normal" onclick="window.open('../popup/popup-case03.html','주문내역','width=1120,height=800,location=no,status=no,scrollbars=yes');">남이</a></td>
+                                    <td class="text-al">디오트<br>4층 B열 24호</td>
+                                    <td class="text-ar">65,000원</td>
+                                    <td class="text-ar">0원</td>
+                                    <td class="text-ar">0원</td>
+                                    <td class="text-ar">0원</td>
+                                    <td class="text-ar">0원</td>
+                                    <!-- 2022-10-25 EZP-5397 매입환불 가능금액 제거 
+                                    <td class="text-ar">0원</td>
+                                    -->
+                                    <td class="text-ar">0원</td>
+                                    <td class="text-ar">0원</td>
+                                    <td class="text-ar">0원</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-al"><a href="javascript: void(0);" class="white-space-normal" onclick="window.open('../popup/popup-case03.html','주문내역','width=1120,height=800,location=no,status=no,scrollbars=yes');">네온히치</a></td>
+                                    <td class="text-al">디오트<br>4층 F열 10호</td>
+                                    <td class="text-ar">1,744,000원</td>
+                                    <td class="text-ar">6,752,000원</td>
+                                    <td class="text-ar">0원</td>
+                                    <td class="text-ar">0원</td>
+                                    <td class="text-ar">120,000원</td>
+                                    <!-- 2022-10-25 EZP-5397 매입환불 가능금액 제거 
+                                    <td class="text-ar">50,000원</td>
+                                    -->
+                                    <td class="text-ar">
+                                    <!-- 2022-10-25 EZP-5397 매입잔액 추가로 div.price-acc 추가 -->
+                                        <div class="price-acc">
+                                            <div class="request-amount">
+                                                <div class="btn-switch">
+                                                    <label>
+                                                        <input type="checkbox" checked>
+                                                        <div class="slider" data-on="ON" data-off="OFF"></div>
+                                                    </label>
+                                                </div>
+                                                <div class="info">
+                                                    <input type="text" value="50,000"> 원 
+                                                    <button type="button" class="memo-btn" onclick="targetModalPopup('purchase-refund-modal')">
+                                                        <i class="ico-easy-pick ico-memo-on"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <!-- 2022-10-25 EZP-5397 매입잔액 추가 -->
+                                            <p>(매입잔액 : 1,234,567원)</p>
+                                        </div>
+                                    </td>
+                                    <td class="text-ar">6,582,000원</td>
+                                    <td class="text-ar">0원</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-al"><a href="javascript: void(0);" class="white-space-normal" onclick="window.open('../popup/popup-case03.html','주문내역','width=1120,height=800,location=no,status=no,scrollbars=yes');">네온히치</a></td>
+                                    <td class="text-al">디오트<br>4층 F열 10호</td>
+                                    <td class="text-ar">50,000원</td>
+                                    <td class="text-ar">0원</td>
+                                    <td class="text-ar">0원</td>
+                                    <td class="text-ar">0원</td>
+                                    <td class="text-ar">50,000원</td>
+                                    <!-- 2022-10-25 EZP-5397 매입환불 가능금액 제거 
+                                    <td class="text-ar">0원</td>
+                                    -->
+                                    <td class="text-ar">0원</td>
+                                    <td class="text-ar">
+                                        0
+                                        <span class="txt1">
+                                            (=합계 -50,000원<br>
+                                            + 매입금적립반영<br>
+                                            50,000원)<br>
+                                        </span>
+                                    </td>
+                                    <td class="text-ar">50,000원</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-al"><a href="javascript: void(0);" class="white-space-normal" onclick="window.open('../popup/popup-case03.html','주문내역','width=1120,height=800,location=no,status=no,scrollbars=yes');">네온히치</a></td>
+                                    <td class="text-al">디오트<br>4층 F열 10호</td>
+                                    <td class="text-ar">37,000원</td>
+                                    <td class="text-ar">0원</td>
+                                    <td class="text-ar">54,000원</td>
+                                    <td class="text-ar">54,000원</td>
+                                    <td class="text-ar">0원</td>
+                                    <!-- 2022-10-25 EZP-5397 매입환불 가능금액 제거 
+                                    <td class="text-ar">0원</td>
+                                    -->
+                                    <td class="text-ar">0원</td>
+                                    <td class="text-ar">54,000원</td>
+                                    <td class="text-ar">0원</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-al"><a href="javascript: void(0);" class="white-space-normal" onclick="window.open('../popup/popup-case03.html','주문내역','width=1120,height=800,location=no,status=no,scrollbars=yes');">네온히치</a></td>
+                                    <td class="text-al">디오트<br>4층 F열 10호</td>
+                                    <td class="text-ar">115,000원</td>
+                                    <td class="text-ar">133,000원</td>
+                                    <td class="text-ar">0원</td>
+                                    <td class="text-ar">0원</td>
+                                    <td class="text-ar">100,000원</td>
+                                    <!-- 2022-10-25 EZP-5397 매입환불 가능금액 제거 
+                                    <td class="text-ar">30,000원</td>
+                                    -->
+                                    <td class="text-ar">
+                                        <!-- 2022-10-25 EZP-5397 매입잔액 추가로 div.price-acc 추가 -->
+                                        <div class="price-acc">
+                                            <div class="request-amount">
+                                                <div class="btn-switch">
+                                                    <label>
+                                                        <input type="checkbox">
+                                                        <div class="slider" data-on="ON" data-off="OFF"></div>
+                                                    </label>
+                                                </div>
+                                                <div class="info">
+                                                    <input type="text" value="0"> 원
+                                                    <button type="button" class="memo-btn" onclick="targetModalPopup('purchase-refund-modal')">
+                                                        <!-- 2022-11-29 EZP-7612 c-pointer 추가 -->
+                                                        <i class="ico-easy-pick ico-memo-off c-pointer"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <!-- 2022-10-25 EZP-5397 매입잔액 추가 -->
+                                            <p>(매입잔액 : 12,345원)</p>
+                                        </div>
+                                    </td>
+                                    <td class="text-ar">33,000원</td>
+                                    <td class="text-ar">0원</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-al"><a href="javascript: void(0);" class="white-space-normal" onclick="window.open('../popup/popup-case03.html','주문내역','width=1120,height=800,location=no,status=no,scrollbars=yes');">네온히치</a></td>
+                                    <td class="text-al">디오트<br>4층 F열 10호</td>
+                                    <td class="text-ar">125,000원</td>
+                                    <td class="text-ar">0원</td>
+                                    <td class="text-ar">156,000원</td>
+                                    <td class="text-ar">156,000원</td>
+                                    <td class="text-ar">0원</td>
+                                    <!-- 2022-10-25 EZP-5397 매입환불 가능금액 제거 
+                                    <td class="text-ar">0원</td>
+                                    -->
+                                    <td class="text-ar">0원</td>
+                                    <td class="text-ar">156,000원</td>
+                                    <td class="text-ar">0원</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-al"><a href="javascript: void(0);" class="white-space-normal" onclick="window.open('../popup/popup-case03.html','주문내역','width=1120,height=800,location=no,status=no,scrollbars=yes');">코이</a></td>
+                                    <td class="text-al">뉴존<br>B1층 404호</td>
+                                    <td class="text-ar">90,000원</td>
+                                    <td class="text-ar">0원</td>
+                                    <td class="text-ar">0원</td>
+                                    <td class="text-ar">0원</td>
+                                    <td class="text-ar">0원</td>
+                                    <!-- 2022-10-25 EZP-5397 매입환불 가능금액 제거 
+                                    <td class="text-ar">0원</td>
+                                    -->
+                                    <td class="text-ar">0원</td>
+                                    <td class="text-ar">0원</td>
+                                    <td class="text-ar">0원</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-al"><a href="javascript: void(0);" class="white-space-normal" onclick="window.open('../popup/popup-case03.html','주문내역','width=1120,height=800,location=no,status=no,scrollbars=yes');">코이</a></td>
+                                    <td class="text-al">뉴존<br>B1층 404호</td>
+                                    <td class="text-ar">90,000원</td>
+                                    <td class="text-ar">0원</td>
+                                    <td class="text-ar">0원</td>
+                                    <td class="text-ar">0원</td>
+                                    <td class="text-ar">0원</td>
+                                    <!-- 2022-10-25 EZP-5397 매입환불 가능금액 제거 
+                                    <td class="text-ar">0원</td>
+                                    -->
+                                    <td class="text-ar">0원</td>
+                                    <td class="text-ar">0원</td>
+                                    <td class="text-ar">0원</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-al"><a href="javascript: void(0);" class="white-space-normal" onclick="window.open('../popup/popup-case03.html','주문내역','width=1120,height=800,location=no,status=no,scrollbars=yes');">코이</a></td>
+                                    <td class="text-al">뉴존<br>B1층 404호</td>
+                                    <td class="text-ar">90,000원</td>
+                                    <td class="text-ar">0원</td>
+                                    <td class="text-ar">0원</td>
+                                    <td class="text-ar">0원</td>
+                                    <td class="text-ar">0원</td>
+                                    <!-- 2022-10-25 EZP-5397 매입환불 가능금액 제거 
+                                    <td class="text-ar">0원</td>
+                                    -->
+                                    <td class="text-ar">0원</td>
+                                    <td class="text-ar">0원</td>
+                                    <td class="text-ar">0원</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div><!-- 07/13 테이블 가로스크롤 수정 -->
+
+            </div>
+            <div class="modal-footer">
+                <div class="modal-footer-btn">
+                    <button type="button" name="button" class="btn btn-lg btn-outline-gray">초기화</button>	
+                    <button type="button" name="button" class="btn btn-lg btn-point">저장</button>	
+                    <button type="button" name="button" class="btn btn-lg btn-darkgray" onclick='window.open("about:blank","_self").close();'>닫기</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- 07/13 테이블 가로스크롤 수정 -->
+<script>
+    $(document).ready(function() {
+        $('#eMultiTable').fixResize({
+            colResize: true,
+            resizeVer: 'flex'
+        });
+    });
+</script><!-- 07/13 테이블 가로스크롤 수정 -->
+
+<!-- 메모 -->
+<div class="modal-pop modal-memo-popup" id="modal-memo-popup">
+    <!-- 2022-11-07 EZP-7275 일반메모가 있는 case -->
+    <div class="modal-dialog">
+            <div class="modal-inner w480">
+                <section class="modal-head">
+                    <div class="modal-head-inner">
+                        <h1>메모</h1>
+                        <a href="#" class="btn-manual" target="_blank" title="매뉴얼">매뉴얼</a>
+                    </div>
+                </section>
+                <div class="modal-body">
+                    <textarea name="" id="" placeholder="">메모 입력된 내용 있는 경우 이렇게 표시됩니다.</textarea>
+                </div>
+                <div class="modal-footer">
+                    <div class="modal-footer-btn">
+                        <button type="button" name="button" class="btn btn-lg btn-point">확인</button>	
+                        <button type="button" name="button" class="btn btn-lg btn-darkgray page-close">취소</button>
+                    </div>
+                </div>
+                <a href="javascript:void(0);" class="page-close"></a>
+            </div>
+        </div>
+
+    <!-- 2022-11-07 EZP-7275 일반메모가 없는 case -->
+    <div class="modal-dialog m-l-10">
+        <div class="modal-inner w480">
+            <section class="modal-head">
+                <div class="modal-head-inner">
+                    <h1>메모</h1>
+                    <a href="#" class="btn-manual" target="_blank" title="매뉴얼">매뉴얼</a>
+                </div>
+            </section>
+            <div class="modal-body">
+                <textarea name="" id="" placeholder="품목 메모를 작성해주세요."></textarea>
+            </div>
+            <div class="modal-footer">
+                <div class="modal-footer-btn">
+                    <button type="button" name="button" class="btn btn-lg btn-point">확인</button>	
+                    <button type="button" name="button" class="btn btn-lg btn-darkgray page-close">취소</button>
+                </div>
+            </div>
+            <a href="javascript:void(0);" class="page-close"></a>
+        </div>
+    </div>
+    <div class="dim"></div>
+</div>
+
+<!-- 2022-11-07 EZP-7275 구매불가 상품 메모 case -->
+<div class="modal-pop modal-memo-popup" id="modal-disabled-memo-popup">
+    <!-- 구매불가 메모가 있는 case -->
+    <div class="modal-dialog">
+        <div class="modal-inner w480">
+            <section class="modal-head">
+                <div class="modal-head-inner">
+                    <h1>메모</h1>
+                    <a href="#" class="btn-manual" target="_blank" title="매뉴얼">매뉴얼</a>
+                </div>
+            </section>
+            <div class="modal-body">
+                <textarea name="" id="" placeholder="메모 입력된 내용 있는 경우 이렇게 표시됩니다." disabled></textarea>
+            </div>
+            <div class="modal-footer">
+                <div class="modal-footer-btn">
+                    <button type="button" name="button" class="btn btn-lg btn-point page-close">확인</button>	
+                </div>
+            </div>
+            <a href="javascript:void(0);" class="page-close"></a>
+        </div>
+    </div>
+
+    <!-- 구매불가 메모가 없는 case -->
+    <div class="modal-dialog m-l-10">
+        <div class="modal-inner w480">
+            <section class="modal-head">
+                <div class="modal-head-inner">
+                    <h1>메모</h1>
+                    <a href="#" class="btn-manual" target="_blank" title="매뉴얼">매뉴얼</a>
+                </div>
+            </section>
+            <div class="modal-body">
+                <textarea name="" id="" placeholder="" disabled></textarea>
+            </div>
+            <div class="modal-footer">
+                <div class="modal-footer-btn">
+                    <button type="button" name="button" class="btn btn-lg btn-point page-close">확인</button>	
+                </div>
+            </div>
+            <a href="javascript:void(0);" class="page-close"></a>
+        </div>
+    </div>
+    <div class="dim"></div>
+</div>
+
+<!--  -->
+<div class="modal-pop modal-havememo-popup" id="modal-havememo-popup">
+    <div class="modal-dialog">
+        <div class="modal-inner w480">
+            <section class="modal-head">
+                <div class="modal-head-inner">
+                    <h1>메모</h1>
+                    <a href="#" class="btn-manual" target="_blank" title="매뉴얼">매뉴얼</a>
+                </div>
+            </section>
+            <div class="modal-body">
+                <div class="havememo-wrap">
+                    <p>메모입니다.</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="modal-footer-btn">
+                    <button type="button" name="button" class="btn btn-lg btn-point page-close">확인</button>
+                </div>
+            </div>
+            <a href="javascript:void(0);" class="page-close"></a>
+        </div>
+    </div>
+    <div class="dim"></div>
+</div>
+
+<!-- 주문결제 2경우 -->
+<div class="modal-pop modal-twomemo-popup" id="modal-twomemo-popup">
+    <div class="modal-dialog">
+        <div class="modal-inner w480">
+            <section class="modal-head">
+                <div class="modal-head-inner">
+                    <h1>메모</h1>
+                    <a href="#" class="btn-manual" target="_blank" title="매뉴얼">매뉴얼</a>
+                </div>
+            </section>
+            <div class="modal-body twomemo-body">
+                <table class="tbl-register-row modal-twomemo-table">
+                    <colgroup>
+                        <col style="width:149px;">
+                        <col style="width:auto;">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <th>구매자메모</th>
+                            <td>
+                                쇼핑몰에서 주문 시 품목별로 입력된 <br />
+                                메모가 노출되는 메모입니다. <br />
+                                없으면 하이픈 표시
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>입고메모</th>
+                            <td>
+                                출고처리 시 품목별로 입력된 <br />
+                                메모가 노출되는 메모입니다. <br />
+                                없으면 하이픈 표시
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <div class="modal-footer-btn">
+                  
+                    <!-- 2022 08 17 취소 버튼 삭제 -->
+                   <button type="button" name="button" class="btn btn-lg btn-point page-close">확인</button>
+                </div>
+            </div>
+            <a href="javascript:void(0);" class="page-close"></a>
+        </div>
+    </div>
+    <div class="dim"></div>
+</div>
+
+
+
+<!-- 사입삼촌 2경우 -->
+<div class="modal-pop modal-twodelmemo-popup" id="modal-twodelmemo-popup">
+    <div class="modal-dialog">
+        <div class="modal-inner w480">
+            <section class="modal-head">
+                <div class="modal-head-inner">
+                    <h1>메모</h1>
+                    <a href="#" class="btn-manual" target="_blank" title="매뉴얼">매뉴얼</a>
+                </div>
+            </section>
+            <div class="modal-body twomemo-body">
+                <table class="tbl-register-row modal-twomemo-table">
+                    <colgroup>
+                        <col style="width:159px;">
+                        <col style="width:auto;">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <th>배송메시지</th>
+                            <td>
+                                배송 잘 부탁드립니다. <br />
+                                이것저것 많이많이 주문했습니다.
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>사입삼촌 요청 메모</th>
+                            <td>
+                                사입삼촌님 잘 부탁드립니다.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <div class="modal-footer-btn">
+                    <button type="button" name="button" class="page-close btn btn-lg btn-point">확인</button>	
+                </div>
+            </div>
+            <a href="javascript:void(0);" class="page-close"></a>
+        </div>
+    </div>
+    <div class="dim"></div>
+</div>
+
+<!-- 주문/결제 메모 -->
+<div class="modal-pop modal-orderMemo-popup" id="modal-orderMemo-popup">
+    <div class="modal-dialog">
+        <div class="modal-inner w480">
+            <section class="modal-head">
+                <div class="modal-head-inner">
+                    <h1>주문/결제 메모</h1>
+                    <a href="#" class="btn-manual" target="_blank" title="매뉴얼">매뉴얼</a>
+                </div>
+            </section>
+            <div class="modal-body twomemo-body">
+                <table class="tbl-register-row modal-twomemo-table">
+                    <colgroup>
+                        <col style="width:159px;">
+                        <col style="width:auto;">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <th>배송메시지</th>
+                            <td>
+                                배송 잘 부탁드립니다. <br />
+                                이것저것 많이많이 주문했습니다.
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>사입삼촌 요청 메모</th>
+                            <td>
+                                사입 삼촌님 잘 부탁드립니다.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <div class="modal-footer-btn">
+                    <button type="button" name="button" class="btn btn-lg btn-point page-close">확인</button>	
+                </div>
+            </div>
+            <a href="javascript:void(0);" class="page-close"></a>
+        </div>
+    </div>
+    <div class="dim"></div>
+</div>
+
+<!-- 셀픽주문내역 -->
+<div class="modal-pop modal-twomemo-popup" id="modal-twomemo2-popup">
+    <div class="modal-dialog">
+        <div class="modal-inner w480">
+            <section class="modal-head">
+                <div class="modal-head-inner">
+                    <h1>메모</h1>
+                    <a href="#" class="btn-manual" target="_blank" title="매뉴얼">매뉴얼</a>
+                </div>
+            </section>
+            <div class="modal-body twomemo-body">
+                <table class="tbl-register-row modal-twomemo-table">
+                    <colgroup>
+                        <col style="width:149px;">
+                        <col style="width:auto;">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <th>구매자메모</th>
+                            <td>
+                                쇼핑몰에서 주문 시 품목별로 입력된 <br />
+                                메모가 노출되는 메모입니다. <br />
+                                없으면 하이픈 표시
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>입고메모</th>
+                            <td>
+                                출고처리 시 품목별로 입력된 <br />
+                                메모가 노출되는 메모입니다. <br />
+                                없으면 하이픈 표시
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <div class="modal-footer-btn">
+                  
+                    <!-- 2022 08 17 취소 버튼 삭제 -->
+                   <button type="button" name="button" class="btn btn-lg btn-point page-close">확인</button>
+                </div>
+            </div>
+            <a href="javascript:void(0);" class="page-close"></a>
+        </div>
+    </div>
+    <div class="dim"></div>
+</div>
+
+
+<!-- 사입삼촌메모 -->
+<div class="modal-pop modal-samchonmemo-popup" id="modal-samchon-popup">
+    <div class="modal-dialog">
+        <div class="modal-inner w480 nomh">
+            <section class="modal-head">
+                <div class="modal-head-inner">
+                    <h1>주문메모</h1>
+                    <a href="#" class="btn-manual" target="_blank" title="매뉴얼">매뉴얼</a>
+                </div>
+            </section>
+            <div class="modal-body onememo-body">
+                <table class="tbl-register-row modal-onememo-table">
+                    <colgroup>
+                        <col style="width:159px;">
+                        <col style="width:auto;">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <th>사입삼촌<br />요청 메모</th>
+                            <td>
+                                사입 삼촌님 잘 부탁드립니다.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <div class="modal-footer-btn">
+                    <button type="button" name="button" class="btn btn-lg btn-point page-close">확인</button>	
+                </div>
+            </div>
+            <a href="javascript:void(0);" class="page-close"></a>
+        </div>
+    </div>
+    <div class="dim"></div>
+</div>
+
+<!-- 입고메모 -->
+<div class="modal-pop modal-ipgomemo-popup" id="modal-ipgo-popup">
+    <div class="modal-dialog">
+        <div class="modal-inner w480 nomh">
+            <section class="modal-head">
+                <div class="modal-head-inner">
+                    <h1>주문메모</h1>
+                    <a href="#" class="btn-manual" target="_blank" title="매뉴얼">매뉴얼</a>
+                </div>
+            </section>
+            <div class="modal-body onememo-body">
+                <table class="tbl-register-row modal-onememo-table">
+                    <colgroup>
+                        <col style="width:159px;">
+                        <col style="width:auto;">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <th>입고 메모</th>
+                            <td>
+                                잘 부탁드립니다.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <div class="modal-footer-btn">
+                    <button type="button" name="button" class="btn btn-lg btn-point page-close">확인</button>	
+                </div>
+            </div>
+            <a href="javascript:void(0);" class="page-close"></a>
+        </div>
+    </div>
+    <div class="dim"></div>
+</div>
+
+<!-- 구매자메모 -->
+<div class="modal-pop modal-buyuser-popup" id="modal-buyuser-popup">
+    <div class="modal-dialog">
+        <div class="modal-inner w480 nomh">
+            <section class="modal-head">
+                <div class="modal-head-inner">
+                    <h1>주문메모</h1>
+                    <a href="#" class="btn-manual" target="_blank" title="매뉴얼">매뉴얼</a>
+                </div>
+            </section>
+            <div class="modal-body onememo-body">
+                <table class="tbl-register-row modal-onememo-table">
+                    <colgroup>
+                        <col style="width:159px;">
+                        <col style="width:auto;">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <th>구매자 메모</th>
+                            <td>
+                                잘 부탁드립니다.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <div class="modal-footer-btn">
+                    <button type="button" name="button" class="btn btn-lg btn-point page-close">확인</button>	
+                </div>
+            </div>
+            <a href="javascript:void(0);" class="page-close"></a>
+        </div>
+    </div>
+    <div class="dim"></div>
+</div>
+
+<!-- 매입환불 요청 메모 -->
+<div class="modal-pop modal-purchase-regund-popup" id="modal-purchase-regund-popup">
+    <div class="modal-dialog">
+        <div class="modal-inner w480">
+            <section class="modal-head">
+                <div class="modal-head-inner">
+                    <h1>메모</h1>
+                    <a href="#" class="btn-manual" target="_blank" title="매뉴얼">매뉴얼</a>
+                </div>
+            </section>
+            <div class="modal-body twomemo-body">
+                <table class="tbl-register-row modal-twomemo-table">
+                    <colgroup>
+                        <col style="width:159px;">
+                        <col style="width:auto;">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <th>배송메시지</th>
+                            <td>
+                                배송 잘 부탁드립니다. <br />
+                                이것저것 많이많이 주문했습니다.
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>사입삼촌 요청 메모</th>
+                            <td>
+                                사입삼촌님 잘 부탁드립니다.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <div class="modal-footer-btn">
+                    <button type="button" name="button" class="btn btn-lg btn-point">확인</button>	
+                </div>
+            </div>
+            <a href="javascript:void(0);" class="page-close"></a>
+        </div>
+    </div>
+    <div class="dim"></div>
+</div>
+
+<div class="modal-pop modal-usermemo-popup" id="modal-usermemo-popup">
+    <div class="modal-dialog">
+        <div class="modal-inner w480">
+            <section class="modal-head">
+                <div class="modal-head-inner">
+                    <h1>구매자 메모</h1>
+                    <a href="#" class="btn-manual" target="_blank" title="매뉴얼">매뉴얼</a>
+                </div>
+            </section>
+            <div class="modal-body buy-usermemo-body">
+                <p>
+                    구매자 메모 내용을 수정하시면, 이후 미송 발주서부터 지속적으로 반영됩니다. <br />
+                    (수정사항이 없는 경우, 기존 메모가 동일하게 발주서에 표시됩니다.)
+                </p>
+                <textarea>구매자 메모 입력했습니다.</textarea>
+            </div>
+            <div class="modal-footer">
+                <div class="modal-footer-btn">
+                    <button type="button" name="button" class="btn btn-lg btn-point">저장</button>	
+                    <button type="button" name="button" class="btn btn-lg btn-darkgray page-close">취소</button>
+                </div>
+            </div>
+            <a href="javascript:void(0);" class="page-close"></a>
+        </div>
+    </div>
+    <div class="dim"></div>
+</div>
+
+
+<div class="modal-pop modal-note-popup" id="modal-note-popup">
+    <div class="modal-dialog">
+        <div class="modal-inner w480">
+            <section class="modal-head">
+                <div class="modal-head-inner">
+                    <!-- 2022 08 18 text  수정 -->
+                    <h1>구매자 메모</h1>
+                    <a href="#" class="btn-manual" target="_blank" title="매뉴얼">매뉴얼</a>
+                </div>
+            </section>
+            <div class="modal-body buy-usermemo-body">
+                <p>
+                    샘플주문합니다. <br />
+                    색상별로 다양하게 샘플 요청드립니다.
+                </p>
+            </div>
+            <div class="modal-footer">
+                <div class="modal-footer-btn">
+                    <button type="button" name="button" class="btn btn-lg btn-point page-close">확인</button>	
+                </div>
+            </div>
+            <a href="javascript:void(0);" class="page-close"></a>
+        </div>
+    </div>
+    <div class="dim"></div>
+</div>
+
+
+
+<div class="modal-pop purchase-refund-modal" id="purchase-refund-modal">
+    <div class="modal-dialog">
+        <div class="modal-inner w480">
+            <section class="modal-head">
+                <div class="modal-head-inner">
+                    <h1>매입환불 요청 메모</h1>
+                    <a href="#" class="btn-manual" target="_blank" title="매뉴얼">매뉴얼</a>
+                </div>
+            </section>
+            <div class="modal-body purchase-refund-body">
+                <table>
+                    <colgroup>
+                        <col style="width:149px;">
+                        <col style="width:auto;">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <th>관리자메모</th>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <th>고객메모</th>
+                            <td>
+                                <textarea name="" id="">매입금 잔액 사용.사용 후 잔액 재확인해주세요.</textarea>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <div class="modal-footer-btn">
+                    <button type="button" name="button" class="btn btn-lg btn-point">확인</button>	
+                    <button type="button" name="button" class="btn btn-lg btn-darkgray page-close">취소</button>
+                </div>
+            </div>
+            <a href="javascript:void(0);" class="page-close"></a>
+        </div>
+    </div>
+    <div class="dim"></div>
+</div>
+
+
+<!-- 가게매입금내역 -->
+<div class="modal-pop modal-twomemo-popup" id="modal-outputmemo-popup">
+    <div class="modal-dialog">
+        <div class="modal-inner w480">
+            <section class="modal-head">
+                <div class="modal-head-inner">
+                    <h1>매입환불 요청 메모</h1>
+                    <a href="#" class="btn-manual" target="_blank" title="매뉴얼">매뉴얼</a>
+                </div>
+            </section>
+            <div class="modal-body twomemo-body">
+                <table class="tbl-register-row modal-twomemo-table">
+                    <colgroup>
+                        <col style="width:149px;">
+                        <col style="width:auto;">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <th>관리자메모</th>
+                            <td>
+                                -
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>고객메모</th>
+                            <td>
+                                매입금 잔액 사용. <br />
+                                사용 후 잔액 재확인해주세요.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <div class="modal-footer-btn">
+                    <button type="button" name="button" class="btn btn-lg btn-point page-close">확인</button>	
+                </div>
+            </div>
+            <a href="javascript:void(0);" class="page-close"></a>
+        </div>
+    </div>
+    <div class="dim"></div>
+</div>
+
+
+
+
+
+
+
+<!-- 주문메모 -->
+<div class="modal-pop modal-order-memo-popup" id="modal-order-memo-popup">
+    <div class="modal-dialog">
+        <div class="modal-inner w480">
+            <section class="modal-head">
+                <div class="modal-head-inner">
+                    <h1>주문메모</h1>
+                    <a href="#" class="btn-manual" target="_blank" title="매뉴얼">매뉴얼</a>
+                </div>
+            </section>
+            <div class="modal-body memo-body">
+                <table>
+                    <colgroup>
+                        <col style="width:150px;">
+                        <col style="width:auto;">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <th>
+                                사입 삼촌<br>
+                                요청 메모
+                            </th>
+                            <td>
+                                사입 삼촌님 잘 부탁드립니다.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <div class="modal-footer-btn">
+                    <button type="button" name="button" class="btn btn-lg btn-point">확인</button>
+                </div>
+            </div>
+            <a href="javascript:void(0);" class="page-close"></a>
+        </div>
+    </div>
+    <div class="dim"></div>
+</div>
+
+
+</body>
+
+</html>

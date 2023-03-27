@@ -1,0 +1,1261 @@
+<!DOCTYPE html>
+<html lang="ko" class="js">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, viewport-fit=cover"">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="format-detection" content="telephone=no">
+	<meta content="IMs0c1aVeYsDnnQOLkRn1Bu5zL3j5rbbYJoj9dYvgt4=" name="csrf-token">
+	<meta content="T" name="login-required">
+	<link rel="shortcut icon" type="image/x-icon" href="/img/favicon/ezp.ico">
+	<link rel="stylesheet" type="text/css" href="../../../../../css/default.css">
+	<link rel="stylesheet" type="text/css" href="../../../../../css/month.picker.css">
+	<title>이지픽</title>
+</head>
+
+<body>
+	<!-- header// -->
+	<header></header>
+	<!-- //header -->
+
+	<!--container// -->
+	<div id="container-full" class="min-wid auto-order-wrap">
+		<div class="order-top list">
+			<h2>시나리오 설정</h2>
+		</div>
+
+		<div class="info-box-wrap expand-container expand"><!-- add class "expand" -->
+			<div class="wrap">
+				<h3>자동주문이란?</h3>
+				<p>재고솔루션에서 데이터를 불러와서 직접 주문을 하거나, 예약해둔 시간에 자동 주문을 진행할 수 있는 편의 기능입니다. (엑셀 파일을 직접 업로드할 수도 있습니다.)</p>
+				<div class="use-guide">
+					<h4>자동주문 이용가이드</h4>
+					<div class="ui-tab">
+						<ul class="tab-nav">
+							<li class="active"><a href="#"><em>STEP 01.</em> 품목 등록하기</a></li>
+							<li><a href="#"><em>STEP 02.</em> SET 설정하기</a></li>
+							<li><a href="#"><em>STEP 03.</em> 시나리오 설정 및 예약 설정하기</a></li>
+							<li><a href="#"><em>STEP 04.</em> 전표 관리하기</a></li>
+						</ul>
+						<div class="tab-content">
+							<div class="active" style="display:block;">
+								<ol>
+									<li>자동주문 페이지에서 [품목불러오기] 버튼을 클릭하여 품목 정보를 가져오거나, 엑셀 양식을 다운로드 받아 데이터를 입력 후 엑셀 파일을 업로드해 주세요.</li>
+									<li>품목불러오기 진행 시, 재고솔루션에서 불러올 품목의 옵션을 먼저 설정 후 저장하기 버튼을 클릭해 주세요.
+										<img src="../../../../../img/auto/img-scenario-guide01.jpg" alt="">
+									</li>
+									<li>자동주문 페이지에서 [품목불러오기] 버튼 클릭 시, 저장된 옵션에 따라 품목 불러오기가 가능합니다.
+										<img src="../../../../../img/auto/img-scenario-guide02.jpg" alt="">
+									</li>
+								</ol>
+							</div>
+							<div>
+								<ol>
+									<li>SET 목록 화면에서 [SET추가] 버튼 또는 등록되어있는 샘플을 복사해 주세요.
+										<img src="../../../../../img/auto/img-scenario-guide03.jpg" alt="">
+									</li>
+									<li>팝업에서 원하는 필터와 실행조건을 추가해 주세요.
+										<img src="../../../../../img/auto/img-scenario-guide04.jpg" alt="">
+									</li>
+									<li>SET 설정 완료 후 시나리오를 설정해 주세요.</li>
+								</ol>
+							</div>
+							<div>
+								<ol>
+									<li>[시나리오추가] 버튼을 클릭해 주세요. 기존에 등록된 시나리오를 수정하시려면 [수정] 버튼을 클릭해 주세요.</li>
+									<li>시나리오 실행 시 사용할 SET를 선택해 주세요.</li>
+									<li>시나리오 설정 완료 후 [예약 설정] 버튼을 클릭하여 자동주문 예약설정을 진행해 주세요. 예약을 하지 않고 수동 실행도 가능합니다.
+										<img src="../../../../../img/auto/img-scenario-guide05.jpg" alt="">
+									</li>
+								</ol>
+							</div>
+							<div>
+								<ol>
+									<li>자동주문 페이지에서 주문 완료까지 진행한 주문건에 한하여 재고플러스로 전표를 자동 전송하거나 엑셀 양식을 다운로드 받을 수 있습니다.</li>
+									<li>시나리오 설정 화면>전표자동전송 항목>'전송'에 체크 시 별도의 작업 없이 주문완료 시점에 재고플러스로 전표가 자동 전송됩니다.
+										<img src="../../../../../img/auto/img-scenario-guide06.jpg" alt="">
+									</li>
+									<li>전표 양식 파일은 주문완료 후 주문내역 상세페이지에서 다운로드 받을 수 있습니다.</li>
+								</ol>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<span class="expand-control"><button type="button">접기</button></span>
+		</div>
+		<!-- 2022 08 09 direct 클래스 제거 -->
+		<div class="order-list-wrap">
+			<div class="list-right direct">
+				<div class="auto-scenario-list">
+					<div class="top-wrap">
+						<div>
+							<p class="tit">시나리오 목록</p>
+						</div>
+						<div>
+							<button type="button" name="button" class="btn small line ui-popup-open" data-target="#auto-history-pop">실행이력확인</button>
+							<!-- 20220516 EZP-4381 -->
+							<!--button type="button" name="button" class="btn small line ui-popup-open" data-target="#statement-list-pop">전표관리</!--button>
+							<!-- //20220516 EZP-4381 -->
+							<button type="button" name="button" class="btn small line ui-popup-open" data-target="#auto-import-mk">불러오기 설정</button>
+							<button type="button" name="button" class="btn small line ui-popup-open" data-target="#auto-import-ez">불러오기 설정</button>
+							<button type="button" name="button" class="btn small line" data-target="#">예약 설정</button>
+						</div>
+					</div>
+					<div class="mid-wrap">
+						<div class="notice ex">
+							<p>
+								<span class="cnt">
+									등록된 시나리오 : 5 개  (전일 성공 : <a href="#none" class="txt-green ui-popup-open" data-target="#auto-history-pop">2</a> 개, 전일 실패 : <a href="#none" class="txt-red">1</a> 개 /
+									금일 성공 : <a href="#none" class="txt-green">1</a> 개, 금일 실패 : <a href="#none" class="txt-red">1</a> 개)
+								</span>
+							</p>
+						</div>
+					</div>
+					<div class="scenario-list">
+						<ul>
+							<li class="add"><button type="button"><i>+</i>시나리오 추가</button></li>
+							<li><!--  class "active" -->
+								<div class="tt">
+									<i class="sample">SAMPLE</i>
+									<strong>기존상품 주문 시나리오</strong>
+								</div>
+								<div class="btns">
+									<!-- 20220318 EZP-4381-->
+									<button type="button" class="exe">실행</button>
+									<button type="button" class="copy">복사</button>
+									<button type="button" class="edit">수정</button>
+									<!-- //20220318 EZP-4381-->
+								</div>
+							</li>
+							<li>
+								<div class="tt">
+									<i class="sample">SAMPLE</i>
+									<strong>신상품 주문 시나리오</strong>
+								</div>
+								<div class="btns">
+									<!-- 20220318 EZP-4381-->
+									<button type="button" class="exe">실행</button>
+									<button type="button" class="copy">복사</button>
+									<button type="button" class="edit">수정</button>
+									<!-- //20220318 EZP-4381-->
+								</div>
+							</li>
+							<li>
+								<em class="reserve on">예약 ON</em>
+								<div class="tt">
+									<strong>신상품 가중치 발주</strong>
+								</div>
+								<div class="btns">
+									<button type="button" class="exe">실행</button>
+									<button type="button" class="edit">수정</button>
+									<button type="button" class="del">삭제</button>
+								</div>
+							</li>
+							<li>
+								<em class="reserve off">예약 OFF</em>
+								<div class="tt">
+									<strong>공백 포함 최대 15자 입력 가능 공백</strong>
+								</div>
+								<div class="btns">
+									<button type="button" class="exe">실행</button>
+									<button type="button" class="edit">수정</button>
+									<button type="button" class="del">삭제</button>
+								</div>
+							</li>
+							<li>
+								<em class="reserve off">예약 ON</em>
+								<div class="tt">
+									<strong>!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!</strong>
+								</div>
+								<div class="btns">
+									<button type="button" class="exe">실행</button>
+									<button type="button" class="edit">수정</button>
+									<button type="button" class="del">삭제</button>
+								</div>
+							</li>
+							<li>
+								<em class="reserve off">예약 ON</em>
+								<div class="tt">
+									<strong>Sample scenario Sample scenario</strong>
+								</div>
+								<div class="btns">
+									<button type="button" class="exe">실행</button>
+									<button type="button" class="edit">수정</button>
+									<button type="button" class="del">삭제</button>
+								</div>
+							</li>
+
+							<!-- 2022-05-30 EZP-4381 테스트를 위한 샘플 추가 시작 -->
+
+							<li>
+								<em class="reserve off">예약 ON</em>
+								<div class="tt">
+									<strong>Sample scenario Sample scenario</strong>
+								</div>
+								<div class="btns">
+									<button type="button" class="exe">실행</button>
+									<button type="button" class="edit">수정</button>
+									<button type="button" class="del">삭제</button>
+								</div>
+							</li>
+
+							<li>
+								<em class="reserve off">예약 ON</em>
+								<div class="tt">
+									<strong>Sample scenario Sample scenario</strong>
+								</div>
+								<div class="btns">
+									<button type="button" class="exe">실행</button>
+									<button type="button" class="edit">수정</button>
+									<button type="button" class="del">삭제</button>
+								</div>
+							</li>
+
+							<li>
+								<em class="reserve off">예약 ON</em>
+								<div class="tt">
+									<strong>Sample scenario Sample scenario</strong>
+								</div>
+								<div class="btns">
+									<button type="button" class="exe">실행</button>
+									<button type="button" class="edit">수정</button>
+									<button type="button" class="del">삭제</button>
+								</div>
+							</li>
+
+							<li>
+								<em class="reserve off">예약 ON</em>
+								<div class="tt">
+									<strong>Sample scenario Sample scenario</strong>
+								</div>
+								<div class="btns">
+									<button type="button" class="exe">실행</button>
+									<button type="button" class="edit">수정</button>
+									<button type="button" class="del">삭제</button>
+								</div>
+							</li>
+
+							<li>
+								<em class="reserve off">예약 ON</em>
+								<div class="tt">
+									<strong>Sample scenario Sample scenario</strong>
+								</div>
+								<div class="btns">
+									<button type="button" class="exe">실행</button>
+									<button type="button" class="edit">수정</button>
+									<button type="button" class="del">삭제</button>
+								</div>
+							</li>
+
+							<li>
+								<em class="reserve off">예약 ON</em>
+								<div class="tt">
+									<strong>Sample scenario Sample scenario</strong>
+								</div>
+								<div class="btns">
+									<button type="button" class="exe">실행</button>
+									<button type="button" class="edit">수정</button>
+									<button type="button" class="del">삭제</button>
+								</div>
+							</li>
+
+							<li>
+								<em class="reserve off">예약 ON</em>
+								<div class="tt">
+									<strong>Sample scenario Sample scenario</strong>
+								</div>
+								<div class="btns">
+									<button type="button" class="exe">실행</button>
+									<button type="button" class="edit">수정</button>
+									<button type="button" class="del">삭제</button>
+								</div>
+							</li>
+
+							<li>
+								<em class="reserve off">예약 ON</em>
+								<div class="tt">
+									<strong>Sample scenario Sample scenario</strong>
+								</div>
+								<div class="btns">
+									<button type="button" class="exe">실행</button>
+									<button type="button" class="edit">수정</button>
+									<button type="button" class="del">삭제</button>
+								</div>
+							</li>
+
+							<li>
+								<em class="reserve off">예약 ON</em>
+								<div class="tt">
+									<strong>Sample scenario Sample scenario</strong>
+								</div>
+								<div class="btns">
+									<button type="button" class="exe">실행</button>
+									<button type="button" class="edit">수정</button>
+									<button type="button" class="del">삭제</button>
+								</div>
+							</li>
+
+							<li>
+								<em class="reserve off">예약 ON</em>
+								<div class="tt">
+									<strong>Sample scenario Sample scenario</strong>
+								</div>
+								<div class="btns">
+									<button type="button" class="exe">실행</button>
+									<button type="button" class="edit">수정</button>
+									<button type="button" class="del">삭제</button>
+								</div>
+							</li>
+
+							<li>
+								<em class="reserve off">예약 ON</em>
+								<div class="tt">
+									<strong>Sample scenario Sample scenario</strong>
+								</div>
+								<div class="btns">
+									<button type="button" class="exe">실행</button>
+									<button type="button" class="edit">수정</button>
+									<button type="button" class="del">삭제</button>
+								</div>
+							</li>
+
+							<li>
+								<em class="reserve off">예약 ON</em>
+								<div class="tt">
+									<strong>Sample scenario Sample scenario</strong>
+								</div>
+								<div class="btns">
+									<button type="button" class="exe">실행</button>
+									<button type="button" class="edit">수정</button>
+									<button type="button" class="del">삭제</button>
+								</div>
+							</li>
+
+							<!--// 2022-05-30 EZP-4381 테스트를 위한 샘플 추가 시작 -->
+						</ul>
+					</div>
+				</div>
+				<div class="auto-set-list">
+					<div class="top-wrap">
+						<div>
+							<p class="tit">SET목록 <span class="cnt">검색결과 : <em>30</em>건</span></p>
+						</div>
+						<div>
+							<button type="button" name="button" class="btn small line">전체보기</button>
+							<button type="button" name="button" class="btn small point">SET 추가</button>
+						</div>
+					</div>
+					<div class="table-wrap order-list mb0">
+						<table class="th-hor">
+							<colgroup>
+								<col width="50px">
+								<col width="*">
+								<col width="*">
+								<col width="*">
+								<col width="240px">
+								<col width="140px">
+							</colgroup>
+							<thead>
+								<tr>
+									<th>번호</th>
+									<th>SET명</th>
+									<th>선택한 항목</th>
+									<th>실행</th>
+									<th>등록일시</th>
+									<th>설정</th>
+								</tr>
+							</thead>
+							<tbody>
+								<td colspan="6">
+									<div class="noData"><span class="noimg"></span>
+										<p>등록된 SET가 없습니다.</p>
+									</div>
+								</td>
+							</tbody>
+							<tbody>
+								<tr>
+									<td class="Enfont">24</td>
+									<td><i class="sample">SAMPLE</i> 최신 등록 상품 삭제</td>
+									<td>공백 포함 최대 15자 입력 가능 공백</td>
+									<td>품목 삭제</td>
+									<td class="Enfont">2021-11-10 12:22:24</td>
+									<td>
+										<button type="button" class="btn-order">복사</button>
+										<!-- 20220318 EZP-4381-->
+										<button type="button" class="btn-order">수정</button>
+										<!-- //20220318 EZP-4381-->
+									</td>
+								</tr>
+								<tr>
+									<td class="Enfont">23</td>
+									<td><i class="sample">SAMPLE</i> 최신 등록 상품 삭제</td>
+									<td>상품등록일 1주일 이내</td>
+									<td>품목 삭제</td>
+									<td class="Enfont">2021-11-10 12:22:24</td>
+									<td>
+										<button type="button" class="btn-order">복사</button>
+										<!-- 20220318 EZP-4381-->
+										<button type="button" class="btn-order">수정</button>
+										<!-- //20220318 EZP-4381-->
+									</td>
+								</tr>
+								<tr>
+									<td class="Enfont">22</td>
+									<td>최신 등록 상품 삭제</td>
+									<td>상품등록일 1주일 이내</td>
+									<td>품목 삭제</td>
+									<td class="Enfont">2021-11-10 12:22:24</td>
+									<td>
+										<button type="button" class="btn-order">수정</button>
+										<!-- 20220318 EZP-4381-->
+										<button type="button" class="btn-order">삭제</button>
+										<!-- //20220318 EZP-4381-->
+									</td>
+								</tr>
+								<tr>
+									<td class="Enfont">21</td>
+									<td>최신 등록 상품 삭제</td>
+									<td>상품등록일 1주일 이내</td>
+									<td>품목 삭제</td>
+									<td class="Enfont">2021-11-10 12:22:24</td>
+									<td>
+										<button type="button" class="btn-order">수정</button>
+										<!-- 20220318 EZP-4381-->
+										<button type="button" class="btn-order">삭제</button>
+										<!-- //20220318 EZP-4381-->
+									</td>
+								</tr>
+								<tr>
+									<td class="Enfont">20</td>
+									<td>최신 등록 상품 삭제</td>
+									<td>상품등록일 1주일 이내</td>
+									<td>품목 삭제</td>
+									<td class="Enfont">2021-11-10 12:22:24</td>
+									<td>
+										<button type="button" class="btn-order">수정</button>
+										<!-- 20220318 EZP-4381-->
+										<button type="button" class="btn-order">삭제</button>
+										<!-- //20220318 EZP-4381-->
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<div class="pagination">
+							<a href="#none;" class="first none" style="cursor:unset;">처음</a>
+							<a href="#none;" class="prev none" style="cursor:unset;">이전</a>
+							<a href="#none;" class="active">1</a>
+							<a href="#none;">2</a>
+							<a href="#none;">3</a>
+							<a href="#none;">4</a>
+							<a href="#none;">5</a>
+							<a href="#none;">6</a>
+							<a href="#none;">7</a>
+							<a href="#none;">8</a>
+							<a href="#none;">9</a>
+							<a href="#none;">10</a>
+							<a href="#none" class="next">다음</a>
+							<a href="#none" class="last">다음</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="auto-history-pop" class="ui-popup auto-history-pop">
+		<div class="content" tabindex="-1">
+			<div class="header">
+				<h3>실행이력확인</h3>
+			</div>
+			<div class="body reconfirm">
+				<div class="table-wrap order-list mt30 mb0">
+					<div class="table-top">
+						<div class="ui-select">
+							<button type="button">전체보기</button>
+							<ul>
+								<li class="active">전체보기</li>
+								<li>성공건보기</li>
+								<li>실패건보기</li>
+							</ul>
+						</div>
+						<span class="info">- 시나리오 실행 이력을 확인할 수 있습니다.</span>
+					</div>
+					<table class="th-hor low">
+						<colgroup>
+							<col width="190px">
+							<col width="110px">
+							<col width="*">
+							<col width="110px">
+							<col width="*">
+							<col width="190px">
+						</colgroup>
+						<thead>
+							<tr>
+								<th>실행일시</th>
+								<th>성공여부</th>
+								<th>시나리오명</th>
+								<th>실행구분</th>
+								<th>실패사유</th>
+								<th>주문번호</th>
+							</tr>
+						</thead>
+						<tbody>
+							<!-- 2022-05-30 EZP-4381 NO-Data Case 시작 -->
+							<tr class="noData">
+								<td colspan="6">
+									<span class="noimg"></span>
+									<p>실행이력이 없습니다.</p>
+								</td>
+							</tr>
+							<!--// 2022-05-30 EZP-4381 NO-Data Case 종료 -->
+							<tr class="fail">
+								<td class="Enfont">2021-11-02 10:05:28</td>
+								<td>실패</td>
+								<td>공백 포함 최대 15자 입력 가능 공백</td>
+								<td>자동</td>
+								<td>발주 대상 품목 없음</td>
+								<td class="Enfont num">-</td>
+							</tr>
+							<tr>
+								<td class="Enfont">yyyy-mm-dd hh:mm:ss</td>
+								<td>성공</td>
+								<td>인기상품 발주</td>
+								<td>-</td>
+								<td>발주 대상 품목 없음</td>
+								<td class="num"><a href="#" class="Enfont">2021111900006955</a></td>
+							</tr>
+							<tr class="fail">
+								<td class="Enfont">2021-11-02 10:05:28</td>
+								<td>실패</td>
+								<td>시나리오 2번 셋팅</td>
+								<td>자동</td>
+								<td>발주 대상 품목 없음</td>
+								<td class="Enfont num">-</td>
+							</tr>
+							<tr>
+								<td class="Enfont">yyyy-mm-dd hh:mm:ss</td>
+								<td>성공</td>
+								<td>공백 포함 최대 15자 입력 가능 공백</td>
+								<td>-</td>
+								<td>발주 대상 품목 없음</td>
+								<td class="num"><a href="#" class="Enfont">2021111900006955</a></td>
+							</tr>
+							<tr class="fail">
+								<td class="Enfont">2021-11-02 10:05:28</td>
+								<td>실패</td>
+								<td>시나리오 2번 셋팅</td>
+								<td>자동</td>
+								<td>발주 대상 품목 없음</td>
+								<td class="Enfont num">-</td>
+							</tr>
+							<tr>
+								<td class="Enfont">yyyy-mm-dd hh:mm:ss</td>
+								<td>성공</td>
+								<td>인기상품 발주</td>
+								<td>-</td>
+								<td>발주 대상 품목 없음</td>
+								<td class="num"><a href="#" class="Enfont">2021111900006955</a></td>
+							</tr>
+							<tr>
+								<td class="Enfont">yyyy-mm-dd hh:mm:ss</td>
+								<td>성공</td>
+								<td>인기상품 발주</td>
+								<td>-</td>
+								<td>발주 대상 품목 없음</td>
+								<td class="num"><a href="#" class="Enfont">2021111900006955</a></td>
+							</tr>
+							<tr>
+								<td class="Enfont">yyyy-mm-dd hh:mm:ss</td>
+								<td>성공</td>
+								<td>인기상품 발주</td>
+								<td>-</td>
+								<td>발주 대상 품목 없음</td>
+								<td class="num"><a href="#" class="Enfont">2021111900006955</a></td>
+							</tr>
+							<tr>
+								<td class="Enfont">yyyy-mm-dd hh:mm:ss</td>
+								<td>성공</td>
+								<td>인기상품 발주</td>
+								<td>-</td>
+								<td>발주 대상 품목 없음</td>
+								<td class="num"><a href="#" class="Enfont">2021111900006955</a></td>
+							</tr>
+							<tr>
+								<td class="Enfont">yyyy-mm-dd hh:mm:ss</td>
+								<td>성공</td>
+								<td>인기상품 발주</td>
+								<td>-</td>
+								<td>발주 대상 품목 없음</td>
+								<td class="num"><a href="#" class="Enfont">2021111900006955</a></td>
+							</tr>
+						</tbody>
+					</table>
+					<div class="pagination">
+						<a href="#none" class="first none" style="cursor:unset;">처음</a>
+						<a href="#none" class="prev none" style="cursor:unset;">이전</a>
+						<a href="#none" class="active">1</a>
+						<a href="#none">2</a>
+						<a href="#none">3</a>
+						<a href="#none">4</a>
+						<a href="#none">5</a>
+						<a href="#none">6</a>
+						<a href="#none">7</a>
+						<a href="#none">8</a>
+						<a href="#none">9</a>
+						<a href="#none">10</a>
+						<a href="#none" class="next">다음</a>
+						<a href="#none" class="last">다음</a>
+					</div>
+				</div>
+				<div class="btn_wrap mt35 tac">
+					<button type="button" class="btn medium point btn_close">닫기</button>
+				</div>
+			</div>
+			<button type="button" class="btn_close reconfirm"><span>닫기</span></button>
+		</div>
+	</div>
+	<div id="statement-list-pop" class="ui-popup statement-list-pop">
+		<div class="content" tabindex="-1">
+			<div class="header">
+				<h3>전표관리</h3>
+			</div>
+			<div class="body reconfirm">
+				<div class="table-wrap order-list mt30 mb0">
+					<table class="th-hor low">
+						<colgroup>
+							<col width="190px">
+							<col width="*">
+							<col width="190px">
+						</colgroup>
+						<thead>
+							<tr>
+								<th>실행일시, 주문일시</th>
+								<th>시나리오명</th>
+								<th>주문번호</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td class="Enfont">yyyy-mm-dd hh:mm:ss</td>
+								<td>공백 포함 최대 15자 입력 가능 공백</td>
+								<td class="num"><a href="#" class="Enfont">2021111900006955</a></td>
+							</tr>
+							<tr>
+								<td class="Enfont">yyyy-mm-dd hh:mm:ss</td>
+								<td>시나리오 2번 셋팅</td>
+								<td class="num"><a href="#" class="Enfont">2021111900006955</a></td>
+							</tr>
+							<tr>
+								<td class="Enfont">yyyy-mm-dd hh:mm:ss</td>
+								<td>시나리오 2번 셋팅</td>
+								<td class="num"><a href="#" class="Enfont">2021111900006955</a></td>
+							</tr>
+							<tr>
+								<td class="Enfont">yyyy-mm-dd hh:mm:ss</td>
+								<td>-</td>
+								<td class="num"><a href="#" class="Enfont">2021111900006955</a></td>
+							</tr>
+							<tr>
+								<td class="Enfont">yyyy-mm-dd hh:mm:ss</td>
+								<td>시나리오 2번 셋팅</td>
+								<td class="num"><a href="#" class="Enfont">2021111900006955</a></td>
+							</tr>
+							<tr>
+								<td class="Enfont">yyyy-mm-dd hh:mm:ss</td>
+								<td>시나리오 2번 셋팅</td>
+								<td class="num"><a href="#" class="Enfont">2021111900006955</a></td>
+							</tr>
+							<tr>
+								<td class="Enfont">yyyy-mm-dd hh:mm:ss</td>
+								<td>시나리오 2번 셋팅</td>
+								<td class="num"><a href="#" class="Enfont">2021111900006955</a></td>
+							</tr>
+							<tr>
+								<td class="Enfont">yyyy-mm-dd hh:mm:ss</td>
+								<td>-</td>
+								<td class="num"><a href="#" class="Enfont">2021111900006955</a></td>
+							</tr>
+							<tr>
+								<td class="Enfont">yyyy-mm-dd hh:mm:ss</td>
+								<td>시나리오 2번 셋팅</td>
+								<td class="num"><a href="#" class="Enfont">2021111900006955</a></td>
+							</tr>
+							<tr>
+								<td class="Enfont">yyyy-mm-dd hh:mm:ss</td>
+								<td>시나리오 2번 셋팅</td>
+								<td class="num"><a href="#" class="Enfont">2021111900006955</a></td>
+							</tr>
+						</tbody>
+					</table>
+					<div class="pagination">
+						<a href="#none" class="first none" style="cursor:unset;">처음</a>
+						<a href="#none" class="prev none" style="cursor:unset;">이전</a>
+						<a href="#none" class="active">1</a>
+						<a href="#none">2</a>
+						<a href="#none">3</a>
+						<a href="#none">4</a>
+						<a href="#none">5</a>
+						<a href="#none">6</a>
+						<a href="#none">7</a>
+						<a href="#none">8</a>
+						<a href="#none">9</a>
+						<a href="#none">10</a>
+						<a href="#none" class="next">다음</a>
+						<a href="#none" class="last">다음</a>
+					</div>
+				</div>
+				<div class="btn_wrap mt35 tac">
+					<button type="button" class="btn medium point btn_close">닫기</button>
+				</div>
+			</div><!-- //body -->
+			<button type="button" class="btn_close reconfirm"><span>닫기</span></button>
+		</div>
+	</div>
+	<div id="auto-import-mk" class="ui-popup auto-import-pop mk-plus">
+		<div class="content" tabindex="-1">
+			<div class="header">
+				<h3>품목 불러오기 옵션설정</h3>
+			</div>
+			<div class="body reconfirm">
+				<div class="txt-cont reorder">
+					<p>원하는 옵션을 저장 후 자동주문 페이지에서 품목 불러오기 진행 시, <br>해당하는 품목들을 자동으로 불러올 수 있습니다.</p>
+				</div>
+				<div class="select-item-tab">
+					<a href="#none" class="item" disabled>추가하기</a><!-- disabled :: 비활성화, active :: 선택 -->
+					<div class="tabs swiper-container" id="addSelect">
+						<div class="wrap swiper-wrapper">
+							<a href="#none" class="item swiper-slide active">금일배송, 마이너스 재고 포함</a>
+							<a href="#none" class="item swiper-slide">공백 포함 최대 15자 입력 가능 공백</a>
+							<a href="#none" class="item swiper-slide">공백 포함 최대 15자 입력 가능 공백</a>
+							<a href="#none" class="item swiper-slide">옵션옵션</a>
+						</div>
+					</div>
+				</div>
+				<div class="set-box">
+					<div class="table-wrap">
+						<table class="th-ver">
+							<colgroup>
+								<col width="160px">
+								<col width="*">
+							</colgroup>
+							<tbody>
+								<tr>
+									<th>양식이름</th>
+									<td>
+										<input type="text" placeholder="양식이름을 입력해주세요.">
+									</td>
+								</tr>
+								<tr>
+									<th>재고할당 및 차감기준</th>
+									<td>
+										<div class="ui-select">
+											<button type="button">전체</button>
+											<ul>
+												<li class="active">전체</li>
+												<li>현재재고</li>
+												<li>제한없음</li>
+											</ul>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<th>판매상태</th>
+									<td>
+										<div class="ui-select">
+											<button type="button">전체</button>
+											<ul>
+												<li class="active">전체</li>
+												<li>판매중</li>
+												<li>일시품절</li>
+												<li>품절</li>
+												<li>판매종료</li>
+											</ul>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<th>검색일조건</th>
+									<td>
+										<div class="ui-select">
+											<button type="button">주문일</button>
+											<ul>
+												<li class="active">주문일</li>
+												<li>결제일</li>
+												<li>등록일</li>
+												<li>송장등록일</li>
+											</ul>
+										</div>
+										<div class="period-datepicker">
+											<ul class="period-filter">
+												<li><a href="javascript:;">3일</a></li>
+												<li class="on"><a href="javascript:;">1주일</a></li>
+												<li><a href="javascript:;">1개월</a></li>
+												<li><a href="javascript:;">2개월</a></li>
+											</ul>
+											<div class="single_button">
+												<a href="javascript:;" class="btn small line arrow" name="arrow_prev">&lt;</a>
+											</div>
+											<div class="picker-wrap">
+												<div class="datepicker-wrap">
+													<img class="ui-datepicker-trigger" src="https://easypick.co.kr/img/common/calendar.png" alt="Select date" title="Select date"><input type="text" id="start_date" name="start_date" class="not-addclear datepicker from" value="2020-02-10" readonly="">
+												</div>
+												<span>~</span>
+												<div class="datepicker-wrap">
+													<img class="ui-datepicker-trigger" src="https://easypick.co.kr/img/common/calendar.png" alt="Select date" title="Select date"><input type="text" id="end_date" name="end_date" class="not-addclear datepicker to" value="2020-03-11" readonly="">
+												</div>
+											</div>
+											<div class="single_button">
+												<a href="javascript:;" class="btn small line arrow" name="arrow_next">&gt;</a>
+											</div>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<th>주문없는 상품포함</th>
+									<td>
+										<span class="switch">
+											<input type="checkbox">
+											<div class="slider round">
+												<span class="on">ON</span><span class="off active">OFF</span>
+											</div>
+										</span>
+									</td>
+								</tr>
+								<tr>
+									<th>보류주문 제외</th>
+									<td>
+										<span class="switch">
+											<input type="checkbox">
+											<div class="slider round">
+												<span class="on">ON</span><span class="off active">OFF</span>
+											</div>
+										</span>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<div class="btn_wrap mt40 tac">
+					<button type="button" class="btn medium eDeleteOption">삭제하기</button>
+					<button type="button" class="btn point medium eAddOption">저장하기</button>
+				</div>
+			</div>
+			<button type="button" class="btn_close reconfirm"><span>닫기</span></button>
+		</div>
+	</div>
+	<div id="auto-import-ez" class="ui-popup auto-import-pop ez-admin">
+		<div class="content" tabindex="-1">
+			<div class="header">
+				<h3>품목 불러오기 옵션설정</h3>
+			</div>
+			<div class="body reconfirm">
+				<div class="txt-cont reorder">
+					<p>원하는 옵션을 저장 후 자동주문 페이지에서 품목 불러오기 진행 시, <br>해당하는 품목들을 자동으로 불러올 수 있습니다.</p>
+				</div>
+				<div class="select-item-tab">
+					<a href="#none" class="item">추가하기</a><!-- disabled :: 비활성화, active :: 선택 -->
+					<div class="tabs swiper-container" id="addSelect2">
+						<div class="wrap swiper-wrapper">
+							<a href="#none" class="item swiper-slide active">금일배송, 마이너스 재고 포함</a>
+							<a href="#none" class="item swiper-slide">공백 포함 최대 15자 입력 가능 공백</a>
+							<a href="#none" class="item swiper-slide">공백 포함 최대 15자 입력 가능 공백</a>
+							<a href="#none" class="item swiper-slide">옵션옵션</a>
+						</div>
+					</div>
+				</div>
+				<div class="table-wrap">
+					<table class="th-ver">
+						<colgroup>
+							<col width="90px">
+							<col width="*">
+							<col width="130px">
+							<col width="*">
+						</colgroup>
+						<tbody>
+							<tr>
+								<th>양식이름</th>
+								<td colspan="3">
+									<input type="text" placeholder="양식이름을 입력해주세요.">
+								</td>
+							</tr>
+							<tr>
+								<th>재고관리</th>
+								<td>
+									<div class="ui-select">
+										<button type="button">재고관리상품</button>
+										<ul>
+											<li class="active">재고관리상품</li>
+											<li>재고관리안함상품</li>
+											<li>전체상품</li>
+										</ul>
+									</div>
+								</td>
+								<th>미배송기준</th>
+								<td>
+									<div class="ui-select">
+										<button type="button">접수+송장</button>
+										<ul>
+											<li class="active">접수+송장</li>
+											<li>접수</li>
+											<li>송장</li>
+										</ul>
+									</div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="set-box">
+					<div class="table-wrap">
+						<table class="th-ver">
+							<colgroup>
+								<col width="180">
+								<col width="74">
+								<col width="*">
+								<col width="74">
+							</colgroup>
+							<tbody>
+								<tr>
+									<th>
+										<div class="tip-wrap small">
+											<a href="javascript:;" class="btn-tip">부족수량0포함</a>
+											<div class="tip">
+												<span class="txt">재고 부족분이 0인 상품도 불러옵니다.</span>
+											</div>
+										</div>
+									</th>
+									<td>
+										<span class="switch">
+											<input type="checkbox">
+											<div class="slider round">
+												<span class="on">ON</span><span class="off active">OFF</span>
+											</div>
+										</span>
+									</td>
+									<th>
+										<div class="tip-wrap small">
+											<a href="javascript:;" class="btn-tip">재고있는 옵션포함</a>
+											<div class="tip">
+												<span class="txt">상품의 옵션 중 재고가 있는 상품을 불러옵니다.</span>
+											</div>
+										</div>
+									</th>
+									<td>
+										<span class="switch">
+											<input type="checkbox">
+											<div class="slider round">
+												<span class="on">ON</span><span class="off active">OFF</span>
+											</div>
+										</span>
+									</td>
+								</tr>
+								<tr>
+									<th>
+										<div class="tip-wrap small">
+											<a href="javascript:;" class="btn-tip">품절상품포함</a>
+											<div class="tip">
+												<span class="txt">품절 상품을 포함하여 불러옵니다.</span>
+											</div>
+										</div>
+									</th>
+									<td>
+										<span class="switch">
+											<input type="checkbox">
+											<div class="slider round">
+												<span class="on">ON</span><span class="off active">OFF</span>
+											</div>
+										</span>
+									</td>
+									<th>
+										<div class="tip-wrap small">
+											<a href="javascript:;" class="btn-tip">재고없는 옵션포함</a>
+											<div class="tip">
+												<span class="txt">상품의 옵션 중 재고가 없는 상품을 불러옵니다.</span>
+											</div>
+										</div>
+									</th>
+									<td>
+										<span class="switch">
+											<input type="checkbox">
+											<div class="slider round">
+												<span class="on">ON</span><span class="off active">OFF</span>
+											</div>
+										</span>
+									</td>
+								</tr>
+								<tr>
+									<th>
+										<div class="tip-wrap small">
+											<a href="javascript:;" class="btn-tip">일시품절 상품포함</a>
+											<div class="tip">
+												<span class="txt">일시품절 상품을 포함하여 불러옵니다.</span>
+											</div>
+										</div>
+									</th>
+									<td>
+										<span class="switch">
+											<input type="checkbox">
+											<div class="slider round">
+												<span class="on">ON</span><span class="off active">OFF</span>
+											</div>
+										</span>
+									</td>
+									<th>
+										<div class="tip-wrap small">
+											<a href="javascript:;" class="btn-tip">재고경고수량미만 상품포함</a>
+											<div class="tip">
+												<span class="txt">재고경고 수량보다 재고가 적은 상품을 불러옵니다.</span>
+											</div>
+										</div>
+									</th>
+									<td>
+										<span class="switch">
+											<input type="checkbox">
+											<div class="slider round">
+												<span class="on">ON</span><span class="off active">OFF</span>
+											</div>
+										</span>
+									</td>
+								</tr>
+								<tr>
+									<th>
+										<div class="tip-wrap small">
+											<a href="javascript:;" class="btn-tip">재고소진시품절 상품포함</a>
+											<div class="tip">
+												<span class="txt">소진 시 품절되는 상품을 포함하여 불러옵니다.</span>
+											</div>
+										</div>
+									</th>
+									<td>
+										<span class="switch">
+											<input type="checkbox">
+											<div class="slider round">
+												<span class="on">ON</span><span class="off active">OFF</span>
+											</div>
+										</span>
+									</td>
+									<th>
+										<div class="tip-wrap small">
+											<a href="javascript:;" class="btn-tip">재고위험수량미만 상품포함</a>
+											<div class="tip">
+												<span class="txt">재고위험 수량보다 재고가 적은 상품을 불러옵니다.</span>
+											</div>
+										</div>
+									</th>
+									<td>
+										<span class="switch">
+											<input type="checkbox">
+											<div class="slider round">
+												<span class="on">ON</span><span class="off active">OFF</span>
+											</div>
+										</span>
+									</td>
+								</tr>
+								<tr>
+									<th>
+										<div class="tip-wrap small">
+											<a href="javascript:;" class="btn-tip">주문없는 상품포함</a>
+											<div class="tip">
+												<span class="txt">주문이 없는 상품을 포함하여 불러옵니다.</span>
+											</div>
+										</div>
+									</th>
+									<td>
+										<span class="switch">
+											<input type="checkbox">
+											<div class="slider round">
+												<span class="on">ON</span><span class="off active">OFF</span>
+											</div>
+										</span>
+									</td>
+									<th>
+										<div class="tip-wrap small">
+											<a href="javascript:;" class="btn-tip">마이너스 재고포함</a>
+											<div class="tip">
+												<span class="txt">재고가 0 이하일 경우 주문이 없는 상품도 불러옵니다.</span>
+											</div>
+										</div>
+									</th>
+									<td>
+										<span class="switch">
+											<input type="checkbox">
+											<div class="slider round">
+												<span class="on">ON</span><span class="off active">OFF</span>
+											</div>
+										</span>
+									</td>
+								</tr>
+								<tr>
+									<th>
+										<div class="tip-wrap small">
+											<a href="javascript:;" class="btn-tip">보류주문포함</a>
+											<div class="tip">
+												<span class="txt">보류상태인 주문의 상품을 포함하여 불러옵니다.</span>
+											</div>
+										</div>
+									</th>
+									<td>
+										<span class="switch">
+											<input type="checkbox">
+											<div class="slider round">
+												<span class="on">ON</span><span class="off active">OFF</span>
+											</div>
+										</span>
+									</td>
+									<th>
+										<div class="tip-wrap small">
+											<a href="javascript:;" class="btn-tip">불량재고포함</a>
+											<div class="tip">
+												<span class="txt">불량재고 상품을 포함하여 불러옵니다.</span>
+											</div>
+										</div>
+									</th>
+									<td>
+										<span class="switch">
+											<input type="checkbox">
+											<div class="slider round">
+												<span class="on">ON</span><span class="off active">OFF</span>
+											</div>
+										</span>
+									</td>
+								</tr>
+								<tr>
+									<th>
+										<div class="tip-wrap small">
+											<a href="javascript:;" class="btn-tip">금일배송포함</a>
+											<div class="tip">
+												<span class="txt">금일 배송처리된 상품도 포함하여 불러옵니다.</span>
+											</div>
+										</div>
+									</th>
+									<td>
+										<span class="switch">
+											<input type="checkbox">
+											<div class="slider round">
+												<span class="on">ON</span><span class="off active">OFF</span>
+											</div>
+										</span>
+									</td>
+									<th></th>
+									<td></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="btn_wrap">
+						<button type="button" class="btn point smaller">모두 ON</button>
+						<button type="button" class="btn line smaller">모두 OFF</button>
+					</div>
+				</div>
+				<div class="btn_wrap mt40 tac">
+					<button type="button" class="btn medium eDeleteOption">삭제하기</button>
+					<button type="button" class="btn point medium eAddOption">저장하기</button>
+				</div>
+			</div>
+			<button type="button" class="btn_close reconfirm"><span>닫기</span></button>
+		</div>
+	</div>
+
+	<!-- footer// -->
+	<footer></footer>
+	<!-- //footer -->
+
+	<!-- dashboard// -->
+	<div id="dashboard" class=""></div>
+	<!-- //dashboard -->
+
+	<!-- <script type="text/javascript" src="../../../../../js/script.js"></script> -->
+
+	<script src="../../../../../js/jquery.min.js"></script>
+	<!--jquery default-->
+	<script src="../../../../../js/jquery-ui.min.js"></script>
+	<!--<script src="../../../../../js/swiper-ie9.min.js"></script>-->
+	<script src="../../../../../js/swiper-4.5.1.js"></script><!-- 해당페이지만 신규 버전으로 변경 -->
+	<script src="../../../../../js/default.input.js"></script><!-- 2022-10-04 -->
+	<script src="../../../../../js/addclear.min.js"></script>
+	<script src="../../../../../js/common.front.js"></script>
+	<script src="../../../../../js/ui.js"></script>
+	<script src="../../../../../js/pub.js"></script>
+	<script src="../../../../../js/jquery.scrollbar.min.js"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('header').load('../../../../include/header.html');
+			$('footer').load('../../../../include/footer.html');
+			$('#dashboard').load('../../../../include/dashboard.html');
+		});
+	</script>
+
+	<!-- 스와이프 swiper-4.5.1.js 사용 -->
+	<script>
+		// 재고플러스
+		$(function() {
+			var swiper = new Swiper('#addSelect', {
+				slidesPerView: 'auto',
+				freeMode: true,
+				freeModeMomentumBounceRatio: 0.1,
+				observer: true,
+				observeParents: true,
+			});
+
+			// 추가하기
+			var optionNum = 1;
+			$('.auto-import-pop.mk-plus').find('.eAddOption').on('click', function() {
+				swiper.prependSlide('<a href="#none" class="item swiper-slide">옵션' + optionNum++ + '</a>'); // 요소 추가
+				$('.auto-import-pop.mk-plus').find('.swiper-wrapper').animate({ // 스크롤 초기화
+					transform: 'translate3d(0, 0, 0)'
+				}, 1);
+			});
+
+			// 삭제하기
+			$('.auto-import-pop.mk-plus').find('.eDeleteOption').on('click', function() {
+				swiper.removeSlide(0);  // 요소 삭제
+			});
+		});
+
+		// 이지어드민
+		$(function() {
+			var swiper2 = new Swiper('#addSelect2', {
+				slidesPerView: 'auto',
+				freeMode: true,
+				freeModeMomentumBounceRatio: 0.1,
+				observer: true,
+				observeParents: true,
+			});
+
+			// 추가하기
+			var optionNum = 1;
+			$('.auto-import-pop.ez-admin').find('.eAddOption').on('click', function() {
+				swiper2.prependSlide('<a href="#none" class="item swiper-slide">옵션' + optionNum++ + '</a>'); // 요소 추가
+				$('.auto-import-pop.ez-admin').find('.swiper-wrapper').animate({ // 스크롤 초기화
+					transform: 'translate3d(0, 0, 0)'
+				}, 1);
+			});
+
+			// 삭제하기
+			$('.auto-import-pop.ez-admin').find('.eDeleteOption').on('click', function() {
+				swiper2.removeSlide(0);  // 요소 삭제
+			});
+		});
+	</script>
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('.expand-container .expand-control button').on('click',function() {
+				$(this).parents('.expand-container').toggleClass("expand");
+				$(this).text(function(i, text){
+					return text === "펼치기" ? "접기" : "펼치기";
+				});
+			});
+			// ui 확인용
+			$('.scenario-list li:not(.add)').on('click',function() {
+				$(this).siblings('li').removeClass('active');
+				$(this).addClass('active');
+			});
+		});
+	</script>
+</body>
+
+
+</html>

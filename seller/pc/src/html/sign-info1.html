@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="shortcut icon" type="image/x-icon" href="/img/favicon/ezp.ico">
+
+	<link rel="stylesheet" type="text/css" href="../css/pc/default.css">
+
+	<script type="text/javascript" src="../js/pc/jquery-3.5.1.min.js"></script>
+	<script type="text/javascript" src="../js/pc/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="../js/pc/swiper-bundle.min.js"></script>
+	<script type="text/javascript" src="../js/pc/common_front.js"></script>
+	<script type="text/javascript" src="../js/pc/ui.js"></script>
+	<script type="text/javascript" src="../js/pc/pub.js"></script>
+
+	<title>회원가입</title>
+</head>
+<body>
+	<div id="member">
+		<div class="member-logo">
+			<a href="#"><img src="../img/common/logo-small.svg" alt="easypick seller"></a> <!-- 2021-03-10 수정 -->
+		</div>
+
+		<h2>회원가입</h2>
+
+		<div class="step">
+			<div class="step1">
+				<span>01. 내 가게 찾기</span>
+			</div>
+			<i></i>
+			<div class="step2">
+				<span>02. 이용약관 동의</span>
+			</div>
+			<i></i>
+			<div class="step3 active">
+				<span>03. 가입정보 입력</span>
+			</div>
+			<i></i>
+			<div class="step4">
+				<span>04. 신청완료</span>
+			</div>
+		</div>
+
+		<div class="member-info-wrap">
+			<div class="member-info-group">
+				<table>
+					<colgroup>
+						<col width="160px">
+						<col>
+					</colgroup>
+					<tbody>
+						<tr>
+							<th>가게명 <span class="necessary">*</span></th>
+							<td>
+								<input type="text" name="" value="" class="gray" placeholder="가게명을 입력해 주세요.">
+							</td>
+						</tr>
+						<tr>
+							<th>가게주소 <span class="necessary">*</span></th>
+							<td>
+								<div class="member-address">
+									<div class="ui-select gray mr5">
+										<button type="button">디오트</button>
+										<ul>
+											<li class="active">디오트</li>
+											<li>디오트</li>
+											<li>디오트</li>
+										</ul>
+									</div>
+									<div class="ui-select gray mr5">
+										<button type="button">B1</button>
+										<ul>
+											<li class="active">B1</li>
+											<li>B1</li>
+											<li>B1</li>
+										</ul>
+									</div>
+									<input type="text" name="" value="A열" class="gray mr5">
+									<input type="text" name="" value="23호" class="gray">
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<th>사업자 구분 <span class="necessary">*</span></th>
+							<td>
+								<div class="radio-wrap">
+									<span class="radio mr70">
+										<input type="radio" name="radio" id="r1" checked="">
+										<label for="r1">온라인</label>
+									</span>
+									<span class="radio">
+										<input type="radio" name="radio" id="r2">
+										<label for="r2">오프라인</label>
+									</span>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<th>대표자명 <span class="necessary">*</span></th>
+							<td>
+								<input type="text" name="" value="" class="gray" placeholder="사업자등록증에 기재된 대표자명 입력">
+							</td>
+						</tr>
+						<tr>
+							<th>상호 <span class="necessary">*</span></th>
+							<td>
+								<input type="text" name="" value="" class="gray" placeholder="사업자등록증에 기재된 상호명 입력">
+							</td>
+						</tr>
+						<tr>
+							<th>사업자등록번호 <span class="necessary">*</span></th>
+							<td>
+								<div class="biz-num">
+									<input type="text" name="" value="" class="gray" placeholder="사업자등록증에 기재된 상호명 입력">
+									<button type="button" name="button" class="btn medium">조회</button>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<th>사업자등록증 <span class="necessary">*</span></th>
+							<td>
+								<div class="ui-file img" data-type="only" data-preview="true">
+									<ul class="list"></ul>
+									<div class="btn">
+										<label><input type="file"></label>
+									</div>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<th>사업장 주소 <span class="necessary">*</span></th>
+							<td>
+								<div class="company-address">
+									<div class="top">
+										<input type="text" name="" value="" class="gray" placeholder="">
+										<button type="button" name="button" class="btn medium">조회</button>
+									</div>
+									<input type="text" name="" value="" class="gray" placeholder="">
+									<input type="text" name="" value="" class="gray" placeholder="">
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<th>계좌정보</th>
+							<td>
+								<div class="bank-title">① 공통 <span class="necessary">*</span></div>
+								<div class="bank-wrap">
+									<div class="ui-select gray mr5">
+										<button type="button">은행 선택</button>
+										<ul>
+											<li class="active">은행 선택</li>
+											<li>은행 선택</li>
+											<li>은행 선택</li>
+										</ul>
+									</div>
+									<input type="text" name="" value="" class="gray mr5" placeholder="예금주명 입력">
+									<input type="text" name="" value="" class="gray mr5" placeholder="사업자 명의 계좌번호 입력">
+								</div>
+								<div class="bank-title">② 부가세 전용 <em>(선택)</em> <span class="necessary">*</span></div>
+								<div class="bank-wrap">
+									<div class="ui-select gray mr5">
+										<button type="button">은행 선택</button>
+										<ul>
+											<li class="active">은행 선택</li>
+											<li>은행 선택</li>
+											<li>은행 선택</li>
+										</ul>
+									</div>
+									<input type="text" name="" value="" class="gray mr5" placeholder="예금주명 입력">
+									<input type="text" name="" value="" class="gray mr5" placeholder="사업자 명의 계좌번호 입력">
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<th>아이디(이메일) <span class="necessary">*</span></th>
+							<td>
+								<div class="email">
+									<div class="ui-select gray">
+										<button type="button">selleruser</button>
+										<ul>
+											<li class="active">selleruser</li>
+											<li>selleruser</li>
+											<li>selleruser</li>
+										</ul>
+									</div>
+									<em>@</em>
+									<div class="ui-select gray">
+										<button type="button">네이버</button>
+										<ul>
+											<li class="active">네이버</li>
+											<li>네이버</li>
+											<li data-key="direct" class="">직접입력</li><!-- 2021-02-15 수정 -->
+										</ul>
+									</div>
+									<input type="text" name="" value="" id="dr" class="gray mr5" placeholder="직접입력" style="display:none"><!-- 2021-02-15 수정 -->
+									<button type="button" name="button" class="btn medium">중복체크</button>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<th>비밀번호 <span class="necessary">*</span></th>
+							<td>
+								<div class="pw-wrap">
+									<input type="password" name="" value="" class="gray mr5" placeholder="영문, 숫자, 특수문자 중 2가지 이상 조합, 6~16자">
+									<input type="password" name="" value="" class="gray mr5" placeholder="비밀번호 확인">
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<th>가입자 이름 <span class="necessary">*</span></th>
+							<td>
+								<input type="text" name="" value="" class="gray" placeholder="가입자 이름 입력">
+							</td>
+						</tr>
+						<tr>
+							<th>사업자 구분 <span class="necessary">*</span></th>
+							<td>
+								<div class="radio-wrap">
+									<span class="radio mr70">
+										<input type="radio" name="radio" id="r1" checked="">
+										<label for="r1">온라인</label>
+									</span>
+									<span class="radio">
+										<input type="radio" name="radio" id="r2">
+										<label for="r2">오프라인</label>
+									</span>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<th>휴대폰 번호 <span class="necessary">*</span></th>
+							<td>
+								<div class="phone-wrap top">
+									<p>알림톡 전용</p>
+									<div class="ui-select gray">
+										<button type="button">010</button>
+										<ul>
+											<li class="active">010</li>
+											<li>010</li>
+											<li>010</li>
+										</ul>
+									</div>
+									<input type="text" name="" value="1234" class="gray">
+									<input type="text" name="" value="5678" class="gray">
+								</div>
+								<div class="phone-wrap">
+									<p>
+										세금계산서 전용
+										<span class="checkbox">
+											<input type="checkbox" name="" id="c1">
+											<label for="c1">알림톡 번호와 동일</label>
+										</span>
+									</p>
+									<div class="ui-select gray">
+										<button type="button">010</button>
+										<ul>
+											<li class="active">010</li>
+											<li>010</li>
+											<li>010</li>
+										</ul>
+									</div>
+									<input type="text" name="" value="1234" class="gray">
+									<input type="text" name="" value="5678" class="gray">
+								</div>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+		<div class="btn-wrap center">
+			<a href="#" class="btn gray big">이전</a>
+			<a href="#" class="btn point big">다음</a>
+		</div>
+
+	</div>
+	<footer></footer>
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('footer').load('include/footer.html');
+
+			$('#check-all').click( function() {
+				if ($('#check-all').prop('checked')) {
+					$('input[name=check]').prop('checked', true);
+				} else {
+					$('input[name=check]').prop('checked', false);
+				}
+		    });
+			$('input[name=check]').click( function() {
+				if ($('input[name=check]').prop('checked').length == 3) {
+					$('#check-all').prop('checked', true);
+				} else {
+					$('#check-all').prop('checked', false);
+				}
+		    });
+
+			// 2021-02-15 추가
+			$(".email .ui-select li").on('click',function () {
+				if($(this).is('[data-key=direct]')){
+					$("#dr").show();
+				}else{
+					$("#dr").hide();
+				}
+			});
+		});
+	</script>
+</body>
+</html>

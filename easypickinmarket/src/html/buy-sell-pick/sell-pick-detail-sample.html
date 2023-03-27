@@ -1,0 +1,1582 @@
+{% extends "../_templates/layout.njk" %}
+{% block content %}
+
+<div class="wrapper" id="wrap">
+  <!-- container -->
+  <div class="container" id="container">
+    <!-- content -->
+    <div class="content" id="content">
+      <div class="content-head">
+        <div class="page-title">
+          <h3 class="h3-tit">셀픽주문내역</h3>
+
+          <div class="tool-tip-wrap tool-gray extra-tooltip">
+            <a href="javascript:void(0)" class="tool-tip">직접수령</a>
+          </div>
+
+          <a href="#" class="btn-manual" target="_blank" title="매뉴얼">매뉴얼</a>
+          <div class="form-box">
+            <form onsubmit="return submitHandler();">
+              <fieldset>
+                <legend class="skip">통합검색</legend>
+                <label for="total-search" class="skip">검색어 입력</label>
+                <input type="search" name="total-search" id="total-search" title="검색어 입력" class="text"
+                  placeholder="상품을 검색해보세요.">
+                <input type="submit" value="검색" class="submit">
+              </fieldset>
+            </form>
+          </div>
+        </div>
+        <div class="cont-info-right">
+          <ul class="breadcrumb">
+            <li>공급</li>
+            <li>사입내역조회</li>
+            <li class="now" title="현재 페이지">셀픽주문내역</li>
+          </ul>
+        </div>
+      </div>
+      <div class="notice-wrap p-t-10 p-b-10">
+        <div>
+          <i class="ico-notice">
+            <span class="txt-hide">공지아이콘</span>
+          </i>
+          안내
+
+          <br />
+          <div class="easy-pick-text notice m-t-5">
+            불량 상품은 실제 결제되는 금액이 아닙니다.
+          </div>
+        </div>
+      </div>
+      <div class="mSearchEngine folder">
+        <form name="" id="">
+          <input type="hidden" name="" value="">
+          <div class="tborder-box">
+            <div class="tbl-top-search">
+              <div class="table-row">
+                <table class="tbl-top">
+                  <colgroup>
+                    <col style="width:120px;">
+                    <col style="width:40%">
+                    <col style="width:25px;">
+                    <col style="width:120px;">
+                    <col style="width:40%">
+                  </colgroup>
+                  <tbody>
+                    <tr class="rowFold">
+                      <th>진행상태</th>
+                      <td>
+                        <div class="form-inline">
+                          <div class="form-control">
+                            <label>
+                              <input type="checkbox" class="custom-control-input" checked="checked">
+                              <span>전체</span>
+                            </label>
+                          </div>
+                          <div class="form-control">
+                            <label>
+                              <input type="checkbox">
+                              <span>주문완료</span>
+                            </label>
+                          </div>
+                          <div class="form-control">
+                            <label>
+                              <input type="checkbox">
+                              <span>포장완료</span>
+                            </label>
+                          </div>
+                          <div class="form-control">
+                            <label>
+                              <input type="checkbox">
+                              <span>거래완료</span>
+                            </label>
+                          </div>
+                          <div class="form-control">
+                            <label>
+                              <input type="checkbox" class="custom-control-input">
+                              <span>취소완료</span>
+                            </label>
+                          </div>
+                        </div>
+                      </td>
+                      <td></td>
+                      <th>검색</th>
+                      <td>
+                        <div class="form-inline">
+                          <select name="" id="" class="default-select w120">
+                            <option value="">전체</option>
+                            <option value="">주문번호</option>
+                            <option value="">거래처명</option>
+                            <option value="">거래처명(주문)</option>
+                            <option value="">상품명</option>
+                            <option value="">쇼핑몰상품명</option>
+                            <option value="">쇼핑몰상품코드</option>
+                          </select>
+                          <div class="form-control searchValue">
+                            <input type="text" class="search-input-w2" name="" id="" value="" placeholder="">
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="top-btn-search">
+                <button type="button" name="button" class="btn btn-lg btn-point">검색</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <div class="gridTableArea">
+        <div class="table-top-info">
+          <div class="top-txt-inline">
+            <span class="txt-inline">검색결과 <strong>1,000</strong>건
+          </div>
+          <div class="sort-sel-area">
+            <select id="list_limit" class="default-select">
+              <option value="20" selected="selected">20개씩 보기</option>
+              <option value="30">30개씩 보기</option>
+              <option value="50">50개씩 보기</option>
+              <option value="100">100개씩 보기</option>
+              <option value="200">200개씩 보기</option>
+            </select>
+          </div>
+        </div>
+        <div class="tround-box">
+          <div class="tbl-round ">
+            <div class="tbl-info-area">
+              <div class="btns-multi f-left">
+                <button type="button" name="button" class="btn btn-sm btn-outline-gray">주문취소</button>
+                <button type="button" id="eBatchOrder" name="button" class="btn btn-sm btn-outline-blue"
+                  onclick="targetModalPopup('modal-stock-ecregis')">쇼핑몰상품등록</button>
+              </div>
+              <div class="f-right">
+                <div class="dflex">
+                  <div class="btns-multi">
+                    <button type="button" name="button" class="btn btn-sm btn-outline-gray">목록보기</button>
+                    <button type="button" name="button" class="btn btn-sm btn-primary"
+                      onclick="targetModalPopup('modal-buy-contact')">문의하기</button>
+                    <button type="button" name="button" class="btn btn-sm btn-outline-gray"><i
+                        class="ico ico-excel"></i>엑셀다운로드</button>
+                    <button type="button" name="button" class="btn btn-ico btn-outline-gray"><i
+                        class="ico ico-sort"></i>설정</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- 그리드 테이블-->
+            <div class="mGridTable tbl-height01 caption-height42">
+              <table id="eMultiTable" class="eChkColor">
+                <thead>
+                  <tr>
+                    <th scope="col" style="width:50px;" class="resizable">
+                      <div class="form-control check-one">
+                        <label>
+                          <input type="checkbox">
+                          <span>체크</span>
+                        </label>
+                      </div>
+                    </th>
+                    <th scope="col" style="width: 100px;" class="resizable">
+                      품목유형
+                    </th>
+                    <th scope="col" style="width:330px;" class="resizable">
+                      상품명
+
+                      <div class="tool-tip-wrap tool-gray">
+                        <a href="javascript:void(0)" class="tool-tip m-b-1">툴팁</a>
+                        <div class="tool-tip-area renewal-tool-tip-area w-auto">
+                          <section class="tool-tip-title">
+                            <h1>주문상태 안내</h1>
+                            <div class="tool-tip-inner">
+                              <ul class="list-dash">
+                                <li class="fw500"><strong>'<span class="ftpointcolor1">주문완료</span>'</strong> 주문이 완료된 상태로
+                                  가게가 상품 준비 전 상태입니다.</li>
+                                <li class="fw500"><strong>'포장완료'</strong> 상품 준비가 완료된 상태로 픽업이 가능한 상태입니다.</li>
+                                <li class="fw500"><strong>'거래완료'</strong> 상품 픽업이 완료된 상태입니다.</li>
+                                <li class="fw500"><strong>'취소완료'</strong> 주문이 취소된 상태입니다.</li>
+                              </ul>
+                            </div>
+                          </section>
+                          <button type="button" class="tool-tip-close">닫기</button>
+                        </div>
+                      </div>
+                    </th>
+                    <th scope="col" style="width:182px;" class="resizable">
+                      옵션
+                    </th>
+                    <th scope="col" style="width:182px;" class="resizable">
+                      판매가
+                    </th>
+                    <th scope="col" style="width:96px;" class="resizable">
+                      주문수량
+                    </th>
+                    <th scope="col" style="width:96px;" class="resizable">
+                      입고수량
+                    </th>
+                    <th scope="col" style="width:97px;" class="resizable">
+                      메모
+                      <div class="tool-tip-wrap tool-gray">
+                        <a href="javascript:void(0)" class="tool-tip m-b-1">툴팁</a>
+                        <div class="tool-tip-area">
+                          <section class="tool-tip-title">
+                            <h1>메모상태 안내</h1>
+                            <div class="tool-tip-inner">
+                              <ul class="list-dash">
+                                <li>
+                                  <i class="ico-easy-pick ico-memo-off"></i>
+                                  메모가 없어요.
+                                </li>
+                                <li class="m-t-5">
+                                  <i class="ico-easy-pick ico-memo-off">
+                                    <span class="new"></span>
+                                  </i>
+                                  입고메모만 있어요.
+                                </li>
+                                <li class="m-t-5">
+                                  <i class="ico-easy-pick ico-memo-on"></i>
+                                  구매자 메모만 있어요.
+                                </li>
+                                <li class="m-t-5">
+                                  <i class="ico-easy-pick ico-memo-on">
+                                    <span class="new"></span>
+                                  </i>
+                                  구매자 메모와 입고 메모 모두 있어요.
+                                </li>
+                              </ul>
+                            </div>
+                          </section>
+                          <button type="button" class="tool-tip-close">닫기</button>
+                        </div>
+                      </div>
+                    </th>
+                    <th scope="col" style="width:231px;" class="resizable">
+                      기타정보
+                    </th>
+                    <th scope="col" style="width:149px;" class="resizable">
+                      관리
+                    </th>
+                    <th scope="col" style="width: 145px;">
+                      마켓등록
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="tr-caption">
+                    <td class="force-visible" colspan="11">
+
+                      <div class="easy-pick-catpion-wrap">
+                        <div class="caption-left">
+                          <span class="title order-complete">주문완료</span> 
+                          <p>mean it (민잇) (디오트 B1층 E열 12-1호, 010-8428-1234)</p>
+                        </div>
+                        <div class="caption-right">
+                          <div class="tool-tip-wrap tool-gray renewal-tool-tip-wrap">
+                            <!-- 2022 08 18 mouse pointer-->
+                            <span class="pointer">거래완료</span>
+                            <a href="javascript:void(0)" class="tool-tip">툴팁</a>
+                            <div class="tool-tip-area renewal-tool-tip-area lg left3">
+                              <section class="tool-tip-title">
+                                <h1>거래완료 방법</h1>
+                                <div class="tool-tip-inner">
+                                  <h2 class="dot">상품 수령이 완료되면 가게 별 [거래완료] 버튼을 통하여 상태 변경이 가능합니다.</h2>
+                                  <p class="desc-text m-l-5 m-t-7">
+                                    [유의사항]<br />
+                                    - 주문취소된 가게는 거래완료가 불가합니다.<br />
+                                    - 주문일로부터 14일째 되는날 00시에 자동 거래완료 처리됩니다.
+                                    <br />
+                                  </p>
+                                </div>
+                              </section>
+                              <button type="button" class="tool-tip-close">닫기</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="form-control check-one">
+                        <label>
+                          <input type="checkbox">
+                          <span>체크</span>
+                        </label>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="easy-pick-case">
+                        <span class="sample">샘플</span>
+                      </div>
+                    </td>
+                    <td>
+                      <a href="#">
+                        <span class="txt-link">기본T 롱원피스</span><br>
+                        <span class="txt-link">[쇼핑몰상품명] 찰랑롱OPS</span><br>
+                        <span class="txt-link">[쇼핑몰 상품코드]OPS_L_123</span>
+                      </a>
+                    </td>
+                    <td>아이보리 / S</td>
+                    <td class="tar">
+                      <strong>11,000</strong>
+                    </td>
+                    <td>39</td>
+                    <td>39</td>
+                    <!-- 2022 08 19 해당페이지 팝업 공통 -->
+                    <td>
+                      <a href="#" onclick="targetModalPopup('modal-twomemo2-popup')">
+                        <i class="ico-easy-pick ico-memo-on"></i>
+                      </a>
+                    </td>
+                    <td>
+                      레이스부분베이지
+                    </td>
+                    <td>
+                      <div class="easy-pick-btn-wrap">
+                        <ul>
+                          <li>
+                            <button type="button" id="eBatchOrder" name="button" class="btn btn-sm btn-outline-gray1"
+                              onclick="targetModalPopup('modal-reorder-case1')">재주문</button>
+                          </li>
+                          <li>
+                            <button type="button" id="eBatchOrder" name="button" class="btn btn-sm btn-outline-gray1"
+                              onclick="targetModalPopup('modal-buy-failure')">불량접수</button>
+                          </li>
+                        </ul>
+                      </div>
+                    </td>
+                    <td>
+                      <button type="button" name="button" class="btn btn-sm btn-primary">쇼핑몰상품등록</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="form-control check-one">
+                        <label>
+                          <input type="checkbox">
+                          <span>체크</span>
+                        </label>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="easy-pick-case">
+                        <span class="sample">샘플</span>
+                      </div>
+                    </td>
+                    <td>
+                      <a href="#">
+                        <span class="txt-link">로렌BL</span>
+                      </a>
+                    </td>
+                    <td>아이보리 / S</td>
+                    <td class="tar">
+                      <strong>11,000</strong>
+                    </td>
+                    <td>39</td>
+                    <td>39</td>
+                    <td>
+                      <a href="#" onclick="targetModalPopup('modal-twomemo2-popup')">
+                        <i class="ico-easy-pick ico-memo-on"></i>
+                      </a>
+                    </td>
+                    <td>
+                      기타정보1에 입력한...<br />
+                      기타정보1에 입력한...
+                    </td>
+                    <td>
+                      <div class="easy-pick-btn-wrap">
+                        <ul>
+                          <li>
+                            <button type="button" id="eBatchOrder" name="button" class="btn btn-sm btn-outline-gray1"
+                              onclick="targetModalPopup('modal-reorder-case1')">재주문</button>
+                          </li>
+                          <li>
+                            <button type="button" id="eBatchOrder" name="button" class="btn btn-sm btn-outline-gray1"
+                              onclick="targetModalPopup('modal-buy-failure')">불량접수</button>
+                          </li>
+                        </ul>
+                      </div>
+                    </td>
+                    <td>
+                      <button type="button" name="button" class="btn btn-sm btn-primary">쇼핑몰상품등록</button>
+                    </td>
+                  </tr>
+                  <tr class="tr-caption">
+                    <td class="force-visible" colspan="11">
+
+                      <div class="easy-pick-catpion-wrap">
+                        <div class="caption-left">
+                          <span class="title cancel-complete">취소완료</span>
+                          <span class="content cancel-completem">
+                            <p>mean it (민잇) (디오트 B1층 E열 12-1호, 010-8428-1234)</p>
+                          </span>
+                        </div>
+                        <div class="caption-right">
+                          <span class="content cancel-complete">
+                            취소일시 : 2022-04-05 16:18:49
+                          </span>
+                        </div>
+                      </div>
+
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="form-control check-one">
+                        <label>
+                          <input type="checkbox">
+                          <span>체크</span>
+                        </label>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="easy-pick-case">
+                        <span class="pay-sample no-br">유료샘플</span>
+                      </div>
+                    </td>
+                    <td>
+                      <a href="#">
+                        <span class="txt-link">스크래치 일자핏</span><br>
+                        <span class="txt-link">[쇼핑몰상품명] 상품명길게길게</span><br>
+                        <span class="txt-link">[쇼핑몰상품코드] 입력</span>
+                      </a>
+                    </td>
+                    <td>블루 / L</td>
+                    <td class="tar">
+                      <strong>11,000</strong>
+                    </td>
+                    <td>39</td>
+                    <td>-</td>
+                    <td>
+                      <a href="#" onclick="targetModalPopup('modal-twomemo2-popup')">
+                        <i class="ico-easy-pick ico-memo-off"><span class="new"></span></i>
+                      </a>
+                    </td>
+                    <td>
+                      -
+                    </td>
+                    <td>
+                      <div class="easy-pick-btn-wrap">
+                        <ul>
+                          <li>
+                            <button type="button" id="eBatchOrder" name="button" class="btn btn-sm btn-outline-gray1"
+                              onclick="targetModalPopup('modal-reorder-case2')">재주문</button>
+                          </li>
+                          <li>
+                            <button type="button" id="eBatchOrder" name="button" class="btn btn-sm btn-outline-gray1"
+                              onclick="targetModalPopup('modal-buy-failure')">불량접수</button>
+                          </li>
+                        </ul>
+                      </div>
+                    </td>
+                    <td>
+                      <button type="button" name="button" class="btn btn-sm btn-primary">쇼핑몰상품등록</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="form-control check-one">
+                        <label>
+                          <input type="checkbox">
+                          <span>체크</span>
+                        </label>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="easy-pick-case">
+                        <span class="sample">샘플</span>
+                      </div>
+                    </td>
+                    <td>
+                      <a href="#">
+                        <span class="txt-link">기본 T 원피스</span>
+                      </a>
+                    </td>
+                    <td>블루 / L</td>
+                    <td class="tar">
+                      <strong>11,000</strong>
+                    </td>
+                    <td>39</td>
+                    <td>-</td>
+                    <td>
+                      <a href="#" onclick="targetModalPopup('modal-twomemo2-popup')">
+                        <i class="ico-easy-pick ico-memo-on"><span class="new"></span></i>
+                      </a>
+                    </td>
+                    <td>
+                      -
+                    </td>
+                    <td>
+                      <div class="easy-pick-btn-wrap">
+                        <ul>
+                          <li>
+                            <button type="button" id="eBatchOrder" name="button" class="btn btn-sm btn-outline-gray1"
+                              onclick="targetModalPopup('modal-reorder-case2')">재주문</button>
+                          </li>
+                          <li>
+                            <button type="button" id="eBatchOrder" name="button" class="btn btn-sm btn-outline-gray1"
+                              onclick="targetModalPopup('modal-buy-failure')">불량접수</button>
+                          </li>
+                        </ul>
+                      </div>
+                    </td>
+                    <td>
+                      <button type="button" name="button" class="btn btn-sm btn-primary">쇼핑몰상품등록</button>
+                    </td>
+                  </tr>
+                  <!-- 2022 08 12 opacity 수정 -->
+                  <tr class="tr-disabled opacity-1">
+                    <td>
+                      <div class="form-control check-one">
+                        <label>
+                          <input type="checkbox" disabled>
+                          <span>체크</span>
+                        </label>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="easy-pick-case">
+                        <span class="sample">샘플</span>
+                      </div>
+                    </td>
+                    <td>
+                      <!-- 2022 08 11 수정 -->
+                      <span class="txt-link no-deco-no-link">[주문취소 2022-04-05 13:15:54]</span> <br />
+                      <span class="txt-link no-deco-no-link">로렌BL</span>
+                    </td>
+                    <td>블루 / L</td>
+                    <td class="tar">
+                      <strong>11,000</strong>
+                    </td>
+                    <td>39</td>
+                    <td>-</td>
+                    <td>
+                      <!-- 2022 08 26 a링크 수정 -->
+                        <i class="ico-easy-pick ico-memo-off"></i>
+                    </td>
+                    <td>
+                      -
+                    </td>
+                    <td>
+                      <div class="easy-pick-btn-wrap">
+                        <ul>
+                          <li>
+                            <button type="button" id="eBatchOrder" name="button" class="btn btn-sm btn-outline-gray1"
+                              onclick="targetModalPopup('modal-reorder-case1')">재주문</button>
+                          </li>
+                          <li>
+                            <button type="button" id="eBatchOrder" name="button" class="btn btn-sm btn-outline-gray"
+                              disabled onclick="targetModalPopup('modal-buy-failure')">불량접수</button>
+                          </li>
+                        </ul>
+                      </div>
+                    </td>
+                    <td>
+                      <button type="button" name="button" class="btn btn-sm btn-primary">쇼핑몰상품등록</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="form-control check-one">
+                        <label>
+                          <input type="checkbox">
+                          <span>체크</span>
+                        </label>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="easy-pick-case">
+                        <span class="sample">샘플</span>
+                      </div>
+                    </td>
+                    <td>
+                      <a href="#">
+                        <span class="txt-link">기본 T 원피스</span>
+                      </a>
+                    </td>
+                    <td>블루 / L</td>
+                    <td class="tar">
+                      <strong>11,000</strong>
+                    </td>
+                    <td>39</td>
+                    <td>-</td>
+                    <td>
+                      <a href="#" onclick="targetModalPopup('modal-twomemo2-popup')">
+                        <i class="ico-easy-pick ico-memo-on"></i>
+                      </a>
+                    </td>
+                    <td>
+                      -
+                    </td>
+                    <td>
+                      <div class="easy-pick-btn-wrap">
+                        <ul>
+                          <li>
+                            <button type="button" id="eBatchOrder" name="button" class="btn btn-sm btn-outline-gray1"
+                              onclick="targetModalPopup('modal-reorder-case2')">재주문</button>
+                          </li>
+                          <li>
+                            <button type="button" id="eBatchOrder" name="button" class="btn btn-sm btn-outline-gray1"
+                              onclick="targetModalPopup('modal-buy-failure')">불량접수</button>
+                          </li>
+                        </ul>
+                      </div>
+                    </td>
+                    <td>
+                      <button type="button" name="button" class="btn btn-sm btn-primary">쇼핑몰상품등록</button>
+                    </td>
+                  </tr>
+                  <tr class="tr-caption">
+                    <td class="force-visible" colspan="11">
+
+                      <div class="easy-pick-catpion-wrap">
+                        <div class="caption-left">
+                          <span class="title packing-complete">포장완료</span>
+                          <span class="content">
+                            <p>mean it (민잇) (디오트 B1층 E열 12-1호, 010-8428-1234)</p>
+                          </span>
+                        </div>
+                        <div class="caption-right">
+                          <div class="tool-tip-wrap tool-gray renewal-tool-tip-wrap">
+                            <span class="pointer">거래완료</span>
+                            <a href="javascript:void(0)" class="tool-tip">툴팁</a>
+                            <div class="tool-tip-area renewal-tool-tip-area lg left3">
+                              <section class="tool-tip-title">
+                                <h1>거래완료 방법</h1>
+                                <div class="tool-tip-inner">
+                                  <h2 class="dot">상품 수령이 완료되면 가게 별 [거래완료] 버튼을 통하여 상태 변경이 가능합니다.</h2>
+                                  <p class="desc-text m-l-5 m-t-7">
+                                    [유의사항]<br />
+                                    - 주문취소된 가게는 거래완료가 불가합니다.<br />
+                                    - 주문일로부터 14일째 되는날 00시에 자동 거래완료 처리됩니다.
+                                    <br />
+                                  </p>
+                                </div>
+                              </section>
+                              <button type="button" class="tool-tip-close">닫기</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="form-control check-one">
+                        <label>
+                          <input type="checkbox">
+                          <span>체크</span>
+                        </label>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="easy-pick-case">
+                        <span class="pay-sample no-br">유료샘플</span>
+                      </div>
+                    </td>
+                    <td>
+                      <a href="#">
+                        <span class="txt-link">기본 T 원피스</span>
+                      </a>
+                    </td>
+                    <td>블루 / L</td>
+                    <td class="tar">
+                      <strong>11,000</strong>
+                    </td>
+                    <td>39</td>
+                    <td>-</td>
+                    <td>
+                      <a href="#" onclick="targetModalPopup('modal-twomemo2-popup')">
+                        <i class="ico-easy-pick ico-memo-on"></i>
+                      </a>
+                    </td>
+                    <td>
+                      -
+                    </td>
+                    <td>
+                      <div class="easy-pick-btn-wrap">
+                        <ul>
+                          <li>
+                            <button type="button" id="eBatchOrder" name="button" class="btn btn-sm btn-outline-gray1"
+                              onclick="targetModalPopup('modal-reorder-case1')">재주문</button>
+                          </li>
+                          <li>
+                            <button type="button" id="eBatchOrder" name="button" class="btn btn-sm btn-outline-gray1"
+                              onclick="targetModalPopup('modal-buy-failure')">불량접수</button>
+                          </li>
+                        </ul>
+                      </div>
+                    </td>
+                    <td>
+                      <button type="button" name="button" class="btn btn-sm btn-primary">쇼핑몰상품등록</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="form-control check-one">
+                        <label>
+                          <input type="checkbox">
+                          <span>체크</span>
+                        </label>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="easy-pick-case">
+                        <span class="sample">샘플</span>
+                      </div>
+                    </td>
+                    <td>
+                      <a href="#">
+                        <span class="txt-link">기본 T 원피스</span>
+                      </a>
+                    </td>
+                    <td>블루 / L</td>
+                    <td class="tar">
+                      <strong>11,000</strong>
+                    </td>
+                    <td>39</td>
+                    <td>-</td>
+                    <td>
+                      <a href="#" onclick="targetModalPopup('modal-twomemo2-popup')">
+                        <i class="ico-easy-pick ico-memo-on"></i>
+                      </a>
+                    </td>
+                    <td>
+                      -
+                    </td>
+                    <td>
+                      <div class="easy-pick-btn-wrap">
+                        <ul>
+                          <li>
+                            <button type="button" id="eBatchOrder" name="button" class="btn btn-sm btn-outline-gray1"
+                              onclick="targetModalPopup('modal-reorder-case1')">재주문</button>
+                          </li>
+                          <li>
+                            <button type="button" id="eBatchOrder" name="button" class="btn btn-sm btn-outline-gray1"
+                              onclick="targetModalPopup('modal-buy-failure')">불량접수</button>
+                          </li>
+                        </ul>
+                      </div>
+                    </td>
+                    <td>
+                      <button type="button" name="button" class="btn btn-sm btn-primary">쇼핑몰상품등록</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="form-control check-one">
+                        <label>
+                          <input type="checkbox">
+                          <span>체크</span>
+                        </label>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="easy-pick-case">
+                        <span class="sample">샘플</span>
+                      </div>
+                    </td>
+                    <td>
+                      <a href="#">
+                        <span class="txt-link">기본 T 원피스</span>
+                      </a>
+                    </td>
+                    <td>블루 / L</td>
+                    <td class="tar">
+                      <strong>11,000</strong>
+                    </td>
+                    <td>39</td>
+                    <td>-</td>
+                    <td>
+                      <!-- 2022 08 26 a링크 수정 -->
+                        <i class="ico-easy-pick ico-memo-off"></i>
+                    </td>
+                    <td>
+                      -
+                    </td>
+                    <td>
+                      <div class="easy-pick-btn-wrap">
+                        <ul>
+                          <li>
+                            <button type="button" id="eBatchOrder" name="button" class="btn btn-sm btn-outline-gray1"
+                              onclick="targetModalPopup('modal-reorder-case1')">재주문</button>
+                          </li>
+                          <li>
+                            <button type="button" id="eBatchOrder" name="button" class="btn btn-sm btn-outline-gray1"
+                              onclick="targetModalPopup('modal-buy-failure')">불량접수</button>
+                          </li>
+                        </ul>
+                      </div>
+                    </td>
+                    <td>
+                      <button type="button" name="button" class="btn btn-sm btn-primary">쇼핑몰상품등록</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="form-control check-one">
+                        <label>
+                          <input type="checkbox">
+                          <span>체크</span>
+                        </label>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="easy-pick-case">
+                        <span class="sample">샘플</span>
+                      </div>
+                    </td>
+                    <td>
+                      <a href="#">
+                        <span class="txt-link">기본 T 원피스</span>
+                      </a>
+                    </td>
+                    <td>블루 / L</td>
+                    <td class="tar">
+                      <strong>11,000</strong>
+                    </td>
+                    <td>39</td>
+                    <td>-</td>
+                    <td>
+                      <!-- 2022 08 26 a링크 수정 -->
+                        <i class="ico-easy-pick ico-memo-off"></i>
+                    </td>
+                    <td>
+                      -
+                    </td>
+                    <td>
+                      <div class="easy-pick-btn-wrap">
+                        <ul>
+                          <li>
+                            <button type="button" id="eBatchOrder" name="button" class="btn btn-sm btn-outline-gray1"
+                              onclick="targetModalPopup('modal-reorder-case2')">재주문</button>
+                          </li>
+                          <li>
+                            <button type="button" id="eBatchOrder" name="button" class="btn btn-sm btn-outline-gray1"
+                              onclick="targetModalPopup('modal-buy-failure')">불량접수</button>
+                          </li>
+                        </ul>
+                      </div>
+                    </td>
+                    <td>
+                      <button type="button" name="button" class="btn btn-sm btn-primary">쇼핑몰상품등록</button>
+                    </td>
+                  </tr>
+                  <tr class="tr-caption">
+                    <td class="overflow-unset" colspan="11">
+
+                      <div class="easy-pick-catpion-wrap">
+                        <div class="caption-left">
+                          <span class="title packing-complete pointer">거래완료</span>
+                          <!-- 2022 08 29 tooltip text 옆으로 이동하기위해 p태그 제거 -->
+                          <div class="content tooltip-cont">
+                            mean it (민잇) (디오트 B1층 E열 12-1호, 010-8428-1234)
+                            <div class="tool-tip-wrap tool-gray">
+                              <a href="javascript:void(0)" class="tool-tip m-l-3 m-b-1">툴팁</a>
+                              <div class="tool-tip-area">
+                                <section class="tool-tip-title">
+                                  <h1 class="fw500">유의사항</h1>
+                                  <div class="tool-tip-inner">
+                                    <p class="etc-text m-t-7">
+                                      이지픽에서 관리되고 있지 않은 가게의 경우<br />
+                                      (바로주문에서 가게 정보를 직접 입력한 경우),
+                                      <br />
+                                      가게에 주문내역이 전달되지 않을 수 있습니다.
+                                    </p>
+                                  </div>
+                                </section>
+                                <button type="button" class="tool-tip-close">닫기</button>
+                              </div>
+                            </div>
+                          </div>
+                          
+                        </div>
+                        <div class="caption-right">
+
+                        </div>
+                      </div>
+
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="form-control check-one">
+                        <label>
+                          <input type="checkbox">
+                          <span>체크</span>
+                        </label>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="easy-pick-case">
+                        <span class="return">반납</span>
+                      </div>
+                    </td>
+                    <td>
+                      <a href="#">
+                        <span class="txt-link">기본 T 원피스</span>
+                      </a>
+                    </td>
+                    <td>블루 / L</td>
+                    <td class="tar">
+                      <strong>11,000</strong>
+                    </td>
+                    <td>39</td>
+                    <td>-</td>
+                    <td>
+                      <!-- 2022 08 26 a링크 수정 -->
+                        <i class="ico-easy-pick ico-memo-off"></i>
+                    </td>
+                    <td>
+                      -
+                    </td>
+                    <td>
+                      <div class="easy-pick-btn-wrap">
+                        <ul>
+                          <li>
+                            <button type="button" id="eBatchOrder" name="button" class="btn btn-sm btn-outline-gray1"
+                              onclick="targetModalPopup('modal-reorder-case2')">재주문</button>
+                          </li>
+                          <li>
+                            <button type="button" id="eBatchOrder" name="button" class="btn btn-sm btn-outline-gray1"
+                              onclick="targetModalPopup('modal-buy-failure')">불량접수</button>
+                          </li>
+                        </ul>
+                      </div>
+                    </td>
+                    <td>
+                      <button type="button" name="button" class="btn btn-sm btn-primary">쇼핑몰상품등록</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="form-control check-one">
+                        <label>
+                          <input type="checkbox">
+                          <span>체크</span>
+                        </label>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="easy-pick-case">
+                        <span class="return">반납</span>
+                      </div>
+                    </td>
+                    <td>
+                      <a href="#">
+                        <span class="txt-link">기본 T 원피스</span>
+                      </a>
+                    </td>
+                    <td>블루 / L</td>
+                    <td class="tar">
+                      <strong>11,000</strong>
+                    </td>
+                    <td>39</td>
+                    <td>-</td>
+                    <td>
+                      <!-- 2022 08 26 a링크 수정 -->
+                        <i class="ico-easy-pick ico-memo-off"></i>
+                    </td>
+                    <td>
+                      -
+                    </td>
+                    <td>
+                      <div class="easy-pick-btn-wrap">
+                        <ul>
+                          <li>
+                            <button type="button" id="eBatchOrder" name="button" class="btn btn-sm btn-outline-gray1"
+                              onclick="targetModalPopup('modal-reorder-case2')">재주문</button>
+                          </li>
+                          <li>
+                            <button type="button" id="eBatchOrder" name="button" class="btn btn-sm btn-outline-gray1"
+                              onclick="targetModalPopup('modal-buy-failure')">불량접수</button>
+                          </li>
+                        </ul>
+                      </div>
+                    </td>
+                    <td>
+                      <button type="button" name="button" class="btn btn-sm btn-primary">쇼핑몰상품등록</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="form-control check-one">
+                        <label>
+                          <input type="checkbox">
+                          <span>체크</span>
+                        </label>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="easy-pick-case">
+                        <span class="return">반납</span>
+                      </div>
+                    </td>
+                    <td>
+                      <a href="#">
+                        <span class="txt-link">기본 T 원피스</span>
+                      </a>
+                    </td>
+                    <td>블루 / L</td>
+                    <td class="tar">
+                      <strong>11,000</strong>
+                    </td>
+                    <td>39</td>
+                    <td>-</td>
+                    <td>
+                      <!-- 2022 08 26 a링크 수정 -->
+                        <i class="ico-easy-pick ico-memo-off"></i>
+                    </td>
+                    <td>
+                      -
+                    </td>
+                    <td>
+                      <div class="easy-pick-btn-wrap">
+                        <ul>
+                          <li>
+                            <button type="button" id="eBatchOrder" name="button" class="btn btn-sm btn-outline-gray1"
+                              onclick="targetModalPopup('modal-reorder-case2')">재주문</button>
+                          </li>
+                          <li>
+                            <button type="button" id="eBatchOrder" name="button" class="btn btn-sm btn-outline-gray1"
+                              onclick="targetModalPopup('modal-buy-failure')">불량접수</button>
+                          </li>
+                        </ul>
+                      </div>
+                    </td>
+                    <td>
+                      <button type="button" name="button" class="btn btn-sm btn-primary">쇼핑몰상품등록</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="form-control check-one">
+                        <label>
+                          <input type="checkbox">
+                          <span>체크</span>
+                        </label>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="easy-pick-case">
+                        <span class="return">반납</span>
+                      </div>
+                    </td>
+                    <td>
+                      <a href="#">
+                        <span class="txt-link">기본 T 원피스</span>
+                      </a>
+                    </td>
+                    <td>블루 / L</td>
+                    <td class="tar">
+                      <strong>11,000</strong>
+                    </td>
+                    <td>39</td>
+                    <td>-</td>
+                    <td>
+                      <!-- 2022 08 26 a링크 수정 -->
+                        <i class="ico-easy-pick ico-memo-off"></i>
+                    </td>
+                    <td>
+                      -
+                    </td>
+                    <td>
+                      <div class="easy-pick-btn-wrap">
+                        <ul>
+                          <li>
+                            <button type="button" id="eBatchOrder" name="button" class="btn btn-sm btn-outline-gray1"
+                              onclick="targetModalPopup('modal-reorder-case2')">재주문</button>
+                          </li>
+                          <li>
+                            <button type="button" id="eBatchOrder" name="button" class="btn btn-sm btn-outline-gray1"
+                              onclick="targetModalPopup('modal-buy-failure')">불량접수</button>
+                          </li>
+                        </ul>
+                      </div>
+                    </td>
+                    <td>
+                      <button type="button" name="button" class="btn btn-sm btn-primary">쇼핑몰상품등록</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <!-- //그리드 테이블-->
+        </div>
+        {% include("../_templates/default/pagination.njk") %}
+      </div>
+
+      <!-- 데이터 없을시 -->
+      <div class="gridTableArea">
+        <div class="table-top-info">
+          <div class="top-txt-inline">
+            <span class="txt-inline">검색결과 <strong>1,000</strong>건
+          </div>
+          <div class="sort-sel-area">
+            <select id="list_limit" class="default-select">
+              <option value="20" selected="selected">20개씩 보기</option>
+              <option value="30">30개씩 보기</option>
+              <option value="50">50개씩 보기</option>
+              <option value="100">100개씩 보기</option>
+              <option value="200">200개씩 보기</option>
+            </select>
+          </div>
+        </div>
+        <div class="tround-box">
+          <div class="tbl-round ">
+            <div class="tbl-info-area">
+              <div class="btns-multi f-left">
+                <button type="button" name="button" class="btn btn-sm btn-outline-gray">주문취소</button>
+                <button type="button" id="eBatchOrder" name="button" class="btn btn-sm btn-outline-blue"
+                  onclick="targetModalPopup('modal-stock-ecregis')">쇼핑몰상품등록</button>
+              </div>
+              <div class="f-right">
+                <div class="dflex">
+                  <div class="btns-multi">
+                    <button type="button" name="button" class="btn btn-sm btn-outline-gray">목록보기</button>
+                    <button type="button" name="button" class="btn btn-sm btn-primary"
+                      onclick="targetModalPopup('modal-buy-contact')">문의하기</button>
+                    <button type="button" name="button" class="btn btn-sm btn-outline-gray"><i
+                        class="ico ico-excel"></i>엑셀다운로드</button>
+                    <button type="button" name="button" class="btn btn-ico btn-outline-gray"><i
+                        class="ico ico-sort"></i>설정</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- 그리드 테이블-->
+            <div class="mGridTable tbl-height01 caption-height42">
+              <table id="eMultiTable1" class="eChkColor">
+                <thead>
+                  <tr>
+                    <th scope="col" style="width:50px;" class="resizable">
+                      <div class="form-control check-one">
+                        <label>
+                          <input type="checkbox">
+                          <span>체크</span>
+                        </label>
+                      </div>
+                    </th>
+                    <th scope="col" style="width: 100px;" class="resizable">
+                      품목유형
+                    </th>
+                    <th scope="col" style="width:330px;" class="resizable">
+                      상품명
+
+                      <div class="tool-tip-wrap tool-gray">
+                        <a href="javascript:void(0)" class="tool-tip m-b-1">툴팁</a>
+                        <div class="tool-tip-area renewal-tool-tip-area w-auto">
+                          <section class="tool-tip-title">
+                            <h1>주문상태 안내</h1>
+                            <div class="tool-tip-inner">
+                              <ul class="list-dash">
+                                <li class="fw500"><strong>'<span class="ftpointcolor1">주문완료</span>'</strong> 주문이 완료된 상태로
+                                  가게가 상품 준비 전 상태입니다.</li>
+                                <li class="fw500"><strong>'포장완료'</strong> 상품 준비가 완료된 상태로 픽업이 가능한 상태입니다.</li>
+                                <li class="fw500"><strong>'거래완료'</strong> 상품 픽업이 완료된 상태입니다.</li>
+                                <li class="fw500"><strong>'취소완료'</strong> 주문이 취소된 상태입니다.</li>
+                              </ul>
+                            </div>
+                          </section>
+                          <button type="button" class="tool-tip-close">닫기</button>
+                        </div>
+                      </div>
+                    </th>
+                    <th scope="col" style="width:182px;" class="resizable">
+                      옵션
+                    </th>
+                    <th scope="col" style="width:182px;" class="resizable">
+                      판매가
+                    </th>
+                    <th scope="col" style="width:96px;" class="resizable">
+                      주문수량
+                    </th>
+                    <th scope="col" style="width:96px;" class="resizable">
+                      입고수량
+                    </th>
+                    <th scope="col" style="width:97px;" class="resizable">
+                      메모
+                      <div class="tool-tip-wrap tool-gray">
+                        <a href="javascript:void(0)" class="tool-tip m-b-1">툴팁</a>
+                        <div class="tool-tip-area">
+                          <section class="tool-tip-title">
+                            <h1>메모상태 안내</h1>
+                            <div class="tool-tip-inner">
+                              <ul class="list-dash">
+                                <li>
+                                  <i class="ico-easy-pick ico-memo-off"></i>
+                                  메모가 없어요.
+                                </li>
+                                <li class="m-t-5">
+                                  <i class="ico-easy-pick ico-memo-off">
+                                    <span class="new"></span>
+                                  </i>
+                                  입고메모만 있어요.
+                                </li>
+                                <li class="m-t-5">
+                                  <i class="ico-easy-pick ico-memo-on"></i>
+                                  구매자 메모만 있어요.
+                                </li>
+                                <li class="m-t-5">
+                                  <i class="ico-easy-pick ico-memo-on">
+                                    <span class="new"></span>
+                                  </i>
+                                  구매자 메모와 입고 메모 모두 있어요.
+                                </li>
+                              </ul>
+                            </div>
+                          </section>
+                          <button type="button" class="tool-tip-close">닫기</button>
+                        </div>
+                      </div>
+                    </th>
+                    <th scope="col" style="width:231px;" class="resizable">
+                      기타정보
+                    </th>
+                    <th scope="col" style="width:149px;" class="resizable">
+                      관리
+                    </th>
+                    <th scope="col" style="width: 145px;">
+                      마켓등록
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="tr-empty">
+                    <td>
+                      <div class="txt">
+                        <i><img src="../assets/images/guide-ico.png" alt="guide-icon"></i>
+                        <span>검색 결과가 없습니다.</span>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <!-- //그리드 테이블-->
+        </div>
+        {% include("../_templates/default/pagination.njk") %}
+      </div>
+
+
+      <h3 class="tbl-title">
+        <div class="easy-pick-tbl-title spb">
+          주문 금액 정보
+          <button type="button" id="eBatchOrder" name="button" class="btn btn-sm btn-primary"
+            onclick="window.open('../popup/popup-case10.html','가게별 금액확인','width=1400,height=800,location=no,status=no,scrollbars=yes');">가게
+            별 금액확인</button>
+        </div>
+      </h3>
+
+      <div class="tround-box">
+        <div class="tbl-round">
+          <table class="tbl-list-view">
+            <colgroup>
+              <col style="width:20%">
+              <col style="width:20%">
+              <col style="width:20%;">
+              <col style="width:20%;">
+              <col style="width:20%;">
+            </colgroup>
+            <tbody>
+              <tr>
+                <td colspan="5">
+                  <div class="easy-pick-order-info">
+                    <div class="top">
+                      <ul>
+                        <li class="txt-exp">
+                          <span class="txt-exp-title">
+                            주문번호
+                          </span>
+                          2022040400008128
+                        </li>
+                        <li class="txt-exp">
+                          <span class="txt-exp-title">
+                            주문일시
+                          </span>
+                          2022-04-04 15:51:44
+                        </li>
+                        <li class="txt-exp">
+                          <span class="txt-exp-title">
+                            결제일시
+                          </span>
+                          2022-04-04 15:51:44
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr class="easy-pick-pay-info">
+                <td class="sub-title unpay" colspan="2">
+                  미결제 품목 금액정보
+                </td>
+                <td class="sub-title payed" colspan="2">
+                  결제 품목 금액정보
+                </td>
+                <td class="sub-title total">
+                  합계 (미결제 품목 + 결제 품목)
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="easy-pick-order-info">
+                    <div class="middle">
+                      <ul>
+                        <li>
+                          <span class="title">주문금액</span>
+                          <span class="price">460,000</span>
+                        </li>
+                        <li>
+                          <div class="calc-wrap">
+                            <span class="title">상품금액 (공급가액)</span>
+                            <span>+ 400,000 원</span>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="calc-wrap">
+                            <span class="title">부가세</span>
+                            <span>+ 40,000 원</span>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class="easy-pick-order-info">
+                    <div class="middle">
+                      <ul>
+                        <li>
+                          <span class="title">취소금액</span>
+                          <span class="price minus">- 460,000</span>
+                        </li>
+                        <li>
+                          <div class="calc-wrap">
+                            <span class="title">상품금액 (공급가액)</span>
+                            <span>+ 400,000 원</span>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="calc-wrap">
+                            <span class="title">부가세</span>
+                            <span>+ 40,000 원</span>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class="easy-pick-order-info">
+                    <div class="middle">
+                      <ul>
+                        <li>
+                          <span class="title">주문금액</span>
+                          <span class="price">460,000</span>
+                        </li>
+                        <li>
+                          <div class="calc-wrap">
+                            <span class="title">상품금액 (공급가액)</span>
+                            <span>+ 400,000 원</span>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="calc-wrap">
+                            <span class="title">부가세</span>
+                            <span>+ 40,000 원</span>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class="easy-pick-order-info">
+                    <div class="middle">
+                      <ul>
+                        <li>
+                          <span class="title">취소금액</span>
+                          <span class="price minus">- 460,000</span>
+                        </li>
+                        <li>
+                          <div class="calc-wrap">
+                            <span class="title">상품금액 (공급가액)</span>
+                            <span>+ 400,000 원</span>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="calc-wrap">
+                            <span class="title">부가세</span>
+                            <span>+ 40,000 원</span>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </td>
+                <td class="text-top">
+                  <div class="easy-pick-order-info">
+                    <div class="middle">
+                      <ul>
+                        <li>
+                          <span class="title">최종금액</span>
+                          <span class="price normal"> 44,000원</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr class="easy-pick-pay-info">
+                <td colspan="2">
+                  <div class="easy-pick-order-info">
+                    <div class="bottom">
+                      <ul>
+                        <li class="calc-info">
+                        </li>
+                        <li class="calc-final">
+                          최종금액
+                          <span class="price m-r-10">57,200원</span>
+
+                          입고금액
+                          <span class="price">57,200원</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <div class="easy-pick-order-info">
+                    <div class="bottom">
+                      <ul>
+                        <li class="calc-info">
+                        </li>
+                        <li class="calc-final">
+                          최종금액
+                          <span class="price m-r-10">57,200원</span>
+
+                          입고금액
+                          <span class="price">57,200원</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </td>
+                <td class="sub-title total">
+                  <div class="easy-pick-order-info">
+                    <div class="bottom">
+                      <ul>
+                        <li class="calc-info">
+                        </li>
+                        <li class="calc-final">
+                          입고금액
+                          <span class="price">57,200원</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <h3 class="tbl-title">배송지 정보</h3>
+      <div class="tbl-wrap-type01">
+        <table>
+          <colgroup>
+            <col style="width: 120px" />
+            <col style="width: auto" />
+          </colgroup>
+          <tbody>
+            <tr>
+              <th>구매자정보</th>
+              <td>핫핑/010-88568267</td>
+            </tr>
+            <tr>
+              <th>받는사람</th>
+              <td>홍길동</td>
+            </tr>
+            <tr>
+              <!-- 2023-01-05 EZP-7765 워딩변경 (기존 : 연락처) -->
+              <th>휴대폰 번호</th>
+              <td>010-1111-2222</td>
+            </tr>
+          </tbody>
+        </table>
+        <table>
+          <colgroup>
+            <col style="width: 120px;" />
+            <col style="width: auto;" />
+          </colgroup>
+          <tbody>
+            <tr>
+              <th>주소</th>
+              <td>
+                (07071)서울특별시 동작구 보라매로5길 15 신대방동, 전문건설회관
+              </td>
+            </tr>
+            <tr>
+              <th>
+                사입삼촌<br />요청메모
+              </th>
+              <td>
+                물건이 많습니다. 조금 있다가 뵙겠습니다. 감사합니다.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- //content -->
+    </div>
+    <!-- container -->
+  </div>
+
+  <script>
+    $(document).ready(function () {
+      $('#eMultiTable').fixResize({
+        colResize: true,
+        resizeVer: 'flex'
+      });
+      // 데이터 없을시 새로운 테이블
+      $('#eMultiTable1').fixResize({
+        colResize: true,
+        resizeVer: 'flex'
+      });
+
+      // 검색결과 없을때 tr 높이 조절
+      const emptyTh = $('.tr-empty').parents('table').find('thead tr th').length;
+      const emptyMt = $('.tr-empty').parents('table').css('margin-top').replace('-', '');
+      const emptyMg = emptyMt.replace('px', '');
+      $('.tr-empty td').attr('colspan', emptyTh);
+      $('.tr-empty').parents('table').css('height', `calc(100% + ${emptyMg}px)`);
+    });
+  </script>
+
+  <!-- 메모 작성 -->
+  {% include("./modals/memo/modal-memo.njk") %}
+
+  <!-- 불량접수 -->
+  {% include("./modals/buy/modal-buy-failure.njk") %}
+
+  <!-- 문의하기 버튼 클릭시 노출 -->
+  {% include("./modals/buy/modal-buy-contact.njk") %}
+
+  <!-- 재주문 -->
+  {% include("./modals/buy/modal-reorder.njk") %}
+
+  <!-- 상품등록 modal -->
+  {% include("./modals/shop/modal-add-shopping-goods.njk") %}
+
+  <!-- EC 상품등록 -->
+  {% include("./modals/stock-today/modal-stock-ecregis.njk") %}
+
+  {% endblock %}

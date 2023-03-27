@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="shortcut icon" type="image/x-icon" href="https://easypick.co.kr/img/favicon/ezp.ico">
+	<link rel="stylesheet" type="text/css" href="../../../../../css/default.css">
+	<link rel="stylesheet" type="text/css" href="../../../../../css/month.picker.css">
+	<title>이지픽</title>
+</head>
+
+<body class="window-pop-wrap">
+	<div class="add-set-pop">
+		<div id="container">
+			<div class="order-list-wrap popup complete">
+				<div class="list-right">
+					<div class="table-wrap">
+						<p class="tit">SET 추가</p>
+						<table class="th-ver">
+							<colgroup>
+								<!-- 20220318 EZP-4381   col정렬 맞춰주기-->
+								<col width="135px">
+								<!-- //20220318 EZP-4381   col정렬 맞춰주기-->
+								<col width="*">
+							</colgroup>
+							<tbody>
+								<tr class="layout-first-row">
+									<th>SET명</th>
+									<td><input type="text" placeholder="SET명을 입력해주세요." class="autoframe-input"></td>
+								</tr>
+								<tr>
+									<th>SET타입</th>
+									<td>
+										<div class="radio-box-wrap">
+											<span class="radio">
+												<input type="radio" name="radio1" id="radio1-1" checked>
+												<label for="radio1-1">필터 + 실행</label>
+											</span>
+											<span class="radio ml30">
+												<input type="radio" name="radio1" id="radio1-2">
+												<label for="radio1-2">실행(발주수량만 설정하기)</label>
+											</span>
+										</div>
+									</td>
+								</tr>
+								<tr data-toggle="#toggle-radio1-1">
+									<th colspan="2">필터선택</th>
+								</tr>
+								<tr data-toggle="#toggle-radio1-1">
+									<td colspan="2" style="padding:0;">
+
+										<div class="table-wrap order-list ">
+											<div class="filter-table">
+												<table class="th-hor">
+													<colgroup>
+														<col width="135px">
+														<col>
+														<col width="135px">
+														<col>
+													</colgroup>
+													<tbody>
+														<tr>
+															<th>필요수량</th>
+															<td>
+																<div class="filter-box">
+																	<div class="input-wrap">
+																		<div class="range">
+																			<div class="min">
+																				<input type="text" class="input">
+																				<span class="txt">개 이상</span>
+																			</div>
+																			<div class="sym">~</div>
+																			<div class="max">
+																				<input type="text" class="input">
+																				<span class="txt">개 이하</span>
+																			</div>
+																		</div>
+																	</div>
+																	<button type="button" class="add-filter">필터선택</button>
+																</div>
+															</td>
+															<th>예측수량</th>
+															<td>
+																<div class="filter-box">
+																	<div class="input-wrap">
+																		<div class="range">
+																			<div class="min">
+																				<input type="text" class="input">
+																				<span class="txt">개 이상</span>
+																			</div>
+																			<div class="sym">~</div>
+																			<div class="max">
+																				<input type="text" class="input">
+																				<span class="txt">개 이하</span>
+																			</div>
+																		</div>
+																	</div>
+																	<button type="button" class="add-filter">필터선택</button>
+																</div>
+															</td>
+														</tr>
+
+														<tr>
+															<th>주문수량</th>
+															<td>
+																<div class="filter-box">
+																	<div class="input-wrap">
+																		<div class="range">
+																			<div class="min">
+																				<input type="text" class="input">
+																				<span class="txt">개 이상</span>
+																			</div>
+																			<div class="sym">~</div>
+																			<div class="max">
+																				<input type="text" class="input">
+																				<span class="txt">개 이하</span>
+																			</div>
+																		</div>
+																	</div>
+																	<button type="button" class="add-filter">필터선택</button>
+																</div>
+															</td>
+															<th>가용재고</th>
+															<td>
+																<div class="filter-box">
+																	<div class="input-wrap">
+																		<div class="range">
+																			<div class="min">
+																				<input type="text" class="input">
+																				<span class="txt">개 이상</span>
+																			</div>
+																			<div class="sym">~</div>
+																			<div class="max">
+																				<input type="text" class="input">
+																				<span class="txt">개 이하</span>
+																			</div>
+																		</div>
+																	</div>
+																	<button type="button" class="add-filter">필터선택</button>
+																</div>
+															</td>
+														</tr>
+														<tr>
+															<th>입고대기</th>
+															<td>
+																<div class="filter-box">
+																	<div class="input-wrap">
+																		<div class="range">
+																			<div class="min">
+																				<input type="text" class="input">
+																				<span class="txt">개 이상</span>
+																			</div>
+																			<div class="sym">~</div>
+																			<div class="max">
+																				<input type="text" class="input">
+																				<span class="txt">개 이하</span>
+																			</div>
+																		</div>
+																	</div>
+																	<button type="button" class="add-filter">필터선택</button>
+																</div>
+															</td>
+															<th>배송전취소</th>
+															<td>
+																<div class="filter-box">
+																	<div class="input-wrap">
+																		<div class="range">
+																			<div class="min">
+																				<input type="text" class="input">
+																				<span class="txt">개 이상</span>
+																			</div>
+																			<div class="sym">~</div>
+																			<div class="max">
+																				<input type="text" class="input">
+																				<span class="txt">개 이하</span>
+																			</div>
+																		</div>
+																	</div>
+																	<button type="button" class="add-filter">필터선택</button>
+																</div>
+															</td>
+														</tr>
+														<tr>
+															<th>단가</th>
+															<td>
+																<div class="filter-box">
+																	<div class="input-wrap">
+																		<div class="range">
+																			<div class="min">
+																				<input type="text" class="input">
+																				<span class="txt">원 이상</span>
+																			</div>
+																			<div class="sym">~</div>
+																			<div class="max">
+																				<input type="text" class="input">
+																				<span class="txt">원 이하</span>
+																			</div>
+																		</div>
+																	</div>
+																	<button type="button" class="add-filter">필터선택</button>
+																</div>
+															</td>
+															<th>조건식</th>
+															<td>
+																<div class="filter-box">
+																	<div class="input-wrap condition">
+																		<div class="ui-select" data-target_id="">
+																			<button type="button" data-target_id="" data-value="">필요수량</button>
+																			<ul>
+																				<li data-key="" class="active">필요수량</li>
+																				<li data-key="">주문수량</li>
+																				<li data-key="">입고대기</li>
+																				<li data-key="">단가</li>
+																				<li data-key="">예측수량</li>
+																				<li data-key="">가용재고</li>
+																				<li data-key="">배송전취소</li>
+																			</ul>
+																		</div>
+																		<div class="ui-select" data-target_id="">
+																			<button type="button" data-target_id="" data-value="">=</button>
+																			<ul>
+																				<li data-key="" class="active">=</li>
+																				<li data-key="">&lt;</li>
+																				<li data-key="">&lt;=</li>
+																				<li data-key="">&gt;</li>
+																				<li data-key="">&gt;=</li>
+																			</ul>
+																		</div>
+																		<div class="ui-select" data-target_id="">
+																			<button type="button" data-target_id="" data-value="">필요수량</button>
+																			<ul>
+																				<li data-key="" class="active">필요수량</li>
+																				<li data-key="">주문수량</li>
+																				<li data-key="">입고대기</li>
+																				<li data-key="">단가</li>
+																				<li data-key="">예측수량</li>
+																				<li data-key="">가용재고</li>
+																				<li data-key="">배송전취소</li>
+																			</ul>
+																		</div>
+																	</div>
+																	<button type="button" class="add-filter">필터선택</button>
+																</div>
+															</td>
+														</tr>
+														<tr>
+															<th>상품등록일</th>
+															<td colspan="3">
+																<div class="filter-box add-date">
+																	<span class="radio">
+																		<input type="radio" name="radio2" id="radio2-1" checked>
+																		<label for="radio2-1">기간 선택</label>
+																		<!-- 20220318 EZP-4381 툴팁 추가-->
+																		<button href="javascript;" class="btn-tip"></button>
+																		<div class="tip-right left-tail " style="left:64px;top:25px;width:500px" >
+																			기간선택(이전,이후)선택 시, 시나리오가 실행되는 날짜 기준으로 계산되어 실행됩니다.<br/>
+																			예시)1/10실행 기준<br/>
+																			-1주일 이전:1월 3일까지 등록된 상품 대상<br/>
+																			-1주일 이후:1월 3일부터 오늘까지 등록된 상품 대상<br/>
+
+																		</div>
+																		<!-- //20220318 EZP-4381 툴팁 추가 -->
+																	</span>
+																	<span class="radio">
+																		<input type="radio" name="radio2" id="radio2-2">
+																		<label for="radio2-2">직접 선택</label>
+																	</span>
+																	<div class="toggle-menu" id="toggle-radio2-1" data-toggle="#toggle-radio2-1">
+																		<div class="input-box">
+																			<ul class="period-filter">
+																				<li class="on"><a href="javascript:;">전체</a></li>
+																				<li><a href="javascript:;">3일</a></li>
+																				<li><a href="javascript:;">1주일</a></li>
+																				<li><a href="javascript:;">1개월</a></li>
+																				<li><a href="javascript:;">3개월</a></li>
+																				<li><a href="javascript:;">6개월</a></li>
+																			</ul>
+																			<div class="ui-select" data-target_id="">
+																				<button type="button" data-target_id="" data-value="">이전</button>
+																				<ul>
+																					<li data-key="" class="active">이전</li>
+																					<li data-key="">이후</li>
+																				</ul>
+																			</div>
+																			<!-- 20220318 EZP-4381 문구 추가 -->
+																			<div class="txt">
+																				오늘 기준: ~ 21.11.25 이전
+																			</div>
+																			<!-- //20220318 EZP-4381 문구 추가 -->
+																			<button type="button" class="add-filter">필터선택</button>
+																		</div>
+																	</div>
+																	<div class="toggle-menu" id="toggle-radio2-2" data-toggle="#toggle-radio2-2" style="display:none;">
+																		<div class="period-datepicker">
+																			<div class="single_button">
+																				<a href="javascript:;" class="btn small line arrow">&lt;</a>
+																			</div>
+																			<div class="picker-wrap">
+																				<div class="datepicker-wrap">
+																					<img class="ui-datepicker-trigger" src="https://easypick.co.kr/img/common/calendar.png" alt="Select date" title="Select date">
+																					<input type="text" id="start_date" name="start_date" class="not-addclear datepicker hasDatepicker" value="2020-02-10" readonly="">
+																				</div>
+																				<span class="sym">~</span>
+																				<div class="datepicker-wrap">
+																					<img class="ui-datepicker-trigger" src="https://easypick.co.kr/img/common/calendar.png" alt="Select date" title="Select date">
+																					<input type="text" id="end_date" name="end_date" class="not-addclear datepicker hasDatepicker" value="2020-03-11" readonly="">
+																				</div>
+																			</div>
+																			<div class="single_button">
+																				<a href="javascript:;" class="btn small line arrow">&gt;</a>
+																			</div>
+																			<button type="button" class="add-filter">필터선택</button> <!--2022-06-21 EZP-4381-->
+																		</div>
+																	</div>
+																</div>
+															</td>
+														</tr>
+														<tr>
+															<th>거래처명</th>
+															<td>
+																<div class="filter-box name">
+																	<div class="input-wrap">
+																		<input type="text" class="input" placeholder="거래처명을 입력해주세요.">
+																	</div>
+																	<button type="button" class="add-filter">필터선택</button>
+																</div>
+															</td>
+														</tr>
+
+													</tbody>
+												</table>
+											</div>
+										</div><!--//table-wrap-->
+
+									</td>
+								</tr>
+								<tr data-toggle="#toggle-radio1-1">
+									<th  colspan="2">
+										<div class="selected-filter-control" style="padding: 45px 0 5px 0"><!-- 20220318 EZP-4381 간격 조정 -->
+											<div class="title">선택한 항목</div>
+											<button type="button" class="btn-reset ui-popup-open" data-target="#alert-pop1">초기화</button>
+										</div>
+									</th>
+								</tr>
+								<tr data-toggle="#toggle-radio1-1">
+									<td colspan="2" class="selected-filter-td">
+										<div class="selected-filter-list">
+
+											<div class="noData">
+												선택한 필터가 없습니다.
+											</div>
+
+											<div class="selected-filter">
+												(
+												<div class="selected-item">필요수량 200개 이상 ~ 200개 이하</div>
+												<div class="ui-select" data-target_id="">
+													<button type="button" data-target_id="" data-value="">and</button>
+													<ul>
+														<li data-key="" class="active">and</li>
+														<li data-key="">or</li>
+													</ul>
+												</div>
+												<div class="selected-item">주문수량 200개 이상 ~ 200개 이하</div>
+												)
+
+												<div>
+													<div class="ui-select" data-target_id="">
+														<button type="button" data-target_id="" data-value="">or</button>
+														<ul>
+															<li data-key="">and</li>
+															<li data-key="" class="active">or</li>
+														</ul>
+													</div>
+												</div>
+
+												(
+												<div class="selected-item">입고대기 200개 이상 ~ 200개 이하</div>
+												<div class="ui-select" data-target_id="">
+													<button type="button" data-target_id="" data-value="">and</button>
+													<ul>
+														<li data-key="" class="active">and</li>
+														<li data-key="">or</li>
+													</ul>
+												</div>
+												<div class="selected-item">단가 200000원 이상 ~ 200000원 이하</div>
+												<div class="ui-select" data-target_id="">
+													<button type="button" data-target_id="" data-value="">and</button>
+													<ul>
+														<li data-key="" class="active">and</li>
+														<li data-key="">or</li>
+													</ul>
+												</div>
+												<div class="selected-item">예측수량 200개 이상 ~ 200개 이하</div>
+												<div class="ui-select" data-target_id="">
+													<button type="button" data-target_id="" data-value="">and</button>
+													<ul>
+														<li data-key="" class="active">and</li>
+														<li data-key="">or</li>
+													</ul>
+												</div>
+												<div class="selected-item">가용재고 200개 이상 ~ 200개 이하</div>
+												<div class="ui-select" data-target_id="">
+													<button type="button" data-target_id="" data-value="">and</button>
+													<ul>
+														<li data-key="" class="active">and</li>
+														<li data-key="">or</li>
+													</ul>
+												</div>
+												<div class="selected-item">배송전취소 10개 이상 ~ 300개 이하</div>
+												)
+											</div>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<!-- 20220318 EZP-4381 간격 조정 -->
+									<th colspan="2">
+										<div style="padding: 45px 0 15px 0">
+											실행 선택
+										</div>
+									</th>
+									<!-- //20220318 EZP-4381 간격 조정 -->
+								</tr>
+								<tr>
+									<td colspan="2" style="padding: 0;">
+
+										<div class="run-box">
+											<div class="title-wrap">
+												<div class="title">품목삭제</div>
+												<!-- 20220318 EZP-4381 문구 변경 -->
+												<div class="title">발주요청수량 업데이트 </div>
+												<!-- 20220318 EZP-4381 문구 변경 -->
+											</div>
+											<div class="cont-wrap">
+												<div class="radio-box-wrap">
+													<div class="radio-box-group">
+														<span class="radio">
+															<input type="radio" name="radio3" id="radio3-1" checked>
+															<label for="radio3-1">품목 삭제하기</label>
+														</span>
+													</div>
+													<div class="radio-box-group">
+														<span class="radio">
+															<input type="radio" name="radio3" id="radio3-2"><!-- 2022-05-30 EZP-4381 disable class 제거 -->
+															<label for="radio3-2">필요수량적용</label>
+														</span>
+													</div>
+													<div class="radio-box-group"><!-- on 일때 txt 노출 -->
+														<span class="radio mr10">
+															<input type="radio" name="radio3" id="radio3-3">
+															<label for="radio3-3">예측수량적용</label>
+														</span>
+														<span class="txt">
+															(가중치<input type="text" placeholder="%입력" class="not-addclear" disabled>)
+														</span>
+													</div>
+													<div class="radio-box-group">
+														<span class="radio">
+															<input type="radio" name="radio3" id="radio3-4">
+															<label for="radio3-4">가중치입력</label>
+														</span>
+														<input type="text" placeholder="%입력" class="not-addclear" disabled>
+													</div>
+													<div class="radio-box-group">
+														<span class="radio">
+															<input type="radio" name="radio3" id="radio3-5">
+															<label for="radio3-5">수량직접입력</label>
+														</span>
+														<input type="text" placeholder="%입력" class="not-addclear" disabled>
+													</div>
+												</div>
+											</div>
+
+										</div>
+
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+
+				</div>
+			</div>
+			<div id="footer">
+				<button type="button" class="btn small line">닫기</button>
+				<button type="button" class="btn small">적용</button>
+			</div>
+		</div>
+	</div>
+	<div id="alert-pop1" class="ui-popup">
+		<div class="content" style="min-width:412px; max-width: 700px;" tabindex="-1">
+			<div class="body">
+				<div class="txt-cont">
+					<p>
+						선택한 필터값이 초기화됩니다.<br>
+						계속 하시겠습니까?
+					</p>
+				</div>
+				<div class="btn_wrap mt40 tac">
+					<button type="button" class="btn medium btn_close" style="width:150px;">취소</button>
+					<button type="button" class="btn point medium btn_close" style="width:150px;">확인</button>
+				</div>
+			</div>
+			<button type="button" class="btn_close">
+				<div><span>닫기</span></div>
+			</button>
+		</div>
+	</div>
+
+	
+	<script src="../../../../../js/jquery.min.js"></script><!--jquery default-->
+	<script src="../../../../../js/jquery-ui.min.js"></script>
+	<script src="../../../../../js/swiper-ie9.min.js"></script>
+	<script src="../../../../../js/default.input.js"></script> <!-- 2022-10-04 -->
+	<script src="../../../../../js/addclear.min.js"></script>
+	<script src="../../../../../js/common.front.js"></script>
+	<script src="../../../../../js/ui.js"></script>
+	<script src="../../../../../js/pub.js"></script>
+	<script src="../../../../../js/jquery.scrollbar.min.js"></script>
+
+	<!-- 퍼블 화면 확인용 -->
+	<script>
+		$(function(){
+			// SET 타입
+			$('[name="radio1"]').on('change', function () {
+				var _value = $(this).attr('id');
+				switch (_value) {
+					case 'radio1-1':
+						$('[data-toggle="#toggle-radio1-1"]').show();
+						break;
+					case 'radio1-2':
+						$('[data-toggle="#toggle-radio1-1"]').hide();
+						break;
+				}
+			});
+
+			// 상품등록일
+			$('[name="radio2"]').on('change', function () {
+				var _value = $(this).attr('id');
+				switch (_value) {
+					case 'radio2-1':
+						$('[data-toggle="#toggle-radio2-2"]').hide();
+						$('[data-toggle="#toggle-radio2-1"]').show();
+						break;
+					case 'radio2-2':
+						$('[data-toggle="#toggle-radio2-1"]').hide();
+						$('[data-toggle="#toggle-radio2-2"]').show();
+						break;
+				}
+			});
+
+			// 옵션적용 유형 선택
+			$('[name="radio3"]').on('change', function () {
+				$('.radio-box-group').removeClass('on').find('input[type="text"]').prop('disabled', true);
+				$(this).closest('.radio-box-group').addClass('on').find('input[type="text"]').prop('disabled', false);
+			});
+
+			// 선택한 항목
+			$('.selected-filter').hide();
+			$('.add-filter').on('click', function(){
+				$('.noData').hide();
+				$('.selected-filter').show();
+			});
+		});
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,726 @@
+{% extends "../_templates/layout.njk" %}
+{% block content %}
+
+<div class="wrapper" id="wrap">
+  <!-- container -->
+  <div class="container" id="container">
+    <!-- content -->
+    <div class="content" id="content">
+      <div class="content-head">
+        <div class="page-title">
+          <h3 class="h3-tit">주문내역</h3>
+          <a href="#" class="btn-manual" target="_blank" title="매뉴얼">매뉴얼</a>
+          <div class="form-box">
+            <form onsubmit="return submitHandler();">
+              <fieldset>
+                <legend class="skip">통합검색</legend>
+                <label for="total-search" class="skip">검색어 입력</label>
+                <input type="search" name="total-search" id="total-search" title="검색어 입력" class="text"
+                  placeholder="상품을 검색해보세요.">
+                <input type="submit" value="검색" class="submit">
+              </fieldset>
+            </form>
+          </div>
+        </div>
+        <div class="cont-info-right">
+          <ul class="breadcrumb">
+            <li>공급</li>
+            <li>사입내역조회</li>
+            <li class="now" title="현재 페이지">주문내역</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tab-top-round">
+        <ul class="tab-rounds tab">
+          <li data-tab="conttab1">
+            <a href="../buy/index.html"><span>주문내역</span></a>
+          </li>
+          <li data-tab="conttab2">
+            <a href="../buy/buy-sample.html">샘플주문내역</a>
+          </li>
+          <li data-tab="conttab3" class="active">
+            <a href="../buy/failure.html">불량주문내역</a>
+          </li>
+        </ul>
+      </div>
+      <div class="mSearchEngine folder">
+        <form name="" id="">
+          <input type="hidden" name="" value="">
+          <div class="tborder-box">
+            <div class="tbl-top-search">
+              <div class="table-row">
+                <table class="tbl-top">
+                  <colgroup>
+                    <col style="width:80px;">
+                    <col style="width:38%">
+                    <col style="width:25px;">
+                    <col style="width:80px;">
+                    <col style="width:42%">
+                  </colgroup>
+                  <tbody>
+                    <tr class="rowFix rowFold">
+                      <th>기간</th>
+                      <td>
+                        <div class="form-inline">
+                          <select name="" id="" class="default-select w120">
+                            <option value="">불량접수일시</option>
+                            <option value="">불량취소일시</option>
+                          </select>
+                          <div class="sel-date-type">
+                            <button type="button" class="label-date active">1개월</button>
+                            <ul class="sel-date-list">
+                              <li class="label-date">오늘</li>
+                              <li class="label-date">3일</li>
+                              <li class="label-date">7일</li>
+                              <li class="label-date active">1개월</li>
+                              <li class="label-date">3개월</li>
+                              <li class="label-date">6개월</li>
+                              <li class="label-date">1년</li>
+                              <li class="label-date">선택</li>
+                            </ul>
+                          </div>
+                          <div class="calendar-box">
+                            <div class="form-inline">
+                              <div class="form-control">
+                                <input type="text" class="cal-input" value="2019-04-01" data-range="cal01">
+                              </div>
+                              <div class="wave-txt">~</div>
+                              <div class="form-control">
+                                <input type="text" class="cal-input" value="2019-04-01" data-range="cal01">
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                      <td></td>
+                    </tr>
+                    <tr class="rowFold">
+                      <th>접수상태</th>
+                      <td>
+                        <div class="form-inline">
+                          <div class="form-control">
+                            <label>
+                              <input type="checkbox" class="custom-control-input" checked="checked">
+                              <span>전체</span>
+                            </label>
+                          </div>
+                          <div class="form-control">
+                            <label>
+                              <input type="checkbox">
+                              <span>접수완료</span>
+                            </label>
+                          </div>
+                          <div class="form-control">
+                            <label>
+                              <input type="checkbox">
+                              <span>취소완료</span>
+                            </label>
+                          </div>
+                        </div>
+                      </td>
+                      <td></td>
+                    </tr>
+                    <tr class="rowFold">
+                      <th>검색</th>
+                      <td>
+                        <div class="form-inline">
+                          <select name="" id="" class="default-select w120">
+                            <option value="">전체</option>
+                            <option value="">주문번호</option>
+                            <option value="">거래처명</option>
+                            <option value="">거래처명(주문)</option>
+                            <option value="">상품명</option>
+                            <option value="">쇼핑몰상품명</option>
+                            <option value="">쇼핑몰상품코드</option>
+                          </select>
+                          <div class="form-control searchValue">
+                            <input type="text" class="search-input-w2" name="" id="" value="" placeholder="">
+                          </div>
+                        </div>
+                      </td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="top-btn-search">
+                <button type="button" name="button" class="btn btn-lg btn-point">검색</button>
+                <div class="search-btns">
+                  <a href="#" class="serchsortbtn">
+                    <button type="button" class="btn btn-lg btn-sub-primary sarchsortbtn">검색관리</button>
+                    <div class="top-search-sort">
+                      <button type="button" class="reset"><i class="ico ico-reset"></i>초기화</button>
+                      <div class="top-search-depth">
+                        <button type="button" class="add-search-save"><i class="ico ico-plus-blue"></i>검색조건 저장</button>
+                        <ul class="add-search-element">
+                          <li class="dflex">
+                            <div class="form-control">
+                              <input type="text" value="저장1" readonly="readonly">
+                            </div>
+                            <div class="s-search-btns">
+                              <button type="button" class="btn btn-write">쓰기</button>
+                              <button type="button" class="btn btn-del">삭제</button>
+                            </div>
+                          </li>
+                          <li class="dflex">
+                            <div class="form-control">
+                              <input type="text" value="저장2" readonly="readonly">
+                            </div>
+                            <div class="s-search-btns">
+                              <button type="button" class="btn btn-write">쓰기</button>
+                              <button type="button" class="btn btn-del">삭제</button>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="gridTableArea">
+        <div class="table-top-info">
+          <div class="top-txt-inline">
+            <span class="txt-inline">검색결과 <strong>1,000</strong>건
+          </div>
+          <div class="sort-sel-area">
+            <select id="list_limit" class="default-select">
+              <option value="20" selected="selected">20개씩 보기</option>
+              <option value="30">30개씩 보기</option>
+              <option value="50">50개씩 보기</option>
+              <option value="100">100개씩 보기</option>
+              <option value="200">200개씩 보기</option>
+              <!-- 2023-02-17 EZP-7830 보기 옵션 추가 시작 -->
+              <option value="300">300개씩 보기</option>
+              <option value="500">500개씩 보기</option>
+              <!-- 2023-02-17 EZP-7830 보기 옵션 추가 끝 -->
+            </select>
+          </div>
+        </div>
+        <div class="tround-box">
+          <div class="tbl-round ">
+            <div class="tbl-info-area">
+              <div class="f-right">
+                <div class="dflex">
+                  <div class="btns-multi">
+                    <button type="button" name="button" class="btn btn-sm btn-outline-gray"><i
+                        class="ico ico-excel"></i>엑셀다운로드</button>
+                    <button type="button" name="button" class="btn btn-ico btn-outline-gray"><i
+                        class="ico ico-sort"></i>설정</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- 그리드 테이블-->
+            <div class="mGridTable td-height-60 tbl-height01">
+              <table id="eMultiTable" class="eChkColor">
+                <thead>
+                  <tr>
+                    <th scope="col" style="width:60px;" class="resizable">
+                      No
+                    </th>
+                    <th scope="col" style="width:100px;" class="resizable">
+                      주문구분
+                    </th>
+                    <th scope="col" style="width:100px;" class="resizable">
+                      유형
+                    </th>
+                    <th scope="col" style="width:200px;" class="resizable">
+                      주문번호(주문일시)
+                    </th>
+                    <th scope="col" style="width:348px;" class="resizable">
+                      품목정보
+                    </th>
+                    <th scope="col" style="width:92px;" class="resizable">
+                      주문수량
+                    </th>
+                    <th scope="col" style="width:92px;" class="resizable">
+                      입고수량
+                    </th>
+                    <th scope="col" style="width:139px;" class="resizable">
+                      주문금액 (취소금액)
+                    </th>
+                    <th scope="col" style="width:139px;" class="resizable">
+                      최종결제금액
+                    </th>
+                    <th scope="col" style="width:186px;" class="resizable">
+                      주문상태(최근 수정일)
+                    </th>
+                    <th scope="col" style="width:84px;" class="resizable">
+                      메모
+                    </th>
+                    <th scope="col" style="width:81px;">
+                      관리
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>7</td>
+                    <td>
+                      <span class="easy-pick-text">
+                        일반주문
+                      </span>
+                    </td>
+                    <td>
+                      <div class="easy-pick-case">
+                        <span class="failure">불량</span>
+                      </div>
+                    </td>
+                    <td>
+                      2022031600007965<br />
+                      (2022-03-16 15:52:02)
+                    </td>
+                    <td>
+                      <a href="../buy/failure-detail.html">
+                        <span class="txt-link">
+                          2타입 두줄 조거 트레이닝 바지미송
+                        </span>
+                      </a>
+                    </td>
+                    <td>39</td>
+                    <td>39</td>
+                    <td class="tar">
+                      11,000
+                    </td>
+                    <td class="tar">
+                      <strong>11,000</strong>
+                    </td>
+                    <td>
+                      <span class="easy-pick-text-step">
+                        접수완료
+                      </span>
+                      <br />
+                      (2022-04-18 15:07:14)
+                    </td>
+                    <td>
+                      <a href="#" onclick="targetModalPopup('modal-orderMemo-popup')">
+                        <i class="ico-easy-pick ico-memo-on"></i>
+                      </a>
+                    </td>
+                    <td>
+                      <button class="btn btn-btn btn-sm btn-outline-gray">불량취소</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>6</td>
+                    <td>
+                      <span class="easy-pick-text add-order">
+                        추가입고
+                      </span>
+                    </td>
+                    <td>
+                      <div class="easy-pick-case">
+                        <span class="failure">불량</span>
+                      </div>
+                    </td>
+                    <td>
+                      2022031600007965<br />
+                      (2022-03-16 15:52:02)
+                    </td>
+                    <td>
+                      <a href="../buy/failure-detail.html">
+                        <span class="txt-link">
+                          2타입 두줄 조거 트레이닝 바지미송
+                        </span>
+                      </a>
+                    </td>
+                    <td>39</td>
+                    <td>39</td>
+                    <td class="tar">
+                      11,000
+                    </td>
+                    <td class="tar">
+                      <strong>11,000</strong>
+                    </td>
+                    <!-- 2022-12-09 EZP-6764 td에 overflow-unset 추가 -->
+                    <td class="overflow-unset">
+                      <span class="easy-pick-text-step cancel-complete">
+                        취소완료
+                        <br />
+                        (2022-04-04 15:51:58)
+                      </span>
+                      <!-- 2022-12-09 EZP-6764 발주일변경 라벨 추가 -->
+                      <br/><span class="label order-data gray">발주일변경 취소</span>
+                    </td>
+                    <td>
+                      <!-- 2022 08 26 a링크 수정 -->
+                        <i class="ico-easy-pick ico-memo-off"></i>
+                    </td>
+                    <td>
+                      <button class="btn btn-btn btn-sm btn-outline-gray">불량취소</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>5</td>
+                    <td>
+                      <span class="easy-pick-text">
+                        일반주문
+                      </span>
+                    </td>
+                    <td>
+                      <div class="easy-pick-case">
+                        <span class="failure">불량</span>
+                      </div>
+                    </td>
+                    <td>
+                      2022031600007965<br />
+                      (2022-03-16 15:52:02)
+                    </td>
+                    <td>
+                      <a href="../buy/failure-detail.html">
+                        <span class="txt-link">[12/02 입고]</span><br>
+                        <span class="txt-link">예쁜티 상품 등 4개 품목</span>
+                      </a>
+                    </td>
+                    <td>39</td>
+                    <td>39</td>
+                    <td class="tar">
+                      220,000<br>
+                      (<span>220,000</span>)
+                    </td>
+                    <td class="tar">
+                      <strong>0</strong>
+                    </td>
+                    <!-- 2022-12-08 EZP-6764 td에 overflow-unset 추가 -->
+                    <td class="overflow-unset">
+                      <span class="easy-pick-text-step ">
+                        접수완료
+                        <br />
+                        (2022-04-04 15:51:58)
+                      </span>
+                      <!-- 2022-12-09 EZP-6764 발주일변경 라벨 추가 -->
+                      <br/><span class="label order-data">발주일 변경</span>
+                    </td>
+                    <td>
+                        <i class="ico-easy-pick ico-memo-off"></i>
+                    </td>
+                    <td>
+                      <button class="btn btn-btn btn-sm btn-outline-gray">불량취소</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>4</td>
+                    <td>
+                      <span class="easy-pick-text">
+                        바로주문
+                      </span>
+                    </td>
+                    <td>
+                      <div class="easy-pick-case">
+                        <span class="failure">불량</span>
+                      </div>
+                    </td>
+                    <td> 2022031600007965
+                      <br />
+                      (2022-03-16 15:52:02)
+                    </td>
+                    <td>
+                      <a href="../buy/failure-detail.html">
+                        <!-- 2022-12-20 EZP-7230 미송옵변경 case 추가 -->
+                        <span class="txt-link text-purple">미송 옵션변경 생성 주문</span><br>
+                        <span class="txt-link">
+                          2타입 두줄 조거 트레이닝 바지미송
+                        </span>
+                      </a>
+                    </td>
+                    <td>39</td>
+                    <td>39</td>
+                    <td class="tar">
+                      11,000
+                    </td>
+                    <td class="tar">
+                      <strong>11,000</strong>
+                    </td>
+                    <td>
+                      <span class="easy-pick-text-step">
+                        접수완료
+                      </span>
+                      <br />
+                      (2022-04-18 15:07:14)
+                    </td>
+                    <td>
+                        <i class="ico-easy-pick ico-memo-off"></i>
+                    </td>
+                    <td>
+                      <button class="btn btn-btn btn-sm btn-outline-gray">불량취소</button>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>3</td>
+                    <td>
+                      <span class="easy-pick-text add-order">
+                        추가입고
+                      </span>
+                    </td>
+                    <td>
+                      <div class="easy-pick-case">
+                        <span class="failure">불량</span>
+                      </div>
+                    </td>
+                    <td> 2022031600007965
+                      <br />
+                      (2022-03-16 15:52:02)
+                    </td>
+                    <td>
+                      <a href="../buy/failure-detail.html">
+                        <span class="txt-link">
+                          2타입 두줄 조거 트레이닝 바지미송
+                        </span>
+                      </a>
+                    </td>
+                    <td>39</td>
+                    <td>39</td>
+                    <td class="tar">
+                      220,000<br />
+                      (<span>220,000</span>)
+                    </td>
+                    <td class="tar">
+                      <strong>0</strong>
+                    </td>
+                    <td>
+                      <span class="easy-pick-text-step">
+                        접수완료
+                      </span>
+                      <br />
+                      (2022-04-18 15:07:14)
+                    </td>
+                    <td>
+                        <i class="ico-easy-pick ico-memo-off"></i>
+                    </td>
+                    <td>
+                      <button class="btn btn-btn btn-sm btn-outline-gray">불량취소</button>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>2</td>
+                    <td>
+                      <span class="easy-pick-text">
+                        일반주문
+                      </span>
+                    </td>
+                    <td>
+                      <div class="easy-pick-case">
+                        <span class="failure">불량</span>
+                      </div>
+                    </td>
+                    <td> 2022031600007965
+                      <br />
+                      (2022-03-16 15:52:02)
+                    </td>
+                    <td>
+                      <a href="../buy/failure-detail.html">
+                        <span class="txt-link">
+                          2타입 두줄 조거 트레이닝 바지미송
+                        </span>
+                      </a>
+                    </td>
+                    <td>39</td>
+                    <td>39</td>
+                    <td class="tar">
+                      11,000
+                    </td>
+                    <td class="tar">
+                      <strong>11,000</strong>
+                    </td>
+                    <td>
+                      <span class="easy-pick-text-step">
+                        접수완료
+                        <br />
+                        (2022-04-18 15:07:14)
+                      </span>
+                    </td>
+                    <td>
+                        <i class="ico-easy-pick ico-memo-off"></i>
+                    </td>
+                    <td>
+                      <button class="btn btn-btn btn-sm btn-outline-gray">불량취소</button>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>1</td>
+                    <td>
+                      <span class="easy-pick-text">
+                        일반주문
+                      </span>
+                    </td>
+                    <td>
+                      <div class="easy-pick-case">
+                        <span class="failure">불량</span>
+                      </div>
+                    </td>
+                    <td> 2022031600007965
+                      <br />
+                      (2022-03-16 15:52:02)
+                    </td>
+                    <td>
+                      <a href="../buy/failure-detail.html">
+                        <span class="txt-link">
+                          2타입 두줄 조거 트레이닝 바지미송
+                        </span>
+                      </a>
+                    </td>
+                    <td>39</td>
+                    <td>39</td>
+                    <td class="tar">
+                      11,000
+                    </td>
+                    <td class="tar">
+                      <strong>11,000</strong>
+                    </td>
+                    <td>
+                      <span class="easy-pick-text-step">
+                        접수완료
+                      </span>
+                      <br />
+                      (2022-04-18 15:07:14)
+                    </td>
+                    <td>
+                        <i class="ico-easy-pick ico-memo-off"></i>
+                    </td>
+                    <td>
+                      <button class="btn btn-btn btn-sm btn-outline-gray">불량취소</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <!-- //그리드 테이블-->
+        </div>
+        {% include("../_templates/default/pagination.njk") %}
+      </div>
+
+      <!-- 데이터 없을시 -->
+      <div class="gridTableArea">
+        <div class="table-top-info">
+          <div class="top-txt-inline">
+            <span class="txt-inline">검색결과 <strong>1,000</strong>건
+          </div>
+          <div class="sort-sel-area">
+            <select id="list_limit" class="default-select">
+              <option value="20" selected="selected">20개씩 보기</option>
+              <option value="30">30개씩 보기</option>
+              <option value="50">50개씩 보기</option>
+              <option value="100">100개씩 보기</option>
+              <option value="200">200개씩 보기</option>
+              <!-- 2023-02-17 EZP-7830 보기 옵션 추가 시작 -->
+              <option value="300">300개씩 보기</option>
+              <option value="500">500개씩 보기</option>
+              <!-- 2023-02-17 EZP-7830 보기 옵션 추가 끝 -->
+            </select>
+          </div>
+        </div>
+        <div class="tround-box">
+          <div class="tbl-round ">
+            <div class="tbl-info-area">
+              <div class="f-right">
+                <div class="dflex">
+                  <div class="btns-multi">
+                    <button type="button" name="button" class="btn btn-sm btn-outline-gray"><i
+                        class="ico ico-excel"></i>엑셀다운로드</button>
+                    <button type="button" name="button" class="btn btn-ico btn-outline-gray"><i
+                        class="ico ico-sort"></i>설정</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- 그리드 테이블-->
+            <div class="mGridTable td-height-60 tbl-height01">
+              <table id="eMultiTable1" class="eChkColor">
+                <thead>
+                  <tr>
+                    <th scope="col" style="width:60px;" class="resizable">
+                      No
+                    </th>
+                    <th scope="col" style="width:100px;" class="resizable">
+                      주문구분
+                    </th>
+                    <th scope="col" style="width:100px;" class="resizable">
+                      유형
+                    </th>
+                    <th scope="col" style="width:200px;" class="resizable">
+                      주문번호(주문일시)
+                    </th>
+                    <th scope="col" style="width:348px;" class="resizable">
+                      품목정보
+                    </th>
+                    <th scope="col" style="width:92x;" class="resizable">
+                      주문수량
+                    </th>
+                    <th scope="col" style="width:92x;" class="resizable">
+                      입고수량
+                    </th>
+                    <th scope="col" style="width:139px;" class="resizable">
+                      주문금액 (취소금액)
+                    </th>
+                    <th scope="col" style="width:139px;" class="resizable">
+                      최종결제금액
+                    </th>
+                    <th scope="col" style="width:186px;" class="resizable">
+                      주문상태(최근 수정일)
+                    </th>
+                    <th scope="col" style="width:84px;" class="resizable">
+                      메모
+                    </th>
+                    <th scope="col" style="width:81px;">
+                      관리
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="tr-empty">
+                    <td>
+                      <div class="txt">
+                        <i><img src="../assets/images/guide-ico.png" alt="guide-icon"></i>
+                        <span>검색 결과가 없습니다.</span>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <!-- //그리드 테이블-->
+        </div>
+        {% include("../_templates/default/pagination.njk") %}
+      </div>
+
+    </div>
+    <!-- //content -->
+  </div>
+  <!-- container -->
+</div>
+
+<script>
+  $(document).ready(function () {
+    $('#eMultiTable').fixResize({
+      colResize: true,
+      resizeVer: 'flex'
+    });
+
+    // 데이터 없을시 새로운 테이블
+    $('#eMultiTable1').fixResize({
+      colResize: true,
+      resizeVer: 'flex'
+    });
+
+    // 검색결과 없을때 tr 높이 조절
+    const emptyTh = $('.tr-empty').parents('table').find('thead tr th').length;
+    const emptyMt = $('.tr-empty').parents('table').css('margin-top').replace('-', '');
+    const emptyMg = emptyMt.replace('px', '');
+    $('.tr-empty td').attr('colspan', emptyTh);
+    $('.tr-empty').parents('table').css('height', `calc(100% + ${emptyMg}px)`);
+  });
+</script>
+
+<!-- 메모 작성 -->
+{% include("./modals/memo/modal-memo.njk") %}
+
+{% endblock %}

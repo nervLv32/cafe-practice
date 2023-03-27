@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko" class="js">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="format-detection" content="telephone=no">
+	<meta content="7GTEAaj9OHm/B6t8WELAc+6jTv9Fwyjj4nGViJpKFoc=" name="csrf-token">
+	<meta content="T" name="login-required">
+	<link rel="shortcut icon" type="image/x-icon" href="/img/favicon/ezp.ico">
+	<link rel="stylesheet" type="text/css" href="../../css/default.css">
+	<link rel="stylesheet" type="text/css" href="../../css/month.picker.css">
+	<link rel="stylesheet" type="text/css" href="../../../css/OverlayScrollbars.css"><!-- 2022-02-18 EZP-5022 -->
+
+	<title>이지픽PC 팝업</title>
+</head>
+
+<style>
+	.easypick_popup_wrap {
+		width: 100%;
+	}
+	.easypick_popup_wrap .menu {
+		max-width: 300px;
+		margin: auto;
+		max-height: calc(100vh - 300px);
+		overflow-y: auto;
+	}
+	.easypick_popup_wrap .menu button {
+		width: 100%;
+		text-align: left;
+		border: 1px solid #dddddd;
+		background-color: #fff;
+		border-radius: 3px;
+		font-size: 15px;
+		padding: 8px 0 8px 20px;
+		margin-bottom: 5px;
+	}
+	.easypick_popup_wrap .menu button span {
+		font-size: 13px;
+		padding-left: 5px;
+		color: #666;
+	}
+	.easypick_popup_wrap .menu button.active {
+		background-color: #36c25d;
+		color: #ffffff;
+	}
+</style>
+
+<body>
+	<div class="easypick_popup_wrap">
+		<div class="menu">
+			<button type="button" class="ui-popup-open" data-target="#orderType">주문타입 안내<span>#orderType</span></button>
+			<button type="button" class="ui-popup-open" data-target="#pop_shop_price">가게별 금액확인<span>#pop_shop_price</span></button>
+			<button type="button" class="ui-popup-open" data-target="#pop_shop_price_2">가게별 금액확인_2<span>#pop_shop_price_2</span></button>
+			<button type="button" class="ui-popup-open" data-target="#shopInfo">가게정보</button>
+			<button type="button" class="ui-popup-open" data-target="layer_find_id">아이디 찾기 step1</button>
+		</div>
+	</div>
+
+	<article></article>
+
+	<!-- 21-01-18 수정-->
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script src="../../js/jquery-ui.min.js"></script>
+	<script src="../../js/swiper-ie9.min.js"></script>
+	<script src="../../js/default.input.js"></script><!-- 2022-10-04 -->
+	<script src="../../js/addclear.min.js"></script>
+	<script src="../../js/common.front.js"></script>
+	<script src="../../js/ui.js"></script>
+	<script src="../../js/pub.js"></script>
+	<script src="../../js/jquery.scrollbar.min.js"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function () {
+			$("article").load("popup.html");
+			
+			$('.easypick_popup_wrap .menu button').on('click', function () {
+				$('.easypick_popup_wrap .menu button').removeClass('active');
+				$(this).addClass('active');
+			});
+		});
+	</script>
+
+	<div class="ui-load" style="display:none"><img src="https://www.easypick.co.kr/img/common/loading.svg"></div>
+</body>
+
+</html>

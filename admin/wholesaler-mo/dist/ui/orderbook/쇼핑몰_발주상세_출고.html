@@ -1,0 +1,1501 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="format-detection" content="telephone=yes">
+	<link rel="stylesheet" href="../../css/orderbook.css">
+
+	<script src="../../js/libs/jquery.min.js"></script>
+	<script src="../../js/libs/jquery-ui.min.js"></script>
+	<script src="../../js/libs/addclear.min.js"></script>
+	<script src="../../js/common_front.js"></script>
+	<script src="../../js/ui.js"></script>
+	<script src="../../js/pub.js"></script>
+
+	<title>쇼핑몰 발주상세</title>
+</head>
+
+<body>
+	<!-- header// -->
+	<!-- 2021-12-06 EZP-4758 header 구조 변경 -->
+	<header><!-- 추가발주서 <header class="add"> -->
+		<button type="button" name="button" id="back" class="btn-back"><img src="../../img/orderbook/btn-back.png" alt="뒤로"></button>
+		<h1>
+			<span class="header-title">발주상세</span>
+		</h1>
+		<span class="logo"><img src="../../img/orderbook/logo.png" alt="EASYPICK"></span>
+	</header>
+	<!-- //header -->
+
+	<!--container// -->
+	<div id="container">
+		<div class="list-all">
+			<!-- 2022-09-27 EZP-5694 lable 추가 -->
+			<div class="title label-width">
+				<span class="badge-ship type1">직</span>
+				<span class="badge-ship type2">택</span>
+				<div class="right-tit-box">
+				  <p>
+					<span class="header-title txt-line">메이크라이트메이크라이트메이크라이트메이크라이트</span>
+					<em class="badge-reserve">미송안함</em>
+					<span class="badge-direct">직접결제</span> <!--2022-08-23 EZP-5694 "직접결제" 라벨 추가-->
+				  </p>
+				</div>
+			</div>
+			<!-- 2020-08-28 EZP-1169 -->
+			<div class="manager-wrap">
+				<div class="left">
+					<span>입금담당자</span>
+					<a href='tel:010-1234-1234'>신해민</a>
+				</div>
+				<div class="right">
+					<span>담당 삼촌</span>
+					<a href='tel:010-1234-1234'>최현태</a>
+				</div>
+			</div>
+
+			<div class="order-info-wrap">
+				<h2>정기발주</h2>
+				<div class="order-info">
+					<span class="left ex">
+						발주일 :
+						<em>2020-12-11 21:05:19</em>
+					</span>
+					<span class="right">
+						총 매입잔액
+						<em>100,234</em>
+						<i>원</i>
+					</span>
+				</div>
+				<ul class="order-info-box">
+					<li>
+						<span>총 발주금액</span>
+						<em>20,800,000</em><i>원</i>
+					</li>
+					<li>
+						<span>총 출고금액</span>
+						<em>20,800,000</em><i>원</i>
+					</li>
+					<li>
+						<span>총 발주수량</span>
+						<em>1,234</em><i>개</i>
+					</li>
+					<li>
+						<span>총 출고수량</span>
+						<em>10</em><i>개</i>
+					</li>
+				</ul>
+				<ul class="notice-list">
+					<li>
+						<span class="ico-type green">미송</span>
+						<span class="ico-type">불량</span>
+						<span class="ico-type line2 yellow">샘플<br>반납</span>
+						<span class="ico-type green">제작미송</span> 은 추가주문이 아닙니다. 출고, 교환, 반품 처리요청입니다.
+					</li>
+					<li>ㆍ쇼핑몰별 발주서에서 출고정보를 입력할 수 있습니다.</li>
+					<li class="last">ㆍ총 매입잔액 합계는 실시간으로 업데이트한 금액입니다.</li>
+				</ul>
+				<div class="btn-wrap">
+					<button type="button" name="button" class="btn btn-out point w100">출고 ON</button>
+				</div>
+			</div>
+		</div>
+		
+		<!-- 2020-06-10 EZP-761 종료 -->
+		<!-- 2021-01-15 EZP-2087 시작 -->
+		<div class="select-wrap">
+			<div class="ico-tip-wrap">
+				<button type="button" class="btn-tip">?</button>
+				<div class="tip">
+					<div class="txt">
+						<strong class="title">전량출고 도움말</strong>
+						<p>
+							출고수량을 주문수량과 동일하게 설정할 수 있는 기능입니다.
+						</p>
+						<ul class="dot-list">
+							<li>
+								주문유형을 미선택 후 '적용'버튼 클릭 시, 전체 유형에 대해 전량출고 처리가 됩니다.
+							</li>
+							<li>
+								이미 출고 처리한 건은 적용되지 않습니다.
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<!-- 2021-06-04 -->
+			<div class="all-in">
+				<button class="sort-btn">유형 전량출고</button>
+				<div class="layer-select-list">
+					<ul>
+						<li><button type="button">불량</button></li>
+						<li><button type="button">신규</button></li>
+						<li><button type="button">샘플</button></li>
+						<li><button type="button">미송</button></li>
+						<!-- 2020-07-31	EZP-779 -->
+						<li><button type="button">제작신규</button></li>
+						<li><button type="button">제작미송</button></li>
+					</ul>
+					<button type="button" class="apply ui-popup-open" data-target="#popup5">적용</button>
+				</div>
+			</div>
+
+		</div>
+		<!-- 2021-01-15 EZP-2087 종료 -->
+		<div class="order-list">
+			<!-- 2021-07-21 EZP-3515 -->
+			<ul class="list-item">
+				<li class="list-item-tit">
+					<span class="ico-type big blue">신규</span>
+					<strong>멜로우블라우스</strong>
+				</li>
+				<li>
+					<div class="left">
+						<span class="option">
+							Dark Dark Blue Blue (다크다크블루블루) - 모델착용컬러-Free(44-66)
+						</span>
+						<div class="place tip-wrap">
+							<span class="evt-tag">14,000<i>원</i></span>
+							<button class="c-red">**</button>
+							<button class="img-type">이미지</button>
+
+							<div class="tip-cont">
+								<!-- 2020-12-14 EZP-1894 -->
+								<p>쇼핑몰상품명</p>
+							</div>
+						</div>
+						<ul class="txt">
+							<li>ㆍ후드기모티셔츠 미송 잡아주세요. 후드기모 티셔츠 미송 잡아주세요.</li>
+						</ul>
+					</div>
+
+					<div class="right">
+						<span class="count">
+							<span class="txt-line">20<i>개</i></span><!-- 2021-12-15 EZP-4620 -->
+						</span>
+						<span style="color: green; font-size: 12px;">미송잡아주세요</span>
+						<span class="date"></span>
+					</div>
+				</li>
+				<li>
+					<div class="left">
+						<span class="option">
+							Dark Dark Blue Blue (다크다크블루블루) - 모델착용컬러-Free(44-66)
+						</span>
+						<div class="place tip-wrap">
+							<span class="evt-tag reconfirm"><em>15,000원</em> 14,000<i>원</i></span>
+							<button class="c-red">**</button>
+							<button class="img-type">이미지</button>
+
+							<div class="tip-cont">
+								<!-- 2020-12-14 EZP-1894 -->
+								<p>쇼핑몰상품명</p>
+							</div>
+						</div>
+						<ul class="txt">
+							<li>ㆍ후드기모티셔츠 미송 잡아주세요. 후드기모 티셔츠 미송 잡아주세요.</li>
+						</ul>
+					</div>
+
+					<div class="right">
+						<span class="count ui-popup-open" data-target="#popup2">
+							<em class="reconfirm">0</em><em class="soldout">1</em> /
+							<span class="txt-line">120<i>개</i></span><!-- 2021-12-15 EZP-4620 -->
+						</span>
+						<span class="date">
+							<!-- 2020-07-14 EZP-811-B -->
+							<em>입력필요</em>
+						</span>
+
+						<div class="tip-wrap">
+							<button class="ico-memo evt-tag">메모</button>
+							<div class="tip-cont">
+								<!-- 2020-12-14 EZP-1894 -->
+								<p>사입삼촌이 입력한 메모입니다.</p>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="left">
+						<span class="option">
+							Dark Dark Blue Blue (다크다크블루블루) - 모델착용컬러-Free(44-66)
+						</span>
+						<div class="place tip-wrap">
+							<span class="evt-tag">14,000<i>원</i></span>
+							<button class="c-red">**</button>
+							<button class="img-type">이미지</button>
+
+							<div class="tip-cont">
+								<!-- 2020-12-14 EZP-1894 -->
+								<p>쇼핑몰상품명</p>
+							</div>
+						</div>
+						<ul class="txt">
+							<li>ㆍ후드기모티셔츠 미송 잡아주세요. 후드기모 티셔츠 미송 잡아주세요.</li>
+						</ul>
+					</div>
+
+					<div class="right">
+						<span class="count ui-popup-open" data-target="#popup2">
+							<em>120</em> /
+							<span>120<i>개</i></span><!-- 2021-12-15 EZP-4620 -->
+						</span>
+						<span class="date">
+							11/28(목)<br>
+							[첫] 12/10
+						</span>
+
+						<div class="tip-wrap">
+							<button class="ico-memo evt-tag">메모</button>
+							<div class="tip-cont">
+								<!-- 2020-12-14 EZP-1894 -->
+								<p>사입삼촌이 입력한 메모입니다.</p>
+							</div>
+						</div>
+					</div>
+				</li>
+			</ul>
+			<!-- 2021-07-21 EZP-3515 -->
+			<ul class="list-item red">
+				<li class="list-item-tit">
+					<span class="ico-type big">불량</span>
+					<strong>멜로우블라우스</strong>
+				</li>
+				<li>
+					<div class="left">
+						<span class="option">
+							Dark Dark Blue Blue (다크다크블루블루) - 모델착용컬러-Free(44-66)
+						</span>
+						<div class="place tip-wrap">
+							<span class="evt-tag">14,000<i>원</i></span>
+							<button class="c-red">**</button>
+							<button class="img-type">이미지</button>
+
+							<div class="tip-cont">
+								<!-- 2020-12-14 EZP-1894 -->
+								<p>쇼핑몰상품명</p>
+							</div>
+						</div>
+						<ul class="txt">
+							<li>ㆍ후드기모티셔츠 미송 잡아주세요. 후드기모 티셔츠 미송 잡아주세요.</li>
+						</ul>
+					</div>
+
+					<div class="right">
+						<span class="count ui-popup-open" data-target="#popup2">
+							<em>120</em> /
+							<span>120<i>개</i></span>
+						</span>
+						<span class="date">
+							11/28(목)<br>
+							[첫] 12/10
+						</span>
+
+						<div class="tip-wrap">
+							<button class="ico-memo evt-tag">메모</button>
+							<div class="tip-cont">
+								<!-- 2020-12-14 EZP-1894 -->
+								<p>사입삼촌이 입력한 메모입니다.</p>
+							</div>
+						</div>
+					</div>
+				</li>
+			</ul>
+			<!-- 2020-08-12 EZP-798  -->
+			<div class="in-detail">
+				<div class="put-title ui-popup-open" data-target="#popup4">
+					<span class="title"><span class="t_label green">미송 1</span><span class="t_label blue">신규 1</span></span>
+					<em class="cnt">1,500</em>
+				</div>
+				<!-- 2021-07-21 EZP-3515 -->
+				<ul class="list-item">
+					<li class="list-item-tit">
+						<span class="ico-type big green">미송</span>
+						<strong>멜로우블라우스</strong>
+					</li>
+					<li>
+						<div class="left">
+							<span class="option">
+								Dark Dark Blue Blue (다크다크블루블루) - 모델착용컬러-Free(44-66)
+							</span>
+							<div class="place tip-wrap">
+								<span class="evt-tag">14,000<i>원</i></span>
+								<button class="c-red">**</button>
+								<button class="img-type">이미지</button>
+
+								<div class="tip-cont">
+									<!-- 2020-12-14 EZP-1894 -->
+									<p>쇼핑몰상품명</p>
+								</div>
+							</div>
+							<ul class="txt">
+								<li>ㆍ후드기모티셔츠 미송 잡아주세요. 후드기모 티셔츠 미송 잡아주세요.</li>
+							</ul>
+						</div>
+
+						<div class="right">
+							<span class="count ui-popup-open" data-target="#popup2">
+								<em>120</em> /
+								<span>120<i>개</i></span>
+							</span>
+							<span class="date">
+								11/28(목)<br>
+								[첫] 12/10
+							</span>
+
+							<div class="tip-wrap">
+								<button class="ico-memo evt-tag">메모</button>
+								<div class="tip-cont">
+									<!-- 2020-12-14 EZP-1894 -->
+									<p>사입삼촌이 입력한 메모입니다.</p>
+								</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+				<!-- 2021-07-21 EZP-3515 -->
+				<ul class="list-item">
+					<li class="list-item-tit">
+						<span class="ico-type big blue">신규</span>
+						<strong>멜로우블라우스</strong>
+					</li>
+					<li>
+						<div class="left">
+							<span class="option">
+								Dark Dark Blue Blue (다크다크블루블루) - 모델착용컬러-Free(44-66)
+							</span>
+							<div class="place tip-wrap">
+								<span class="evt-tag">14,000<i>원</i></span>
+								<button class="c-red">**</button>
+								<button class="img-type">이미지</button>
+
+								<div class="tip-cont">
+									<!-- 2020-12-14 EZP-1894 -->
+									<p>쇼핑몰상품명</p>
+								</div>
+							</div>
+							<ul class="txt">
+								<li>ㆍ후드기모티셔츠 미송 잡아주세요. 후드기모 티셔츠 미송 잡아주세요.</li>
+							</ul>
+						</div>
+
+						<div class="right">
+							<span class="count ui-popup-open" data-target="#popup2">
+								<em class="soldout">0</em> /
+								<span>120<i>개</i></span>
+							</span>
+							<span class="date">
+								<!-- 2020-07-14 EZP-811-B -->
+								<em>입력필요</em>
+							</span>
+
+							<div class="tip-wrap">
+								<button class="ico-memo evt-tag">메모</button>
+								<div class="tip-cont">
+									<!-- 2020-12-14 EZP-1894 -->
+									<p>사입삼촌이 입력한 메모입니다.</p>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="left">
+							<span class="option">
+								Dark Dark Blue Blue (다크다크블루블루) - 모델착용컬러-Free(44-66)
+							</span>
+							<div class="place tip-wrap">
+								<span class="evt-tag">14,000<i>원</i></span>
+								<button class="c-red">**</button>
+								<button class="img-type">이미지</button>
+
+								<div class="tip-cont">
+									<!-- 2020-12-14 EZP-1894 -->
+									<p>쇼핑몰상품명</p>
+								</div>
+							</div>
+							<ul class="txt">
+								<li>ㆍ후드기모티셔츠 미송 잡아주세요. 후드기모 티셔츠 미송 잡아주세요.</li>
+							</ul>
+						</div>
+
+						<div class="right">
+							<span class="count ui-popup-open" data-target="#popup2">
+								<em>120</em> /
+								<span>120<i>개</i></span>
+							</span>
+							<span class="date">
+								11/28(목)<br>
+								[첫] 12/10
+							</span>
+
+							<div class="tip-wrap">
+								<button class="ico-memo evt-tag">메모</button>
+								<div class="tip-cont">
+									<!-- 2020-12-14 EZP-1894 -->
+									<p>사입삼촌이 입력한 메모입니다.</p>
+								</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="in-detail">
+				<div class="put-title ui-popup-open" data-target="#popup4">
+					<span class="title"><span class="t_label green">미송 2</span></span>
+					<em class="cnt">1,500</em>
+				</div>
+				<!-- 2021-07-21 EZP-3515 -->
+				<ul class="list-item">
+					<li class="list-item-tit">
+						<span class="ico-type big green">미송</span>
+						<strong>멜로우블라우스</strong>
+					</li>
+					<li>
+						<div class="left">
+							<span class="option">
+								Dark Dark Blue Blue (다크다크블루블루) - 모델착용컬러-Free(44-66)
+							</span>
+							<div class="place tip-wrap">
+								<span class="evt-tag">14,000<i>원</i></span>
+								<button class="c-red">**</button>
+								<button class="img-type">이미지</button>
+
+								<div class="tip-cont">
+									<!-- 2020-12-14 EZP-1894 -->
+									<p>쇼핑몰상품명</p>
+								</div>
+							</div>
+							<ul class="txt">
+								<li>ㆍ후드기모티셔츠 미송 잡아주세요. 후드기모 티셔츠 미송 잡아주세요.</li>
+							</ul>
+						</div>
+
+						<div class="right">
+							<span class="count ui-popup-open" data-target="#popup2">
+								<em>120</em> /
+								<span>120<i>개</i></span>
+							</span>
+							<span class="date">
+								11/28(목)<br>
+								[첫] 12/10
+							</span>
+
+							<div class="tip-wrap">
+								<button class="ico-memo evt-tag">메모</button>
+								<div class="tip-cont">
+									<!-- 2020-12-14 EZP-1894 -->
+									<p>사입삼촌이 입력한 메모입니다.</p>
+								</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+				<!-- 2021-07-21 EZP-3515 -->
+				<ul class="list-item">
+					<li class="list-item-tit">
+						<span class="ico-type big green">미송</span>
+						<strong>멜로우블라우스</strong>
+					</li>
+					<li>
+						<div class="left">
+							<span class="option">
+								Dark Dark Blue Blue (다크다크블루블루) - 모델착용컬러-Free(44-66)
+							</span>
+							<div class="place tip-wrap">
+								<span class="evt-tag">14,000<i>원</i></span>
+								<button class="c-red">**</button>
+								<button class="img-type">이미지</button>
+
+								<div class="tip-cont">
+									<!-- 2020-12-14 EZP-1894 -->
+									<p>쇼핑몰상품명</p>
+								</div>
+							</div>
+							<ul class="txt">
+								<li>ㆍ후드기모티셔츠 미송 잡아주세요. 후드기모 티셔츠 미송 잡아주세요.</li>
+							</ul>
+						</div>
+
+						<div class="right">
+							<span class="count ui-popup-open" data-target="#popup2">
+								<em>120</em> /
+								<span>120<i>개</i></span>
+							</span>
+							<span class="date">
+								11/28(목)<br>
+								[첫] 12/10
+							</span>
+
+							<div class="tip-wrap">
+								<button class="ico-memo evt-tag">메모</button>
+								<div class="tip-cont">
+									<!-- 2020-12-14 EZP-1894 -->
+									<p>사입삼촌이 입력한 메모입니다.</p>
+								</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="in-detail">
+				<div class="put-title ui-popup-open" data-target="#popup4">
+					<span class="title"><span class="t_label blue">신규 2</span></span>
+					<em class="cnt">1,500</em>
+				</div>
+				<!-- 2021-07-21 EZP-3515 -->
+				<ul class="list-item">
+					<li class="list-item-tit">
+						<span class="ico-type big blue">신규</span>
+						<strong>멜로우블라우스</strong>
+					</li>
+					<li>
+						<div class="left">
+							<span class="option">
+								Dark Dark Blue Blue (다크다크블루블루) - 모델착용컬러-Free(44-66)
+							</span>
+							<div class="place tip-wrap">
+								<span class="evt-tag">14,000<i>원</i></span>
+								<button class="c-red">**</button>
+								<button class="img-type">이미지</button>
+
+								<div class="tip-cont">
+									<!-- 2020-12-14 EZP-1894 -->
+									<p>쇼핑몰상품명</p>
+								</div>
+							</div>
+							<ul class="txt">
+								<li>ㆍ후드기모티셔츠 미송 잡아주세요. 후드기모 티셔츠 미송 잡아주세요.</li>
+							</ul>
+						</div>
+
+						<div class="right">
+							<span class="count ui-popup-open" data-target="#popup2">
+								<em class="soldout">0</em> /
+								<span>120<i>개</i></span>
+							</span>
+							<span class="date">
+								<!-- 2020-07-14 EZP-811-B -->
+								<em>입력필요</em>
+							</span>
+
+							<div class="tip-wrap">
+								<button class="ico-memo evt-tag">메모</button>
+								<div class="tip-cont">
+									<!-- 2020-12-14 EZP-1894 -->
+									<p>사입삼촌이 입력한 메모입니다.</p>
+								</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+				<!-- 2021-07-21 EZP-3515 -->
+				<ul class="list-item">
+					<li class="list-item-tit">
+						<span class="ico-type big blue">신규</span>
+						<strong>멜로우블라우스</strong>
+					</li>
+					<li>
+						<div class="left">
+							<span class="option">
+								Dark Dark Blue Blue (다크다크블루블루) - 모델착용컬러-Free(44-66)
+							</span>
+							<div class="place tip-wrap">
+								<span class="evt-tag">14,000<i>원</i></span>
+								<button class="c-red">**</button>
+								<button class="img-type">이미지</button>
+
+								<div class="tip-cont">
+									<!-- 2020-12-14 EZP-1894 -->
+									<p>쇼핑몰상품명</p>
+								</div>
+							</div>
+							<ul class="txt">
+								<li>ㆍ후드기모티셔츠 미송 잡아주세요. 후드기모 티셔츠 미송 잡아주세요.</li>
+							</ul>
+						</div>
+
+						<div class="right">
+							<span class="count ui-popup-open" data-target="#popup2">
+								<em class="soldout">0</em> /
+								<span>120<i>개</i></span>
+							</span>
+							<span class="date">
+								<!-- 2020-07-14 EZP-811-B -->
+								<em>입력필요</em>
+							</span>
+
+							<div class="tip-wrap">
+								<button class="ico-memo evt-tag">메모</button>
+								<div class="tip-cont">
+									<!-- 2020-12-14 EZP-1894 -->
+									<p>사입삼촌이 입력한 메모입니다.</p>
+								</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<!-- //2020-08-12 EZP-798  -->
+			<!-- 2021-07-21 EZP-3515 -->
+			<ul class="list-item">
+				<li class="list-item-tit">
+					<span class="ico-type big green">미송</span>
+					<strong>멜로우블라우스</strong>
+				</li>
+				<li>
+					<div class="left">
+						<span class="option">
+							Dark Dark Blue Blue (다크다크블루블루) - 모델착용컬러-Free(44-66)
+						</span>
+						<div class="place tip-wrap">
+							<span class="evt-tag">14,000<i>원</i></span>
+							<button class="c-red">**</button>
+							<button class="img-type">이미지</button>
+
+							<div class="tip-cont">
+								<!-- 2020-12-14 EZP-1894 -->
+								<p>쇼핑몰상품명</p>
+							</div>
+						</div>
+						<ul class="txt">
+							<li>ㆍ후드기모티셔츠 미송 잡아주세요. 후드기모 티셔츠 미송 잡아주세요.</li>
+						</ul>
+					</div>
+
+					<div class="right">
+						<span class="count ui-popup-open" data-target="#popup2">
+							<em>120</em> /
+							<span>120<i>개</i></span>
+						</span>
+						<span class="date">
+							11/28(목)<br>
+							[첫] 12/10
+						</span>
+
+						<div class="tip-wrap">
+							<button class="ico-memo evt-tag">메모</button>
+							<div class="tip-cont">
+								<!-- 2020-12-14 EZP-1894 -->
+								<p>사입삼촌이 입력한 메모입니다.</p>
+							</div>
+						</div>
+					</div>
+				</li>
+			</ul>
+
+			<!-- 2021-07-21 EZP-3515 -->
+			<ul class="list-item red">
+				<li class="list-item-tit">
+					<span class="ico-type big">불량</span>
+					<strong>멜로우블라우스</strong>
+				</li>
+				<li>
+					<div class="left">
+						<span class="option">
+							Dark Dark Blue Blue (다크다크블루블루) - 모델착용컬러-Free(44-66)
+						</span>
+						<div class="place tip-wrap">
+							<span class="evt-tag">14,000<i>원</i></span>
+							<button class="c-red">**</button>
+							<button class="img-type">이미지</button>
+
+							<div class="tip-cont">
+								<!-- 2020-12-14 EZP-1894 -->
+								<p>쇼핑몰상품명</p>
+							</div>
+						</div>
+						<ul class="txt">
+							<li>ㆍ후드기모티셔츠 미송 잡아주세요. 후드기모 티셔츠 미송 잡아주세요.</li>
+						</ul>
+					</div>
+
+					<div class="right">
+						<span class="count ui-popup-open" data-target="#popup2">
+							<em>120</em> /
+							<span>120<i>개</i></span>
+						</span>
+						<span class="date">
+							11/28(목)<br>
+							[첫] 12/10
+						</span>
+
+						<div class="tip-wrap">
+							<button class="ico-memo evt-tag">메모</button>
+							<div class="tip-cont">
+								<!-- 2020-12-14 EZP-1894 -->
+								<p>사입삼촌이 입력한 메모입니다.</p>
+							</div>
+						</div>
+					</div>
+				</li>
+			</ul>
+
+			<!-- 2021-07-21 EZP-3515 -->
+			<ul class="list-item">
+				<li class="list-item-tit">
+					<span class="ico-type line2 big purple">샘플<br>요청</span>
+					<strong>멜로우블라우스</strong>
+				</li>
+				<li>
+					<div class="left">
+						<span class="option">
+							Dark Dark Blue Blue (다크다크블루블루) - 모델착용컬러-Free(44-66)
+						</span>
+						<div class="place tip-wrap">
+							<span class="evt-tag">14,000<i>원</i></span>
+							<button class="c-red">**</button>
+							<button class="img-type">이미지</button>
+
+							<div class="tip-cont">
+								<!-- 2020-12-14 EZP-1894 -->
+								<p>쇼핑몰상품명</p>
+							</div>
+						</div>
+						<ul class="txt">
+							<li>ㆍ후드기모티셔츠 미송 잡아주세요. 후드기모 티셔츠 미송 잡아주세요.</li>
+						</ul>
+					</div>
+
+					<div class="right">
+						<span class="count ui-popup-open" data-target="#popup2">
+							<em>120</em> /
+							<span>120<i>개</i></span>
+						</span>
+						<span class="date">
+							11/28(목)<br>
+							[첫] 12/10
+						</span>
+
+						<div class="tip-wrap">
+							<button class="ico-memo evt-tag">메모</button>
+							<div class="tip-cont">
+								<!-- 2020-12-14 EZP-1894 -->
+								<p>쇼핑몰상품명</p>
+							</div>
+						</div>
+					</div>
+				</li>
+			</ul>
+			<ul class="list-item">
+				<li class="list-item-tit">
+					<span class="ico-type line2 big purple">유료<br>샘플</span>
+					<strong>멜로우블라우스</strong>
+				</li>
+				<li>
+					<div class="left">
+						<span class="option">
+							Dark Dark Blue Blue (다크다크블루블루) - 모델착용컬러-Free(44-66)
+						</span>
+						<div class="place tip-wrap">
+							<span class="evt-tag">14,000<i>원</i></span>
+							<button class="c-red">**</button>
+							<button class="img-type">이미지</button>
+
+							<div class="tip-cont">
+								<!-- 2020-12-14 EZP-1894 -->
+								<p>쇼핑몰상품명</p>
+							</div>
+						</div>
+						<ul class="txt">
+							<li>ㆍ후드기모티셔츠 미송 잡아주세요. 후드기모 티셔츠 미송 잡아주세요.</li>
+						</ul>
+					</div>
+
+					<div class="right">
+						<span class="count ui-popup-open" data-target="#popup2">
+							<em>120</em> /
+							<span>120<i>개</i></span>
+						</span>
+						<span class="date">
+							11/28(목)<br>
+							[첫] 12/10
+						</span>
+
+						<div class="tip-wrap">
+							<button class="ico-memo evt-tag">메모</button>
+							<div class="tip-cont">
+								<!-- 2020-12-14 EZP-1894 -->
+								<p>쇼핑몰상품명</p>
+							</div>
+						</div>
+					</div>
+				</li>
+			</ul>
+			<!-- 2021-07-21 EZP-3515 -->
+			<ul class="list-item">
+				<li class="list-item-tit">
+					<span class="ico-type line2 big yellow">샘플<br>반납</span>
+					<strong>멜로우블라우스</strong>
+				</li>
+				<li>
+					<div class="left">
+						<span class="option">
+							Dark Dark Blue Blue (다크다크블루블루) - 모델착용컬러-Free(44-66)
+						</span>
+						<div class="place tip-wrap">
+							<span class="evt-tag">14,000<i>원</i></span>
+							<button class="c-red">**</button>
+							<button class="img-type">이미지</button>
+
+							<div class="tip-cont">
+								<!-- 2020-12-14 EZP-1894 -->
+								<p>쇼핑몰상품명</p>
+							</div>
+						</div>
+						<ul class="txt">
+							<li>ㆍ후드기모티셔츠 미송 잡아주세요. 후드기모 티셔츠 미송 잡아주세요.</li>
+						</ul>
+					</div>
+
+					<div class="right">
+						<span class="count ui-popup-open" data-target="#popup2">
+							<em>120</em> /
+							<span>120<i>개</i></span>
+						</span>
+						<span class="date">
+							11/28(목)<br>
+							[첫] 12/10
+						</span>
+
+						<div class="tip-wrap">
+							<button class="ico-memo evt-tag">메모</button>
+							<div class="tip-cont">
+								<!-- 2020-12-14 EZP-1894 -->
+								<p>사입삼촌이 입력한 메모입니다.</p>
+							</div>
+						</div>
+					</div>
+				</li>
+			</ul>
+
+
+
+			<!-- 2020-07-30 EZP-779 시작 -->
+			<!-- 2021-07-21 EZP-3515 -->
+			<ul class="list-item">
+				<li class="list-item-tit">
+					<span class="ico-type green">제작미송</span>
+					<strong>멜로우블라우스</strong>
+				</li>
+				<li>
+					<div class="left">
+						<span class="option">
+							Dark Dark Blue Blue (다크다크블루블루) - 모델착용컬러-Free(44-66)
+						</span>
+						<div class="place tip-wrap">
+							<span class="evt-tag">14,000<i>원</i></span>
+							<button class="c-red">**</button>
+							<button class="img-type">이미지</button>
+
+							<div class="tip-cont">
+								<!-- 2020-12-14 EZP-1894 -->
+								<p>쇼핑몰상품명</p>
+							</div>
+						</div>
+						<ul class="txt">
+							<li>ㆍ후드기모티셔츠 미송 잡아주세요. 후드기모 티셔츠 미송 잡아주세요.</li>
+						</ul>
+					</div>
+
+					<div class="right">
+						<span class="count ui-popup-open" data-target="#popup2">
+							<em>120</em> /
+							<span>120<i>개</i></span>
+						</span>
+						<span class="date">
+							11/28(목)<br>
+							[첫] 12/10
+						</span>
+
+						<div class="tip-wrap">
+							<button class="ico-memo evt-tag">메모</button>
+							<div class="tip-cont">
+								<!-- 2020-12-14 EZP-1894 -->
+								<p>사입삼촌이 입력한 메모입니다.</p>
+							</div>
+						</div>
+					</div>
+				</li>
+			</ul>
+
+			<!-- 2021-07-21 EZP-3515 -->
+			<ul class="list-item">
+				<li class="list-item-tit">
+					<span class="ico-type pink">제작신규</span>
+					<strong>멜로우블라우스</strong>
+				</li>
+				<li>
+					<div class="left">
+						<span class="option">
+							Dark Dark Blue Blue (다크다크블루블루) - 모델착용컬러-Free(44-66)
+						</span>
+						<div class="place tip-wrap">
+							<span class="evt-tag">14,000<i>원</i></span>
+							<button class="c-red">**</button>
+							<button class="img-type">이미지</button>
+
+							<div class="tip-cont">
+								<!-- 2020-12-14 EZP-1894 -->
+								<p>쇼핑몰상품명</p>
+							</div>
+						</div>
+						<ul class="txt">
+							<li>ㆍ후드기모티셔츠 미송 잡아주세요. 후드기모 티셔츠 미송 잡아주세요.</li>
+						</ul>
+					</div>
+
+					<div class="right">
+						<span class="count ui-popup-open" data-target="#popup2">
+							<em>120</em> /
+							<!-- 2020-08-04 EZP-864 -->
+							<span>120<i>개</i></span>
+						</span>
+						<span class="date">
+							11/28(목)<br>
+							[첫] 12/10
+						</span>
+
+						<div class="tip-wrap">
+							<button class="ico-memo evt-tag">메모</button>
+							<div class="tip-cont">
+								<!-- 2020-12-14 EZP-1894 -->
+								<p>사입삼촌이 입력한 메모입니다.</p>
+							</div>
+						</div>
+					</div>
+				</li>
+			</ul>
+
+			<!-- 2021-07-21 EZP-3515 -->
+			<ul class="list-item">
+				<li class="list-item-tit">
+					<span class="ico-type green">제작미송</span>
+					<strong>멜로우블라우스</strong>
+				</li>
+				<li>
+					<div class="left">
+						<span class="option">
+							Dark Dark Blue Blue (다크다크블루블루) - 모델착용컬러-Free(44-66)
+						</span>
+						<div class="place tip-wrap">
+							<span class="evt-tag">14,000<i>원</i></span>
+							<button class="c-red">**</button>
+							<button class="img-type">이미지</button>
+
+							<div class="tip-cont">
+								<!-- 2020-12-14 EZP-1894 -->
+								<p>쇼핑몰상품명</p>
+							</div>
+						</div>
+						<ul class="txt">
+							<li>ㆍ후드기모티셔츠 미송 잡아주세요. 후드기모 티셔츠 미송 잡아주세요.</li>
+						</ul>
+					</div>
+
+					<div class="right">
+						<span class="count ui-popup-open empty" data-target="#popup2">
+							<em>-</em>
+						</span>
+						<span class="date">
+							11/28(목)<br>
+							[첫] 12/10
+						</span>
+					</div>
+				</li>
+			</ul>
+
+			<!-- 2020-07-30 EZP-779 종료 -->
+
+
+		</div>
+
+	</div>
+	<!--//container -->
+	<!-- 2021-06-04 EZP-2903 -->
+	<div class="floating-menu">
+		<a href="#" class="apply-all-btn">일괄적용</a>
+		<div class="floating-btn-wrap">
+			<a href="#" class="ui-popup-open" data-target="#apply-all-date">출고<br>예정일</a>
+			<a href="#" class="ui-popup-open" data-target="#apply-all-popup">품절시<br>처리</a>
+			<a href="#" class="ui-popup-open" data-target="#prd-status-pop">상품<br>상태</a>
+			<a href="#" class="ui-popup-open" data-target="#memo-popup">입고<br>메모</a>
+			<a href="#" class="ui-popup-open" data-target="#pop-full-stock">전량<br>출고</a>
+			<a href="#" class="btn-close">닫기</a>
+		</div>
+	</div>
+
+	<!-- footer// -->
+	<footer>
+		<a href="list.html">목록</a>
+	</footer>
+	<!-- //footer -->
+	<div id="popup1" class="ui-popup login">
+		<div class="content" style="width:320px;">
+			<div class="header">
+				<h1>출고 로그인</h1>
+			</div>
+			<div class="body">
+				<div class="bg">
+					<strong>비밀번호</strong>
+					<div class="input-box">
+						<input type="text" placeholder="아이디(이메일) 입력">
+						<em>비밀번호를 다시 입력해주세요.</em>
+					</div>
+				</div>
+			</div>
+			<div class="btn-wrap tac">
+				<button type="button" class="btn medium btn_close" style="width:110px;">취소</button>
+				<button type="button" class="btn point medium" style="width:110px;">확인</button>
+			</div>
+		</div>
+	</div>
+
+
+	<div id="popup2" class="ui-popup product-list type1">
+		<!-- type1 : 기본 ,type2 :품절시 ,type3 : 로그인세션  ,type4: 마감  -->
+		<div class="content"> <!--2022-07-14 EZP-3157-->
+			<div class="header">
+				<h1>메이크라이트</h1>
+			</div>
+			<div class="body" style="max-height: 55vh;">
+				<div class="prd-info-wrap">
+					<div class="sec1">
+						<span class="ico-type big blue">신규</span>
+						<a href="#">멜로우블라우스</a>
+						<p>
+							[소녀made]앤더슨 프리티 후드기모 글렌체크 CT후드기모 글렌체크 CT후드기모 CT후드기모
+						</p>
+						<span class="option">ivory / FREE</span>
+					</div>
+					<div class="sec2">
+						<strong calss="s-title">수량 : <em class="txt-line">100</em></strong><!-- 2021-12-15 EZP-4620 -->
+						<div class="right">
+							<button class="refresh"></button>
+							<div class="amount">
+								<button type="button" class="minus">-</button>
+								<input type="number" value="1" style="">
+								<button type="button" class="plus">+</button>
+							</div>
+						</div>
+					</div>
+
+					<div class="sec3 type-chk">
+						<strong calss="s-title">상품상태</strong>
+						<div class="modal-box">
+							<div>
+								<input type="checkbox" id="chk1">
+								<label for="chk1">품절</label>
+							</div>
+							<div>
+								<input type="checkbox" id="chk2">
+								<label for="chk2">색상 품절</label>
+							</div>
+							<div>
+								<input type="checkbox" id="chk3">
+								<label for="chk3">사이즈 품절</label>
+							</div>
+							<!-- 2020-05-04 시작 -->
+							<div class="toggle_event">
+								<input type="checkbox" id="chk4">
+								<label for="chk4">낱장 불가</label>
+							</div>
+							<!-- 2020-08-04 EZP-864 폐기 옵션변경 텍스트처리 -->
+							<!-- 2021-09-27 EZP-3851 -->
+							<!-- <span class="after">미송(9999), 환불(9999), 폐기(9999)</span> -->
+						</div>
+					</div>
+
+					<div class="sec3 type-chk state" style="display:none;">
+						<strong calss="s-title">최소수량</strong>
+						<div class="modal-box">
+							<div>
+								<input type="number" value="0">
+							</div>
+							<div>
+								<button>최소 10개</button>
+							</div>
+							<div>
+								<button>최소 20개</button>
+							</div>
+							<div>
+								<button>최소 30개</button>
+							</div>
+						</div>
+					</div>
+					<!-- 2020-05-04 종료 -->
+
+					<div class="sec4 type-chk">
+						<strong calss="s-title">품절 시 처리방식</strong>
+						<div class="modal-box">
+							<div>
+								<input type="radio" name="radio_1" id="radio1">
+								<label for="radio1">미송</label>
+							</div>
+							<!-- 2020-06-18 EZP-778 -->
+							<div>
+								<input type="radio" name="radio_1" id="radio2">
+								<label for="radio2">오늘차감</label>
+							</div>
+							<div>
+								<input type="radio" name="radio_1" id="radio3">
+								<label for="radio3">추후차감</label>
+							</div>
+							<!-- 2021-09-27 EZP-3851 -->
+							<span class="after">미송(9,999), 오늘차감(999), 추후차감(999), 폐기(9,999)</span>
+						</div>
+					</div>
+
+					<!-- 2022-12-13 EZP-7273 sec5에 class 추가 .day -->
+					<div class="sec5 type-chk">
+						<strong calss="s-title">
+              출고예정일
+							<!-- 2020-07-08 EZP-846 -->
+							<span class="right">이전 출고예정일 : 12/23(월)</span>
+						</strong>
+						<!-- 2022-12-12 EZP-7273 주말제외라서 전체 날짜 워딩 변경 -->
+						<div>
+							<input type="radio" name="radio_2" id="radio2_1">
+							<label for="radio2_1">10/01(월)</label>
+						</div>
+						<div>
+							<input type="radio" name="radio_2" id="radio2_2">
+							<label for="radio2_2">10/02(화)</label>
+						</div>
+						<div>
+							<input type="radio" name="radio_2" id="radio2_3">
+							<label for="radio2_3">10/03(수)</label>
+						</div>
+						<div>
+							<input type="radio" name="radio_2" id="radio2_4">
+							<label for="radio2_4">10/04(목)</label>
+						</div>
+						<div>
+							<input type="radio" name="radio_2" id="radio2_5">
+							<label for="radio2_5">10/05(금)</label>
+						</div>
+						<!-- 2020-07-14 EZP-811-A -->
+						<!-- 2022-12-12 EZP-7273 입고예정일 옵션 추가 시작 -->
+						<div>
+							<input type="radio" name="radio_2" id="radio2_6">
+							<label for="radio2_6">10/08(월)</label>
+						</div>
+						<div>
+							<input type="radio" name="radio_2" id="radio2_7">
+							<label for="radio2_7">10/09(화)</label>
+						</div>
+						<div>
+							<input type="radio" name="radio_2" id="radio2_8">
+							<label for="radio2_8">10/10(수)</label>
+						</div>
+						<div>
+							<input type="radio" name="radio_2" id="radio2_9">
+							<label for="radio2_9">10/11(목)</label>
+						</div>
+						<!-- 2022-12-12 EZP-7273 입고예정일 옵션 추가 끝 -->
+						<div>
+							<input type="radio" name="radio_2" id="radio2_10">
+							<label for="radio2_10">다음주 중</label>
+						</div>
+						<div>
+							<input type="radio" name="radio_2" id="radio2_11">
+							<label for="radio2_11">미정</label>
+						</div>
+						<div>
+							<input type="radio" name="radio_2" id="radio2_12">
+							<label for="radio2_12">선택안함</label>
+						</div>
+					</div>
+
+					<div class="sec6">
+						<strong calss="s-title">고객요청메모</strong>
+						<p>
+							사이즈 품절이면 미송 잡아주세요. 색상 품절이면 환불 해주세요. 재입고 예정이면 미송 잡아주세요.
+						</p>
+
+					</div>
+
+					<div class="sec7">
+						<!-- 2022-09-23 EZP-5867 워딩수정 -->
+						<strong calss="s-title">출고메모</strong>
+						<textarea>오늘 오전에 꼭 방문.</textarea>
+					</div>
+				</div>
+			</div>
+			<div class="btn-wrap tac">
+				<button type="button" class="btn medium btn_close" style="width:110px;">닫기</button>
+				<!-- 기본 -->
+				<!--button type="button" class="btn point medium" style="width:110px;">확인</button-->
+				<!-- type4 일경우 -->
+				<button type="button" class="btn point medium ui-popup-open" data-target="#popup3" style="width:110px;">확인</button>
+			</div>
+			<button type="button" class="btn_close"><span>닫기</span></button>
+		</div>
+	</div>
+
+	<div id="popup3" class="ui-popup deadline-pop">
+		<div class="content" style="width:260px;">
+			<div class="header"></div>
+			<div class="body">
+				<p>
+					발주 마감되어 출고처리를<br>
+					할 수 없습니다.
+				</p>
+				<!-- 2020-05-04  -->
+				<!-- <p>
+					최소수량을 입력해주세요.
+				</p> -->
+			</div>
+			<div class="btn-wrap tac">
+				<button type="button" class="btn point medium ui-popup-open btn_close" data-target="#popup3" style="width:110px;">확인</button>
+			</div>
+		</div>
+	</div>
+	<!-- 2020-08-12 EZP-798 시작 -->
+	<div id="popup4" class="ui-popup total-put-pop">
+		<div class="content" style="width:320px;">
+			<div class="header">
+				<h1>총 출고 수량 입력</h1>
+			</div>
+			<div class="body">
+				<div class="box-wrap">
+					<p class="put-total">총 발주수량 : 1200</p>
+					<div class="right">
+						<button class="refresh"></button>
+						<div class="amount">
+							<button type="button" class="minus">-</button>
+							<input type="number" value="1" style="">
+							<button type="button" class="plus">+</button>
+						</div>
+					</div>
+					<ul class="desc">
+						<li>* 동일 품목의 총 수량을 한 번에 입력할 수 있습니다.</li>
+						<li>* 총 수량은 오래된 미송 ＞ 신규 순으로 입력됩니다.</li>
+						<li>* 총 수량 입력 후 [적용] 버튼 탭 시 적용됩니다.</li>
+					</ul>
+				</div>
+			</div>
+			<div class="btn-wrap tac">
+				<button type="button" class="btn medium btn_close" style="width:110px;">취소</button>
+				<button type="button" class="btn point medium ui-popup-open btn_close" data-target="#popup3" style="width:110px;">확인</button>
+			</div>
+		</div>
+	</div>
+	<!-- 2020-08-12 EZP-798 종료 -->
+	<!-- 2021-01-15 EZP-2087 시작 -->
+	<div id="popup5" class="ui-popup alert-pop">
+		<div class="content" style="width:320px;">
+			<div class="header"></div>
+			<div class="body">
+				<p>
+					<span class="type-list">{유형명}/{유형명}/{유형명}/...</span><br>
+					전 품목 전량출고 처리하시겠습니까?<br>
+					<!-- 2021-08-04 EZP-3747 -->
+					<span class="mt10">* 수량 개별 입력한 품목 제외</span>
+					<span>* 전량출고 처리완료된 품목 제외</span>
+				</p>
+				<!-- <p>
+					모든 유형을 전량출고 처리하시겠습니까?
+					<span class="mt10">* 출고처리 된 품목 제외</span>
+				</p> -->
+			</div>
+			<div class="btn-wrap tac">
+				<button type="button" class="btn medium btn_close" style="width:110px;">취소</button>
+				<button type="button" class="btn point medium btn_close" style="width:110px;">확인</button>
+			</div>
+		</div>
+	</div>
+
+	<!-- 2021-06-04 EZP-2903 시작 -->
+	<div class="ui-popup pop-type" id="apply-all-date">
+		<div class="content" style="width:320px;">
+			<div class="header">
+				<h1>출고예정일 일괄 적용</h1>
+			</div>
+			<div class="body">
+				<div class="box-wrap">
+					<div class="select-item date single">
+						<!-- 2022-12-12 EZP-7273 전체적으로 mm/dd 변경 -->
+						<button type="button" class="selected">01/06(월)</button>
+						<button type="button">01/07(화)</button>
+						<button type="button">01/08(수)</button>
+						<button type="button">01/07(목)</button>
+						<button type="button">01/08(금)</button>
+						<!-- 2022-12-12 EZP-7273 출고예정일 옵션 추가 시작 -->
+						<button type="button">01/11(월)</button>
+						<button type="button">01/12(화)</button>
+						<button type="button">01/13(수)</button>
+						<button type="button">01/14(목)</button>
+						<!-- 2022-12-12 EZP-7273 출고예정일 옵션 추가 끝 -->
+						<button type="button">다음주 중</button>
+						<button type="button">미정</button>
+						<button type="button" disabled="">선택안함</button>
+					</div>
+				</div>
+			</div>
+			<div class="btn-wrap tac">
+				<button type="button" class="btn medium btn_close" style="width:110px;">취소</button>
+				<button type="button" class="btn point medium btn_close" style="width:110px;">확인</button>
+			</div>
+		</div>
+	</div>
+
+	<div class="ui-popup pop-type" id="apply-all-popup">
+		<div class="content" style="width:320px;">
+			<div class="header">
+				<h1>품절시처리방식 일괄 적용</h1>
+			</div>
+			<div class="body">
+				<div class="box-wrap">
+					<div class="select-item single">
+						<button type="button" class="selected">미송</button>
+						<button type="button">오늘차감</button>
+						<button type="button">추후차감</button>
+					</div>
+					<ul>
+						<li>
+							* 주문유형별 품절시처리방식 처리
+							<ul>
+								<li>
+									- 신규/신규미송 (추후차감 불가)
+								</li>
+								<li>
+									- 샘플/반납 (미송/오늘차감/추후차감 불가)
+								</li>
+								<!-- 2020-07-31	EZP-779 -->
+								<li>
+									- 제작신규/제작미송 (오늘차감, 추후차감 불가)
+								</li>
+							</ul>
+						</li>
+						<li>
+							* 품절시처리미송 적용 시, 상품상태는 초기화 됩니다.
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="btn-wrap tac">
+				<button type="button" class="btn medium btn_close" style="width:110px;">취소</button>
+				<button type="button" class="btn point medium btn_close" style="width:110px;">확인</button>
+			</div>
+		</div>
+	</div>
+
+	<div class="ui-popup pop-type prd-status-pop" id="prd-status-pop">
+		<div class="content" style="width:320px;">
+			<div class="header">
+				<h1>상품상태 일괄 적용</h1>
+			</div>
+			<div class="body">
+				<div class="box-wrap">
+					<dl>
+						<dd class="select-item status">
+							<button type="button" class="selected">품절</button><!-- class "selected" -->
+							<button type="button">색상품절</button>
+							<button type="button">사이즈품절</button>
+							<button type="button">낱장불가</button>
+						</dd>
+						<dd class="select-item min" style="display:none;">
+							<input type="number" value="0">
+							<button type="button">최소 10개</button>
+							<button type="button">최소 20개</button>
+							<button type="button">최소 30개</button>
+						</dd>
+					</dl>
+					<ul>
+						<li>
+							* 제작신규/제작미송 주문 유형은 처리 불가합니다.
+						</li>
+						<li>
+							* 상품상태 선택 시, 품절처리방식은 오늘차감으로 자동 변경됩니다.
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="btn-wrap tac">
+				<button type="button" class="btn medium btn_close" style="width:110px;">취소</button>
+				<button type="button" class="btn point medium btn_close" style="width:110px;">확인</button>
+			</div>
+		</div>
+	</div>
+
+	<div class="ui-popup pop-type" id="memo-popup">
+		<div class="content" style="width:320px;">
+			<div class="header">
+				<h1>입고메모 일괄 적용</h1>
+			</div>
+			<div class="body">
+				<div class="textarea-wrap">
+					<textarea>메모 입력 영역입니다.</textarea>
+				</div>
+			</div>
+			<div class="btn-wrap tac">
+				<button type="button" class="btn medium btn_close" style="width:110px;">취소</button>
+				<button type="button" class="btn point medium btn_close" style="width:110px;">확인</button>
+			</div>
+		</div>
+	</div>
+
+	<div class="ui-popup pop-type" id="pop-full-stock">
+		<div class="content" style="width:320px;">
+			<div class="header">
+				<h1>전량출고 일괄 적용</h1>
+			</div>
+			<div class="body">
+				<div class="box-wrap">
+					<p>선택한 품목을 전량출고 처리하시겠습니까?</p>
+					<ul>
+						<li>* 수량 개별 입력한 품목 제외</li>
+						<!-- 2021-08-04 EZP-3747 -->
+						<li>* 전량출고 처리완료된 품목 제외</li>
+					</ul>
+				</div>
+			</div>
+			<div class="btn-wrap tac">
+				<button type="button" class="btn medium btn_close" style="width:110px;">취소</button>
+				<button type="button" class="btn point medium btn_close" style="width:110px;">확인</button>
+			</div>
+		</div>
+	</div>
+	<!-- 2021-06-04 EZP-2903 종료 -->
+
+	<script>
+		$(document).ready(function() {
+			$('#back').on('click', function() {
+				window.history.back();
+			});
+
+			$('.refresh').click(function() {
+				$(this).next().find('input').val('1');
+				return false;
+			});
+
+
+			// $('.tip-wrap .evt-tag').on('click', function() {
+			// 	$(this).parent().find('.tip-cont').addClass('on');
+			// });
+
+			$('.sort-btn').click(function() {
+				$('.sort-btn').toggleClass('active');
+			})
+			$('.layer-select-list li button').click(function() {
+				$(this).parent().toggleClass('selected');
+			});
+			$('.select-wrap .all-in .apply').click(function() {
+				$('.sort-btn').toggleClass('active');
+				$('.sort-btn').addClass('enable');
+			});
+
+			$('.btn-out').click(function () { 
+				$(this).toggleClass("on off");
+				$(this).hasClass("on") == false ? $(this).text("출고 ON") : $(this).text("출고 OFF");
+			});
+		});
+	</script>
+	<!-- 2021-01-15 EZP-2087 종료 -->
+</body>
+
+</html>

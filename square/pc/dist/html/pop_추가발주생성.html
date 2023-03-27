@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="ko" class="js">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="format-detection" content="telephone=no">
+	<meta content="ZmEqWoY7EMkTNPemq5oIBLa1uoGzaWc2LUCSIQfPcjk=" name="csrf-token">
+	<link rel="shortcut icon" type="image/x-icon" href="/img/favicon/ezp.ico">
+	<title>easypick-square</title>
+	<link rel="stylesheet" type="text/css" href="../css/default.css">
+	<link rel="stylesheet" type="text/css" href="../css/default.custom.css">
+</head>
+
+<body class="window-pop-wrap">
+	<div id="add-order-list" class="ui-popup add-order-list-pop on">
+		<!-- 2021-06-18 EZP-1765 -->
+		<div class="content" style="margin-left: -5px;" tabindex="-1">
+			<div class="body">
+				<div class="txt-cont">
+					<div class="order">
+						<h3>추가발주 주문</h3> <!--2022-08-09 EZP-6341 워딩변경-->
+						<p>※ 낮시장, 밤시장 정기발주 이후 접수된 주문 건에 대해 30분 단위로 자동으로 일괄 전송됩니다.<br>
+							※ 휴일쇼핑몰은 예약된 건에 한하여 전송되며, 발주상태로 예정 건들을 확인할 수 있습니다.<br>
+							※ 미매칭 가게 주문 건은 낮시장으로 분류됩니다.</p> <!--2022-08-09 EZP-6341 워딩변경-->
+						<div class="tab-wrap">
+							<ul class="tab-nav">
+								<!-- 2021-07-30 EZP-3659 -->
+								<li class="active" data-search_type="N"><a href="#">정상 쇼핑몰</a></li>
+								<li class="" data-search_type="R"><a href="#"> 휴일 쇼핑몰</a></li>
+							</ul>
+							<!-- 2021-07-30 EZP-3659 -->
+							<div class="sort-item">
+								<span>주문유형</span>
+								<span class="checkbox">
+									<input type="checkbox" id="a1" class="chk-all btnAllChk" checked>
+									<label for="a1">전체</label>
+								</span>
+								<span class="checkbox">
+									<input type="checkbox" id="a2" class="btnChkGroup" checked>
+									<label for="a2">신규</label>
+								</span>
+								<span class="checkbox">
+									<input type="checkbox" id="a3" class="btnChkGroup" checked>
+									<label for="a3">미송(N)</label>
+								</span>
+								<span class="checkbox">
+									<input type="checkbox" id="a5" class="btnChkGroup" checked>
+									<label for="a5">샘플</label>
+								</span>
+								<span class="checkbox">
+									<input type="checkbox" id="a6" class="btnChkGroup" checked>
+									<label for="a6">반납</label>
+								</span>
+								<span class="checkbox">
+									<input type="checkbox" id="a4" class="btnChkGroup" checked>
+									<label for="a4">불량</label>
+								</span>
+								<span class="checkbox">
+									<input type="checkbox" id="a7" class="btnChkGroup" checked>
+									<label for="a7">제작신규</label>
+								</span>
+							</div>
+							<div class="tab-content">
+								<div class="tab-cont">
+									<div class="scroll">
+										<table>
+											<!--2022-08-24 / 2022-08-10 EZP-6341 너비조정-->
+											<colgroup>
+												<col width="40">
+												<col width="50">
+												<col width="200">
+												<col width="70">
+												<col width="60">
+												<col width="100">
+												<col width="120">
+												<col width="160">
+												<col width="90">
+												<col width="100">
+											</colgroup>
+											<thead>
+												<tr>
+													<th>
+														<span class="checkbox">
+															<input type="checkbox" class="check-all" id="check-all">
+															<label for="check-all"></label>
+														</span>
+													</th>
+													<th>번호</th>
+													<th>쇼핑몰명</th>
+													<th>주문유형</th>
+													<th>품목수</th>
+													<th>주문수량</th>
+													<th>발주금액</th>
+													<th>주문일시</th>
+													<th>매칭상태</th>
+													<th>발주대상</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>
+														<span class="checkbox">
+															<input type="checkbox" id="chk1" checked>
+															<label for="chk1"></label>
+														</span>
+													</td>
+													<td>10</td>
+													<td><span class="ui-popup-open" data-target="#order-detail-pop">쇼핑몰명</span></td>
+													<td>
+														<span class="type-label blue">신규</span>
+													</td>
+													<td>2</td>
+													<td>2,300</td>
+													<td>10,510,000</td>
+													<td>2020-12-03 09:00:18</td>
+													<td>매칭</td>
+													<td>밤시장</td>
+												</tr>
+												<tr>
+													<td>
+														<span class="checkbox">
+															<input type="checkbox" id="chk1">
+															<label for="chk1"></label>
+														</span>
+													</td>
+													<td>10</td>
+													<td><span class="ui-popup-open" data-target="#order-detail-pop">쇼핑몰명</span></td>
+													<td>
+														<span class="type-label black">불량</span>
+													</td>
+													<td>2</td>
+													<td>2,300</td>
+													<td>10,510,000</td>
+													<td>2020-12-03 09:00:18</td>
+													<td>매칭</td>
+													<td>밤시장</td>
+												</tr>
+												<tr>
+													<td>
+														<span class="checkbox">
+															<input type="checkbox" id="chk1">
+															<label for="chk1"></label>
+														</span>
+													</td>
+													<td>10</td>
+													<td><span class="ui-popup-open" data-target="#order-detail-pop"><em class="secession">[중지]</em>쇼핑몰명</span></td>
+													<td>
+														<span class="type-label green">미송(N)</span>
+													</td>
+													<td>2</td>
+													<td>2,300</td>
+													<td>10,510,000</td>
+													<td>2020-12-03 09:00:18</td>
+													<td>미매칭</td>
+													<td>낮시장</td>
+												</tr>
+												<tr>
+													<td>
+														<span class="checkbox">
+															<input type="checkbox" id="chk1">
+															<label for="chk1"></label>
+														</span>
+													</td>
+													<td>10</td>
+													<td><span class="ui-popup-open" data-target="#order-detail-pop"><em class="secession">[탈퇴]</em>쇼핑몰명</span></td><!-- 2021-10-06 EZP-4258-->
+													<td>
+														<span class="type-label blue">신규</span>
+													</td>
+													<td>2</td>
+													<td>2,300</td>
+													<td>10,510,000</td>
+													<td>2020-12-03 09:00:18</td>
+													<td>매칭</td>
+													<td>밤시장</td>
+												</tr>
+												<tr>
+													<td>
+														<span class="checkbox">
+															<input type="checkbox" id="chk1">
+															<label for="chk1"></label>
+														</span>
+													</td>
+													<td>10</td>
+													<td><span class="ui-popup-open" data-target="#order-detail-pop">쇼핑몰명</span></td>
+													<td><!-- 2021-07-30 EZP-3659 -->
+														<span class="type-label pink">제작신규</span>
+													</td>
+													<td>2</td>
+													<td>2,300</td>
+													<td>10,510,000</td>
+													<td>2020-12-03 09:00:18</td>
+													<td>매칭</td>
+													<td>밤시장</td>
+												</tr>
+												<tr>
+													<td>
+														<span class="checkbox">
+															<input type="checkbox" id="chk1">
+															<label for="chk1"></label>
+														</span>
+													</td>
+													<td>10</td>
+													<td><span class="ui-popup-open" data-target="#order-detail-pop">쇼핑몰명</span></td>
+													<td><!-- 2021-07-30 EZP-3659 -->
+														<span class="type-label purple">샘플</span>
+													</td>
+													<td>2</td>
+													<td>2,300</td>
+													<td>10,510,000</td>
+													<td>2020-12-03 09:00:18</td>
+													<td>미매칭</td>
+													<td>낮시장</td>
+												</tr>
+												<tr>
+													<td>
+														<span class="checkbox">
+															<input type="checkbox" id="chk1">
+															<label for="chk1"></label>
+														</span>
+													</td>
+													<td>10</td>
+													<td><span class="ui-popup-open" data-target="#order-detail-pop">쇼핑몰명</span></td>
+													<td><!-- 2021-07-30 EZP-3659 -->
+														<span class="type-label sandy">반납</span>
+													</td>
+													<td>2</td>
+													<td>2,300</td>
+													<td>10,510,000</td>
+													<td>2020-12-03 09:00:18</td>
+													<td>매칭</td>
+													<td>밤시장</td>
+												</tr>
+												<tr>
+													<td>
+														<span class="checkbox">
+															<input type="checkbox" id="chk1">
+															<label for="chk1"></label>
+														</span>
+													</td>
+													<td>10</td>
+													<td><span class="ui-popup-open" data-target="#order-detail-pop">쇼핑몰명</span></td>
+													<td>
+														<span class="type-label black">불량</span>
+													</td>
+													<td>2</td>
+													<td>2,300</td>
+													<td>10,510,000</td>
+													<td>2020-12-03 09:00:18</td>
+													<td>매칭</td>
+													<td>밤시장</td>
+												</tr>
+												<tr>
+													<td>
+														<span class="checkbox">
+															<input type="checkbox" id="chk1">
+															<label for="chk1"></label>
+														</span>
+													</td>
+													<td>10</td>
+													<td><span class="ui-popup-open" data-target="#order-detail-pop">쇼핑몰명</span></td>
+													<td><!-- 2021-07-30 EZP-3659 -->
+														<span class="type-label green">미송(N)</span>
+													</td>
+													<td>2</td>
+													<td>2,300</td>
+													<td>10,510,000</td>
+													<td>2020-12-03 09:00:18</td>
+													<td>미매칭</td>
+													<td>낮시장</td>
+												</tr>
+												<tr>
+													<td>
+														<span class="checkbox">
+															<input type="checkbox" id="chk1">
+															<label for="chk1"></label>
+														</span>
+													</td>
+													<td>10</td>
+													<td><span class="ui-popup-open" data-target="#order-detail-pop">쇼핑몰명</span></td>
+													<td>
+														<span class="type-label blue">신규</span>
+													</td>
+													<td>2</td>
+													<td>2,300</td>
+													<td>10,510,000</td>
+													<td>2020-12-03 09:00:18</td>
+													<td>매칭</td>
+													<td>밤시장</td>
+												</tr>
+											</tbody>
+											<tbody>
+												<tr>
+													<!-- 2023-01-11 EZP-7973 주문건이 없습니다. 에서 워딩변경 -->
+													<td colspan="10" style="height:384px;">추가발주할 내역이 존재하지 않습니다.</td><!--2022-08-24 / 2022-08-10 EZP-6341-->
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+	
+								<div class="tab-cont" style="display: none;">
+									<div class="scroll">
+										<table>
+											<colgroup>
+												<!--2022-08-10 EZP-6343 너비조정-->
+												<col width="40">
+												<col width="50">
+												<col width="200">
+												<col width="70">
+												<col width="60">
+												<col width="100">
+												<col width="120">
+												<col width="160">
+												<col width="90">
+												<col width="100">
+												<col width="80"><!--2022-07-04 EZP-5424-->
+											</colgroup>
+											<thead>
+												<tr>
+													<th>
+														<span class="checkbox">
+															<input type="checkbox" class="check-all" id="check-all">
+															<label for="check-all"></label>
+														</span>
+													</th>
+													<th>번호</th>
+													<th>쇼핑몰명</th>
+													<th>주문유형</th>
+													<th>품목수</th>
+													<th>주문수량</th>
+													<th>발주금액</th>
+													<th>주문일시</th>
+													<th>매칭상태</th>
+													<th>발주대상</th>
+													<th>발주상태</th><!--2022-07-04 EZP-5424-->
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>
+														<span class="checkbox">
+															<input type="checkbox" id="chk1">
+															<label for="chk1"></label>
+														</span>
+													</td>
+													<td>10</td><!-- 2021-07-19 EZP-3405 -->
+													<td><span class="ui-popup-open" data-target="#order-detail-pop">쇼핑몰명</span></td>
+													<td>
+														<span class="type-label blue">신규</span>
+													</td>
+													<td>2</td>
+													<td>2,300</td>
+													<td>10,510,000</td>
+													<td>2020-12-03 09:00:18</td>
+													<td>매칭</td>
+													<td>밤시장</td>
+													<td>예정</td><!--2022-07-04 EZP-5424-->
+												</tr>
+												<tr>
+													<td>
+														<span class="checkbox">
+															<input type="checkbox" id="chk1">
+															<label for="chk1"></label>
+														</span>
+													</td>
+													<td>10</td><!-- 2021-07-19 EZP-3405 -->
+													<td><span class="ui-popup-open" data-target="#order-detail-pop">쇼핑몰명</span></td>
+													<td>
+														<span class="type-label black">불량</span>
+													</td>
+													<td>2</td>
+													<td>2,300</td>
+													<td>10,510,000</td>
+													<td>2020-12-03 09:00:18</td>
+													<td>매칭</td>
+													<td>밤시장</td>
+													<td>예정</td><!--2022-07-04 EZP-5424-->
+												</tr>
+												<tr>
+													<td>
+														<span class="checkbox">
+															<input type="checkbox" id="chk1">
+															<label for="chk1"></label>
+														</span>
+													</td>
+													<td>10</td><!-- 2021-07-19 EZP-3405 -->
+													<td><span class="ui-popup-open" data-target="#order-detail-pop">쇼핑몰명</span></td>
+													<td>
+														<span class="type-label green">미송</span>
+													</td>
+													<td>2</td>
+													<td>2,300</td>
+													<td>10,510,000</td>
+													<td>2020-12-03 09:00:18</td>
+													<td>미매칭</td>
+													<td>낮시장</td>
+													<td>-</td><!--2022-07-04 EZP-5424-->
+												</tr>
+												<tr>
+													<td>
+														<span class="checkbox">
+															<input type="checkbox" id="chk1">
+															<label for="chk1"></label>
+														</span>
+													</td>
+													<td>10</td><!-- 2021-07-19 EZP-3405 -->
+													<td><span class="ui-popup-open" data-target="#order-detail-pop">쇼핑몰명</span></td>
+													<td>
+														<span class="type-label blue">신규</span>
+													</td>
+													<td>2</td>
+													<td>2,300</td>
+													<td>10,510,000</td>
+													<td>2020-12-03 09:00:18</td>
+													<td>매칭</td>
+													<td>밤시장</td>
+													<td>-</td><!--2022-07-04 EZP-5424-->
+												</tr>
+												<tr>
+													<td>
+														<span class="checkbox">
+															<input type="checkbox" id="chk1">
+															<label for="chk1"></label>
+														</span>
+													</td>
+													<td>10</td><!-- 2021-07-19 EZP-3405 -->
+													<td><span class="ui-popup-open" data-target="#order-detail-pop">쇼핑몰명</span></td>
+													<td>
+														<span class="type-label black">불량</span>
+													</td>
+													<td>2</td>
+													<td>2,300</td>
+													<td>10,510,000</td>
+													<td>2020-12-03 09:00:18</td>
+													<td>매칭</td>
+													<td>밤시장</td>
+													<td>-</td><!--2022-07-04 EZP-5424-->
+												</tr>
+												<tr>
+													<td>
+														<span class="checkbox">
+															<input type="checkbox" id="chk1">
+															<label for="chk1"></label>
+														</span>
+													</td>
+													<td>10</td>
+													<td><span class="ui-popup-open" data-target="#order-detail-pop">쇼핑몰명</span></td>
+													<td>
+														<span class="type-label green">미송</span>
+													</td>
+													<td>2</td>
+													<td>2,300</td>
+													<td>10,510,000</td>
+													<td>2020-12-03 09:00:18</td>
+													<td>미매칭</td>
+													<td>낮시장</td><!-- 2021-07-19 EZP-3405 -->
+													<td>예정</td><!--2022-07-04 EZP-5424-->
+												</tr>
+												<tr>
+													<td>
+														<span class="checkbox">
+															<input type="checkbox" id="chk1">
+															<label for="chk1"></label>
+														</span>
+													</td>
+													<td>10</td>
+													<td><span class="ui-popup-open" data-target="#order-detail-pop">쇼핑몰명</span></td>
+													<td><!-- 2021-07-19 EZP-3405 -->
+														미송
+													</td>
+													<td>2</td><!-- 2021-07-19 EZP-3405 -->
+													<td>-</td>
+													<td>-</td>
+													<td>-</td>
+													<td>매칭</td>
+													<td>밤시장</td><!-- 2021-07-19 EZP-3405 -->
+													<td>예정</td><!--2022-07-04 EZP-5424-->
+												</tr>
+												<tr>
+													<td>
+														<span class="checkbox">
+															<input type="checkbox" id="chk1">
+															<label for="chk1"></label>
+														</span>
+													</td>
+													<td>10</td>
+													<td><span class="ui-popup-open" data-target="#order-detail-pop">쇼핑몰명</span></td>
+													<td>
+														<span class="type-label black">불량</span>
+													</td>
+													<td>2</td>
+													<td>2,300</td>
+													<td>10,510,000</td>
+													<td>2020-12-03 09:00:18</td>
+													<td>매칭</td>
+													<td>밤시장</td><!-- 2021-07-19 EZP-3405 -->
+													<td>-</td><!--2022-07-04 EZP-5424-->
+												</tr>
+												<tr>
+													<td>
+														<span class="checkbox">
+															<input type="checkbox" id="chk1">
+															<label for="chk1"></label>
+														</span>
+													</td>
+													<td>10</td>
+													<td><span class="ui-popup-open" data-target="#order-detail-pop">쇼핑몰명</span></td>
+													<td>
+														<span class="type-label green">미송</span>
+													</td>
+													<td>2</td>
+													<td>2,300</td>
+													<td>10,510,000</td>
+													<td>2020-12-03 09:00:18</td>
+													<td>미매칭</td>
+													<td>낮시장</td>
+													<td>-</td><!--2022-07-04 EZP-5424-->
+												</tr>
+												<tr>
+													<td>
+														<span class="checkbox">
+															<input type="checkbox" id="chk1">
+															<label for="chk1"></label>
+														</span>
+													</td>
+													<td>10</td>
+													<td><span class="ui-popup-open" data-target="#order-detail-pop">쇼핑몰명</span></td>
+													<td>
+														<span class="type-label blue">신규</span>
+													</td>
+													<td>2</td>
+													<td>2,300</td>
+													<td>10,510,000</td>
+													<td>2020-12-03 09:00:18</td>
+													<td>매칭</td>
+													<td>밤시장</td><!-- 2021-07-19 EZP-3405 -->
+													<td>예정</td><!--2022-07-04 EZP-5424-->
+												</tr>
+											</tbody>
+											<tbody>
+												<tr><!-- 2021-07-19 EZP-3405 -->
+													<!-- 2023-01-11 EZP-7973 주문건이 없습니다. 에서 워딩변경 -->
+													<td colspan="11" style="height:384px;">추가발주할 내역이 존재하지 않습니다.</td><!--2022-08-10 EZP-6341-->
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="btn_wrap tac">
+					<button type="button" class="btn point medium eRun" data-target="#alert-pop">발주즉시실행</button> <!--disabled시 버튼 회색처리 -->
+					<button type="button" class="btn line green medium eReservation" style="min-width:100px; display: none;">발주예약</button>
+					<button type="button" class="btn medium eClosePopup" style="min-width:100px;">닫기</button>
+				</div> <!--2022-08-24 EZP-6341 버튼 추가 및 버튼명 수정-->
+			</div>
+			<!-- <button class="btn_close"><span>닫기</span></button> -->
+		</div>
+	</div>
+
+	<!-- 2022-07-04 EZP-5424 주문상세보기 팝업-->
+	<div id="order-detail-pop" class="ui-popup add-order-list-pop order-detail-pop">
+		<div class="content" style="width: 1030px;" tabindex="-1">
+			<div class="body">
+				<div class="txt-cont">
+					<div class="order">
+						<h3>주문 상세보기</h3>
+						<div class="table mt30">
+							<h4>• 주문정보<span>[발주대기]</span><span class="label-ready">발주예정</span></h4>
+							<table>
+								<colgroup>
+									<col width="20%">
+									<col width="30%">
+									<col width="20%">
+									<col width="30%">
+								</colgroup>
+								<tbody>
+									<tr>
+										<th>쇼핑몰명</th>
+										<td><em class="secession">[중지]</em><em class="secession">[탈퇴]</em>핫핑</td>
+										<th>품목수</th>
+										<td>3</td>
+									</tr>
+									<tr>
+										<th>주문유형 / 주문일시</th>
+										<td class="alignCenter"><span class="type-label green">미송(N)</span>
+											<span>2022-04-03 10:00:00<br>
+											<em>[미송 옵션변경 생성 주문]</em></span></td>
+										<th>주문수량</th>
+										<td>2,000</td>
+									</tr>
+									<tr>
+										<th>매칭상태 / 발주대상</th>
+										<td>매칭 / Night</td>
+										<th>발주금액</th>
+										<td>6,000,000</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+	
+						<div class="table scroll mt30" style="height: 250px; overflow-y: auto;">
+							<table>
+								<colgroup>
+									<col width="50">
+									<col width="130">
+									<col width="100">
+									<col width="120">
+									<col width="110">
+									<col width="80">
+									<col width="80">
+									<col width="80">
+									<col width="100">
+									<col width="*">
+								</colgroup>
+								<thead>
+									<tr>
+										<th>번호</th>
+										<th>가게명</th>
+										<th>마켓유형</th>
+										<th>상품명</th>
+										<th>옵션</th>
+										<th>판매가</th>
+										<th>주문수량</th>
+										<th>판매가 합계</th>
+										<th>품절시처리</th>
+										<th>구매자 메모</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>1</td>
+										<td>
+											<i class="mismatch">미매칭</i>
+											<!--2022-07-25 EZP-5433 툴팁-->
+											<div class="tip-wrap">
+												<span class="name">이룸2222</span>
+												<span class="tip"><strong>[주문가게정보]</strong><em>-가게명 : 이름222<br>-주소 : 디오트 1층 A열 1호</br>-연락처 : 010-1111-1111</em></span>
+											</div>
+										</td>
+										<td>Night</td>
+										<td>신규티셔츠</td>
+										<td>RED / L</td>
+										<td>3,000</td>
+										<td>1</td>
+										<td>3,000</td>
+										<td><span class="refund">환불</span></td>
+										<td>메모</td>
+									</tr>
+									<tr>
+										<td>2</td>
+										<td>
+											<i class="mismatch">미매칭</i>
+											<!--2022-07-25 EZP-5433 툴팁-->
+											<div class="tip-wrap">
+												<span class="name">이룸2222</span>
+												<span class="tip"><strong>[주문가게정보]</strong><em>-가게명 : 이름222<br>-주소 : 디오트 1층 A열 1호</br>-연락처 :
+														010-1111-1111</em></span>
+											</div>
+										</td>
+										<td>Night</td>
+										<td>신규티셔츠</td>
+										<td>RED / L<span class="exOption">[기존옵션] BLACK / FREE<br>(2022040300008640)</span></td>
+										<td>3,000</td>
+										<td>1</td>
+										<td>3,000</td>
+										<td><span class="refund">환불</span></td>
+										<td>메모</td>
+									</tr>
+									<tr>
+										<td>3</td>
+										<td>
+											<!--2022-07-25 EZP-5433 툴팁-->
+											<div class="tip-wrap">
+												<span class="name">이룸2222</span>
+												<span class="tip"><strong>[주문가게정보]</strong><em>-가게명 : 이름222<br>-주소 : 디오트 1층 A열 1호</br>-연락처 :
+														010-1111-1111</em></span>
+											</div>
+										</td>
+										<td>Night</td>
+										<td>신규티셔츠</td>
+										<td>RED / L</td>
+										<td>3,000</td>
+										<td>1</td>
+										<td>3,000</td>
+										<td><span class="refund">환불</span></td>
+										<td>-</td>
+									</tr>
+									<tr>
+										<td>4</td>
+										<td>
+											<em class="secession">[사용안함]</em>
+											<!--2022-07-25 EZP-5433 툴팁-->
+											<div class="tip-wrap">
+												<span class="name">이름</span>
+												<span class="tip"><strong>[주문가게정보]</strong><em>-가게명 : 이름<br>-주소 : 디오트 1층 A열 1호</br>-연락처 :
+														010-1111-1111</em></span>
+											</div>
+										</td>
+										<td>Night</td>
+										<td>신규티셔츠</td>
+										<td>RED / L</td>
+										<td>3,000</td>
+										<td>1</td>
+										<td>3,000</td>
+										<td><span class="refund">환불</span></td>
+										<td>-</td>
+									</tr>
+									<tr>
+										<td>5</td>
+										<td>
+											<!--2022-07-25 EZP-5433 툴팁-->
+											<div class="tip-wrap">
+												<span class="name">이룸</span>
+												<span class="tip"><strong>[주문가게정보]</strong><em>-가게명 : 이룸<br>-주소 : 디오트 1층 A열 1호</br>-연락처 :
+														010-1111-1111</em></span>
+											</div>
+										</td>
+										<td>Night</td>
+										<td>신규티셔츠</td>
+										<td>RED / L</td>
+										<td>3,000</td>
+										<td>1</td>
+										<td>3,000</td>
+										<td><span class="refund">환불</span></td>
+										<td>-</td>
+									</tr>
+									<tr>
+										<td>6</td>
+										<td>
+											<!--2022-07-25 EZP-5433 툴팁-->
+											<div class="tip-wrap">
+												<span class="name">이룸</span>
+												<span class="tip"><strong>[주문가게정보]</strong><em>-가게명 : 이룸<br>-주소 : 디오트 1층 A열 1호</br>-연락처 :
+														010-1111-1111</em></span>
+											</div>
+										</td>
+										<td>Night</td>
+										<td>신규티셔츠</td>
+										<td>RED / L</td>
+										<td>3,000</td>
+										<td>1</td>
+										<td>3,000</td>
+										<td><span class="refund">환불</span></td>
+										<td>-</td>
+									</tr>
+									<tr>
+										<td>7</td>
+										<td>
+											<!--2022-07-25 EZP-5433 툴팁-->
+											<div class="tip-wrap">
+												<span class="name">이룸</span>
+												<span class="tip"><strong>[주문가게정보]</strong><em>-가게명 : 이룸<br>-주소 : 디오트 1층 A열 1호</br>-연락처 :
+														010-1111-1111</em></span>
+											</div>
+										</td>
+										<td>Night</td>
+										<td>신규티셔츠</td>
+										<td>RED / L</td>
+										<td>3,000</td>
+										<td>1</td>
+										<td>3,000</td>
+										<td><span class="refund">환불</span></td>
+										<td>-</td>
+									</tr>
+
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+				<!--2022-07-21 EZP-5433 페이징 추가 //-->
+				<div class="mt30">
+					<div class="pagination">
+						<a href="#none;" class="first none">처음</a>
+						<a href="#none;" class="prev none">이전</a>
+						<a href="#none;" class="active">1</a>
+						<a href="#none;">2</a>
+						<a href="#none;" class="next">다음</a>
+						<a href="#none;" class="last">다음</a>
+					</div>
+				</div>
+				<!--// 2022-07-21 EZP-5433 페이징 추가 -->
+				<div class="btn_wrap mt50 tac">
+					<button type="button" class="btn medium btn_close" style="width:100px; min-width:100px;">닫기</button>
+				</div>
+			</div>
+			<button class="btn_close"><span>닫기</span></button>
+		</div>
+	</div>
+
+	<script type="text/javascript" src="../js/ui/lib/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="../js/ui/lib/jquery-ui.min.js"></script>
+	<!-- 2022-12-12 EZP-7627 추가해서 추가발주 팝업 작동함 -->
+	<script type="text/javascript" src="./script.js"></script> 
+	<script type="text/javascript" src="../js/ui/common_front.js"></script>
+	<script type="text/javascript" src="../js/ui/ui.js"></script>
+	<script type="text/javascript" src="../js/ui/pub.js"></script>
+
+	<script type="text/javascript">
+	// 2021-06-18 EZP-1765
+	$('.tab-wrap li').click(function () {
+		var idx = $(this).index();
+		$(this).parents('.tab-nav').find('li').removeClass('active');
+		$(this).addClass('active');
+		$(this).parents('.tab-wrap').find('.tab-content .tab-cont').hide();
+		$(this).parents('.tab-wrap').find('.tab-content .tab-cont').eq(idx).show();
+
+		// 2021-07-30 EZP-3659
+		var sSearchType = $(this).data('search_type');
+		if (sSearchType === 'R') {
+			if ($('#labelReserve').length < 1) {
+				var sHtml = '<span class="checkbox" id="labelReserve"><input type="checkbox" id="a8" value="reserve" checked="checked" class="btnChkGroup"><label for="a8">미송</label></span>';
+				$('.sort-item').append(sHtml);
+			}
+		} else {
+			$('#labelReserve').remove();
+		}
+
+		// 2022-08-09 EZP-6341 추가발주예약 버튼
+		if ($('.tab-nav li[data-search_type=N]').hasClass('active') === true) {
+			$('.eClosePopup.point').prop("disabled", true);
+			$('.eClosePopup.point').addClass("disabled")
+			$('.eReservation').css("display", "none") // 2022-08-24 EZP-6341
+		} else {
+			$('.eClosePopup.point').prop("disabled", false);
+			$('.eClosePopup.point').removeClass("disabled")
+			$('.eReservation').css("display", "inline-block") // 2022-08-24 EZP-6341
+		}
+
+		return false;
+	});
+
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="ko" class="js">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="format-detection" content="telephone=no">
+	<meta content="7GTEAaj9OHm/B6t8WELAc+6jTv9Fwyjj4nGViJpKFoc=" name="csrf-token">
+	<meta content="T" name="login-required">
+	<link rel="shortcut icon" type="image/x-icon" href="/img/favicon/ezp.ico">
+
+	<link rel="stylesheet" type="text/css" href="../../css/default.css">
+	<link rel="stylesheet" type="text/css" href="../../css/month.picker.css">
+
+	<title>이지픽</title>
+</head>
+
+<body>
+
+	<!-- header// -->
+	<!-- 21-02-23 수정 / 클래스 추가-->
+	<header class="min-wid"></header>
+	<!-- //header -->
+
+	<!--container// -->
+	<!-- 2022-12-05 EZP-6818 샘플제안관리 신규페이지 추가 -->
+	<div id="container" class="mypage_wrap matching-wrap sample-list" style="overflow: unset;">
+		<h2>마이페이지</h2>
+		<div class="mypage-top-box">
+			<div class="left">
+				<span class="shop-delivery">택배송</span>
+				<!-- <span class="shop-delivery blue">직배송</span> -->
+				<span class="id">쇼핑몰명 최대 15자까지노출</span>
+				<em></em>
+				<div class="link-wrap">
+					<!-- 2023-02-13 EZP-6415 카페24 계정연동 추가 시작 -->
+					<!-- 연동이 완료시 class="on" 붙여주시면됩니다. -->
+					<a href="javascript: void(0);" class="txt-btn on ui-popup-open" data-target="#cafe24-unlink-alert1">카페24 계정 연동</a>
+					<!-- 2023-02-13 EZP-6415 카페24 계정연동 추가 끝 -->
+					<a href="#" class="mb5">회원 정보 관리</a>
+					<a href="#">큐레이션 정보 관리</a>
+				</div>
+			</div>
+			<div class="right">
+				<ul>
+					<li>
+						<span>픽샵</span>
+						<em><a href="#">22</a></em>
+					</li>
+					<li>
+						<span>픽템</span>
+						<em><a href="#">5</a></em>
+					</li>
+					<li>
+						<span>최근 본 상품</span>
+						<em><a href="#">153</a></em>
+					</li>
+					<li>
+						<span>내 판매 상품</span>
+						<em><a href="#">3456</a></em>
+					</li>
+					<!-- 2022-11-23 EZP-6818 매칭정보/ 주문매칭 / 샘플제안관리 추가 시작-->
+					<li class="border-none">
+						<!-- 샘플 제안 관리에 class on으로 내역 있음 / 없음 조정가능 -->
+						<a href="#" class="sample on">샘플 제안 관리</a>
+						<a href="#" class="matching gray">매칭정보관리</a>
+						<a href="#" class="order_matching gray">주문매칭관리</a>
+					</li>
+					<!-- 2022-11-23 EZP-6415 매칭정보/ 주문매칭 / 샘플제안관리 추가 끝-->
+				</ul>
+			</div>
+		</div>
+
+		<div class="table-wrap mb20">
+			<div class="title mb15">
+				<h3>샘플 제안서</h3>
+			</div>
+			<form id="" name="" action="">
+				<input type="hidden" id="order_no" name="order_no" value="">
+				<input type="hidden" id="limit" name="limit" value="200">
+				<table class="th-ver searchForm">
+					<colgroup>
+						<col width="140px">
+						<col width="*">
+					</colgroup>
+					<tbody>
+						<tr>
+							<th>기간조회</th>
+							<td>
+								<input type="hidden" name="date_type" id="selDateType" value="inspect_date">
+								<ul class="period-filter">
+									<input type="hidden" name="period" value="365">
+									<li class=""><a href="javascript:;" data-period="0">오늘</a></li>
+									<li class=""><a href="javascript:;" data-period="7">1주일</a></li>
+									<li class=""><a href="javascript:;" data-period="30">1개월</a></li>
+									<li class=""><a href="javascript:;" data-period="90">3개월</a></li>
+									<li class=""><a href="javascript:;" data-period="180">6개월</a></li>
+									<li class="on"><a href="javascript:;" data-period="365">1년</a></li>
+								</ul>
+								<div class="single_button">
+									<a href="javascript:;" class="btn small line arrow" name="arrow_prev" data-arrow="-1">&lt;</a>
+								</div>
+								<div class="picker-wrap">
+									<div class="datepicker-wrap">
+										<img class="ui-datepicker-trigger" src="https://easypick.co.kr/img/common/calendar.png" alt="Select date" title="Select date">
+										<!-- 2023-01-04 EZP-7919 class hasDatepicker 제거후 from 추가-->
+										<input type="text" id="start_date" name="start_date" class="not-addclear datepicker from"
+											style="width: 98px;" value="2020-02-10" readonly="">
+									</div>
+									<span>~</span>
+									<div class="datepicker-wrap">
+										<img class="ui-datepicker-trigger" src="https://easypick.co.kr/img/common/calendar.png" alt="Select date" title="Select date">
+										<!-- 2023-01-04 EZP-7919 class hasDatepicker 제거후 to 추가-->
+										<input type="text" id="end_date" name="end_date" class="not-addclear datepicker to"
+											style="width: 98px;" value="2020-03-11" readonly="">
+									</div>
+								</div>
+								<div class="single_button">
+									<a href="javascript:;" class="btn small line arrow" name="arrow_next" data-arrow="1">&gt;</a>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<th>열람상태</th>
+							<td>
+								<div class="check-box-wrap">
+									<span class="checkbox chkall">
+										<input type="checkbox" name="" id="chk-all" value="10" checked="checked">
+										<label for="chk-all">전체</label>
+									</span>
+									<span class="checkbox">
+										<input type="checkbox" name="" id="" value="10" checked="checked">
+										<label for="custom_type_new10">열람</label>
+									</span>
+									<span class="checkbox">
+										<input type="checkbox" name="" id="" value="20" checked="checked">
+										<label for="custom_type_new10">미열람</label>
+									</span>
+								</div>
+							</td>
+						</tr>
+						<!-- <tr>
+							<th>거래처 검색</th>
+							<td>
+							  <div class="list-searchBox">
+								<input type="hidden" name="search_key" id="search_key1" value="" />
+								<div style="width: 270px" class="ui-select" data-target_id="#">
+								  <button type="button" data-target_id="#" data-value="">거래처 선택</button>
+								  <ul>
+									<li data-key="" class="">전체</li>
+									<li data-key="" class="">1</li>
+									<li data-key="" class="">2</li>
+								  </ul>
+								</div>
+							  </div>
+							</td>
+						</tr> -->
+						<tr>
+							<th>검색</th>
+							<td>
+								<div class="list-searchBox">
+									<input type="hidden" name="search_key" id="search_key" value="">
+									<div class="ui-select" data-target_id="#search_key">
+										<button type="button" data-target_id="#search_key" data-value="">전체</button>
+										<ul>
+											<li data-key="" class="active">전체</li>
+											<li data-key="proposal_name">제안서명</li>
+											<li data-key="seller_name">거래처명</li>
+											<li data-key="product_name">상품명</li>
+										</ul>
+									</div>
+									<div style="display:inline; position:relative;" class="add-clear-span">
+										<input type="text" title="기본 입력란" name="search_value" value="" style="padding-right: 20px;"><a href="#clear"
+											style="display: none; color: rgb(204, 204, 204); text-decoration: none; overflow: hidden; position: absolute; right: 12px; top: 1px; line-height: 1;">✖</a></div>
+									<button type="submit" class="btn small eSearch">조회하기</button>
+								</div>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</form>
+		</div>
+		<ul class="list-top-sub mb40">
+			<li>
+				샘플제안<span><em>1,250</em>개</span>
+			</li>
+			<li>
+				열람<span><em>1,000</em>개</span>
+			</li>
+			<li>
+				미열람<span><em>250</em>개</span>
+			</li>
+		</ul>
+
+		<div class="table-wrap order-list sample mb0">
+			<div class="tit wrap mb15">
+				<div class="btn-tipwrap green">
+					<button type="button" class="btn small b-green">샘플제안 진행 안내
+						<i class="ico-question"></i>
+						</button>
+						<div class="tip green" style="width: 430px">
+								<span style="font-weight: 500;">- 거래처에서 제안하는 샘플 상품 리스트 확인이 가능힙니다.</span><br/>
+								<span style="font-weight: 500;">- 열람상태로 제안서 열람 여부를 확인할 수 있습니다.</span><br/>
+								<span style="font-weight: 500;">- 샘플미지원 상품도 제안받을 수 있으며 '무료샘플'로 주문이 가능합니다.<br/>
+								<em class="samll-font txt" style="padding-left: 0.5em;">(단,제안서 상세페이지에서 확인 후 가능)</em></span>
+					</div>
+				</div>
+				<input type="hidden" name="limit" id="hidRowCount" value="10">
+				<div class="ui-select" data-target_id="#hidRowCount">
+					<button type="button" data-target_id="#hidRowCount" data-value="">200개씩 보기</button>
+						<ul>
+							<li data-key="10" class="active">10개씩 보기</li>
+							<li data-key="30">30개씩 보기</li>
+							<li data-key="50">50개씩 보기</li>
+							<li data-key="100">100개씩 보기</li>
+							<li data-key="200">200개씩 보기</li>
+							<li data-key="300">300개씩 보기</li>
+					 </ul>
+				</div>
+			</div>
+			<table class="th-hor deposit">
+			  <colgroup>
+				<col width="300px">
+				<col width="*">
+				<col width="*">
+				<col width="250px">
+				<col width="*">
+				<col width="150px">
+			  </colgroup>
+			  <thead>
+				<tr>
+				  <th>거래처명</th>
+				  <th>제안서명</th>
+				  <th>샘플제안 상품수</th>
+				  <th>열람상태</th>
+				  <th>제안일</th>
+				  <th>관리</th>
+				</tr>
+			  </thead>
+			  <tbody>
+				<tr>
+					<td colspan="6">
+						<div class="noData">
+							<span class="noimg"></span>
+							<p>등록된 건이 없습니다.</p>
+						</div>
+					</td>
+				</tr>
+				<tr>
+				  <td>
+					  <div class="prd-wrap">
+						  <p class="prd ex">진짜피카소</p>
+						  <div class="tip-wrap">
+							  <div class="tip">
+								  <span>디오트 1층 1열 3호 (010-0000-0000)</span>
+							  </div>
+						  </div>
+					  </div>
+				  </td>
+				  <td>2022 F/W 신상 샘플로 받아보세요.</td>
+				  <td class="Enfont">10</td>
+				  <td class="txt-red">미열람</td>
+				  <td class="Enfont">2022-09-01</td>
+				  <td>
+					  <a href="#" class="small btn btn-order">상세내역</a>
+				  </td>
+				</tr>
+				<tr>
+					<td>
+						<div class="prd-wrap">
+							<p class="prd ex">나도셀러</p>
+							<div class="tip-wrap">
+								<div class="tip">
+									<span>디오트 1층 1열 3호 (010-0000-0000)</span>
+								</div>
+							</div>
+						</div>
+					</td>
+					<td class="proposal">2022 F/W 신상 샘플로 받아보세요.</td>
+					<td class="Enfont">10</td>
+					<td class="txt-red">미열람</td>
+					<td class="Enfont">2022-09-01</td>
+					<td>
+						<a href="#" class="small btn btn-order">상세내역</a>
+					</td>
+				  </tr>
+				  <tr>
+					<td>
+						<div class="prd-wrap">
+							<p class="prd ex">거래처명</p>
+							<div class="tip-wrap">
+								<div class="tip">
+									<span>디오트 1층 1열 3호 (010-0000-0000)</span>
+								</div>
+							</div>
+						</div>
+					</td>
+					<td class="proposal">제안서명이 길면 말줄임말로 표시됩니다.제안서명이 길면 말줄임말로 표시됩니다.제안서명이 길면 말줄임말로 표시됩니다.</td>
+					<td class="Enfont">1</td>
+					<td class="txt-red">미열람</td>
+					<td class="Enfont">2022-09-01</td>
+					<td>
+						<a href="#" class="small btn btn-order">상세내역</a>
+					</td>
+				  </tr>
+				  <tr>
+					<td>
+						<div class="prd-wrap">
+							<p class="prd ex">거래처명</p>
+							<div class="tip-wrap">
+								<div class="tip">
+									<span>디오트 1층 1열 3호 (010-0000-0000)</span>
+								</div>
+							</div>
+						</div>
+					</td>
+					<td class="proposal">제안서명</td>
+					<td class="Enfont">10</td>
+					<td>열람</td>
+					<td class="Enfont">2022-09-01</td>
+					<td>
+						<a href="#" class="small btn btn-order">상세내역</a>
+					</td>
+				  </tr>
+				  <tr>
+					<td>
+						<div class="prd-wrap">
+							<p class="prd ex">거래처명</p>
+							<div class="tip-wrap">
+								<div class="tip">
+									<span>디오트 1층 1열 3호 (010-0000-0000)</span>
+								</div>
+							</div>
+						</div>
+					</td>
+					<td class="proposal">제안서명</td>
+					<td class="Enfont">5</td>
+					<td>열람</td>
+					<td class="Enfont">2022-09-01</td>
+					<td>
+						<a href="#" class="small btn btn-order">상세내역</a>
+					</td>
+				  </tr>
+			  </tbody>
+			</table>
+			<div class="pagination mt40">
+                <a href="#none;" class="first none" style="cursor:unset;">처음</a>
+                <a href="#none;" class="prev none" style="cursor:unset;">이전</a>
+                <a href="#none;" class="active">1</a>
+                <a href="#">2</a>
+                <a href="#">3</a>
+                <a href="#">4</a>
+                <a href="#">5</a>
+                <a href="#">6</a>
+                <a href="#">7</a>
+                <a href="#">8</a>
+                <a href="#">9</a>
+                <a href="#">10</a>
+                <a href="#none" class="next none" style="cursor:unset;">다음</a>
+                <a href="#" class="last">다음</a>
+              </div>
+		  </div>
+		
+	</div>
+
+	<!-- cafe24 계정연동 alert -->
+	<div id="cafe24-unlink-alert1" class="ui-popup alert">
+		<!-- 1. 연동해제 가능할시 -->
+		<div class="content" style="min-width:412px; max-width: 700px;" tabindex="-1">
+		  <div class="body">
+			<div class="txt-cont">
+			  <p>
+				카페24와 연동하여 내 쇼핑몰에 상품등록하기 등<br/>
+				다양한 연동 기능을 이용해 보세요.
+			  </p>
+			  <p>
+				<strong class="mt0 mb0">연동된 카페24 계정</strong>
+				<em>ectezp001</em>
+			  </p>
+			</div>
+			<div class="btn_wrap mt30 tac">
+			  <button type="button" class="btn medium btn_close" style="width:150px;">취소</button>
+			  <button type="button" class="btn point medium btn_close ui-popup-open" style="width:150px;" data-target="#cafe24-unlink-alert2">연동해제</button>
+			</div>
+		  </div>
+		</div>
+
+		<!-- 2. 연동해제 불가할 시  -->
+		<div class="content" style="min-width:412px; max-width: 700px;" tabindex="-1">
+			<div class="body">
+			  <div class="txt-cont">
+				<p>
+				  카페24와 연동하여 내 쇼핑몰에 상품등록하기 등<br/>
+				  다양한 연동 기능을 이용해 보세요.
+				</p>
+				<p>
+				  <strong class="mt0 mb0">연동된 카페24 계정</strong>
+				  <em>ectezp001</em>
+				</p>
+			  </div>
+			  <div class="btn_wrap mt30 tac">
+				<button type="button" class="btn point medium btn_close" style="width:150px;">확인</button>
+			  </div>
+			</div>
+		  </div>
+	   </div>
+
+	<!-- cafe24 계정연동 > 연동해제 후 alert -->
+	<div id="cafe24-unlink-alert2" class="ui-popup alert">
+		<div class="content" style="min-width:412px; max-width: 700px;" tabindex="-1">
+		  <div class="body">
+			<div class="txt-cont">
+			  <p>
+				연동 해제 시 쇼핑몰 상품등록 기능을<br/>
+				사용하실 수 없습니다.<br/><br/>
+				연동 해제하시겠습니까?
+			  </p>
+			</div>
+			<div class="btn_wrap mt30 tac">
+			  <button type="button" class="btn medium btn_close" style="width:150px;">취소</button>
+			  <button type="button" class="btn point medium btn_close ui-popup-open" style="width:150px;" data-target="#cafe24-unlink-alert3">확인</button>
+			</div>
+		  </div>
+		</div>
+	   </div>
+
+	<!-- cafe24 계정연동 > 연동해제 > 확인 후 alert -->
+	<div id="cafe24-unlink-alert3" class="ui-popup alert">
+		<div class="content" style="min-width:412px; max-width: 700px;" tabindex="-1">
+		  <div class="body">
+			<div class="txt-cont">
+			  <p>
+				카페24 계정이 연동 해제되었습니다.
+			  </p>
+			</div>
+			<div class="btn_wrap mt30 tac">
+			  <button type="button" class="btn point medium btn_close" style="width:150px;">확인</button>
+			</div>
+		  </div>
+		</div>
+	   </div>
+
+	<!--//container -->
+
+
+	<!-- footer// -->
+	<footer></footer>
+	<!-- //footer -->
+
+	<!-- dashboard// -->
+	<div id="dashboard" class=""></div>
+	<!-- //dashboard -->
+
+	<!-- <script type="text/javascript"
+		src="https://www.easypick.co.kr/optimizer.php?filename=nZJNasQwDEb3g7c9h8iuPUR3vYB_lIwS23Jlm0zm9DW0XUwDk7hg8OY99H1CcOWAYPSiI4yiA64sCwhmrmIR5gw0vEY15xd4TlZK2i4wf1aU7ecb1NDeP-VLoEl0wb96wPyQbyRfUHYUOef3ZWohD56t9thjGOE1tyG5sOhpp-I9PToEnsxvj0oqUDzpaOesRy0dyvcYla2w96ZLzSsllAvhW4f0sSLGd307qVgOgaMahWM5gbdtHUOpmiMqXzkdMjRF2Jd4dgld12ZZEJJw4bIl7JCOgpu6obTkDm8N_QI&amp;type=js&amp;k=42369552916ca070ccd02e7522a8f1c585404f32&amp;t=1606970103">
+	</script> -->
+
+	<!-- 21-01-18 수정-->
+	<script src="../../js/jquery.min.js"></script><!--jquery default-->
+
+	<script src="../../js/jquery-ui.min.js"></script>
+	<script src="../../js/swiper-ie9.min.js"></script>
+	<script src="../../js/default.input.js"></script><!-- 2022-10-04 -->
+	<script src="../../js/addclear.min.js"></script>
+	<script src="../../js/common.front.js"></script>
+	<script src="../../js/ui.js"></script>
+	<script src="../../js/pub.js"></script>
+	<script src="../../js/jquery.scrollbar.min.js"></script>
+	<!-- //21-01-18 수정-->
+
+	<script type="text/javascript">
+		// LocalStorage.set("csrf-token", "hNus4rrnDIvZg4t7DBSBdnVatBWMZnmf9kdFuU1VIhM=", "ses");
+		$(document).ready(function(){
+			$('header').load('../include/header.html');
+			$('footer').load('../include/footer.html');
+			$('#dashboard').load('../include/dashboard.html');
+		});
+	</script>
+
+<script type="text/javascript">
+	// LocalStorage.set("csrf-token", "YgbpC/IvDz9IfyJ3vUQPZAL4m9Ydf8BysrVeW1+juDo=", "ses");
+	$(document).ready(function() {
+		$('body').on('click', '.period-filter a.eDateAll', function() {
+			$('input[name="is_all_selected"]').val($(this).data('is_all'));
+			if ($(this).data('is_all') == 'all') {
+				$('.datepicker-wrap input').attr('disabled', 'disabled');
+			} else if ($(this).data('is_all') == 'not_all') {
+				$('.datepicker-wrap input').attr('disabled', false);
+			}
+		});
+		var sIsAllSelected = $('.period-filter input[name="is_all_selected"]').val();
+		if (sIsAllSelected == 'all') {
+			$('.datepicker-wrap input').attr('disabled', 'disabled');
+		} else if (sIsAllSelected == 'not_all') {
+			$('.datepicker-wrap input').attr('disabled', false);
+		}
+		$('body').on('click', '.period-filter a', function(e) {
+			var iPeriod = parseInt($(this).data('period'));
+			if (isNaN(iPeriod) === false) {
+				var sToday = $.datepicker.formatDate('yy-mm-dd', new Date());
+				$('#end_date').val(sToday);
+				var sBaseDate = new Date($('#end_date').datepicker('getDate'));
+				var sStartDate = '';
+				var sYear = '' + sBaseDate.getFullYear();
+				var sMonth = '' + parseInt(sBaseDate.getMonth());
+				var sDay = '' + sBaseDate.getDate();
+				sStartDate = new Date(sYear, sMonth, sDay - iPeriod);
+				sStartDate = $.datepicker.formatDate('yy-mm-dd', sStartDate);
+				$('#start_date').datepicker('setDate', sStartDate);
+				var iPeriod = $(this).data('period');
+				$(this).closest('.period-filter').find('input[name="period"]').val(iPeriod);
+			}
+		});
+		$('#start_date, #end_date').change(function() {
+			if ($('#start_date').datepicker('getDate') > $('#end_date').datepicker('getDate')) {
+				$('#end_date').datepicker('setDate', $('#start_date').datepicker('getDate'));
+				SHOP.showLayerAlert({
+					sContents: '기간 설정이 잘못되었습니다.<br>선택하신 날짜를 다시 확인해주세요.'
+				});
+				return false;
+			}
+			$('.period-filter li').removeClass('on');
+			$('.period-filter input[name="period"]').val(-1);
+		});
+		$('.eDateArrow').click(function(e) {
+			var iPeriod = parseInt($(this).data('arrow'));
+			if (isNaN(iPeriod) === false) {
+				var sStartDate = '';
+				var sEndDate = '';
+				var sSdate = new Date($('#start_date').datepicker('getDate'));
+				var sYear = '' + sSdate.getFullYear();
+				var sMonth = '' + parseInt(sSdate.getMonth());
+				var sDay = parseInt(sSdate.getDate());
+				sStartDate = new Date(sYear, sMonth, '' + (sDay + iPeriod));
+				sStartDate = $.datepicker.formatDate('yy-mm-dd', sStartDate);
+				var sEdate = new Date($('#end_date').datepicker('getDate'));
+				sYear = '' + sEdate.getFullYear();
+				sMonth = '' + parseInt(sEdate.getMonth());
+				sDay = parseInt(sEdate.getDate());
+				sEndDate = new Date(sYear, sMonth, '' + (sDay + iPeriod));
+				sEndDate = $.datepicker.formatDate('yy-mm-dd', sEndDate);
+				$('#start_date').datepicker('setDate', sStartDate);
+				$('#end_date').datepicker('setDate', sEndDate);
+			}
+		});
+
+
+	});
+</script>
+
+
+
+<!-- 2023-01-04 EZP-7919 주석처리
+	<div id="ui-datepicker-div" class="ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all"></div>
+<div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+	<div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+</div> -->
+<div class="ui-load" style="display:none"><img src="https://easypick.co.kr/img/common/loading.svg"></div>
+</body>
+
+</html>

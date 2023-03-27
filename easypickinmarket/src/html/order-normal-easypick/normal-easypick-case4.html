@@ -1,0 +1,481 @@
+{% extends "../_templates/layout.njk" %}
+{% block content %}
+<div id="wrap">
+
+    <div class="content-head">
+        <div class="page-title">
+            <h3 class="h3-tit">주문/결제</h3>
+            <a href="#" class="btn-manual" target="_blank" title="매뉴얼">매뉴얼</a>
+            <div class="form-box">
+                <form onsubmit="return submitHandler();">
+                    <fieldset>
+                        <legend class="skip">통합검색</legend>
+                        <label for="total-search" class="skip">검색어 입력</label>
+                        <input type="search" name="total-search" id="total-search" title="검색어 입력" class="text"
+                            placeholder="상품을 검색해보세요.">
+                        <input type="submit" value="검색" class="submit">
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+
+        <div class="cont-info-right">
+            <ul class="breadcrumb">
+                <li>공급</li>
+                <li class="now" title="현재 페이지">주문/결제</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 상단텝메뉴 -->
+    <div class="basket-guide-info">
+        <div class="txt-box cart-type02">
+            <p>이지픽 주문에 대한 주문/결제 중입니다.</p>
+        </div>
+    </div>
+
+    <!-- 2022 08 10  전체적으로 구조가 수정되었습니다 -->
+
+    <section class="order-section-wrap">
+        <div class="order-content-wrap">
+
+            <!-- 구매자 정보 -->
+            <h3 class="tbl-title mt0">구매자 정보</h3>
+            <div class="tround-box">
+                <div class="tbl-round">
+                    <table class="tbl-register-row">
+                        <colgroup>
+                            <col style="width:150px">
+                            <col style="width:calc(100% - 150px);">
+                        </colgroup>
+                        <tbody>
+                            <tr>
+                                <th>주문자명</th>
+                                <td>이지픽회원명</td>
+                            </tr>
+                            <tr>
+                                <!-- 2023-01-05 EZP-7765 워딩변경 (기존 : 연락처) -->
+                                <th>
+                                    휴대폰 번호
+                                    <span class="label label-point m-l-2">필수</span>
+                                </th>
+                                <td class="hp-input-table">
+                                    <div class="form-inline">
+                                        <div class="select-control">
+                                            <button type="button" class="btn-sel">010</button>
+                                            <ul class="sel-panel">
+                                                <li selected="" value="010">010</li>
+                                                <li value="011">011</li>
+                                                <li value="016">016</li>
+                                                <li value="017">017</li>
+                                                <li value="018">018</li>
+                                                <li value="019">019</li>
+                                            </ul>
+                                        </div>
+                                        <div class="form-control">
+                                            <i class="number-hypen">-</i>
+                                            <input type="text" placeholder="">
+                                            <i class="number-hypen">-</i>
+                                            <input type="text" placeholder="">
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- 배송지 정보 -->
+            <h3 class="tbl-title">배송지 정보</h3>
+            <div class="tround-box">
+                <div class="tbl-round">
+                    <table class="tbl-register-row">
+                        <colgroup>
+                            <col style="width:150px">
+                            <col style="width:calc(100% - 150px);">
+                        </colgroup>
+                        <tbody>
+                            <tr>
+                                <th>
+                                    받는사람
+                                    <span class="label label-point m-l-2">필수</span>
+                                </th>
+                                <td>
+                                    <div class="form-control w220 address">
+                                        <input type="text" placeholder="이름을 입력해주세요.">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <!-- 2023-01-05 EZP-7765 워딩변경 (기존 : 연락처) -->
+                                <th>
+                                    휴대폰 번호
+                                    <span class="label label-point m-l-2">필수</span>
+                                </th>
+                                <td class="hp-input-table">
+                                    <div class="form-inline">
+                                        <div class="select-control">
+                                            <button type="button" class="btn-sel">010</button>
+                                            <ul class="sel-panel">
+                                                <li selected="" value="010">010</li>
+                                                <li value="011">011</li>
+                                                <li value="016">016</li>
+                                                <li value="017">017</li>
+                                                <li value="018">018</li>
+                                                <li value="019">019</li>
+                                            </ul>
+                                        </div>
+                                        <div class="form-control">
+                                            <i class="number-hypen">-</i>
+                                            <input type="text" placeholder="">
+                                            <i class="number-hypen">-</i>
+                                            <input type="text" placeholder="">
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="vt-top">
+                                    주소
+                                    <span class="label label-point m-l-2">필수</span>
+                                </th>
+                                <td class="adress-td" colspan="2">
+                                    <div class="form-control address-sm mb8">
+                                        <input type="text" placeholder="" value="07071" class="disabled-bg" disabled>
+                                        <button type="button" class="btn btn-md btn-outline-blue ml4">우편번호 찾기</button>
+                                    </div>
+                                    <div class="form-control adress-xl mb8">
+                                        <input type="text" placeholder="" value="서울 동작구 보라매로5길 15" class="disabled-bg"
+                                            disabled>
+                                    </div>
+                                    <div class="form-control adress-xl">
+                                        <!-- 2022 08 22 placeholder 추가 -->
+                                        <input type="text" placeholder="상세주소를 입력해주세요." value="26층">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="vt-top">배송 메시지</th>
+                                <td class="textarea-height-md">
+                                    <div class="form-control">
+                                        <!-- 2022 08 10 input -> textarea -->
+                                        <textarea placeholder="배송시 요청할 메세지를 작성해주세요."></textarea>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th class="vt-top">삼촌 요청 메시지</th>
+                                <td class="textarea-height-md">
+                                    <div class="form-control">
+                                        <!-- 2022 08 10 input -> textarea -->
+                                        <textarea placeholder="사입삼촌에게 요청할 메모를 작성해주세요."></textarea>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+        <div class="order-info-wrap">
+            <!-- 결제 정보 -->
+            <h3 class="tbl-title mt0">결제 정보</h3>
+            <div class="order-info-box">
+                <div class="total-price-wrap">
+                    <div class="title-price-box">
+                        <div class="tooltip-fl-wrap">
+                            <span>상품금액</span>
+                            <div style="display:inline-block">
+                                <!--tooltip-->
+                                <div class="tool-tip-wrap tool-gray ml3" style="float:left">
+                                    <a href="javascript:void(0)" class="tool-tip">툴팁</a>
+                                    <div class="tool-tip-area renewal-tool-tip-area md left2">
+                                        <section class="tool-tip-title">
+                                            <h1>상품금액</h1>
+                                            <div class="tool-tip-inner">
+                                                <h2 class="dot">이지픽의 모든 상품은 도매회원가격으로 제공됩니다.</h2>
+                                            </div>
+                                        </section>
+                                        <button type="button" class="tool-tip-close">닫기</button>
+                                    </div>
+                                </div>
+                                <!--//tooltip-->
+                            </div>
+                        </div>
+                        <h6>1,234,000원</h6>
+                    </div>
+                    <div class="price-info-box">
+                        <dl class="price-dl">
+                            <dt class="tooltip-fl-wrap">
+                                <span>부가가치세</span>
+                                <div style="display:inline-block">
+                                    <!--tooltip-->
+                                    <div class="tool-tip-wrap tool-gray ml3" style="float:left">
+                                        <a href="javascript:void(0)" class="tool-tip">툴팁</a>
+                                        <div class="tool-tip-area renewal-tool-tip-area sm left2">
+                                            <section class="tool-tip-title">
+                                                <h1>부가가치세</h1>
+                                                <div class="tool-tip-inner">
+                                                    <h2 class="dot">상품의 부가가치세 입니다.</h2>
+                                                    <ul class="list-dash">
+                                                        <li>= 상품금액 x 10%</li>
+                                                    </ul>
+                                                </div>
+                                            </section>
+                                            <button type="button" class="tool-tip-close">닫기</button>
+                                        </div>
+                                    </div>
+                                    <!--//tooltip-->
+                                </div>
+                            </dt>
+                            <dd>+ 123,400원</dd>
+                        </dl>
+                        <dl class="price-dl">
+                            <dt class="tooltip-fl-wrap">
+                                <span>서비스이용료</span>
+                                <div style="display:inline-block">
+                                    <!--tooltip-->
+                                    <div class="tool-tip-wrap tool-gray ml3" style="float:left">
+                                        <a href="javascript:void(0)" class="tool-tip">툴팁</a>
+                                        <div class="tool-tip-area renewal-tool-tip-area sm left2">
+                                            <section class="tool-tip-title">
+                                                <h1>서비스이용료</h1>
+                                                <div class="tool-tip-inner">
+                                                    <h2 class="dot second-line">
+                                                        상품금액과 부가가치세를 더한 합계금액에 <br />
+                                                        서비스이용료를 부과하고 있습니다.
+                                                    </h2>
+                                                    <ul class="list-dash">
+                                                        <li>= (상품금액+부가가치세) x 서비스 이용 수수료 (%)</li>
+                                                    </ul>
+                                                </div>
+                                            </section>
+                                            <button type="button" class="tool-tip-close">닫기</button>
+                                        </div>
+                                    </div>
+                                    <!--//tooltip-->
+                                </div>
+                            </dt>
+                            <dd>+ 0원</dd>
+                        </dl>
+                        <dl class="price-dl">
+                            <dt class="tooltip-fl-wrap">
+                                <span>배송비</span>
+                            </dt>
+                            <dd>+ 3,300원</dd>
+                        </dl>
+                        <!-- 2022-10-11 EZP-6943 .price-dl2 class 추가 -->
+                        <dl class="price-dl price-dl2">
+                            <dt class="tooltip-fl-wrap">
+                                <span>적립금 사용</span>
+                                <div style="display:inline-block">
+                                    <!--tooltip-->
+                                    <div class="tool-tip-wrap tool-gray ml3" style="float:left">
+                                        <a href="javascript:void(0)" class="tool-tip">툴팁</a>
+                                        <div class="tool-tip-area renewal-tool-tip-area md left2">
+                                            <section class="tool-tip-title">
+                                                <h1>적립금 사용</h1>
+                                                <div class="tool-tip-inner">
+                                                    <h2 class="dot second-line">
+                                                        결제 또는 환불 시 적립금이 적립되고, <br />
+                                                        다음 주문시 현금처럼 사용하실 수 있는 보조 결제 수단입니다.
+                                                    </h2>
+                                                </div>
+                                            </section>
+                                            <button type="button" class="tool-tip-close">닫기</button>
+                                        </div>
+                                    </div>
+                                    <!--//tooltip-->
+                                </div>
+                            </dt>
+                            <!-- 2022-10-11 EZP-6943 위치변경 -->
+                        <dd>
+                            <!-- 2022-10-11 EZP-6943 w140제거 input에 w180 추가 ( 인풋사이즈 조정 ) -->
+                            <div class="form-control">
+                                <input type="text" placeholder="" class="w180" value="500,000">
+                            </div>
+                            <!-- 2022-10-07 EZP-7048 워딩변경 -->
+                            <!-- 2022-10-11 EZP-6943 dd태그에서 변경 -->
+                            <p class="gray-text">* 보유적립금 : 500,000원</p>
+                            <!-- 2022-10-11 EZP-6943 전액사용 btn 추가 -->
+                            <div class="btn-wrap">
+                                <button type="button" class="all-clear-btn btn btn-sm btn-outline-blue">전액사용</button>
+                            </div>
+                        </dd>
+                    </dl>
+                    <!-- 2022-10-11 EZP-6943 위치변경 
+                    <dl class="price-dl">
+                        <dt></dt>
+                        <dd>
+                            <div class="form-control w140">
+                                <input type="text" placeholder="" value="500,000">
+                            </div>
+                        </dd>
+                    </dl>
+                    -->
+                    </div>
+                    <div class="result-price-box">
+                        <div class="tooltip-fl-wrap">
+                            <span>총 결제금액</span>
+                            <div style="display:inline-block">
+                                <!--tooltip-->
+                                <div class="tool-tip-wrap tool-gray ml3" style="float:left">
+                                    <a href="javascript:void(0)" class="tool-tip">툴팁</a>
+                                    <div class="tool-tip-area renewal-tool-tip-area md left2">
+                                        <section class="tool-tip-title">
+                                            <h1>상품금액</h1>
+                                            <div class="tool-tip-inner">
+                                                <h2 class="dot second-line">
+                                                    총 결제금액은 상품금액, 부가가치세, 서비스이용료, <br />
+                                                    배송비의 합계에 적립금 사용액을 제외한 금액 분으로 <br />
+                                                    실제 결제하실 금액 입니다.
+                                                </h2>
+                                                <ul class="list-dash">
+                                                    <li>= 상품금액 + 부가가치세 + 서비스이용료 + 배송비 - 적립금</li>
+                                                </ul>
+                                            </div>
+                                        </section>
+                                        <button type="button" class="tool-tip-close">닫기</button>
+                                    </div>
+                                </div>
+                                <!--//tooltip-->
+                            </div>
+                        </div>
+                        <h6 class="result-price">1,347,400원</h6>
+                    </div>
+                    <div class="notice-wrap db renewal">
+                        <p class="ico-notice fnsize13">
+                            안내사항
+                        </p>
+                        <ul class="mt5">
+                            <li>상기 금액은 공급처의 단가 변경 및 상품 수령 후의 <br />
+                                검수결과 등에 따라 변동될 수 있습니다.</li>
+                        </ul>
+                    </div>
+                    <div class="payby-wrap">
+                        <dl>
+                            <dt>결제방식</dt>
+                            <dd>무통장입금</dd>
+                        </dl>
+                    </div>
+                    <div class="pay-agree-wrap">
+                        <div class="form-control">
+                            <label>
+                                <input type="checkbox">
+                                <span>주문 내용을 확인하였으며, 결제에 동의합니다.</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 주문상품 정보 -->
+    <h3 class="tbl-title">주문상품 정보</h3>
+    <div class="tab-content tableType01">
+        <div class="gridTableArea posr">
+            <div class="table-top-info">
+                <div class="top-txt-inline">
+                    <span class="txt-inline">총 주문상품 <strong>1,000</strong>개</span>
+                    <span class="txt-inline">총 주문수량 <strong>8,500</strong>개</span>
+                </div>
+            </div>
+            <div class="tround-box">
+                <div class="tbl-round">
+                    <!-- 그리드 테이블-->
+                    <table class="tbl-list-view pdtype">
+                        <colgroup>
+                            <col style="width: 100px;">
+                            <col style="width: auto;">
+                            <col style="width: 220px;">
+                            <col style="width: 190px;">
+                            <col style="width: 150px;">
+                            <col style="width: 280px">
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th>유형</th>
+                                <th>가게/상품정보</th>
+                                <th>옵션</th>
+                                <th>결제수량</th>
+                                <th>판매가 합계</th>
+                                <th>메모</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for orderList in normalEasypickOrderCase2 %}
+                            <tr>
+                                <td>
+                                    <div class="easy-pick-case">
+                                        <span class="sample-payment no-br">샘플결제</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="product-info">
+                                        <div class="figure">
+                                           <!-- 2023-01-25 EZP-7892 img태그 -> bg로 변경 시작 -->
+                                           <a href="javascript: void(0);" style="background: url('../assets/images/cart-product-img.png') no-repeat 50% 50% / cover;">
+                                            <!-- <img src="../assets/images/cart-product-img.png" alt=""> -->
+                                        </a>
+                                        <!-- 2023-01-25 EZP-7892 img태그 -> bg로 변경 끝 -->
+                                        </div>
+                                        <div class="info">
+                                            <div class="shop-name">[디오트] 라이트워터</div>
+                                            {% if orderList.goodsname === "longtext" %}
+                                            <div class="product-name">상품명도 길면 줄임말 표시 상품명도 길면 줄임말 표시</div>
+                                            {% else %}
+                                            <div class="product-name">빈티지 캔버스 스니커즈</div>
+                                            {% endif %}
+                                            <div class="price">30,000원</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    {% if orderList.option === "longoption" %}
+                                    <span class="product-option">색상명길면줄내림하여 모두표시 / 사이즈명도길면 줄내림하여모두표시</span>
+                                    {% else %}
+                                    <span class="product-option">오렌지&그레이 / FREE</span>
+                                    {% endif %}
+                                </td>
+                                <td>
+                                    <div class="def-number-input">
+                                        <button type="button" class="minus"></button>
+                                        <input class="quantity" name="quantity" value="1" type="tel">
+                                        <button type="button" class="plus"></button>
+                                    </div>
+                                </td>
+                                <td>
+                                    <strong class="product-price">100,000원</strong>
+                                </td>
+                                <td>
+                                    <div class="form-control">
+                                        {% if orderList.memo === "havememo" %}
+                                        <input type="text" placeholder="" value="메모 입력된 경우 이렇게 표시">
+                                        {% else %}
+                                        <input type="text" placeholder="{{orderList.memo}}" value="">
+                                        {% endif %}
+                                    </div>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    <!-- //그리드 테이블-->
+                </div>
+            </div>
+        </div>
+        <!-- 2022-10-21 EZP-7034 pagination 추가 -->
+        {% include("../_templates/default/pagination.njk") %}
+    </div>
+
+
+</div>
+
+{% include ("../_templates/content-footer/order-btn-footer.njk") %}
+<!-- 2022-11-10 EZP-7223 추가입고 등록 불가 case -->
+{% include("./modals/direct-order/direct-order-modal-case06.njk") %}
+
+{% endblock %}

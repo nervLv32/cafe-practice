@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="ko" class="js">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="format-detection" content="telephone=no">
+	<meta content="7GTEAaj9OHm/B6t8WELAc+6jTv9Fwyjj4nGViJpKFoc=" name="csrf-token">
+	<meta content="T" name="login-required">
+	<link rel="shortcut icon" type="image/x-icon" href="/img/favicon/ezp.ico">
+
+	<link rel="stylesheet" type="text/css" href="../../../css/default.css">
+	<link rel="stylesheet" type="text/css" href="../../../css/month.picker.css">
+
+	<title>이지픽</title>
+</head>
+
+<body id="login">
+
+	<header></header>
+	<div id="container" style="padding-top:100px;" class="min-wid">
+		<!--2021-01-14 수정 / min-wid 클래스 추가-->
+		<div class="member-title">
+			<h2>회원가입</h2>
+			<ul class="chapter">
+				<li class="finish">
+					<!--활성화 on, 완료 finish-->
+					<span>01</span>
+					<p>이용약관 동의</p>
+				</li>
+				<li class="on">
+					<span>02</span>
+					<p>가입정보 입력</p>
+				</li>
+				<!--21-01-18 수정 / 큐레이션 추가-->
+				<li>
+					<span>03</span>
+					<p>큐레이션정보 입력</p>
+				</li>
+				<li>
+					<span>04</span>
+					<p>신청 완료</p>
+				</li>
+				<!--// 21-01-18 수정 / 큐레이션 추가-->
+			</ul>
+		</div>
+		<div class="member-join">
+			<form id="frmSignUp" name="frmSignUp" action="/sign/action/registered" enctype="multipart/form-data">
+				<input type="hidden" name="is_agree_sms" value="T">
+				<input type="hidden" name="is_agree_email" value="T">
+				<input type="hidden" name="check_bizno" value="F"> <input type="hidden" name="check_cell" value="F">
+				<input type="hidden" name="check_id" value="F">
+				<div class="form-wrap">
+					<div class="stitle">
+						<h3>사업자 정보</h3>
+						<p>* 표시는 필수 입력 정보입니다.</p>
+					</div>
+					<!-- 2021-03-09 addclear2 클래스 추가 -->
+					<div class="row-group">
+						<!--2021-01-14 수정 / 버튼 없는 input에 style width값 삭제, margin-left 값 삭제-->
+						<div class="join-row btn-type">
+							<span class="join-title required"><label>사업자 구분</label></span>
+							<button type="button" name="button" class="btn line first eBusinessType" data-business_type="C" style="width:120px;">법인 사업자</button>
+							<button type="button" name="button" class="btn line second eBusinessType on" data-business_type="I" style="width:120px;">개인 사업자</button>
+							<input type="hidden" name="business_type" value="I">
+						</div>
+						<!-- //21-01-26 -->
+						<div class="join-row">
+							<span class="join-title required"><label for="company-name">쇼핑몰명</label></span>
+							<input type="text" id="company-name" name="company-name" placeholder="쇼핑몰명을 입력해주세요." style="width:268px;">
+							<p>쇼핑몰명을 입력해주세요.</p>
+						</div>
+						<!-- 21-01-26// -->
+						<div class="join-row eInvdRow">
+							<!--2021-01-14 수정 / input에 style width값 삭제-->
+							<span class="join-title required"><label for="business-name">대표자명</label></span>
+							<!-- 2021-04-01 EZP-2603 -->
+							<input type="text" placeholder="사업자등록증에 기재된 대표자명을 입력해주세요." class="eEssn fKens addclear2" id="business-name" name="ceo_name" maxlength="50" style="padding-right: 20px;">
+							<!--<p style="font-size:12px;">필수 입력 정보를 모두 입력해주세요.</p>-->
+						</div>
+						<div class="join-row">
+							<!--2021-01-14 수정 / input에 style width값 삭제-->
+							<span class="join-title required"><label for="mutual" class="eBizNameTitle">상호</label></span>
+							<!-- 2021-04-01 EZP-2603 -->
+							<input type="text" placeholder="사업자등록증에 기재된 상호명을 입력해주세요." class="eEssn fKens addclear2" id="mutual" name="business_name" maxlength="15" style="; padding-right: 20px;">
+						</div>
+						<div class="join-row eCorpRow business-num" style="display:none;">
+							<span class="join-title required"><label>법인등록번호</label></span>
+							<input type="text" id="corp_no1" name="corp_no1" maxlength="6" class="eEssn fNumCV" style="width: 268px; padding-right: 20px;">
+							<input type="text" id="corp_no2" name="corp_no2" maxlength="7" class="eEssn fNumCV" style="width: 268px; padding-right: 20px;">
+						</div>
+						<div class="join-row divBusinessNo input-btn">
+							<!--2021-01-14 수정 / 버튼 있는 input 영역은 input-btn클래스 추가-->
+							<span class="join-title required"><label for="company-num">사업자등록번호</label></span>
+							<!--2021-01-14 수정 / input에 style width값 삭제-->
+							<!-- 2021-04-01 EZP-2603 -->
+							<input type="text" placeholder="사업자등록증에 기재된 등록번호를 입력해주세요. (숫자만 입력)" class="fNumCV eEssn eCheckOverlap addclear2" data-type="bizno" id="company-num" name="business_no" maxlength="10" style="">
+							<button type="button" name="button" class="btn eUpCheck" style="width:100px" href="/sign/action/upChecked" data-type="bizno">조회하기</button>
+							<span class="eCheckMsgbizno"></span>
+						</div>
+						<div class="join-row new">
+							<span class="join-title required"><label for="address3">사업장 주소</label></span>
+								<!--21-03-04 수정 / input에 add-input 클래스 추가-->
+							<input type="text" placeholder="" id="address1" name="business_zipcode" class="eEssn eBizZipcode add-input" style="width:268px; margin-top:0;" readonly="readonly">
+							<button type="button" name="button" class="btn ePostFind" style="width:126px" data-zipcode="eBizZipcode" data-addr="eBizAddr" data-street="eBizStreet">우편번호 찾기</button>
+							<br>
+							<!--2021-01-14 수정 / input에 style 값 삭제-->
+							<!--21-03-04 수정 / input에 add-input2 클래스 추가-->
+							<input type="text" placeholder="" id="address2" name="business_addr" style="" class="eEssn eBizAddr add-input2 addclear2" readonly="readonly">
+							<input type="text" placeholder="상세주소를 입력해주세요." id="address3" name="business_street" class="addclear2" maxlength="50" style="">
+						</div>
+						<div class="join-row">
+							<span class="join-title required"><label>사업자등록증첨부</label></span>
+							<div class="input-file">
+								<!-- 2021-04-02 EZP-2603 -->
+								<div class="list">파일을 등록해주세요.</div>
+								<div class="btn">
+									<label>파일찾기<input type="file" name="file[]" id="fileUpload"></label>
+									<input type="hidden" id="hidImgTemp" name="biz_img_url" class="eEssn">
+								</div>
+							</div>
+						</div>
+						<div class="join-row new second third">
+							<span class="join-title"><label for="refund">환불 계좌 정보</label></span>
+							<input type="hidden" name="bank_code" id="selBankName" value="">
+							<div class="ui-select" data-target_id="#selBankName">
+								<button type="button" data-target_id="#selBankName" data-value="">선택해주세요.</button>
+								<ul>
+									<li data-key="" class="active">선택해주세요.</li>
+									<li data-key="034">광주은행</li>
+									<li data-key="004">국민은행</li>
+									<li data-key="003">기업은행</li>
+									<li data-key="011">농협</li>
+									<li data-key="031">대구은행</li>
+									<li data-key="032">부산은행</li>
+									<li data-key="002">산업은행</li>
+									<li data-key="050">상호저축은행</li>
+									<li data-key="045">새마을금고</li>
+									<li data-key="007">수협중앙회</li>
+									<li data-key="023">SC제일은행</li>
+									<li data-key="088">신한은행</li>
+									<li data-key="048">신협</li>
+									<li data-key="020">우리은행</li>
+									<li data-key="071">우체국</li>
+									<li data-key="037">전북은행</li>
+									<li data-key="035">제주은행</li>
+									<li data-key="090">카카오뱅크</li>
+									<li data-key="089">케이뱅크</li>
+									<li data-key="081">하나은행</li>
+									<li data-key="027">한국씨티은행</li>
+								</ul>
+							</div><br>
+							<!--2021-01-14 수정 / input에 style 값 삭제-->
+							<!-- 2021-04-01 EZP-2603 -->
+							<input type="text" placeholder="사업자 명의의 계좌번호를 입력해주세요. (숫자만 입력)" id="refund" name="refund_bank_acc_no" class="fNumCV ex_input1 addclear2" maxlength="20" style="">
+							<input type="text" placeholder="예금주명을 입력해주세요." id="deposit-name" name="refund_bank_acc_name" maxlength="20" style="" class="fKen ex_input2 addclear2">
+						</div>
+					</div>
+
+
+					<div class="stitle">
+						<h3>계정 정보</h3>
+					</div>
+					<div class="row-group">
+						<div class="join-row">
+							<span class="join-title required"><label for="id">아이디(이메일)</label></span>
+							<div class="mail divUserId">
+								<!-- 2021-04-01 EZP-2603 -->
+								<input type="text" placeholder="아이디를 입력해주세요." id="id" name="user_id" class="eEssn eCheckOverlap" data-type="id" style="width: 268px; padding-right: 20px;">
+								<input type="hidden" name="email" id="email" value="naver.com">
+								<div class="ui-select" data-target_id="#email">
+									<button type="button" data-target_id="#email" data-value="">네이버</button>
+									<ul>
+										<li data-key="">직접입력</li>
+										<li data-key="naver.com" class="active">네이버</li>
+										<li data-key="gmail.com">지메일</li>
+										<li data-key="daum.net">다음</li>
+										<li data-key="hanmail.net">한메일</li>
+										<li data-key="hotmail.com">핫메일</li>
+									</ul>
+								</div>
+								<input type="text" placeholder="" id="mail" name="email_direct" class="eCheckOverlap" data-type="id" style="width: 268px; display: none; padding-right: 20px;">
+							</div>
+							<button type="button" name="button" class="btn eUpCheck" href="/sign/action/upChecked" data-type="id" style="width:100px">중복체크</button>
+							<span class="eCheckMsgid"></span>
+						</div>
+						<div class="join-row divPassword">
+							<span class="join-title required"><label for="password">비밀번호</label></span>
+							<!-- 2021-04-01 EZP-2603 -->
+							<input type="password" placeholder="비밀번호를 입력해주세요." name="user_password" class="eEssn" maxlength="16" style="width: 268px; padding-right: 20px;">
+							<em>(영문 대소문자, 숫자, 특수문자 중 2가지 이상 조합으로 6~16자리 입력) </em>
+
+							<span class="eCheckMsgPassword">
+								<p class="pass">사용 가능한 비밀번호입니다.</p>
+							</span>
+						</div>
+						<div class="join-row divPasswordConfirm">
+							<span class="join-title required"><label for="password2">비밀번호 재확인</label></span>
+							<!-- 2021-04-01 EZP-2603 -->
+							<input type="password" placeholder="비밀번호를 한 번 더 입력해주세요." name="user_password_confirm" class="eEssn" maxlength="16" style="width: 268px; padding-right: 20px;">
+							<span class="eCheckMsgPasswordConfirm"></span>
+						</div>
+						<!-- 2022-11-22 EZP-6415 카페24 계정연동 추가 시작 -->
+						<!-- case1-1. 이지픽 가입자, ec계정연동 no -->
+						<!-- 2023-01-17 EZP-6415 카페24 계정연동 제거
+							<div class="join-row cafe24_info">
+							<span class="join-title "><label for="cafe24_1">카페24 계정</label></span>
+							<button type="button" name="button" class="btn eUpCheck cafe24 change" href="#" style="width:100px">연동하기</button>
+							<div class="login-box">
+								<div class="account-info">계정정보 입력안내
+									<div class="tip-wrap">
+										<a href="javascript: void(0);" class="btn-tip hover"></a>
+										<div class="tip" style="width: 400px;">
+											<span class="tit">계정정보 입력 안내</span>
+											<ul class="txt">
+												<li>쇼핑몰 관리자 계정(쇼핑몰 아이디)을 입력해주세요.</li>
+												<li>쇼핑몰 아이디는 대표운영자 계정으로만 인증할 수 있습니다.<br/>(부운영자 계정 인증 불가)</li>
+											</ul>
+											<div class="id-info">아이디 또는 비밀번호를 잊으셨나요? <a href="#">ID/PW 찾기</a></div>
+										</div>
+									</div>
+								</div>
+								<div class="input-wrap pt10">
+									<div class="half-input-box">
+										<input type="text" placeholder="대표운영자 아이디를 입력해주세요." name="user_id" class="eEssn" maxlength="16" style="width: 300px;">
+										<input type="password" placeholder="대표운영자 비밀번호를 입력해주세요." name="user_password" class="eEssn" maxlength="16" style="width: 300px;">
+									</div>
+									<button type="button" name="button" class="ui-popup-open btn" href="#" style="width:100px" data-target="#account-alert1">인증</button>
+								</div>
+								<span class="add-txt error mt5 mb15">아이디 또는 비밀번호를 확인해주세요.</span>
+								<span class="add-txt error mt5 mb15">인증 실패했습니다. 다시 시도해주세요.</span>
+							</div>
+							<span class="add-txt">카페24와 연동하여 내 쇼핑몰에 상품등록하기 등 다양한 연동기능을 이용해 보세요.</span>
+						</div> -->
+
+						<!-- case1-2. 이지픽 가입자, ec 연동 yes -->
+						<!-- 2023-01-17 EZP-6415 카페24 계정연동 제거
+							<div class="join-row cafe24_info">
+							<span class="join-title bottom"><label for="cafe24_1">카페24 계정</label></span>
+							<p class="id mr40">ectezp001@cafe24.com</p>
+							<button type="button" name="button" class="btn cafe24 line" href="#" style="width:100px">연동해제</button>
+						</div> -->
+
+						<!-- 2022-11-22 EZP-6415 카페24 계정연동 추가 끝 -->
+					</div>
+
+					<div class="stitle">
+						<h3>담당자 정보</h3>
+					</div>
+					<div class="row-group">
+						<div class="join-row">
+							<span class="join-title required"><label for="name">이름</label></span>
+							<!-- 2021-04-01 EZP-2603 -->
+							<input type="text" placeholder="이름을 입력해주세요." id="name" name="manager_name" class="fKens eEssn" maxlength="50" style="width: 268px; padding-right: 20px;">
+							<em>(아이디/비밀번호 분실시 담당자 정보 인증을 통해 아이디/비밀번호 찾기가 가능합니다.) </em>
+						</div>
+						<div class="join-row divBusinessCell">
+							<span class="join-title required"><label>휴대폰 번호</label></span>
+							<div class="phone">
+								<!-- 2023-03-16 EZP-8907 select, input 기존 width 80px -> 85로 변경 시작 -->
+								<input type="hidden" name="business_cell1" id="business_cell1" value="010">
+								<div class="ui-select" data-target_id="#business_cell1" style="width:85px;">
+									<button type="button" data-target_id="#business_cell1" data-value="">010</button>
+									<ul>
+										<li data-key="010" class="active">010</li>
+										<li data-key="011">011</li>
+										<li data-key="016">016</li>
+										<li data-key="017">017</li>
+										<li data-key="018">018</li>
+										<li data-key="019">019</li>
+									</ul>
+								</div>
+								<input type="text" placeholder="" name="business_cell2" class="eEssn fNumCV eCheckOverlap" data-type="cell" title="휴대폰 번호 가운데 4자리 입력" maxlength="4" style="width: 85px; padding-right: 20px;">
+								<input type="text" placeholder="" name="business_cell3" class="eEssn fNumCV eCheckOverlap" data-type="cell" title="휴대폰 번호 끝 4자리 입력" maxlength="4" style="width: 85px; padding-right: 20px;">
+							</div>
+							<!-- 2023-03-16 EZP-8907 select, input 기존 width 80px -> 85로 변경 끝 -->
+							<!-- 2021-05-24 EZP-3068 -->
+							<!-- <button type="button" name="button" class="btn eUpCheck" style="width:100px" href="/sign/action/upChecked" data-type="cell">조회하기</button> -->
+							<span class="eCheckMsgcell"></span>
+						</div>
+					</div>
+
+					<div class="stitle">
+						<h3>배송지 정보</h3>
+					</div>
+					<!-- //21-01-26 -->
+					<div class="row-group">
+						<div class="join-row new">
+							<span class="join-title">
+								<!-- 2022-11-15 EZP-7016 워딩 공통적용으로 변경 (기존 : 기본 배송지) -->
+								<label for="basic-address3">주소</label>
+							</span>
+							<!--21-02-24 수정 / readonly 삭제 / 21-03-04 복구-->
+							<!--21-03-03 수정 / input에 add-input 클래스 추가-->
+							<input type="text" placeholder="" id="basic-address1" name="shipping_zipcode" class="eEssn eShipZipcode add-input" maxlength="5" style="width:268px;" required readonly value="">
+
+							<button type="button" name="button" class="btn ePostFind" data-zipcode="eShipZipcode" data-addr="eShipAddr" data-street="eShipStreet" style="width:126px">우편번호 찾기</button>
+							<span class="checkbox big"><input type="checkbox" id="same_addr" name="same_addr" value="T">
+							<label for="same_addr">사업장 주소와 동일</label></span>
+							<!--2021-01-14 수정 / input에 style width값 삭제-->
+							<!--21-03-03 수정 / input에 add-input2 클래스 추가-->
+							<input type="text" placeholder="" id="basic-address2" name="shipping_addr" class="eEssn eShipAddr add-input2 addclear2" style="" readonly value="">
+
+							<input type="text" placeholder="상세주소를 입력해주세요." id="basic-address3" name="shipping_street" class="eEssn eShipStreet fKens addclear2" maxlength="50" style="">
+
+					</div>
+					<!-- 21-01-26// -->
+
+					<!--21-01-18 페이지 분리 / 삭제-->
+					<!-- <div class="stitle">
+						<h3>큐레이션 정보 입력
+							<span>고객 맞춤 추천 상품 큐레이션 서비스를 위해 사용되는 정보입니다.</span>
+						</h3>
+						<p>* 표시는 필수 입력 정보입니다.</p>
+					</div>
+					<div class="row-group curation-row-group">
+						<div class="join-row">
+							<span class="join-title required">
+								<label>자주 가는 마켓</label>
+								<strong>(최대 3개 선택 가능)</strong>
+							</span>
+							<div class="join-row-input">
+								<div class="ui-select w330" data-target_id="">
+									<button type="button" data-target_id="" data-value="">마켓을 검색 후 등록해주세요.(최대 3개)</button>
+									<ul>
+										<li data-key="" class="active">마켓을 검색 후 등록해주세요.(최대 3개)</li>
+										<li data-key="">마켓명1</li>
+										<li data-key="">마켓명2</li>
+										<li data-key="">마켓명3</li>
+										<li data-key="">마켓명4</li>
+										<li data-key="">마켓명5</li>
+									</ul>
+								</div>
+								<div class="curation-shop-wrap">
+									<div class="item">
+										<span>동원프라자1</span>
+										<button type="button" name="button" class="btn-item-del">삭제</button>
+									</div>
+									<div class="item">
+										<span>동원프라자2</span>
+										<button type="button" name="button" class="btn-item-del">삭제</button>
+									</div>
+									<div class="item">
+										<span>동원프라자3</span>
+										<button type="button" name="button" class="btn-item-del">삭제</button>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="join-row">
+							<span class="join-title required">
+								<label>연령대</label>
+								<strong>(최대 2개 선택 가능)</strong>
+							</span>
+							<div class="join-row-input">
+								<div class="checkbox-wrap">
+									<div class="item">
+										<input type="checkbox" name="" id="c1"><label for="c1">전연령</label>
+									</div>
+									<div class="item">
+										<input type="checkbox" name="" id="c2"><label for="c2">유/아동</label>
+									</div>
+									<div class="item">
+										<input type="checkbox" name="" id="c3"><label for="c3">10대</label>
+									</div>
+									<div class="item">
+										<input type="checkbox" name="" id="c4"><label for="c4">20대</label>
+									</div>
+									<div class="item">
+										<input type="checkbox" name="" id="c5"><label for="c5">30대</label>
+									</div>
+									<div class="item">
+										<input type="checkbox" name="" id="c6"><label for="c6">40대</label>
+									</div>
+									<div class="item">
+										<input type="checkbox" name="" id="c7"><label for="c7">50대 이상</label>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="join-row">
+							<span class="join-title required">
+								<label>상품유형</label>
+								<strong>(중복 선택 가능)</strong>
+							</span>
+							<div class="join-row-input">
+								<div class="checkbox-wrap">
+									<div class="item">
+										<input type="checkbox" name="" id="c21"><label for="c21">여성</label>
+									</div>
+									<div class="item">
+										<input type="checkbox" name="" id="c23"><label for="c23">남성</label>
+									</div>
+									<div class="item">
+										<input type="checkbox" name="" id="c22"><label for="c22">유/아동</label>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="join-row">
+							<span class="join-title required">
+								<label>스타일</label>
+								<strong>(최대 3개 선택 가능)</strong>
+							</span>
+							<div class="join-row-input">
+								<div class="checkbox-wrap">
+									<p>상품유형을 먼저 선택해주세요.</p>
+									<div class="item"><input type="checkbox" name="" id="c001"><label for="c001">캐주얼</label></div>
+									<div class="item"><input type="checkbox" name="" id="c002"><label for="c002">모던시크</label></div>
+									<div class="item"><input type="checkbox" name="" id="c003"><label for="c003">베이직</label></div>
+									<div class="item"><input type="checkbox" name="" id="c004"><label for="c004">클래식</label></div>
+									<div class="item"><input type="checkbox" name="" id="c005"><label for="c005">스트릿</label></div>
+									<div class="item"><input type="checkbox" name="" id="c006"><label for="c006">스포티</label></div>
+									<div class="item"><input type="checkbox" name="" id="c007"><label for="c007">레트로</label></div>
+									<div class="item"><input type="checkbox" name="" id="c008"><label for="c008">페미닌</label></div>
+									<div class="item"><input type="checkbox" name="" id="c009"><label for="c009">오피스</label></div>
+									<div class="item"><input type="checkbox" name="" id="c010"><label for="c010">러블리</label></div>
+									<div class="item"><input type="checkbox" name="" id="c011"><label for="c011">유니섹스</label></div>
+									<div class="item"><input type="checkbox" name="" id="c012"><label for="c012">섹시글램</label></div>
+									<div class="item"><input type="checkbox" name="" id="c1001"><label for="c1001">캐주얼</label></div>
+									<div class="item"><input type="checkbox" name="" id="c1002"><label for="c1002">모던시크</label></div>
+									<div class="item"><input type="checkbox" name="" id="c1003"><label for="c1003">베이직</label></div>
+									<div class="item"><input type="checkbox" name="" id="c1004"><label for="c1004">클래식</label></div>
+									<div class="item"><input type="checkbox" name="" id="c1005"><label for="c1005">스트릿</label></div>
+									<div class="item"><input type="checkbox" name="" id="c1006"><label for="c1006">스포티</label></div>
+									<div class="item"><input type="checkbox" name="" id="c1007"><label for="c1007">레트로</label></div>
+									<div class="item"><input type="checkbox" name="" id="c1008"><label for="c1008">페미닌</label></div>
+									<div class="item"><input type="checkbox" name="" id="c1009"><label for="c1009">오피스</label></div>
+									<div class="item"><input type="checkbox" name="" id="c1010"><label for="c1010">러블리</label></div>
+									<div class="item"><input type="checkbox" name="" id="c1011"><label for="c1011">유니섹스</label></div>
+									<div class="item"><input type="checkbox" name="" id="c1012"><label for="c1012">섹시글램</label></div>
+								</div>
+							</div>
+						</div>
+
+						<div class="join-row">
+							<span class="join-title required">
+								<label>주력 카테고리</label>
+								<strong>(최대 10개 선택 가능)</strong>
+							</span>
+							<div class="join-row-input">
+								<div class="ui-select w330" data-target_id="">
+									<button type="button" data-target_id="" data-value="">카테고리 검색 후 등록해주세요.(최대 10개)</button>
+									<ul>
+										<li data-key="" class="active">카테고리 검색 후 등록해주세요.(최대 10개)</li>
+										<li data-key="">마켓명1</li>
+										<li data-key="">마켓명2</li>
+										<li data-key="">마켓명3</li>
+										<li data-key="">마켓명4</li>
+										<li data-key="">마켓명5</li>
+									</ul>
+								</div>
+								<button type="button" name="button" class="ui-popup-open category-all" data-target="#category-all">전체보기</button>
+								<div class="curation-shop-wrap">
+									<div class="item">
+										<span>아우터 > 가디건/베스트1</span>
+										<button type="button" name="button" class="btn-item-del">삭제</button>
+									</div>
+									<div class="item">
+										<span>아우터 > 가디건/베스트2</span>
+										<button type="button" name="button" class="btn-item-del">삭제</button>
+									</div>
+									<div class="item">
+										<span>아우터 > 가디건/베스트3</span>
+										<button type="button" name="button" class="btn-item-del">삭제</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div> -->
+				</div>
+				<div class="mem-btn-wrap tac">
+					<span>
+						<button type="button" name="button" class="btn eBack">돌아가기</button>
+					</span> <span>
+						<button type="button" class="btn point eRegist">계속하기</button>
+					</span>
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<!-- 주력 카테고리 전체 -->
+	<div id="category-all" class="ui-popup yscroll-pop">
+		<div class="content" style="width:812px;" tabindex="-1">
+			<div class="header">
+				<h3>카테고리 전체</h3>
+			</div>
+			<div class="body">
+				<div class="type-wrap">
+					<div class="type-wrap-inner">
+						<div class="type">
+							<p>1차 분류</p>
+							<div class="inner">
+								<div class="item"><input type="radio" name="type1" id="r001"><label for="r001">여성</label></div>
+								<div class="item"><input type="radio" name="type1" id="r002"><label for="r002">남성</label></div>
+								<div class="item"><input type="radio" name="type1" id="r003"><label for="r003">유/아동</label></div>
+							</div>
+						</div>
+						<div class="type">
+							<p>2차 분류</p>
+							<div class="inner">
+								<div class="item"><input type="radio" name="type2" id="r1001"><label for="r1001">아우터</label></div>
+								<div class="item"><input type="radio" name="type2" id="r1002"><label for="r1002">상의</label></div>
+								<div class="item"><input type="radio" name="type2" id="r1003"><label for="r1003">원피스</label></div>
+								<div class="item"><input type="radio" name="type2" id="r1004"><label for="r1004">니트</label></div>
+								<div class="item"><input type="radio" name="type2" id="r1005"><label for="r1005">팬츠</label></div>
+								<div class="item"><input type="radio" name="type2" id="r1006"><label for="r1006">스커츠</label></div>
+								<div class="item"><input type="radio" name="type2" id="r1007"><label for="r1007">홈/언더웨어</label></div>
+								<div class="item"><input type="radio" name="type2" id="r1008"><label for="r1008">잡화</label></div>
+							</div>
+						</div>
+						<div class="type">
+							<p>3차 분류</p>
+							<div class="inner">
+								<div class="item"><input type="radio" name="type3" id="r2001"><label for="r2001">코트</label></div>
+								<div class="item"><input type="radio" name="type3" id="r2002"><label for="r2002">쟈켓</label></div>
+								<div class="item"><input type="radio" name="type3" id="r2003"><label for="r2003">데님</label></div>
+								<div class="item"><input type="radio" name="type3" id="r2004"><label for="r2004">패딩</label></div>
+								<div class="item"><input type="radio" name="type3" id="r2005"><label for="r2005">점퍼</label></div>
+								<div class="item"><input type="radio" name="type3" id="r2006"><label for="r2006">가디건/베스트</label></div>
+							</div>
+						</div>
+					</div>
+
+					<div class="select-type">
+						<span>여성</span>
+						<span>아우터</span>
+						<span>니트/베스트</span>
+						<button type="button" name="button" class="btn-category-all-add">추가</button>
+					</div>
+				</div>
+
+				<div class="added-category">
+					<p>추가된 상품분류</p>
+					<table>
+						<colgroup>
+							<col width="90px">
+							<col>
+							<col width="150px">
+						</colgroup>
+						<thead>
+							<tr>
+								<th>No</th>
+								<th class="tal">선택된 상품분류</th>
+								<th>설정</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>1</td>
+								<td class="tal">
+									<span>여성</span>
+									<span>아우터</span>
+									<span>니트/베스트</span>
+								</td>
+								<td>
+									<button type="button" name="button" class="btn-category-all-del">삭제</button>
+								</td>
+							</tr>
+							<tr>
+								<td>1</td>
+								<td class="tal">
+									<span>여성</span>
+									<span>아우터</span>
+									<span>니트/베스트</span>
+								</td>
+								<td>
+									<button type="button" name="button" class="btn-category-all-del">삭제</button>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="btn_wrap mt40 mb40 tac">
+				<button type="button" class="btn medium btn_close">닫기</button>
+				<button type="button" class="btn point medium btn_close">적용</button>
+			</div>
+			<button type="button" class="btn_close reconfirm eClose"><span>닫기</span></button>
+		</div>
+	</div>
+
+	<!-- footer// -->
+	<footer>
+		<div class="inner">
+			<div class="info">
+				<p>
+					<span>고객센터: <em>02-6296-8794</em></span>
+					주중 10:00 ~ 18:00 | 점심시간 12:30 ~ 13:30 (토,일 / 공휴일 휴무)<br>
+					<span>회사명: 제이씨어패럴(주)</span> 대표자: 정문섭 <br> <span>사업자등록번호: 204-86-42339</span> 통신판매업신고: 제2016-서울동대문-1326호 <a href="http://www.ftc.go.kr/bizCommPop.do?wrkr_no=2048642339" target="_blank">사업자 정보확인</a><br> 주소: 서울특별시 동대문구 천호대로17길 6 (용두동)
+					제이씨어패럴빌딩 <br> <span>대표번호: 02-6296-8794</span>
+					<span>팩스번호: 02-929-4332</span> 대표이메일: jcapparel@jcapparel.co.kr <br> <span>호스팅 제공자: 카페24(주)</span> 개인정보보호 책임자: 김용해 <span class="copyright">Copyright ⓒ EasyPick. All Rights Reserved.</span>
+				</p>
+			</div>
+
+			<ul class="link">
+				<li><a href="/site/front/service">서비스 소개</a></li>
+				<li><a href="/site/terms/front/detail">서비스 이용약관</a></li>
+				<li><a href="/site/privacy/front/detail" class="personal">개인정보처리방침</a></li>
+				<li><a href="/site/front/consult">서비스 상담신청</a></li>
+			</ul>
+		</div>
+	</footer>
+	<!-- //footer -->
+
+	<!-- 2022-11-22 EZP-6415 카페24 인증후 alert case -->
+	<div id="account-alert1" class="ui-popup">
+		<!-- case1. 정상 -->
+		<div class="content" style="min-width:412px; max-width: 700px;" tabindex="-1">
+			<div class="body">
+				<div class="txt-cont">
+					<p>
+						인증되었습니다.
+					</p>
+				</div>
+				<div class="btn_wrap mt30 tac">
+					<button type="button" class="btn point medium btn_close" style="width:150px;">확인</button>
+				</div>
+			</div>
+		</div>
+		<!-- case4. 다른 이지픽 계정으로 시도 -->
+		<div class="content ml30" style="min-width:412px; max-width: 700px;" tabindex="-1">
+			<div class="body">
+				<div class="txt-cont">
+					<p>
+						해당 계정은 이미 다른 이지픽 계정에<br/>
+						연동되어있습니다.<br/>
+						다른 계정으로 인증 진행해주세요.
+					</p>
+				</div>
+				<div class="btn_wrap mt30 tac">
+					<button type="button" class="btn point medium btn_close" style="width:150px;">확인</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!--
+	<script type="text/javascript" src="https://ssl.daumcdn.net/dmaps/map_js_init/postcode.v2.js" charset="utf-8"></script>
+	<script charset="UTF-8" type="text/javascript" src="https://t1.daumcdn.net/postcode/api/core/200421/1587459050284/200421.js"></script>
+
+	<script type="text/javascript"
+		src="https://www.easypick.co.kr/optimizer.php?filename=lZLBbsMgDIbvLdc9h9XjHmK3vYABJ3UCmBlQuj39snWdtFZagoRASP_3WbYMZ4kEFmdMMChGWkRnUCrS1BE0zuhmmN4a6fvPczKn9ZipPEE_fIg8Kla6xyN7H-74qUCrHMCqLIXUlCqK4wNKH_kvwxDY3uo1NpHTTga9d4FQO5BrGVOcSgi2Cy0LZ9ID03MH9LoQpRe87EScxCjJDCqp7oiv09oO5Wa3UuUseTPDY4LHJv7bhIFDXRdhj7jlTjF9Xy0HQU8auG9HfwXHq-H4NfgeQZZSnXgCjy2a2281fAI&amp;type=js&amp;k=86b866c69ea8602e4f7f9b0b568709cae4ad43a0&amp;t=1606278950">
+	</script> -->
+
+	<!-- 21-01-18 수정-->
+	<script src="../../../js/jquery.min.js"></script>
+	<!--jquery default-->
+	<script src="../../../js/jquery-ui.min.js"></script>
+	<script src="../../../js/swiper-ie9.min.js"></script>
+	<script src="../../../js/default.input.js"></script><!-- 2022-10-04 -->
+	<script src="../../../js/addclear.min.js"></script>
+	<script src="../../../js/common.front.js"></script>
+	<script src="../../../js/ui.js"></script>
+	<script src="../../../js/pub.js"></script>
+	<script src="../../../js/jquery.scrollbar.min.js"></script>
+	<!-- //21-01-18 수정-->
+
+	<script type="text/javascript">
+		// LocalStorage.set("csrf-token", "+pr0RpDk1BpH0+Q82rknsH6MQxRGb6m53NE9R7Qspvk=", "ses");
+		$(document).ready(function() {
+			$('.add-input + a').on('click', function(){
+				$(this).closest('input.add-input2').val('');
+			})
+		});
+	</script>
+
+
+	<div class="ui-load" style="display:none"><img src="https://www.easypick.co.kr/img/common/loading.svg"></div>
+</body>
+
+</html>

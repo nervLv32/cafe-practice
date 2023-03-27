@@ -1,0 +1,65 @@
+{% extends "../_templates/layout.njk" %}
+{% block content %}
+<div id="wrap">
+
+    <div class="content-head">
+        <div class="page-title">
+            <h3 class="h3-tit">주문완료</h3>
+            <a href="#" class="btn-manual" target="_blank" title="매뉴얼">매뉴얼</a>
+            <div class="form-box">
+                <form onsubmit="return submitHandler();">
+                    <fieldset>
+                        <legend class="skip">통합검색</legend>
+                        <label for="total-search" class="skip">검색어 입력</label>
+                        <input type="search" name="total-search" id="total-search" title="검색어 입력" class="text"
+                            placeholder="상품을 검색해보세요.">
+                        <input type="submit" value="검색" class="submit">
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+
+        <div class="cont-info-right green-caption">
+            <ul class="breadcrumb">
+                <li>공급</li>
+                <li>이지픽사입하기</li>
+                <li class="now" title="현재 페이지">주문완료</li>
+            </ul>
+        </div>
+    </div>
+
+    <section class="order-complete-section">
+        <div class="order-complete-inner">
+            
+            <div class="ordersheet-wrap">
+                <div class="ordersheet-title-wrap">
+                    <i><img src="../assets/images/icons/order-complete-titleico.png" alt="order complete"></i>
+                    <div class="text-wrap">
+                        <h6>감사합니다!</h6>
+                        <p>샘플 주문 접수가 완료되었습니다.</p>
+                    </div>
+                </div>
+                <div class="ordersheet-content-wrap case2">
+                    <h4 class="order-number">
+                        샘플주문번호
+                        <!-- 2022 08 04 a태그 > span태그 -->
+                        <span>200204140001234</span>
+                    </h4>
+                    <p class="ordersheet-msg">
+                        빠른 시일 내에 확인 후 처리해드리겠습니다.
+                    </p>
+                </div>
+                <div class="ordersheet-btn-wrap">
+                    <a href="#" class="btn btn-lg  btn-outline-gray mr10">상품 보러가기</a>
+                    <a href="#" class="btn btn-lg btn-point mr10">주문내역 확인</a>
+                    <a href="#" class="btn btn-lg  btn-outline-blue mr10">샘플상품관리</a>
+                </div>
+            </div>
+    
+    
+        </div>
+    </section>
+
+</div>
+
+{% endblock %}

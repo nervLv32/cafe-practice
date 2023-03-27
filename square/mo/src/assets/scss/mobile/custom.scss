@@ -1,0 +1,95 @@
+input,
+textarea,
+select {
+  &:-webkit-autofill {
+    /*!border: 1px solid green;*/
+    -webkit-text-fill-color: #191919;
+    -webkit-box-shadow: 0 0 0px 100px #fff inset;
+    -moz-box-shadow: 0 0 0 100px #fff inset;
+    box-shadow: 0 0 0 100px #fff inset;
+    transition: background-color 5000s ease-in-out 0s;
+
+    &:hover,
+    &:focus {
+      /*!border: 1px solid green;*/
+      -webkit-text-fill-color: #191919;
+      -webkit-box-shadow: 0 0 0px 100px #fff inset;
+      -moz-box-shadow: 0 0 0 100px #fff inset;
+      box-shadow: 0 0 0 100px #fff inset;
+      transition: background-color 5000s ease-in-out 0s;
+    }
+  }
+}
+
+/*!* 스크롤바 없애기 */
+
+.nav-tabs ul::-webkit-scrollbar {
+  display: none;
+}
+
+/*!* 입고완료 */
+
+.pickup-detail .detail-list .detail .list .count em {
+  &[data-is_all_in="T"] {
+    color: #333;
+  }
+
+  &[data-is_all_in="F"] {
+    /*!* 미입고 */
+    color: #eb5050;
+  }
+}
+
+/*!* 비활성화 */
+
+.disabled-edge {
+  pointer-events: none;
+  opacity: 0.4;
+}
+
+/*!* 기본 TOP 버튼 hidden */
+
+.floating-menu .top {
+  display: none;
+}
+
+/*!* selected여도 색상 표현 안함 */
+
+.layer-pickup-form .contents dd.select-item button.selected_none {
+  background: none !important;
+  border-color: #d3d3d3 !important;
+  color: #191919 !important;
+}
+
+/*!* 상단 - 전량입고 체크되었을때 활성화되는 색상 제거 */
+
+.pickup-detail {
+  >.btns .all-in.check>button {
+    background-color: transparent !important;
+    border-color: #b6b6b6 !important;
+  }
+
+  .detail-list .info .all-in.check>button:before {
+    /*!* 소매처별 - 전량입고 체크되었을때 활성화되는 색상 제거 */
+    background-color: #676773 !important;
+  }
+}
+
+/*!* 메세지 박스 z-index 조절 */
+
+.alert-layer {
+  z-index: 1000 !important;
+}
+
+/*!* 
+  터치를 사용한 스크롤, 핀치 줌만 허용하고 그 외 비표준 동작 (더블 탭으로 확대 등) 불허용
+  double-tab zoom in out disable
+*/
+
+body {
+  touch-action: manipulation;
+}
+
+.pickup-detail .detail-list .detail .list .memo.on .layer-memo {
+  line-break: anywhere;
+}

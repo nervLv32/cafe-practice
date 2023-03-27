@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<!--EZP-5398-->
+<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width, viewport-fit=cover">
+<link rel="stylesheet" type="text/css" href="../css/mobile/swiper-bundle.min.css">
+<link rel="stylesheet" type="text/css" href="../css/mobile/jquery-ui.min.css">
+<link rel="stylesheet" type="text/css" href="../css/mobile/default.import.css">
+<link rel="stylesheet" type="text/css" href="../css/mobile/ui.css">
+<link rel="stylesheet" type="text/css" href="../css/mobile/style.css">
+
+<script type="text/javascript" src="../js/mobile/jquery-3.5.1.min.js"></script>
+<script type="text/javascript" src="../js/mobile/jquery-ui.min.js"></script>
+<script type="text/javascript" src="../js/mobile/swiper-bundle.min.js"></script>
+<script type="text/javascript" src="../js/mobile/common_front.js"></script>
+<script type="text/javascript" src="../js/mobile/ui.js"></script>
+</head>
+<body>
+    <div class="ui-popup full notice_message active" id="popup_notice_message">
+    <!-- 2022-11-03 EZP- header 구조변경 
+        <div class="content">
+            <div class="header">
+                <button type="button" class="btn-close">팝업닫기</button>
+                <div class="back">
+                    <a href="#">
+                        뒤로가기
+                    </a>
+                </div>
+                <strong>알림</strong>
+            </div>
+            -->
+        <!-- 2022-11-03 EZP-5110 header 구조변경 시작 -->
+        <div class="content re-notice-wrap">
+            <div class="header">
+                <button type="button" class="btn-close">팝업닫기</button>
+                <strong>알림</strong>
+            </div>
+            <div class="body">
+                <div class="list_wrap empty-wrap">
+
+                    <!-- 2022-11-03 EZP-5110 nav 구조 변경으로 제거
+                    <div class="util-area">
+                        <div class="input-label">
+                            <label>
+                                <input type="checkbox"/>
+                                <span>읽지않음</span>
+                            </label>
+                        </div>
+                        <select>
+                            <option>전체보기</option>
+                            <option>발주관리</option>
+                            <option>상품관리</option>
+                        </select>
+                    </div>
+                    -->
+
+                    <!-- 2022-11-03 EZP-5110 nav 구조 변경 시작 -->
+                    <div class="fixed-nav">
+                        <div class="scroll-nav tab-nav">
+                            <ul>
+                                <li class="active" data-tab-target="javascript: void(0);"><a href="">전체</a></li>
+                                <li data-tab-target="#notice_tab02"><a href="javascript: void(0);">주문</a></li>
+                                <li data-tab-target="#notice_tab03"><a href="javascript: void(0);">상품</a></li>
+                                <li data-tab-target="#notice_tab04"><a href="javascript: void(0);">정산</a></li>
+                                <li data-tab-target="#notice_tab05"><a href="javascript: void(0);">공지</a></li>
+                                <li data-tab-target="#notice_tab06"><a href="javascript: void(0);">문의</a></li>
+                                <li data-tab-target="#notice_tab07"><a href="javascript: void(0);">안내</a></li>
+                                <li data-tab-target="#notice_tab08"><a href="javascript: void(0);">광고</a></li>
+                            </ul>
+                        </div>
+                        <div class="bg-gray notice-txt">
+                            알림 내역은 14일 간 보관되며 보관기간이 지나면 자동으로 삭제됩니다.
+                        </div>
+                    </div>
+                    <!-- 2022-11-03 EZP-5110 nav 구조 변경 끝 -->
+
+                    <!-- 내용 없는 경우 -->
+                    <p class="message-empty"><span>새로운 알림이 없습니다.</span></p>
+                    <!-- 내용 있는 경우-->
+                    <div class="list-area">
+                        <!-- 2022-11-03 EZP-5110 tab cont 전체 수정 
+                        <ul>
+                            <li>
+                                <span>발주관리</span>
+                                <p>정기 발주서가 도착했습니다.</p>
+                                <em>2020. 06. 06 12:30</em>
+                            </li>
+                            <li>
+                                <span>상품관리</span>
+                                <p>등록요청한 [버튼슬릿원피스] 상품이 승인되었으며 금주중 최종적으로 배송처리 될 예정입니다.</p>
+                                <em>2020. 06. 06 12:30</em>
+                            </li>
+                            <li>
+                                <span>상품관리</span>
+                                <p>등록요청한 [버튼슬릿원피스] 상품이 승인되었으며 금주중 최종적으로 배송처리 될 예정입니다.</p>
+                                <em>어제</em>
+                            </li>
+                            <li>
+                                <span>발주관리</span>
+                                <p>정기 발주서가 도착했습니다.</p>
+                                <em>2일 전</em>
+                            </li>
+                            <li class="read">
+                                <span>상품관리</span>
+                                <p>수정요청한 [버튼슬릿원피스] 상품이 승인되었습니다. </p>
+                                <em>2일 전</em>
+                            </li>
+                        </ul>
+                        -->
+                        <!-- 2022-11-03 EZP-5110 tab cont 수정 시작 -->
+                        <div class="tab-list-area">
+                            <ul id="notice_tab01" class="active">
+                                <li>
+                                    <span class="category">회원가입</span>
+                                    <p>회원가입이 승인되었습니다.</p>
+                                    <span class="day"><em>오늘</em> (2020-06-06 12:30:00)</span>
+                                </li>
+                                <li>
+                                    <span class="category">회원가입</span>
+                                    <p>회원가입 신청이 반려되었습니다. 회원가입 신청이 반려되었습니다.</p>
+                                    <span class="day"><em>어제</em> (YYYY-MM-DD hh:mm:ss)</span>
+                                </li>
+                                <li>
+                                    <span class="category">셀픽 주문 알림</span>
+                                    <p>[주문] 셀픽주문이 접수되었습니다. [주문] 셀픽주문이 접수되었습니다. [주문] 셀픽주문이 접수되었습니다.</p>
+                                    <span class="day"><em>2일전</em> (YYYY-MM-DD hh:mm:ss)</span>
+                                </li>
+                                <li>
+                                    <span class="category">주문 알림</span>
+                                    <p>[정기] 발주서가 도착했습니다.</p>
+                                    <span class="day"><em>3일전</em> (YYYY-MM-DD hh:mm:ss)</span>
+                                </li>
+                                <li>
+                                    <span class="category">주문 알림</span>
+                                    <p>[정기] 발주서가 도착했습니다.</p>
+                                    <span class="day"><em>4일전</em> (YYYY-MM-DD hh:mm:ss)</span>
+                                </li>
+                                <!-- 2022-12-26 EZP-6818 샘플제안관리 추가 시작 -->
+                                <li>
+                                    <span class="category">샘플제안관리</span>
+                                    <p>[제안발송] 요청하신 샘플제안서가 승인되었습니다.</p>
+                                    <span class="day"><em>2일전</em> (YYYY-MM-DD hh:mm:ss)</span>
+                                </li>
+                                <li>
+                                    <span class="category">샘플제안관리</span>
+                                    <p>[제안반려] 요청하신 샘플제안서가 반려되었습니다.</p>
+                                    <span class="day"><em>2일전</em> (YYYY-MM-DD hh:mm:ss)</span>
+                                </li>
+                                <!-- 2022-12-26 EZP-6818 샘플제안관리 추가 끝 -->
+                                <li>
+                                    <span class="category">상품관리</span>
+                                    <p>[등록반려] 요청하신 <em>{[상품명]}</em> 상품이 반려되었습니다.</p>
+                                    <span class="day"><em>5일전</em> (YYYY-MM-DD hh:mm:ss)</span>
+                                </li>
+                                <li>
+                                    <span class="category">상품관리</span>
+                                    <p>[등록반려] 요청하신 <em>{[상품명]}</em> 상품이 승인되었습니다.</p>
+                                    <span class="day"><em>6일전</em> (YYYY-MM-DD hh:mm:ss)</span>
+                                </li>
+                                <li>
+                                    <span class="category">상품관리</span>
+                                    <p>[수정승인] 요청하신 <em>{[상품명]}</em> 상품이 반려되었습니다.</p>
+                                    <span class="day"><em>7일전</em> (YYYY-MM-DD hh:mm:ss)</span>
+                                </li>
+                                <li>
+                                    <span class="category">상품관리</span>
+                                    <p>[등록반려] 요청하신 <em>{[상품명]}</em> 상품이 승인되었습니다.</p>
+                                    <span class="day"><em>8일전</em> (YYYY-MM-DD hh:mm:ss)</span>
+                                </li>
+                                <li>
+                                    <span class="category">상품관리</span>
+                                    <p>[소재추가승인] 요청하신 <em>{[상품명]}</em> 상품이 반려되었습니다.</p>
+                                    <span class="day"><em>14일전</em> (YYYY-MM-DD hh:mm:ss)</span>
+                                </li>
+                                <li>
+                                    <span class="category">상품관리</span>
+                                    <p>[소재추가승인] 요청하신 <em>{[상품명]}</em> 상품이 승인되었습니다.</p>
+                                    <span class="day"><em>14일전</em> (YYYY-MM-DD hh:mm:ss)</span>
+                                </li>
+                                <li>
+                                    <span class="category">정산관리</span>
+                                    <p><em>{monh}</em>월 세금계산서가 발행되었습니다.</p>
+                                    <span class="day"><em>14일전</em> (YYYY-MM-DD hh:mm:ss)</span>
+                                </li>
+                                <li>
+                                    <span class="category">1:1문의</span>
+                                    <p>1:1 문의 답변이 등록되었습니다.</p>
+                                    <span class="day"><em>14일전</em> (YYYY-MM-DD hh:mm:ss)</span>
+                                </li>
+                                <li>
+                                    <span class="category">공지사항</span>
+                                    <p>새로운 공지사항이 등록되었습니다.</p>
+                                    <span class="day"><em>14일전</em> (YYYY-MM-DD hh:mm:ss)</span>
+                                </li>
+                            </ul>
+                            <ul id="notice_tab02">
+                                <li>
+                                    <span class="category">주문 알림</span>
+                                    <p>[정기] 발주서가 도착했습니다.</p>
+                                    <span class="day"><em>3일전</em> (YYYY-MM-DD hh:mm:ss)</span>
+                                </li>
+                                <li>
+                                    <span class="category">주문 알림</span>
+                                    <p>[정기] 발주서가 도착했습니다.</p>
+                                    <span class="day"><em>4일전</em> (YYYY-MM-DD hh:mm:ss)</span>
+                                </li>
+                            </ul>
+                            <ul id="notice_tab03">
+                                <li>
+                                    <span class="category">상품관리</span>
+                                    <p>[등록반려] 요청하신 <em>{[상품명]}</em> 상품이 반려되었습니다.</p>
+                                    <span class="day"><em>5일전</em> (YYYY-MM-DD hh:mm:ss)</span>
+                                </li>
+                                <li>
+                                    <span class="category">상품관리</span>
+                                    <p>[등록반려] 요청하신 <em>{[상품명]}</em> 상품이 승인되었습니다.</p>
+                                    <span class="day"><em>6일전</em> (YYYY-MM-DD hh:mm:ss)</span>
+                                </li>
+                                <li>
+                                    <span class="category">상품관리</span>
+                                    <p>[수정승인] 요청하신 <em>{[상품명]}</em> 상품이 반려되었습니다.</p>
+                                    <span class="day"><em>7일전</em> (YYYY-MM-DD hh:mm:ss)</span>
+                                </li>
+                                <li>
+                                    <span class="category">상품관리</span>
+                                    <p>[등록반려] 요청하신 <em>{[상품명]}</em> 상품이 승인되었습니다.</p>
+                                    <span class="day"><em>8일전</em> (YYYY-MM-DD hh:mm:ss)</span>
+                                </li>
+                                <li>
+                                    <span class="category">상품관리</span>
+                                    <p>[소재추가승인] 요청하신 <em>{[상품명]}</em> 상품이 반려되었습니다.</p>
+                                    <span class="day"><em>14일전</em> (YYYY-MM-DD hh:mm:ss)</span>
+                                </li>
+                                <li>
+                                    <span class="category">상품관리</span>
+                                    <p>[소재추가승인] 요청하신 <em>{[상품명]}</em> 상품이 승인되었습니다.</p>
+                                    <span class="day"><em>14일전</em> (YYYY-MM-DD hh:mm:ss)</span>
+                                </li>
+                            </ul>
+                            <ul id="notice_tab04">
+                                <li>
+                                    <span class="category">정산관리</span>
+                                    <p><em>{monh}</em>월 세금계산서가 발행되었습니다.</p>
+                                    <span class="day"><em>14일전</em> (YYYY-MM-DD hh:mm:ss)</span>
+                                </li>
+                            </ul>
+                            <ul id="notice_tab05">
+                                <li>
+                                    <span class="category">공지사항</span>
+                                    <p>새로운 공지사항이 등록되었습니다.</p>
+                                    <span class="day"><em>14일전</em> (YYYY-MM-DD hh:mm:ss)</span>
+                                </li>
+                            </ul>
+                            <ul id="notice_tab06">
+                                <li>
+                                    <span class="category">1:1문의</span>
+                                    <p>1:1 문의 답변이 등록되었습니다.</p>
+                                    <span class="day"><em>14일전</em> (YYYY-MM-DD hh:mm:ss)</span>
+                                </li>
+                            </ul>
+                            <ul id="notice_tab07">
+                                <li>
+                                    <!-- case1. 푸시제목이 있는 경우
+                                    <span class="category">{제목}</span>
+                                    -->
+                                    <!-- case2. 푸시제목이 없는 경우 -->
+                                    <span class="category">이지픽셀러</span>
+                                    <p>1:1 문의 답변이 등록되었습니다.</p>
+                                    <span class="day"><em>14일전</em> (YYYY-MM-DD hh:mm:ss)</span>
+                                </li>
+                            </ul>
+                            <ul id="notice_tab08">
+                                <li>
+                                    <!-- case1. 푸시제목이 있는 경우
+                                    <span class="category">{제목}</span>
+                                    -->
+                                    <!-- case2. 푸시제목이 없는 경우 -->
+                                    <span class="category">이지픽셀러</span>
+                                    <p>(광고) {내용}</p>
+                                    <span class="day"><em>14일전</em> (YYYY-MM-DD hh:mm:ss)</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- 2022-11-03 EZP-5110 tab cont 수정 끝 -->
+                        <!-- 2022-11-04 EZP-5110 페이지네이션 삭제
+                        <div class="page-area">
+                            <button type="button" class="control prev first">처음 페이지</button>
+                            <button type="button" class="control prev">이전 페이지</button>
+                            <div class="href">
+                                <a href="#" class="active">1</a>
+                                <a href="#">2</a>
+                                <a href="#">3</a>
+                                <a href="#">4</a>
+                            </div>
+                            <button type="button" class="control next">다음 페이지</button>
+                            <button type="button" class="control next last">마지막 페이지</button>
+                        </div>
+                        -->
+                    </div>
+                    <!-- //내용 있는 경우-->
+                </div>
+            </div>
+            <!-- 2022-09-07 EZP-5592 top버튼 제거
+            <a href="#" class="quick-top-btn">TOP</a>
+            -->
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,462 @@
+<html>
+  <head>
+  	<meta charset="UTF-8">
+  	<title>Cafe24</title>
+  	<link rel="stylesheet" href="../js/ui/tree/default/style.min.css" />
+    <style>
+      html,
+      body {
+        display: flex;
+        flex: 1;
+        margin: 0;
+        padding: 0;
+        font-size: 10px;
+      }
+
+      #app {
+        display: flex;
+        flex: 1;
+      }
+
+      .tree {
+        display: flex;
+        flex-direction : column;
+        min-width: 25rem;
+        max-width: 25rem;
+        border-right: .1rem solid #efebef;
+        overflow-y : scroll;
+      }
+
+      .tree-title {
+        font: bold 15px/15px 'sans-serif';
+        margin: 0;
+        margin-bottom: 10px;
+        padding: 23px 7px 22px;
+        color: #616161;
+        border-bottom: 1px solid #e9e9e9;
+      }
+
+      .content {
+        display: flex;
+        flex: 1;
+      }
+
+      /*****************
+       tree style
+      ******************/
+
+      .jstree-default .jstree-anchor {
+        font-size: 1.2rem;
+      }
+      #tree > .jstree-container-ul > .jstree-node:last-child {
+        padding-bottom : 10rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <div class="tree">
+        <div class="tree-title">EASYPICK SELLER PC 가이드</div>`
+        <div id="tree"></div>
+      </div>
+      <div class="content">
+        <iframe
+          id="path"
+          style="border-style: none; width: 100%; height: 100%;"
+          src="../html/guidemain/index.html"
+        >
+        </iframe>
+      </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="../js/ui/tree/jstree.min.js"></script>
+    <script>
+      $('#tree')
+      .on("changed.jstree", function (e, data) {
+        var url = data.instance.get_node(data.selected[0]).data
+  			// if(data.selected.length && url) {
+        //   $('#path').attr('src', url)
+  			// }
+        if(url == null) {
+          return alert('페이지를 찾을 수 없습니다.')
+        } else {
+          window.open(url, '_blank');
+        }
+  		})
+      .jstree({
+        'core' : {
+          'data' : [
+            // 기본부가기능
+            {
+              "text": "화면 리스트",
+              "state" : { "opened": true },
+              "children": [
+                {
+                  "text": "이지톡",
+                  "data": "../html/easytalk.html",
+                  "children": [
+                    {
+                      "text": "이지톡",
+                      "data": "../html/easytalk.html",
+                    },
+                    {
+                      "text": "로그인",
+                      "data": "../html/login.html",
+                    },
+                  ]
+                },
+                {
+                  "text": "회원가입",
+                  "data": "../html/sign-search.html",
+                  "children": [
+                    {
+                      "text": "내가게찾기",
+                      "data": "../html/sign-search.html",
+                    },
+                    {
+                      "text": "회원약관동의",
+                      "data": "../html/sign-terms.html",
+                    },
+                    {
+                      "text": "신규회원가입-개인",
+                      "data": "../html/sign-business.html",
+                    },
+                    {
+                      "text": "신규회원가입-법인",
+                      "data": "../html/sign-company.html",
+                    },
+                    {
+                      "text": "기존회원가입",
+                      "data": "../html/sign-info2.html",
+                    },
+                    {
+                      "text": "큐레이션정보",
+                      "data": "../html/sign-curation.html",
+                    },
+                    {
+                      "text": "가입완료",
+                      "data": "../html/sign-complete.html",
+                    },
+                  ]
+                },
+                {
+                  "text": "아이디/비밀번호찾기",
+                  "data": "../html/id-pass-search.html",
+                  "children": [
+                    {
+                      "text": "아이디/비밀번호찾기",
+                      "data": "../html/id-pass-search.html",
+                    },
+                    {
+                      "text": "아이디/비밀번호찾기결과",
+                      "data": "../html/id-pass-result.html",
+                    },
+                  ]
+                },
+                {
+                  "text": "홈_1_LNB좌측",
+                  "data": "../html/home.html",
+                },
+                {
+                  "text": "GNB_마이페이지",
+                  "data": "../html/mypage.html",
+                  "children": [
+                    {
+                      "text": "마이페이지",
+                      "data": "../html/mypage.html",
+                    },
+                    {
+                      "text": "마이페이지-정보없음",
+                      "data": "../html/mypage-nodata.html",
+                    },
+                    {
+                      "text": "비밀번호재확인",
+                      "data": "../html/pass-reconfirm.html",
+                    },
+                    {
+                      "text": "비밀번호변경",
+                      "data": "../html/pass-change.html",
+                    },
+                    {
+                      "text": "비밀번호변경-오류",
+                      "data": "../html/pass-change-error.html",
+                    },
+                    {
+                      "text": "계좌번호관리",
+                      "data": "../html/account-info.html",
+                    },
+                    {
+                      "text": "계좌번호관리-미등록",
+                      "data": "../html/account-info-nodata.html",
+                    },
+                    {
+                      "text": "회원정보관리",
+                      "data": "../html/store-info.html",
+                    },
+                    {
+                      "text": "큐레이션정보관리",
+                      "data": "../html/curation-info.html",
+                    },
+                    {
+                      "text": "회원탈퇴",
+                      "data": "../html/withdrawal1.html",
+                    },
+                    {
+                      "text": "마이페이지-팝업",
+                      "data": "../html/mypage-pop.html",
+                    },
+                  ]
+                },
+                {
+                  "text": "상품관리",
+                  "data": "../html/product-list.html",
+                  "children": [
+                    {
+                      "text": "상품목록",
+                      "data": "../html/product-list.html",
+                    },
+                    {
+                      "text": "상품상세",
+                      "data": "../html/product-detail.html",
+                    },
+                    {
+                      "text": "상품등록",
+                      "data": "../html/product-regist.html",
+                    },
+                    {
+                      "text": "상품수정",
+                      "data": "../html/product-modify.html",
+                    },
+                  ]
+                },
+                {
+                  "text": "샘플제안관리",
+                  "data": "../html/sample-offer-list.html",
+                  "children": [
+                    {
+                      "text": "샘플제안관리",
+                      "data": "../html/sample-offer-list.html",
+                    },
+                    {
+                      "text": "샘플제안관리상세",
+                      "data": "../html/sample-offer-detail.html",
+                    },
+                    {
+                      "text": "샘플제안관리 - 샘플제안등록 step1",
+                      "data": "../html/sample-offer-sign-up1.html",
+                    },
+                    {
+                      "text": "샘플제안관리 - 샘플제안등록 step2",
+                      "data": "../html/sample-offer-sign-up2.html",
+                    },
+                    {
+                      "text": "샘플제안관리 - 샘플제안등록 step3",
+                      "data": "../html/sample-offer-sign-up3.html",
+                    },
+                    {
+                      "text": "샘플제안관리 - 샘플제안수정 step1",
+                      "data": "../html/sample-offer-modify1.html",
+                    },
+                    {
+                      "text": "샘플제안관리 - 샘플제안수정 step2",
+                      "data": "../html/sample-offer-modify2.html",
+                    },
+                    {
+                      "text": "샘플제안관리 - 샘플제안수정 step3",
+                      "data": "../html/sample-offer-modify3.html",
+                    },
+                  ]
+                },
+                {
+                  "text": "발주관리",
+                  "data": "../html/order-list.html",
+                  "children": [
+                    {
+                      "text": "이지픽발주관리",
+                      "data": "../html/order-list.html",
+                    },
+                    //2022-10-28 EZP-6245추가페이지
+                    {
+                      "text": "발주예정목록",
+                      "data": "../html/order-expected-list.html",
+                    },
+                    //2022-10-28 EZP-6245추가페이지
+                    {
+                      "text": "발주예정목록-전체",
+                      "data": "../html/order-expected-all-detail.html",
+                    },
+                    //2022-10-28 EZP-6245추가페이지
+                    {
+                      "text": "발주예정목록-쇼핑몰별",
+                      "data": "../html/order-expected-store-detail.html",
+                    },
+                    {
+                      "text": "이지픽전체발주상세",
+                      "data": "../html/order-list2.html",
+                    },
+                    {
+                      "text": "이지픽발주상세-출고기능on",
+                      "data": "../html/order-mall-function1.html",
+                    },
+                    {
+                      "text": "이지픽발주상세-출고기능off",
+                      "data": "../html/order-mall-function2.html",
+                    },
+                    {
+                      "text": "이지픽발주상세-발주마감",
+                      "data": "../html/order-mall-deadline.html",
+                    },
+                    {
+                      "text": "셀픽전체발주상세",
+                      "data": "../html/sellpick-list2.html",
+                    },
+                    {
+                      "text": "셀픽발주상세-출고기능on",
+                      "data": "../html/sellpick-mall-function1.html",
+                    },
+                    {
+                      "text": "셀픽발주상세-출고기능off",
+                      "data": "../html/sellpick-mall-function2.html",
+                    },
+                  ]
+                },
+                {
+                  "text": "정산관리",
+                  "data": "../html/tax-list.html",
+                  "children": [
+                    {
+                      "text": "세금계산서발행요청",
+                      "data": "../html/tax-list.html",
+                    },
+                    {
+                      "text": "세금계산서발행요청상세",
+                      "data": "../html/tax-detail.html",
+                    },
+                    {
+                      "text": "매입현황",
+                      "data": "../html/hold-list.html",
+                    },
+                    {
+                      "text": "매입현황상세",
+                      "data": "../html/hold-detail.html",
+                    },
+                    {
+                      "text": "정산현황",
+                      "data": "../html/settle-index.html",
+                    },
+                    {
+                      "text": "정산현황상세",
+                      "data": "../html/settle-detail.html",
+                    },
+                  ]
+                },
+                {
+                  "text": "1&#58;1문의",
+                  "data": "../html/qna-list.html",
+                  "children": [
+                    {
+                      "text": "1&#58;1문의",
+                      "data": "../html/qna-list.html",
+                    },
+                    {
+                      "text": "1&#58;1문의상세 문의접수",
+                      "data": "../html/qna-view1.html",
+                    },
+                    {
+                      "text": "1&#58;1문의상세 답변처리중",
+                      "data": "../html/qna-view2.html",
+                    },
+                    {
+                      "text": "1&#58;1문의상세 답변완료",
+                      "data": "../html/qna-view3.html",
+                    },
+                    {
+                      "text": "1&#58;1문의작성, 수정",
+                      "data": "../html/qna-write.html",
+                    },
+                    {
+                      "text": "1&#58;1문의수정",
+                      "data": "",
+                    },
+                  ]
+                },
+                {
+                  "text": "공지사항",
+                  "data": "../html/notice-list.html",
+                  "children": [
+                    {
+                      "text": "공지사항",
+                      "data": "../html/notice-list.html",
+                    },
+                    {
+                      "text": "공지사항상세",
+                      "data": "../html/notice-view.html",
+                    },
+                  ]
+                },
+                {
+                  "text": "약관및정책",
+                  "data": "../html/terms.html",
+                  "children": [
+                    {
+                      "text": "서비스이용약관",
+                      "data": "../html/terms.html",
+                    },
+                    {
+                      "text": "서비스이용약관(NEW)",
+                      "data": "../html/terms_2022.html",
+                    },
+                    {
+                      "text": "서비스이용약관-로그인전",
+                      "data": "../html/terms-login.html",
+                    },
+                    {
+                      "text": "개인정보처리방침",
+                      "data": "../html/privacy.html",
+                    },
+                    {
+                      "text": "개인정보처리방침(NEW)",
+                      "data": "../html/privacy_2022.html",
+                    },
+                    {
+                      "text": "개인정보처리방침-로그인전",
+                      "data": "../html/privacy-login.html",
+                    },
+                  ]
+                },
+                {
+                  "text": "기타",
+                  "data": "../html/404.html",
+                  "children": [
+                    {
+                      "text": "404에러",
+                      "data": "../html/404.html",
+                    },
+                    {
+                      "text": "서비스점검",
+                      "data": "../html/service-inspection.html",
+                    },
+                  ]
+                },
+                {
+                  "text": "폰트테스트",
+                  "data": "../html/product-font.html",
+                  "children": [
+                    {
+                      "text": "상품관리(노토적용)",
+                      "data": "../html/product-font.html",
+                    },
+                    {
+                      "text": "상품관리(폰트미적용)",
+                      "data": "../html/product-font2.html",
+                    },
+                  ]
+                },
+              ]
+            },
+          ]
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="format-detection" content="telephone=no">
+	<meta content="lK0RWxdehsio/icXlDgOD1/0XccqggRiBvNtJOsCkmw=" name="csrf-token">
+	<meta content="T" name="login-required">
+	<link rel="shortcut icon" type="image/x-icon" href="https://easypick.co.kr/img/favicon/ezp.ico">
+
+	<link rel="stylesheet" href="../../css/mobile/swiper.css">
+	<link rel="stylesheet" href="../../css/mobile/default.css">
+	<script src="../../js/lib/jquery-3.5.1.min.js" type="text/javascript"></script>
+	<script src="../../js/lib/jquery-ui.min.js" type="text/javascript"></script>
+	<script src="../../js/lib/swiper.js" type="text/javascript"></script>
+	<script src="../../js/ui/common_front.js" type="text/javascript"></script>
+	<script src="../../js/ui/ui.js" type="text/javascript"></script>
+	<script src="../../js/ui/pub.js" type="text/javascript"></script>
+	
+	<title>이지픽 mobile > 내 쇼핑몰 상품으로 등록</title>
+</head>
+
+
+<body>
+	
+
+	<!--container// -->
+	<div id="container" class="sub-content registration-popup ui-popup active full">
+		<div class="content">
+			<!-- header// -->
+			<header class="sub">
+				<h1>내 쇼핑몰 상품으로 등록</h1>
+				<button type="button" name="button" class="btn-close">닫기</button>
+				<!-- <div class="tooltip-box">
+					<button type="button" name="button" class="btn-tip">?</button>
+					<div class="tip tip-right">
+						<a href="#" class="tip-close"><i><img src="../../img/mobile/icons/tooltip-close-btn.png"></i></a>
+						<div class="txt">
+							<strong class="title bold">
+								[내 쇼핑몰 상품으로 등록]
+							</strong>
+							<ul>
+								<li>- 이지픽 상품을 카페24 쇼핑몰(자사몰) 상품으로 등록할 수 있습니다.</li>
+								<li>- 등록된 상품은 EC Admin>상품관리>상품 목록에서 확인할 수 있습니다.</li>
+							</ul>
+						</div>
+					</div>
+				</div> -->
+				<button class="btn-tooltip btn-tip">?</button>
+				<div class="tooltip">
+					<div class="tooltip-cont">
+						<strong class="title bold">
+							[내 쇼핑몰 상품으로 등록]
+						</strong>
+						<ul>
+							<li>이지픽 상품을 카페24 쇼핑몰(자사몰) 상품으로 등록할 수 있습니다.</li>
+							<li>등록된 상품은 EC Admin>상품관리>상품 목록에서 확인할 수 있습니다.</li>
+							<!-- 2023-01-17 EZP-6415 li 추가 -->
+							<li>등록된 상품의 진열 및 판매 상태는 '진열안함', '판매안함'으로 기본 설정되어 있으며, EC에서 수정할 수 있습니다.</li>
+						</ul>
+						<button type="button" class="close">닫기</button>
+					</div>
+				</div>
+			</header>
+			<!-- //header -->
+			<div class="body">
+				<div class="memjoin_wrap">
+					<div class="mypage-mem-wrap">
+						<div class="mypage-mem-tit pt0">
+							<h2>상품 기본 정보</h2>
+						</div>
+						<div class="mypage-mem-form">
+							<label for="a1">상품명 <em>필수입력</em></label>
+							<div class="input mt6 search">
+								<input type="text" placeholder="상품명 입력 (필수)" required>
+								<button type="button" name="button"><i class="icon">삭제</i></button>
+            					<i class="icon"></i>
+							</div>
+							<!-- 2023-02-23 EZP-8513 워딩변경 및 하단 텍스트 추가 -->
+							<label for="a2">판매가(공급가) <em>필수입력</em></label>
+							<p class="info_tip">※ EC 상품 판매가, 공급가로 등록되는 금액입니다.</p>
+							<div class="input mt6 search">
+								<input type="text" placeholder="판매가 입력 (필수)">
+								<button type="button" name="button"><i class="icon">삭제</i></button>
+            					<i class="icon"></i>
+							</div>
+							<label for="a3">상품분류 <em>필수입력</em></label>
+							<p class="info_tip">※ 상품분류를 지정하지 않을 경우 '(대분류)이지픽상품'으로 자동 설정됩니다</p>
+							<button type="button" name="button" class="btn_arrow mt6 ui-popup-call" data-target="#product_category_pop">상품분류 선택</button>
+							<ul class="label-list dot-list bg-gray mt10">
+								<li><p>(대분류) 이지픽상품 <button type="button" name="button" class="remove_btn"></button></p></li>
+								<li><p>(대분류) Outer <button type="button" name="button" class="remove_btn"></button></p></li>
+								<li><p>(대분류) Outer > (중분류) Jacket <button type="button" name="button" class="remove_btn"></button></p></li>
+								<li><p>(대분류) Top > (중분류) Tees > (소분류) Short Sleeve <button type="button" name="button" class="remove_btn"></button></p></li>
+								<li><p>(대분류) Top > (중분류) Tees > (소분류) Short Sleeve > (상세분류) GraphicTees <button type="button" name="button" class="remove_btn"></button></p></li>
+							</ul>
+							<label for="a4">상품옵션</label>
+							<p class="info_tip">※ 상품의 모든 옵션이 표시됩니다.</p>
+							<p class="info_tip mt0">※ 버튼을 길게 누르면 옵션명을 수정할 수 있습니다.</p>
+							<div class="button-list bg-gray mt8">
+								<span class="sub-tit">색상</span>
+								<div class="button-box">
+									<button type="button" class="on option">블랙</button>
+									<button type="button" class="on option">브라운</button>
+									<button type="button" class="option">아이보리</button>
+									<button type="button" class="on option">블루</button>
+									<button type="button" class="on option">레드</button>
+									<button type="button" class="option">머스타드</button>
+									<input type="text" placeholder="예시)화이트" value="미드나잇블루" class="ex-input-box">
+									<!-- 2023-03-07 EZP-6415 선택가능 옵션 없을 시 -->
+									<p class="empty-option">선택 가능한 옵션이 없습니다.</p>
+								</div>
+							</div>
+							<div class="button-list mt6 bg-gray mt6">
+								<span class="sub-tit">사이즈</span>
+								<div class="button-box">
+									<button type="button" class="on">S</button>
+									<button type="button" class="on">M</button>
+									<button type="button">L</button>
+									<input type="text" placeholder="예시)XL" value="" class="ex-input-box">
+									<!-- 2023-03-07 EZP-6415 선택가능 옵션 없을 시 -->
+									<p class="empty-option">선택 가능한 옵션이 없습니다.</p>
+								</div>
+							</div>
+							<div class="sec_title">
+								거래처
+								<p>거래처 정보가 EC 공급사로 등록됩니다.<i></i></p>
+								<!-- 2023-02-15 EZP-6415 거래처등록 추가 시작 -->
+								<br/><p>거래처 등록 <i class="check"></i></p>
+								<!-- 2023-02-15 EZP-6415 거래처등록 추가 끝 -->
+							</div>
+							<!-- 2023-02-14 EZP-6415 .search.input 에서 class .input 제거후 .store-address 추가 -->
+							<div class="mt6 search store-address">
+								<!--  2023-02-14 EZP-6415 input box -> txt box 로 변경
+									<input type="text" placeholder="" value="톰과 체리나무 (디오트 1동 2층 A열 345호)" readonly>
+								<button type="button" name="button"><i class="icon">삭제</i></button>
+            					<i class="icon"></i> -->
+								<p>톰과 체리나무 (디오트 1동 2층 A열 345호)</p>
+							</div>
+							<div class="sec_title">
+								제조국가
+								<div class="switch">
+									<input type="checkbox" name="" id="switch">
+									<label for="switch">체크</label>
+								</div>
+							</div>
+							<!-- 2023-02-14 EZP-6415 .search.input 에서 class .input 제거 -->
+							<div class="mt6 search off">
+								<!-- 2023-02-14 EZP-6415 input box -> txt box 로 변경
+									<input type="text" placeholder="" value="대한민국" readonly>
+								<button type="button" name="button"><i class="icon">삭제</i></button>
+            					<i class="icon"></i> -->
+								<!-- 2023-02-14 EZP-6415 input box -> txt box로 p태그로 변경 시작 -->
+								<p>대한민국</p>
+							</div>
+						</div>
+						<div class="mypage-mem-tit">
+							<h2>상품 상세 정보</h2>
+							<div class="switch">
+								<input type="checkbox" name="" id="switch2">
+								<label for="switch2">체크</label>
+							</div>
+						</div>
+						<div class="prd-list off">
+							<ul>
+								<li>
+									<span>소재</span>
+									<ul class="dot-list">
+										<li>겉감 : 면 100%</li>
+										<li>안감 : 폴리에스터 95% 나일론 5%</li>
+									</ul>
+								</li>
+								<li>
+									<span>상품 부가 정보</span>
+									<ul class="dot-list">
+										<li>계절감 : 사계절</li>
+										<li>착용감 : 오버핏</li>
+										<li>신축성 : 적당함</li>
+										<li>두께감 : 적당함</li>
+										<li>비침 : 비침없음</li>
+									</ul>
+								</li>
+								<li>
+									<span>세탁방법</span>
+									<ul class="wash-list">
+										<li><img src="../../img/mobile/icons/icon-other/prd-list-01.png"></li>
+										<li><img src="../../img/mobile/icons/icon-other/prd-list-02.png"></li>
+										<li><img src="../../img/mobile/icons/icon-other/prd-list-03.png"></li>
+										<li><img src="../../img/mobile/icons/icon-other/prd-list-04.png"></li>
+										<li><img src="../../img/mobile/icons/icon-other/prd-list-05.png"></li>
+									</ul>
+								</li>
+								<li>
+									<span>상세설명</span>
+									<ul>
+										<li>허리 힙 허벅지 밑위 밑단 총기장</li>
+										<li>S 32.5 41 23 28 24 99</li>
+										<li>M 34.5 43 24 29 25 100</li>
+										<li>L 36.5 45 25 30 26 101</li>
+										<li class="pt20"><p>제작 가능합니다.<br/>
+										샘플요청 가능합니다 연락주세요.</p></li>
+									</ul>
+								</li>
+							</ul>
+							<!-- 2023-02-21 EZP-6415 등록된 정보가 없을 시 -->
+							<p class="empty">등록된 정보가 없습니다.</p>
+						</div>
+					</div>
+					<div class="btn-wrap">
+						<button type="button" class="btn large line-gray">취소</button>
+						<button type="button" class="btn large fill ui-popup-call" data-target="#pop-order-comfirm1">등록</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<!-- 확인클릭시 alert -->
+    <div class="ui-popup alert" id="pop-order-comfirm1">
+        <div class="content" style="width: 280px;">
+			<div class="body pt25">
+				<div class="inner">
+					<p class="tac">쇼핑몰에 상품을 등록하시겠습니까?</p>
+				</div>
+				<div class="btn-wrap pop-btn-wrap">
+					<button type="button" name="button" class="btn btn-close">취소</button>
+                    <button type="button" name="button" class="btn fill btn-close ui-popup-call" data-target="#pop-order-comfirm2">확인</button>
+				</div>
+			</div>
+		</div>
+    </div>
+
+	<!-- 확인 후 > 최종확인 alert -->
+	<div class="ui-popup alert" id="pop-order-comfirm2">
+		<div class="content" style="width: 280px;">
+			<div class="body pt25">
+				<div class="inner">
+					<p class="tac">상품이 등록되었습니다.</p>
+					<p class="tac">상품 등록에 실패했습니다.<br/> 다시 시도해주세요.</p>
+				</div>
+				<div class="btn-wrap pop-btn-wrap">
+					<button type="button" name="button" class="btn fill btn-close">확인</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- 상품분류 선택 popup-->
+	<div class="ui-popup fullpop product-category" id="product_category_pop">
+		<div class="content">
+		  <div class="header">
+			<h1>상품분류 선택</h1>
+			<button type="button" class="btn-close">닫기</button>
+		  </div>
+		  <div class="product-info">
+			<!-- 2023-02-16 EZP-6415 워딩변경 -->
+			<p>상품분류를 선택 후 우측 하단에 있는 <strong>추가</strong> 버튼을 눌러주세요</p>
+			<!-- 2023-02-16 EZP-6415 워딩추가 -->
+			<p>최대 5개까지 선택할 수 있습니다.</p>
+			<!-- <span>※ 최대 5개 선택 가능</span> -->
+		</div>
+		  <div class="body">
+			<div class="inner">
+			  <div class="scrollbox_y">
+				<ul class="ui-tree">
+					<!-- 2022-12-14 EZP-6415 마지막 분류일경우 li에 .last class를 붙이면 클릭시 체크아이콘 적용됨 -->
+				   <!-- 2023-02-15 EZP-6415 하위메뉴 없을경우 none-arrow class 추가 -->
+				   <li class="group first deps1 last none-arrow">
+					<div class="top">
+					  <button type="button" class="btn-toggle"><span>(대분류) 이지픽상품</span></button>
+					  <!-- 2023-02-14 EZP-6415 button 위치 변경
+						  <button type="button" class="plus-btn ui-popup-call" data-target="#product-category-comfirm1">추가</button> -->
+					</div>
+				  </li>
+				  <li class="group first deps1">
+					<div class="top">
+					  <button type="button" class="btn-toggle"><span>(대분류) Tops</span></button>
+					  <!-- 2023-02-14 EZP-6415 button 위치 변경
+						  <button type="button" class="plus-btn ui-popup-call" data-target="#product-category-comfirm1">추가</button> -->
+					</div>
+					<ul class="sub">
+					  <li class="group deps2">
+						<div class="top">
+						  <button type="button" class="btn-toggle"><span>(중분류) Tees</span></button>
+						  <!-- 2023-02-14 EZP-6415 button 위치 변경
+							  <button type="button" class="plus-btn ui-popup-call" data-target="#product-category-comfirm1">추가</button> -->
+						</div>
+						<ul class="sub">
+						  <li class="group deps3">
+							<div class="top">
+								<button type="button" class="btn-toggle"><span>(소분류) Short Sleeve</span></button>
+								<!-- 2023-02-14 EZP-6415 button 위치 변경
+									<button type="button" class="plus-btn ui-popup-call" data-target="#product-category-comfirm1">추가</button> -->
+							  </div>
+							  <ul class="sub">
+								<li class="deps4"><span class="checkbox">
+									<input type="radio" name="b_02" id="b_02_1">
+									<label for="b_02_1">(상세분류) Graphic Tees</label>
+									<!-- 2023-02-14 EZP-6415 button 위치 변경
+										<button type="button" class="plus-btn ui-popup-call" data-target="#product-category-comfirm1">추가</button> -->
+								  </span>
+								</li>
+								<li class="deps4"><span class="checkbox">
+									<input type="radio" name="b_02" id="b_02_2">
+									<label for="b_02_2">(상세분류) Cropped</label>
+									<!-- 2023-02-14 EZP-6415 button 위치 변경
+										<button type="button" class="plus-btn ui-popup-call" data-target="#product-category-comfirm1">추가</button> -->
+								  </span>
+								</li>
+							  </ul>
+							</li>
+							<li class="group deps3">
+								<div class="top">
+								  <button type="button" class="btn-toggle"><span>(소분류) Long Sleeve</span></button>
+								  <!-- 2023-02-14 EZP-6415 button 위치 변경
+									  <button type="button" class="plus-btn ui-popup-call" data-target="#product-category-comfirm1">추가</button> -->
+								</div>
+								<ul class="sub">
+								  <li class="deps4"><span class="checkbox">
+									  <input type="radio" name="c_02" id="c_02_1">
+									  <label for="c_02_1">상의1</label>
+									  <!-- 2023-02-14 EZP-6415 button 위치 변경
+										  <button type="button" class="plus-btn ui-popup-call" data-target="#product-category-comfirm1">추가</button> -->
+									</span></li>
+								  <li class="deps4"><span class="checkbox">
+									  <input type="radio" name="c_02" id="c_02_2">
+									  <label for="c_02_2">상의2</label>
+									  <!-- 2023-02-14 EZP-6415 button 위치 변경
+										  <button type="button" class="plus-btn ui-popup-call" data-target="#product-category-comfirm1">추가</button> -->
+									</span>
+								</li>
+								</ul>
+							</li>
+						</ul>
+					  </li>
+					</ul>
+				  </li>
+				  <!-- 2023-02-15 EZP-6415 하위메뉴 없을경우 none-arrow class 추가 -->
+				  <li class="group first deps1 last none-arrow">
+					<div class="top">
+					  <button type="button" class="btn-toggle"><span>(대분류) Outerwear</span></button>
+					  <!-- 2023-02-14 EZP-6415 button 위치 변경
+						  <button type="button" class="plus-btn ui-popup-call" data-target="#product-category-comfirm1">추가</button> -->
+					</div>
+				  </li>
+				  <!-- 2023-02-15 EZP-6415 하위메뉴 없을경우 none-arrow class 추가 -->
+				  <li class="group first deps1 last none-arrow">
+					<div class="top">
+					  <button type="button" class="btn-toggle"><span>(대분류) Dresses</span></button>
+					  <!-- 2023-02-14 EZP-6415 button 위치 변경
+						  <button type="button" class="plus-btn ui-popup-call" data-target="#product-category-comfirm1">추가</button> -->
+					</div>
+				  </li>
+				  <!-- 2023-02-15 EZP-6415 하위메뉴 없을경우 none-arrow class 추가 -->
+				  <li class="group first deps1 last none-arrow">
+					<div class="top">
+					  <button type="button" class="btn-toggle"><span>(대분류) Bottoms</span></button>
+					  <!-- 2023-02-14 EZP-6415 button 위치 변경
+						  <button type="button" class="plus-btn ui-popup-call" data-target="#product-category-comfirm1">추가</button> -->
+					</div>
+				  </li>
+				</ul>
+			  </div>
+			  <!-- 2023-02-14 EZP-6415 button 위치 변경 -->
+			  <!-- <button type="button" class="add-btn ui-popup-call" data-target="#product-category-comfirm1">추가 <i class="pl5"><img src="../../img/mobile/icons/icon-add.png"></i></button>  -->
+			  <div class="bottom-add-btn-wrap">
+				<!-- 2023-02-15 EZP-6415 button 제거
+					<button type="button" class="add-btn ui-popup-call" data-target="#product-category-comfirm1">추가 <i class="pl5"><img src="../../img/mobile/icons/icon-add.png"></i></button> -->
+				<div class="product-category-box">
+					<!-- 2023-02-15 EZP-6415 button 위치변경 -->
+					<button type="button" class="add-btn ui-popup-call" data-target="#product-category-comfirm1">추가 <i class="pl5"><img src="../../img/mobile/common/green-add-ico.png"></i></button>
+					<a href="javascript: void(0);" class="t-underline"><span class="text1">선택된 상품분류 보기<em class="txt-green t-underline">(1)</em></span><span class="text2">닫기</span><i></i></a>
+					<ul class="dot-list">
+						<!-- 2023-02-14 EZP-6415 상품분류 없을때 문구 노출 추가 -->
+						<li class="empty-list"><p>상품분류를 선택해주세요.</p></li>
+						<li>(대분류) 이지픽상품 <button type="button" name="button" class="remove_btn"></button></li>
+						<li>(대분류) Outer <button type="button" name="button" class="remove_btn"></button></li>
+						<li>(대분류) Outer > (중분류) Jacket <button type="button" name="button" class="remove_btn"></button></li>
+						<li>(대분류) 이지픽상품 <button type="button" name="button" class="remove_btn"></button></li>
+						<li>(대분류) Outer <button type="button" name="button" class="remove_btn"></button></li>
+					</ul>
+				</div>
+			</div>
+			</div>
+			<div class="btn-wrap fixed">
+			  <button type="button" name="button" class="btn fill large btn-close">확인</button>
+			</div>
+		  </div>
+		</div>
+	  </div>
+	  <!-- //상품분류 선택 popup-->
+
+	  <!-- 상품분류 선택 후 이미 추가된 분류가 있을경우 alert -->
+	<div class="ui-popup alert" id="product-category-comfirm1">
+		<div class="content" style="width: 280px;">
+			<div class="body pt10">
+				<div class="inner">
+					<p class="tac">이미 추가되어 있는 분류입니다.</p>
+					<!-- 2023-02-15 EZP-6415 상품분류 없을때 추가버튼 클릭시 -->
+					<p class="tac">상품분류를 선택해주세요.</p>
+				</div>
+				<div class="btn-wrap pop-btn-wrap">
+					<button type="button" name="button" class="btn fill btn-close">확인</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!--//거래완료 팝업-->
+	<script src="../../js/ui/default.input.js"></script> <!-- 2022-10-04 -->
+	<script type="text/javascript">
+		$(document).ready(function(){
+			// 20220311 EZP-2194
+			$('.search-input').on('focus', function() {
+				$(this).siblings('ul.list').show();
+			});
+
+			$('.search-input').on('blur', function() {
+				$(this).siblings('ul.list').hide();
+			});
+
+			// $('.search-input').on('change keyup paste', function() {
+			// 	if ($(this).val() != '') {
+			// 		$(this).siblings('ul.list').show();
+			// 	} else {
+			// 		$(this).siblings('ul.list').hide();
+			// 	}
+			// })
+
+			$(' ul.list li a').click(function() {
+				$(this).parents('.input').find('input').val($(this).text())
+				$(this).parents('ul.list').hide()
+			})
+
+			$(".btn-tooltip").on('click', function () {
+				$(".tooltip-cont").toggle("slide", { direction: "up" }, 300);
+				$(".tooltip-cont .close").one('click', function () {
+					$(".tooltip-cont").hide("slide", { direction: "up" }, 300);
+				})
+			});
+
+			//가게별금액확인 팝업관련
+			$(".contact-shop-info .checkbox").click(function () {
+				$(".contact-shop-info .checkbox input").is(":checked") == true ? $(".price .vat").css("display", "block") : $(".price .vat").css("display", "none");
+			});
+
+			// 선택버튼
+			$('.btn-wrap.select button').on('click', function () {
+				$(this).siblings('button').removeClass('active');
+				$(this).addClass('active');
+			});
+
+			//선택된 상품분류보기 버튼
+			$('.product-category-box > a').click(function(){
+				$(this).next().toggleClass('show');
+				$(this).toggleClass('on');
+				//2023-02-14 EZP-6415 상품분류보기 bg 추가 시작
+				$(this).parent().toggleClass('wht');
+
+				if ($('.product-category-box').hasClass('wht')){
+					$('.ui-popup.product-category .content .btn-wrap.fixed').addClass('wht');
+				} else {
+					$('.ui-popup.product-category .content .btn-wrap.fixed').removeClass('wht');
+				}
+				//2023-02-14 EZP-6415 상품분류보기 bg 추가 끝
+			})
+
+			// -- 2022-12-14 EZP-6415 script추가 시작
+			//상품옵션 버튼 클릭시 class toggle
+			$('.ui-popup.registration-popup .content .button-list .button-box button').click(function(){
+				$(this).toggleClass('on');
+			})
+
+			//상품 모달 인풋 숨겨놓기
+			$('.ui-popup.registration-popup .content .button-list .button-box input').hide();
+			$('.ui-popup.registration-popup .content .button-list').click(function(e){
+				if(!$(e.target).hasClass('option')){
+					$(this).children().find('input').show();
+				}
+			})
+
+			//쇼핑몰로 상품등록 삭제버튼
+			$('.ui-popup.registration-popup .content .label-list .remove_btn').click(function(){
+				$(this).parents('li').remove();
+			});
+
+			//상품분류 리스트 삭제버튼
+			$('.product-category .content .body .inner .product-category-box .dot-list .remove_btn').click(function(){
+				$(this).parents('li').remove();
+			});
+
+			//swicth 버튼 클릭시 해당 내용 disabled 처리
+			$('.ui-popup.registration-popup .content .switch').click(function(){
+				if($(this).children().is(':checked')){
+					//2023-02-14 EZP-6415 .next('.input') -> .next('.search')로 변경
+					$(this).parents().next('.search').removeClass('off');
+					$(this).parents().next('.memjoin_wrap .prd-list').removeClass('off');
+				} else {
+					//2023-02-14 EZP-6415 .next('.input') -> .next('.search')로 변경
+					$(this).parents().next('.search').addClass('off');
+					$(this).parents().next('.memjoin_wrap .prd-list').addClass('off');
+				}
+			})
+			// -- 2022-12-14 EZP-6415 script추가 끝
+
+			// 2023-02-21 EZP-6415 js 추가 시작
+			$('.ui-tree li').removeClass('checked');
+
+			$('.product-category .ui-tree li.last.none-arrow').bind('click',function(){
+				if(!$(this).hasClass('active') === true) {
+					$(this).siblings('li').removeClass('checked');
+					$(this).siblings('li').removeClass('active');
+				}
+			})
+
+			$('.product-category .ui-tree > li:not(.none-arrow).deps1').bind('click',function(){
+				$(this).addClass('checked');
+				$(this).siblings().removeClass('checked');
+				$('.product-category .ui-tree li.last.none-arrow').removeClass('active')
+				if($(this).children().children('li.deps2').hasClass('checked')){
+					$('li.deps1').removeClass('checked');
+				} else if ($(this).children().find('li.deps3').hasClass('checked')) {
+					$('li.deps1').removeClass('checked');
+				} else if ($(this).children().find('input').is(':checked')) {
+					$('li.deps1').removeClass('checked');
+				}
+			})
+
+			$('.product-category  .ui-tree li.deps1 ul li.deps2').bind('click',function(){
+				$(this).addClass('checked');
+				if($(this).children().children('li.deps3').hasClass('checked')){
+					$('li.deps2').removeClass('checked');
+				} else if ($(this).children().find('input').is(':checked')) {
+					$('li.deps2').removeClass('checked');
+				}
+			})
+
+			$('.product-category .ui-tree li.deps3.group').bind('click',function(){
+				if(!$('li.deps3.group').hasClass('active') === true) {
+					$(this).addClass('checked');
+				} else {
+					$(this).removeClass('checked');
+				}
+			})
+			// 2023-02-21 EZP-6415 js 추가 끝
+
+
+		});
+	</script>
+</body>
+
+</html>

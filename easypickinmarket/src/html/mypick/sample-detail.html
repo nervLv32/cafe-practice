@@ -1,0 +1,393 @@
+{% extends "../_templates/layout.njk" %}
+{% block content %}
+<!-- 2022-12-27 EZP-6818 샘플제안관리 신규페이지 추가 -->
+<div id="wrap">
+
+    <div class="content-head">
+        <div class="page-title">
+            <h3 class="h3-tit">마이픽관리</h3>
+            <a href="#" class="btn-manual" target="_blank" title="매뉴얼">매뉴얼</a>
+            <div class="form-box">
+                <form onsubmit="return submitHandler();">
+                    <fieldset>
+                        <legend class="skip">통합검색</legend>
+                        <label for="total-search" class="skip">검색어 입력</label>
+                        <input type="search" name="total-search" id="total-search" title="검색어 입력" class="text"
+                            placeholder="상품을 검색해보세요.">
+                        <input type="submit" value="검색" class="submit">
+                    </fieldset>
+                </form>
+            </div>
+            <a href="" class="direct-cart-btn" target="_blank" title="장바구니 바로가기">장바구니 바로가기</a>
+        </div>
+
+        <div class="cont-info-right green-caption">
+            <ul class="breadcrumb">
+                <li>공급</li>
+                <li class="now" title="현재 페이지">마이픽관리</li>
+            </ul>
+        </div>
+    </div>
+
+    <section class="mypick-setting-section sample">
+
+        <div class="mypick-toptab-wrap">
+            <ul class="tab mypick-icon-tab">
+                <li data-tab="conttab1" class="active">
+                    <a href="javascript: void(0);" class="tab-home">
+                        <i></i>
+                        <div class="text-box">
+                            <h6>픽샵</h6>
+                            <p>123</p>
+                        </div>
+                    </a>
+                </li>
+                <li data-tab="conttab2">
+                    <a href="javascript: void(0);" class="tab-heart">
+                        <i></i>
+                        <div class="text-box">
+                            <h6>픽템</h6>
+                            <p>456</p>
+                        </div>
+                    </a>
+                </li>
+                <li data-tab="conttab3">
+                    <a href="javascript: void(0);" class="tab-timer">
+                        <i></i>
+                        <div class="text-box">
+                            <h6>최근 본 상품</h6>
+                            <p>7,890</p>
+                        </div>
+                    </a>
+                </li>
+                <li data-tab="conttab4">
+                    <a href="javascript: void(0);" class="tab-package">
+                        <i></i>
+                        <div class="text-box">
+                            <h6>내 판매 상품</h6>
+                            <p>1,357</p>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+            <ul class="mypick-btn-wrap">
+                <li class="green-btn">
+                    <a href="#">
+                        <span>이지톡 문의하기</span>
+                        <!-- 2023-02-14 EZP-6415 아이콘 제거 
+                          <i><img src="../assets/images/share-icon-green.png" alt="share icon"></i> -->
+                    </a>
+                </li>
+                <!-- 2022-11-30 EZP-6818 샘플제안관리 추가 -->
+                <!-- li에 on이 붙었을 경우 미열람 제안서 있음 -->
+                <li class="purple-btn on">
+                    <a href="./sample-list.html">
+                        <span>샘플 제안 관리</span>
+                        <!-- <i><img src="../assets/images/share-icon-purple.png" alt="share icon"></i> -->
+                    </a>
+                </li>
+                <!-- 2022-11-30 EZP-6415 디자인시안에는 입고매칭이 없어 제거
+                    <li class="blue-btn">
+                    <a href="#">
+                        <span>입고 상품 매칭</span>
+                        <i><img src="../assets/images/share-icon-blue.png" alt="share icon"></i>
+                    </a>
+                </li> -->
+                <!-- 2022-11-30 EZP-6415 EC상품 매칭 관리 추가 -->
+                <li class="blue-btn">
+                    <a href="#">
+                        <span>EC 상품 매칭 관리</span>
+                        <!-- 2023-02-14 EZP-6415 아이콘 제거
+                          <i><img src="../assets/images/share-icon-blue.png" alt="share icon"></i> -->
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="sub-tit">샘플제안관리</div>
+        <div class="notice-wrap p-t-10 p-b-10">
+            <div>
+              <i class="ico-notice">
+                <span class="txt-hide">공지아이콘</span>
+              </i>
+              샘플제안 진행 안내
+              <br />
+              <div class="easy-pick-text m-t-5">
+                 <ul>
+                    <li>- 거래처에서 제안하는 샘플 상품 리스트 확인이 가능합니다.</li>
+                    <li>- <strong>옵션 선택 후 <em class="ftpointcolor2">'장바구니 담기'</em>클릭 시 선택된 옵션으로 샘플 장바구니 담기며,<em class="ftpointcolor2">'무료샘플'</em>로 주문이 가능합니다.</strong><br/><small>(*옵션 미선택 상품은 장바구니에 담기지 않습니다.)</small></li>
+                    <li>- 상품이 품절되거나 더 이상 판매하지 않는 경우 옵션 선택이 불가능할 수 있습니다.</li>
+                    <li>- 제안 판매가는 상품 구매 시 해당 금액으로 구매할 수 있도록 가게에서 제안한 금액입니다.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="sample-info-wrap bg-gray">
+            <div class="left">
+              <a href="javascript: void(0);" class="store">진짜피카소가게</a>
+              <strong>2022 F/W 신상 샘플로 받아보세요.</strong>
+              <p>이번에 새로나온 신상 샘플로 먼저 받아보세요~</p>
+            </div>
+            <div class="right">
+              <span class="date">제안일 2022-09-01</span>
+              <div class="pick-shop">
+                <i></i>
+                <span>픽샵</span>
+              </div>
+            </div>
+          </div>
+          <div class="sample-list-area mt30">
+              <div class="top-txt-inline mb10">
+                <span class="txt-inline">
+                  샘플제안 상품정보 (<strong>##</strong>)
+                </span>
+                <div class="btn-box">
+                  <button type="button" class="btn btn-sm btn-primary2">장바구니 담기</button>
+                  <button type="button" class="btn btn-sm btn-outline-gray">목록보기</button>
+                </div>
+            </div>
+            <div class="bottom-item-list">
+              <ul>
+                <li>
+                  <!-- 2023-03-14 EZP-8635 .img-box > a, span 으로 구조변경 -->
+                  <div class="img-box">
+                    <a href="javascript: void(0);"></a>
+                    <span type="button" class="like-btn"></span>
+                  </div>
+                  <div class="right">
+                    <a href="javascript: void(0);" class="product-name">모글리티셔츠</a>
+                    <div class="price"><p>제안판매가 <em>6,500</em></p></div>
+                    <a href="javascript: void(0);" class="option-box" onclick="targetModalPopup('sample-option-case1')">
+                      <p>화이트/M</p>
+                      <p>화이트/L</p>
+                      <p>화이트/M</p>
+                      <p>화이트/L</p>
+                      <p>화이트/L</p>
+                      <p>핑크/L</p>
+                      <p>핑크/L</p>
+                      <p>선택한 옵션이 많은 경우 말줄임표로 변경합니다. 선택한 옵션이 많은 경우 말줄임표로 변경합니다.</p>
+                    </a>
+                  </div>
+                </li>
+                <li>
+                  <!-- 2023-03-14 EZP-8635 .img-box > a, span 으로 구조변경 -->
+                  <div class="img-box sold-out">
+                    <a href="javascript: void(0);"></a>
+                    <span type="button" class="like-btn"></span>
+                  </div>
+                  <div class="right">
+                    <a href="javascript: void(0);" class="product-name">모글리티셔츠</a>
+                    <div class="price"><p>제안판매가 <em>6,500</em></p></div>
+                    <a href="javascript: void(0);" class="option-box" onclick="targetModalPopup('sample-option-case1')">
+                      <p>화이트/M</p>
+                      <p>화이트/L</p>
+                      <p>핑크/L</p>
+                      <p>선택한 옵션이 많은 경우 말줄임표로 변경합니다. 선택한 옵션이 많은 경우 말줄임표로 변경합니다.</p>
+                      <p>클릭해서 상세 옵션 확인 가능</p>
+                    </a>
+                  </div>
+                </li>
+                <li>
+                  <!-- 2023-03-14 EZP-8635 .img-box > a, span 으로 구조변경 -->
+                  <div class="img-box">
+                    <a href="javascript: void(0);"></a>
+                    <span type="button" class="like-btn"></span>
+                  </div>
+                  <div class="right">
+                    <a href="javascript: void(0);" class="product-name">모글리티셔츠 모글리티셔츠 모글리티셔츠 모글리티셔츠 모글리티셔츠 모글리티셔츠</a>
+                    <div class="price"><p>제안판매가 <em>6,500</em></p></div>
+                    <a href="javascript: void(0);" class="option-box" onclick="targetModalPopup('sample-option-case1')">
+                      <p>화이트/M</p>
+                      <p>화이트/L</p>
+                      <p>핑크/L</p>
+                      <p>선택한 옵션이 많은 경우 말줄임표로 변경합니다. 선택한 옵션이 많은 경우 말줄임표로 변경합니다.</p>
+                      <p>클릭해서 상세 옵션 확인 가능</p>
+                    </a>
+                  </div>
+                </li>
+                <li>
+                  <!-- 2023-03-14 EZP-8635 .img-box > a, span 으로 구조변경 -->
+                  <div class="img-box">
+                    <a href="javascript: void(0);"></a>
+                    <span type="button" class="like-btn"></span>
+                  </div>
+                  <div class="right">
+                    <a href="javascript: void(0);" class="product-name">모글리티셔츠</a>
+                    <div class="price"><p>제안판매가 <em>6,500</em></p></div>
+                    <a href="javascript: void(0);" class="option-box" onclick="targetModalPopup('sample-option-case1')">
+                      <p class="option-btn"><i></i>옵션을 선택해주세요.</p>
+                    </a>
+                  </div>
+                </li>
+                <li>
+                  <!-- 2023-03-14 EZP-8635 .img-box > a, span 으로 구조변경 -->
+                  <div class="img-box">
+                    <a href="javascript: void(0);"></a>
+                    <span type="button" class="like-btn"></span>
+                  </div>
+                  <div class="right">
+                    <div class="history-label ftpointcolor1">최근 3개월 이내 주문 상품</div>
+                    <a href="javascript: void(0);" class="product-name">모글리티셔츠모글리티셔츠모글리티셔츠모글리티셔츠모글리티셔츠</a>
+                    <div class="price">
+                      <p>제안판매가 <em>6,500</em></p>
+                      <!-- <div class="tool-tip-wrap tool-red">
+                        <a href="javascript: void(0);" class="tool-tip m-l-5">툴팁</a>
+                        <div class="tool-tip-area w-auto">
+                          <section class="tool-tip-title">
+                            <div class="tool-tip-inner">
+                              <p>최근 3개월 이내 주문한 이력이 있는 상품입니다.</p>
+                            </div>
+                          </section>
+                          <button type="button" class="tool-tip-close">닫기</button>
+                        </div>
+                      </div> -->
+                    </div>
+                    <a href="javascript: void(0);" class="option-box" onclick="targetModalPopup('sample-option-case1')">
+                      <p>화이트/M</p>
+                      <p>화이트/L</p>
+                      <p>핑크/L</p>
+                      <p>핑크/L</p>
+                      <p>핑크/L</p>
+                      <p>핑크/L</p>
+                      <p>선택한 옵션이 많은 경우 말줄임표로 변경합니다. 선택한 옵션이 많은 경우 말줄임표로 변경합니다.</p>
+                      <p>클릭해서 상세 옵션 확인 가능</p>
+                    </a>
+                  </div>
+                </li>
+                <li>
+                  <!-- 2023-03-14 EZP-8635 .img-box > a, span 으로 구조변경 -->
+                  <div class="img-box">
+                    <a href="javascript: void(0);"></a>
+                    <span type="button" class="like-btn"></span>
+                  </div>
+                  <div class="right">
+                    <a href="javascript: void(0);" class="product-name">모글리티셔츠</a>
+                    <div class="price"><p>제안판매가 <em>6,500</em></p></div>
+                    <a href="javascript: void(0);" class="option-box" onclick="targetModalPopup('sample-option-case1')">
+                      <p>화이트/M</p>
+                      <p>화이트/L</p>
+                      <p>핑크/L</p>
+                      <p>선택한 옵션이 많은 경우 말줄임표로 변경합니다. 선택한 옵션이 많은 경우 말줄임표로 변경합니다.</p>
+                      <p>클릭해서 상세 옵션 확인 가능</p>
+                    </a>
+                  </div>
+                </li>
+                <li>
+                  <!-- 2023-03-14 EZP-8635 .img-box > a, span 으로 구조변경 -->
+                  <div class="img-box">
+                    <a href="javascript: void(0);"></a>
+                    <span type="button" class="like-btn"></span>
+                  </div>
+                  <div class="right">
+                    <a href="javascript: void(0);" class="product-name">모글리티셔츠</a>
+                    <div class="price"><p>제안판매가 <em>6,500</em></p></div>
+                    <a href="javascript: void(0);" class="option-box" onclick="targetModalPopup('sample-option-case1')">
+                      <p>화이트/M</p>
+                      <p>화이트/L</p>
+                      <p>핑크/L</p>
+                      <p>선택한 옵션이 많은 경우 말줄임표로 변경합니다. 선택한 옵션이 많은 경우 말줄임표로 변경합니다.</p>
+                      <p>클릭해서 상세 옵션 확인 가능</p>
+                    </a>
+                  </div>
+                </li>
+                <li>
+                  <!-- 2023-03-14 EZP-8635 .img-box > a, span 으로 구조변경 -->
+                  <div class="img-box">
+                    <a href="javascript: void(0);"></a>
+                    <span type="button" class="like-btn"></span>
+                  </div>
+                  <div class="right">
+                    <a href="javascript: void(0);" class="product-name">모글리티셔츠</a>
+                    <div class="price"><p>제안판매가 <em>6,500</em></p></div>
+                    <a href="javascript: void(0);" class="option-box" onclick="targetModalPopup('sample-option-case1')">
+                      <p>화이트/M</p>
+                      <p>화이트/L</p>
+                      <p>핑크/L</p>
+                      <p>선택한 옵션이 많은 경우 말줄임표로 변경합니다. 선택한 옵션이 많은 경우 말줄임표로 변경합니다.</p>
+                      <p>클릭해서 상세 옵션 확인 가능</p>
+                    </a>
+                  </div>
+                </li>
+                <li>
+                  <!-- 2023-03-14 EZP-8635 .img-box > a, span 으로 구조변경 -->
+                  <div class="img-box">
+                    <a href="javascript: void(0);"></a>
+                    <span type="button" class="like-btn"></span>
+                  </div>
+                  <div class="right">
+                    <a href="javascript: void(0);" class="product-name">모글리티셔츠</a>
+                    <div class="price"><p>제안판매가 <em>6,500</em></p></div>
+                    <a href="javascript: void(0);" class="option-box" onclick="targetModalPopup('sample-option-case1')">
+                      <p>화이트/M</p>
+                      <p>화이트/L</p>
+                      <p>핑크/L</p>
+                      <p>선택한 옵션이 많은 경우 말줄임표로 변경합니다. 선택한 옵션이 많은 경우 말줄임표로 변경합니다.</p>
+                      <p>클릭해서 상세 옵션 확인 가능</p>
+                    </a>
+                  </div>
+                </li>
+                <li>
+                  <!-- 2023-03-14 EZP-8635 .img-box > a, span 으로 구조변경 -->
+                  <div class="img-box">
+                    <a href="javascript: void(0);"></a>
+                    <span type="button" class="like-btn"></span>
+                  </div>
+                  <div class="right">
+                    <a href="javascript: void(0);" class="product-name">모글리티셔츠</a>
+                    <div class="price"><p>제안판매가 <em>6,500</em></p></div>
+                    <a href="javascript: void(0);" class="option-box" onclick="targetModalPopup('sample-option-case1')">
+                      <p>화이트/M</p>
+                      <p>화이트/L</p>
+                      <p>핑크/L</p>
+                      <p>선택한 옵션이 많은 경우 말줄임표로 변경합니다. 선택한 옵션이 많은 경우 말줄임표로 변경합니다.</p>
+                      <p>클릭해서 상세 옵션 확인 가능</p>
+                    </a>
+                  </div>
+                </li>
+
+              </ul>
+            </div>
+          </div>
+        </div>
+    </section>
+    <div class="content-footer">
+      <div class="content-footer-btns">
+        <button type="button" class="btn btn-lg btn-point">장바구니 담기</button>
+      </div>
+    </div>
+</div>
+
+<!-- 픽템 > 마켓 선택 >  멀티 셀렉트 -->
+<script src="../../js/ui/cp/jquery-migrate.js" type="text/javascript"></script>
+<script src="../../js/ui/cp/multi_select.js" type="text/javascript"></script>
+
+<script>
+    $(document).ready(function () {
+      //상품 설명 영역 -> 픽샵 아이콘 토글
+      $('.mypick-setting-section.sample .sample-info-wrap .right .pick-shop').click(function(){
+         $(this).toggleClass('on');
+      })
+
+      // 옵션선택시 나오는 모달창 버튼 토글
+      $('.sample-option-case .option-area tr td button:not(.disabled)').click(function(){
+        $(this).toggleClass('on');
+      })
+
+      //옵션선택시 버블 삭제버튼
+      $('.option-btn-list-box li .clear').click(function(){
+        $(this).parent().remove();
+      })
+
+      //2023-03-17 EZP-8928 length 10 -> 8로 변경
+      $('.option-box').each(function() {
+        if ($(this).find('p').length >= 8) {
+          $(this).after('<p class="over-option-text">+N개 옵션 선택</p>')
+        }
+      });
+    
+  });
+</script>
+
+<!-- 옵션선택 -->
+{% include("./modals/sample/sample-order-case.njk") %}
+
+{% endblock %}

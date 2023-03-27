@@ -1,0 +1,3402 @@
+<!DOCTYPE html>
+<html lang="ko" data-livestyle-extension="available" class="js">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta
+      content="lK0RWxdehsio/icXlDgOD1/0XccqggRiBvNtJOsCkmw="
+      name="csrf-token"
+    />
+    <meta content="T" name="login-required" />
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="https://easypick.co.kr/img/favicon/ezp.ico"
+    />
+
+    <!-- css -->
+    <link rel="stylesheet" type="text/css" href="../../../../css/default.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../../../../css/month.picker.css"
+    />
+
+    <title>이지픽</title>
+  </head>
+
+  <!-- 2022-11-29 EZP-7577 max class 추가 (max-width를 max-content로 변경하기위해)-->
+  <body class="window-pop-wrap max">
+    <!--container// -->
+    <div id="container">
+      <div class="order-list-wrap popup complete">
+        <div
+          class="list-right"
+          style="width: 1220px !important; padding-bottom: 100px"
+        >
+          <div class="table-wrap mb0">
+            <!-- 2021-06-24 EZP-2885 -->
+            <p class="tit">검수완료 거래처별 정산 금액(11/08 입고)</p>
+            <!-- 2021-09-16 EZP-4120 -->
+            <form
+              id="frmBuyerOrderInspectlist"
+              name="frmBuyerOrderInspectlist"
+              action="/buyer/order/front/inspectList"
+            >
+              <input type="hidden" name="bs_complete_no" value="" />
+            </form>
+          </div>
+          <div class="table-wrap order-list mb0">
+            <div class="tit wrap new-type mt0">
+              <div class="tit-left">
+                <!-- 2021-09-16 EZP-4120 -->
+                <p class="notice">
+                  거래처별 정산 금액은 총 금액을 표시하고 있으며 검색이 적용되지
+                  않습니다.
+                </p>
+              </div>
+              <div class="tit-right">
+                <button
+                  type="button"
+                  class="btn small btnExcelDown mrl0"
+                  href="/buyer/order/front/inspectSellerListExcel"
+                >
+                  엑셀다운로드
+                </button>
+              </div>
+            </div>
+
+            <!-- 2020-06-04 EZP-763 -->
+            <!-- 2021-07-27 EZP-3550 -->
+            <div class="scroll-head" style="width: 1220px">
+              <table class="th-hor seller-table">
+                <colgroup>
+                  <col width="*" />
+                  <col width="*" />
+                  <col width="120" />
+                  <col width="120" />
+                  <col width="120" />
+                  <col width="120" />
+                  <!--EZP-3157-->
+                  <col width="120" />
+                  <col width="160" />
+                  <col width="155" />
+                  <!-- 2021-09-29 EZP-4163 -->
+                  <col width="120" />
+                </colgroup>
+                <thead>
+                  <tr class="sub-th">
+                    <th>거래처명</th>
+                    <th>주소</th>
+                    <th>신규주문</th>
+                    <th style="padding: 0px 0px">신규입고</th>
+                    <th style="padding: 0px 0px">신규미송</th>
+                    <th style="padding: 0px 0px">
+                      <!--EZP-3157-->
+                      샘플입고
+                    </th>
+                    <th>반품</th>
+                    <th>매입환불<br />사용금액</th>
+                    <th class="bg-gr">총 결제</th>
+                    <th>매입금 적립</th>
+                  </tr>
+                </thead>
+              </table>
+            </div>
+            <div class="scroll-tbody">
+              <table
+                class="th-hor seller-table"
+                style="margin-top: 0px !important"
+              >
+                <colgroup>
+                  <col width="*" />
+                  <col width="*" />
+                  <col width="120" />
+                  <col width="120" />
+                  <col width="120" />
+                  <col width="120" />
+                  <!--EZP-3157-->
+                  <col width="120" />
+                  <col width="160" />
+                  <col width="155" />
+                  <!-- 2021-09-29 EZP-4163 -->
+                  <col width="120" />
+                </colgroup>
+                <!-- 2020-04-24 eListArea 클레스 추가 -->
+                <!-- 2020-08-20 EZP-952 시작 -->
+                <tfoot class="eListArea">
+                  <!-- S: 많은경우 가정 -->
+                  <tr class="sub-tit eSumTr">
+                    <td>
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                        >가스나</a
+                      >
+                    </td>
+                    <td class="tal">
+                      <p class="prd">
+                        디오트<br />
+                        2층 F열 3호
+                      </p>
+                      <div class="tip-wrap">
+                        <div class="tip">
+                          <span>디오트 3층 F열 11호 (010-0000-0000)</span>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <!--EZP-3157-->
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td>
+                      <em class="price">1,030,000</em>원
+                      <!--2020-04-24 버튼추가-->
+                      <button
+                        href="#"
+                        type="button"
+                        class="memo has-memo ui-popup-open eLayerOrderMemo"
+                        data-target="#layerOrderMemo"
+                        data-overflow="false"
+                        data-shipping_memo=""
+                        data-uncle_memo=""
+                      >
+                        메모
+                      </button>
+                    </td>
+                    <td class="bg-gr">
+                      <em class="price eSettlePrice" data-settle_price="13000"
+                        >13,000</em
+                      >원
+                    </td>
+                    <td class=""><em class="price">1,030,000</em>원</td>
+                  </tr>
+                  <tr class="sub-tit eSumTr">
+                    <td>
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                        >가스나</a
+                      >
+                    </td>
+                    <td class="tal">
+                      <p class="prd">
+                        디오트<br />
+                        2층 F열 3호
+                      </p>
+                      <div class="tip-wrap">
+                        <div class="tip">
+                          <span>디오트 3층 F열 11호 (010-0000-0000)</span>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <!--EZP-3157-->
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td>
+                      <em class="price">1,030,000</em>원
+                      <!--2020-04-24 버튼추가-->
+                      <button
+                        href="#"
+                        type="button"
+                        class="memo has-memo ui-popup-open eLayerOrderMemo"
+                        data-target="#layerOrderMemo"
+                        data-overflow="false"
+                        data-shipping_memo=""
+                        data-uncle_memo=""
+                      >
+                        메모
+                      </button>
+                    </td>
+                    <td class="bg-gr">
+                      <em class="price eSettlePrice" data-settle_price="13000"
+                        >13,000</em
+                      >원
+                    </td>
+                    <td class=""><em class="price">1,030,000</em>원</td>
+                  </tr>
+                  <tr class="sub-tit eSumTr">
+                    <td>
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                        >가스나</a
+                      >
+                    </td>
+                    <td class="tal">
+                      <p class="prd">
+                        디오트<br />
+                        2층 F열 3호
+                      </p>
+                      <div class="tip-wrap">
+                        <div class="tip">
+                          <span>디오트 3층 F열 11호 (010-0000-0000)</span>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <!--EZP-3157-->
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td>
+                      <em class="price">1,030,000</em>원
+                      <!--2020-04-24 버튼추가-->
+                      <button
+                        href="#"
+                        type="button"
+                        class="memo has-memo ui-popup-open eLayerOrderMemo"
+                        data-target="#layerOrderMemo"
+                        data-overflow="false"
+                        data-shipping_memo=""
+                        data-uncle_memo=""
+                      >
+                        메모
+                      </button>
+                    </td>
+                    <td class="bg-gr">
+                      <em class="price eSettlePrice" data-settle_price="13000"
+                        >13,000</em
+                      >원
+                    </td>
+                    <td class=""><em class="price">1,030,000</em>원</td>
+                  </tr>
+                  <tr class="sub-tit eSumTr">
+                    <td>
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                        >가스나</a
+                      >
+                    </td>
+                    <td class="tal">
+                      <p class="prd">
+                        디오트<br />
+                        2층 F열 3호
+                      </p>
+                      <div class="tip-wrap">
+                        <div class="tip">
+                          <span>디오트 3층 F열 11호 (010-0000-0000)</span>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <!--EZP-3157-->
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td>
+                      <em class="price">1,030,000</em>원
+                      <!--2020-04-24 버튼추가-->
+                      <button
+                        href="#"
+                        type="button"
+                        class="memo has-memo ui-popup-open eLayerOrderMemo"
+                        data-target="#layerOrderMemo"
+                        data-overflow="false"
+                        data-shipping_memo=""
+                        data-uncle_memo=""
+                      >
+                        메모
+                      </button>
+                    </td>
+                    <td class="bg-gr">
+                      <em class="price eSettlePrice" data-settle_price="13000"
+                        >13,000</em
+                      >원
+                    </td>
+                    <td class=""><em class="price">1,030,000</em>원</td>
+                  </tr>
+
+                  <tr class="sub-tit eSumTr">
+                    <td>
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                        >가스나</a
+                      >
+                    </td>
+                    <td class="tal">
+                      <p class="prd">
+                        디오트<br />
+                        2층 F열 3호
+                      </p>
+                      <div class="tip-wrap">
+                        <div class="tip">
+                          <span>디오트 3층 F열 11호 (010-0000-0000)</span>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <!--EZP-3157-->
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td>
+                      <em class="price">1,030,000</em>원
+                      <!--2020-04-24 버튼추가-->
+                      <button
+                        href="#"
+                        type="button"
+                        class="memo has-memo ui-popup-open eLayerOrderMemo"
+                        data-target="#layerOrderMemo"
+                        data-overflow="false"
+                        data-shipping_memo=""
+                        data-uncle_memo=""
+                      >
+                        메모
+                      </button>
+                    </td>
+                    <td class="bg-gr">
+                      <em class="price eSettlePrice" data-settle_price="13000"
+                        >13,000</em
+                      >원
+                    </td>
+                    <td class=""><em class="price">1,030,000</em>원</td>
+                  </tr>
+                  <tr class="sub-tit eSumTr">
+                    <td>
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                        >가스나</a
+                      >
+                    </td>
+                    <td class="tal">
+                      <p class="prd">
+                        디오트<br />
+                        2층 F열 3호
+                      </p>
+                      <div class="tip-wrap">
+                        <div class="tip">
+                          <span>디오트 3층 F열 11호 (010-0000-0000)</span>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <!--EZP-3157-->
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td>
+                      <em class="price">1,030,000</em>원
+                      <!--2020-04-24 버튼추가-->
+                      <button
+                        href="#"
+                        type="button"
+                        class="memo has-memo ui-popup-open eLayerOrderMemo"
+                        data-target="#layerOrderMemo"
+                        data-overflow="false"
+                        data-shipping_memo=""
+                        data-uncle_memo=""
+                      >
+                        메모
+                      </button>
+                    </td>
+                    <td class="bg-gr">
+                      <em class="price eSettlePrice" data-settle_price="13000"
+                        >13,000</em
+                      >원
+                    </td>
+                    <td class=""><em class="price">1,030,000</em>원</td>
+                  </tr>
+                  <tr class="sub-tit eSumTr">
+                    <td>
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                        >가스나</a
+                      >
+                    </td>
+                    <td class="tal">
+                      <p class="prd">
+                        디오트<br />
+                        2층 F열 3호
+                      </p>
+                      <div class="tip-wrap">
+                        <div class="tip">
+                          <span>디오트 3층 F열 11호 (010-0000-0000)</span>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <!--EZP-3157-->
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td>
+                      <em class="price">1,030,000</em>원
+                      <!--2020-04-24 버튼추가-->
+                      <button
+                        href="#"
+                        type="button"
+                        class="memo has-memo ui-popup-open eLayerOrderMemo"
+                        data-target="#layerOrderMemo"
+                        data-overflow="false"
+                        data-shipping_memo=""
+                        data-uncle_memo=""
+                      >
+                        메모
+                      </button>
+                    </td>
+                    <td class="bg-gr">
+                      <em class="price eSettlePrice" data-settle_price="13000"
+                        >13,000</em
+                      >원
+                    </td>
+                    <td class=""><em class="price">1,030,000</em>원</td>
+                  </tr>
+                  <tr class="sub-tit eSumTr">
+                    <td>
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                        >가스나</a
+                      >
+                    </td>
+                    <td class="tal">
+                      <p class="prd">
+                        디오트<br />
+                        2층 F열 3호
+                      </p>
+                      <div class="tip-wrap">
+                        <div class="tip">
+                          <span>디오트 3층 F열 11호 (010-0000-0000)</span>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <!--EZP-3157-->
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td>
+                      <em class="price">1,030,000</em>원
+                      <!--2020-04-24 버튼추가-->
+                      <button
+                        href="#"
+                        type="button"
+                        class="memo has-memo ui-popup-open eLayerOrderMemo"
+                        data-target="#layerOrderMemo"
+                        data-overflow="false"
+                        data-shipping_memo=""
+                        data-uncle_memo=""
+                      >
+                        메모
+                      </button>
+                    </td>
+                    <td class="bg-gr">
+                      <em class="price eSettlePrice" data-settle_price="13000"
+                        >13,000</em
+                      >원
+                    </td>
+                    <td class=""><em class="price">1,030,000</em>원</td>
+                  </tr>
+                  <tr class="sub-tit eSumTr">
+                    <td>
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                        >가스나</a
+                      >
+                    </td>
+                    <td class="tal">
+                      <p class="prd">
+                        디오트<br />
+                        2층 F열 3호
+                      </p>
+                      <div class="tip-wrap">
+                        <div class="tip">
+                          <span>디오트 3층 F열 11호 (010-0000-0000)</span>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <!--EZP-3157-->
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td>
+                      <em class="price">1,030,000</em>원
+                      <!--2020-04-24 버튼추가-->
+                      <button
+                        href="#"
+                        type="button"
+                        class="memo has-memo ui-popup-open eLayerOrderMemo"
+                        data-target="#layerOrderMemo"
+                        data-overflow="false"
+                        data-shipping_memo=""
+                        data-uncle_memo=""
+                      >
+                        메모
+                      </button>
+                    </td>
+                    <td class="bg-gr">
+                      <em class="price eSettlePrice" data-settle_price="13000"
+                        >13,000</em
+                      >원
+                    </td>
+                    <td class=""><em class="price">1,030,000</em>원</td>
+                  </tr>
+                  <tr class="sub-tit eSumTr">
+                    <td>
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                        >가스나</a
+                      >
+                    </td>
+                    <td class="tal">
+                      <p class="prd">
+                        디오트<br />
+                        2층 F열 3호
+                      </p>
+                      <div class="tip-wrap">
+                        <div class="tip">
+                          <span>디오트 3층 F열 11호 (010-0000-0000)</span>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <!--EZP-3157-->
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td>
+                      <em class="price">1,030,000</em>원
+                      <!--2020-04-24 버튼추가-->
+                      <button
+                        href="#"
+                        type="button"
+                        class="memo has-memo ui-popup-open eLayerOrderMemo"
+                        data-target="#layerOrderMemo"
+                        data-overflow="false"
+                        data-shipping_memo=""
+                        data-uncle_memo=""
+                      >
+                        메모
+                      </button>
+                    </td>
+                    <td class="bg-gr">
+                      <em class="price eSettlePrice" data-settle_price="13000"
+                        >13,000</em
+                      >원
+                    </td>
+                    <td class=""><em class="price">1,030,000</em>원</td>
+                  </tr>
+                  <tr class="sub-tit eSumTr">
+                    <td>
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                        >가스나</a
+                      >
+                    </td>
+                    <td class="tal">
+                      <p class="prd">
+                        디오트<br />
+                        2층 F열 3호
+                      </p>
+                      <div class="tip-wrap">
+                        <div class="tip">
+                          <span>디오트 3층 F열 11호 (010-0000-0000)</span>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <!--EZP-3157-->
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td>
+                      <em class="price">1,030,000</em>원
+                      <!--2020-04-24 버튼추가-->
+                      <button
+                        href="#"
+                        type="button"
+                        class="memo has-memo ui-popup-open eLayerOrderMemo"
+                        data-target="#layerOrderMemo"
+                        data-overflow="false"
+                        data-shipping_memo=""
+                        data-uncle_memo=""
+                      >
+                        메모
+                      </button>
+                    </td>
+                    <td class="bg-gr">
+                      <em class="price eSettlePrice" data-settle_price="13000"
+                        >13,000</em
+                      >원
+                    </td>
+                    <td class=""><em class="price">1,030,000</em>원</td>
+                  </tr>
+                  <tr class="sub-tit eSumTr">
+                    <td>
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                        >가스나</a
+                      >
+                    </td>
+                    <td class="tal">
+                      <p class="prd">
+                        디오트<br />
+                        2층 F열 3호
+                      </p>
+                      <div class="tip-wrap">
+                        <div class="tip">
+                          <span>디오트 3층 F열 11호 (010-0000-0000)</span>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <!--EZP-3157-->
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td>
+                      <em class="price">1,030,000</em>원
+                      <!--2020-04-24 버튼추가-->
+                      <button
+                        href="#"
+                        type="button"
+                        class="memo has-memo ui-popup-open eLayerOrderMemo"
+                        data-target="#layerOrderMemo"
+                        data-overflow="false"
+                        data-shipping_memo=""
+                        data-uncle_memo=""
+                      >
+                        메모
+                      </button>
+                    </td>
+                    <td class="bg-gr">
+                      <em class="price eSettlePrice" data-settle_price="13000"
+                        >13,000</em
+                      >원
+                    </td>
+                    <td class=""><em class="price">1,030,000</em>원</td>
+                  </tr>
+                  <tr class="sub-tit eSumTr">
+                    <td>
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                        >가스나</a
+                      >
+                    </td>
+                    <td class="tal">
+                      <p class="prd">
+                        디오트<br />
+                        2층 F열 3호
+                      </p>
+                      <div class="tip-wrap">
+                        <div class="tip">
+                          <span>디오트 3층 F열 11호 (010-0000-0000)</span>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <!--EZP-3157-->
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td>
+                      <em class="price">1,030,000</em>원
+                      <!--2020-04-24 버튼추가-->
+                      <button
+                        href="#"
+                        type="button"
+                        class="memo has-memo ui-popup-open eLayerOrderMemo"
+                        data-target="#layerOrderMemo"
+                        data-overflow="false"
+                        data-shipping_memo=""
+                        data-uncle_memo=""
+                      >
+                        메모
+                      </button>
+                    </td>
+                    <td class="bg-gr">
+                      <em class="price eSettlePrice" data-settle_price="13000"
+                        >13,000</em
+                      >원
+                    </td>
+                    <td class=""><em class="price">1,030,000</em>원</td>
+                  </tr>
+                  <tr class="sub-tit eSumTr">
+                    <td>
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                        >가스나</a
+                      >
+                    </td>
+                    <td class="tal">
+                      <p class="prd">
+                        디오트<br />
+                        2층 F열 3호
+                      </p>
+                      <div class="tip-wrap">
+                        <div class="tip">
+                          <span>디오트 3층 F열 11호 (010-0000-0000)</span>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <!--EZP-3157-->
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td>
+                      <em class="price">1,030,000</em>원
+                      <!--2020-04-24 버튼추가-->
+                      <button
+                        href="#"
+                        type="button"
+                        class="memo has-memo ui-popup-open eLayerOrderMemo"
+                        data-target="#layerOrderMemo"
+                        data-overflow="false"
+                        data-shipping_memo=""
+                        data-uncle_memo=""
+                      >
+                        메모
+                      </button>
+                    </td>
+                    <td class="bg-gr">
+                      <em class="price eSettlePrice" data-settle_price="13000"
+                        >13,000</em
+                      >원
+                    </td>
+                    <td class=""><em class="price">1,030,000</em>원</td>
+                  </tr>
+                  <tr class="sub-tit eSumTr">
+                    <td>
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                        >가스나</a
+                      >
+                    </td>
+                    <td class="tal">
+                      <p class="prd">
+                        디오트<br />
+                        2층 F열 3호
+                      </p>
+                      <div class="tip-wrap">
+                        <div class="tip">
+                          <span>디오트 3층 F열 11호 (010-0000-0000)</span>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <!--EZP-3157-->
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td>
+                      <em class="price">1,030,000</em>원
+                      <!--2020-04-24 버튼추가-->
+                      <button
+                        href="#"
+                        type="button"
+                        class="memo has-memo ui-popup-open eLayerOrderMemo"
+                        data-target="#layerOrderMemo"
+                        data-overflow="false"
+                        data-shipping_memo=""
+                        data-uncle_memo=""
+                      >
+                        메모
+                      </button>
+                    </td>
+                    <td class="bg-gr">
+                      <em class="price eSettlePrice" data-settle_price="13000"
+                        >13,000</em
+                      >원
+                    </td>
+                    <td class=""><em class="price">1,030,000</em>원</td>
+                  </tr>
+                  <tr class="sub-tit eSumTr">
+                    <td>
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                        >가스나</a
+                      >
+                    </td>
+                    <td class="tal">
+                      <p class="prd">
+                        디오트<br />
+                        2층 F열 3호
+                      </p>
+                      <div class="tip-wrap">
+                        <div class="tip">
+                          <span>디오트 3층 F열 11호 (010-0000-0000)</span>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <!--EZP-3157-->
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td>
+                      <em class="price">1,030,000</em>원
+                      <!--2020-04-24 버튼추가-->
+                      <button
+                        href="#"
+                        type="button"
+                        class="memo has-memo ui-popup-open eLayerOrderMemo"
+                        data-target="#layerOrderMemo"
+                        data-overflow="false"
+                        data-shipping_memo=""
+                        data-uncle_memo=""
+                      >
+                        메모
+                      </button>
+                    </td>
+                    <td class="bg-gr">
+                      <em class="price eSettlePrice" data-settle_price="13000"
+                        >13,000</em
+                      >원
+                    </td>
+                    <td class=""><em class="price">1,030,000</em>원</td>
+                  </tr>
+                  <tr class="sub-tit eSumTr">
+                    <td>
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                        >가스나</a
+                      >
+                    </td>
+                    <td class="tal">
+                      <p class="prd">
+                        디오트<br />
+                        2층 F열 3호
+                      </p>
+                      <div class="tip-wrap">
+                        <div class="tip">
+                          <span>디오트 3층 F열 11호 (010-0000-0000)</span>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <!--EZP-3157-->
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td>
+                      <em class="price">1,030,000</em>원
+                      <!--2020-04-24 버튼추가-->
+                      <button
+                        href="#"
+                        type="button"
+                        class="memo has-memo ui-popup-open eLayerOrderMemo"
+                        data-target="#layerOrderMemo"
+                        data-overflow="false"
+                        data-shipping_memo=""
+                        data-uncle_memo=""
+                      >
+                        메모
+                      </button>
+                    </td>
+                    <td class="bg-gr">
+                      <em class="price eSettlePrice" data-settle_price="13000"
+                        >13,000</em
+                      >원
+                    </td>
+                    <td class=""><em class="price">1,030,000</em>원</td>
+                  </tr>
+                  <tr class="sub-tit eSumTr">
+                    <td>
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                        >가스나</a
+                      >
+                    </td>
+                    <td class="tal">
+                      <p class="prd">
+                        디오트<br />
+                        2층 F열 3호
+                      </p>
+                      <div class="tip-wrap">
+                        <div class="tip">
+                          <span>디오트 3층 F열 11호 (010-0000-0000)</span>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <!--EZP-3157-->
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td>
+                      <em class="price">1,030,000</em>원
+                      <!--2020-04-24 버튼추가-->
+                      <button
+                        href="#"
+                        type="button"
+                        class="memo has-memo ui-popup-open eLayerOrderMemo"
+                        data-target="#layerOrderMemo"
+                        data-overflow="false"
+                        data-shipping_memo=""
+                        data-uncle_memo=""
+                      >
+                        메모
+                      </button>
+                    </td>
+                    <td class="bg-gr">
+                      <em class="price eSettlePrice" data-settle_price="13000"
+                        >13,000</em
+                      >원
+                    </td>
+                    <td class=""><em class="price">1,030,000</em>원</td>
+                  </tr>
+                  <tr class="sub-tit eSumTr">
+                    <td>
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                        >가스나</a
+                      >
+                    </td>
+                    <td class="tal">
+                      <p class="prd">
+                        디오트<br />
+                        2층 F열 3호
+                      </p>
+                      <div class="tip-wrap">
+                        <div class="tip">
+                          <span>디오트 3층 F열 11호 (010-0000-0000)</span>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <!--EZP-3157-->
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td>
+                      <em class="price">1,030,000</em>원
+                      <!--2020-04-24 버튼추가-->
+                      <button
+                        href="#"
+                        type="button"
+                        class="memo has-memo ui-popup-open eLayerOrderMemo"
+                        data-target="#layerOrderMemo"
+                        data-overflow="false"
+                        data-shipping_memo=""
+                        data-uncle_memo=""
+                      >
+                        메모
+                      </button>
+                    </td>
+                    <td class="bg-gr">
+                      <em class="price eSettlePrice" data-settle_price="13000"
+                        >13,000</em
+                      >원
+                    </td>
+                    <td class=""><em class="price">1,030,000</em>원</td>
+                  </tr>
+                  <tr class="sub-tit eSumTr">
+                    <td>
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                        >가스나</a
+                      >
+                    </td>
+                    <td class="tal">
+                      <p class="prd">
+                        디오트<br />
+                        2층 F열 3호
+                      </p>
+                      <div class="tip-wrap">
+                        <div class="tip">
+                          <span>디오트 3층 F열 11호 (010-0000-0000)</span>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <!--EZP-3157-->
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td>
+                      <em class="price">1,030,000</em>원
+                      <!--2020-04-24 버튼추가-->
+                      <button
+                        href="#"
+                        type="button"
+                        class="memo has-memo ui-popup-open eLayerOrderMemo"
+                        data-target="#layerOrderMemo"
+                        data-overflow="false"
+                        data-shipping_memo=""
+                        data-uncle_memo=""
+                      >
+                        메모
+                      </button>
+                    </td>
+                    <td class="bg-gr">
+                      <em class="price eSettlePrice" data-settle_price="13000"
+                        >13,000</em
+                      >원
+                    </td>
+                    <td class=""><em class="price">1,030,000</em>원</td>
+                  </tr>
+                  <tr class="sub-tit eSumTr">
+                    <td>
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                        >가스나</a
+                      >
+                    </td>
+                    <td class="tal">
+                      <p class="prd">
+                        디오트<br />
+                        2층 F열 3호
+                      </p>
+                      <div class="tip-wrap">
+                        <div class="tip">
+                          <span>디오트 3층 F열 11호 (010-0000-0000)</span>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <!--EZP-3157-->
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td>
+                      <em class="price">1,030,000</em>원
+                      <!--2020-04-24 버튼추가-->
+                      <button
+                        href="#"
+                        type="button"
+                        class="memo has-memo ui-popup-open eLayerOrderMemo"
+                        data-target="#layerOrderMemo"
+                        data-overflow="false"
+                        data-shipping_memo=""
+                        data-uncle_memo=""
+                      >
+                        메모
+                      </button>
+                    </td>
+                    <td class="bg-gr">
+                      <em class="price eSettlePrice" data-settle_price="13000"
+                        >13,000</em
+                      >원
+                    </td>
+                    <td class=""><em class="price">1,030,000</em>원</td>
+                  </tr>
+                  <tr class="sub-tit eSumTr">
+                    <td>
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                        >가스나</a
+                      >
+                    </td>
+                    <td class="tal">
+                      <p class="prd">
+                        디오트<br />
+                        2층 F열 3호
+                      </p>
+                      <div class="tip-wrap">
+                        <div class="tip">
+                          <span>디오트 3층 F열 11호 (010-0000-0000)</span>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <!--EZP-3157-->
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td>
+                      <em class="price">1,030,000</em>원
+                      <!--2020-04-24 버튼추가-->
+                      <button
+                        href="#"
+                        type="button"
+                        class="memo has-memo ui-popup-open eLayerOrderMemo"
+                        data-target="#layerOrderMemo"
+                        data-overflow="false"
+                        data-shipping_memo=""
+                        data-uncle_memo=""
+                      >
+                        메모
+                      </button>
+                    </td>
+                    <td class="bg-gr">
+                      <em class="price eSettlePrice" data-settle_price="13000"
+                        >13,000</em
+                      >원
+                    </td>
+                    <td class=""><em class="price">1,030,000</em>원</td>
+                  </tr>
+                  <!-- E: 많은경우 가정 -->
+                  <tr class="sub-tit eSumTr">
+                    <td>
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                        >가스나</a
+                      >
+                    </td>
+                    <td class="tal">
+                      <p class="prd">
+                        디오트<br />
+                        2층 F열 3호
+                      </p>
+                      <div class="tip-wrap">
+                        <div class="tip">
+                          <span>디오트 3층 F열 11호 (010-0000-0000)</span>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <!--EZP-3157-->
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td>
+                      <em class="price">1,030,000</em>원
+                      <!--2020-04-24 버튼추가-->
+                      <button
+                        href="#"
+                        type="button"
+                        class="memo has-memo ui-popup-open eLayerOrderMemo"
+                        data-target="#layerOrderMemo"
+                        data-overflow="false"
+                        data-shipping_memo=""
+                        data-uncle_memo=""
+                      >
+                        메모
+                      </button>
+                    </td>
+                    <td class="bg-gr">
+                      <em class="price eSettlePrice" data-settle_price="13000"
+                        >13,000</em
+                      >원
+                    </td>
+                    <td class=""><em class="price">1,030,000</em>원</td>
+                  </tr>
+                  <tr class="sub-tit eSumTr">
+                    <td>
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                        >가스나</a
+                      >
+                    </td>
+                    <td class="tal">
+                      <p class="prd">
+                        디오트<br />
+                        2층 F열 3호
+                      </p>
+                      <div class="tip-wrap">
+                        <div class="tip">
+                          <span>디오트 3층 F열 11호 (010-0000-0000)</span>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">0</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">0</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <!--EZP-3157-->
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">0</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">8,000</em>원
+                      </a>
+                    </td>
+
+                    <td class="">
+                      <em class="price">0</em>원
+                      <!--2020-04-24 버튼추가-->
+                      <button
+                        href="#"
+                        type="button"
+                        class="memo memo-disabled ui-popup-open eLayerOrderMemo"
+                        data-target="#layerOrderMemo"
+                        data-overflow="false"
+                        data-shipping_memo=""
+                        data-uncle_memo=""
+                      >
+                        메모
+                      </button>
+                    </td>
+                    <td class="bg-gr">
+                      <em class="price eSettlePrice" data-settle_price="13000"
+                        >13,000</em
+                      >원
+                      <div class="minus-info">
+                        (= 합계 <em>-8,000</em><br />
+                        + 매입금적립반영 <em>8,000</em>원)
+                      </div>
+                      <!-- 2021-09-29 EZP-4163 -->
+                    </td>
+                    <td class=""><em class="price">1,030,000</em>원</td>
+                  </tr>
+                  <tr class="sub-tit eSumTr">
+                    <td>
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                        >가스나</a
+                      >
+                    </td>
+                    <td class="tal">
+                      <p class="prd">
+                        디오트<br />
+                        2층 F열 3호
+                      </p>
+                      <div class="tip-wrap">
+                        <div class="tip">
+                          <span>디오트 3층 F열 11호 (010-0000-0000)</span>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <!--EZP-3157-->
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+
+                    <td class="">
+                      <em class="price">1,030,000</em>원
+                      <!--2020-04-24 버튼추가-->
+                      <button
+                        href="#"
+                        type="button"
+                        class="memo ui-popup-open eLayerOrderMemo"
+                        data-target="#layerOrderMemo"
+                        data-overflow="false"
+                        data-shipping_memo=""
+                        data-uncle_memo=""
+                      >
+                        메모
+                      </button>
+                    </td>
+                    <td class="bg-gr">
+                      <em class="price eSettlePrice" data-settle_price="13000"
+                        >13,000</em
+                      >원
+                    </td>
+
+                    <td class=""><em class="price">1,030,000</em>원</td>
+                  </tr>
+                  <tr class="sub-tit eSumTr">
+                    <td>
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                        >가스나</a
+                      >
+                    </td>
+                    <td class="tal">
+                      <p class="prd">
+                        디오트<br />
+                        2층 F열 3호
+                      </p>
+                      <div class="tip-wrap">
+                        <div class="tip">
+                          <span>디오트 3층 F열 11호 (010-0000-0000)</span>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <!--EZP-3157-->
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td>
+                      <em class="price">1,030,000</em>원
+                      <!--2020-04-24 버튼추가-->
+                      <button
+                        href="#"
+                        type="button"
+                        class="memo has-memo ui-popup-open eLayerOrderMemo"
+                        data-target="#layerOrderMemo"
+                        data-overflow="false"
+                        data-shipping_memo=""
+                        data-uncle_memo=""
+                      >
+                        메모
+                      </button>
+                    </td>
+                    <td class="bg-gr">
+                      <em class="price eSettlePrice" data-settle_price="13000"
+                        >13,000</em
+                      >원
+                    </td>
+                    <td class=""><em class="price">1,030,000</em>원</td>
+                  </tr>
+                  <tr class="sub-tit eSumTr">
+                    <td>
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                        >가스나</a
+                      >
+                    </td>
+                    <td class="tal">
+                      <p class="prd">
+                        디오트<br />
+                        2층 F열 3호
+                      </p>
+                      <div class="tip-wrap">
+                        <div class="tip">
+                          <span>디오트 3층 F열 11호 (010-0000-0000)</span>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <!--EZP-3157-->
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td>
+                      <em class="price">1,030,000</em>원
+                      <!--2020-04-24 버튼추가-->
+                      <button
+                        href="#"
+                        type="button"
+                        class="memo has-memo ui-popup-open eLayerOrderMemo"
+                        data-target="#layerOrderMemo"
+                        data-overflow="false"
+                        data-shipping_memo=""
+                        data-uncle_memo=""
+                      >
+                        메모
+                      </button>
+                    </td>
+                    <td class="bg-gr">
+                      <em class="price eSettlePrice" data-settle_price="13000"
+                        >13,000</em
+                      >원
+                    </td>
+                    <td class=""><em class="price">1,030,000</em>원</td>
+                  </tr>
+                  <tr class="sub-tit eSumTr">
+                    <td>
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                        >가스나</a
+                      >
+                    </td>
+                    <td class="tal">
+                      <p class="prd">
+                        디오트<br />
+                        2층 F열 3호
+                      </p>
+                      <div class="tip-wrap">
+                        <div class="tip">
+                          <span>디오트 3층 F열 11호 (010-0000-0000)</span>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <!--EZP-3157-->
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+
+                    <td>
+                      <em class="price">1,030,000</em>원
+                      <!--2020-04-24 버튼추가-->
+                      <button
+                        href="#"
+                        type="button"
+                        class="memo has-memo ui-popup-open eLayerOrderMemo"
+                        data-target="#layerOrderMemo"
+                        data-overflow="false"
+                        data-shipping_memo=""
+                        data-uncle_memo=""
+                      >
+                        메모
+                      </button>
+                    </td>
+                    <td class="bg-gr">
+                      <em class="price eSettlePrice" data-settle_price="13000"
+                        >13,000</em
+                      >원
+                    </td>
+                    <td class=""><em class="price">1,030,000</em>원</td>
+                  </tr>
+                  <tr class="sub-tit eSumTr">
+                    <td>
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                        >가스나</a
+                      >
+                    </td>
+                    <td class="tal">
+                      <p class="prd">
+                        디오트<br />
+                        2층 F열 3호
+                      </p>
+                      <div class="tip-wrap">
+                        <div class="tip">
+                          <span>디오트 3층 F열 11호 (010-0000-0000)</span>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td>
+                      <em class="price">1,030,000</em>원
+                      <!--2020-04-24 버튼추가-->
+                      <button
+                        href="#"
+                        type="button"
+                        class="memo has-memo ui-popup-open eLayerOrderMemo"
+                        data-target="#layerOrderMemo"
+                        data-overflow="false"
+                        data-shipping_memo=""
+                        data-uncle_memo=""
+                      >
+                        메모
+                      </button>
+                    </td>
+                    <td class="bg-gr">
+                      <em class="price eSettlePrice" data-settle_price="13000"
+                        >13,000</em
+                      >원
+                    </td>
+                    <td class=""><em class="price">1,030,000</em>원</td>
+                  </tr>
+                  <tr class="sub-tit eSumTr">
+                    <td>
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                        >가스나</a
+                      >
+                    </td>
+                    <td class="tal">
+                      <p class="prd">
+                        디오트<br />
+                        2층 F열 3호
+                      </p>
+                      <div class="tip-wrap">
+                        <div class="tip">
+                          <span>디오트 3층 F열 11호 (010-0000-0000)</span>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td>
+                      <em class="price">1,030,000</em>원
+                      <!--2020-04-24 버튼추가-->
+                      <button
+                        href="#"
+                        type="button"
+                        class="memo has-memo ui-popup-open eLayerOrderMemo"
+                        data-target="#layerOrderMemo"
+                        data-overflow="false"
+                        data-shipping_memo=""
+                        data-uncle_memo=""
+                      >
+                        메모
+                      </button>
+                    </td>
+                    <td class="bg-gr">
+                      <em class="price eSettlePrice" data-settle_price="13000"
+                        >13,000</em
+                      >원
+                    </td>
+                    <td class=""><em class="price">1,030,000</em>원</td>
+                  </tr>
+                  <tr class="sub-tit eSumTr">
+                    <td>
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                        >가스나</a
+                      >
+                    </td>
+                    <td class="tal">
+                      <p class="prd">
+                        디오트<br />
+                        2층 F열 3호
+                      </p>
+                      <div class="tip-wrap">
+                        <div class="tip">
+                          <span>디오트 3층 F열 11호 (010-0000-0000)</span>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td>
+                      <em class="price">1,030,000</em>원
+                      <!--2020-04-24 버튼추가-->
+                      <button
+                        href="#"
+                        type="button"
+                        class="memo has-memo ui-popup-open eLayerOrderMemo"
+                        data-target="#layerOrderMemo"
+                        data-overflow="false"
+                        data-shipping_memo=""
+                        data-uncle_memo=""
+                      >
+                        메모
+                      </button>
+                    </td>
+                    <td class="bg-gr">
+                      <em class="price eSettlePrice" data-settle_price="13000"
+                        >13,000</em
+                      >원
+                    </td>
+                    <td class=""><em class="price">1,030,000</em>원</td>
+                  </tr>
+                  <tr class="sub-tit eSumTr">
+                    <td>
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                        >가스나</a
+                      >
+                    </td>
+                    <td class="tal">
+                      <p class="prd">
+                        디오트<br />
+                        2층 F열 3호
+                      </p>
+                      <div class="tip-wrap">
+                        <div class="tip">
+                          <span>디오트 3층 F열 11호 (010-0000-0000)</span>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td class="">
+                      <a
+                        href="#"
+                        class="ui-popup-open"
+                        data-target="#order-history-pop"
+                      >
+                        <em class="price">1,030,000</em>원
+                      </a>
+                    </td>
+                    <td>
+                      <em class="price">1,030,000</em>원
+                      <!--2020-04-24 버튼추가-->
+                      <button
+                        href="#"
+                        type="button"
+                        class="memo has-memo ui-popup-open eLayerOrderMemo"
+                        data-target="#layerOrderMemo"
+                        data-overflow="false"
+                        data-shipping_memo=""
+                        data-uncle_memo=""
+                      >
+                        메모
+                      </button>
+                    </td>
+                    <td class="bg-gr">
+                      <em class="price eSettlePrice" data-settle_price="13000"
+                        >13,000</em
+                      >원
+                    </td>
+                    <td class=""><em class="price">1,030,000</em>원</td>
+                  </tr>
+                </tfoot>
+                <tbody>
+                  <tr class="all-price eSumTr">
+                    <td colspan="2">합 계</td>
+                    <td class=""><em class="price">1,030,000</em>원</td>
+                    <td class=""><em class="price">1,030,000</em>원</td>
+                    <td class=""><em class="price">1,030,000</em>원</td>
+                    <td class=""><em class="price">1,030,000</em>원</td>
+                    <td class=""><em class="price">1,030,000</em>원</td>
+
+                    <td class=""><em class="price">1,030,000</em>원</td>
+                    <td class="bg-darkgr">
+                      <em class="price eTotalSettle">3,870,000</em>원
+                    </td>
+                    <td class=""><em class="price">105,000</em>원</td>
+                  </tr>
+                </tbody>
+                <!-- 2020-08-20 EZP-952 종료 -->
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="footer">
+        <button
+          type="button"
+          class="btn small line eClosePopup"
+          style="width: 100px"
+        >
+          닫기
+        </button>
+      </div>
+    </div>
+
+    <!--2020-04-24 시작-->
+    <div id="layerOrderMemo" class="ui-popup">
+      <div class="content" style="width: 520px" tabindex="-1">
+        <div class="header">
+          <h3>매입환불 요청 메모</h3>
+        </div>
+        <div class="body reconfirm mt40">
+          <div class="txt-cont memo reorder">
+            <div class="table-wrap">
+              <form id="frmLayerBad" name="frmLayerBad">
+                <input type="hidden" name="order_item_no" />
+                <input type="hidden" name="ss_item_no" />
+                <table class="th-ver">
+                  <colgroup>
+                    <col width="30%" />
+                    <col width="*" />
+                  </colgroup>
+                  <tbody>
+                    <tr>
+                      <th>관리자 메모</th>
+                      <td class="tdShippingMemo">
+                        요청대로 매입환불 해드리겠습니다.
+                      </td>
+                    </tr>
+                    <tr>
+                      <th>고객 메모</th>
+                      <td class="tdUncleMemo">환불요청</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </form>
+            </div>
+          </div>
+          <div class="btn_wrap mt40 tac">
+            <button
+              type="button"
+              class="btn point medium btn_close"
+              style="width: 150px"
+            >
+              확인
+            </button>
+          </div>
+        </div>
+        <!-- //body -->
+        <button type="button" class="btn_close reconfirm">
+          <span>닫기</span>
+        </button>
+      </div>
+    </div>
+    <!--2020-04-24 종료-->
+
+    <!-- Alert Layer -->
+    <div
+      id="layerAlertOpen"
+      class="ui-popup-open"
+      data-target="#layerAlert"
+      style="display: none"
+    ></div>
+    <div id="layerAlert" class="ui-popup">
+      <div
+        class="content"
+        style="min-width: 412px; max-width: 700px"
+        tabindex="-1"
+      >
+        <div class="body">
+          <div class="txt-cont">
+            <div class="txt-cont result order">
+              <h3 id="commLayerTitle"></h3>
+              <div class="confirm">
+                <p id="commLayerContents"></p>
+              </div>
+            </div>
+          </div>
+          <div class="btn_wrap mt40 tac">
+            <span class="commLayerConfirm"
+              ><button
+                type="button"
+                class="btn point medium btn_close"
+                style="width: 150px"
+              >
+                확인
+              </button></span
+            >
+          </div>
+        </div>
+        <button type="button" class="btn_close">
+          <div class="commLayerConfirm"><span>닫기</span></div>
+        </button>
+      </div>
+    </div>
+    <!-- Confirm Layer -->
+    <div
+      id="layerConfirmOpen"
+      class="ui-popup-open"
+      data-target="#layerConfirm"
+      style="display: none"
+    ></div>
+    <div id="layerConfirm" class="ui-popup">
+      <div
+        class="content"
+        style="min-width: 412px; max-width: 700px"
+        tabindex="-1"
+      >
+        <div class="body">
+          <div class="txt-cont">
+            <div class="txt-cont result order">
+              <h3 id="commLayerTitle"></h3>
+              <div class="confirm">
+                <p id="commLayerContents"></p>
+              </div>
+            </div>
+          </div>
+          <div class="btn-wrap mt40 tac">
+            <span class="commLayerCancel"
+              ><button
+                type="button"
+                class="btn medium btn_close"
+                style="width: 150px"
+              >
+                취소
+              </button></span
+            >
+            <span id="commLayerConfirm"
+              ><button class="btn point medium btn_close" style="width: 150px">
+                확인
+              </button></span
+            >
+          </div>
+        </div>
+        <button type="button" class="btn_close">
+          <div class="commLayerCancel"><span>닫기</span></div>
+        </button>
+      </div>
+    </div>
+
+    <!-- 2020-08-20 EZP-952 -->
+    <div id="order-history-pop" class="ui-popup order-list-pop">
+      <div class="content" style="width: 880px" tabindex="-1">
+        <div class="header">
+          <h3>네이비 주문내역 <em>(신규주문)</em></h3>
+        </div>
+        <div class="body reconfirm mt20" style="height: auto">
+          <div class="table-wrap mb0">
+            <div class="pop-table">
+              <div class="result-info">
+                <span class="total-result"> [총 <em>21</em>건] </span>
+                <span class="total-price"
+                  >총 합계 금액 : <em>999,999,999</em>원</span
+                >
+              </div>
+              <div>
+                <!-- 2020-11-26 EZP-1764 시작 -->
+                <table class="th-hor">
+                  <colgroup>
+                    <!-- 2021-11-03 EZP-4123 -->
+                    <col width="80" />
+                    <col width="55" />
+                    <col width="*" />
+                    <col width="180" />
+                    <col width="130" />
+                    <col width="90" />
+                    <col width="130" />
+                  </colgroup>
+                  <thead>
+                    <tr class="sub-th">
+                      <th>No.</th>
+                      <th>유형</th>
+                      <!-- 2021-11-03 EZP-4123 -->
+                      <th>상품명</th>
+                      <th>옵션</th>
+                      <th>판매가</th>
+                      <th>수량</th>
+                      <th>합계금액</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>21</td>
+                      <td><span class="btn-type new">신규</span></td>
+                      <!-- 2021-11-03 EZP-4123 -->
+                      <td>데이지 린넨 블라우스</td>
+                      <td>아이보리 / FREE</td>
+                      <td><em class="price">999,999,999</em>원</td>
+                      <td>9</td>
+                      <td><em class="price">999,999,999</em>원</td>
+                    </tr>
+                    <tr>
+                      <td>21</td>
+                      <td><span class="btn-type faulty">불량</span></td>
+                      <!-- 2021-11-03 EZP-4123 -->
+                      <td>데이지 린넨 블라우스</td>
+                      <td>아이보리 / FREE</td>
+                      <td><em class="price">999,999,999</em>원</td>
+                      <td>9</td>
+                      <td><em class="price">999,999,999</em>원</td>
+                    </tr>
+                    <tr>
+                      <td>21</td>
+                      <td><span class="btn-type purple">샘플</span></td>
+                      <!-- 2021-11-03 EZP-4123 -->
+                      <td>데이지 린넨 블라우스</td>
+                      <td>아이보리 / FREE</td>
+                      <td><em class="price">999,999,999</em>원</td>
+                      <td>9</td>
+                      <td><em class="price">999,999,999</em>원</td>
+                    </tr>
+                    <tr>
+                      <td>21</td>
+                      <td><span class="btn-type yellow">반납</span></td>
+                      <!-- 2021-11-03 EZP-4123 -->
+                      <td>데이지 린넨 블라우스</td>
+                      <td>아이보리 / FREE</td>
+                      <td><em class="price">999,999,999</em>원</td>
+                      <td>9</td>
+                      <td><em class="price">999,999,999</em>원</td>
+                    </tr>
+                    <tr>
+                      <td>21</td>
+                      <td><span class="btn-type">미송</span></td>
+                      <!-- 2021-11-03 EZP-4123 -->
+                      <td>데이지 린넨 블라우스</td>
+                      <td>아이보리 / FREE</td>
+                      <td><em class="price">999,999,999</em>원</td>
+                      <td>9</td>
+                      <td><em class="price">999,999,999</em>원</td>
+                    </tr>
+                    <tr>
+                      <td>21</td>
+                      <td>
+                        <span class="btn-type pink line2">제작<br />신규</span>
+                      </td>
+                      <!-- 2021-11-03 EZP-4123 -->
+                      <td>데이지 린넨 블라우스</td>
+                      <td>아이보리 / FREE</td>
+                      <td><em class="price">999,999,999</em>원</td>
+                      <td>9</td>
+                      <td><em class="price">999,999,999</em>원</td>
+                    </tr>
+                    <tr>
+                      <td>21</td>
+                      <td>
+                        <span class="btn-type line2">제작<br />미송</span>
+                      </td>
+                      <!-- 2021-11-03 EZP-4123 -->
+                      <td>데이지 린넨 블라우스</td>
+                      <td>아이보리 / FREE</td>
+                      <td><em class="price">999,999,999</em>원</td>
+                      <td>9</td>
+                      <td><em class="price">999,999,999</em>원</td>
+                    </tr>
+                    <tr>
+                      <td>21</td>
+                      <td><span class="btn-type new">신규</span></td>
+                      <td>데이지 린넨 블라우스</td>
+                      <td>아이보리 / FREE</td>
+                      <td><em class="price">999,999,999</em>원</td>
+                      <td>9</td>
+                      <td><em class="price">999,999,999</em>원</td>
+                    </tr>
+                    <tr>
+                      <td>21</td>
+                      <td><span class="btn-type new">신규</span></td>
+                      <td>데이지 린넨 블라우스</td>
+                      <td>아이보리 / FREE</td>
+                      <td><em class="price">999,999,999</em>원</td>
+                      <td>9</td>
+                      <td><em class="price">999,999,999</em>원</td>
+                    </tr>
+                    <tr>
+                      <td>21</td>
+                      <td><span class="btn-type new">신규</span></td>
+                      <td>데이지 린넨 블라우스</td>
+                      <td>아이보리 / FREE</td>
+                      <td><em class="price">999,999,999</em>원</td>
+                      <td>9</td>
+                      <td><em class="price">999,999,999</em>원</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <!-- 2020-11-26 EZP-1764 종료 -->
+              </div>
+              <div class="pagination">
+                <a href="#none;" class="first none" style="cursor: unset"
+                  >처음</a
+                ><a href="#none;" class="prev none" style="cursor: unset"
+                  >이전</a
+                ><a href="#none;" class="active">1</a>
+                <a
+                  href="/buyer/order/front/list?page=2&amp;order=order_ts&amp;sort=descend&amp;limit=10&amp;order_method=10&amp;period_type=order_ts&amp;period=365&amp;start_date=2019-08-21&amp;end_date=2020-08-20&amp;custom_pay_status%5B0%5D=10&amp;custom_pay_status%5B1%5D=20&amp;custom_is_canceled=T&amp;shop_name=%EC%9D%B4%EC%A7%80%ED%94%BD&amp;user_type=B&amp;user_ip=211.110.58.242&amp;buyer_no=968"
+                  >2</a
+                >
+                <a
+                  href="/buyer/order/front/list?page=3&amp;order=order_ts&amp;sort=descend&amp;limit=10&amp;order_method=10&amp;period_type=order_ts&amp;period=365&amp;start_date=2019-08-21&amp;end_date=2020-08-20&amp;custom_pay_status%5B0%5D=10&amp;custom_pay_status%5B1%5D=20&amp;custom_is_canceled=T&amp;shop_name=%EC%9D%B4%EC%A7%80%ED%94%BD&amp;user_type=B&amp;user_ip=211.110.58.242&amp;buyer_no=968"
+                  >3</a
+                >
+                <a
+                  href="/buyer/order/front/list?page=4&amp;order=order_ts&amp;sort=descend&amp;limit=10&amp;order_method=10&amp;period_type=order_ts&amp;period=365&amp;start_date=2019-08-21&amp;end_date=2020-08-20&amp;custom_pay_status%5B0%5D=10&amp;custom_pay_status%5B1%5D=20&amp;custom_is_canceled=T&amp;shop_name=%EC%9D%B4%EC%A7%80%ED%94%BD&amp;user_type=B&amp;user_ip=211.110.58.242&amp;buyer_no=968"
+                  >4</a
+                >
+                <a
+                  href="/buyer/order/front/list?page=5&amp;order=order_ts&amp;sort=descend&amp;limit=10&amp;order_method=10&amp;period_type=order_ts&amp;period=365&amp;start_date=2019-08-21&amp;end_date=2020-08-20&amp;custom_pay_status%5B0%5D=10&amp;custom_pay_status%5B1%5D=20&amp;custom_is_canceled=T&amp;shop_name=%EC%9D%B4%EC%A7%80%ED%94%BD&amp;user_type=B&amp;user_ip=211.110.58.242&amp;buyer_no=968"
+                  >5</a
+                >
+                <a
+                  href="/buyer/order/front/list?page=6&amp;order=order_ts&amp;sort=descend&amp;limit=10&amp;order_method=10&amp;period_type=order_ts&amp;period=365&amp;start_date=2019-08-21&amp;end_date=2020-08-20&amp;custom_pay_status%5B0%5D=10&amp;custom_pay_status%5B1%5D=20&amp;custom_is_canceled=T&amp;shop_name=%EC%9D%B4%EC%A7%80%ED%94%BD&amp;user_type=B&amp;user_ip=211.110.58.242&amp;buyer_no=968"
+                  >6</a
+                >
+                <a
+                  href="/buyer/order/front/list?page=7&amp;order=order_ts&amp;sort=descend&amp;limit=10&amp;order_method=10&amp;period_type=order_ts&amp;period=365&amp;start_date=2019-08-21&amp;end_date=2020-08-20&amp;custom_pay_status%5B0%5D=10&amp;custom_pay_status%5B1%5D=20&amp;custom_is_canceled=T&amp;shop_name=%EC%9D%B4%EC%A7%80%ED%94%BD&amp;user_type=B&amp;user_ip=211.110.58.242&amp;buyer_no=968"
+                  >7</a
+                >
+                <a
+                  href="/buyer/order/front/list?page=8&amp;order=order_ts&amp;sort=descend&amp;limit=10&amp;order_method=10&amp;period_type=order_ts&amp;period=365&amp;start_date=2019-08-21&amp;end_date=2020-08-20&amp;custom_pay_status%5B0%5D=10&amp;custom_pay_status%5B1%5D=20&amp;custom_is_canceled=T&amp;shop_name=%EC%9D%B4%EC%A7%80%ED%94%BD&amp;user_type=B&amp;user_ip=211.110.58.242&amp;buyer_no=968"
+                  >8</a
+                >
+                <a
+                  href="/buyer/order/front/list?page=9&amp;order=order_ts&amp;sort=descend&amp;limit=10&amp;order_method=10&amp;period_type=order_ts&amp;period=365&amp;start_date=2019-08-21&amp;end_date=2020-08-20&amp;custom_pay_status%5B0%5D=10&amp;custom_pay_status%5B1%5D=20&amp;custom_is_canceled=T&amp;shop_name=%EC%9D%B4%EC%A7%80%ED%94%BD&amp;user_type=B&amp;user_ip=211.110.58.242&amp;buyer_no=968"
+                  >9</a
+                >
+                <a
+                  href="/buyer/order/front/list?page=10&amp;order=order_ts&amp;sort=descend&amp;limit=10&amp;order_method=10&amp;period_type=order_ts&amp;period=365&amp;start_date=2019-08-21&amp;end_date=2020-08-20&amp;custom_pay_status%5B0%5D=10&amp;custom_pay_status%5B1%5D=20&amp;custom_is_canceled=T&amp;shop_name=%EC%9D%B4%EC%A7%80%ED%94%BD&amp;user_type=B&amp;user_ip=211.110.58.242&amp;buyer_no=968"
+                  >10</a
+                >
+                <a
+                  href="/buyer/order/front/list?page=11&amp;order=order_ts&amp;sort=descend&amp;limit=10&amp;order_method=10&amp;period_type=order_ts&amp;period=365&amp;start_date=2019-08-21&amp;end_date=2020-08-20&amp;custom_pay_status%5B0%5D=10&amp;custom_pay_status%5B1%5D=20&amp;custom_is_canceled=T&amp;shop_name=%EC%9D%B4%EC%A7%80%ED%94%BD&amp;user_type=B&amp;user_ip=211.110.58.242&amp;buyer_no=968"
+                  class="next"
+                  >다음</a
+                ><a
+                  href="/buyer/order/front/list?page=17&amp;order=order_ts&amp;sort=descend&amp;limit=10&amp;order_method=10&amp;period_type=order_ts&amp;period=365&amp;start_date=2019-08-21&amp;end_date=2020-08-20&amp;custom_pay_status%5B0%5D=10&amp;custom_pay_status%5B1%5D=20&amp;custom_is_canceled=T&amp;shop_name=%EC%9D%B4%EC%A7%80%ED%94%BD&amp;user_type=B&amp;user_ip=211.110.58.242&amp;buyer_no=968"
+                  class="last"
+                  >다음</a
+                >
+              </div>
+              <div class="btn_wrap mt20 tac">
+                <button
+                  type="button"
+                  class="btn medium point btn_close"
+                  style="width: 150px"
+                >
+                  닫기
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- //body -->
+        <button type="button" class="btn_close reconfirm">
+          <span>닫기</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- <script type="text/javascript"
+		src="https://easypick.co.kr/optimizer.php?filename=lZIxbsMwDEX3QGvPQWTsIbr1ApJMO7QpUSUlOOnpq6Dt0ASobUCglvfwSYJwkYQQ_OIzjOoTrqILKJo0jQiNio8LzB8N9fbznd25PzfbCxyXT4km9RUf9UTDwA_-bNAqMQSV1VCdVVE_Pan4Wf46BEzhN6-RS5R3On4YIqPXA8p3jLOowhwOqbZSQT0Rvh6Q3lfE_OavO5UoKUl2o0quO_C-rW2otLBF2UXKJkNThuch_ruEkbj2Q9hq8Y7iNSJvkaHdUEF06JWyFYzVGTL3DCa7L-wL&amp;type=js&amp;k=e88aefd381f3cf1020ca3e1dfb9d084938cb97fc&amp;t=1585110687">
+	</script> -->
+    <!-- <script type="text/javascript">
+		LocalStorage.set("csrf-token", "Tl/xTwvuzfHiBvogO2OJ4A7hb/vHr3+HrqcuRD4TQbY=", "ses");
+	</script> -->
+    <!-- 21-01-18 수정-->
+    <script src="../../../../js/jquery.min.js"></script>
+    <!--jquery default-->
+    <script src="../../../../js/jquery-ui.min.js"></script>
+    <script src="../../../../js/swiper-ie9.min.js"></script>
+    <script src="../../../../js/default.input.js"></script>
+    <!-- 2022-10-04 -->
+    <script src="../../../../js/addclear.min.js"></script>
+    <script src="../../../../js/common.front.js"></script>
+    <script src="../../../../js/ui.js"></script>
+    <script src="../../../../js/pub.js"></script>
+    <script src="../../../../js/jquery.scrollbar.min.js"></script>
+
+    <!-- //21-01-18 수정-->
+
+    <div class="ui-load" style="display: none">
+      <img src="/img/common/loading.svg" />
+    </div>
+
+    <script defer>
+      // 2021-07-27 EZP-3550
+      // 2022-03-21 scroll시 left값 수정, resize시도 대응
+      $(function () {
+        var pos_top = $(".scroll-head").offset().top;
+
+        // 테이블이 화면보다 작을경우
+        function handleScroll() {
+          const scrollHead = $(".scroll-head");
+          let $window = $(this);
+          scrollHead.css("left", `-${$window.scrollLeft() - 40}px`);
+        }
+
+        function scrollHeadHandler() {
+          let con_pos_left = $(".table-wrap.order-list").offset().left;
+          console.log($(this));
+          if ($(this).scrollTop() >= pos_top) {
+            $(".scroll-head").addClass("fix");
+            $(".scroll-head").css("left", con_pos_left);
+            if ($(this).width() < 1300) {
+              handleScroll();
+            }
+          } else {
+            $(".scroll-head").removeClass("fix");
+            $(".scroll-head").css("left", "40px");
+          }
+        }
+        $(window).scroll(function () {
+          scrollHeadHandler();
+        });
+
+        $(window).resize(function () {
+          scrollHeadHandler();
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,315 @@
+{% extends "../_templates/layout.njk" %}
+{% block content %}
+
+<div class="wrapper" id="wrap">
+    <div class="content" id="content">
+        <div class="content-head">
+            <div class="page-title">
+                <h3 class="h3-tit">바로주문</h3>
+                <a href="#" class="btn-manual" target="_blank" title="매뉴얼">매뉴얼</a>
+                <div class="form-box">
+                    <form onsubmit="return submitHandler();">
+                        <fieldset>
+                            <legend class="skip">통합검색</legend>
+                            <label for="total-search" class="skip">검색어 입력</label>
+                            <input type="search" name="total-search" id="total-search" title="검색어 입력" class="text"
+                                placeholder="상품을 검색해보세요.">
+                            <input type="submit" value="검색" class="submit">
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+            <div class="cont-info-right">
+                <ul class="breadcrumb">
+                    <li>공급</li>
+                    <!-- 2022 07 27 비온미 수정 -->
+                    <li>이지픽사입하기</li>
+                    <!-- 2022 07 27  -->
+                    <li class="now" title="현재 페이지">바로주문</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 상단탭메뉴 -->
+        <div class="basket-guide-info">
+            <div class="guide">
+                <span>이지픽주문과 셀픽주문의 차이점이 궁금하신가요?</span>
+                <!-- 2022 08 16 class 수정 -->
+                <a href="javascript: void(0);" class="question-mark"
+                    onclick="targetModalPopup('modal-order-type')">툴팁</a>
+            </div>
+            <div class="txt-box cart-type01">
+                <ul class="btn-wrap">
+                    <li class="on"><a href="./direct-order-case01-1.html">셀픽주문</a></li>
+                    <li><a href="./direct-order-case02-1.html">이지픽주문</a></li>
+                </ul>
+                <p>셀픽주문으로 주문 중 입니다.</p>
+            </div>
+        </div>
+
+        <!-- 탭메뉴 -->
+        <div class="tab-top-round">
+            <ul class="tab-rounds tab lh40">
+                <li class="active">
+                    <a href="./direct-order-case01-1.html"><span>상품주문</span></a>
+                </li>
+                <li>
+                    <a href="./direct-order-case01-2.html">불량접수</a>
+                </li>
+                <li>
+                    <a href="./direct-order-case01-3.html">샘플주문</a>
+                </li>
+                <li>
+                    <a href="./direct-order-case01-4.html">샘플반납</a>
+                </li>
+                <li class="tooltip-btn">
+                    <a href="./direct-order-case01-5.html">
+                        미송주문
+                    </a>
+                    <div class="tooltip-case1 type-md">
+                        <button type="button" class="tooltip-btn">툴팁</button>
+                        <div class="tooltip-box">
+                            <button type="button" class="tooltip-close-btn">닫기버튼</button>
+                            <div class="tit">미송주문</div>
+                            <ul>
+                                <li>
+                                    미송 주문 시 '미송' 유형으로 발주가 진행됩니다.<br>
+                                    거래처와 협의 없이 미송 주문 시 상품 입고가 제한될 수 있습니다.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li class="tooltip-btn">
+                    <a href="./direct-order-case01-6.html">제작주문</a>
+                    <div class="tooltip-case1 type-md">
+                        <button type="button" class="tooltip-btn">툴팁</button>
+                        <div class="tooltip-box">
+                            <button type="button" class="tooltip-close-btn">닫기버튼</button>
+                            <div class="tit">미송주문</div>
+                            <ul>
+                                <li>
+                                    제작상품 주문 시 '제작' 유형으로 거래처에 제작이 요청됩니다.<br>
+                                    주문 시 결제가 이루어지지 않으며, 검수완료 시점에 입고된 수량만큼<br>
+                                    '신규입고' 항목에 합산되어 정산처리됩니다.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="direct-order-info mb40">
+            <ul>
+                <li>
+                    <div class="tit">주문 요청 건수</div>
+                    <div class="info">
+                        <span>5</span>건
+                    </div>
+                </li>
+                <li>
+                    <div class="tit">총 거래처 수</div>
+                    <div class="info">
+                        <span>41</span>개
+                    </div>
+                </li>
+                <li>
+                    <div class="tit">총 상품 수</div>
+                    <div class="info">
+                        <span>13</span>개
+                    </div>
+                </li>
+                <li>
+                    <div class="tit">총 상품 금액(VAT 별도)</div>
+                    <div class="info ftpointcolor">
+                        <strong>
+                            <span>5,145,000</span>원
+                        </strong>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- 상품주문 -->
+        <div class="tableType01">
+
+            <div class="gridTableArea direct-order-table">
+                <div class="table-top-info">
+                    <div class="dflex btns-multi">
+                        <!-- 
+                            2022 08 12
+                            업로드 품목 없을 때
+                            cursor default 추가
+                        -->
+                        <button type="button" name="button" class="btn btn-sm btn-gray disabled">RESET</button>
+                        <!-- 업로드 품목 있을 때 -->
+                        <button type="button" name="button" class="btn btn-sm pointColor-gray2">RESET</button>
+                        <button type="button" name="button" class="btn btn-sm btn-outline-gray">선택상품 삭제</button>
+                    </div>
+                    <div class="dflex btns-multi-area">
+                        <div class="btns-multi dflex">
+                            <button type="button" name="button" class="btn btn-sm btn-outline-gray"
+                                onclick="targetModalPopup('direct-order-modal-case01')"><i class="ico ico-excel"></i>엑셀
+                                양식 설정</button>
+                            <div class="tool-tip-wrap">
+                                <select name="" id="" class="select-type01 default-select">
+                                    <option value="">기본양식_TYPE1</option>
+                                    <option value="">기본양식_TYPE2</option>
+                                    <option value="">기본양식_TYPE3</option>
+                                </select>
+                                <div class="tool-tip-area sm">
+                                    <section class="tool-tip-title">
+                                        <h1>엑셀 양식 설정</h1>
+                                        <div class="tool-tip-inner">
+                                            <h2 class="dot">선택한 양식은 바로주문 각 탭별로 적용됩니다.</h2>
+                                        </div>
+                                    </section>
+                                    <button type="button" class="tool-tip-close">닫기</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btns-multi dflex">
+                            <button type="button" name="button" class="btn btn-sm btn-outline-gray"><i
+                                    class="ico ico-excel"></i>엑셀 양식 다운</button>
+                            <button type="button" name="button" class="btn btn-sm btn-outline-gray"
+                                onclick="targetModalPopup('direct-order-modal-case04')"><i
+                                    class="ico ico-excel"></i>엑셀업로드</button>
+                            <button type="button" name="button" class="btn btn-sm btn-outline-primary">선택주문하기</button>
+                            <button type="button" name="button" class="btn btn-sm btn-primary">전체주문하기</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="tround-box">
+                    <div class="tbl-round ">
+                        <div class="tbl-info-area">
+                            <div class="btns-multi f-left">
+                                <select name="" id="" class="default-select">
+                                    <option value="">전체보기</option>
+                                    <option value="">오류보기</option>
+                                </select>
+                                <span class="ftpointcolor1 fnsize12 ml15">* 표시는 필수 입력 정보입니다.</span>
+                                <span class="save-time pl10 ml10 fnsize12">
+                                    임시저장시간 : <strong style="font-weight: 400;">-</strong>
+                                </span>
+                            </div>
+                            <div class="tbl-order-info f-right dflex sel-algin-type">
+                                <button type="button" class="sell-plus-btn">
+                                    <img src="../assets/images/icons/btn_plus_ico.png" alt="plus-icon">
+                                    <span>셀 추가</span>
+                                </button>
+                                <div class="btn-wrap dflex sel-algin-type">
+                                    <span>끝으로 이동</span>
+                                    <button type="button" class="arrow arrow-prev ml10"><img
+                                            src="../assets/images/icons/prev-btn-icon.png" alt="좌측 화살표"
+                                            class="db"></button>
+                                    <button type="button" class="arrow arrow-next ml10"><img
+                                            src="../assets/images/icons/next-btn-icon.png" alt="우측 화살표"
+                                            class="db"></button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 그리드 테이블-->
+                        <!-- 2022-08-19 table 수정 -->
+                        <div class="mGridTable tbl-line table-no-data">
+                            <table id="eMultiTable" class="eChkColor">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" style="width:50px;">
+                                            <div class="form-control check-one">
+                                                <label>
+                                                    <input type="checkbox">
+                                                    <span>체크</span>
+                                                </label>
+                                            </div>
+                                        </th>
+                                        <th scope="col" style="width:43px;">
+                                            번호
+                                        </th>
+                                        <th scope="col" style="width:230px;">
+                                            거래처명 <span class="ftpointcolor1">*</span>
+                                        </th>
+                                        <th scope="col" style="width:222px;">
+                                            거래처주소 <span class="ftpointcolor1">*</span>
+                                        </th>
+                                        <th scope="col" style="width:116px;">
+                                            거래처연락처
+                                        </th>
+                                        <th scope="col" style="width:222px;">
+                                            상품명 <span class="ftpointcolor1">*</span>
+                                        </th>
+                                        <th scope="col" style="width:88px;">
+                                            색상
+                                        </th>
+                                        <th scope="col" style="width:88px;">
+                                            사이즈
+                                        </th>
+                                        <th scope="col" style="width:116px;">
+                                            단가 <span class="ftpointcolor1">*</span>
+                                        </th>
+                                        <th scope="col" style="width:88px;">
+                                            수량 <span class="ftpointcolor1">*</span>
+                                        </th>
+                                        <th scope="col" style="width:163px;">
+                                            메모
+                                        </th>
+                                        <th scope="col" style="width:163px;">
+                                            쇼핑몰상품명
+                                        </th>
+                                        <th scope="col" style="width:163px;">
+                                            쇼핑몰상품코드
+                                        </th>
+                                        <th scope="col" style="width:163px;">
+                                            이미지URL
+                                        </th>
+                                        <th scope="col" style="width:163px;">
+                                            기타정보1
+                                        </th>
+                                        <th scope="col" style="width:163px;">
+                                            기타정보2
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="empty">
+                                        <td colspan="16">
+                                            <dl class="empty-guide-txt">
+                                                <dt><img src="../assets/images/icons/no-data-icon.png" alt="엑셀파일 아이콘">
+                                                </dt>
+                                                <dd>엑셀 파일을 등록해주세요.</dd>
+                                            </dl>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- //그리드 테이블-->
+                </div>
+                <div class="btn-submit-wrap">
+                    <a href="javascript:void(0);" class="btn btn-lg btn-outline-primary">선택주문하기</a>
+                    <a href="javascript:void(0);" class="btn btn-lg btn-primary">전체주문하기</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!-- //content -->
+
+
+<script>
+    $(document).ready(function () {
+        $('#eMultiTable').fixResize({
+            colResize: true,
+            resizeVer: 'flex'
+        });
+    });
+</script>
+
+{% include("./modals/shop/modal-order-type.njk") %}
+{% include("./modals/direct-order/direct-order-modal-case01.njk") %}
+{% include("./modals/direct-order/direct-order-modal-case04.njk") %}
+{% include("./modals/direct-order/direct-order-modal-case05.njk") %}
+
+{% endblock %}

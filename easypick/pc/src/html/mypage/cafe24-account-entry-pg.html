@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="shortcut icon" type="image/x-icon" href="https://easypick.co.kr/img/favicon/ezp.ico">
+	<link rel="stylesheet" type="text/css" href="../../css/default.css">
+	<link rel="stylesheet" type="text/css" href="../../css/month.picker.css">
+	<title>이지픽</title>
+</head>
+
+<body class="window-pop-wrap">
+	<!-- header// -->
+	<!-- 21-02-23 수정 / 클래스 추가-->
+	<header class="min-wid"></header>
+	<!-- //header -->
+
+	<!-- 2023-02-13 EZP-6415 이지픽 cafe24 계정연동 신규 추가 -->
+	<div id="container" class="mypage_wrap cafe24-account-wrap">
+		<div class="account-entry-wrap">
+			<h1>CAFE24 계정 연동</h1>
+			<ul>
+				<li>내 쇼핑몰에 상품 등록하기 등 다양한 연동 기능을 사용하기 위해<br/>
+				CAFE24 계정 인증을 진행합니다.</li>
+				<li>아래의 '확인' 버튼을 눌러서<br/>
+				연동하려는 쇼핑몰 관리자 계정을 인증해주세요.</li>
+			</ul>
+			<div class="btn_wrap mt40 mb40 tac">
+				<button type="button" class="btn btn_close">이전 페이지로</button>
+				<button type="button" class="btn point btn_close">확인</button>
+			</div>
+		</div>
+	</div>
+	<!--//container -->
+
+	<!-- footer// -->
+	<footer></footer>
+	<!-- //footer -->
+
+	<!-- dashboard// -->
+	<div id="dashboard" class=""></div>
+	<!-- //dashboard -->
+
+	
+   </div>
+
+
+	<!-- 21-01-18 수정-->
+	<script src="../../js/jquery.min.js"></script><!--jquery default-->
+
+	<script src="../../js/jquery-ui.min.js"></script>
+	<script src="../../js/swiper-ie9.min.js"></script>
+	<script src="../../js/default.input.js"></script><!-- 2022-10-04 -->
+	<script src="../../js/addclear.min.js"></script>
+	<script src="../../js/common.front.js"></script>
+	<script src="../../js/ui.js"></script>
+	<script src="../../js/pub.js"></script>
+	<script src="../../js/jquery.scrollbar.min.js"></script>
+	<!-- //21-01-18 수정-->
+
+	<script type="text/javascript">
+		// LocalStorage.set("csrf-token", "hNus4rrnDIvZg4t7DBSBdnVatBWMZnmf9kdFuU1VIhM=", "ses");
+		$(document).ready(function(){
+			$('header').load('../include/header.html');
+			$('footer').load('../include/footer.html');
+			$('#dashboard').load('../include/dashboard.html');
+		});
+	</script>
+
+	<script>
+		$(document).ready(function () {
+			//검색창 자동완성
+			$(".autoframe-wrap").on('click', function () {
+				$(this).children(".autoframe-ui-select").toggleClass("on");
+
+			});
+
+			// 외부영역 클릭 시 팝업 닫기
+			$(document).mouseup(function (e) {
+				var LayerPopup = $(".autoframe-ui-select");
+				if (LayerPopup.has(e.target).length === 0) {
+					LayerPopup.removeClass("on");
+				}
+			});
+
+		});
+	</script>
+</body>
+
+</html>

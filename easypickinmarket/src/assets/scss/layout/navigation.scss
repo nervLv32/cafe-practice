@@ -1,0 +1,138 @@
+.mk-snb-foot {
+  /*! 2022-11-11 EZP-7385 기존 .mk-sub-menu(부모) -> .mk-snb-footer 로 변경 */
+  .state-nav {
+    /*! 2022-11-11 EZP-7385 기존 .mk-sub-menu(부모) -> .mk-snb-footer 로 변경 */
+    padding : 0 30px;
+    .top-msg {
+      /*! 2022-11-11 EZP-7385 기존 .mk-sub-menu(부모) -> .mk-snb-footer 로 변경 */
+      margin-bottom: 13px;
+      dl {
+        dt {
+          /*! 2022-11-11 EZP-7385 기존 .mk-sub-menu(부모) -> .mk-snb-footer 로 변경 */
+          font-weight : 700;
+          font-size : 14px;
+          line-height : 1.45;
+          color : #1eac38;
+          margin-bottom: 3px;
+        }
+        dd {
+          a {
+            /*! 2022-11-11 EZP-7385 기존 .mk-sub-menu(부모) -> .mk-snb-footer 로 변경 */
+            font-family : 'Roboto', sans-serif;
+            font-weight : 700;
+            font-size : 18px;
+            line-height : 1.45;
+            color : #1eac38;
+            letter-spacing : -0.03em;
+          }
+        }
+      }
+    }
+    .bottom-msg {
+      /*! 2022-11-11 EZP-7385 기존 .mk-sub-menu(부모) -> .mk-snb-footer 로 변경 */
+      margin-bottom: 25px;
+      p {
+        /*! 2022-11-11 EZP-7385 기존 .mk-sub-menu(부모) -> .mk-snb-footer 로 변경 */
+        font-weight : 500;
+        font-size : 12px;
+        line-height : 1.45;
+        color : #888888;
+        &:last-of-type {
+          /*! 2022-11-11 EZP-7385 기존 .mk-sub-menu(부모) -> .mk-snb-footer 로 변경 */
+          margin-bottom: 7px;
+        }
+      }
+      a {
+        /*! 2022-11-11 EZP-7385 기존 .mk-sub-menu(부모) -> .mk-snb-footer 로 변경 */
+        display : inline-block;
+        font-weight : 500;
+        font-size : 12px;
+        line-height : 1.45;
+        color : #666666;
+      }
+    }
+    .service-link-wrap {
+      /*! 2022-11-11 EZP-7385 기존 .mk-sub-menu(부모) -> .mk-snb-footer 로 변경 */
+      margin-bottom: 20px;
+      li {
+        &:first-child {
+          /*! 2022-11-11 EZP-7385 기존 .mk-sub-menu(부모) -> .mk-snb-footer 로 변경 */
+          margin-bottom : 4px;
+        }
+        a {
+          /*! 2022-11-11 EZP-7385 기존 .mk-sub-menu(부모) -> .mk-snb-footer 로 변경 */
+          display : flex;
+          align-items: center;
+          justify-content: center;
+          font-weight : 500;
+          font-size : 12px;
+          line-height : 1.45;
+          padding : 4px 0;
+          width  :100%;
+          color : #888888;
+          border : 1px solid #cccccc;
+          border-radius : 3px;
+        }
+      }
+    }
+    .copyright {
+      /*! 2022-11-11 EZP-7385 기존 .mk-sub-menu(부모) -> .mk-snb-footer 로 변경 */
+      font-family : 'Roboto', sans-serif;
+      font-weight : 600;
+      font-size : 11px;
+      line-height : 1.3;
+      color : #aaaaaa;
+    }
+  }
+}
+
+#gnb-mobile:checked ~ header ~ main navigation {
+  .navigation {
+    padding-top: 1.9rem;
+
+    .navbar-brand {
+      background: url("../../images/logo.png");
+      background-size: 13rem;
+      background-repeat: no-repeat;
+      background-position: top center;
+      padding: 0 1.9rem .3rem 16.7rem;
+      text-indent: -9999rem;
+      white-space: nowrap;
+      cursor: pointer;
+    }
+
+    display: block;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    border-right: 0;
+    z-index: 9;
+
+    .inner {
+      position: fixed;
+      width: 100%;
+      height: auto;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .navigation {
+    display: none;
+  }
+}
+
+@media (min-width: 2040px) {
+  .navigation {
+    .inner {
+      ul {
+        li {
+          ul {
+            li {
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,1390 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="format-detection" content="telephone=no">
+	<meta content="lK0RWxdehsio/icXlDgOD1/0XccqggRiBvNtJOsCkmw=" name="csrf-token">
+	<meta content="T" name="login-required">
+	<link rel="shortcut icon" type="image/x-icon" href="https://easypick.co.kr/img/favicon/ezp.ico">
+
+	<link rel="stylesheet" href="../../css/mobile/swiper.css">
+	<link rel="stylesheet" href="../../css/mobile/default.css">
+	<script src="../../js/lib/jquery-3.5.1.min.js" type="text/javascript"></script>
+	<script src="../../js/lib/jquery-ui.min.js" type="text/javascript"></script>
+	<script src="../../js/lib/swiper.js" type="text/javascript"></script>
+	<script src="../../js/ui/common_front.js" type="text/javascript"></script>
+	<script src="../../js/ui/ui.js" type="text/javascript"></script>
+	<script src="../../js/ui/pub.js" type="text/javascript"></script>
+	<title>이지픽 mobile > 자동주문</title>
+</head>
+
+<body>
+	<!--2022-08-31 EZP-EZP-5609 앱출시 팝업추가-->
+<div class="topBanner home">
+	<img src="../../img/mobile/common/topBanner.png">
+	<span class="close" onclick="this.parentNode.style.display = 'none'"><img
+			src="../../img/mobile/icons/icon-close.svg"></span>
+  </div>
+	<!-- header// -->
+	<header class="sub">
+		<h1>자동주문<button type="button" class="btn-tip ml5 ui-popup-call" data-target="#info-pop1">?</button></h1><!-- 2022-02-14 EZP-4760 -->
+		<button type="button" name="button" class="btn-back">뒤로</button>
+	</header>
+	<!-- //header -->
+
+	<!--container// -->
+	<!-- 2021-09-16 EZP-4166 -->
+	<div id="container" class="sub-content order-auto"><!-- 2021-12-13 EZP-4649 "sticky" del, floaing menu active "floating-menu-on" -->
+		<div class="auto-wrap pd-b52"><!-- 2022-02-14 EZP-4760, 2022-08-09 EZP-6343 -->
+			<!--상단-->
+			<div class="filter-box2"><!-- 2022-02-14 EZP-4760 -->
+				<div class="count-box row">
+					<div class="item">
+						<p class="title">총 품목</p>
+						<p class="total"><span>9,999</span>개</p>
+					</div>
+					<div class="item">
+						<p class="title">성공예상</p>
+						<p class="total txt-green"><span>9,999</span>개</p>
+					</div>
+					<div class="item">
+						<p class="title">실패예상</p>
+						<p class="total txt-red"><span>9,999</span>개</p>
+					</div>
+				</div>
+				<div class="btn-filter">
+					<button type="button" name="button" class="icon ui-popup-call" data-target="#filter-pop">필터</button>
+				</div>
+			</div>
+			<!--//상단-->
+			<section>
+				<div class="add-box type2"><!-- 2021-12-13 EZP-4649 -->
+					<div class="add-txt"><!-- 2022-02-14 EZP-4760 -->
+						<p>'품목 불러오기' 또는 '신상품추가' 버튼을 탭하여<br> 주문할 품목을 등록하세요.</p>
+						<button type="button" name="button" class="btn large fill bg-black ui-popup-call" data-target="#auto-import"><i class="icon"><img src="../../img/mobile/icons/icon-small-plus.svg" alt=""></i>품목불러오기</button>
+						<button type="button" name="button" class="btn large fill bg-black ui-popup-call" data-target="#auto-import"><i class="icon"><img src="../../img/mobile/icons/icon-small-plus.svg" alt=""></i>신상품추가</button>
+					</div>
+				</div>
+				<div class="add-box-wrap" style="display:none;">
+					<!-- 데이터 없을 때 -->
+					<!-- <div class="no-search-wrap">
+						<div class="no-data"><p><i class="icon"></i>데이터가 없습니다.</p></div>
+					</div> -->
+					<!-- //데이터 없을 때 -->
+
+					<!-- 2021-09-16 EZP-4166 -->
+					<div class="sort-wrap">
+						<!-- 2021-10-07 EZP-4268 -->
+						<div class="txt-result">
+							검색결과 <span class="qty">9,999</span>건
+						</div>
+						<button type="button" class="btn-fold-all" id="btnFoldAll">전체펼치기</button><!-- 2021-10-15 EZP-4375 -->
+						<div class="ui-select small"><!-- 2021-12-13 EZP-4649 -->
+							<button type="button">등록순</button>
+							<ul>
+								<li>등록순</li>
+								<li>주문수량순</li>
+								<li>가용재고순</li>
+								<li>필요수량순</li><!-- 2021-12-13 EZP-4649 -->
+								<li>예측수량순</li>
+								<li>발주요청수량순</li>
+							</ul>
+						</div>
+					</div>
+					<!--품목 추가 후-->
+					<div class="auto-list">
+						<!--item-->
+						<div class="item"><!-- 2021-12-13 EZP-4649 select "active" -->
+							<div class="tit"><!-- 2021-12-13 EZP-4649 -->
+								<span class="num">1</span>
+								<span>[세컨스토리] CK 토파즈 니트</span>
+								<!-- 20220321 EZP-4381 닫기 버튼 변경 -->
+								<button tpye="button" class="btn-del-x ui-popup-call" data-target="#alert-delete"></button>
+								<!-- // 20220321 EZP-4381 닫기 버튼 변경-->
+							</div>
+							<ul class="option">
+								<li>다크브라운, FREE</li>
+								<li>36,000원</li>
+							</ul>
+							<div class="status">
+								<div class="qty-wrap">
+									<div>발주예측수량 70,234</div>
+									<div class="control-qty">
+										발주요청수량
+										<div class="ui-amount">
+											<button type="button" class="minus"><img src="../../img/mobile/icons/icon-small-minus.svg" alt="빼기"></button>
+											<input type="tel" value="9999">
+											<button type="button" class="plus"><img src="../../img/mobile/icons/icon-small-plus.svg" alt="더하기"></button>
+										</div>
+									</div>
+								</div>
+								<div class="ui-accordion" data-head=".acc-head">
+									<div class="acc-item">
+										<div class="acc-head">
+											<strong>더보기</strong>
+											<button type="button" name="button" class="arrow-bottom">열기</button>
+										</div>
+										<div class="acc-cont" style="display:none;">
+											<dl class="order-status">
+												<div class="date"><!-- 2021-12-13 EZP-4649 -->
+													<dt>상품등록일</dt>
+													<dd>2021-11-11</dd>
+												</div>
+												<div>
+													<dt>가용재고</dt>
+													<dd>999</dd>
+												</div>
+												<div>
+													<dt>주문수량</dt>
+													<dd>999</dd>
+												</div>
+												<div>
+													<dt>입고대기</dt>
+													<dd>999</dd>
+												</div>
+												<div>
+													<dt>배송전취소</dt>
+													<dd>999</dd>
+												</div>
+												<div><!-- 2021-12-13 EZP-4649 -->
+													<dt>필요수량</dt>
+													<dd>0</dd>
+												</div>
+											</dl>
+											<p class="last-order-chart-tit">최근 7일 주문 추이</p>
+											<div class="last-order-chart">
+												<div class="last-order-chart-inner" id="divChart1">
+													<div class="chart-box" data-order="10" style="height:100%"></div>
+													<div class="chart-box" data-order="20" style="height:20%"></div>
+													<div class="chart-box" data-order="30" style="height:30%"></div>
+													<div class="chart-box" data-order="40" style="height:40%"></div>
+													<div class="chart-box" data-order="50" style="height:50%"></div>
+													<div class="chart-box" data-order="60" style="height:60%"></div>
+													<div class="chart-box" data-order="100" style="height:80%"></div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!--item-->
+						<div class="item">
+							<div class="tit">
+								<span class="num">2</span>
+								<span>[세컨스토리] CK 토파즈 니트</span>
+								<!-- 20220321 EZP-4381 닫기 버튼 변경 -->
+								<button tpye="button" class="btn-del-x ui-popup-call" data-target="#alert-delete"></button>
+								<!--// 20220321 EZP-4381 닫기 버튼 변경 -->
+							</div>
+							<ul class="option">
+								<li>다크브라운, FREE</li>
+								<li>36,000원</li>
+							</ul>
+							<div class="status">
+								<div class="qty-wrap">
+									<div>발주예측수량 70,234</div>
+									<div class="control-qty">
+										발주요청수량
+										<div class="ui-amount">
+											<button type="button" class="minus"><img src="../../img/mobile/icons/icon-small-minus.svg" alt="빼기"></button>
+											<input type="tel" value="238">
+											<button type="button" class="plus"><img src="../../img/mobile/icons/icon-small-plus.svg" alt="더하기"></button>
+										</div>
+									</div>
+								</div>
+								<div class="ui-accordion" data-head=".acc-head">
+									<div class="acc-item">
+										<div class="acc-head">
+											<strong>더보기</strong>
+											<button type="button" name="button" class="arrow-bottom">열기</button>
+										</div>
+										<div class="acc-cont" style="display:none;">
+											<dl class="order-status">
+												<div class="date">
+													<dt>상품등록일</dt>
+													<dd>2021-11-11</dd>
+												</div>
+												<div>
+													<dt>가용재고</dt>
+													<dd>999</dd>
+												</div>
+												<div>
+													<dt>주문수량</dt>
+													<dd>999</dd>
+												</div>
+												<div>
+													<dt>입고대기</dt>
+													<dd>999</dd>
+												</div>
+												<div>
+													<dt>배송전취소</dt>
+													<dd>999</dd>
+												</div>
+												<div>
+													<dt>필요수량</dt>
+													<dd>0</dd>
+												</div>
+											</dl>
+											<p class="last-order-chart-tit">최근 7일 주문 추이</p>
+											<div class="last-order-chart">
+												<div class="last-order-chart-inner" id="divChart2">
+
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!--item-->
+						<div class="item error"><!-- class "error" -->
+							<div class="tit">
+								<span class="num">10</span>
+								<span>[세컨스토리] CK 토파즈 니트 CK 토파즈 니트 CK 토파즈 니트 CK 토파즈 니트 CK 토파즈 니트 CK 토파즈 니트 CK 토파즈 니트 CK 토파즈 니트</span>
+								<span class="warn">입력데이터 오류</span>
+								<!-- 20220321 EZP-4381 닫기 버튼 변경 -->
+								<button tpye="button" class="btn-del-x ui-popup-call" data-target="#alert-delete"></button>
+								<!-- //20220321 EZP-4381 닫기 버튼 변경 -->
+							</div>
+							<ul class="option">
+								<li>다크브라운, FREE</li>
+								<li>36,000원</li>
+							</ul>
+							<div class="status">
+								<div class="qty-wrap">
+									<div>발주예측수량 70,234</div>
+									<div class="control-qty">
+										발주요청수량
+										<div class="ui-amount">
+											<button type="button" class="minus"><img src="../../img/mobile/icons/icon-small-minus.svg" alt="빼기"></button>
+											<input type="tel" value="1">
+											<button type="button" class="plus"><img src="../../img/mobile/icons/icon-small-plus.svg" alt="더하기"></button>
+										</div>
+									</div>
+								</div>
+								<div class="ui-accordion" data-head=".acc-head">
+									<div class="acc-item">
+										<div class="acc-head">
+											<strong>더보기</strong>
+											<button type="button" name="button" class="arrow-bottom">열기</button>
+										</div>
+										<div class="acc-cont" style="display:none;">
+											<dl class="order-status">
+												<div class="date">
+													<dt>상품등록일</dt>
+													<dd>2021-11-11</dd>
+												</div>
+												<div>
+													<dt>가용재고</dt>
+													<dd>999</dd>
+												</div>
+												<div>
+													<dt>주문수량</dt>
+													<dd>999</dd>
+												</div>
+												<div>
+													<dt>입고대기</dt>
+													<dd>999</dd>
+												</div>
+												<div>
+													<dt>배송전취소</dt>
+													<dd>999</dd>
+												</div>
+												<div>
+													<dt>필요수량</dt>
+													<dd>0</dd>
+												</div>
+											</dl>
+											<p class="last-order-chart-tit">최근 7일 주문 추이</p>
+											<!--<div class="last-order-chart">
+												<div class="last-order-chart-inner" id="divChart3">
+
+												</div>
+											</div>-->
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!--item-->
+						<div class="item">
+							<div class="tit">
+								<span class="num">99</span>
+								<span>[세컨스토리] CK 토파즈 니트</span>
+								<!-- 20220321 EZP-4381 닫기 버튼 변경 -->
+								<button tpye="button" class="btn-del-x ui-popup-call" data-target="#alert-delete"></button>
+								<!-- //20220321 EZP-4381 닫기 버튼 변경 -->
+							</div>
+							<ul class="option">
+								<li>다크브라운, FREE</li>
+								<li>36,000원</li>
+							</ul>
+							<div class="status">
+								<div class="qty-wrap">
+									<div>발주예측수량 70,234</div>
+									<div class="control-qty">
+										발주요청수량
+										<div class="ui-amount">
+											<button type="button" class="minus"><img src="../../img/mobile/icons/icon-small-minus.svg" alt="빼기"></button>
+											<input type="tel" value="1">
+											<button type="button" class="plus"><img src="../../img/mobile/icons/icon-small-plus.svg" alt="더하기"></button>
+										</div>
+									</div>
+								</div>
+								<div class="ui-accordion" data-head=".acc-head">
+									<div class="acc-item">
+										<div class="acc-head">
+											<strong>더보기</strong>
+											<button type="button" name="button" class="arrow-bottom">열기</button>
+										</div>
+										<div class="acc-cont" style="display:none;">
+											<dl class="order-status">
+												<div class="date">
+													<dt>상품등록일</dt>
+													<dd>2021-11-11</dd>
+												</div>
+												<div>
+													<dt>가용재고</dt>
+													<dd>999</dd>
+												</div>
+												<div>
+													<dt>주문수량</dt>
+													<dd>999</dd>
+												</div>
+												<div>
+													<dt>입고대기</dt>
+													<dd>999</dd>
+												</div>
+												<div>
+													<dt>배송전취소</dt>
+													<dd>999</dd>
+												</div>
+												<div>
+													<dt>필요수량</dt>
+													<dd>0</dd>
+												</div>
+											</dl>
+											<p class="last-order-chart-tit">최근 7일 주문 추이</p>
+											<div class="last-order-chart">
+												<div class="last-order-chart-inner" id="divChart4">
+
+												</div>
+											</div>
+											
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!--item-->
+						<div class="item error"><!-- class "error" -->
+							<div class="tit">
+								<span class="num">999</span>
+								<span>[세컨스토리] CK 토파즈 니트</span>
+								<span class="warn">거래처주소 오류</span>
+								<!-- 20220321 EZP-4381 닫기 버튼 변경 -->
+								<button tpye="button" class="btn-del-x ui-popup-call" data-target="#alert-delete"></button>
+								<!--// 20220321 EZP-4381 닫기 버튼 변경 -->
+							</div>
+							<ul class="option">
+								<li>다크브라운, FREE</li>
+								<li>36,000원</li>
+							</ul>
+							<div class="status">
+								<div class="qty-wrap">
+									<div>발주예측수량 70,234</div>
+									<div class="control-qty">
+										발주요청수량
+										<div class="ui-amount">
+											<button type="button" class="minus"><img src="../../img/mobile/icons/icon-small-minus.svg" alt="빼기"></button>
+											<input type="tel" value="1">
+											<button type="button" class="plus"><img src="../../img/mobile/icons/icon-small-plus.svg" alt="더하기"></button>
+										</div>
+									</div>
+								</div>
+								<div class="ui-accordion" data-head=".acc-head">
+									<div class="acc-item">
+										<div class="acc-head">
+											<strong>더보기</strong>
+											<button type="button" name="button" class="arrow-bottom">열기</button>
+										</div>
+										<div class="acc-cont" style="display:none;">
+											<dl class="order-status">
+												<div class="date">
+													<dt>상품등록일</dt>
+													<dd>2021-11-11</dd>
+												</div>
+												<div>
+													<dt>가용재고</dt>
+													<dd>999</dd>
+												</div>
+												<div>
+													<dt>주문수량</dt>
+													<dd>999</dd>
+												</div>
+												<div>
+													<dt>입고대기</dt>
+													<dd>999</dd>
+												</div>
+												<div>
+													<dt>배송전취소</dt>
+													<dd>999</dd>
+												</div>
+												<div>
+													<dt>필요수량</dt>
+													<dd>0</dd>
+												</div>
+											</dl>
+											<p class="last-order-chart-tit">최근 7일 주문 추이</p>
+											<!--<div class="last-order-chart">
+                                                <div class="last-order-chart-inner" id="divChart5">
+
+                                                </div>
+                                            </div>-->
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!--//품목 추가 후-->
+				</div>
+			</section>
+
+			<div class="floating-menu"><!-- 2021-12-13 EZP-4649 -->
+				<button type="button" class="btn-toggle">부가기능</button><!-- attr "disabled" -->
+				<div class="wrap"><!-- 2022-02-14 EZP-4760 -->
+					<button type="button" class="btn ui-popup-call" data-target="#alert-delete">선택삭제</button>
+					<button type="button" class="btn ui-popup-call" data-target="#alert-delete">전체삭제</button>
+					<button type="button" class="btn">검색결과외삭제</button>
+					<button type="button" class="btn ui-popup-call" data-target="#apply-select">선택적용</button>
+					<button type="button" class="btn ui-popup-call" data-target="#apply-weight">가중치적용</button>
+					<button type="button" class="btn">필요수량 전체적용</button>
+					<button type="button" class="btn">예측수량 전체적용</button>
+					<button type="button" class="btn">품목불러오기</button>
+					<button type="button" class="btn ui-popup-call" data-target="#new-product-pop">신상품추가</button>
+				</div>
+			</div>
+			<div class="btn-wrap only-fixed">
+				<button type="button" class="btn line-gray large">선택주문하기</button>
+				<button type="button" class="btn fill large ui-popup-call" data-target="#alert-pop1">전체주문하기</button>
+			</div>
+
+		</div>
+	</div>
+
+	<!-- 필터 -->
+	<div class="ui-popup updown filter pop-item-search" id="filter-pop">
+		<div class="content">
+			<div class="header">
+				<h1>필터</h1>
+				<div class="btn-wrap">
+					<button type="button" name="button" class="btn-reset">초기화</button>
+					<button type="button" name="button" class="btn btn-close">적용</button>
+				</div>
+			</div>
+			<div class="body">
+				<div class="pop-filter-cont">
+					<p class="title">모아보기</p>
+					<ul class="select-list select-list-type1">
+						<li clsas="all">
+							<span class="checkbox">
+								<input type="checkbox" id="a1" checked>
+								<label for="a1">전체</label>
+							</span>
+						</li>
+						<li>
+							<span class="checkbox">
+								<input type="checkbox" id="a2" checked>
+								<label for="a2">성공예상</label>
+							</span>
+						</li>
+						<li>
+							<span class="checkbox">
+								<input type="checkbox" id="a3" checked>
+								<label for="a3">실패예상</label>
+							</span>
+						</li>
+					</ul>
+					<!-- 2021-12-13 EZP-4649 -->
+					<p class="title">거래처명, 상품명</p>
+					<div class="input-wrap col">
+						<div class="divide">
+							<div class="input search">
+								<input type="text" id="input2" name="" value="" placeholder="검색어를 입력해주세요.">
+								<button type="button" name="button"><i class="icon">삭제</i></button>
+								<i class="icon"></i>
+								<p>안보임</p>
+							</div>
+						</div>
+					</div>
+					<p class="title">필요수량</p>
+					<div class="input-wrap">
+						<div class="divide">
+							<div class="input with-text">
+								<input type="number" name="" value="" placeholder="">
+								<span>개</span>
+							</div>
+							<em>이상</em>
+							<span>-</span>
+							<div class="input with-text">
+								<input type="number" name="" value="" placeholder="">
+								<span>개</span>
+							</div>
+							<em>이하</em>
+						</div>
+					</div>
+					<p class="title">예측수량</p>
+					<div class="input-wrap">
+						<div class="divide">
+							<div class="input with-text">
+								<input type="number" name="" value="" placeholder="">
+								<span>개</span>
+							</div>
+							<em>이상</em>
+							<span>-</span>
+							<div class="input with-text">
+								<input type="number" name="" value="" placeholder="">
+								<span>개</span>
+							</div>
+							<em>이하</em>
+						</div>
+					</div>
+					<p class="title">주문수량</p>
+					<div class="input-wrap">
+						<div class="divide">
+							<div class="input with-text">
+								<input type="number" name="" value="" placeholder="">
+								<span>개</span>
+							</div>
+							<em>이상</em>
+							<span>-</span>
+							<div class="input with-text">
+								<input type="number" name="" value="" placeholder="">
+								<span>개</span>
+							</div>
+							<em>이하</em>
+						</div>
+					</div>
+					<p class="title">가용재고</p>
+					<div class="input-wrap">
+						<div class="divide">
+							<div class="input with-text">
+								<input type="number" name="" value="" placeholder="">
+								<span>개</span>
+							</div>
+							<em>이상</em>
+							<span>-</span>
+							<div class="input with-text">
+								<input type="number" name="" value="" placeholder="">
+								<span>개</span>
+							</div>
+							<em>이하</em>
+						</div>
+					</div>
+					<p class="title">입고대기</p>
+					<div class="input-wrap">
+						<div class="divide">
+							<div class="input with-text">
+								<input type="number" name="" value="" placeholder="">
+								<span>개</span>
+							</div>
+							<em>이상</em>
+							<span>-</span>
+							<div class="input with-text">
+								<input type="number" name="" value="" placeholder="">
+								<span>개</span>
+							</div>
+							<em>이하</em>
+						</div>
+					</div>
+					<p class="title">배송전취소</p>
+					<div class="input-wrap">
+						<div class="divide">
+							<div class="input with-text">
+								<input type="number" name="" value="" placeholder="">
+								<span>개</span>
+							</div>
+							<em>이상</em>
+							<span>-</span>
+							<div class="input with-text">
+								<input type="number" name="" value="" placeholder="">
+								<span>개</span>
+							</div>
+							<em>이하</em>
+						</div>
+					</div>
+					<p class="title">단가</p>
+					<div class="input-wrap">
+						<div class="divide">
+							<div class="input with-text">
+								<input type="number" name="" value="" placeholder="">
+								<span>원</span>
+							</div>
+							<em>이상</em>
+							<span>-</span>
+							<div class="input with-text">
+								<input type="number" name="" value="" placeholder="">
+								<span>원</span>
+							</div>
+							<em>이하</em>
+						</div>
+					</div>
+					<p class="title">상품등록일</p>
+					<!-- 2022-01-04 EZP-4918 -->
+					<ul class="select-list select-list-type1">
+						<li>
+							<span class="radio">
+								<input type="radio" name="radioB" id="radioB1" checked>
+								<label for="radioB1">전체</label>
+							</span>
+						</li>
+						<li>
+							<span class="radio">
+								<input type="radio" name="radioB" id="radioB2">
+								<label for="radioB2">3일</label>
+							</span>
+						</li>
+						<li>
+							<span class="radio">
+								<input type="radio" name="radioB" id="radioB3">
+								<label for="radioB3">1주일</label>
+							</span>
+						</li>
+						<li>
+							<span class="radio">
+								<input type="radio" name="radioB" id="radioB4">
+								<label for="radioB4">1개월</label>
+							</span>
+						</li>
+						<li>
+							<span class="radio">
+								<input type="radio" name="radioB" id="radioB5">
+								<label for="radioB5">3개월</label>
+							</span>
+						</li>
+						<li>
+							<span class="radio">
+								<input type="radio" name="radioB" id="radioB6">
+								<label for="radioB6">6개월</label>
+							</span>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- 자동주문 도움말 -->
+	<div class="ui-popup type2 auto-info-pop" id="info-pop1"><!-- 2021-12-13 EZP-4649 -->
+		<div class="content">
+			<div class="header">
+				<h1>자동주문</h1><!-- 2022-02-14 EZP-4760 -->
+			</div>
+			<div class="body">
+				<div class="inner">
+					<dl class="list-dl">
+						<dt>주문수량</dt>
+						<dd>최근 1주일간 주문수량 평균</dd>
+						<dt>가용재고</dt>
+						<dd>정상재고에서 배송예정수량을 차감한 실제 출고가 가능한 재고 수량</dd>
+						<dt>입고대기</dt>
+						<dd>신규 발주 후 아직 입고되지 않은 수량의 합계</dd>
+						<dt>배송전취소</dt>
+						<dd>주문 취소/반품 등 배송전 취소가 확정되어 재고에 추가 예정인 수량</dd>
+						<dt>필요수량</dt>
+						<dd>가용재고 + 입고대기 수량이 0보다 작은 경우 해당 수량만큼을 필요수량으로 계산</dd>
+						<dt>발주예측수량</dt>
+						<dd>입력된 데이터를 기준으로 이지픽에서 계산된 예측 수량<br>(주문수량 - 가용재고 - 입고대기 - 배송전취소 수량)</dd>
+					</dl>
+					<div class="sect">
+						발주수량 확인/수정 후 [주문하기] 버튼을 클릭하셔야 최종 주문이 완료됩니다.
+					</div>
+				</div>
+				<div class="btn-wrap pop-btn-wrap">
+					<button type="button" name="button" class="btn fill btn-close">확인</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- 선택 적용 -->
+	<div class="ui-popup type2 apply-select-pop" id="apply-select"><!-- 2021-12-13 EZP-4649 -->
+		<div class="content">
+			<div class="header">
+				<h1>선택 적용하기</h1>
+			</div>
+			<div class="body">
+				<div class="inner">
+					<div class="sect">
+						<ul>
+							<li>- 선택된 품목의 발주요청수량을 일괄 적용 할 수 있습니다.</li>
+							<li>- 아래 선택 옵션을 선택, 필요 시 수량을 입력하여 '적용하기'를 클릭하시면 발주요청수량이 자동 변경됩니다.</li>
+						</ul>
+					</div>
+					<div class="radio-tab">
+						<div class="tab-nav">
+							<ul class="select-list item2">
+								<li>
+									<span class="radio">
+										<input type="radio" name="batchType" id="value1">
+										<label for="value1">발주예측수량 적용</label>
+									</span>
+								</li>
+								<li>
+									<span class="radio">
+										<input type="radio" name="batchType" id="value2">
+										<label for="value2">필요수량 적용</label>
+									</span>
+								</li>
+								<li>
+									<span class="radio">
+										<input type="radio" name="batchType" id="value3">
+										<label for="value3">가중치입력</label>
+									</span>
+								</li>
+								<li>
+									<span class="radio">
+										<input type="radio" name="batchType" id="value4">
+										<label for="value4">수량 직접입력</label>
+									</span>
+								</li>
+							</ul>
+						</div>
+						<div class="input-wrap input-number">
+							<p class="title">숫자입력</p>
+							<div class="input small search">
+								<input type="text" id="inputBatchType" placeholder="숫자를 입력해주세요." readonly>
+								<button type="button" name="button" style="display:none;"><i class="icon">삭제</i></button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="btn-wrap pop-btn-wrap"><!-- 2022-02-14 EZP-4760 -->
+					<button type="button" name="button" class="btn btn-close">취소</button>
+					<button type="button" name="button" class="btn fill btn-close">적용하기</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- 구간별 가중치 적용 -->
+	<div class="ui-popup type2 apply-weight-pop" id="apply-weight"><!-- 2021-12-13 EZP-4649 -->
+		<div class="content">
+			<div class="header">
+				<h1>구간별 가중치 적용</h1>
+			</div>
+			<div class="body">
+				<div class="inner">
+					<div class="sect">
+						<ul>
+							<!-- 2023-03-16 EZP-8770 워딩변경
+								<li>- 구간별로 입력된 가중치를 적용하여 전체 상품의 발주요청 수량을 변경할 수 있습니다.</li> -->
+							<li>- 구간별로 입력된 가중치를 적용하여 전체 품목의 발주요청 수량을 변경할 수 있습니다.</li>
+							<li>- 각 구간별로 가중치를 입력하신 후 '적용하기' 클릭 시,<em>'발주예측수량X가중치'</em> 만큼 발주요청수량이 자동 변경됩니다.</li>
+						</ul>
+					</div>
+					<div class="radio-tab">
+						<div class="tab-nav">
+							<ul class="select-list">
+								<li>
+									<span class="radio">
+										<input type="radio" name="aa" id="aa1">
+										<label for="aa1">가용재고</label>
+									</span>
+								</li>
+								<li>
+									<span class="radio">
+										<input type="radio" name="aa" id="aa2">
+										<label for="aa2">주문수량</label>
+									</span>
+								</li>
+								<li>
+									<span class="radio">
+										<input type="radio" name="aa" id="aa3">
+										<label for="aa3">필요수량</label>
+									</span>
+								</li>
+								<li>
+									<span class="radio">
+										<input type="radio" name="aa" id="aa4">
+										<label for="aa4">예측수량</label>
+									</span>
+								</li>
+								<li>
+									<span class="radio">
+										<input type="radio" name="aa" id="aa5">
+										<label for="aa5">단가</label>
+									</span>
+								</li>
+							</ul>
+						</div>
+						<div class="input-wrap input-number">
+							<ul>
+								<li>
+									<div class="input small">
+										<input type="number" name="" value="999999">
+									</div>
+									<span>~</span>
+									<div class="input small">
+										<input type="number" name="" value="999999">
+									</div>
+									<span>:</span>
+									<div class="input small percent">
+										<input type="number" name="" value="999">
+									</div><span> % X 발주예측수량</span>
+								</li>
+								<li>
+									<div class="input small">
+										<input type="number" name="" value="999999">
+									</div>
+									<span>~</span>
+									<div class="input small">
+										<input type="number" name="" value="999999">
+									</div>
+									<span>:</span>
+									<div class="input small percent">
+										<input type="number" name="" value="999">
+									</div><span> % X 발주예측수량</span>
+								</li>
+								<li>
+									<div class="input small">
+										<input type="number" name="" value="999999">
+									</div>
+									<span>~</span>
+									<div class="input small">
+										<input type="number" name="" value="999999">
+									</div>
+									<span>:</span>
+									<div class="input small percent">
+										<input type="number" name="" value="999">
+									</div><span> % X 발주예측수량</span>
+								</li>
+								<li>
+									<div class="input small">
+										<input type="number" name="" value="999999">
+									</div>
+									<span>~</span>
+									<div class="input small">
+										<input type="number" name="" value="999999">
+									</div>
+									<span>:</span>
+									<div class="input small percent">
+										<input type="number" name="" value="999">
+									</div><span> % X 발주예측수량</span>
+								</li>
+								<li>
+									<div class="input small">
+										<input type="number" name="" value="999999">
+									</div>
+									<span>~</span>
+									<div class="input small">
+										<input type="number" name="" value="999999">
+									</div>
+									<span>:</span>
+									<div class="input small percent">
+										<input type="number" name="" value="999">
+									</div><span> % X 발주예측수량</span>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="btn-wrap pop-btn-wrap">
+					<button type="button" name="button" class="btn btn-close">취소</button>
+					<button type="button" name="button" class="btn fill btn-close">적용하기</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- 목록 삭제 버튼 경고창 -->
+	<div class="ui-popup shop" id="alert-delete">
+		<div class="content">
+			<div class="body">
+				<div class="inner">
+					<p class="tac">
+						모바일에서는 자동주문 품목 등록이 불가능합니다.<br>
+						선택한 상품을 삭제하시겠습니까?
+					</p>
+				</div>
+				<div class="btn-wrap pop-btn-wrap">
+					<button type="button" name="button" class="btn btn-close">취소</button>
+					<button type="button" name="button" class="btn fill btn-close">확인</button>
+				</div>
+			</div>
+		</div>
+
+		<!--<div class="content">
+			<div class="body">
+				<div class="inner">
+					<p class="tac">
+						항목을 선택해주세요.
+					</p>
+				</div>
+				<div class="btn-wrap pop-btn-wrap">
+					<button type="button" name="button" class="btn fill btn-close">확인</button>
+				</div>
+			</div>
+		</div>-->
+	</div>
+
+	<!-- 전체주문하기 버튼 경고창-->
+	<div class="ui-popup shop" id="alert-pop1">
+		<div class="content">
+			<div class="body">
+				<div class="inner">
+					<p class="tac">
+						성공된 성공예상 품목 <span class="txt-green">N</span>건을<br>
+						발주요청수량만큼 주문하시겠습니까?<br>
+						<br>
+						확인 시 바로주문 페이지로 이동됩니다.
+					</p>
+				</div>
+				<div class="btn-wrap pop-btn-wrap">
+					<button type="button" name="button" class="btn btn-close">취소</button>
+					<button type="button" name="button" class="btn fill btn-close">확인</button>
+				</div>
+			</div>
+		</div>
+
+		<div class="content">
+			<div class="body">
+				<div class="inner">
+					<p class="tac">
+						발주요청수량은 최대 9,999개를 초과할 수 없습니다.<br>
+						확인 후 다시 주문해주세요.
+					</p>
+				</div>
+				<div class="btn-wrap pop-btn-wrap">
+					<button type="button" name="button" class="btn fill btn-close">확인</button>
+				</div>
+			</div>
+		</div>
+
+		<div class="content">
+			<div class="body">
+				<div class="inner">
+					<p class="tac">
+						실패예상 품목만 선택되어 주문이 불가능합니다.<br>
+						확인 후 다시 주문해주세요.
+					</p>
+				</div>
+				<div class="btn-wrap pop-btn-wrap">
+					<button type="button" name="button" class="btn fill btn-close">확인</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- 옵션적용 팝업 옵션적용 버튼 경고창 -->
+	<div class="ui-popup shop" id="alert-pop4">
+		<div class="content">
+			<div class="body">
+				<div class="inner">
+					<p class="tac">
+						발주예측수량으로<br>
+						발주요청수량을 일괄 적용하시겠습니까?
+					</p>
+				</div>
+				<div class="btn-wrap pop-btn-wrap">
+					<button type="button" name="button" class="btn btn-close">취소</button>
+					<button type="button" name="button" class="btn fill btn-close">확인</button>
+				</div>
+			</div>
+		</div>
+
+		<div class="content">
+			<div class="body">
+				<div class="inner">
+					<p class="tac">
+						필요수량으로<br>
+						발주요청수량을 일괄 적용하시겠습니까?
+					</p>
+				</div>
+				<div class="btn-wrap pop-btn-wrap">
+					<button type="button" name="button" class="btn btn-close">취소</button>
+					<button type="button" name="button" class="btn fill btn-close">확인</button>
+				</div>
+			</div>
+		</div>
+
+		<div class="content">
+			<div class="body">
+				<div class="inner">
+					<p class="tac">
+						입력된 안전재고율을 더해<br>
+						발주요청수량을 일괄 적용하시겠습니까?
+					</p>
+				</div>
+				<div class="btn-wrap pop-btn-wrap">
+					<button type="button" name="button" class="btn btn-close">취소</button>
+					<button type="button" name="button" class="btn fill btn-close">확인</button>
+				</div>
+			</div>
+		</div>
+
+		<div class="content">
+			<div class="body">
+				<div class="inner">
+					<p class="tac">
+						안전재고율이 입력되지 않았습니다.
+					</p>
+				</div>
+				<div class="btn-wrap pop-btn-wrap">
+					<button type="button" name="button" class="btn fill btn-close">확인</button>
+				</div>
+			</div>
+		</div>
+
+		<div class="content">
+			<div class="body">
+				<div class="inner">
+					<!-- 2021-09-16 EZP-4166 -->
+					<p class="tac">
+						입력된 수량으로<br>
+						발주요청수량을 일괄 적용하시겠습니까?
+					</p>
+				</div>
+				<div class="btn-wrap pop-btn-wrap">
+					<button type="button" name="button" class="btn btn-close">취소</button>
+					<button type="button" name="button" class="btn fill btn-close">확인</button>
+				</div>
+			</div>
+		</div>
+
+		<div class="content">
+			<div class="body">
+				<div class="inner">
+					<p class="tac">
+						수량이 입력되지 않았습니다.
+					</p>
+				</div>
+				<div class="btn-wrap pop-btn-wrap">
+					<button type="button" name="button" class="btn fill btn-close">확인</button>
+				</div>
+			</div>
+		</div>
+
+		<!-- 2021-09-16 EZP-4166 -->
+		<div class="content">
+			<div class="body">
+				<div class="inner">
+					<p class="tac">
+						품목을 선택해주세요
+					</p>
+				</div>
+				<div class="btn-wrap pop-btn-wrap">
+					<button type="button" name="button" class="btn fill btn-close">확인</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="ui-popup type2" id="auto-import"><!-- 2022-02-14 EZP-4760 -->
+		<div class="content">
+			<div class="header">
+				<h1>품목 불러오기</h1>
+			</div>
+			<div class="body">
+				<div class="inner">
+					<div class="sect">원하는 양식을 선택한 후 [불러오기] 버튼 클릭 시, 해당하는 품목들을 자동으로 불러올 수 있습니다</div>
+					<ul class="btn-select-list">
+						<li class="set"><a href="#none" class="btn line-gray small">설정하기</a></li>
+						<li class="on"><a href="#none" class="btn line-gray small">금일배송, 마이너스 재고 포함1</a></li><!-- class "on" -->
+						<li><a href="#none" class="btn line-gray small">공백 포함 최대 15자 입력 가능 공백</a></li>
+						<li><a href="#none" class="btn line-gray small">type2번 저장 저장</a></li>
+						<li><a href="#none" class="btn line-gray small">고객이 설정한 이름 노출</a></li>
+						<li><a href="#none" class="btn line-gray small">저장된이름</a></li>
+					</ul>
+				</div>
+				<div class="btn-wrap pop-btn-wrap">
+					<button type="button" name="button" class="btn btn-close">취소</button>
+					<button type="button" name="button" class="btn fill btn-close">불러오기</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="ui-popup fullpop new new-product-pop" id="new-product-pop"><!-- 2022-02-14 EZP-4760 -->
+		<div class="content">
+			<div class="header">
+				<h1>신상품 추가하기</h1>
+				<button type="button" class="btn-close">닫기</button>
+			</div>
+			<div class="body">
+				<div class="select-search-form">
+					<div class="ui-select">
+						<button type="button">상품명</button>
+						<ul>
+							<li>상품명</li>
+							<li>공급사명</li>
+							<li>품목코드</li>
+						</ul>
+					</div>
+					<div class="input search">
+						<input type="search" name="" value="" placeholder="" required="" class="small">
+						<button type="button" name="button"><i class="icon">삭제</i></button>
+					</div>
+				</div>
+				<div class="inner pl0 pr0">
+					<div class="sort-wrap">
+						<span class="checkbox">
+							<input type="checkbox" name="" id="a" class="chkall">
+							<label for="a">전체선택</label>
+						</span>
+						<div class="txt-result">검색결과 <span class="txt-green">9,999</span>건</div>
+					</div>
+					<div class="wrap">
+						<div class="auto-list">
+							<div class="item">
+								<div class="tit">
+									<span class="checkbox">
+										<input type="checkbox" id="check2">
+										<label for="check2">
+											<span>[공급사명 표시] 상품명 표시</span>
+										</label>
+									</span>
+								</div>
+								<ul class="option">
+									<li>P00000LB000S</li>
+									<li>파랑-55</li>
+									<li>3,500원</li>
+									<li>2021-11-07 16:34:01</li>
+								</ul>
+							</div>
+							<div class="item">
+								<div class="tit">
+									<span class="checkbox">
+										<input type="checkbox" id="check2">
+										<label for="check2">
+											<span>[공급사명 표시] 상품명 표시</span>
+										</label>
+									</span>
+								</div>
+								<ul class="option">
+									<li>P00000LB000S</li>
+									<li>파랑-55</li>
+									<li>3,500원</li>
+									<li>2021-11-07 16:34:01</li>
+								</ul>
+							</div>
+							<div class="item">
+								<div class="tit">
+									<span class="checkbox">
+										<input type="checkbox" id="check2">
+										<label for="check2">
+											<span>[공급사명 표시] 상품명 표시</span>
+										</label>
+									</span>
+								</div>
+								<ul class="option">
+									<li>P00000LB000S</li>
+									<li>파랑-55</li>
+									<li>3,500원</li>
+									<li>2021-11-07 16:34:01</li>
+								</ul>
+							</div>
+							<div class="item">
+								<div class="tit">
+									<span class="checkbox">
+										<input type="checkbox" id="check2">
+										<label for="check2">
+											<span>[공급사명 표시] 상품명 표시</span>
+										</label>
+									</span>
+								</div>
+								<ul class="option">
+									<li>P00000LB000S</li>
+									<li>파랑-55</li>
+									<li>3,500원</li>
+									<li>2021-11-07 16:34:01</li>
+								</ul>
+							</div>
+							<div class="item">
+								<div class="tit">
+									<span class="checkbox">
+										<input type="checkbox" id="check2">
+										<label for="check2">
+											<span>[공급사명 표시] 상품명 표시</span>
+										</label>
+									</span>
+								</div>
+								<ul class="option">
+									<li>P00000LB000S</li>
+									<li>파랑-55</li>
+									<li>3,500원</li>
+									<li>2021-11-07 16:34:01</li>
+								</ul>
+							</div>
+						</div>
+						<div class="paging-box pb0">
+							<!-- paging -->
+							<div class="pagination black">
+								<button type="button" name="button" class="first">처음</button>
+								<button type="button" name="button" class="prev">이전</button>
+								<div class="group">
+									<a href="#">1</a>
+									<a href="#" class="active">2</a>
+									<a href="#">3</a>
+									<a href="#">4</a>
+									<a href="#">5</a>
+								</div>
+								<button type="button" name="button" class="next on">다음</button>
+								<button type="button" name="button" class="last on">마지막</button>
+							</div>
+						</div>
+					</div>
+					<div class="no-data">
+						<p><i class="icon"></i>검색결과가 없습니다.</p>
+					</div>
+				</div>
+				<div class="btn-wrap">
+					<button type="button" name="button" class="btn line-gray btn-close">취소</button>
+					<button type="button" name="button" class="btn fill btn-close">추가하기</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		$(document).ready(function () {
+			// 전체펼치기
+			$('#btnFoldAll').on('click', function () {
+				let $this = $(this);
+				if ($this.hasClass('open')) {
+					$this.removeClass('open');
+					$this.text('전체펼치기');
+					$('.acc-item').removeClass('active');
+					$('.acc-cont').hide();
+				} else {
+					$this.addClass('open');
+					$this.text('전체접기');
+					$('.acc-item').addClass('active');
+					$('.acc-cont').show();
+				}
+			});
+
+			// 옵션적용 유형 선택
+			$('[name="batchType"]').on('change', function () {
+				let sThisValue = $(this).attr('id');
+				if (sThisValue === 'value3' || sThisValue === 'value4') {
+					$('#inputBatchType').prop('readonly', false);
+				} else {
+					$('#inputBatchType').prop('readonly', true);
+				}
+			});
+
+			 /* 2021-12-13 EZP-4649 ui 확인용 */
+			$(".calendar-only2").datepicker({
+				dateFormat: "yy-mm-dd",
+				showMonthAfterYear: true,
+				monthNames: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'],
+				dayNamesMin: ['SUN', 'MON', 'TUE', 'WED', 'THE', 'FRI', 'SAT'],
+				minDate: "-3M", // 2021-02-23 추가
+				maxDate: "0", // 2021-02-23 추가
+				showOn: "button",
+				beforeShow: function() {
+					$('.modal').show();
+				},
+				onClose: function() {
+					$('.modal').hide();
+				},
+			});
+			$('.calendar-only2').datepicker('setDate', 'today');
+
+			$('#auto-import .btn-wrap button').on('click', function () {
+				$('.add-box').hide();
+				$('.add-box-wrap').show();
+			});
+			/* 2022-01-06 EZP-4932 ui 확인용 */
+			$('body').on('click','.floating-menu .btn-toggle', function () {
+				$('.order-auto').toggleClass('floating-menu-on');
+				var status = $('.floating-menu .wrap').css('display');
+				if (status !== 'none') {
+					$('.floating-menu .wrap').scrollLeft(0);
+				}
+			});
+			$('body').on('click', '.order-auto .auto-list .item', function(e){
+				if(!$(e.target).is("button,button > img,input,.acc-head")) {
+					$(this).toggleClass('active');
+				}
+			});
+		});
+	</script>
+
+	<!-- Chart code -->
+	<script>
+		/**
+		 * 차트 그리기
+		 * @param {string} el 차트 요소 그릴 대상
+		 * @param {object} data 차트 데이터
+		 */
+		function setOrderChart(el, data) {
+			const chartWrap = $(el); // 차트 요소 그릴 대상
+			const valueData = Object.keys(data).map(function(key){
+				return data[key];
+			}); // 데이터 value
+			const maxValue = Math.max.apply(null, valueData); // 최대값
+			const viewData = valueData.map(function(qty){
+				return qty / maxValue * 100;
+			}); // view 생성용 데이터로 변환
+			const dataLength = viewData.length;
+			let viewHtml = '';
+			for (let i = 0; i < dataLength; i++) {
+				viewHtml += '<div class="chart-box" data-order="' + valueData[i] + '" style="height:' + viewData[i] + '%"></div>';
+			}
+			chartWrap.html(viewHtml);
+		}
+
+		// 테스트 데이터
+		let tempData = {
+			"7_days_ago_order_qty":"100",
+			"6_days_ago_order_qty":"120",
+			"5_days_ago_order_qty":"40",
+			"4_days_ago_order_qty":"150",
+			"3_days_ago_order_qty":"70",
+			"2_days_ago_order_qty":"24",
+			"1_days_ago_order_qty":"13"
+		}
+		let tempData2 = {
+			"7_days_ago_order_qty":"40",
+			"6_days_ago_order_qty":"333",
+			"5_days_ago_order_qty":"5",
+			"4_days_ago_order_qty":"150",
+			"3_days_ago_order_qty":"70",
+			"2_days_ago_order_qty":"24",
+			"1_days_ago_order_qty":"195"
+		}
+
+		// 차트 그리기 실행
+		setOrderChart('#divChart2', tempData);
+		setOrderChart('#divChart4', tempData2);
+	</script>
+
+	<!-- 퍼블 화면 확인용 :: 실제 개발시 사용하지않음 -->
+	<style>
+		.ui-popup.화면확인용클래스 {
+			display: flex;
+			flex-wrap: wrap;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			gap: 10px;
+		}
+		.ui-popup.화면확인용클래스::before {
+			display: none;
+		}
+	</style>
+
+	<script>
+		$('.ui-popup').addClass('화면확인용클래스');
+	</script>
+	<!-- // 퍼블 화면 확인용 :: 실제 개발시 사용하지않음 -->
+</body>
+
+</html>

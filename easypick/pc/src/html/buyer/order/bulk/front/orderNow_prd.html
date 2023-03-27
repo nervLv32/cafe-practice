@@ -1,0 +1,4194 @@
+<!DOCTYPE html>
+<html lang="ko" class="js">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="format-detection" content="telephone=no">
+	<meta content="IMs0c1aVeYsDnnQOLkRn1Bu5zL3j5rbbYJoj9dYvgt4=" name="csrf-token">
+	<meta content="T" name="login-required">
+	<link rel="shortcut icon" type="image/x-icon" href="/img/favicon/ezp.ico">
+
+	<link rel="stylesheet" type="text/css" href="../../../../../css/default.css">
+	<link rel="stylesheet" type="text/css" href="../../../../../css/month.picker.css">
+
+	<title>이지픽</title>
+</head>
+
+<body>
+	<!-- header// -->
+	<header></header>
+	<!-- //header -->
+
+	<!--container// -->
+	<div id="container-full" class="min-wid"><!--2021-01-14 추가 / min-wid 클래스 추가-->
+		<div class="order-top list">
+			<h2>바로주문</h2>
+      
+		</div>
+		<!-- 2022-05-27 EZP-5433 [주문타입 추가] 시작-->
+		<div class="order-type cart-order-type">
+			<p>이지픽주문과 셀픽주문의 차이점이 궁금하신가요?</p>
+			<i class="btn-tip ui-popup-open" data-target="#orderType"></i>
+		</div>
+		<!--// 2022-05-27 EZP-5433 [주문타입 추가] 종료-->
+
+		<!-- 2022-05-27 EZP-5433 토글 추가 시작 -->
+		<div class="cart-toggle">
+			<div class="switch-cart-wrap">
+				<span class="switch cart-switch cartSwitch">
+					<input type="checkbox" name="is_refunded">
+					<div class="slider round">
+						<span class="on">셀픽주문</span>
+						<span class="off active">이지픽주문</span>
+					</div>
+				</span>
+			</div>
+			<div class="cart-toggle-txt"><span class="typeName">셀픽</span>주문으로 주문 중입니다.</div>
+		</div>
+		<!--// 2022-05-27 EZP-5433 토글 추가 시작 -->
+		<div class="ui-tab">
+			<ul class="tab-nav order-direct">
+				<li class="active" data-tab-target="tab_01" style="width:220px;">
+					<a href="javascript:;">상품주문</a>
+				</li>
+				<li data-tab-target="tab_02" style="width:220px;">
+					<a href="javascript:;">불량접수</a>
+				</li>
+				<li data-tab-target="tab_03" style="width:220px;">
+					<a href="javascript:;">샘플주문</a>
+				</li>
+				<li data-tab-target="tab_04" style="width:220px;">
+					<a href="javascript:;">샘플반납</a>
+				</li>
+				<li data-tab-target="tab_05" style="width:220px;">
+					<a href="javascript:;">
+						미송주문
+						&nbsp;
+						<button href="javascript:;" class="btn-tip"></button>
+						<!-- 2021-06-15 EZP-3170 -->
+						<div class="tip-right" style="width:380px;">
+							미송주문시 '미송'유형으로 발주가 진행됩니다.<br>도매처와 협의없이 미송주문시 상품입고가 제한될 수 있습니다.
+						</div>
+					</a>
+				</li>
+				<!-- 2020-07-30 EZP-779 -->
+				<li data-tab-target="tab_06" style="width:220px;">
+					<a href="javascript:;">
+						제작주문
+						&nbsp;
+						<button href="javascript:;" class="btn-tip"></button>
+						<!-- 2021-06-15 EZP-3170 -->
+						<div class="tip-right" style="width:370px;">
+							제작상품 주문 시 '제작'유형으로 거래처에 제작이 요청됩니다.<br>
+							결제는 주문 시 이루어지지 않으며,<br>
+							입고 후 검수완료 시 입고된 수량만큼 '신규입고' 항목에 <br>
+							합산되어 정산처리됩니다.
+						</div>
+					</a>
+				</li>
+			</ul>  
+		</div>
+
+
+		<!--TabContent @1.상품주문 -->
+		<!-- 2023-01-18 EZP-8075 .list-long class 추가 (드롭리스트 넓은타입) -->
+ 		<div class="order-list-wrap direct active list-long" id="tab_01">
+			<div class="list-right direct">
+				<ul class="list-top">
+					<li>
+						<span>
+							<h3>주문요청 건수</h3>
+							<p><em id="emOrderItemQty">0</em>건</p>
+						</span>
+					</li>
+					<li>
+						<span>
+							<h3>총 거래처 수</h3>
+							<p><em id="emSellerQty">0</em>개</p>
+						</span>
+					</li>
+					<li>
+						<span>
+							<h3>총 상품 수</h3>
+							<p><em id="emOrderQty">0</em>개</p>
+						</span>
+					</li>
+					<li>
+						<span>
+							<h3>총 상품 금액<span>(VAT 별도)</span></h3><!--2022-07-11 EZP-3157 워딩변경-->
+							<p class="orange"><em id="emOrderAmount">0</em>원</p>
+						</span>
+					</li>
+				</ul>
+				<div class="top-wrap">
+					<div>
+						<button type="button" name="button" class="btn small reset aDeletedCart" data-type="all">RESET</button>
+						<button type="button" name="button" class="btn small line aDeletedCart" data-type="row">선택상품 삭제</button>
+						<button type="button" name="button" class="btn small line aModifiedCart" data-key="is_reserved" data-value="T" data-text="미송">선택상품 미송</button>
+						<button type="button" name="button" class="btn small line aModifiedCart" data-key="is_reserved" data-value="F" data-text="환불">선택상품 환불</button>
+						<button type="button" name="button" class="btn small b-green ui-popup-open" id="btnDeduction"  style="" data-target="#alert-pop1">선택상품 미송차감</button><!--2022-07-22 EZP-5433-->
+						<!-- <button type="button" name="button" class="btn small b-green ui-popup-open" id="btnDeduction"  style="" data-target="#alert-pop1">선택상품 미송차감</button> //2022-06-19 EZP-5433 -->
+						<!-- 20220323 EZP-3157-->
+						<!-- <button type="button" name="button" class="btn small line">선택상품 미결제</button> -->
+						<!-- <button type="button" name="button" class="btn small line">선택상품 결제</button> -->
+						<!--// 20220323 EZP-3157-->
+					</div>
+					<div>
+						<!-- 2021-04-27 EZP-2178 -->
+						<div class="switch-btn-wrap toggle-switch">
+							<span>미송수량확인</span>
+							<span class="switch eIsRefundedSwitch">
+								<input type="checkbox" name="is_refunded">
+								<div class="slider round">
+									<span class="on">ON</span>
+									<span class="off active">OFF</span>
+								</div>
+							</span>
+						</div>
+						<button type="button" name="button" class="btn small line ui-popup-open" data-target="#excel-check" data-overflow="false" id="aExcelSettings">엑셀 양식 설정</button><input type="hidden" name="order_excel_no" id="selOrderExcelNo" value="1">
+						<!-- 2020-05-13 -->
+						<div class="top-wrap-tip">
+							<div class="ui-select" data-target_id="#selOrderExcelNo">
+								<button type="button" data-target_id="#selOrderExcelNo" data-value="1">기본 양식</button>
+								<ul>
+									<li data-key="1">기본 양식</li>
+									<li data-key="4">핫핑</li>
+									<li data-key="21">양식테스트</li>
+									<li data-key="21">양식테스트</li>
+									<li data-key="21">양식테스트</li>
+								</ul>
+							</div>
+							<div class="tip-wrap">
+								<div class="tip" style="width: 290px;"><!--2022-08-18 EZP-5885 -->
+									선택한 양식은 바로주문 각 탭별로 적용됩니다.
+								</div>
+							</div>
+						</div>
+						<!-- 2020-05-13 -->
+
+						<input type="hidden" name="order_excel_no" id="selOrderExcelNo" value="">
+						<button type="button" class="btn small line" id="btnExcelDown">엑셀 양식 다운</button>
+						<button type="button" name="button" class="btn small line ui-popup-open" id="btnExcelUp" data-target="#excel-upload" data-overflow="false">엑셀 업로드</button>
+						<button type="button" name="button" class="btn small aOrdered b-blue">선택주문하기</button>
+						<button type="button" name="button" class="btn small aOrdered blue">전체주문하기</button>
+					</div>
+				</div>
+				<div class="mid-wrap">
+					<div>
+						<input type="hidden" name="view_type" id="selViewType" value="all">
+						<div class="ui-select" data-target_id="#selViewType">
+							<button type="button" data-target_id="#selViewType" data-value="">전체보기</button>
+							<ul>
+								<li data-key="all" class="active">전체보기</li>
+								<li data-key="error">오류보기</li>
+								<li data-key="error">미송건보기</li>
+							</ul>
+						</div>
+						<div class="notice">
+							<p>*표시는 필수 입력 정보입니다.
+								<span id="spnRecentUpdatedTs">임시저장시간 : -</span>
+							</p>
+						</div>
+					</div>
+					<div>
+						<div class="add-cell">
+							<a href="javascript:;" id="aAddedCart">셀 추가</a>
+						</div>
+						<div class="end-wrap">
+							<a href="#" class="prev">이전</a>
+							<a href="#" class="next">다음</a>
+							<span>끝으로 이동</span>
+						</div>
+					</div>
+				</div>
+				<!-- 2020-11-17 EZP-1674 시작 -->
+				<div class="table-wrap mb0 tab-scroll-wrap">
+					<div class="scrollbar"><span style="width:2103px"></span></div>
+					<div class="fix">
+						<table class="th-hor">
+							<!-- 2021-01-27 EZP-2178 시작 -->
+							<colgroup">
+								<col width="45px"><!--체크박스-->
+								<col width="45px"><!--번호-->
+								<col width="140px"><!--거래처명-->
+								<col width="240px"><!--거래처주소-->
+								<col width="160px"><!--거래처연락처-->
+								<col width="190px"><!--상품명-->
+								<col width="100px"><!--색상-->
+								<col width="80px"><!--사이즈-->
+								<col width="100px"><!--단가-->
+								<col width="80px" class="col-qty"><!--수량-->
+								<col width="100px" class="col-soldOut"><!--품절처리방식-->
+								<col width="200px"><!--메모-->
+								<col width="150px"><!--쇼핑몰상품명-->
+								<col width="150px"><!--쇼핑몰상품코드-->
+								<col width="170px"><!--이미지URL-->
+								<col width="150px"><!--기타정보1-->
+								<col width="150px"><!--기타정보2-->
+							</colgroup>
+
+							
+							<!-- 2021-01-27 EZP-2178 종료 -->
+							<thead>
+								<tr>
+									<!-- 2021-04-23 EZP-2705 시작 -->
+									<th><span class="checkbox"><input type="checkbox" class="allChk" id="allChk"><label for="allChk"></label></span></th>
+									<th>번호</th>
+									
+									<!-- 20220323 EZP-3157 추가 -->
+									<!-- <th>
+										<span data-required="">결제여부 </span>
+										<div class="tip-wrap">
+											<a href="javascript:;" class="btn-tip"></a>
+										</div>
+										
+									</th> //2022-06-19 EZP-5433-->
+									<!-- //20220323 EZP-3157 추가-->
+									<th><span class="essential" data-required="seller_name">거래처명</span></th>
+									<th><span class="" data-required="seller_addr">거래처주소</span></th>
+									<!-- 2020-06-16 EZP-754 -->
+									<th><span data-required="seller_tel">거래처연락처</span></th>
+									<th><span class="essential" data-required="product_name">상품명</span></th>
+									<th><span data-required="color_name">색상</span></th>
+									<th><span class="">사이즈</span></th>
+									
+									<!-- 20220323 EZP-3157 -->
+									<th><span class="essential" data-required="product_name">단가</span></th>
+									<th><span class="essential" data-required="product_name">수량</span></th>
+									<!-- //20220323 EZP-3157 -->
+									<!-- 2022-11-16 EZP-4734 품절처리방식 .essential 추가 -->
+									<th class="toggle-switch eseential">품절처리방식</th><!--2022-06-21 EZP-5433-->
+									<th>메모</th>
+									<th>쇼핑몰상품명</th>
+									<th>쇼핑몰상품코드</th>
+									<th>이미지URL</th>
+									<th>기타정보1</th>
+									<th>기타정보2</th>
+									<!-- 2021-04-23 EZP-2705 종료 -->
+								</tr>
+							</thead>
+						</table>
+					</div>
+					<div class="table-controls">
+						<div class="add-cell">
+							<a href="javascript:;" id="aAddedCart">셀 추가</a>
+						</div>
+						<div class="end-wrap">
+							<a href="#" class="prev">이전</a>
+							<a href="#" class="next">다음</a>
+						</div>
+					</div>
+			
+					<form name="frmOrder" id="frmOrder" method="post" action="/buyer/order/front/pay" autocomplete="off">
+						<input type="hidden" name="order_type" value="B">
+						<input type="hidden" name="order_method" value="10">
+						<input type="hidden" name="order_method_type" value="11">
+						<input type="hidden" name="is_add_in" value="F">
+						<input type="hidden" name="arrival_date" value="">
+						<table class="th-hor">
+							<!-- 2021-01-27 EZP-2178 시작 -->
+							<colgroup>
+								<col width="45px"><!--체크박스-->
+								<col width="45px"><!--번호-->
+								<col width="140px"><!--거래처명-->
+								<col width="240px"><!--거래처주소-->
+								<col width="160px"><!--거래처연락처-->
+								<col width="190px"><!--상품명-->
+								<col width="100px"><!--색상-->
+								<col width="80px"><!--사이즈-->
+								<col width="100px"><!--단가-->
+								<col width="80px" class="col-qty"><!--수량-->
+								<col width="100px" class="col-soldOut"><!--품절처리방식-->
+								<col width="200px"><!--메모-->
+								<col width="150px"><!--쇼핑몰상품명-->
+								<col width="150px"><!--쇼핑몰상품코드-->
+								<col width="170px"><!--이미지URL-->
+								<col width="150px"><!--기타정보1-->
+								<col width="150px"><!--기타정보2-->
+							</colgroup>
+							<!-- 2021-01-27 EZP-2178 종료 -->
+							<tbody id="tbodyOrder">
+								<tr>
+									<td><span class="checkbox"><input type="checkbox" class="rowChk" id="1586986" name="bulk_cart_no[]" value="1586986"><label for="1586986"></label></span></td>
+									<td class="tdNumbering tdInput">1</td>
+									<td class="caller tdInput tdSeller">
+										<input type="text" name="seller_name[]" value="" data-search_key="shop_name" maxlength="50" required="required">
+										<!-- 2022-08-19 EZP-5857 추가 검색 결과// -->
+										<div class="account-list" style="display: none;">
+											<!-- 검색시 display: block; display: none; 으로 처리 -->
+											<ul>
+												<li><button type="button" name="button"><span>프롬디오트프롬디오트프롬디오트프롬디오트프롬디오트</span> (<em>청평화 C동 2층 12호청평화 C동 2층 12호청평화 C동 2층 12호</em>, <em>02-111-2222</em>)</button></li>
+												<li><button type="button" name="button"><span>프롬디오트</span> (<em>청평화 C동 2층 12호</em>, <em>02-111-2222</em>)</button></li>
+												<li><button type="button" name="button"><span>프롬디오트</span> (<em>청평화 C동 2층 12호</em>,<em>02-111-2222</em>)</button></li>
+												<li><button type="button" name="button"><span>프롬디오트</span> (<em>청평화 C동 2층 12호</em>,<em>02-111-2222</em>)</button></li>
+												<li><button type="button" name="button"><span>프롬디오트</span> (<em>청평화 C동 2층 12호</em>,<em>02-111-2222</em>)</button></li>
+												<li><button type="button" name="button"><span>프롬디오트</span> (<em>청평화 C동 2층 12호</em>,<em>02-111-2222</em>)</button></li>
+												<li><button type="button" name="button"><span>프롬디오트</span> (<em>청평화 C동 2층 12호</em>,<em>02-111-2222</em>)</button></li>
+											</ul>
+										</div>
+										<!-- 2022-08-19 EZP-5857 추가 검색 결과// -->
+									</td>
+									<td class="cell caller tdInput tdSeller"><input type="text" name="seller_addr[]" value="" data-search_key="market_position" maxlength="100" required="required"></td>
+									<td class="caller tdInput tdSeller"><input type="text" name="seller_tel[]" value="" data-search_key="cell" maxlength="30"></td>
+									<!-- 2022-08-17 EZP-5857 자동완성 리스트 //-->
+									<td class="cell caller tdInput tdProduct">
+										<input type="text" name="product_name[]" value="" maxlength="100" required="required">
+										<!-- 2022-08-19 EZP-5857 추가 검색 결과// -->
+										<div class="account-list option" style="display: none;">
+											<!-- 검색시 display: block; display: none; 으로 처리 -->
+											<ul>
+												<li>
+													<button type="button" name="button"><span>퓨어니트 퓨어니트 퓨어니트 퓨어니트 / 화이트 화이트 화이트 / 66</span><i class="remove ui-popup-open" data-target="#searchRemove">제거</i></button>
+													<div class="tip">
+														<p>
+															깨끗하고 청아한 퓨어 요정 니트 내용이 길 때 툴팁이 노출됩니다. / 깨끗한 화이트 아이보리 / 누구나 맞는 프리사이즈
+															깨끗하고 청아한 퓨어 요정 니트 내용이 길 때 툴팁이 노출됩니다. / 깨끗한 화이트 아이보리 / 누구나 맞는 프리사이즈
+														</p>
+													</div>
+												</li>
+												<li>
+													<button type="button" name="button"><span> 퓨어니트 퓨어니트 / 화이트 화이트 화이트 / 66</span><i class="remove ui-popup-open" data-target="#searchRemove">제거</i></button>
+													<div class="tip">
+														깨끗하고 청아한 퓨어 요정 니트 내용이 길 때 툴팁이 노출됩니다. / 깨끗한 화이트 아이보리 / 누구나 맞는 프리사이즈
+													</div>
+												</li>
+												<li>
+													<button type="button" name="button"><span>퓨어니트 퓨어니트 퓨어니트 퓨어니트 퓨어니트 퓨어니트 / 화이트 화이트 화이트 / 66</span><i class="remove ui-popup-open" data-target="#searchRemove">제거</i></button>
+													<div class="tip">
+														깨끗하고 청아한 퓨어 요정 니트 내용이 길 때 툴팁이 노출됩니다. / 깨끗한 화이트 아이보리 / 누구나 맞는 프리사이즈
+													</div>
+												</li>
+											</ul>
+										</div>
+										<!-- //2022-08-19 EZP-5857 추가 검색 결과 -->
+									</td>
+									<!--// 2022-08-17 EZP-5857 자동완성 리스트 -->
+									<td class="caller tdInput"><input type="text" name="color_name[]" value="" maxlength="50"></td>
+									<td class="cell caller tdInput"><input type="text" name="size_name[]" value="" maxlength="50"></td>
+									<td class="caller tdInput"><input type="text" class="eNum" name="order_price[]" value="" maxlength="6" required="required"></td>
+									<!-- 2021-01-27 EZP-2178 시작 -->
+									<td class="cell caller tdInput amount-evt">
+										<input type="text" class="eNum" name="order_qty[]" value="" maxlength="4" required="required">
+										<span>-</span>
+									</td>
+									<!-- 2021-01-27 EZP-2178 종료 -->
+									<td class="caller toggle-switch"> <input type="hidden" name="is_reserved[]" id="is_reserved0" value="F" required="required"><!-- 2022-06-07 EZP-5433 .toggle-switch 클래스 추가 -->
+										<div class="ui-select" data-target_id="#is_reserved0"> <button type="button" data-target_id="#is_reserved0" data-value="">환불</button>
+											<ul>
+												<li data-key="F">환불</li>
+												<li data-key="T">미송</li>
+											</ul>
+										</div>
+									</td>
+									<td class="cell tdInput"><input type="text" name="order_memo[]" value="" maxlength="255"></td>
+									<td class="tdInput"><input type="text" name="customer_product_name[]" value="" maxlength="100"></td>
+									<td class="cell tdInput"><input type="text" name="customer_product_code[]" value="" maxlength="100"></td>
+									<td class="tdInput"><input type="text" name="product_img_url[]" value="" maxlength="255"></td>
+									<td class="cell tdInput"><input type="text" name="etc_info_1[]" value="" maxlength="100"></td>
+									<td class="tdInput"><input type="text" name="etc_info_2[]" value="" maxlength="100"></td>
+								</tr>
+								<tr>
+									<td><span class="checkbox"><input type="checkbox" class="rowChk" id="1586987" name="bulk_cart_no[]" value="1586987"><label for="1586987"></label></span></td>
+									<td class="tdNumbering tdInput">2</td>
+									<td class="caller tdInput tdSeller"><input type="text" name="seller_name[]" value="" data-search_key="shop_name" maxlength="50" required="required">
+										<!-- 2022-08-19 EZP-5857 추가 검색 결과// -->
+										<div class="account-list " style="display: none;">
+											<!-- 검색시 display: block; display: none; 으로 처리 -->
+											<ul>
+												<li><button type="button" name="button"><span>프롬디오트프롬디오트프롬디오트프롬디오트프롬디오트</span> (<em>청평화 C동 2층 12호청평화 C동 2층 12호청평화 C동 2층 12호</em>, <em>02-111-2222</em>)</button></li>
+												<li><button type="button" name="button"><span>프롬디오트</span> (<em>청평화 C동 2층 12호</em>, <em>02-111-2222</em>)</button></li>
+												<li><button type="button" name="button"><span>프롬디오트</span> (<em>청평화 C동 2층 12호</em>,<em>02-111-2222</em>)</button></li>
+												<li><button type="button" name="button"><span>프롬디오트</span> (<em>청평화 C동 2층 12호</em>,<em>02-111-2222</em>)</button></li>
+												<li><button type="button" name="button"><span>프롬디오트</span> (<em>청평화 C동 2층 12호</em>,<em>02-111-2222</em>)</button></li>
+												<li><button type="button" name="button"><span>프롬디오트</span> (<em>청평화 C동 2층 12호</em>,<em>02-111-2222</em>)</button></li>
+												<li><button type="button" name="button"><span>프롬디오트</span> (<em>청평화 C동 2층 12호</em>,<em>02-111-2222</em>)</button></li>
+											</ul>
+										</div>
+										<!-- 2022-08-19 EZP-5857 추가 검색 결과// -->
+									</td>
+									<td class="cell caller tdInput tdSeller"><input type="text" name="seller_addr[]" value="" data-search_key="market_position" maxlength="100" required="required"></td>
+									<td class="caller tdInput tdSeller"><input type="text" name="seller_tel[]" value="" data-search_key="cell" maxlength="30"></td>
+									<td class="cell caller tdInput tdProduct">
+										<input type="text" name="product_name[]" value="" maxlength="100" required="required">
+										<!-- 2022-08-19 EZP-5857 추가 검색 결과// -->
+										<div class="account-list option" style="display: none;">
+											<!-- 검색시 display: block; display: none; 으로 처리 -->
+											<ul>
+												<li>
+													<button type="button" name="button"><span>퓨어니트 퓨어니트 퓨어니트 퓨어니트 / 화이트 화이트 화이트 / 66</span><i class="remove ui-popup-open" data-target="#searchRemove">제거</i></button>
+													<div class="tip">
+														<p>
+															깨끗하고 청아한 퓨어 요정 니트 내용이 길 때 툴팁이 노출됩니다. / 깨끗한 화이트 아이보리 / 누구나 맞는 프리사이즈
+															깨끗하고 청아한 퓨어 요정 니트 내용이 길 때 툴팁이 노출됩니다. / 깨끗한 화이트 아이보리 / 누구나 맞는 프리사이즈
+														</p>
+													</div>
+												</li>
+												<li>
+													<button type="button" name="button"><span> 퓨어니트 퓨어니트 / 화이트 화이트 화이트 / 66</span><i class="remove ui-popup-open" data-target="#searchRemove">제거</i></button>
+													<div class="tip">
+														깨끗하고 청아한 퓨어 요정 니트 내용이 길 때 툴팁이 노출됩니다. / 깨끗한 화이트 아이보리 / 누구나 맞는 프리사이즈
+													</div>
+												</li>
+												<li>
+													<button type="button" name="button"><span>퓨어니트 퓨어니트 퓨어니트 퓨어니트 퓨어니트 퓨어니트 / 화이트 화이트 화이트 / 66</span><i class="remove ui-popup-open" data-target="#searchRemove">제거</i></button>
+													<div class="tip">
+														깨끗하고 청아한 퓨어 요정 니트 내용이 길 때 툴팁이 노출됩니다. / 깨끗한 화이트 아이보리 / 누구나 맞는 프리사이즈
+													</div>
+												</li>
+											</ul>
+										</div>
+										<!-- //2022-08-19 EZP-5857 추가 검색 결과 -->
+									</td>
+									<td class="tdInput"><input type="text" name="color_name[]" value="" maxlength="50"></td>
+									<td class="cell tdInput"><input type="text" name="size_name[]" value="" maxlength="50"></td>
+									<td class="tdInput"><input type="text" class="eNum" name="order_price[]" value="" maxlength="6" required="required"></td>
+									<!-- 2021-01-27 EZP-2178 시작 -->
+									<td class="cell tdInput amount-evt">
+										<input type="text" class="eNum" name="order_qty[]" value="" maxlength="4" required="required">
+										<span>9999</span>
+									</td>
+									<!-- 2021-01-27 EZP-2178 종료 -->
+									<td class="toggle-switch"> <input type="hidden" name="is_reserved[]" id="is_reserved1" value="F" required="required"><!-- 2022-06-07 EZP-5433 .toggle-switch 클래스 추가 -->
+										<div class="ui-select" data-target_id="#is_reserved1"> <button type="button" data-target_id="#is_reserved1" data-value="">환불</button>
+											<ul>
+												<li data-key="F">환불</li>
+												<li data-key="T">미송</li>
+											</ul>
+										</div>
+									</td>
+									<td class="cell tdInput"><input type="text" name="order_memo[]" value="" maxlength="255"></td>
+									<td class="tdInput"><input type="text" name="customer_product_name[]" value="" maxlength="100"></td>
+									<td class="cell tdInput"><input type="text" name="customer_product_code[]" value="" maxlength="100"></td>
+									<td class="tdInput"><input type="text" name="product_img_url[]" value="" maxlength="255"></td>
+									<td class="cell tdInput"><input type="text" name="etc_info_1[]" value="" maxlength="100"></td>
+									<td class="tdInput"><input type="text" name="etc_info_2[]" value="" maxlength="100"></td>
+								</tr>
+							</tbody>
+
+							 <tbody id="tbodyOrder">
+								<tr>
+									<td colspan="17">
+										<div class="noData"> <span class="noimg"></span>
+											<p>엑셀 파일을 등록해주세요.</p>
+										</div>
+									</td>
+								</tr>
+							</tbody> 
+
+							<!-- 2022-11-11 EZP-7314 검색결과 없음 case 추가 시작 -->
+							<tbody id="tbodyOrder">
+								<tr>
+									<td colspan="17">
+										<div class="noData none-search"> <span class="noimg"></span>
+											<p class="gray">검색 결과가 없습니다.</p>
+										</div>
+									</td>
+								</tr>
+							</tbody>
+							<!-- 2022-11-11 EZP-7314 검색결과 없음 case 추가 끝 -->
+
+						</table>
+					</form>
+				</div>
+				<!-- 2020-11-17 EZP-1674 종료 -->
+				<div class="go-order-wrap">
+					<!-- 2020-11-30 EZP-1674 -->
+					<a href="#" class="btn aOrdered b-blue ui-popup-open" data-target="#sellpick-pop">선택주문하기</a>
+					<!-- <a href="#" class="btn aOrdered b-black">선택주문하기</a>
+					<a href="#" class="btn aOrdered b-purple">선택주문하기</a>
+					<a href="#" class="btn aOrdered b-yellow">선택주문하기</a>
+					<a href="#" class="btn aOrdered b-green">선택주문하기</a>
+					<a href="#" class="btn aOrdered b-pink">선택주문하기</a> -->
+					<!--a href="#" class="btn aOrdered b-margenta">선택결제하기</a-->
+					<!-- <a href="#" class="btn aOrdered blue">전체주문하기</a> -->
+					<!-- <a href="#" class="btn aOrdered black">전체주문하기</a>
+					<a href="#" class="btn aOrdered purple">전체주문하기</a>
+					<a href="#" class="btn aOrdered yellow">전체주문하기</a>
+					<a href="#" class="btn aOrdered green">전체주문하기</a-->
+						
+					<!--a href="#" class="btn aOrdered margenta">전체결제하기</a>-->
+					<a href="#" class="btn aOrdered blue ui-popup-open" data-target="#sellpick-pop">전체주문하기</a>
+
+				</div>
+			</div>
+			<!--listRight-->
+		</div>
+
+		<!--TabContent @2.불량접수 -->
+		<!-- 2023-01-18 EZP-8075 .list-long class 추가 (드롭리스트 넓은타입) -->
+		<div class="order-list-wrap direct list-long" id="tab_02">
+			<div class="list-right direct">
+				<ul class="list-top">
+					<li>
+						<span>
+							<h3>주문요청 건수</h3>
+							<p><em id="emOrderItemQty">0</em>건</p>
+						</span>
+					</li>
+					<li>
+						<span>
+							<h3>총 거래처 수</h3>
+							<p><em id="emSellerQty">0</em>개</p>
+						</span>
+					</li>
+					<li>
+						<span>
+							<h3>총 상품 수</h3>
+							<p><em id="emOrderQty">0</em>개</p>
+						</span>
+					</li>
+					<li>
+						<span>
+							<h3>총 상품 금액<span>(VAT 별도)</span></h3><!--2022-07-11 EZP-3157 워딩변경-->
+							<p class="orange"><em id="emOrderAmount">0</em>원</p>
+						</span>
+					</li>
+				</ul>
+				<div class="top-wrap">
+					<div>
+						<button type="button" name="button" class="btn small reset aDeletedCart" data-type="all">RESET</button>
+						<button type="button" name="button" class="btn small line aDeletedCart" data-type="row">선택상품 삭제</button>
+						<!-- <button type="button" name="button" class="btn small line aModifiedCart" data-key="is_reserved"
+									data-value="T" data-text="미송">선택상품 미송</button>
+								<button type="button" name="button" class="btn small line aModifiedCart" data-key="is_reserved"
+									data-value="F" data-text="환불">선택상품 환불</button> -->
+						<!-- <button type="button" name="button" class="btn small b-green ui-popup-open" id="btnDeduction"  style="" data-target="#alert-pop1">선택상품 미송차감</button> //2022-06-19 EZP-5433 -->
+						<!-- 20220323 EZP-3157-->
+						<!-- <button type="button" name="button" class="btn small line">선택상품 미결제</button> -->
+						<!-- <button type="button" name="button" class="btn small line">선택상품 결제</button> -->
+						<!--// 20220323 EZP-3157-->
+					</div>
+					<div>
+						<!-- 2021-04-27 EZP-2178 -->
+						<!-- <div class="switch-btn-wrap toggle-switch">
+									<span>미송수량확인</span>
+									<span class="switch eIsRefundedSwitch">
+										<input type="checkbox" name="is_refunded">
+										<div class="slider round">
+											<span class="on">ON</span>
+											<span class="off active">OFF</span>
+										</div>
+									</span>
+								</div> -->
+						<button type="button" name="button" class="btn small line ui-popup-open" data-target="#excel-check"
+							data-overflow="false" id="aExcelSettings">엑셀 양식 설정</button><input type="hidden"
+							name="order_excel_no" id="selOrderExcelNo" value="1">
+						<!-- 2020-05-13 -->
+						<div class="top-wrap-tip">
+							<div class="ui-select" data-target_id="#selOrderExcelNo">
+								<button type="button" data-target_id="#selOrderExcelNo" data-value="1">기본 양식</button>
+								<ul>
+									<li data-key="1">기본 양식</li>
+									<li data-key="4">핫핑</li>
+									<li data-key="21">양식테스트</li>
+									<li data-key="21">양식테스트</li>
+									<li data-key="21">양식테스트</li>
+								</ul>
+							</div>
+							<div class="tip-wrap">
+								<div class="tip">
+									선택한 양식은 바로주문 각 탭별로 적용됩니다.
+								</div>
+							</div>
+						</div>
+						<!-- 2020-05-13 -->
+		
+						<input type="hidden" name="order_excel_no" id="selOrderExcelNo" value="">
+						<button type="button" class="btn small line" id="btnExcelDown">엑셀 양식 다운</button>
+						<button type="button" name="button" class="btn small line ui-popup-open" id="btnExcelUp"
+							data-target="#excel-upload" data-overflow="false">엑셀 업로드</button>
+						<button type="button" name="button" class="btn small aOrdered b-black">선택주문하기</button>
+						<button type="button" name="button" class="btn small aOrdered black">전체주문하기</button>
+					</div>
+				</div>
+				<div class="mid-wrap">
+					<div>
+						<input type="hidden" name="view_type" id="selViewType" value="all">
+						<div class="ui-select" data-target_id="#selViewType">
+							<button type="button" data-target_id="#selViewType" data-value="">전체보기</button>
+							<ul>
+								<li data-key="all" class="active">전체보기</li>
+								<li data-key="error">오류보기</li>
+							</ul>
+						</div>
+						<div class="notice">
+							<p>*표시는 필수 입력 정보입니다.
+								<span id="spnRecentUpdatedTs">임시저장시간 : -</span>
+							</p>
+						</div>
+					</div>
+					<div>
+						<div class="add-cell">
+							<a href="javascript:;" id="aAddedCart">셀 추가</a>
+						</div>
+						<div class="end-wrap">
+							<a href="#" class="prev">이전</a>
+							<a href="#" class="next">다음</a>
+							<span>끝으로 이동</span>
+						</div>
+					</div>
+				</div>
+				<!-- 2020-11-17 EZP-1674 시작 -->
+				<div class="table-wrap mb0 tab-scroll-wrap">
+					<!-- 2023-03-18 EZP-8605 width: 2103px -> 2250으로 변경 -->
+					<div class="scrollbar"><span style="width:2250px"></span></div>
+					<div class="fix">
+						<table class="th-hor">
+							<!-- 2021-01-27 EZP-2178 시작 -->
+							<colgroup>
+								<col width="45px"><!--체크박스-->
+								<col width="45px"><!--번호-->
+								<col width="140px"><!--거래처명-->
+								<col width="240px"><!--거래처주소-->
+								<col width="160px"><!--거래처연락처-->
+								<col width="190px"><!--상품명-->
+								<col width="100px"><!--색상-->
+								<col width="80px"><!--사이즈-->
+								<col width="100px"><!--단가-->
+								<col width="80px"><!--수량-->
+								<col width="100px"><!-- 품절처리방식 --> <!-- 2022-11-17 EZP-7042 -->
+								<col width="200px"><!--메모-->
+								<col width="150px"><!--쇼핑몰상품명-->
+								<col width="150px"><!--쇼핑몰상품코드-->
+								<col width="170px"><!--이미지URL-->
+								<col width="150px"><!--기타정보1-->
+								<col width="150px"><!--기타정보2-->
+							</colgroup>
+							<!-- 2021-01-27 EZP-2178 종료 -->
+							<thead>
+								<tr>
+									<!-- 2021-04-23 EZP-2705 시작 -->
+									<th><span class="checkbox"><input type="checkbox" class="allChk" id="allChk"><label
+												for="allChk"></label></span></th>
+									<th>번호</th>
+		
+									<!-- 20220323 EZP-3157 추가 -->
+									<!-- <th>
+														<span data-required="">결제여부 </span>
+														<div class="tip-wrap">
+															<a href="javascript:;" class="btn-tip"></a>
+														</div>
+														
+													</th> //2022-06-19 EZP-5433-->
+									<!-- //20220323 EZP-3157 추가-->
+									<th><span class="essential" data-required="seller_name">거래처명</span></th>
+									<th><span class="" data-required="seller_addr">거래처주소</span></th>
+									<!-- 2020-06-16 EZP-754 -->
+									<th><span data-required="seller_tel">거래처연락처</span></th>
+									<th><span class="essential" data-required="product_name">상품명</span></th>
+									<th><span data-required="color_name">색상</span></th>
+									<th><span class="">사이즈</span></th>
+		
+									<!-- 20220323 EZP-3157 -->
+									<th><span data-required="product_name">단가</th>
+									<th><span class="essential" data-required="product_name">수량</span></th>
+									<!-- <th class="toggle-switch">품절처리방식</th> --><!--2022-07-13 EZP-3157-->
+									<!-- 2022-11-17 EZP-7042 품절처리방식 추가 시작 -->
+									<th><span class="essential" data-required="product_name">품절처리방식</span></th>
+									<!-- 2022-11-17 EZP-7042 품절처리방식 추가 끝 -->
+									<th>메모</th>
+									<th>쇼핑몰상품명</th>
+									<th>쇼핑몰상품코드</th>
+									<th>이미지URL</th>
+									<th>기타정보1</th>
+									<th>기타정보2</th>
+									<!-- 2021-04-23 EZP-2705 종료 -->
+								</tr>
+							</thead>
+						</table>
+					</div>
+					<div class="table-controls">
+						<div class="add-cell">
+							<a href="javascript:;" id="aAddedCart">셀 추가</a>
+						</div>
+						<div class="end-wrap">
+							<a href="#" class="prev">이전</a>
+							<a href="#" class="next">다음</a>
+						</div>
+					</div>
+
+					<form name="frmOrder" id="frmOrder" method="post" action="/buyer/order/front/pay" autocomplete="off">
+						<input type="hidden" name="order_type" value="B">
+						<input type="hidden" name="order_method" value="10">
+						<input type="hidden" name="order_method_type" value="11">
+						<input type="hidden" name="is_add_in" value="F">
+						<input type="hidden" name="arrival_date" value="">
+						<table class="th-hor">
+							<!-- 2021-01-27 EZP-2178 시작 -->
+							<colgroup>
+								<col width="45px"><!--체크박스-->
+								<col width="45px"><!--번호-->
+								<col width="140px"><!--거래처명-->
+								<col width="240px"><!--거래처주소-->
+								<col width="160px"><!--거래처연락처-->
+								<col width="190px"><!--상품명-->
+								<col width="100px"><!--색상-->
+								<col width="80px"><!--사이즈-->
+								<col width="100px"><!--단가-->
+								<col width="80px"><!--수량-->
+								<col width="100px"><!-- 품절처리방식 --> <!-- 2022-11-17 EZP-7042 추가 -->
+								<col width="200px"><!--메모-->
+								<col width="150px"><!--쇼핑몰상품명-->
+								<col width="150px"><!--쇼핑몰상품코드-->
+								<col width="170px"><!--이미지URL-->
+								<col width="150px"><!--기타정보1-->
+								<col width="150px"><!--기타정보2-->
+							</colgroup>
+							<!-- 2021-01-27 EZP-2178 종료 -->
+							<tbody id="tbodyOrder">
+								<tr>
+									<td><span class="checkbox"><input type="checkbox" class="rowChk" id="1586986"
+												name="bulk_cart_no[]" value="1586986"><label for="1586986"></label></span></td>
+									<td class="tdNumbering tdInput">1</td>
+									<td class="caller tdInput tdSeller"><input type="text" name="seller_name[]" value="" data-search_key="shop_name" maxlength="50" required="required">
+										<!-- 2022-08-19 EZP-5857 추가 검색 결과// -->
+										<div class="account-list" style="display: none;">
+											<!-- 검색시 display: block; display: none; 으로 처리 -->
+											<ul>
+												<li><button type="button" name="button"><span>프롬디오트프롬디오트프롬디오트프롬디오트프롬디오트</span> (<em>청평화 C동 2층 12호청평화 C동 2층 12호청평화 C동 2층 12호</em>, <em>02-111-2222</em>)</button></li>
+												<li><button type="button" name="button"><span>프롬디오트</span> (<em>청평화 C동 2층 12호</em>, <em>02-111-2222</em>)</button></li>
+												<li><button type="button" name="button"><span>프롬디오트</span> (<em>청평화 C동 2층 12호</em>,<em>02-111-2222</em>)</button></li>
+												<li><button type="button" name="button"><span>프롬디오트</span> (<em>청평화 C동 2층 12호</em>,<em>02-111-2222</em>)</button></li>
+												<li><button type="button" name="button"><span>프롬디오트</span> (<em>청평화 C동 2층 12호</em>,<em>02-111-2222</em>)</button></li>
+												<li><button type="button" name="button"><span>프롬디오트</span> (<em>청평화 C동 2층 12호</em>,<em>02-111-2222</em>)</button></li>
+												<li><button type="button" name="button"><span>프롬디오트</span> (<em>청평화 C동 2층 12호</em>,<em>02-111-2222</em>)</button></li>
+											</ul>
+										</div>
+										<!-- 2022-08-19 EZP-5857 추가 검색 결과// -->
+									</td>
+									<td class="cell caller tdInput tdSeller"><input type="text" name="seller_addr[]" value=""
+											data-search_key="market_position" maxlength="100" required="required"></td>
+									<td class="caller tdInput tdSeller"><input type="text" name="seller_tel[]" value=""
+											data-search_key="cell" maxlength="30"></td>
+									<td class="cell caller tdInput tdProduct"><input type="text" name="product_name[]" value=""
+											maxlength="100" required="required">
+										<!-- 2022-08-19 EZP-5857 추가 검색 결과// -->
+										<div class="account-list option" style="display: none;">
+											<!-- 검색시 display: block; display: none; 으로 처리 -->
+											<ul>
+												<li>
+													<button type="button" name="button"><span>퓨어니트 퓨어니트 퓨어니트 퓨어니트 / 화이트 화이트 화이트 / 66</span><i class="remove ui-popup-open" data-target="#searchRemove">제거</i></button>
+													<div class="tip">
+														<p>
+															깨끗하고 청아한 퓨어 요정 니트 내용이 길 때 툴팁이 노출됩니다. / 깨끗한 화이트 아이보리 / 누구나 맞는 프리사이즈
+															깨끗하고 청아한 퓨어 요정 니트 내용이 길 때 툴팁이 노출됩니다. / 깨끗한 화이트 아이보리 / 누구나 맞는 프리사이즈
+														</p>
+													</div>
+												</li>
+												<li>
+													<button type="button" name="button"><span> 퓨어니트 퓨어니트 / 화이트 화이트 화이트 / 66</span><i class="remove ui-popup-open" data-target="#searchRemove">제거</i></button>
+													<div class="tip">
+														깨끗하고 청아한 퓨어 요정 니트 내용이 길 때 툴팁이 노출됩니다. / 깨끗한 화이트 아이보리 / 누구나 맞는 프리사이즈
+													</div>
+												</li>
+												<li>
+													<button type="button" name="button"><span>퓨어니트 퓨어니트 퓨어니트 퓨어니트 퓨어니트 퓨어니트 / 화이트 화이트 화이트 / 66</span><i class="remove ui-popup-open" data-target="#searchRemove">제거</i></button>
+													<div class="tip">
+														깨끗하고 청아한 퓨어 요정 니트 내용이 길 때 툴팁이 노출됩니다. / 깨끗한 화이트 아이보리 / 누구나 맞는 프리사이즈
+													</div>
+												</li>
+											</ul>
+										</div>
+										<!-- //2022-08-19 EZP-5857 추가 검색 결과 -->
+									</td>
+									<td class="tdInput"><input type="text" name="color_name[]" value="" maxlength="50"></td>
+									<td class="cell tdInput"><input type="text" name="size_name[]" value="" maxlength="50"></td>
+									<td class="tdInput"><input type="text" class="eNum" name="order_price[]" value=""
+											maxlength="6" required="required"></td>
+									<!-- 2021-01-27 EZP-2178 시작 -->
+									<td class="cell tdInput ">
+										<input type="text" class="eNum" name="order_qty[]" value="" maxlength="4"
+											required="required">
+									</td>
+									<!-- 2021-01-27 EZP-2178 종료 -->
+									<!-- 2022-11-17 EZP-7042 toggle-switch 주석 제거 -->
+									<!-- 2023-03-08 input -> output으로 변경
+										<td class="toggle-switch"> <input type="hidden" name="is_reserved[]" id="is_reserved0"
+											value="F" required="required">
+										<div class="ui-select" data-target_id="#is_reserved0"> <button type="button"
+												data-target_id="#is_reserved0" data-value="">환불</button>
+											<ul>
+												<li data-key="F">환불</li>
+												<li data-key="T">미송</li>
+											</ul>
+										</div>
+									</td> --> <!--2022-07-13 EZP-3157 품절처리방식 열 제거-->
+									<td>
+										<div class="ui-select" data-target_id="#is_reserved0"> <button type="button"
+											data-target_id="#is_reserved0" data-value="">환불</button>
+											<ul>
+												<li data-key="F">환불</li>
+												<li data-key="T">미송</li>
+											</ul>
+										</div>
+									</td>
+									<td class="cell tdInput"><input type="text" name="order_memo[]" value="" maxlength="255">
+									</td>
+									<td class="tdInput"><input type="text" name="customer_product_name[]" value=""
+											maxlength="100"></td>
+									<td class="cell tdInput"><input type="text" name="customer_product_code[]" value=""
+											maxlength="100"></td>
+									<td class="tdInput"><input type="text" name="product_img_url[]" value="" maxlength="255">
+									</td>
+									<td class="cell tdInput"><input type="text" name="etc_info_1[]" value="" maxlength="100">
+									</td>
+									<td class="tdInput"><input type="text" name="etc_info_2[]" value="" maxlength="100"></td>
+								</tr>
+								<tr>
+									<td><span class="checkbox"><input type="checkbox" class="rowChk" id="1586987"
+												name="bulk_cart_no[]" value="1586987"><label for="1586987"></label></span></td>
+									<td class="tdNumbering tdInput">2</td>
+									<td class="caller tdInput tdSeller"><input type="text" name="seller_name[]" value="" data-search_key="shop_name" maxlength="50" required="required">
+										<!-- 2022-08-19 EZP-5857 추가 검색 결과// -->
+										<div class="account-list" style="display: none;">
+											<!-- 검색시 display: block; display: none; 으로 처리 -->
+											<ul>
+												<li><button type="button" name="button"><span>프롬디오트프롬디오트프롬디오트프롬디오트프롬디오트</span> (<em>청평화 C동 2층 12호청평화 C동 2층 12호청평화 C동 2층 12호</em>, <em>02-111-2222</em>)</button></li>
+												<li><button type="button" name="button"><span>프롬디오트</span> (<em>청평화 C동 2층 12호</em>, <em>02-111-2222</em>)</button></li>
+												<li><button type="button" name="button"><span>프롬디오트</span> (<em>청평화 C동 2층 12호</em>,<em>02-111-2222</em>)</button></li>
+												<li><button type="button" name="button"><span>프롬디오트</span> (<em>청평화 C동 2층 12호</em>,<em>02-111-2222</em>)</button></li>
+												<li><button type="button" name="button"><span>프롬디오트</span> (<em>청평화 C동 2층 12호</em>,<em>02-111-2222</em>)</button></li>
+												<li><button type="button" name="button"><span>프롬디오트</span> (<em>청평화 C동 2층 12호</em>,<em>02-111-2222</em>)</button></li>
+												<li><button type="button" name="button"><span>프롬디오트</span> (<em>청평화 C동 2층 12호</em>,<em>02-111-2222</em>)</button></li>
+											</ul>
+										</div>
+										<!-- 2022-08-19 EZP-5857 추가 검색 결과// -->
+									</td>
+									<td class="cell caller tdInput tdSeller"><input type="text" name="seller_addr[]" value=""
+											data-search_key="market_position" maxlength="100" required="required"></td>
+									<td class="caller tdInput tdSeller"><input type="text" name="seller_tel[]" value=""
+											data-search_key="cell" maxlength="30"></td>
+									<td class="cell caller tdInput tdProduct"><input type="text" name="product_name[]" value=""
+											maxlength="100" required="required">
+										<!-- 2022-08-19 EZP-5857 추가 검색 결과// -->
+										<div class="account-list option" style="display: none;">
+											<!-- 검색시 display: block; display: none; 으로 처리 -->
+											<ul>
+												<li>
+													<button type="button" name="button"><span>퓨어니트 퓨어니트 퓨어니트 퓨어니트 / 화이트 화이트 화이트 / 66</span><i class="remove ui-popup-open" data-target="#searchRemove">제거</i></button>
+													<div class="tip">
+														<p>
+															깨끗하고 청아한 퓨어 요정 니트 내용이 길 때 툴팁이 노출됩니다. / 깨끗한 화이트 아이보리 / 누구나 맞는 프리사이즈
+															깨끗하고 청아한 퓨어 요정 니트 내용이 길 때 툴팁이 노출됩니다. / 깨끗한 화이트 아이보리 / 누구나 맞는 프리사이즈
+														</p>
+													</div>
+												</li>
+												<li>
+													<button type="button" name="button"><span> 퓨어니트 퓨어니트 / 화이트 화이트 화이트 / 66</span><i class="remove ui-popup-open" data-target="#searchRemove">제거</i></button>
+													<div class="tip">
+														깨끗하고 청아한 퓨어 요정 니트 내용이 길 때 툴팁이 노출됩니다. / 깨끗한 화이트 아이보리 / 누구나 맞는 프리사이즈
+													</div>
+												</li>
+												<li>
+													<button type="button" name="button"><span>퓨어니트 퓨어니트 퓨어니트 퓨어니트 퓨어니트 퓨어니트 / 화이트 화이트 화이트 / 66</span><i class="remove ui-popup-open" data-target="#searchRemove">제거</i></button>
+													<div class="tip">
+														깨끗하고 청아한 퓨어 요정 니트 내용이 길 때 툴팁이 노출됩니다. / 깨끗한 화이트 아이보리 / 누구나 맞는 프리사이즈
+													</div>
+												</li>
+											</ul>
+										</div>
+										<!-- //2022-08-19 EZP-5857 추가 검색 결과 -->
+									</td>
+									<td class="tdInput"><input type="text" name="color_name[]" value="" maxlength="50"></td>
+									<td class="cell tdInput"><input type="text" name="size_name[]" value="" maxlength="50"></td>
+									<td class="tdInput"><input type="text" class="eNum" name="order_price[]" value=""
+											maxlength="6" required="required"></td>
+									<!-- 2021-01-27 EZP-2178 시작 -->
+									<td class="cell tdInput">
+										<input type="text" class="eNum" name="order_qty[]" value="" maxlength="4"
+											required="required">
+									</td>
+									<!-- 2021-01-27 EZP-2178 종료 -->
+									<!-- 2022-11-17 EZP-7042 toggle-switch 주석 제거 -->
+									<!-- 2023-03-08 input -> output으로 변경 <td class="toggle-switch"> <input type="hidden" name="is_reserved[]" id="is_reserved1"
+											value="F" required="required">
+										<div class="ui-select" data-target_id="#is_reserved1"> <button type="button"
+												data-target_id="#is_reserved1" data-value="">환불</button>
+											<ul>
+												<li data-key="F">환불</li>
+												<li data-key="T">미송</li>
+											</ul>
+										</div>
+									</td> -->
+									<!--2022-07-13 EZP-3157 품절처리방식 열 제거-->
+									<td>
+										<div class="ui-select" data-target_id="#is_reserved1"> <button type="button"
+											data-target_id="#is_reserved1" data-value="">환불</button>
+											<ul>
+												<li data-key="F">환불</li>
+												<li data-key="T">미송</li>
+											</ul>
+										</div>
+									</td>
+									<td class="cell tdInput"><input type="text" name="order_memo[]" value="" maxlength="255">
+									</td>
+									<td class="tdInput"><input type="text" name="customer_product_name[]" value=""
+											maxlength="100"></td>
+									<td class="cell tdInput"><input type="text" name="customer_product_code[]" value=""
+											maxlength="100"></td>
+									<td class="tdInput"><input type="text" name="product_img_url[]" value="" maxlength="255">
+									</td>
+									<td class="cell tdInput"><input type="text" name="etc_info_1[]" value="" maxlength="100">
+									</td>
+									<td class="tdInput"><input type="text" name="etc_info_2[]" value="" maxlength="100"></td>
+								</tr>
+							</tbody>
+		
+							<tbody id="tbodyOrder">
+								<tr>
+									<td colspan="17">
+										<div class="noData"> <span class="noimg"></span>
+											<p>엑셀 파일을 등록해주세요.</p>
+										</div>
+									</td>
+								</tr>
+							</tbody>
+
+							<!-- 2022-11-11 EZP-7314 검색결과 없음 case 추가 시작 -->
+							<tbody id="tbodyOrder">
+								<tr>
+									<td colspan="17">
+										<div class="noData none-search"> <span class="noimg"></span>
+											<p class="gray">검색 결과가 없습니다.</p>
+										</div>
+									</td>
+								</tr>
+							</tbody>
+							<!-- 2022-11-11 EZP-7314 검색결과 없음 case 추가 끝 -->
+
+							
+						</table>
+					</form>
+				</div>
+				<!-- 2020-11-17 EZP-1674 종료 -->
+				<div class="go-order-wrap">
+					<!-- 2020-11-30 EZP-1674 -->
+					<a href="#" class="btn aOrdered b-black">선택주문하기</a>
+					<!-- <a href="#" class="btn aOrdered b-black">선택주문하기</a>
+									<a href="#" class="btn aOrdered b-purple">선택주문하기</a>
+									<a href="#" class="btn aOrdered b-yellow">선택주문하기</a>
+									<a href="#" class="btn aOrdered b-green">선택주문하기</a>
+									<a href="#" class="btn aOrdered b-pink">선택주문하기</a> -->
+					<!--a href="#" class="btn aOrdered b-margenta">선택결제하기</a-->
+					<!-- <a href="#" class="btn aOrdered blue">전체주문하기</a> -->
+					<!-- <a href="#" class="btn aOrdered black">전체주문하기</a>
+									<a href="#" class="btn aOrdered purple">전체주문하기</a>
+									<a href="#" class="btn aOrdered yellow">전체주문하기</a>
+									<a href="#" class="btn aOrdered green">전체주문하기</a-->
+		
+					<!--a href="#" class="btn aOrdered margenta">전체결제하기</a>-->
+					<a href="#" class="btn aOrdered black">전체주문하기</a>
+		
+				</div>
+			</div>
+			<!--listRight-->
+		</div>
+
+		<!--TabContent @3.샘플주문 -->
+		<!-- 2023-01-18 EZP-8075 .list-long class 추가 (드롭리스트 넓은타입) -->
+		<div class="order-list-wrap direct list-long" id="tab_03">
+			<div class="list-right direct">
+				<ul class="list-top">
+					<li>
+						<span>
+							<h3>주문요청 건수</h3>
+							<p><em id="emOrderItemQty">0</em>건</p>
+						</span>
+					</li>
+					<li>
+						<span>
+							<h3>총 거래처 수</h3>
+							<p><em id="emSellerQty">0</em>개</p>
+						</span>
+					</li>
+					<li>
+						<span>
+							<h3>총 상품 수</h3>
+							<p><em id="emOrderQty">0</em>개</p>
+						</span>
+					</li>
+					<li>
+						<span>
+							<h3>총 상품 금액<span>(VAT 별도)</span></h3>
+							<!--2022-07-11 EZP-3157 워딩변경-->
+							<p class="orange"><em id="emOrderAmount">0</em>원</p>
+						</span>
+					</li>
+				</ul>
+				<div class="top-wrap">
+					<div>
+						<button type="button" name="button" class="btn small reset aDeletedCart" data-type="all">RESET</button>
+						<button type="button" name="button" class="btn small line aDeletedCart" data-type="row">선택상품 삭제</button>
+						<!-- <button type="button" name="button" class="btn small line aModifiedCart" data-key="is_reserved"
+											data-value="T" data-text="미송">선택상품 미송</button>
+										<button type="button" name="button" class="btn small line aModifiedCart" data-key="is_reserved"
+											data-value="F" data-text="환불">선택상품 환불</button> -->
+						<!-- <button type="button" name="button" class="btn small b-green ui-popup-open" id="btnDeduction"  style="" data-target="#alert-pop1">선택상품 미송차감</button> //2022-06-19 EZP-5433 -->
+						<!-- 20220323 EZP-3157-->
+						<!-- <button type="button" name="button" class="btn small line">선택상품 미결제</button> -->
+						<!-- <button type="button" name="button" class="btn small line">선택상품 결제</button> -->
+						<!--// 20220323 EZP-3157-->
+					</div>
+					<div>
+						<!-- 2021-04-27 EZP-2178 -->
+						<!-- <div class="switch-btn-wrap toggle-switch">
+											<span>미송수량확인</span>
+											<span class="switch eIsRefundedSwitch">
+												<input type="checkbox" name="is_refunded">
+												<div class="slider round">
+													<span class="on">ON</span>
+													<span class="off active">OFF</span>
+												</div>
+											</span>
+										</div> -->
+						<button type="button" name="button" class="btn small line ui-popup-open" data-target="#excel-check"
+							data-overflow="false" id="aExcelSettings">엑셀 양식 설정</button><input type="hidden"
+							name="order_excel_no" id="selOrderExcelNo" value="1">
+						<!-- 2020-05-13 -->
+						<div class="top-wrap-tip">
+							<div class="ui-select" data-target_id="#selOrderExcelNo">
+								<button type="button" data-target_id="#selOrderExcelNo" data-value="1">기본 양식</button>
+								<ul>
+									<li data-key="1">기본 양식</li>
+									<li data-key="4">핫핑</li>
+									<li data-key="21">양식테스트</li>
+									<li data-key="21">양식테스트</li>
+									<li data-key="21">양식테스트</li>
+								</ul>
+							</div>
+							<div class="tip-wrap">
+								<div class="tip">
+									선택한 양식은 바로주문 각 탭별로 적용됩니다.
+								</div>
+							</div>
+						</div>
+						<!-- 2020-05-13 -->
+		
+						<input type="hidden" name="order_excel_no" id="selOrderExcelNo" value="">
+						<button type="button" class="btn small line" id="btnExcelDown">엑셀 양식 다운</button>
+						<button type="button" name="button" class="btn small line ui-popup-open" id="btnExcelUp"
+							data-target="#excel-upload" data-overflow="false">엑셀 업로드</button>
+						<button type="button" name="button" class="btn small aOrdered b-purple">선택주문하기</button>
+						<button type="button" name="button" class="btn small aOrdered purple">전체주문하기</button>
+					</div>
+				</div>
+				<div class="mid-wrap">
+					<div>
+						<input type="hidden" name="view_type" id="selViewType" value="all">
+						<div class="ui-select" data-target_id="#selViewType">
+							<button type="button" data-target_id="#selViewType" data-value="">전체보기</button>
+							<ul>
+								<li data-key="all" class="active">전체보기</li>
+								<li data-key="error">오류보기</li>
+							</ul>
+						</div>
+						<div class="notice">
+							<p>*표시는 필수 입력 정보입니다.
+								<span id="spnRecentUpdatedTs">임시저장시간 : -</span>
+							</p>
+						</div>
+					</div>
+					<div>
+						<div class="add-cell">
+							<a href="javascript:;" id="aAddedCart">셀 추가</a>
+						</div>
+						<div class="end-wrap">
+							<a href="#" class="prev">이전</a>
+							<a href="#" class="next">다음</a>
+							<span>끝으로 이동</span>
+						</div>
+					</div>
+				</div>
+				<!-- 2020-11-17 EZP-1674 시작 -->
+				<div class="table-wrap mb0 tab-scroll-wrap">
+					<div class="scrollbar"><span style="width:2193px"></span></div>
+					<div class="fix"><!--2022-07-13 EZP-3157-->
+						<table class="th-hor">
+							<!-- 2021-01-27 EZP-2178 시작 -->
+							<colgroup>
+								<col width="45px"><!--체크박스-->
+								<col width="45px"><!--번호-->
+								<col width="90px"><!--결제여부-->
+								<col width="140px"><!--거래처명-->
+								<col width="240px"><!--거래처주소-->
+								<col width="160px"><!--거래처연락처-->
+								<col width="190px"><!--상품명-->
+								<col width="100px"><!--색상-->
+								<col width="80px"><!--사이즈-->
+								<col width="100px"><!--단가-->
+								<col width="80px"><!--수량-->
+								<col width="100px" class="col-soldOut"><!--품절처리방식-->
+								<col width="200px"><!--메모-->
+								<col width="150px"><!--쇼핑몰상품명-->
+								<col width="150px"><!--쇼핑몰상품코드-->
+								<col width="170px"><!--이미지URL-->
+								<col width="150px"><!--기타정보1-->
+								<col width="150px"><!--기타정보2-->
+							</colgroup>
+							<!-- 2021-01-27 EZP-2178 종료 -->
+							<thead>
+								<tr>
+									<!-- 2021-04-23 EZP-2705 시작 -->
+									<th><span class="checkbox"><input type="checkbox" class="allChk" id="allChk"><label
+												for="allChk"></label></span></th>
+									<th>번호</th>
+						
+									<!-- 20220323 EZP-3157 추가 -->
+									<th>
+										<span data-required="">결제여부 </span>
+										<div class="tip-wrap">
+											<a href="javascript:;" class="btn-tip"></a>
+										</div>
+						
+									</th>
+									<!-- //20220323 EZP-3157 추가-->
+									<th><span class="essential" data-required="seller_name">거래처명</span></th>
+									<th><span class="" data-required="seller_addr">거래처주소</span></th>
+									<!-- 2020-06-16 EZP-754 -->
+									<th><span data-required="seller_tel">거래처연락처</span></th>
+									<th><span class="essential" data-required="product_name">상품명</span></th>
+									<th><span data-required="color_name">색상</span></th>
+									<th><span class="">사이즈</span></th>
+						
+									<!-- 20220323 EZP-3157 -->
+									<th><span data-required="product_name">단가(<em class="txt-red">*</em>)</span></th>
+									<th><span data-required="product_name">수량(<em class="txt-red">*</em>)</span></th>
+									<!-- //20220323 EZP-3157 -->
+						
+									<th class="thProduct toggle-switch"><span class="essential" data-required="is_reserved">품절처리방식</span></th>
+									<th>메모</th>
+									<th>쇼핑몰상품명</th>
+									<th>쇼핑몰상품코드</th>
+									<th>이미지URL</th>
+									<th>기타정보1</th>
+									<th>기타정보2</th>
+									<!-- 2021-04-23 EZP-2705 종료 -->
+								</tr>
+							</thead>
+						</table>
+					</div>
+					<div class="table-controls">
+						<div class="add-cell">
+							<a href="javascript:;" id="aAddedCart">셀 추가</a>
+						</div>
+						<div class="end-wrap">
+							<a href="#" class="prev">이전</a>
+							<a href="#" class="next">다음</a>
+						</div>
+					</div>
+
+					<!-- 2022-07-13 EZP-3157 -->
+					<div class="tip-msg" style="width: 530px;">
+						<span class="title">샘플 신청 안내 </span><br />
+						<p class="txt line " style="margin-top:5px;">
+							샘플 신청 시, 결제가 필요한 [유료샘플]은 [결제여부]를 '결제'로 설정해주세요.<br />
+							'미결제'설정 품목은 <span class="btn-type purple">샘플</span> 유형, '결제'로 설정한 품목은
+							<span class="btn-type purple">유료<br />샘플</span>유형으로 주문/입고됩니다.<br />
+							결제 및 정산 시 [유료샘플] 품목 금액만 합산하여 처리되오니 참고 바랍니다.
+					
+						</p>
+						<br />
+						<p class="txt">
+							※ '결제'설정한 품목은 [단가]와 [수량]을 필수로 입력해주세요<br />
+							<em>※ 무료로 지원받은 샘플을 결제하고 싶은 경우,</em> <br />
+							<em style="padding-left: 1rem;">[주문관리>샘플상품현황] 페이지에서[결제하기]기능을 이용해보세요. </em><br />
+						</p>
+					</div>
+					<!-- // 20220323 EZP-3157-->
+				
+					<form name="frmOrder" id="frmOrder" method="post" action="/buyer/order/front/pay">
+						<input type="hidden" name="order_type" value="B">
+						<input type="hidden" name="order_method" value="10">
+						<input type="hidden" name="order_method_type" value="11">
+						<table class="th-hor">
+							<!-- 2021-01-27 EZP-2178 시작 -->
+							<colgroup>
+								<col width="45px"><!--체크박스-->
+								<col width="45px"><!--번호-->
+								<col width="90px"><!--결제여부-->
+								<col width="140px"><!--거래처명-->
+								<col width="240px"><!--거래처주소-->
+								<col width="160px"><!--거래처연락처-->
+								<col width="190px"><!--상품명-->
+								<col width="100px"><!--색상-->
+								<col width="80px"><!--사이즈-->
+								<col width="100px"><!--단가-->
+								<col width="80px"><!--수량-->
+								<col width="100px" class="col-soldOut"><!--품절처리방식-->
+								<col width="200px"><!--메모-->
+								<col width="150px"><!--쇼핑몰상품명-->
+								<col width="150px"><!--쇼핑몰상품코드-->
+								<col width="170px"><!--이미지URL-->
+								<col width="150px"><!--기타정보1-->
+								<col width="150px"><!--기타정보2-->
+							</colgroup>
+							<!-- 2021-01-27 EZP-2178 종료 -->
+							<tbody id="tbodyOrder">
+								<tr>
+									<td><span class="checkbox"><input type="checkbox" class="rowChk" id="1586986" name="bulk_cart_no[]"
+												value="1586986"><label for="1586986"></label></span></td>
+									<td class="tdNumbering tdInput">1</td>
+						
+									<!-- 20220323 EZP-3157-->
+									<td class="caller tdInput tdSeller">
+										<span class="switch long eIsRefundedSwitch">
+											<input type="checkbox" name="is_refunded">
+											<div class="slider round">
+												<span class="on">결제</span>
+												<span class="off active">미결제</span>
+											</div>
+										</span>
+									</td>
+									<!-- //20220323 EZP-3157-->
+						
+									<td class="caller tdInput tdSeller"><input type="text" name="seller_name[]" value="" data-search_key="shop_name" maxlength="50" required="required">
+										<!-- 2022-08-19 EZP-5857 추가 검색 결과// -->
+										<div class="account-list" style="display: none;">
+											<!-- 검색시 display: block; display: none; 으로 처리 -->
+											<ul>
+												<li><button type="button" name="button"><span>프롬디오트프롬디오트프롬디오트프롬디오트프롬디오트</span> (<em>청평화 C동 2층 12호청평화 C동 2층 12호청평화 C동 2층 12호</em>, <em>02-111-2222</em>)</button></li>
+												<li><button type="button" name="button"><span>프롬디오트</span> (<em>청평화 C동 2층 12호</em>, <em>02-111-2222</em>)</button></li>
+												<li><button type="button" name="button"><span>프롬디오트</span> (<em>청평화 C동 2층 12호</em>,<em>02-111-2222</em>)</button></li>
+												<li><button type="button" name="button"><span>프롬디오트</span> (<em>청평화 C동 2층 12호</em>,<em>02-111-2222</em>)</button></li>
+												<li><button type="button" name="button"><span>프롬디오트</span> (<em>청평화 C동 2층 12호</em>,<em>02-111-2222</em>)</button></li>
+												<li><button type="button" name="button"><span>프롬디오트</span> (<em>청평화 C동 2층 12호</em>,<em>02-111-2222</em>)</button></li>
+												<li><button type="button" name="button"><span>프롬디오트</span> (<em>청평화 C동 2층 12호</em>,<em>02-111-2222</em>)</button></li>
+											</ul>
+										</div>
+										<!-- 2022-08-19 EZP-5857 추가 검색 결과// -->
+									</td>
+									<td class="cell caller tdInput tdSeller"><input type="text" name="seller_addr[]" value=""
+											data-search_key="market_position" maxlength="100" required="required"></td>
+									<td class="caller tdInput tdSeller"><input type="text" name="seller_tel[]" value="" data-search_key="cell"
+											maxlength="30"></td>
+									<td class="cell caller tdInput tdProduct"><input type="text" name="product_name[]" value="" maxlength="100" required="required">
+										<!-- 2022-08-19 EZP-5857 추가 검색 결과// -->
+										<div class="account-list option" style="display: none;">
+											<!-- 검색시 display: block; display: none; 으로 처리 -->
+											<ul>
+												<li>
+													<button type="button" name="button"><span>퓨어니트 퓨어니트 퓨어니트 퓨어니트 / 화이트 화이트 화이트 / 66</span><i class="remove ui-popup-open" data-target="#searchRemove">제거</i></button>
+													<div class="tip">
+														<p>
+															깨끗하고 청아한 퓨어 요정 니트 내용이 길 때 툴팁이 노출됩니다. / 깨끗한 화이트 아이보리 / 누구나 맞는 프리사이즈
+															깨끗하고 청아한 퓨어 요정 니트 내용이 길 때 툴팁이 노출됩니다. / 깨끗한 화이트 아이보리 / 누구나 맞는 프리사이즈
+														</p>
+													</div>
+												</li>
+												<li>
+													<button type="button" name="button"><span> 퓨어니트 퓨어니트 / 화이트 화이트 화이트 / 66</span><i class="remove ui-popup-open" data-target="#searchRemove">제거</i></button>
+													<div class="tip">
+														깨끗하고 청아한 퓨어 요정 니트 내용이 길 때 툴팁이 노출됩니다. / 깨끗한 화이트 아이보리 / 누구나 맞는 프리사이즈
+													</div>
+												</li>
+												<li>
+													<button type="button" name="button"><span>퓨어니트 퓨어니트 퓨어니트 퓨어니트 퓨어니트 퓨어니트 / 화이트 화이트 화이트 / 66</span><i class="remove ui-popup-open" data-target="#searchRemove">제거</i></button>
+													<div class="tip">
+														깨끗하고 청아한 퓨어 요정 니트 내용이 길 때 툴팁이 노출됩니다. / 깨끗한 화이트 아이보리 / 누구나 맞는 프리사이즈
+													</div>
+												</li>
+											</ul>
+										</div>
+										<!-- //2022-08-19 EZP-5857 추가 검색 결과 -->
+									</td>
+									<td class="tdInput"><input type="text" name="color_name[]" value="" maxlength="50"></td>
+									<td class="cell tdInput"><input type="text" name="size_name[]" value="" maxlength="50"></td>
+									<td class="tdInput"><input type="text" class="eNum" name="order_price[]" value="" maxlength="6"
+											required="required"></td>
+									<!-- 2021-01-27 EZP-2178 시작 -->
+									<td class="cell tdInput">
+										<input type="text" class="eNum" name="order_qty[]" value="" maxlength="4" required="required">
+									</td>
+									<!-- 2021-01-27 EZP-2178 종료 -->
+									<td class="toggle-switch">
+										<!-- 2022-11-17 EZP-4734 기존 select형식에서 txt형식으로 변경 
+										<input type="hidden" name="is_reserved[]" id="is_reserved0" value="F" required="required">
+										<div class="ui-select" data-target_id="#is_reserved0"> <button type="button"
+												data-target_id="#is_reserved0" data-value="">환불</button>
+											<ul>
+												<li data-key="F">환불</li>
+												<li data-key="T">미송</li>
+											</ul>
+										</div>
+										-->
+										<!-- 2022-11-17 EZP-4734 기존 select형식에서 txt형식으로 변경 시작 -->
+										환불
+										<!-- 2022-11-17 EZP-4734 기존 select형식에서 txt형식으로 변경 끝 -->
+									</td>
+									<td class="cell tdInput"><input type="text" name="order_memo[]" value="" maxlength="255"></td>
+									<td class="tdInput"><input type="text" name="customer_product_name[]" value="" maxlength="100"></td>
+									<td class="cell tdInput"><input type="text" name="customer_product_code[]" value="" maxlength="100"></td>
+									<td class="tdInput"><input type="text" name="product_img_url[]" value="" maxlength="255"></td>
+									<td class="cell tdInput"><input type="text" name="etc_info_1[]" value="" maxlength="100"></td>
+									<td class="tdInput"><input type="text" name="etc_info_2[]" value="" maxlength="100"></td>
+								</tr>
+								<tr>
+									<td><span class="checkbox"><input type="checkbox" class="rowChk" id="1586987" name="bulk_cart_no[]"
+												value="1586987"><label for="1586987"></label></span></td>
+									<td class="tdNumbering tdInput">2</td>
+						
+									<!-- 20220323 EZP-3157-->
+									<td class="caller tdInput tdSeller">
+										<span class="switch long eIsRefundedSwitch">
+											<input type="checkbox" name="is_refunded" checked="checked">
+											<div class="slider round">
+												<span class="on active">결제</span>
+												<span class="off ">미결제</span>
+											</div>
+										</span>
+									</td>
+									<!-- //20220323 EZP-3157-->
+						
+									<td class="caller tdInput tdSeller"><input type="text" name="seller_name[]" value="" data-search_key="shop_name" maxlength="50" required="required">
+										<!-- 2022-08-19 EZP-5857 추가 검색 결과// -->
+										<div class="account-list" style="display: none;">
+											<!-- 검색시 display: block; display: none; 으로 처리 -->
+											<ul>
+												<li><button type="button" name="button"><span>프롬디오트프롬디오트프롬디오트프롬디오트프롬디오트</span> (<em>청평화 C동 2층 12호청평화 C동 2층 12호청평화 C동 2층 12호</em>, <em>02-111-2222</em>)</button></li>
+												<li><button type="button" name="button"><span>프롬디오트</span> (<em>청평화 C동 2층 12호</em>, <em>02-111-2222</em>)</button></li>
+												<li><button type="button" name="button"><span>프롬디오트</span> (<em>청평화 C동 2층 12호</em>,<em>02-111-2222</em>)</button></li>
+												<li><button type="button" name="button"><span>프롬디오트</span> (<em>청평화 C동 2층 12호</em>,<em>02-111-2222</em>)</button></li>
+												<li><button type="button" name="button"><span>프롬디오트</span> (<em>청평화 C동 2층 12호</em>,<em>02-111-2222</em>)</button></li>
+												<li><button type="button" name="button"><span>프롬디오트</span> (<em>청평화 C동 2층 12호</em>,<em>02-111-2222</em>)</button></li>
+												<li><button type="button" name="button"><span>프롬디오트</span> (<em>청평화 C동 2층 12호</em>,<em>02-111-2222</em>)</button></li>
+											</ul>
+										</div>
+										<!-- 2022-08-19 EZP-5857 추가 검색 결과// -->
+									</td>
+									<td class="cell caller tdInput tdSeller"><input type="text" name="seller_addr[]" value=""
+											data-search_key="market_position" maxlength="100" required="required"></td>
+									<td class="caller tdInput tdSeller"><input type="text" name="seller_tel[]" value="" data-search_key="cell"
+											maxlength="30"></td>
+									<td class="cell caller tdInput tdProduct"><input type="text" name="product_name[]" value="" maxlength="100" required="required">
+										<!-- 2022-08-19 EZP-5857 추가 검색 결과// -->
+										<div class="account-list option" style="display: none;">
+											<!-- 검색시 display: block; display: none; 으로 처리 -->
+											<ul>
+												<li>
+													<button type="button" name="button"><span>퓨어니트 퓨어니트 퓨어니트 퓨어니트 / 화이트 화이트 화이트 / 66</span><i class="remove ui-popup-open" data-target="#searchRemove">제거</i></button>
+													<div class="tip">
+														<p>
+															깨끗하고 청아한 퓨어 요정 니트 내용이 길 때 툴팁이 노출됩니다. / 깨끗한 화이트 아이보리 / 누구나 맞는 프리사이즈
+															깨끗하고 청아한 퓨어 요정 니트 내용이 길 때 툴팁이 노출됩니다. / 깨끗한 화이트 아이보리 / 누구나 맞는 프리사이즈
+														</p>
+													</div>
+												</li>
+												<li>
+													<button type="button" name="button"><span> 퓨어니트 퓨어니트 / 화이트 화이트 화이트 / 66</span><i class="remove ui-popup-open" data-target="#searchRemove">제거</i></button>
+													<div class="tip">
+														깨끗하고 청아한 퓨어 요정 니트 내용이 길 때 툴팁이 노출됩니다. / 깨끗한 화이트 아이보리 / 누구나 맞는 프리사이즈
+													</div>
+												</li>
+												<li>
+													<button type="button" name="button"><span>퓨어니트 퓨어니트 퓨어니트 퓨어니트 퓨어니트 퓨어니트 / 화이트 화이트 화이트 / 66</span><i class="remove ui-popup-open" data-target="#searchRemove">제거</i></button>
+													<div class="tip">
+														깨끗하고 청아한 퓨어 요정 니트 내용이 길 때 툴팁이 노출됩니다. / 깨끗한 화이트 아이보리 / 누구나 맞는 프리사이즈
+													</div>
+												</li>
+											</ul>
+										</div>
+										<!-- //2022-08-19 EZP-5857 추가 검색 결과 -->
+									</td>
+									<td class="tdInput"><input type="text" name="color_name[]" value="" maxlength="50"></td>
+									<td class="cell tdInput"><input type="text" name="size_name[]" value="" maxlength="50"></td>
+									<td class="tdInput"><input type="text" class="eNum" name="order_price[]" value="" maxlength="6"
+											required="required"></td>
+									<!-- 2021-01-27 EZP-2178 시작 -->
+									<td class="cell tdInput">
+										<input type="text" class="eNum" name="order_qty[]" value="" maxlength="4" required="required">
+									</td>
+									<!-- 2021-01-27 EZP-2178 종료 -->
+									<td class="toggle-switch">
+										<!-- 2022-11-17 EZP-4734 기존 select형식에서 txt형식으로 변경 
+										<input type="hidden" name="is_reserved[]" id="is_reserved0" value="F" required="required">
+										<div class="ui-select" data-target_id="#is_reserved0"> <button type="button"
+												data-target_id="#is_reserved0" data-value="">환불</button>
+											<ul>
+												<li data-key="F">환불</li>
+												<li data-key="T">미송</li>
+											</ul>
+										</div>
+										-->
+										<!-- 2022-11-17 EZP-4734 기존 select형식에서 txt형식으로 변경 시작 -->
+										환불
+										<!-- 2022-11-17 EZP-4734 기존 select형식에서 txt형식으로 변경 끝 -->
+									</td>
+									<td class="cell tdInput"><input type="text" name="order_memo[]" value="" maxlength="255"></td>
+									<td class="tdInput"><input type="text" name="customer_product_name[]" value="" maxlength="100"></td>
+									<td class="cell tdInput"><input type="text" name="customer_product_code[]" value="" maxlength="100"></td>
+									<td class="tdInput"><input type="text" name="product_img_url[]" value="" maxlength="255"></td>
+									<td class="cell tdInput"><input type="text" name="etc_info_1[]" value="" maxlength="100"></td>
+									<td class="tdInput"><input type="text" name="etc_info_2[]" value="" maxlength="100"></td>
+								</tr>
+								<tr>
+									<td><span class="checkbox"><input type="checkbox" class="rowChk" id="1586988" name="bulk_cart_no[]"
+												value="1586988"><label for="1586988"></label></span></td>
+									<td class="tdNumbering tdInput">3</td>
+									<!-- 2022-11-17 EZP-4734 해당jira건은 아니지만 추가가 안되어있어서 추가 시작-->
+									<td class="caller tdInput tdSeller">
+										<span class="switch long eIsRefundedSwitch">
+											<input type="checkbox" name="is_refunded" checked="checked">
+											<div class="slider round">
+												<span class="on active">결제</span>
+												<span class="off ">미결제</span>
+											</div>
+										</span>
+									</td>
+									<!-- //2022-11-17 EZP-4734 해당jira건은 아니지만 추가가 안되어있어서 추가 종료-->
+									<td class="caller tdInput tdSeller"><input type="text" name="seller_name[]" value="" data-search_key="shop_name" maxlength="50" required="required">
+										<!-- 2022-08-19 EZP-5857 추가 검색 결과// -->
+										<div class="account-list" style="display: none;">
+											<!-- 검색시 display: block; display: none; 으로 처리 -->
+											<ul>
+												<li><button type="button" name="button"><span>프롬디오트프롬디오트프롬디오트프롬디오트프롬디오트</span> (<em>청평화 C동 2층 12호청평화 C동 2층 12호청평화 C동 2층 12호</em>, <em>02-111-2222</em>)</button></li>
+												<li><button type="button" name="button"><span>프롬디오트</span> (<em>청평화 C동 2층 12호</em>, <em>02-111-2222</em>)</button></li>
+												<li><button type="button" name="button"><span>프롬디오트</span> (<em>청평화 C동 2층 12호</em>,<em>02-111-2222</em>)</button></li>
+												<li><button type="button" name="button"><span>프롬디오트</span> (<em>청평화 C동 2층 12호</em>,<em>02-111-2222</em>)</button></li>
+												<li><button type="button" name="button"><span>프롬디오트</span> (<em>청평화 C동 2층 12호</em>,<em>02-111-2222</em>)</button></li>
+												<li><button type="button" name="button"><span>프롬디오트</span> (<em>청평화 C동 2층 12호</em>,<em>02-111-2222</em>)</button></li>
+												<li><button type="button" name="button"><span>프롬디오트</span> (<em>청평화 C동 2층 12호</em>,<em>02-111-2222</em>)</button></li>
+											</ul>
+										</div>
+										<!-- 2022-08-19 EZP-5857 추가 검색 결과// -->
+									</td>
+									<td class="cell caller tdInput tdSeller"><input type="text" name="seller_addr[]" value=""
+											data-search_key="market_position" maxlength="100" required="required"></td>
+									<td class="caller tdInput tdSeller"><input type="text" name="seller_tel[]" value="" data-search_key="cell"
+											maxlength="30"></td>
+									<td class="cell caller tdInput tdProduct"><input type="text" name="product_name[]" value="" maxlength="100" required="required">
+										<!-- 2022-08-19 EZP-5857 추가 검색 결과// -->
+										<div class="account-list option" style="display: none;">
+											<!-- 검색시 display: block; display: none; 으로 처리 -->
+											<ul>
+												<li>
+													<button type="button" name="button"><span>퓨어니트 퓨어니트 퓨어니트 퓨어니트 / 화이트 화이트 화이트 / 66</span><i class="remove ui-popup-open" data-target="#searchRemove">제거</i></button>
+													<div class="tip">
+														<p>
+															깨끗하고 청아한 퓨어 요정 니트 내용이 길 때 툴팁이 노출됩니다. / 깨끗한 화이트 아이보리 / 누구나 맞는 프리사이즈
+															깨끗하고 청아한 퓨어 요정 니트 내용이 길 때 툴팁이 노출됩니다. / 깨끗한 화이트 아이보리 / 누구나 맞는 프리사이즈
+														</p>
+													</div>
+												</li>
+												<li>
+													<button type="button" name="button"><span> 퓨어니트 퓨어니트 / 화이트 화이트 화이트 / 66</span><i class="remove ui-popup-open" data-target="#searchRemove">제거</i></button>
+													<div class="tip">
+														깨끗하고 청아한 퓨어 요정 니트 내용이 길 때 툴팁이 노출됩니다. / 깨끗한 화이트 아이보리 / 누구나 맞는 프리사이즈
+													</div>
+												</li>
+												<li>
+													<button type="button" name="button"><span>퓨어니트 퓨어니트 퓨어니트 퓨어니트 퓨어니트 퓨어니트 / 화이트 화이트 화이트 / 66</span><i class="remove ui-popup-open" data-target="#searchRemove">제거</i></button>
+													<div class="tip">
+														깨끗하고 청아한 퓨어 요정 니트 내용이 길 때 툴팁이 노출됩니다. / 깨끗한 화이트 아이보리 / 누구나 맞는 프리사이즈
+													</div>
+												</li>
+											</ul>
+										</div>
+										<!-- //2022-08-19 EZP-5857 추가 검색 결과 -->
+									</td>
+									<td class="tdInput"><input type="text" name="color_name[]" value="" maxlength="50"></td>
+									<td class="cell tdInput"><input type="text" name="size_name[]" value="" maxlength="50"></td>
+									<td class="tdInput"><input type="text" class="eNum" name="order_price[]" value="" maxlength="6"
+											required="required"></td>
+									<!-- 2021-01-27 EZP-2178 시작 -->
+									<td class="cell tdInput">
+										<input type="text" class="eNum" name="order_qty[]" value="" maxlength="4" required="required">
+									</td>
+									<!-- 2021-01-27 EZP-2178 종료 -->
+									<td class="toggle-switch">
+										<!-- 2022-11-17 EZP-4734 기존 select형식에서 txt형식으로 변경 
+										<input type="hidden" name="is_reserved[]" id="is_reserved1" value="F" required="required">
+										<div class="ui-select" data-target_id="#is_reserved1"> <button type="button"
+												data-target_id="#is_reserved1" data-value="">환불</button>
+											<ul>
+												<li data-key="F">환불</li>
+												<li data-key="T">미송</li>
+											</ul>
+										</div>
+										-->
+										<!-- 2022-11-17 EZP-4734 기존 select형식에서 txt형식으로 변경 시작 -->
+										환불
+										<!-- 2022-11-17 EZP-4734 기존 select형식에서 txt형식으로 변경 끝 -->
+									</td>
+									<td class="cell tdInput"><input type="text" name="order_memo[]" value="" maxlength="255"></td>
+									<td class="tdInput"><input type="text" name="customer_product_name[]" value="" maxlength="100"></td>
+									<td class="cell tdInput"><input type="text" name="customer_product_code[]" value="" maxlength="100"></td>
+									<td class="tdInput"><input type="text" name="product_img_url[]" value="" maxlength="255"></td>
+									<td class="cell tdInput"><input type="text" name="etc_info_1[]" value="" maxlength="100"></td>
+									<td class="tdInput"><input type="text" name="etc_info_2[]" value="" maxlength="100"></td>
+								</tr>
+							</tbody>
+						
+							<tbody id="tbodyOrder">
+								<tr>
+									<td colspan="18">
+										<div class="noData"> <span class="noimg"></span>
+											<p>엑셀 파일을 등록해주세요.</p>
+										</div>
+									</td>
+								</tr>
+							</tbody>
+
+							<!-- 2022-11-11 EZP-7314 검색결과 없음 case 추가 시작 -->
+							<tbody id="tbodyOrder">
+								<tr>
+									<td colspan="18">
+										<div class="noData none-search"> <span class="noimg"></span>
+											<p class="gray">검색 결과가 없습니다.</p>
+										</div>
+									</td>
+								</tr>
+							</tbody>
+							<!-- 2022-11-11 EZP-7314 검색결과 없음 case 추가 끝 -->
+
+							
+						</table>
+					</form>
+				</div>
+				<!-- 2020-11-17 EZP-1674 종료 -->
+				<div class="go-order-wrap">
+					<!-- 2020-11-30 EZP-1674 -->
+					<a href="#" class="btn aOrdered b-purple">선택주문하기</a>
+					<!-- <a href="#" class="btn aOrdered b-black">선택주문하기</a>
+											<a href="#" class="btn aOrdered b-purple">선택주문하기</a>
+											<a href="#" class="btn aOrdered b-yellow">선택주문하기</a>
+											<a href="#" class="btn aOrdered b-green">선택주문하기</a>
+											<a href="#" class="btn aOrdered b-pink">선택주문하기</a> -->
+					<!--a href="#" class="btn aOrdered b-margenta">선택결제하기</a-->
+					<!-- <a href="#" class="btn aOrdered blue">전체주문하기</a> -->
+					<!-- <a href="#" class="btn aOrdered black">전체주문하기</a>
+											<a href="#" class="btn aOrdered purple">전체주문하기</a>
+											<a href="#" class="btn aOrdered yellow">전체주문하기</a>
+											<a href="#" class="btn aOrdered green">전체주문하기</a-->
+		
+					<!--a href="#" class="btn aOrdered margenta">전체결제하기</a>-->
+					<a href="#" class="btn aOrdered purple">전체주문하기</a>
+		
+				</div>
+			</div>
+			<!--listRight-->
+		</div>
+
+		<!--TabContent @4.샘플반납 -->
+		<!-- 2023-01-18 EZP-8075 .list-long class 추가 (드롭리스트 넓은타입) -->
+		<div class="order-list-wrap direct list-long" id="tab_04">
+			<div class="list-right direct">
+				<ul class="list-top">
+					<li>
+						<span>
+							<h3>주문요청 건수</h3>
+							<p><em id="emOrderItemQty">0</em>건</p>
+						</span>
+					</li>
+					<li>
+						<span>
+							<h3>총 거래처 수</h3>
+							<p><em id="emSellerQty">0</em>개</p>
+						</span>
+					</li>
+					<li>
+						<span>
+							<h3>총 상품 수</h3>
+							<p><em id="emOrderQty">0</em>개</p>
+						</span>
+					</li>
+					<li>
+						<span>
+							<h3>총 상품 금액<span>(VAT 별도)</span></h3><!--2022-07-11 EZP-3157 워딩변경-->
+							<p class="orange"><em id="emOrderAmount">0</em>원</p>
+						</span>
+					</li>
+				</ul>
+				<div class="top-wrap">
+					<div>
+						<button type="button" name="button" class="btn small reset aDeletedCart" data-type="all">RESET</button>
+						<button type="button" name="button" class="btn small line aDeletedCart" data-type="row">선택상품 삭제</button>
+						<!-- <button type="button" name="button" class="btn small line aModifiedCart" data-key="is_reserved"
+									data-value="T" data-text="미송">선택상품 미송</button>
+								<button type="button" name="button" class="btn small line aModifiedCart" data-key="is_reserved"
+									data-value="F" data-text="환불">선택상품 환불</button> -->
+						<!-- <button type="button" name="button" class="btn small b-green ui-popup-open" id="btnDeduction"  style="" data-target="#alert-pop1">선택상품 미송차감</button> //2022-06-19 EZP-5433 -->
+						<!-- 20220323 EZP-3157-->
+						<!-- <button type="button" name="button" class="btn small line">선택상품 미결제</button> -->
+						<!-- <button type="button" name="button" class="btn small line">선택상품 결제</button> -->
+						<!--// 20220323 EZP-3157-->
+					</div>
+					<div>
+						<!-- 2021-04-27 EZP-2178 -->
+						<!-- <div class="switch-btn-wrap toggle-switch">
+									<span>미송수량확인</span>
+									<span class="switch eIsRefundedSwitch">
+										<input type="checkbox" name="is_refunded">
+										<div class="slider round">
+											<span class="on">ON</span>
+											<span class="off active">OFF</span>
+										</div>
+									</span>
+								</div> -->
+						<button type="button" name="button" class="btn small line ui-popup-open" data-target="#excel-check"
+							data-overflow="false" id="aExcelSettings">엑셀 양식 설정</button><input type="hidden"
+							name="order_excel_no" id="selOrderExcelNo" value="1">
+						<!-- 2020-05-13 -->
+						<div class="top-wrap-tip">
+							<div class="ui-select" data-target_id="#selOrderExcelNo">
+								<button type="button" data-target_id="#selOrderExcelNo" data-value="1">기본 양식</button>
+								<ul>
+									<li data-key="1">기본 양식</li>
+									<li data-key="4">핫핑</li>
+									<li data-key="21">양식테스트</li>
+									<li data-key="21">양식테스트</li>
+									<li data-key="21">양식테스트</li>
+								</ul>
+							</div>
+							<div class="tip-wrap">
+								<div class="tip">
+									선택한 양식은 바로주문 각 탭별로 적용됩니다.
+								</div>
+							</div>
+						</div>
+						<!-- 2020-05-13 -->
+		
+						<input type="hidden" name="order_excel_no" id="selOrderExcelNo" value="">
+						<button type="button" class="btn small line" id="btnExcelDown">엑셀 양식 다운</button>
+						<button type="button" name="button" class="btn small line ui-popup-open" id="btnExcelUp"
+							data-target="#excel-upload" data-overflow="false">엑셀 업로드</button>
+						<button type="button" name="button" class="btn small aOrdered b-yellow">선택주문하기</button>
+						<button type="button" name="button" class="btn small aOrdered yellow">전체주문하기</button>
+					</div>
+				</div>
+				<div class="mid-wrap">
+					<div>
+						<input type="hidden" name="view_type" id="selViewType" value="all">
+						<div class="ui-select" data-target_id="#selViewType">
+							<button type="button" data-target_id="#selViewType" data-value="">전체보기</button>
+							<ul>
+								<li data-key="all" class="active">전체보기</li>
+								<li data-key="error">오류보기</li>
+							</ul>
+						</div>
+						<div class="notice">
+							<p>*표시는 필수 입력 정보입니다.
+								<span id="spnRecentUpdatedTs">임시저장시간 : -</span>
+							</p>
+						</div>
+					</div>
+					<div>
+						<div class="add-cell">
+							<a href="javascript:;" id="aAddedCart">셀 추가</a>
+						</div>
+						<div class="end-wrap">
+							<a href="#" class="prev">이전</a>
+							<a href="#" class="next">다음</a>
+							<span>끝으로 이동</span>
+						</div>
+					</div>
+				</div>
+				<!-- 2020-11-17 EZP-1674 시작 -->
+				<div class="table-wrap mb0 tab-scroll-wrap">
+					<div class="scrollbar"><span style="width:2150px"></span></div>
+					<div class="fix">
+						<table class="th-hor">
+							<!-- 2021-01-27 EZP-2178 시작 -->
+							<colgroup>
+								<col width="45px"><!--체크박스-->
+								<col width="45px"><!--번호-->
+								<col width="140px"><!--거래처명-->
+								<col width="240px"><!--거래처주소-->
+								<col width="160px"><!--거래처연락처-->
+								<col width="190px"><!--상품명-->
+								<col width="100px"><!--색상-->
+								<col width="80px"><!--사이즈-->
+								<col width="100px"><!--단가-->
+								<col width="80px"><!--수량-->
+								<col width="200px"><!--메모-->
+								<col width="150px"><!--쇼핑몰상품명-->
+								<col width="150px"><!--쇼핑몰상품코드-->
+								<col width="170px"><!--이미지URL-->
+								<col width="150px"><!--기타정보1-->
+								<col width="150px"><!--기타정보2-->
+							</colgroup>
+							<!-- 2021-01-27 EZP-2178 종료 -->
+							<thead>
+								<tr>
+									<!-- 2021-04-23 EZP-2705 시작 -->
+									<th><span class="checkbox"><input type="checkbox" class="allChk" id="allChk"><label
+												for="allChk"></label></span></th>
+									<th>번호</th>
+		
+									<!-- 20220323 EZP-3157 추가 -->
+									<!-- <th>
+														<span data-required="">결제여부 </span>
+														<div class="tip-wrap">
+															<a href="javascript:;" class="btn-tip"></a>
+														</div>
+														
+													</th> //2022-06-19 EZP-5433-->
+									<!-- //20220323 EZP-3157 추가-->
+									<th><span class="essential" data-required="seller_name">거래처명</span></th>
+									<th><span class="" data-required="seller_addr">거래처주소</span></th>
+									<!-- 2020-06-16 EZP-754 -->
+									<th><span data-required="seller_tel">거래처연락처</span></th>
+									<th><span class="essential" data-required="product_name">상품명</span></th>
+									<th><span data-required="color_name">색상</span></th>
+									<th><span class="">사이즈</span></th>
+		
+									<!-- 20220323 EZP-3157 -->
+									<th><span data-required="product_name">단가</span></th>
+									<th><span data-required="product_name">수량</span></th>
+									<!-- //20220323 EZP-3157 -->
+									<!-- <th class="toggle-switch">품절처리방식</th> -->
+									<!--2022-06-21 EZP-5433-->
+									<th>메모</th>
+									<th>쇼핑몰상품명</th>
+									<th>쇼핑몰상품코드</th>
+									<th>이미지URL</th>
+									<th>기타정보1</th>
+									<th>기타정보2</th>
+									<!-- 2021-04-23 EZP-2705 종료 -->
+								</tr>
+							</thead>
+						</table>
+					</div>
+					<div class="table-controls">
+						<div class="add-cell">
+							<a href="javascript:;" id="aAddedCart">셀 추가</a>
+						</div>
+						<div class="end-wrap">
+							<a href="#" class="prev">이전</a>
+							<a href="#" class="next">다음</a>
+						</div>
+					</div>
+
+					<form name="frmOrder" id="frmOrder" method="post" action="/buyer/order/front/pay" autocomplete="off">
+						<input type="hidden" name="order_type" value="B">
+						<input type="hidden" name="order_method" value="10">
+						<input type="hidden" name="order_method_type" value="11">
+						<input type="hidden" name="is_add_in" value="F">
+						<input type="hidden" name="arrival_date" value="">
+						<table class="th-hor">
+							<!-- 2021-01-27 EZP-2178 시작 -->
+							<colgroup>
+								<col width="45px"><!--체크박스-->
+								<col width="45px"><!--번호-->
+								<col width="140px"><!--거래처명-->
+								<col width="240px"><!--거래처주소-->
+								<col width="160px"><!--거래처연락처-->
+								<col width="190px"><!--상품명-->
+								<col width="100px"><!--색상-->
+								<col width="80px"><!--사이즈-->
+								<col width="100px"><!--단가-->
+								<col width="80px"><!--수량-->
+								<col width="200px"><!--메모-->
+								<col width="150px"><!--쇼핑몰상품명-->
+								<col width="150px"><!--쇼핑몰상품코드-->
+								<col width="170px"><!--이미지URL-->
+								<col width="150px"><!--기타정보1-->
+								<col width="150px"><!--기타정보2-->
+							</colgroup>
+							<!-- 2021-01-27 EZP-2178 종료 -->
+							<tbody id="tbodyOrder">
+								<tr>
+									<td><span class="checkbox"><input type="checkbox" class="rowChk" id="1586986"
+												name="bulk_cart_no[]" value="1586986"><label for="1586986"></label></span></td>
+									<td class="tdNumbering tdInput">1</td>
+									<td class="caller tdInput tdSeller"><input type="text" name="seller_name[]" value="" data-search_key="shop_name" maxlength="50" required="required">
+										<!-- 2022-08-19 EZP-5857 추가 검색 결과// -->
+										<div class="account-list" style="display: none;">
+											<!-- 검색시 display: block; display: none; 으로 처리 -->
+											<ul>
+												<li><button type="button" name="button"><span>프롬디오트프롬디오트프롬디오트프롬디오트프롬디오트</span> (<em>청평화 C동 2층 12호청평화 C동 2층 12호청평화 C동 2층 12호</em>, <em>02-111-2222</em>)</button></li>
+												<li><button type="button" name="button"><span>프롬디오트</span> (<em>청평화 C동 2층 12호</em>, <em>02-111-2222</em>)</button></li>
+												<li><button type="button" name="button"><span>프롬디오트</span> (<em>청평화 C동 2층 12호</em>,<em>02-111-2222</em>)</button></li>
+												<li><button type="button" name="button"><span>프롬디오트</span> (<em>청평화 C동 2층 12호</em>,<em>02-111-2222</em>)</button></li>
+												<li><button type="button" name="button"><span>프롬디오트</span> (<em>청평화 C동 2층 12호</em>,<em>02-111-2222</em>)</button></li>
+												<li><button type="button" name="button"><span>프롬디오트</span> (<em>청평화 C동 2층 12호</em>,<em>02-111-2222</em>)</button></li>
+												<li><button type="button" name="button"><span>프롬디오트</span> (<em>청평화 C동 2층 12호</em>,<em>02-111-2222</em>)</button></li>
+											</ul>
+										</div>
+										<!-- 2022-08-19 EZP-5857 추가 검색 결과// -->
+									</td>
+									<td class="cell caller tdInput tdSeller"><input type="text" name="seller_addr[]" value=""
+											data-search_key="market_position" maxlength="100" required="required"></td>
+									<td class="caller tdInput tdSeller"><input type="text" name="seller_tel[]" value=""
+											data-search_key="cell" maxlength="30"></td>
+									<td class="cell caller tdInput tdProduct"><input type="text" name="product_name[]" value=""
+											maxlength="100" required="required">
+										<!-- 2022-08-19 EZP-5857 추가 검색 결과// -->
+										<div class="account-list option" style="display: none;">
+											<!-- 검색시 display: block; display: none; 으로 처리 -->
+											<ul>
+												<li>
+													<button type="button" name="button"><span>퓨어니트 퓨어니트 퓨어니트 퓨어니트 / 화이트 화이트 화이트 / 66</span><i class="remove ui-popup-open" data-target="#searchRemove">제거</i></button>
+													<div class="tip">
+														<p>
+															깨끗하고 청아한 퓨어 요정 니트 내용이 길 때 툴팁이 노출됩니다. / 깨끗한 화이트 아이보리 / 누구나 맞는 프리사이즈
+															깨끗하고 청아한 퓨어 요정 니트 내용이 길 때 툴팁이 노출됩니다. / 깨끗한 화이트 아이보리 / 누구나 맞는 프리사이즈
+														</p>
+													</div>
+												</li>
+												<li>
+													<button type="button" name="button"><span> 퓨어니트 퓨어니트 / 화이트 화이트 화이트 / 66</span><i class="remove ui-popup-open" data-target="#searchRemove">제거</i></button>
+													<div class="tip">
+														깨끗하고 청아한 퓨어 요정 니트 내용이 길 때 툴팁이 노출됩니다. / 깨끗한 화이트 아이보리 / 누구나 맞는 프리사이즈
+													</div>
+												</li>
+												<li>
+													<button type="button" name="button"><span>퓨어니트 퓨어니트 퓨어니트 퓨어니트 퓨어니트 퓨어니트 / 화이트 화이트 화이트 / 66</span><i class="remove ui-popup-open" data-target="#searchRemove">제거</i></button>
+													<div class="tip">
+														깨끗하고 청아한 퓨어 요정 니트 내용이 길 때 툴팁이 노출됩니다. / 깨끗한 화이트 아이보리 / 누구나 맞는 프리사이즈
+													</div>
+												</li>
+											</ul>
+										</div>
+										<!-- //2022-08-19 EZP-5857 추가 검색 결과 -->
+									</td>
+									<td class="tdInput"><input type="text" name="color_name[]" value="" maxlength="50"></td>
+									<td class="cell tdInput"><input type="text" name="size_name[]" value="" maxlength="50"></td>
+									<td class="tdInput"><input type="text" class="eNum" name="order_price[]" value=""
+											maxlength="6" required="required"></td>
+									<!-- 2021-01-27 EZP-2178 시작 -->
+									<td class="cell tdInput">
+										<input type="text" class="eNum" name="order_qty[]" value="" maxlength="4"
+											required="required">
+									</td>
+									<!-- 2021-01-27 EZP-2178 종료 -->
+									<!-- <td class="toggle-switch"> <input type="hidden" name="is_reserved[]" id="is_reserved0"
+											value="F" required="required">
+										<div class="ui-select" data-target_id="#is_reserved0"> <button type="button"
+												data-target_id="#is_reserved0" data-value="">환불</button>
+											<ul>
+												<li data-key="F">환불</li>
+												<li data-key="T">미송</li>
+											</ul>
+										</div>
+									</td> -->
+									<td class="cell tdInput"><input type="text" name="order_memo[]" value="" maxlength="255">
+									</td>
+									<td class="tdInput"><input type="text" name="customer_product_name[]" value=""
+											maxlength="100"></td>
+									<td class="cell tdInput"><input type="text" name="customer_product_code[]" value=""
+											maxlength="100"></td>
+									<td class="tdInput"><input type="text" name="product_img_url[]" value="" maxlength="255">
+									</td>
+									<td class="cell tdInput"><input type="text" name="etc_info_1[]" value="" maxlength="100">
+									</td>
+									<td class="tdInput"><input type="text" name="etc_info_2[]" value="" maxlength="100"></td>
+								</tr>
+								<tr>
+									<td><span class="checkbox"><input type="checkbox" class="rowChk" id="1586987"
+												name="bulk_cart_no[]" value="1586987"><label for="1586987"></label></span></td>
+									<td class="tdNumbering tdInput">2</td>
+									<td class="caller tdInput tdSeller"><input type="text" name="seller_name[]" value="" data-search_key="shop_name" maxlength="50" required="required">
+										<!-- 2022-08-19 EZP-5857 추가 검색 결과// -->
+										<div class="account-list" style="display: none;">
+											<!-- 검색시 display: block; display: none; 으로 처리 -->
+											<ul>
+												<li><button type="button" name="button"><span>프롬디오트프롬디오트프롬디오트프롬디오트프롬디오트</span> (<em>청평화 C동 2층 12호청평화 C동 2층 12호청평화 C동 2층 12호</em>, <em>02-111-2222</em>)</button></li>
+												<li><button type="button" name="button"><span>프롬디오트</span> (<em>청평화 C동 2층 12호</em>, <em>02-111-2222</em>)</button></li>
+												<li><button type="button" name="button"><span>프롬디오트</span> (<em>청평화 C동 2층 12호</em>,<em>02-111-2222</em>)</button></li>
+												<li><button type="button" name="button"><span>프롬디오트</span> (<em>청평화 C동 2층 12호</em>,<em>02-111-2222</em>)</button></li>
+												<li><button type="button" name="button"><span>프롬디오트</span> (<em>청평화 C동 2층 12호</em>,<em>02-111-2222</em>)</button></li>
+												<li><button type="button" name="button"><span>프롬디오트</span> (<em>청평화 C동 2층 12호</em>,<em>02-111-2222</em>)</button></li>
+												<li><button type="button" name="button"><span>프롬디오트</span> (<em>청평화 C동 2층 12호</em>,<em>02-111-2222</em>)</button></li>
+											</ul>
+										</div>
+										<!-- 2022-08-19 EZP-5857 추가 검색 결과// -->
+									</td>
+									<td class="cell caller tdInput tdSeller"><input type="text" name="seller_addr[]" value=""
+											data-search_key="market_position" maxlength="100" required="required"></td>
+									<td class="caller tdInput tdSeller"><input type="text" name="seller_tel[]" value=""
+											data-search_key="cell" maxlength="30"></td>
+									<td class="cell caller tdInput tdProduct"><input type="text" name="product_name[]" value="" maxlength="100" required="required" >
+										<!-- 2022-08-19 EZP-5857 추가 검색 결과// -->
+										<div class="account-list option" style="display: none;">
+											<!-- 검색시 display: block; display: none; 으로 처리 -->
+											<ul>
+												<li>
+													<button type="button" name="button"><span>퓨어니트 퓨어니트 퓨어니트 퓨어니트 / 화이트 화이트 화이트 / 66</span><i class="remove ui-popup-open" data-target="#searchRemove">제거</i></button>
+													<div class="tip">
+														<p>
+															깨끗하고 청아한 퓨어 요정 니트 내용이 길 때 툴팁이 노출됩니다. / 깨끗한 화이트 아이보리 / 누구나 맞는 프리사이즈
+															깨끗하고 청아한 퓨어 요정 니트 내용이 길 때 툴팁이 노출됩니다. / 깨끗한 화이트 아이보리 / 누구나 맞는 프리사이즈
+														</p>
+													</div>
+												</li>
+												<li>
+													<button type="button" name="button"><span> 퓨어니트 퓨어니트 / 화이트 화이트 화이트 / 66</span><i class="remove ui-popup-open" data-target="#searchRemove">제거</i></button>
+													<div class="tip">
+														깨끗하고 청아한 퓨어 요정 니트 내용이 길 때 툴팁이 노출됩니다. / 깨끗한 화이트 아이보리 / 누구나 맞는 프리사이즈
+													</div>
+												</li>
+												<li>
+													<button type="button" name="button"><span>퓨어니트 퓨어니트 퓨어니트 퓨어니트 퓨어니트 퓨어니트 / 화이트 화이트 화이트 / 66</span><i class="remove ui-popup-open" data-target="#searchRemove">제거</i></button>
+													<div class="tip">
+														깨끗하고 청아한 퓨어 요정 니트 내용이 길 때 툴팁이 노출됩니다. / 깨끗한 화이트 아이보리 / 누구나 맞는 프리사이즈
+													</div>
+												</li>
+											</ul>
+										</div>
+										<!-- //2022-08-19 EZP-5857 추가 검색 결과 --></td>
+									<td class="tdInput"><input type="text" name="color_name[]" value="" maxlength="50"></td>
+									<td class="cell tdInput"><input type="text" name="size_name[]" value="" maxlength="50"></td>
+									<td class="tdInput"><input type="text" class="eNum" name="order_price[]" value=""
+											maxlength="6" required="required"></td>
+									<!-- 2021-01-27 EZP-2178 시작 -->
+									<td class="cell tdInput">
+										<input type="text" class="eNum" name="order_qty[]" value="" maxlength="4"
+											required="required">
+									</td>
+									<!-- 2021-01-27 EZP-2178 종료 -->
+									<!-- <td class="toggle-switch"> <input type="hidden" name="is_reserved[]" id="is_reserved1"
+											value="F" required="required">
+										<div class="ui-select" data-target_id="#is_reserved1"> <button type="button"
+												data-target_id="#is_reserved1" data-value="">환불</button>
+											<ul>
+												<li data-key="F">환불</li>
+												<li data-key="T">미송</li>
+											</ul>
+										</div>
+									</td> -->
+									<td class="cell tdInput"><input type="text" name="order_memo[]" value="" maxlength="255">
+									</td>
+									<td class="tdInput"><input type="text" name="customer_product_name[]" value=""
+											maxlength="100"></td>
+									<td class="cell tdInput"><input type="text" name="customer_product_code[]" value=""
+											maxlength="100"></td>
+									<td class="tdInput"><input type="text" name="product_img_url[]" value="" maxlength="255">
+									</td>
+									<td class="cell tdInput"><input type="text" name="etc_info_1[]" value="" maxlength="100">
+									</td>
+									<td class="tdInput"><input type="text" name="etc_info_2[]" value="" maxlength="100"></td>
+								</tr>
+							</tbody>
+		
+							<tbody id="tbodyOrder">
+								<tr>
+									<td colspan="16">
+										<div class="noData"> <span class="noimg"></span>
+											<p>엑셀 파일을 등록해주세요.</p>
+										</div>
+									</td>
+								</tr>
+							</tbody>
+
+							<!-- 2022-11-11 EZP-7314 검색결과 없음 case 추가 시작 -->
+							<tbody id="tbodyOrder">
+								<tr>
+									<td colspan="16">
+										<div class="noData none-search"> <span class="noimg"></span>
+											<p class="gray">검색 결과가 없습니다.</p>
+										</div>
+									</td>
+								</tr>
+							</tbody>
+							<!-- 2022-11-11 EZP-7314 검색결과 없음 case 추가 끝 -->
+
+							
+						</table>
+					</form>
+				</div>
+				<!-- 2020-11-17 EZP-1674 종료 -->
+				<div class="go-order-wrap">
+					<!-- 2020-11-30 EZP-1674 -->
+					<a href="#" class="btn aOrdered b-yellow">선택주문하기</a>
+					<!-- <a href="#" class="btn aOrdered b-black">선택주문하기</a>
+									<a href="#" class="btn aOrdered b-purple">선택주문하기</a>
+									<a href="#" class="btn aOrdered b-yellow">선택주문하기</a>
+									<a href="#" class="btn aOrdered b-green">선택주문하기</a>
+									<a href="#" class="btn aOrdered b-pink">선택주문하기</a> -->
+					<!--a href="#" class="btn aOrdered b-margenta">선택결제하기</a-->
+					<!-- <a href="#" class="btn aOrdered blue">전체주문하기</a> -->
+					<!-- <a href="#" class="btn aOrdered black">전체주문하기</a>
+									<a href="#" class="btn aOrdered purple">전체주문하기</a>
+									<a href="#" class="btn aOrdered yellow">전체주문하기</a>
+									<a href="#" class="btn aOrdered green">전체주문하기</a-->
+		
+					<!--a href="#" class="btn aOrdered margenta">전체결제하기</a>-->
+					<a href="#" class="btn aOrdered yellow">전체주문하기</a>
+		
+				</div>
+			</div>
+			<!--listRight-->
+		</div>
+
+		<!--TabContent @5.미송주문 -->
+		<!-- 2023-01-18 EZP-8075 .list-long class 추가 (드롭리스트 넓은타입) -->
+		<div class="order-list-wrap direct list-long" id="tab_05">
+			<div class="list-right direct">
+				<ul class="list-top">
+					<li>
+						<span>
+							<h3>주문요청 건수</h3>
+							<p><em id="emOrderItemQty">0</em>건</p>
+						</span>
+					</li>
+					<li>
+						<span>
+							<h3>총 거래처 수</h3>
+							<p><em id="emSellerQty">0</em>개</p>
+						</span>
+					</li>
+					<li>
+						<span>
+							<h3>총 상품 수</h3>
+							<p><em id="emOrderQty">0</em>개</p>
+						</span>
+					</li>
+					<li>
+						<span>
+							<h3>총 상품 금액<span>(VAT 별도)</span></h3><!--2022-07-11 EZP-3157 워딩변경-->
+							<p class="orange"><em id="emOrderAmount">0</em>원</p>
+						</span>
+					</li>
+				</ul>
+				<div class="top-wrap">
+					<div>
+						<button type="button" name="button" class="btn small reset aDeletedCart" data-type="all">RESET</button>
+						<button type="button" name="button" class="btn small line aDeletedCart" data-type="row">선택상품 삭제</button>
+						<!-- <button type="button" name="button" class="btn small line aModifiedCart" data-key="is_reserved"
+							data-value="T" data-text="미송">선택상품 미송</button>
+						<button type="button" name="button" class="btn small line aModifiedCart" data-key="is_reserved"
+							data-value="F" data-text="환불">선택상품 환불</button> -->
+						<!-- <button type="button" name="button" class="btn small b-green ui-popup-open" id="btnDeduction"  style="" data-target="#alert-pop1">선택상품 미송차감</button> //2022-06-19 EZP-5433 -->
+						<!-- 20220323 EZP-3157-->
+						<!-- <button type="button" name="button" class="btn small line">선택상품 미결제</button> -->
+						<!-- <button type="button" name="button" class="btn small line">선택상품 결제</button> -->
+						<!--// 20220323 EZP-3157-->
+					</div>
+					<div>
+						<!-- 2021-04-27 EZP-2178 -->
+						<!-- <div class="switch-btn-wrap toggle-switch">
+							<span>미송수량확인</span>
+							<span class="switch eIsRefundedSwitch">
+								<input type="checkbox" name="is_refunded">
+								<div class="slider round">
+									<span class="on">ON</span>
+									<span class="off active">OFF</span>
+								</div>
+							</span>
+						</div> -->
+						<button type="button" name="button" class="btn small line ui-popup-open" data-target="#excel-check"
+							data-overflow="false" id="aExcelSettings">엑셀 양식 설정</button><input type="hidden"
+							name="order_excel_no" id="selOrderExcelNo" value="1">
+						<!-- 2020-05-13 -->
+						<div class="top-wrap-tip">
+							<div class="ui-select" data-target_id="#selOrderExcelNo">
+								<button type="button" data-target_id="#selOrderExcelNo" data-value="1">기본 양식</button>
+								<ul>
+									<li data-key="1">기본 양식</li>
+									<li data-key="4">핫핑</li>
+									<li data-key="21">양식테스트</li>
+									<li data-key="21">양식테스트</li>
+									<li data-key="21">양식테스트</li>
+								</ul>
+							</div>
+							<div class="tip-wrap">
+								<div class="tip">
+									선택한 양식은 바로주문 각 탭별로 적용됩니다.
+								</div>
+							</div>
+						</div>
+						<!-- 2020-05-13 -->
+		
+						<input type="hidden" name="order_excel_no" id="selOrderExcelNo" value="">
+						<button type="button" class="btn small line" id="btnExcelDown">엑셀 양식 다운</button>
+						<button type="button" name="button" class="btn small line ui-popup-open" id="btnExcelUp"
+							data-target="#excel-upload" data-overflow="false">엑셀 업로드</button>
+						<button type="button" name="button" class="btn small aOrdered b-green">선택주문하기</button>
+						<button type="button" name="button" class="btn small aOrdered green">전체주문하기</button>
+					</div>
+				</div>
+				<div class="mid-wrap">
+					<div>
+						<input type="hidden" name="view_type" id="selViewType" value="all">
+						<div class="ui-select" data-target_id="#selViewType">
+							<button type="button" data-target_id="#selViewType" data-value="">전체보기</button>
+							<ul>
+								<li data-key="all" class="active">전체보기</li>
+								<li data-key="error">오류보기</li>
+							</ul>
+						</div>
+						<div class="notice">
+							<p>*표시는 필수 입력 정보입니다.
+								<span id="spnRecentUpdatedTs">임시저장시간 : -</span>
+							</p>
+						</div>
+					</div>
+					<div>
+						<div class="add-cell">
+							<a href="javascript:;" id="aAddedCart">셀 추가</a>
+						</div>
+						<div class="end-wrap">
+							<a href="#" class="prev">이전</a>
+							<a href="#" class="next">다음</a>
+							<span>끝으로 이동</span>
+						</div>
+					</div>
+				</div>
+				<!-- 2020-11-17 EZP-1674 시작 -->
+				<div class="table-wrap mb0 tab-scroll-wrap">
+					<!-- 2023-03-18 EZP-8605 width: 2172px -> 2115로 변경 -->
+					<div class="scrollbar"><span style="width:2115px"></span></div>
+					<div class="fix">
+						<table class="th-hor">
+							<!-- 2021-01-27 EZP-2178 시작 -->
+							<colgroup>
+								<col width="45px"><!--체크박스-->
+								<col width="45px"><!--번호-->
+								<col width="140px"><!--거래처명-->
+								<col width="240px"><!--거래처주소-->
+								<col width="160px"><!--거래처연락처-->
+								<col width="190px"><!--상품명-->
+								<col width="100px"><!--색상-->
+								<col width="80px"><!--사이즈-->
+								<col width="100px"><!--단가-->
+								<col width="80px"><!--수량-->
+								<!-- 2022-11-16 EZP-7042 class .col-soldOut 추가 시작 -->
+								<col width="116px" class="col-soldOut"><!--품절처리방식-->
+								<!-- 2022-11-16 EZP-7042 class .col-soldOut 추가 끝 -->
+								<col width="200px"><!--메모-->
+								<col width="150px"><!--쇼핑몰상품명-->
+								<col width="150px"><!--쇼핑몰상품코드-->
+								<col width="170px"><!--이미지URL-->
+								<col width="150px"><!--기타정보1-->
+								<col width="150px"><!--기타정보2-->
+							</colgroup>
+							<!-- 2021-01-27 EZP-2178 종료 -->
+							<thead>
+								<tr>
+									<!-- 2021-04-23 EZP-2705 시작 -->
+									<th><span class="checkbox"><input type="checkbox" class="allChk" id="allChk"><label
+												for="allChk"></label></span></th>
+									<th>번호</th>
+		
+									<!-- 20220323 EZP-3157 추가 -->
+									<!-- <th>
+												<span data-required="">결제여부 </span>
+												<div class="tip-wrap">
+													<a href="javascript:;" class="btn-tip"></a>
+												</div>
+												
+											</th> //2022-06-19 EZP-5433-->
+									<!-- //20220323 EZP-3157 추가-->
+									<th><span class="essential" data-required="seller_name">거래처명</span></th>
+									<th><span class="" data-required="seller_addr">거래처주소</span></th>
+									<!-- 2020-06-16 EZP-754 -->
+									<th><span data-required="seller_tel">거래처연락처</span></th>
+									<th><span class="essential" data-required="product_name">상품명</span></th>
+									<th><span data-required="color_name">색상</span></th>
+									<th><span class="">사이즈</span></th>
+		
+									<!-- 20220323 EZP-3157 -->
+									<th><span class="essential" data-required="product_name">단가</span></th>
+									<th><span class="essential" data-required="product_name">수량</span></th>
+									<!-- //20220323 EZP-3157 -->
+									<!-- 2022-11-16 EZP-4734 품절처리방식 th안에 span 추가 -->
+									<th class="toggle-switch"><span class="essential" data-required="is_reserved">품절처리방식</span></th>
+									<!--2022-06-21 EZP-5433-->
+									<th>메모</th>
+									<th>쇼핑몰상품명</th>
+									<th>쇼핑몰상품코드</th>
+									<th>이미지URL</th>
+									<th>기타정보1</th>
+									<th>기타정보2</th>
+									<!-- 2021-04-23 EZP-2705 종료 -->
+								</tr>
+							</thead>
+						</table>
+					</div>
+					<div class="table-controls">
+						<div class="add-cell">
+							<a href="javascript:;" id="aAddedCart">셀 추가</a>
+						</div>
+						<div class="end-wrap">
+							<a href="#" class="prev">이전</a>
+							<a href="#" class="next">다음</a>
+						</div>
+					</div>
+		
+					<form name="frmOrder" id="frmOrder" method="post" action="/buyer/order/front/pay" autocomplete="off">
+						<input type="hidden" name="order_type" value="B">
+						<input type="hidden" name="order_method" value="10">
+						<input type="hidden" name="order_method_type" value="11">
+						<input type="hidden" name="is_add_in" value="F">
+						<input type="hidden" name="arrival_date" value="">
+						<table class="th-hor">
+							<!-- 2021-01-27 EZP-2178 시작 -->
+							<colgroup>
+								<col width="45px"><!--체크박스-->
+								<col width="45px"><!--번호-->
+								<col width="140px"><!--거래처명-->
+								<col width="240px"><!--거래처주소-->
+								<col width="160px"><!--거래처연락처-->
+								<col width="190px"><!--상품명-->
+								<col width="100px"><!--색상-->
+								<col width="80px"><!--사이즈-->
+								<col width="100px"><!--단가-->
+								<col width="80px"><!--수량-->
+								<!-- 2022-11-16 EZP-7042 class .col-soldOut 추가 시작 -->
+								<col width="116px" class="col-soldOut"><!--품절처리방식-->
+								<!-- 2022-11-16 EZP-7042 class .col-soldOut 추가 끝 -->
+								<col width="200px"><!--메모-->
+								<col width="150px"><!--쇼핑몰상품명-->
+								<col width="150px"><!--쇼핑몰상품코드-->
+								<col width="170px"><!--이미지URL-->
+								<col width="150px"><!--기타정보1-->
+								<col width="150px"><!--기타정보2-->
+							</colgroup>
+							<!-- 2021-01-27 EZP-2178 종료 -->
+							<tbody id="tbodyOrder">
+								<tr>
+									<td><span class="checkbox"><input type="checkbox" class="rowChk" id="1586986"
+												name="bulk_cart_no[]" value="1586986"><label for="1586986"></label></span></td>
+									<td class="tdNumbering tdInput">1</td>
+									<td class="caller tdInput tdSeller"><input type="text" name="seller_name[]" value="" data-search_key="shop_name" maxlength="50" required="required">
+										<!-- 2022-08-19 EZP-5857 추가 검색 결과// -->
+										<div class="account-list" style="display: none;">
+											<!-- 검색시 display: block; display: none; 으로 처리 -->
+											<ul>
+												<li><button type="button" name="button"><span>프롬디오트프롬디오트프롬디오트프롬디오트프롬디오트</span> (<em>청평화 C동 2층 12호청평화 C동 2층 12호청평화 C동 2층 12호</em>, <em>02-111-2222</em>)</button></li>
+												<li><button type="button" name="button"><span>프롬디오트</span> (<em>청평화 C동 2층 12호</em>, <em>02-111-2222</em>)</button></li>
+												<li><button type="button" name="button"><span>프롬디오트</span> (<em>청평화 C동 2층 12호</em>,<em>02-111-2222</em>)</button></li>
+												<li><button type="button" name="button"><span>프롬디오트</span> (<em>청평화 C동 2층 12호</em>,<em>02-111-2222</em>)</button></li>
+												<li><button type="button" name="button"><span>프롬디오트</span> (<em>청평화 C동 2층 12호</em>,<em>02-111-2222</em>)</button></li>
+												<li><button type="button" name="button"><span>프롬디오트</span> (<em>청평화 C동 2층 12호</em>,<em>02-111-2222</em>)</button></li>
+												<li><button type="button" name="button"><span>프롬디오트</span> (<em>청평화 C동 2층 12호</em>,<em>02-111-2222</em>)</button></li>
+											</ul>
+										</div>
+										<!-- 2022-08-19 EZP-5857 추가 검색 결과// -->
+									</td>
+									<td class="cell caller tdInput tdSeller"><input type="text" name="seller_addr[]" value=""
+											data-search_key="market_position" maxlength="100" required="required"></td>
+									<td class="caller tdInput tdSeller"><input type="text" name="seller_tel[]" value=""
+											data-search_key="cell" maxlength="30"></td>
+									<td class="cell caller tdInput tdProduct"><input type="text" name="product_name[]" value="" maxlength="100" required="required" >
+										<!-- 2022-08-19 EZP-5857 추가 검색 결과// -->
+										<div class="account-list option" style="display: none;">
+											<!-- 검색시 display: block; display: none; 으로 처리 -->
+											<ul>
+												<li>
+													<button type="button" name="button"><span>퓨어니트 퓨어니트 퓨어니트 퓨어니트 / 화이트 화이트 화이트 / 66</span><i class="remove ui-popup-open" data-target="#searchRemove">제거</i></button>
+													<div class="tip">
+														<p>
+															깨끗하고 청아한 퓨어 요정 니트 내용이 길 때 툴팁이 노출됩니다. / 깨끗한 화이트 아이보리 / 누구나 맞는 프리사이즈
+															깨끗하고 청아한 퓨어 요정 니트 내용이 길 때 툴팁이 노출됩니다. / 깨끗한 화이트 아이보리 / 누구나 맞는 프리사이즈
+														</p>
+													</div>
+												</li>
+												<li>
+													<button type="button" name="button"><span> 퓨어니트 퓨어니트 / 화이트 화이트 화이트 / 66</span><i class="remove ui-popup-open" data-target="#searchRemove">제거</i></button>
+													<div class="tip">
+														깨끗하고 청아한 퓨어 요정 니트 내용이 길 때 툴팁이 노출됩니다. / 깨끗한 화이트 아이보리 / 누구나 맞는 프리사이즈
+													</div>
+												</li>
+												<li>
+													<button type="button" name="button"><span>퓨어니트 퓨어니트 퓨어니트 퓨어니트 퓨어니트 퓨어니트 / 화이트 화이트 화이트 / 66</span><i class="remove ui-popup-open" data-target="#searchRemove">제거</i></button>
+													<div class="tip">
+														깨끗하고 청아한 퓨어 요정 니트 내용이 길 때 툴팁이 노출됩니다. / 깨끗한 화이트 아이보리 / 누구나 맞는 프리사이즈
+													</div>
+												</li>
+											</ul>
+										</div>
+										<!-- //2022-08-19 EZP-5857 추가 검색 결과 -->
+									</td>
+									<td class="tdInput"><input type="text" name="color_name[]" value="" maxlength="50"></td>
+									<td class="cell tdInput"><input type="text" name="size_name[]" value="" maxlength="50"></td>
+									<td class="tdInput"><input type="text" class="eNum" name="order_price[]" value=""
+											maxlength="6" required="required"></td>
+									<!-- 2021-01-27 EZP-2178 시작 -->
+									<td class="cell tdInput">
+										<input type="text" class="eNum" name="order_qty[]" value="" maxlength="4"
+											required="required">
+									</td>
+									<!-- 2021-01-27 EZP-2178 종료 -->
+									<td class="toggle-switch">
+										<!-- 2022-11-15 EZP-4734 select에서 txt-type으로 변경 
+										<input type="hidden" name="is_reserved[]" id="is_reserved0"
+											value="F" required="required">
+											--><!-- 2022-06-07 EZP-5433 .toggle-switch 클래스 추가 -->
+										<!-- 2022-11-15 EZP-4734 select에서 txt-type으로 변경 
+										<div class="ui-select" data-target_id="#is_reserved0"> <button type="button"
+												data-target_id="#is_reserved0" data-value="">환불</button>
+											<ul>
+												<li data-key="F">환불</li>
+												<li data-key="T">미송</li>
+											</ul>
+										</div>
+										-->
+										<!-- 2022-11-15 EZP-4734 select에서 txt-type으로 변경 시작 -->
+										미송
+										<!-- 2022-11-15 EZP-4734 select에서 txt-type으로 변경 끝 -->
+									</td>
+									<td class="cell tdInput"><input type="text" name="order_memo[]" value="" maxlength="255">
+									</td>
+									<td class="tdInput"><input type="text" name="customer_product_name[]" value=""
+											maxlength="100"></td>
+									<td class="cell tdInput"><input type="text" name="customer_product_code[]" value=""
+											maxlength="100"></td>
+									<td class="tdInput"><input type="text" name="product_img_url[]" value="" maxlength="255">
+									</td>
+									<td class="cell tdInput"><input type="text" name="etc_info_1[]" value="" maxlength="100">
+									</td>
+									<td class="tdInput"><input type="text" name="etc_info_2[]" value="" maxlength="100"></td>
+								</tr>
+								<tr>
+									<td><span class="checkbox"><input type="checkbox" class="rowChk" id="1586987"
+												name="bulk_cart_no[]" value="1586987"><label for="1586987"></label></span></td>
+									<td class="tdNumbering tdInput">2</td>
+									<td class="caller tdInput tdSeller"><input type="text" name="seller_name[]" value="" data-search_key="shop_name" maxlength="50" required="required">
+										<!-- 2022-08-19 EZP-5857 추가 검색 결과// -->
+										<div class="account-list" style="display: none;">
+											<!-- 검색시 display: block; display: none; 으로 처리 -->
+											<ul>
+												<li><button type="button" name="button"><span>프롬디오트프롬디오트프롬디오트프롬디오트프롬디오트</span> (<em>청평화 C동 2층 12호청평화 C동 2층 12호청평화 C동 2층 12호</em>, <em>02-111-2222</em>)</button></li>
+												<li><button type="button" name="button"><span>프롬디오트</span> (<em>청평화 C동 2층 12호</em>, <em>02-111-2222</em>)</button></li>
+												<li><button type="button" name="button"><span>프롬디오트</span> (<em>청평화 C동 2층 12호</em>,<em>02-111-2222</em>)</button></li>
+												<li><button type="button" name="button"><span>프롬디오트</span> (<em>청평화 C동 2층 12호</em>,<em>02-111-2222</em>)</button></li>
+												<li><button type="button" name="button"><span>프롬디오트</span> (<em>청평화 C동 2층 12호</em>,<em>02-111-2222</em>)</button></li>
+												<li><button type="button" name="button"><span>프롬디오트</span> (<em>청평화 C동 2층 12호</em>,<em>02-111-2222</em>)</button></li>
+												<li><button type="button" name="button"><span>프롬디오트</span> (<em>청평화 C동 2층 12호</em>,<em>02-111-2222</em>)</button></li>
+											</ul>
+										</div>
+										<!-- 2022-08-19 EZP-5857 추가 검색 결과// -->
+									</td>
+									<td class="cell caller tdInput tdSeller"><input type="text" name="seller_addr[]" value=""
+											data-search_key="market_position" maxlength="100" required="required"></td>
+									<td class="caller tdInput tdSeller"><input type="text" name="seller_tel[]" value=""
+											data-search_key="cell" maxlength="30"></td>
+									<td class="cell caller tdInput tdProduct"><input type="text" name="product_name[]" value="" maxlength="100" required="required">
+										<!-- 2022-08-19 EZP-5857 추가 검색 결과// -->
+										<div class="account-list option" style="display: none;">
+											<!-- 검색시 display: block; display: none; 으로 처리 -->
+											<ul>
+												<li>
+													<button type="button" name="button"><span>퓨어니트 퓨어니트 퓨어니트 퓨어니트 / 화이트 화이트 화이트 / 66</span><i class="remove ui-popup-open" data-target="#searchRemove">제거</i></button>
+													<div class="tip">
+														<p>
+															깨끗하고 청아한 퓨어 요정 니트 내용이 길 때 툴팁이 노출됩니다. / 깨끗한 화이트 아이보리 / 누구나 맞는 프리사이즈
+															깨끗하고 청아한 퓨어 요정 니트 내용이 길 때 툴팁이 노출됩니다. / 깨끗한 화이트 아이보리 / 누구나 맞는 프리사이즈
+														</p>
+													</div>
+												</li>
+												<li>
+													<button type="button" name="button"><span> 퓨어니트 퓨어니트 / 화이트 화이트 화이트 / 66</span><i class="remove ui-popup-open" data-target="#searchRemove">제거</i></button>
+													<div class="tip">
+														깨끗하고 청아한 퓨어 요정 니트 내용이 길 때 툴팁이 노출됩니다. / 깨끗한 화이트 아이보리 / 누구나 맞는 프리사이즈
+													</div>
+												</li>
+												<li>
+													<button type="button" name="button"><span>퓨어니트 퓨어니트 퓨어니트 퓨어니트 퓨어니트 퓨어니트 / 화이트 화이트 화이트 / 66</span><i class="remove ui-popup-open" data-target="#searchRemove">제거</i></button>
+													<div class="tip">
+														깨끗하고 청아한 퓨어 요정 니트 내용이 길 때 툴팁이 노출됩니다. / 깨끗한 화이트 아이보리 / 누구나 맞는 프리사이즈
+													</div>
+												</li>
+											</ul>
+										</div>
+										<!-- //2022-08-19 EZP-5857 추가 검색 결과 --></td>
+									<td class="tdInput"><input type="text" name="color_name[]" value="" maxlength="50"></td>
+									<td class="cell tdInput"><input type="text" name="size_name[]" value="" maxlength="50"></td>
+									<td class="tdInput"><input type="text" class="eNum" name="order_price[]" value=""
+											maxlength="6" required="required"></td>
+									<!-- 2021-01-27 EZP-2178 시작 -->
+									<td class="cell tdInput">
+										<input type="text" class="eNum" name="order_qty[]" value="" maxlength="4"
+											required="required">
+									</td>
+									<!-- 2021-01-27 EZP-2178 종료 -->
+									<td class="toggle-switch">
+										<!-- 2022-11-15 EZP-4734 select에서 txt-type으로 변경 
+										<input type="hidden" name="is_reserved[]" id="is_reserved1"
+											value="F" required="required">--><!-- 2022-06-07 EZP-5433 .toggle-switch 클래스 추가 -->
+										<!-- 2022-11-15 EZP-4734 select에서 txt-type으로 변경 
+										<div class="ui-select" data-target_id="#is_reserved1"> <button type="button"
+												data-target_id="#is_reserved1" data-value="">환불</button>
+											<ul>
+												<li data-key="F">환불</li>
+												<li data-key="T">미송</li>
+											</ul>
+										</div>
+										-->
+										<!-- 2022-11-15 EZP-4734 select에서 txt-type으로 변경 시작 -->
+										미송
+										<!-- 2022-11-15 EZP-4734 select에서 txt-type으로 변경 끝 -->										
+									</td>
+									<td class="cell tdInput"><input type="text" name="order_memo[]" value="" maxlength="255">
+									</td>
+									<td class="tdInput"><input type="text" name="customer_product_name[]" value=""
+											maxlength="100"></td>
+									<td class="cell tdInput"><input type="text" name="customer_product_code[]" value=""
+											maxlength="100"></td>
+									<td class="tdInput"><input type="text" name="product_img_url[]" value="" maxlength="255">
+									</td>
+									<td class="cell tdInput"><input type="text" name="etc_info_1[]" value="" maxlength="100">
+									</td>
+									<td class="tdInput"><input type="text" name="etc_info_2[]" value="" maxlength="100"></td>
+								</tr>
+							</tbody>
+		
+							<tbody id="tbodyOrder">
+								<tr>
+									<td colspan="16">
+										<div class="noData"> <span class="noimg"></span>
+											<p>엑셀 파일을 등록해주세요.</p>
+										</div>
+									</td>
+								</tr>
+							</tbody>
+
+							<!-- 2022-11-11 EZP-7314 검색결과 없음 case 추가 시작 -->
+							<tbody id="tbodyOrder">
+								<tr>
+									<td colspan="16">
+										<div class="noData none-search"> <span class="noimg"></span>
+											<p class="gray">검색 결과가 없습니다.</p>
+										</div>
+									</td>
+								</tr>
+							</tbody>
+							<!-- 2022-11-11 EZP-7314 검색결과 없음 case 추가 끝 -->
+
+							
+						</table>
+					</form>
+				</div>
+				<!-- 2020-11-17 EZP-1674 종료 -->
+				<div class="go-order-wrap">
+					<!-- 2020-11-30 EZP-1674 -->
+					<a href="#" class="btn aOrdered b-green">선택주문하기</a>
+					<!-- <a href="#" class="btn aOrdered b-black">선택주문하기</a>
+							<a href="#" class="btn aOrdered b-purple">선택주문하기</a>
+							<a href="#" class="btn aOrdered b-yellow">선택주문하기</a>
+							<a href="#" class="btn aOrdered b-green">선택주문하기</a>
+							<a href="#" class="btn aOrdered b-pink">선택주문하기</a> -->
+					<!--a href="#" class="btn aOrdered b-margenta">선택결제하기</a-->
+					<!-- <a href="#" class="btn aOrdered blue">전체주문하기</a> -->
+					<!-- <a href="#" class="btn aOrdered black">전체주문하기</a>
+							<a href="#" class="btn aOrdered purple">전체주문하기</a>
+							<a href="#" class="btn aOrdered yellow">전체주문하기</a>
+							<a href="#" class="btn aOrdered green">전체주문하기</a-->
+		
+					<!--a href="#" class="btn aOrdered margenta">전체결제하기</a>-->
+					<a href="#" class="btn aOrdered green">전체주문하기</a>
+		
+				</div>
+			</div>
+			<!--listRight-->
+		</div>
+
+		<!--TabContent @6.제작주문 -->
+		<!-- 2023-01-18 EZP-8075 .list-long class 추가 (드롭리스트 넓은타입) -->
+		<div class="order-list-wrap direct list-long" id="tab_06">
+			<div class="list-right direct">
+				<ul class="list-top">
+					<li>
+						<span>
+							<h3>주문요청 건수</h3>
+							<p><em id="emOrderItemQty">0</em>건</p>
+						</span>
+					</li>
+					<li>
+						<span>
+							<h3>총 거래처 수</h3>
+							<p><em id="emSellerQty">0</em>개</p>
+						</span>
+					</li>
+					<li>
+						<span>
+							<h3>총 상품 수</h3>
+							<p><em id="emOrderQty">0</em>개</p>
+						</span>
+					</li>
+					<li>
+						<span>
+							<h3>총 상품 금액<span>(VAT 별도)</span></h3><!--2022-07-11 EZP-3157 워딩변경-->
+							<p class="orange"><em id="emOrderAmount">0</em>원</p>
+						</span>
+					</li>
+				</ul>
+				<div class="top-wrap">
+					<div>
+						<button type="button" name="button" class="btn small reset aDeletedCart" data-type="all">RESET</button>
+						<button type="button" name="button" class="btn small line aDeletedCart" data-type="row">선택상품 삭제</button>
+						<!-- <button type="button" name="button" class="btn small line aModifiedCart" data-key="is_reserved"
+							data-value="T" data-text="미송">선택상품 미송</button>
+						<button type="button" name="button" class="btn small line aModifiedCart" data-key="is_reserved"
+							data-value="F" data-text="환불">선택상품 환불</button> -->
+						<!-- <button type="button" name="button" class="btn small b-green ui-popup-open" id="btnDeduction"  style="" data-target="#alert-pop1">선택상품 미송차감</button> //2022-06-19 EZP-5433 -->
+						<!-- 20220323 EZP-3157-->
+						<!-- <button type="button" name="button" class="btn small line">선택상품 미결제</button> -->
+						<!-- <button type="button" name="button" class="btn small line">선택상품 결제</button> -->
+						<!--// 20220323 EZP-3157-->
+					</div>
+					<div>
+						<!-- 2021-04-27 EZP-2178 -->
+						<!-- <div class="switch-btn-wrap toggle-switch">
+							<span>미송수량확인</span>
+							<span class="switch eIsRefundedSwitch">
+								<input type="checkbox" name="is_refunded">
+								<div class="slider round">
+									<span class="on">ON</span>
+									<span class="off active">OFF</span>
+								</div>
+							</span>
+						</div> -->
+						<button type="button" name="button" class="btn small line ui-popup-open" data-target="#excel-check"
+							data-overflow="false" id="aExcelSettings">엑셀 양식 설정</button><input type="hidden"
+							name="order_excel_no" id="selOrderExcelNo" value="1">
+						<!-- 2020-05-13 -->
+						<div class="top-wrap-tip">
+							<div class="ui-select" data-target_id="#selOrderExcelNo">
+								<button type="button" data-target_id="#selOrderExcelNo" data-value="1">기본 양식</button>
+								<ul>
+									<li data-key="1">기본 양식</li>
+									<li data-key="4">핫핑</li>
+									<li data-key="21">양식테스트</li>
+									<li data-key="21">양식테스트</li>
+									<li data-key="21">양식테스트</li>
+								</ul>
+							</div>
+							<div class="tip-wrap">
+								<div class="tip">
+									선택한 양식은 바로주문 각 탭별로 적용됩니다.
+								</div>
+							</div>
+						</div>
+						<!-- 2020-05-13 -->
+		
+						<input type="hidden" name="order_excel_no" id="selOrderExcelNo" value="">
+						<button type="button" class="btn small line" id="btnExcelDown">엑셀 양식 다운</button>
+						<button type="button" name="button" class="btn small line ui-popup-open" id="btnExcelUp"
+							data-target="#excel-upload" data-overflow="false">엑셀 업로드</button>
+						<button type="button" name="button" class="btn small aOrdered b-pink">선택주문하기</button>
+						<button type="button" name="button" class="btn small aOrdered pink">전체주문하기</button>
+					</div>
+				</div>
+				<div class="mid-wrap">
+					<div>
+						<input type="hidden" name="view_type" id="selViewType" value="all">
+						<div class="ui-select" data-target_id="#selViewType">
+							<button type="button" data-target_id="#selViewType" data-value="">전체보기</button>
+							<ul>
+								<li data-key="all" class="active">전체보기</li>
+								<li data-key="error">오류보기</li>
+							</ul>
+						</div>
+						<div class="notice">
+							<p>*표시는 필수 입력 정보입니다.
+								<span id="spnRecentUpdatedTs">임시저장시간 : -</span>
+							</p>
+						</div>
+					</div>
+					<div>
+						<div class="add-cell">
+							<a href="javascript:;" id="aAddedCart">셀 추가</a>
+						</div>
+						<div class="end-wrap">
+							<a href="#" class="prev">이전</a>
+							<a href="#" class="next">다음</a>
+							<span>끝으로 이동</span>
+						</div>
+					</div>
+				</div>
+				<!-- 2020-11-17 EZP-1674 시작 -->
+				<div class="table-wrap mb0 tab-scroll-wrap">
+					<!-- 2023-03-18 EZP-8605 width: 2172px -> 2115으로 변경 -->
+					<div class="scrollbar"><span style="width:2115px"></span></div>
+					<div class="fix">
+						<table class="th-hor">
+							<!-- 2021-01-27 EZP-2178 시작 -->
+							<colgroup>
+								<col width="45px"><!--체크박스-->
+								<col width="45px"><!--번호-->
+								<col width="140px"><!--거래처명-->
+								<col width="240px"><!--거래처주소-->
+								<col width="160px"><!--거래처연락처-->
+								<col width="190px"><!--상품명-->
+								<col width="100px"><!--색상-->
+								<col width="80px"><!--사이즈-->
+								<col width="100px"><!--단가-->
+								<col width="80px"><!--수량-->
+								<!-- 2022-11-16 EZP-7042 class 품절처리방식 추가 시작 -->
+								<col width="116px" class="col-soldOut"><!--품절처리방식-->
+								<!-- 2022-11-16 EZP-7042 품절처리방식 추가 끝 -->
+								<col width="200px"><!--메모-->
+								<col width="150px"><!--쇼핑몰상품명-->
+								<col width="150px"><!--쇼핑몰상품코드-->
+								<col width="170px"><!--이미지URL-->
+								<col width="150px"><!--기타정보1-->
+								<col width="150px"><!--기타정보2-->
+							</colgroup>
+							<!-- 2021-01-27 EZP-2178 종료 -->
+							<thead>
+								<tr>
+									<!-- 2021-04-23 EZP-2705 시작 -->
+									<th><span class="checkbox"><input type="checkbox" class="allChk" id="allChk"><label
+												for="allChk"></label></span></th>
+									<th>번호</th>
+		
+									<!-- 20220323 EZP-3157 추가 -->
+									<!-- <th>
+												<span data-required="">결제여부 </span>
+												<div class="tip-wrap">
+													<a href="javascript:;" class="btn-tip"></a>
+												</div>
+												
+											</th> //2022-06-19 EZP-5433-->
+									<!-- //20220323 EZP-3157 추가-->
+									<th><span class="essential" data-required="seller_name">거래처명</span></th>
+									<th><span class="" data-required="seller_addr">거래처주소</span></th>
+									<!-- 2020-06-16 EZP-754 -->
+									<th><span data-required="seller_tel">거래처연락처</span></th>
+									<th><span class="essential" data-required="product_name">상품명</span></th>
+									<th><span data-required="color_name">색상</span></th>
+									<th><span class="">사이즈</span></th>
+		
+									<!-- 20220323 EZP-3157 -->
+									<th><span class="essential" data-required="product_name">단가</span></th>
+									<th><span class="essential" data-required="product_name">수량</span></th>
+									<!-- //20220323 EZP-3157 -->
+									<!-- 2022-11-16 EZP-4734 품절처리방식 th안에 span 추가 -->
+									<th class="toggle-switch"><span class="essential" data-required="is_reserved">품절처리방식</span></th>
+									<!--2022-06-21 EZP-5433-->
+									<th>메모</th>
+									<th>쇼핑몰상품명</th>
+									<th>쇼핑몰상품코드</th>
+									<th>이미지URL</th>
+									<th>기타정보1</th>
+									<th>기타정보2</th>
+									<!-- 2021-04-23 EZP-2705 종료 -->
+								</tr>
+							</thead>
+						</table>
+					</div>
+					<div class="table-controls">
+						<div class="add-cell">
+							<a href="javascript:;" id="aAddedCart">셀 추가</a>
+						</div>
+						<div class="end-wrap">
+							<a href="#" class="prev">이전</a>
+							<a href="#" class="next">다음</a>
+						</div>
+					</div>
+		
+					<form name="frmOrder" id="frmOrder" method="post" action="/buyer/order/front/pay" autocomplete="off">
+						<input type="hidden" name="order_type" value="B">
+						<input type="hidden" name="order_method" value="10">
+						<input type="hidden" name="order_method_type" value="11">
+						<input type="hidden" name="is_add_in" value="F">
+						<input type="hidden" name="arrival_date" value="">
+						<table class="th-hor">
+							<!-- 2021-01-27 EZP-2178 시작 -->
+							<colgroup>
+								<col width="45px"><!--체크박스-->
+								<col width="45px"><!--번호-->
+								<col width="140px"><!--거래처명-->
+								<col width="240px"><!--거래처주소-->
+								<col width="160px"><!--거래처연락처-->
+								<col width="190px"><!--상품명-->
+								<col width="100px"><!--색상-->
+								<col width="80px"><!--사이즈-->
+								<col width="100px"><!--단가-->
+								<col width="80px"><!--수량-->
+								<!-- 2022-11-16 EZP-7042 class 품절처리방식 추가 시작 -->
+								<col width="116px" class="col-soldOut"><!--품절처리방식-->
+								<!-- 2022-11-16 EZP-7042 품절처리방식 추가 끝 -->
+								<col width="200px"><!--메모-->
+								<col width="150px"><!--쇼핑몰상품명-->
+								<col width="150px"><!--쇼핑몰상품코드-->
+								<col width="170px"><!--이미지URL-->
+								<col width="150px"><!--기타정보1-->
+								<col width="150px"><!--기타정보2-->
+							</colgroup>
+							<!-- 2021-01-27 EZP-2178 종료 -->
+							<tbody id="tbodyOrder">
+								<tr>
+									<td><span class="checkbox"><input type="checkbox" class="rowChk" id="1586986"
+												name="bulk_cart_no[]" value="1586986"><label for="1586986"></label></span></td>
+									<td class="tdNumbering tdInput">1</td>
+									<td class="caller tdInput tdSeller"><input type="text" name="seller_name[]" value="" data-search_key="shop_name" maxlength="50" required="required">
+										<!-- 2022-08-19 EZP-5857 추가 검색 결과// -->
+										<div class="account-list" style="display: none;">
+											<!-- 검색시 display: block; display: none; 으로 처리 -->
+											<ul>
+												<li><button type="button" name="button"><span>프롬디오트프롬디오트프롬디오트프롬디오트프롬디오트</span> (<em>청평화 C동 2층 12호청평화 C동 2층 12호청평화 C동 2층 12호</em>, <em>02-111-2222</em>)</button></li>
+												<li><button type="button" name="button"><span>프롬디오트</span> (<em>청평화 C동 2층 12호</em>, <em>02-111-2222</em>)</button></li>
+												<li><button type="button" name="button"><span>프롬디오트</span> (<em>청평화 C동 2층 12호</em>,<em>02-111-2222</em>)</button></li>
+												<li><button type="button" name="button"><span>프롬디오트</span> (<em>청평화 C동 2층 12호</em>,<em>02-111-2222</em>)</button></li>
+												<li><button type="button" name="button"><span>프롬디오트</span> (<em>청평화 C동 2층 12호</em>,<em>02-111-2222</em>)</button></li>
+												<li><button type="button" name="button"><span>프롬디오트</span> (<em>청평화 C동 2층 12호</em>,<em>02-111-2222</em>)</button></li>
+												<li><button type="button" name="button"><span>프롬디오트</span> (<em>청평화 C동 2층 12호</em>,<em>02-111-2222</em>)</button></li>
+											</ul>
+										</div>
+										<!-- 2022-08-19 EZP-5857 추가 검색 결과// -->
+									</td>
+									<td class="cell caller tdInput tdSeller"><input type="text" name="seller_addr[]" value=""
+											data-search_key="market_position" maxlength="100" required="required"></td>
+									<td class="caller tdInput tdSeller"><input type="text" name="seller_tel[]" value=""
+											data-search_key="cell" maxlength="30"></td>
+									<td class="cell caller tdInput tdProduct"><input type="text" name="product_name[]" value="" maxlength="100" required="required">
+										<!-- 2022-08-19 EZP-5857 추가 검색 결과// -->
+										<div class="account-list option" style="display: none;">
+											<!-- 검색시 display: block; display: none; 으로 처리 -->
+											<ul>
+												<li>
+													<button type="button" name="button"><span>퓨어니트 퓨어니트 퓨어니트 퓨어니트 / 화이트 화이트 화이트 / 66</span><i class="remove ui-popup-open" data-target="#searchRemove">제거</i></button>
+													<div class="tip">
+														<p>
+															깨끗하고 청아한 퓨어 요정 니트 내용이 길 때 툴팁이 노출됩니다. / 깨끗한 화이트 아이보리 / 누구나 맞는 프리사이즈
+															깨끗하고 청아한 퓨어 요정 니트 내용이 길 때 툴팁이 노출됩니다. / 깨끗한 화이트 아이보리 / 누구나 맞는 프리사이즈
+														</p>
+													</div>
+												</li>
+												<li>
+													<button type="button" name="button"><span> 퓨어니트 퓨어니트 / 화이트 화이트 화이트 / 66</span><i class="remove ui-popup-open" data-target="#searchRemove">제거</i></button>
+													<div class="tip">
+														깨끗하고 청아한 퓨어 요정 니트 내용이 길 때 툴팁이 노출됩니다. / 깨끗한 화이트 아이보리 / 누구나 맞는 프리사이즈
+													</div>
+												</li>
+												<li>
+													<button type="button" name="button"><span>퓨어니트 퓨어니트 퓨어니트 퓨어니트 퓨어니트 퓨어니트 / 화이트 화이트 화이트 / 66</span><i class="remove ui-popup-open" data-target="#searchRemove">제거</i></button>
+													<div class="tip">
+														깨끗하고 청아한 퓨어 요정 니트 내용이 길 때 툴팁이 노출됩니다. / 깨끗한 화이트 아이보리 / 누구나 맞는 프리사이즈
+													</div>
+												</li>
+											</ul>
+										</div>
+										<!-- //2022-08-19 EZP-5857 추가 검색 결과 -->
+									</td>
+									<td class="tdInput"><input type="text" name="color_name[]" value="" maxlength="50"></td>
+									<td class="cell tdInput"><input type="text" name="size_name[]" value="" maxlength="50"></td>
+									<td class="tdInput"><input type="text" class="eNum" name="order_price[]" value=""
+											maxlength="6" required="required"></td>
+									<!-- 2021-01-27 EZP-2178 시작 -->
+									<td class="cell tdInput">
+										<input type="text" class="eNum" name="order_qty[]" value="" maxlength="4"
+											required="required">
+									</td>
+									<!-- 2021-01-27 EZP-2178 종료 -->
+									<td class="toggle-switch"> <!-- 2022-06-07 EZP-5433 .toggle-switch 클래스 추가 -->
+										<!-- 2022-11-15 EZP-4734 select에서 txt-type으로 변경 
+										<input type="hidden" name="is_reserved[]" id="is_reserved0"
+											value="F" required="required">--><!-- 2022-06-07 EZP-5433 .toggle-switch 클래스 추가 -->
+										<!-- 2022-11-15 EZP-4734 select에서 txt-type으로 변경 
+										<div class="ui-select" data-target_id="#is_reserved0"> <button type="button"
+												data-target_id="#is_reserved0" data-value="">환불</button>
+											<ul>
+												<li data-key="F">환불</li>
+												<li data-key="T">미송</li>
+											</ul>
+										</div>
+										-->
+										<!-- 2022-11-15 EZP-4734 select에서 txt-type으로 변경 시작 -->
+										미송
+										<!-- 2022-11-15 EZP-4734 select에서 txt-type으로 변경 끝 -->	
+									</td>
+									<td class="cell tdInput"><input type="text" name="order_memo[]" value="" maxlength="255">
+									</td>
+									<td class="tdInput"><input type="text" name="customer_product_name[]" value=""
+											maxlength="100"></td>
+									<td class="cell tdInput"><input type="text" name="customer_product_code[]" value=""
+											maxlength="100"></td>
+									<td class="tdInput"><input type="text" name="product_img_url[]" value="" maxlength="255">
+									</td>
+									<td class="cell tdInput"><input type="text" name="etc_info_1[]" value="" maxlength="100">
+									</td>
+									<td class="tdInput"><input type="text" name="etc_info_2[]" value="" maxlength="100"></td>
+								</tr>
+								<tr>
+									<td><span class="checkbox"><input type="checkbox" class="rowChk" id="1586987"
+												name="bulk_cart_no[]" value="1586987"><label for="1586987"></label></span></td>
+									<td class="tdNumbering tdInput">2</td>
+									<td class="caller tdInput tdSeller"><input type="text" name="seller_name[]" value="" data-search_key="shop_name" maxlength="50" required="required">
+										<!-- 2022-08-19 EZP-5857 추가 검색 결과// -->
+										<div class="account-list" style="display: none;">
+											<!-- 검색시 display: block; display: none; 으로 처리 -->
+											<ul>
+												<li><button type="button" name="button"><span>프롬디오트프롬디오트프롬디오트프롬디오트프롬디오트</span> (<em>청평화 C동 2층 12호청평화 C동 2층 12호청평화 C동 2층 12호</em>, <em>02-111-2222</em>)</button></li>
+												<li><button type="button" name="button"><span>프롬디오트</span> (<em>청평화 C동 2층 12호</em>, <em>02-111-2222</em>)</button></li>
+												<li><button type="button" name="button"><span>프롬디오트</span> (<em>청평화 C동 2층 12호</em>,<em>02-111-2222</em>)</button></li>
+												<li><button type="button" name="button"><span>프롬디오트</span> (<em>청평화 C동 2층 12호</em>,<em>02-111-2222</em>)</button></li>
+												<li><button type="button" name="button"><span>프롬디오트</span> (<em>청평화 C동 2층 12호</em>,<em>02-111-2222</em>)</button></li>
+												<li><button type="button" name="button"><span>프롬디오트</span> (<em>청평화 C동 2층 12호</em>,<em>02-111-2222</em>)</button></li>
+												<li><button type="button" name="button"><span>프롬디오트</span> (<em>청평화 C동 2층 12호</em>,<em>02-111-2222</em>)</button></li>
+											</ul>
+										</div>
+										<!-- 2022-08-19 EZP-5857 추가 검색 결과// -->
+									</td>
+									<td class="cell caller tdInput tdSeller"><input type="text" name="seller_addr[]" value=""
+											data-search_key="market_position" maxlength="100" required="required"></td>
+									<td class="caller tdInput tdSeller"><input type="text" name="seller_tel[]" value=""
+											data-search_key="cell" maxlength="30"></td>
+									<td class="cell caller tdInput tdProduct"><input type="text" name="product_name[]" value="" maxlength="100" required="required">
+										<!-- 2022-08-19 EZP-5857 추가 검색 결과// -->
+										<div class="account-list option" style="display: none;">
+											<!-- 검색시 display: block; display: none; 으로 처리 -->
+											<ul>
+												<li>
+													<button type="button" name="button"><span>퓨어니트 퓨어니트 퓨어니트 퓨어니트 / 화이트 화이트 화이트 / 66</span><i class="remove ui-popup-open" data-target="#searchRemove">제거</i></button>
+													<div class="tip">
+														<p>
+															깨끗하고 청아한 퓨어 요정 니트 내용이 길 때 툴팁이 노출됩니다. / 깨끗한 화이트 아이보리 / 누구나 맞는 프리사이즈
+															깨끗하고 청아한 퓨어 요정 니트 내용이 길 때 툴팁이 노출됩니다. / 깨끗한 화이트 아이보리 / 누구나 맞는 프리사이즈
+														</p>
+													</div>
+												</li>
+												<li>
+													<button type="button" name="button"><span> 퓨어니트 퓨어니트 / 화이트 화이트 화이트 / 66</span><i class="remove ui-popup-open" data-target="#searchRemove">제거</i></button>
+													<div class="tip">
+														깨끗하고 청아한 퓨어 요정 니트 내용이 길 때 툴팁이 노출됩니다. / 깨끗한 화이트 아이보리 / 누구나 맞는 프리사이즈
+													</div>
+												</li>
+												<li>
+													<button type="button" name="button"><span>퓨어니트 퓨어니트 퓨어니트 퓨어니트 퓨어니트 퓨어니트 / 화이트 화이트 화이트 / 66</span><i class="remove ui-popup-open" data-target="#searchRemove">제거</i></button>
+													<div class="tip">
+														깨끗하고 청아한 퓨어 요정 니트 내용이 길 때 툴팁이 노출됩니다. / 깨끗한 화이트 아이보리 / 누구나 맞는 프리사이즈
+													</div>
+												</li>
+											</ul>
+										</div>
+										<!-- //2022-08-19 EZP-5857 추가 검색 결과 -->
+									</td>
+									<td class="tdInput"><input type="text" name="color_name[]" value="" maxlength="50"></td>
+									<td class="cell tdInput"><input type="text" name="size_name[]" value="" maxlength="50"></td>
+									<td class="tdInput"><input type="text" class="eNum" name="order_price[]" value=""
+											maxlength="6" required="required"></td>
+									<!-- 2021-01-27 EZP-2178 시작 -->
+									<td class="cell tdInput">
+										<input type="text" class="eNum" name="order_qty[]" value="" maxlength="4"
+											required="required">
+									</td>
+									<!-- 2021-01-27 EZP-2178 종료 -->
+									<td class="toggle-switch"><!-- 2022-06-07 EZP-5433 .toggle-switch 클래스 추가 -->
+										<!-- 2022-11-15 EZP-4734 select에서 txt-type으로 변경 
+										<input type="hidden" name="is_reserved[]" id="is_reserved1"
+											value="F" required="required">--><!-- 2022-06-07 EZP-5433 .toggle-switch 클래스 추가 -->
+										<!-- 2022-11-15 EZP-4734 select에서 txt-type으로 변경 
+										<div class="ui-select" data-target_id="#is_reserved1"> <button type="button"
+												data-target_id="#is_reserved1" data-value="">환불</button>
+											<ul>
+												<li data-key="F">환불</li>
+												<li data-key="T">미송</li>
+											</ul>
+										</div>
+										-->
+										<!-- 2022-11-15 EZP-4734 select에서 txt-type으로 변경 시작 -->
+										미송
+										<!-- 2022-11-15 EZP-4734 select에서 txt-type으로 변경 끝 -->
+									</td>
+									<td class="cell tdInput"><input type="text" name="order_memo[]" value="" maxlength="255">
+									</td>
+									<td class="tdInput"><input type="text" name="customer_product_name[]" value=""
+											maxlength="100"></td>
+									<td class="cell tdInput"><input type="text" name="customer_product_code[]" value=""
+											maxlength="100"></td>
+									<td class="tdInput"><input type="text" name="product_img_url[]" value="" maxlength="255">
+									</td>
+									<td class="cell tdInput"><input type="text" name="etc_info_1[]" value="" maxlength="100">
+									</td>
+									<td class="tdInput"><input type="text" name="etc_info_2[]" value="" maxlength="100"></td>
+								</tr>
+							</tbody>
+		
+							<tbody id="tbodyOrder">
+								<tr>
+									<td colspan="16">
+										<div class="noData"> <span class="noimg"></span>
+											<p>엑셀 파일을 등록해주세요.</p>
+										</div>
+									</td>
+								</tr>
+							</tbody>
+
+							<!-- 2022-11-11 EZP-7314 검색결과 없음 case 추가 시작 -->
+							<tbody id="tbodyOrder">
+								<tr>
+									<td colspan="16">
+										<div class="noData none-search"> <span class="noimg"></span>
+											<p class="gray">검색 결과가 없습니다.</p>
+										</div>
+									</td>
+								</tr>
+							</tbody>
+							<!-- 2022-11-11 EZP-7314 검색결과 없음 case 추가 끝 -->
+
+							
+						</table>
+					</form>
+				</div>
+				<!-- 2020-11-17 EZP-1674 종료 -->
+				<div class="go-order-wrap">
+					<!-- 2020-11-30 EZP-1674 -->
+					<a href="#" class="btn aOrdered b-pink">선택주문하기</a>
+					<!-- <a href="#" class="btn aOrdered b-black">선택주문하기</a>
+							<a href="#" class="btn aOrdered b-purple">선택주문하기</a>
+							<a href="#" class="btn aOrdered b-yellow">선택주문하기</a>
+							<a href="#" class="btn aOrdered b-green">선택주문하기</a>
+							<a href="#" class="btn aOrdered b-pink">선택주문하기</a> -->
+					<!--a href="#" class="btn aOrdered b-margenta">선택결제하기</a-->
+					<!-- <a href="#" class="btn aOrdered blue">전체주문하기</a> -->
+					<!-- <a href="#" class="btn aOrdered black">전체주문하기</a>
+							<a href="#" class="btn aOrdered purple">전체주문하기</a>
+							<a href="#" class="btn aOrdered yellow">전체주문하기</a>
+							<a href="#" class="btn aOrdered green">전체주문하기</a-->
+		
+					<!--a href="#" class="btn aOrdered margenta">전체결제하기</a>-->
+					<a href="#" class="btn aOrdered pink">전체주문하기</a>
+		
+				</div>
+			</div>
+			<!--listRight-->
+		</div>
+	</div>
+
+	<!-- 2020-08-18 EZP-991 -->
+	<!-- <div class="floating-order-wrap" >
+		<i class="black"></i>
+		<i class="purple"></i>
+		<i class="yellow"></i>
+		<i class="green"></i>
+		<i class="pink"></i>
+		<i class="blue"></i>
+		<p>
+			고객님은<br><span class="blue">상품주문</span><br>중입니다!
+		</p>
+		<a href="#" class="close">닫기</a>
+	</div> -->
+
+	<!-- 2022-07-11 EZP-3157-->
+	<div class="floating-order-wrap">
+		<i class="black"></i>
+		<i class="purple"></i>
+		<i class="yellow"></i>
+		<i class="green"></i>
+		<i class="pink"></i>
+		<i class="blue"></i>
+		<i class="margenta"></i>
+		<p>
+			
+			고객님은<br><span class="margenta">샘플결제</span><br>중입니다!
+		</p>
+		<a href="#" class="close">닫기</a>
+	</div>
+	
+	<!-- //20220323 EZP-3157 -->
+
+	<!-- 엑셀 양식 설정 레이어 -->
+	<div id="excel-check" class="ui-popup">
+		<div class="content" style="width:640px;" tabindex="-1">
+			<div class="header">
+				<h3>엑셀 양식 설정</h3>
+			</div>
+			<div class="body reconfirm">
+				<div class="txt-cont mt20">
+					<p>이지픽 바로주문은 엑셀양식타입 설정 기능을 제공합니다.</p>
+					<span>고객님이 원하는 양식으로, 보다 빠르고 편리하게 주문을 진행하세요.</span>
+					<div class="top">
+						<a href="javascript:;" class="type-change active" data-seq_no="1">TYPE1</a>
+						<span class="line"></span>
+						<a href="javascript:;" class="type-change" data-seq_no="2">TYPE2</a>
+						<!-- 2020-06-16 EZP-754 -->
+						<span class="line"></span>
+						<a href="javascript:;" class="type-change" data-seq_no="3">TYPE3</a>
+						<p>* 표시는 필수 입력 정보입니다.</p>
+					</div>
+					<div class="table-wrap mb0">
+						<form name="frmExcelSettings" id="frmExcelSettings" method="post" action="/buyer/order/bulk/action/modifiedExcelSettings">
+							<input type="hidden" name="order_excel_no" value="0">
+							<input type="hidden" name="seq_no" value="0">
+							<table class="th-ver">
+								<colgroup>
+									<col width="132px">
+									<col width="142px">
+									<col width="*">
+								</colgroup>
+								<tbody>
+									<tr>
+										<th><span class="essential">양식이름</span></th>
+										<td colspan="2" class="top">
+											<div style="display:inline; position:relative;" class="add-clear-span"><input type="text" name="order_excel_name" value="" placeholder="TYPE1 양식이름" required="" style="padding-right: 20px;"><a href="#clear"
+													style="display: none; color: rgb(204, 204, 204); text-decoration: none; overflow: hidden; position: absolute; right: 12px; top: 1px; line-height: 1;">✖</a></div>
+										</td>
+									</tr>
+									<tr class="merge-check"><!-- 2021-09-27 EZP-3700 -->
+										<td colspan="3">
+											<span class="checkbox"><input type="checkbox" id="merge-check"><label for="merge-check">거래처명+주소 하나로 사용</label></span>
+											<div class="tip-wrap">
+												<button class="btn-tip"></button>
+												<div class="tip-right">
+													<span class="title">항목에 체크 시</span>
+													엑셀 다운로드<em>: 거래처명+주소가 하나의 열에 합쳐져 다운로드 됩니다.</em>
+													엑셀 업로드<em>: 업로드 시 거래처명과 거래처주소 항목에 동일한 값이 등록됩니다. </em>
+												</div>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<th rowspan="3" class="row">거래처정보</th>
+										<td><span class="essential">거래처명</span></td>
+										<td>
+											<input type="hidden" name="seller_name" id="seller_name" value="A" required="">
+											<div class="ui-select" data-target_id="#seller_name">
+												<button type="button" data-target_id="#seller_name" data-value="">A</button>
+												<ul>
+													<li data-key="A" class="active">A</li>
+													<li data-key="B">B</li>
+													<li data-key="C">C</li>
+													<li data-key="D">D</li>
+													<li data-key="E">E</li>
+													<li data-key="F">F</li>
+													<li data-key="G">G</li>
+													<li data-key="H">H</li>
+													<li data-key="I">I</li>
+													<li data-key="J">J</li>
+													<li data-key="K">K</li>
+													<li data-key="L">L</li>
+													<li data-key="M">M</li>
+													<li data-key="N">N</li>
+													<li data-key="O">O</li>
+													<li data-key="P">P</li>
+													<li data-key="Q">Q</li>
+													<li data-key="R">R</li>
+													<li data-key="S">S</li>
+													<li data-key="T">T</li>
+													<li data-key="U">U</li>
+													<li data-key="V">V</li>
+													<li data-key="W">W</li>
+													<li data-key="X">X</li>
+													<li data-key="Y">Y</li>
+													<li data-key="Z">Z</li>
+												</ul>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td><span class="essential" data-required="seller_addr">거래처주소</span></td>
+										<td>
+											<input type="hidden" name="seller_addr" id="seller_addr" value="B" required="">
+											<div class="ui-select" data-target_id="#seller_addr">
+												<button type="button" data-target_id="#seller_addr" data-value="">B</button>
+												<ul>
+													<li data-key="A">A</li>
+													<li data-key="B" class="active">B</li>
+													<li data-key="C">C</li>
+													<li data-key="D">D</li>
+													<li data-key="E">E</li>
+													<li data-key="F">F</li>
+													<li data-key="G">G</li>
+													<li data-key="H">H</li>
+													<li data-key="I">I</li>
+													<li data-key="J">J</li>
+													<li data-key="K">K</li>
+													<li data-key="L">L</li>
+													<li data-key="M">M</li>
+													<li data-key="N">N</li>
+													<li data-key="O">O</li>
+													<li data-key="P">P</li>
+													<li data-key="Q">Q</li>
+													<li data-key="R">R</li>
+													<li data-key="S">S</li>
+													<li data-key="T">T</li>
+													<li data-key="U">U</li>
+													<li data-key="V">V</li>
+													<li data-key="W">W</li>
+													<li data-key="X">X</li>
+													<li data-key="Y">Y</li>
+													<li data-key="Z">Z</li>
+												</ul>
+											</div>
+										</td>
+									</tr>
+									<tr style="display:none;"><!-- 2021-09-27 EZP-3700 -->
+										<th rowspan="2" class="row">거래처정보</th>
+										<td><span class="essential">거래처명 + 주소</span></td>
+										<td>
+											<input type="hidden" name="seller_merge" id="seller_merge" value="A" required="">
+											<div class="ui-select" data-target_id="#seller_merge">
+												<button type="button" data-target_id="#seller_merge" data-value="">A</button>
+												<ul>
+													<li data-key="A" class="active">A</li>
+													<li data-key="B">B</li>
+													<li data-key="C">C</li>
+													<li data-key="D">D</li>
+													<li data-key="E">E</li>
+													<li data-key="F">F</li>
+													<li data-key="G">G</li>
+													<li data-key="H">H</li>
+													<li data-key="I">I</li>
+													<li data-key="J">J</li>
+													<li data-key="K">K</li>
+													<li data-key="L">L</li>
+													<li data-key="M">M</li>
+													<li data-key="N">N</li>
+													<li data-key="O">O</li>
+													<li data-key="P">P</li>
+													<li data-key="Q">Q</li>
+													<li data-key="R">R</li>
+													<li data-key="S">S</li>
+													<li data-key="T">T</li>
+													<li data-key="U">U</li>
+													<li data-key="V">V</li>
+													<li data-key="W">W</li>
+													<li data-key="X">X</li>
+													<li data-key="Y">Y</li>
+													<li data-key="Z">Z</li>
+												</ul>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<!-- 2021-04-26 EZP-2705 -->
+										<td>거래처연락처</td>
+										<td>
+											<input type="hidden" name="seller_tel" id="seller_tel" value="C" required="">
+											<div class="ui-select" data-target_id="#seller_tel">
+												<button type="button" data-target_id="#seller_tel" data-value="">C</button>
+												<ul>
+													<li data-key="A">A</li>
+													<li data-key="B">B</li>
+													<li data-key="C" class="active">C</li>
+													<li data-key="D">D</li>
+													<li data-key="E">E</li>
+													<li data-key="F">F</li>
+													<li data-key="G">G</li>
+													<li data-key="H">H</li>
+													<li data-key="I">I</li>
+													<li data-key="J">J</li>
+													<li data-key="K">K</li>
+													<li data-key="L">L</li>
+													<li data-key="M">M</li>
+													<li data-key="N">N</li>
+													<li data-key="O">O</li>
+													<li data-key="P">P</li>
+													<li data-key="Q">Q</li>
+													<li data-key="R">R</li>
+													<li data-key="S">S</li>
+													<li data-key="T">T</li>
+													<li data-key="U">U</li>
+													<li data-key="V">V</li>
+													<li data-key="W">W</li>
+													<li data-key="X">X</li>
+													<li data-key="Y">Y</li>
+													<li data-key="Z">Z</li>
+												</ul>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<th rowspan="6" class="row">상품정보</th>
+										<td>상품명</td>
+										<td>
+											<input type="hidden" name="product_name" id="product_name" value="D">
+											<div class="ui-select" data-target_id="#product_name">
+												<button type="button" data-target_id="#product_name" data-value="">D</button>
+												<ul>
+													<li data-key="">선택해주세요.</li>
+													<li data-key="A">A</li>
+													<li data-key="B">B</li>
+													<li data-key="C">C</li>
+													<li data-key="D" class="active">D</li>
+													<li data-key="E">E</li>
+													<li data-key="F">F</li>
+													<li data-key="G">G</li>
+													<li data-key="H">H</li>
+													<li data-key="I">I</li>
+													<li data-key="J">J</li>
+													<li data-key="K">K</li>
+													<li data-key="L">L</li>
+													<li data-key="M">M</li>
+													<li data-key="N">N</li>
+													<li data-key="O">O</li>
+													<li data-key="P">P</li>
+													<li data-key="Q">Q</li>
+													<li data-key="R">R</li>
+													<li data-key="S">S</li>
+													<li data-key="T">T</li>
+													<li data-key="U">U</li>
+													<li data-key="V">V</li>
+													<li data-key="W">W</li>
+													<li data-key="X">X</li>
+													<li data-key="Y">Y</li>
+													<li data-key="Z">Z</li>
+												</ul>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td>색상</td>
+										<td>
+											<input type="hidden" name="color_name" id="color_name" value="E">
+											<div class="ui-select" data-target_id="#color_name">
+												<button type="button" data-target_id="#color_name" data-value="">E</button>
+												<ul>
+													<li data-key="">선택해주세요.</li>
+													<li data-key="A">A</li>
+													<li data-key="B">B</li>
+													<li data-key="C">C</li>
+													<li data-key="D">D</li>
+													<li data-key="E" class="active">E</li>
+													<li data-key="F">F</li>
+													<li data-key="G">G</li>
+													<li data-key="H">H</li>
+													<li data-key="I">I</li>
+													<li data-key="J">J</li>
+													<li data-key="K">K</li>
+													<li data-key="L">L</li>
+													<li data-key="M">M</li>
+													<li data-key="N">N</li>
+													<li data-key="O">O</li>
+													<li data-key="P">P</li>
+													<li data-key="Q">Q</li>
+													<li data-key="R">R</li>
+													<li data-key="S">S</li>
+													<li data-key="T">T</li>
+													<li data-key="U">U</li>
+													<li data-key="V">V</li>
+													<li data-key="W">W</li>
+													<li data-key="X">X</li>
+													<li data-key="Y">Y</li>
+													<li data-key="Z">Z</li>
+												</ul>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td><span class="">사이즈</span></td>
+										<td>
+											<input type="hidden" name="size_name" id="size_name" value="F">
+											<div class="ui-select" data-target_id="#size_name">
+												<button type="button" data-target_id="#size_name" data-value="">F</button>
+												<ul>
+													<li data-key="">선택해주세요.</li>
+													<li data-key="A">A</li>
+													<li data-key="B">B</li>
+													<li data-key="C">C</li>
+													<li data-key="D">D</li>
+													<li data-key="E">E</li>
+													<li data-key="F" class="active">F</li>
+													<li data-key="G">G</li>
+													<li data-key="H">H</li>
+													<li data-key="I">I</li>
+													<li data-key="J">J</li>
+													<li data-key="K">K</li>
+													<li data-key="L">L</li>
+													<li data-key="M">M</li>
+													<li data-key="N">N</li>
+													<li data-key="O">O</li>
+													<li data-key="P">P</li>
+													<li data-key="Q">Q</li>
+													<li data-key="R">R</li>
+													<li data-key="S">S</li>
+													<li data-key="T">T</li>
+													<li data-key="U">U</li>
+													<li data-key="V">V</li>
+													<li data-key="W">W</li>
+													<li data-key="X">X</li>
+													<li data-key="Y">Y</li>
+													<li data-key="Z">Z</li>
+												</ul>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td>단가</td>
+										<td>
+											<input type="hidden" name="order_price" id="order_price" value="G">
+											<div class="ui-select" data-target_id="#order_price">
+												<button type="button" data-target_id="#order_price" data-value="">G</button>
+												<ul>
+													<li data-key="">선택해주세요.</li>
+													<li data-key="A">A</li>
+													<li data-key="B">B</li>
+													<li data-key="C">C</li>
+													<li data-key="D">D</li>
+													<li data-key="E">E</li>
+													<li data-key="F">F</li>
+													<li data-key="G" class="active">G</li>
+													<li data-key="H">H</li>
+													<li data-key="I">I</li>
+													<li data-key="J">J</li>
+													<li data-key="K">K</li>
+													<li data-key="L">L</li>
+													<li data-key="M">M</li>
+													<li data-key="N">N</li>
+													<li data-key="O">O</li>
+													<li data-key="P">P</li>
+													<li data-key="Q">Q</li>
+													<li data-key="R">R</li>
+													<li data-key="S">S</li>
+													<li data-key="T">T</li>
+													<li data-key="U">U</li>
+													<li data-key="V">V</li>
+													<li data-key="W">W</li>
+													<li data-key="X">X</li>
+													<li data-key="Y">Y</li>
+													<li data-key="Z">Z</li>
+												</ul>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td>수량</td>
+										<td>
+											<input type="hidden" name="order_qty" id="order_qty" value="H">
+											<div class="ui-select" data-target_id="#order_qty">
+												<button type="button" data-target_id="#order_qty" data-value="">H</button>
+												<ul>
+													<li data-key="">선택해주세요.</li>
+													<li data-key="A">A</li>
+													<li data-key="B">B</li>
+													<li data-key="C">C</li>
+													<li data-key="D">D</li>
+													<li data-key="E">E</li>
+													<li data-key="F">F</li>
+													<li data-key="G">G</li>
+													<li data-key="H" class="active">H</li>
+													<li data-key="I">I</li>
+													<li data-key="J">J</li>
+													<li data-key="K">K</li>
+													<li data-key="L">L</li>
+													<li data-key="M">M</li>
+													<li data-key="N">N</li>
+													<li data-key="O">O</li>
+													<li data-key="P">P</li>
+													<li data-key="Q">Q</li>
+													<li data-key="R">R</li>
+													<li data-key="S">S</li>
+													<li data-key="T">T</li>
+													<li data-key="U">U</li>
+													<li data-key="V">V</li>
+													<li data-key="W">W</li>
+													<li data-key="X">X</li>
+													<li data-key="Y">Y</li>
+													<li data-key="Z">Z</li>
+												</ul>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td>품절처리방식</td>
+										<td>
+											<input type="hidden" name="is_reserved" id="is_reserved" value="I">
+											<div class="ui-select" data-target_id="#is_reserved">
+												<button type="button" data-target_id="#is_reserved" data-value="">I</button>
+												<ul>
+													<li data-key="">선택해주세요.</li>
+													<li data-key="A">A</li>
+													<li data-key="B">B</li>
+													<li data-key="C">C</li>
+													<li data-key="D">D</li>
+													<li data-key="E">E</li>
+													<li data-key="F">F</li>
+													<li data-key="G">G</li>
+													<li data-key="H">H</li>
+													<li data-key="I" class="active">I</li>
+													<li data-key="J">J</li>
+													<li data-key="K">K</li>
+													<li data-key="L">L</li>
+													<li data-key="M">M</li>
+													<li data-key="N">N</li>
+													<li data-key="O">O</li>
+													<li data-key="P">P</li>
+													<li data-key="Q">Q</li>
+													<li data-key="R">R</li>
+													<li data-key="S">S</li>
+													<li data-key="T">T</li>
+													<li data-key="U">U</li>
+													<li data-key="V">V</li>
+													<li data-key="W">W</li>
+													<li data-key="X">X</li>
+													<li data-key="Y">Y</li>
+													<li data-key="Z">Z</li>
+												</ul>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<th rowspan="6" class="row">기타정보</th>
+										<!-- 2021-04-26 EZP-2705 -->
+										<td><span>메모</span></td>
+										<td>
+											<input type="hidden" name="order_memo" id="order_memo" value="">
+											<div class="ui-select" data-target_id="#order_memo">
+												<button type="button" data-target_id="#order_memo" data-value="">선택해주세요.</button>
+												<ul>
+													<li data-key="" class="active">선택해주세요.</li>
+													<li data-key="A">A</li>
+													<li data-key="B">B</li>
+													<li data-key="C">C</li>
+													<li data-key="D">D</li>
+													<li data-key="E">E</li>
+													<li data-key="F">F</li>
+													<li data-key="G">G</li>
+													<li data-key="H">H</li>
+													<li data-key="I">I</li>
+													<li data-key="J">J</li>
+													<li data-key="K">K</li>
+													<li data-key="L">L</li>
+													<li data-key="M">M</li>
+													<li data-key="N">N</li>
+													<li data-key="O">O</li>
+													<li data-key="P">P</li>
+													<li data-key="Q">Q</li>
+													<li data-key="R">R</li>
+													<li data-key="S">S</li>
+													<li data-key="T">T</li>
+													<li data-key="U">U</li>
+													<li data-key="V">V</li>
+													<li data-key="W">W</li>
+													<li data-key="X">X</li>
+													<li data-key="Y">Y</li>
+													<li data-key="Z">Z</li>
+												</ul>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td><span>쇼핑몰상품명</span></td>
+										<td>
+											<input type="hidden" name="customer_product_name" id="customer_product_name" value="">
+											<div class="ui-select" data-target_id="#customer_product_name">
+												<button type="button" data-target_id="#customer_product_name" data-value="">선택해주세요.</button>
+												<ul>
+													<li data-key="" class="active">선택해주세요.</li>
+													<li data-key="A">A</li>
+													<li data-key="B">B</li>
+													<li data-key="C">C</li>
+													<li data-key="D">D</li>
+													<li data-key="E">E</li>
+													<li data-key="F">F</li>
+													<li data-key="G">G</li>
+													<li data-key="H">H</li>
+													<li data-key="I">I</li>
+													<li data-key="J">J</li>
+													<li data-key="K">K</li>
+													<li data-key="L">L</li>
+													<li data-key="M">M</li>
+													<li data-key="N">N</li>
+													<li data-key="O">O</li>
+													<li data-key="P">P</li>
+													<li data-key="Q">Q</li>
+													<li data-key="R">R</li>
+													<li data-key="S">S</li>
+													<li data-key="T">T</li>
+													<li data-key="U">U</li>
+													<li data-key="V">V</li>
+													<li data-key="W">W</li>
+													<li data-key="X">X</li>
+													<li data-key="Y">Y</li>
+													<li data-key="Z">Z</li>
+												</ul>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<!-- 2021-04-26 EZP-2705 -->
+										<td><span>쇼핑몰상품코드</span></td>
+										<td>
+											<input type="hidden" name="customer_product_code" id="customer_product_code" value="">
+											<div class="ui-select" data-target_id="#customer_product_code">
+												<button type="button" data-target_id="#customer_product_code" data-value="">선택해주세요.</button>
+												<ul>
+													<li data-key="" class="active">선택해주세요.</li>
+													<li data-key="A">A</li>
+													<li data-key="B">B</li>
+													<li data-key="C">C</li>
+													<li data-key="D">D</li>
+													<li data-key="E">E</li>
+													<li data-key="F">F</li>
+													<li data-key="G">G</li>
+													<li data-key="H">H</li>
+													<li data-key="I">I</li>
+													<li data-key="J">J</li>
+													<li data-key="K">K</li>
+													<li data-key="L">L</li>
+													<li data-key="M">M</li>
+													<li data-key="N">N</li>
+													<li data-key="O">O</li>
+													<li data-key="P">P</li>
+													<li data-key="Q">Q</li>
+													<li data-key="R">R</li>
+													<li data-key="S">S</li>
+													<li data-key="T">T</li>
+													<li data-key="U">U</li>
+													<li data-key="V">V</li>
+													<li data-key="W">W</li>
+													<li data-key="X">X</li>
+													<li data-key="Y">Y</li>
+													<li data-key="Z">Z</li>
+												</ul>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<!-- 2021-04-26 EZP-2705 -->
+										<td><span>이미지URL</span></td>
+										<td>
+											<input type="hidden" name="product_img_url" id="product_img_url" value="">
+											<div class="ui-select" data-target_id="#product_img_url">
+												<button type="button" data-target_id="#product_img_url" data-value="">선택해주세요.</button>
+												<ul>
+													<li data-key="" class="active">선택해주세요.</li>
+													<li data-key="A">A</li>
+													<li data-key="B">B</li>
+													<li data-key="C">C</li>
+													<li data-key="D">D</li>
+													<li data-key="E">E</li>
+													<li data-key="F">F</li>
+													<li data-key="G">G</li>
+													<li data-key="H">H</li>
+													<li data-key="I">I</li>
+													<li data-key="J">J</li>
+													<li data-key="K">K</li>
+													<li data-key="L">L</li>
+													<li data-key="M">M</li>
+													<li data-key="N">N</li>
+													<li data-key="O">O</li>
+													<li data-key="P">P</li>
+													<li data-key="Q">Q</li>
+													<li data-key="R">R</li>
+													<li data-key="S">S</li>
+													<li data-key="T">T</li>
+													<li data-key="U">U</li>
+													<li data-key="V">V</li>
+													<li data-key="W">W</li>
+													<li data-key="X">X</li>
+													<li data-key="Y">Y</li>
+													<li data-key="Z">Z</li>
+												</ul>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td><span>기타정보1</span></td>
+										<td>
+											<input type="hidden" name="etc_info_1" id="etc_info_1" value="">
+											<div class="ui-select" data-target_id="#etc_info_1">
+												<button type="button" data-target_id="#etc_info_1" data-value="">선택해주세요.</button>
+												<ul>
+													<li data-key="" class="active">선택해주세요.</li>
+													<li data-key="A">A</li>
+													<li data-key="B">B</li>
+													<li data-key="C">C</li>
+													<li data-key="D">D</li>
+													<li data-key="E">E</li>
+													<li data-key="F">F</li>
+													<li data-key="G">G</li>
+													<li data-key="H">H</li>
+													<li data-key="I">I</li>
+													<li data-key="J">J</li>
+													<li data-key="K">K</li>
+													<li data-key="L">L</li>
+													<li data-key="M">M</li>
+													<li data-key="N">N</li>
+													<li data-key="O">O</li>
+													<li data-key="P">P</li>
+													<li data-key="Q">Q</li>
+													<li data-key="R">R</li>
+													<li data-key="S">S</li>
+													<li data-key="T">T</li>
+													<li data-key="U">U</li>
+													<li data-key="V">V</li>
+													<li data-key="W">W</li>
+													<li data-key="X">X</li>
+													<li data-key="Y">Y</li>
+													<li data-key="Z">Z</li>
+												</ul>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td class="last"><span>기타정보2</span></td>
+										<td class="last">
+											<input type="hidden" name="etc_info_2" id="etc_info_2" value="">
+											<div class="ui-select" data-target_id="#etc_info_2">
+												<button type="button" data-target_id="#etc_info_2" data-value="">선택해주세요.</button>
+												<ul>
+													<li data-key="" class="active">선택해주세요.</li>
+													<li data-key="A">A</li>
+													<li data-key="B">B</li>
+													<li data-key="C">C</li>
+													<li data-key="D">D</li>
+													<li data-key="E">E</li>
+													<li data-key="F">F</li>
+													<li data-key="G">G</li>
+													<li data-key="H">H</li>
+													<li data-key="I">I</li>
+													<li data-key="J">J</li>
+													<li data-key="K">K</li>
+													<li data-key="L">L</li>
+													<li data-key="M">M</li>
+													<li data-key="N">N</li>
+													<li data-key="O">O</li>
+													<li data-key="P">P</li>
+													<li data-key="Q">Q</li>
+													<li data-key="R">R</li>
+													<li data-key="S">S</li>
+													<li data-key="T">T</li>
+													<li data-key="U">U</li>
+													<li data-key="V">V</li>
+													<li data-key="W">W</li>
+													<li data-key="X">X</li>
+													<li data-key="Y">Y</li>
+													<li data-key="Z">Z</li>
+												</ul>
+											</div>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</form>
+					</div>
+				</div>
+			</div><!-- //body -->
+			<div class="btn_wrap mt40 tac">
+				<button type="button" class="btn medium btn_close" style="width:150px;min-width:auto;">취소</button>
+				<button type="button" class="btn point medium btnSave" style="width:150px;min-width:auto;">저장</button>
+			</div>
+			<button type="button" class="btn_close reconfirm"><span>닫기</span></button>
+		</div>
+	</div>
+	<!-- 엑셀 업로드 레이어 -->
+	<div id="excel-upload" class="ui-popup">
+		<!-- 2022-09-26 EZP-5875 넓이 수정 -->
+		<div class="content" style="width:auto; max-width: 550px !important;" tabindex="-1"> <!--2022-08-19 EZP-5885-->
+			<div class="body">
+				<div class="txt-cont">
+					<div class="txt-cont result order">
+						<h3>엑셀 업로드</h3>
+						<!-- 2022-09-26 EZP-5875 워딩 수정 시작 -->
+						<div class="notice">
+							<p>엑셀파일을 업로드하여 상품을 등록할 수 있습니다.</p>
+							<ul>
+								<li>1. 먼저 엑셀 등록 양식을 설정해 주세요.</li>
+								<li>2. 엑셀 양식을 다운로드 받은 후 양식에 맞춰 주문 정보를 입력해 주세요.</li>
+								<li>3. 찾아보기 버튼을 클릭하여 주문 정보가 입력된 파일을 선택해 주세요.</li>
+								<li>4. '엑셀업로드' 버튼을 클릭해 주세요.</li>
+							</ul>
+							<p>주문 정보가 잘못된 경우 주문을 진행할 수 없습니다.</p>
+							<ul>
+								<li>엑셀 업로드 후 오류 상태를 확인하시어 주문 정보를 수정해 주세요.</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="input-file">
+					<div class="list" style="overflow:hidden;">파일을 등록해주세요.</div>
+					<div class="btn">
+						<label>찾아보기<input type="file" id="fileExcelUpload" accept=".csv, .xls, .xlsx"></label>
+					</div>
+				</div>
+				<span class="file-sort">확장자 : csv, xlsx, xls / 용량 : 최대 2M까지 업로드 가능</span>
+				<div class="btn_wrap mt40 tac">
+					<button type="button" class="btn point medium" style="width:150px;" id="aExcelUpload">엑셀업로드</button>
+				</div>
+				<!-- 2022-09-26 EZP-5875 워딩 수정 끝 -->
+			</div><!-- //body -->
+			<button type="button" class="btn_close"><span>닫기</span></button>
+		</div>
+	</div>
+
+	<!-- 2021-10-13 EZP-4232 -->
+	<div id="alert-pop1" class="ui-popup">
+		<div class="content" style="min-width:412px; max-width: 700px;" tabindex="-1">
+			<div class="body">
+				<div class="txt-cont">
+					<p>
+						입력한 수량에서 미송 출고 예정 수량을 차감하시겠습니까?<br>
+						확인 클릭 시 미송 출고 예정 수량만큼 차감되어 수량이 변경됩니다.<br>
+						<br>
+						(차감 후 수량이 0보다 작을 경우 수량이 0으로 변경됩니다.)
+					</p>
+				</div>
+				<div class="btn_wrap mt40 tac">
+					<button type="button" class="btn medium btn_close" style="width:150px;">취소</button>
+					<button type="button" class="btn point medium btn_close" style="width:150px;">확인</button>
+				</div>
+			</div>
+			<button type="button" class="btn_close">
+				<div class="commLayerConfirm"><span>닫기</span></div>
+			</button>
+		</div>
+	</div>
+
+	<!-- 주문타입안내 신규 팝업 시작 //-->
+	<div id="orderType" class="ui-popup order-type-pop">
+		<div class="content">
+			<div class="header">
+				<h3>주문타입 안내</h3>
+			</div>
+			<div class="body reconfirm">
+				<div class="item-wrap">
+					<div class="item sellpick">
+						<h3>셀픽주문<span>*수수료 무료</span></h3>
+						<div class="pop-wrap">
+							<div class="icon-area">
+								<p>이지픽 서비스를 이용하여 주문 후<br>
+									가게와 직접 거래하는 셀프픽업 주문방식</p>
+							</div>
+							<ul class="txt-cont">
+								<li>
+									<h4>거래방식</h4>
+									<p>가게와 직거래 방식</p>
+								</li>
+								<li>
+									<h4>결제</h4>
+									<p>직접결제</p>
+									<p style="color:#f9f9f9;">-</p>
+								</li>
+								<li>
+									<h4>상품픽업</h4>
+									<p>직접수령 또는 계약맺고 있는 사입삼촌수령</p>
+								</li>
+								<li>
+									<h4>특징</h4>
+									<p>주문 후 입고, 미송/환불/불량관리, 정산 등<br>
+										전반적인 관리 쇼핑몰 부담</p>
+								</li>
+								<li>
+									<p class="red">주문완료 시 가게와 사입삼촌에게 주문 내용이 전달됩니다.</p>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="item easypick">
+						<h3>이지픽주문<span>*수수료 부과</span></h3>
+						<div class="pop-wrap">
+							<div class="icon-area">
+								<p>주문만 하면 사입부터 정산까지 이지픽 서비스에서<br>
+									대행해드리는 주문방식</p>
+							</div>
+							<ul class="txt-cont">
+								<li>
+									<h4>거래방식</h4>
+									<p>이지픽 사입팀 대행</p>
+								</li>
+								<li>
+									<h4>결제</h4>
+									<p>무통장입금</p>
+									<p class="gray">*선결제 쇼핑몰의 경우 적립금 사용이 가능합니다.</p>
+								</li>
+								<li>
+									<h4>상품픽업</h4>
+									<p>이지픽사입팀이 상품 수령 후 발송</p>
+								</li>
+								<li>
+									<h4>특징</h4>
+									<p>상품입고, 미송/환불/불량관리,<br>
+										정산, 세금계산서 등 모든 관리 가능</p>
+								</li>
+								<li>
+									<p class="red">주문서는 저녁9-10시 경 가게에 전송되어 픽업이 진행됩니다.</p>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<button type="button" class="btn_close reconfirm"><span>닫기</span></button>
+		</div>
+	</div>
+	<!--// 주문타입안내 신규 팝업 종료 -->
+
+	<!--2022-07-21 EZP-5433 셀픽주문 팝업-->
+	<div id="sellpick-pop" class="ui-popup">
+		<div class="content" style="min-width:400px;">
+			<div class="body">
+				<div class="txt-cont">
+					<p>
+						주문을 진행하시겠습니까?<br><br>
+						<span class="txt-gray" style="font-size: 14px;">* 이지픽에서 관리되고 있지 않은 가게의 경우(가게 정보를 직접 입력한 경우),<br>
+						가게에 주문내역이 전달되지 않을 수 있습니다.)</span>
+					</p>
+				</div>
+				<div class="btn_wrap mt40 tac">
+					<button type="button" class="btn medium btn_close" style="width:150px;">취소</button>
+					<button type="button" class="btn point medium btn_close" style="width:150px;">확인</button>
+				</div>
+			</div>
+			<button type="button" class="btn_close">
+				<div class="commLayerConfirm"><span>닫기</span></div>
+			</button>
+		</div>
+	</div>
+
+	<!-- 2022-08-17 EZP-5857-->
+	<div id="searchRemove" class="ui-popup">
+		<div class="content" style="min-width:412px; max-width: 700px;" tabindex="-1">
+			<div class="body">
+				<div class="txt-cont">
+					<p>해당 품목을 검색 목록에서 삭제하시겠습니까?</p>
+				</div>
+				<div class="btn_wrap mt40 tac">
+					<button type="button" class="btn medium btn_close" style="width:150px;">취소</button>
+					<button type="button" class="btn point medium btn_close ui-popup-open" data-target="#removePop" style="width:150px;">확인</button>
+				</div>
+			</div>
+			<!-- <button type="button" class="btn_close">
+					<div class="commLayerConfirm"><span>닫기</span></div>
+				</button> -->
+			<!--2022-07-28 EZP-5433-->
+		</div>
+	</div>
+
+	<div id="removePop" class="ui-popup">
+		<div class="content" style="min-width:412px; max-width: 700px;" tabindex="-1">
+			<div class="body">
+				<div class="txt-cont">
+					<p>삭제 되었습니다.</p>
+				</div>
+				<div class="btn_wrap mt40 tac">
+					<button type="button" class="btn point medium btn_close"  style="width:150px;">확인</button>
+				</div>
+			</div>
+			<!-- <button type="button" class="btn_close">
+						<div class="commLayerConfirm"><span>닫기</span></div>
+					</button> -->
+			<!--2022-07-28 EZP-5433-->
+		</div>
+	</div>
+
+	<!--//container -->
+	<!-- 20220323 EZP-3157 툴팁 메시지 -->
+	
+	<!-- footer// -->
+	<footer></footer>
+	<!-- //footer -->
+
+	<!-- dashboard// -->
+	<div id="dashboard" class=""></div>
+	<!-- //dashboard -->
+
+	<!-- <script type="text/javascript" src="../../../../../js/script.js"></script> -->
+
+	 <!-- 21-01-18 수정-->
+	 <script src="../../../../../js/jquery.min.js"></script><!--jquery default-->
+	 <script src="../../../../../js/jquery-ui.min.js"></script>
+	 <script src="../../../../../js/swiper-ie9.min.js"></script>
+	 <script src="../../../../../js/default.input.js"></script><!-- 2022-10-04 -->
+	 <script src="../../../../../js/addclear.min.js"></script>
+	 <script src="../../../../../js/common.front.js"></script>
+	 <script src="../../../../../js/ui.js"></script>
+	 <script src="../../../../../js/pub.js"></script>
+	 <script src="../../../../../js/jquery.scrollbar.min.js"></script>
+
+	 <!-- //21-01-18 수정-->
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('header').load('../../../../include/header.html');
+			$('footer').load('../../../../include/footer.html');
+			$('#dashboard').load('../../../../include/dashboard.html');
+		});
+	</script>
+	<!-- 2020-04-17 nodata scroll event -->
+	<style>
+	.noData{position:relative; width: 1855px; left: 0 ;}
+
+	</style>
+	<script type="text/javascript">
+		// 2021-04-02 EZP-2674
+
+		$(window).on('load', function(){
+				$(window).resize(function(){
+					// 2023-03-21 EZP-8862 nodata case 추가
+					$('.noData').css('width', $('.tab-scroll-wrap').width() - 5);
+					$('.noData').css('left', '0');
+					$('.fix').css('top',$('.tab-scroll-wrap').offset().top - 139);
+					
+					if( $(this).width() >= 1460 ){
+						var th_position = $('.tab-scroll-wrap').offset().top - 139;
+						$('.fix').css('top',th_position);
+						$('.scrollbar').css('top',th_position+66);
+						$(window).scroll(function(){
+							var scroll_position = $(this).scrollTop();
+							var scroll_x = $(this).scrollLeft();
+							if( th_position < scroll_position){
+								$('.tab-scroll-wrap').addClass('on')
+								// $('.fix, .scrollbar').css({
+								// 	'transform': 'translateX('+-scroll_x+'px)'
+								// });
+
+									
+							}else{
+								$('.tab-scroll-wrap').removeClass('on');
+
+								$('.fix, .scrollbar').css({
+									'transform': 'translateX('+-scroll_x+'px)'
+								});
+							}
+							
+						});
+					}else{
+						var th_position = $('.tab-scroll-wrap').offset().top - 139;
+						$('.fix').css('top',th_position);
+						
+						$('.scrollbar').css('top',th_position+66);
+						$(window).scroll(function(){
+							var scroll_position = $(this).scrollTop();
+							var scroll_x = $(this).scrollLeft();
+							
+							if( th_position+139 < scroll_position){
+								$('.tab-scroll-wrap').addClass('on')
+								$('.fix, .scrollbar, .table-controls').css({
+									'transform': 'translateX('+-scroll_x+'px)'
+								});
+								
+							}else{
+								$('.tab-scroll-wrap').removeClass('on')
+								$('.fix, .scrollbar, .table-controls').css({
+									'transform': 'translateX('+0+'px)'
+								});
+								
+							}
+							
+						});
+						
+					}
+					
+				}).resize();
+				
+			});
+
+		$(document).ready(function() {
+			// 2021-04-20 EZP-2178 삭제
+
+			$(window).resize(function(){
+				// 2022-11-16 EZP-4734 nodata건이 넓이에 따라 resize가 안되고 width:0으로 나와서 변경
+				$('.noData').css('width',$('.tab-scroll-wrap').width() - 5);
+			}).resize();
+			// 2020-12-07 EZP-1674 웨일 브라우저
+			var agent = navigator.userAgent.toLowerCase();
+			if (agent.indexOf("whale") != -1) {
+				$('.tab-scroll-wrap .table-controls').css('top','209px');
+				$('.tab-scroll-wrap .scrollbar span').css({
+					'height':'10px',
+					'background':'#fff'
+				});
+			}
+
+			/* 2020-12-04 EZP-1674 시작 */
+			$('.account-list.option li').on('mouseenter', function () {
+				var span_width = $(this).find('span').width();
+				var button_width = $(this).find('button').width();
+				// if(span_width >= button_width){  // 2022-08-17 EZP-5857
+				//2023-03-13 EZP-8570 기존 456 -> 406으로 변경
+				if (span_width >= 406) {
+					$(this).find('button').next('.tip').addClass('show');
+				}
+			})
+			$('.account-list.option li').on('mouseleave', function () {
+				$(this).find('button').next('.tip').removeClass('show');
+			})
+			
+			
+			
+
+
+			// 시작 20220323 EZP-3157 
+			function setToolTipPos(){
+				
+				var th_position = $('.tab-scroll-wrap').offset().top - 139;
+				var scroll_position = $(this).scrollTop();
+
+				var transY;
+				if($(window).width() >= 1900 ){
+					transY = -610;
+				}
+				else if( $(window).width() >= 1460 ){
+					transY = -655;
+				}else{
+					transY = -800;
+				}
+
+				if( th_position < scroll_position){
+					$('.table-wrap.tab-scroll-wrap .tip-msg').css('position', 'fixed');			
+					$('.table-wrap.tab-scroll-wrap .tip-msg').css('transform', 'translateY('+ transY +'px)');
+					//console.log($(window).width()  + ' th_position: '+ th_position +' scroll_position: ' + scroll_position + ' position: fixed ' +' translateY:' + transY );
+				}else{
+					$('.table-wrap.tab-scroll-wrap .tip-msg').css('position', 'absolute');
+					$('.table-wrap.tab-scroll-wrap .tip-msg').css('transform', 'translateY('+ 0 +'px)');
+					//console.log($(window).width()  + ' th_position: '+ th_position +' scroll_position: ' + scroll_position + ' position: absolute translateY: '  + 0 );
+				}				
+			}
+
+			$(window).resize(function(){
+				setToolTipPos();
+			});
+			$(window).scroll(function(){
+				setToolTipPos();
+			});
+			// 종료 20220323 EZP-3157
+
+
+			/* 2020-12-04 EZP-1674 종료 */
+
+			$('.scrollbar').scroll(function(){
+
+				$('.tab-scroll-wrap, .fix').scrollLeft($(this).scrollLeft());
+				// 2021-03-31 EZP-2656
+				$('.noData').css('left',$(this).scrollLeft())
+			})
+			$('.tab-scroll-wrap').keydown(function(){
+				$(this).scroll(function(){
+					$('.scrollbar').scrollLeft($(this).scrollLeft());
+				})
+			})
+			// 2020-11-17 EZP-1674 종료
+
+			
+
+			// 2020-09-17 EZP-1257 시작
+			$(document).on('click', function(e) {
+				$('.account-list').hide();
+			});
+			$('#tbodyOrder td').on('keyup', 'input, select, button, .ui-select li', function(e) {
+				var idx = $('#tbodyOrder td input, #tbodyOrder td select, #tbodyOrder td button, #tbodyOrder td .ui-select li').index(this);
+				// 위-38  아래-40 왼-37 오-39
+				switch(e.keyCode) {
+					case 38:
+						focus_prev(idx)
+			    break;
+			    case 40:
+						focus_next(idx)
+			    break;
+					case 13:
+						if( $(this).prop('tagName') == 'LI' ){
+							$(this).trigger('click');
+	            $(this).parents('.ui-select').find('button').focus();
+						}
+			    break;
+
+					default:
+						if($(this).val() != ''){
+							$(this).parents('td').find('.account-list').show();
+						}
+         	break;
+				}
+			});
+
+			var focusTarget = $('#tbodyOrder td input, #tbodyOrder td select, #tbodyOrder td button, #tbodyOrder td .ui-select li');
+			var move = 1;
+			function focus_prev(e){
+				var idx = e;
+				if( focusTarget.eq(idx-move).is(':hidden') ){
+					idx = idx-move
+					focus_prev(idx);
+				}else{
+					focusTarget.eq(idx-move).focus();
+					if( focusTarget.eq(idx-move).parents('.account-list').length == 0 ){
+						$('.account-list').hide();
+
+					}
+					if(focusTarget.eq(idx-move).parents('.ui-select').length == 0){
+						$('.ui-select').removeClass('active');
+					}
+					move = 1;
+				}
+			}
+			function focus_next(e){
+				var idx = e;
+				if( focusTarget.eq(idx+move).is(':hidden') ){
+					idx = idx+move;
+					focus_next(idx);
+				}else{
+					focusTarget.eq(idx+move).focus();
+					if( focusTarget.eq(idx+move).parents('.account-list').length == 0 ){
+						$('.account-list').hide();
+					}
+					if(focusTarget.eq(idx+move).parents('.ui-select').length == 0){
+						$('.ui-select').removeClass('active');
+					}
+					move = 1;
+				}
+			}
+			// 2020-11-17 EZP-1674 시작
+			$('.account-list li button').on('click', function(e) {
+				if( $(this).parents('.account-list').hasClass('option') ){
+					// var txt1 = $(this).find('span:nth-child(1)').text();
+					// var txt2 = $(this).find('span:nth-child(2)').text();
+					// var txt3 = $(this).find('span:nth-child(3)').text();
+					// $(this).parents('.caller').find('input').val(txt1);
+					// $(this).parents('.caller').next('td').find('input').val(txt2);
+					// $(this).parents('.caller').next().next('td').find('input').val(txt3);
+					var txt1 = $(this).find('span:nth-child(1)').text();
+					$(this).parents('.caller').find('input').val(txt1);
+					$('.account-list').hide()
+					setTimeout(function(){
+						$(this).parents('.caller').next().next('td').find('input').focus()
+					},100)
+				}else{
+					var txt = $(this).text();
+					var focus_input = $(this).parents('.caller').find('input');
+					$(this).parents('.caller').find('input').val(txt);
+					$('.account-list').hide()
+					setTimeout(function(){
+						focus_input.parents('.caller').find('input').focus()
+					},100)
+				}
+
+			});
+			// 2020-11-17 EZP-1674 종료
+			window.addEventListener("keydown", function(e) {
+				if ([32, 38, 40].indexOf(e.keyCode) > -1) {
+					e.preventDefault();
+				}
+			}, false);
+			// 2020-09-17 EZP-1257 종료
+
+			// 20220323 EZP-3157 툴팁 메시지 hovering event 시작
+			$('.order-list-wrap .list-right .table-wrap.tab-scroll-wrap .fix a.btn-tip').hover(function(){
+				$('.table-wrap.tab-scroll-wrap .tip-msg').show();
+			},function(){
+				$('.table-wrap.tab-scroll-wrap .tip-msg').hide();
+			});
+			// 20220323 EZP-3157 툴팁 메시지 hovering event 종료 
+
+			//셀픽/이지픽 스위치
+			$(".cart-switch .slider").click(function () {
+				$(".cart-switch input").is(":checked") == false ? $(".typeName").text("이지픽") : $(".typeName").text("셀픽");
+				$(".cart-switch input").is(":checked") == false ? $(".aModifiedCart").show() : $(".aModifiedCart").hide();
+			});
+			$(".aModifiedCart").hide();			
+			
+			//탭메뉴 구현
+			$(".tab-nav li").click(function () {
+				var tab_id = $(this).attr('data-tab-target');
+				$(".tab-nav li").removeClass('active');
+				$(".order-list-wrap.direct").removeClass('active');
+				$(this).addClass('active');
+				$("#" + tab_id).addClass('active');
+			});
+
+			// 2022-08-17 EZP-5857 / 자동완성 관련 js
+			$(document).on("click", ".remove", function () {
+				$(this).parent().remove();
+			});
+
+			$(document).on('click', function(e) {
+				var container = $(".account-list");
+				if (!$(e.target).closest(container).length) {
+					container.hide();
+				}
+			});
+
+      // function hasTrailingSpace(str) {
+      //   return /\s$/.test(str);
+      // }
+
+      // let timeoutId;
+      // $('input').on('keyup', function(e) {
+      //   let $input = $(this)
+      //   clearTimeout($(this).data('timeoutId')); // 이전에 등록된 타임아웃 제거
+      //   $(this).data('timeoutId', setTimeout(function() {
+      //     let inputText = $input.val(); // input 요소의 값 가져오기
+      //     let trimmedText = inputText.replace(/\s+$/, ''); // 문자열 마지막에 있는 공백 제거하기
+      //     $input.val(trimmedText); // 결과 출력하기
+      //   }, 300)); // 0.5초 뒤에 실행될 함수 등록
+      // });
+		});
+	</script>
+	<div class="ui-load" style="display:none"><img src="https://www.easypick.co.kr/img/common/loading.svg"></div>
+</body>
+
+</html>

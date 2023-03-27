@@ -1,0 +1,1734 @@
+<!DOCTYPE html>
+<html lang="ko" xml:lang="ko">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="title">
+  <meta name="copyright" content="Copyright ⓒ Cafe24 Corp.All Rights Reserved.">
+  <meta name="description" content="">
+  <title>Cafe24 이지픽 마켓플러스</title>
+
+  <!-- cafe24 운영에서 바로가져온다-->
+  <link rel="shortcut icon" type="image/x-icon" href="https://m-img.cafe24.com/images/event/common/market_favicon.ico">
+  <link rel="stylesheet" type="text/css" href="https://wmsplus07.shopcafe.cafe24.com/mp/css/common.css?ver=1649196508">
+  <link rel="stylesheet" type="text/css" href="https://wmsplus07.shopcafe.cafe24.com/mp/css/market.css?ver=1652220163">
+  <link rel="stylesheet" type="text/css" href="https://wmsplus07.shopcafe.cafe24.com/mp/css/jquery-ui.css?ver=1632873099" />
+  <!--// cafe24 운영에서 바로가져온다-->
+
+  <!--1.비온미  추가할 부분 -->
+  <link rel="stylesheet" type="text/css" href="../../css/style.css">
+  <!--// 비온미  추가할 부분-->
+
+  <!-- jquery -->
+  <script src="../../js/ui/lib/jquery-1.11.1.min.js"></script>
+
+  <!-- bonme 공통 script -->
+  <script src="../../js/ui/easypick-ui.js" type="text/javascript"></script>
+
+  <!-- bonme script -->
+  <script src="../../js/ui/page.js" type="text/javascript"></script>
+
+  <!-- tooltip -->
+  <link rel="stylesheet" href="../../js/ui/lib/protip.min.css">
+  <script src="../../js/ui/lib/protip.min.js"></script>
+
+  <!-- slick slide -->
+  <link rel="stylesheet" type="text/css" href="../../js/ui/lib/slick.css"/>
+  <script type="text/javascript" src="../../js/ui/lib/slick.min.js"></script>
+
+  <!-- table resizable -->
+  <script type="text/javascript" src="../../js/ui/cp/suio.table.fix.resize.js"></script>
+
+  <!-- modal -->
+  <script src="../../js/ui/cp/jquery-ui.js" type="text/javascript"></script>
+  <script src="../../js/ui/cp/ui.js" type="text/javascript"></script>
+  <script src="../../js/ui/cp/wickedpicker.js" type="text/javascript"></script>
+</head>
+
+<body>
+  <div class="mk-wrap">
+
+    <div id="mk-header" class="mk-header">
+  <h1 class="mk-header-logo">
+    <a href="../index.html">
+      <span class="header-logo-title">마켓플러스</span>
+    </a>
+  </h1>
+  <div class="mk-header-gnb">
+    <h2 class="blind">주요 메뉴</h2>
+    <ul class="mk-gnb">
+      <li class="">
+        <a href="#" class="btnNviLink" data-link="">&nbsp;기본&nbsp;</a>
+        <div class="mk-gnb-submenu">
+          <dl>
+            <dt>계정관리</dt>
+            <dd>
+              <a href="#">마켓계정관리</a>
+              <a href="#" data-url="/mp/account/front/lists" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+            </dd>
+          </dl>
+          <dl>
+            <dt>거래처관리</dt>
+            <dd>
+              <a href="#">공급사관리</a>
+              <a href="#" data-url="/ec/sales/supplierList" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+            </dd>
+            <dd>
+              <a href="#">배송업체관리</a>
+              <a href="#" data-url="/ec/sales/shippingInfo" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+            </dd>
+          </dl>
+          <dl>
+            <dt>편의기능</dt>
+            <dd>
+              <a href="#">템플릿</a>
+              <a href="#" data-url="/mp/template/front/lists" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+            </dd>
+            <dd>
+              <a href="#">전송세트</a>
+              <a href="#" data-url="/mp/oneclick/front/lists" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+            </dd>
+          </dl>
+          <dl>
+            <dt>부가기능</dt>
+            <dd>
+              <a href="#">이미지호스팅</a>
+              <a href="#" data-url="/mp/openhost/front/service" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+            </dd>
+            <dd>
+              <a href="#">재고관리</a>
+              <a href="##" data-url="/mp/wms/front/service" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+            </dd>
+            <dd>
+              <a href="#">택배연동</a>
+              <a href="#" data-url="/mp/wms/front/express" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+            </dd>
+          </dl>
+          <dl>
+            <dt>설정</dt>
+            <dd>
+              <a href="#">공통설정</a>
+              <a href="#" data-url="/mp/account/front/config" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+            </dd>
+            <dd>
+              <a href="#">자동화서비스</a>
+              <a href="#" data-url="/mp/order/front/crawlSchedule" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+            </dd>
+            <dd>
+              <a href="#">재고배분설정</a>
+              <a href="##" data-url="/mp/router/wms/settings/broadcasting/front/list" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+            </dd>
+            <dd>
+              <a href="#">재고운영설정</a>
+              <a href="#" data-url="/mp/router/wms/settings/config/front/list" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+            </dd>
+            <dd>
+              <a href="#">재고권한설정</a>
+              <a href="#" data-url="/mp/router/wms/settings/permission/front/list" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+            </dd>
+          </dl>
+        </div>
+      </li>
+      <li class="">
+        <a href="#" class="btnNviLink" data-link="">상품</a>
+        <div class="mk-gnb-submenu">
+          <dl>
+            <dt>상품관리</dt>
+            <dd>
+              <a href="#">상품등록</a>
+              <a href="#" data-url="/mp/product/front/ecRegister" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+            </dd>
+            <dd>
+              <a href="#">마켓으로보내기</a>
+              <a href="#" data-url="/mp/product/front/noSale" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+            </dd>
+            <dd>
+              <a href="#">일괄보내기</a>
+              <a href="#" data-url="/mp/product/front/noSaleAll" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+            </dd>
+            <dd>
+              <a href="#">마켓상품관리</a>
+              <a href="#" data-url="/mp/product/front/manageList" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+            </dd>
+            <dd>
+              <a href="#">마켓상품가져오기</a>
+              <a href="#" data-url="/mp/product/front/import" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+            </dd>
+            <dd>
+              <a href="#">상품매칭하기</a>
+              <a href="#" data-url="/mp/product/front/unmatch" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+            </dd>
+          </dl>
+        </div>
+      </li>
+      <li class="">
+        <a href="#" class="btnNviLink" data-link="">재고</a>
+        <div class="mk-gnb-submenu">
+          <dl>
+            <dt>재고관리</dt>
+            <dd>
+              <a href="#">재고목록</a>
+              <a href="#" data-url="/mp/router/wms/stock/manage/front/list" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+            </dd>
+            <dd>
+              <a href="#">재고상품목록</a>
+              <a href="#" data-url="/mp/router/wms/product/manage/front/list" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+            </dd>
+            <dd>
+              <a href="#">재고매칭관리</a>
+              <a href="#" data-url="/mp/router/wms/product/match/front/list" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+            </dd>
+            <dd>
+              <a href="#">사은품관리</a>
+              <a href="#" data-url="/mp/router/wms/product/benefit/front/list" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+            </dd>
+            <dd>
+              <a href="#">로케이션관리</a>
+              <a href="#" data-url="/mp/router/wms/stock/location/front/list" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+            </dd>
+          </dl>
+          <dl>
+            <dt>입출고관리</dt>
+            <dd>
+              <a href="#">입출고목록</a>
+              <a href="#" data-url="/mp/router/wms/stock/inout/front/list" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+            </dd>
+            <dd>
+              <a href="#">입고관리</a>
+              <a href="#" data-url="/mp/router/wms/stock/in/front/list" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+            </dd>
+            <dd>
+              <a href="#">출고관리</a>
+              <a href="#" data-url="/mp/router/wms/stock/out/front/list" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+            </dd>
+            <dd>
+              <a href="#">재고조사</a>
+              <a href="#" data-url="/mp/router/wms/stock/research/statement/front/list" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+            </dd>
+          </dl>
+          <dl>
+            <dt>공급사요청</dt>
+            <dd>
+              <a href="#">발주요청</a>
+              <a href="#" data-url="/mp/router/wms/stock/supplier/request/front/list" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+            </dd>
+            <dd>
+              <a href="#">발주관리</a>
+              <a href="#" data-url="/mp/router/wms/stock/supplier/request/front/statement" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+            </dd>
+            <dd>
+              <a href="#">발주목록</a>
+              <a href="#" data-url="/mp/router/wms/stock/supplier/request/front/item" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+            </dd>
+          </dl>
+        </div>
+      </li>
+      <li class="">
+        <a href="#" class="btnNviLink" data-link="">주문</a>
+        <div class="mk-gnb-submenu">
+          <dl>
+            <dt>주문관리</dt>
+            <dd>
+              <a href="#">전체주문목록</a>
+              <a href="#" data-url="//wmsplus07.cafe24.com/admin/php/shop1/s_new/order_list.php" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+            </dd>
+            <dd>
+              <a href="#">배송관리</a>
+              <a href="#" data-url="//wmsplus07.cafe24.com/admin/php/shop1/s/payment_list.php" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+            </dd>
+            <dd>
+              <a href="#">취소/교환/반품/환불</a>
+              <a href="#" data-url="//wmsplus07.cafe24.com/admin/php/shop1/s_new/order_cancel_market.php" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+            </dd>
+            <dd>
+              <a href="#">해외배송처리</a>
+              <a href="#" data-url="/mp/order/front/foreignShipping" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+            </dd>
+          </dl>
+          <dl>
+            <dt>통합주문관리</dt>
+            <dd>
+              <a href="#">통합주문목록</a>
+              <a href="#" data-url="/mp/router/wms/order/stock/front/list" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+            </dd>
+            <dd>
+              <a href="#">간편주문처리</a>
+              <a href="#" data-url="/mp/router/wms/order/stock/front/simple" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+            </dd>
+            <dd>
+              <a href="#">개별주문처리</a>
+              <a href="#" data-url="/mp/router/wms/order/stock/front/regist" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+            </dd>
+            <dd>
+              <a href="#">송장내역관리</a>
+              <a href="#" data-url="/mp/router/wms/invoice/print/front/list" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+            </dd>
+          </dl>
+          <dl>
+            <dt>통합CS관리</dt>
+            <dd><a href="#"
+                onclick="oMenu.openPopupWms(&#39;/mp/router/wms/cs/manage/front/list&#39;,&#39;wms_cs_manage&#39;,&#39;width=1600,height=1200,left=0,top=0,resizable=yes,menubar=no,status=no,scrollbars=yes&#39;);">고객CS관리</a></dd>
+            <dd>
+              <a href="#">CS내역관리</a>
+              <a href="#" data-url="/mp/router/wms/cs/manage/memo/front/list" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+            </dd>
+            <dd>
+              <a href="#">수거/회수관리</a>
+              <a href="#" data-url="/mp/router/wms/cs/return/front/list" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+            </dd>
+            <dd>
+              <a href="#">메시지전송</a>
+              <a href="#" data-url="/mp/router/wms/message/send/front/list" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+            </dd>
+          </dl>
+        </div>
+      </li>
+      <li class="">
+        <a href="#" class="btnNviLink" data-link="">게시글</a>
+        <div class="mk-gnb-submenu">
+          <dl>
+            <dt>마켓게시글</dt>
+            <dd>
+              <a href="#">공지사항</a>
+              <a href="#" data-url="/mp/board/notice/front/lists" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+            </dd>
+            <dd>
+              <a href="#">문의사항</a>
+              <a href="#" data-url="/mp/board/qna/front/lists" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+            </dd>
+            <dd>
+              <a href="#">긴급메시지</a>
+              <a href="#" data-url="/mp/board/emergency/front/lists" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+            </dd>
+            <dd>
+              <a href="#">구매후기</a>
+              <a href="#" data-url="/mp/board/review/front/lists" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+            </dd>
+          </dl>
+        </div>
+      </li>
+      <li class="">
+        <a href="#" class="btnNviLink" data-link="">통계</a>
+        <div class="mk-gnb-submenu">
+          <dl>
+            <dt>현황통계</dt>
+            <dd>
+              <a href="#">매출분석</a>
+              <a href="#" data-url="/ec/report/dailylist" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+            </dd>
+            <dd>
+              <a href="#">상품분석</a>
+              <a href="#" data-url="/ec/report/productPrdchart" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+            </dd>
+          </dl>
+          <dl>
+            <dt>재고통계</dt>
+            <dd>
+              <a href="#">매출현황</a>
+              <a href="#" data-url="/mp/router/wms/stats/stock/front/status" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+            </dd>
+            <dd>
+              <a href="#">매출베스트</a>
+              <a href="#" data-url="/mp/router/wms/stats/stock/front/best" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+            </dd>
+            <dd>
+              <a href="#">매출통계</a>
+              <a href="#" data-url="/mp/router/wms/stats/stock/front/sales" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+            </dd>
+            <dd>
+              <a href="#">판매처통계</a>
+              <a href="#" data-url="/mp/router/wms/stats/stock/front/seller" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+            </dd>
+            <dd>
+              <a href="#">상품옵션통계</a>
+              <a href="#" data-url="/mp/router/wms/stats/stock/front/product" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+            </dd>
+            <dd>
+              <a href="#">입출고통계</a>
+              <a href="#" data-url="/mp/router/wms/stats/stock/front/inout" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+            </dd>
+            <dd>
+              <a href="#">배송현황</a>
+              <a href="#" data-url="/mp/router/wms/stats/stock/front/delivery" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+            </dd>
+          </dl>
+        </div>
+      </li>
+      <li class="">
+        <a href="#" class="btnNviLink" data-link="">이력</a>
+        <div class="mk-gnb-submenu">
+          <dl>
+            <dt>이력조회</dt>
+            <dd>
+              <a href="#">상품관리이력</a>
+              <a href="#" data-url="/mp/queue/front/productList" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+            </dd>
+            <dd>
+              <a href="#">주문수집이력</a>
+              <a href="#" data-url="/mp/queue/front/crawlList" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+            </dd>
+            <dd>
+              <a href="#">주문처리이력</a>
+              <a href="#" data-url="/mp/queue/front/orderList" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+            </dd>
+            <dd>
+              <a href="#">게시글관리이력</a>
+              <a href="#" data-url="/mp/queue/front/boardList" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+            </dd>
+            <dd>
+              <a href="#">재고전송이력</a>
+              <a href="#" data-url="/mp/queue/front/wmsbcMarketSendHistory" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+            </dd>
+            <dd>
+              <a href="#">재고관리이력</a>
+              <a href="#" data-url="/mp/router/wms/util/log/front/list" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+            </dd>
+          </dl>
+        </div>
+      </li>
+      <li class="mk-gnb-all">
+        <a href="#" class="btnNviLink" data-link="ALL">전체</a>
+        <div class="mk-gnb-sitemap">
+          <h2 class="blind">전체 메뉴</h2>
+          <div class="mk-sitemap-item">
+            <h3 class="mk-sitemap-title">&nbsp;기본&nbsp;</h3>
+            <dl>
+              <dt>계정관리</dt>
+              <dd>
+                <a href="#">마켓계정관리</a>
+                <a href="#" data-url="/mp/account/front/lists" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+              </dd>
+            </dl>
+            <dl>
+              <dt>거래처관리</dt>
+              <dd>
+                <a href="#">공급사관리</a>
+                <a href="#" data-url="/ec/sales/supplierList" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+              </dd>
+              <dd>
+                <a href="#">배송업체관리</a>
+                <a href="#" data-url="/ec/sales/shippingInfo" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+              </dd>
+            </dl>
+            <dl>
+              <dt>편의기능</dt>
+              <dd>
+                <a href="#">템플릿</a>
+                <a href="#" data-url="/mp/template/front/lists" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+              </dd>
+              <dd>
+                <a href="#">전송세트</a>
+                <a href="#" data-url="/mp/oneclick/front/lists" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+              </dd>
+            </dl>
+            <dl>
+              <dt>부가기능</dt>
+              <dd>
+                <a href="#">이미지호스팅</a>
+                <a href="#" data-url="/mp/openhost/front/service" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+              </dd>
+              <dd>
+                <a href="#">재고관리</a>
+                <a href="#" data-url="/mp/wms/front/service" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+              </dd>
+              <dd>
+                <a href="#">택배연동</a>
+                <a href="#" data-url="/mp/wms/front/express" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+              </dd>
+            </dl>
+            <dl>
+              <dt>설정</dt>
+              <dd>
+                <a href="#">공통설정</a>
+                <a href="#" data-url="/mp/account/front/config" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+              </dd>
+              <dd>
+                <a href="#">자동화서비스</a>
+                <a href="#" data-url="/mp/order/front/crawlSchedule" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+              </dd>
+              <dd>
+                <a href="#">재고배분설정</a>
+                <a href="#" data-url="/mp/router/wms/settings/broadcasting/front/list" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+              </dd>
+              <dd>
+                <a href="#">재고운영설정</a>
+                <a href="#" data-url="/mp/router/wms/settings/config/front/list" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+              </dd>
+              <dd>
+                <a href="#">재고권한설정</a>
+                <a href="#" data-url="/mp/router/wms/settings/permission/front/list" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+              </dd>
+            </dl>
+          </div>
+          <div class="mk-sitemap-item">
+            <h3 class="mk-sitemap-title">상품</h3>
+            <dl>
+              <dt>상품관리</dt>
+              <dd>
+                <a href="#">상품등록</a>
+                <a href="#" data-url="/mp/product/front/ecRegister" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+              </dd>
+              <dd>
+                <a href="#">마켓으로보내기</a>
+                <a href="#" data-url="/mp/product/front/noSale" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+              </dd>
+              <dd>
+                <a href="#">일괄보내기</a>
+                <a href="#" data-url="/mp/product/front/noSaleAll" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+              </dd>
+              <dd>
+                <a href="#">마켓상품관리</a>
+                <a href="#" data-url="/mp/product/front/manageList" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+              </dd>
+              <dd>
+                <a href="#">마켓상품가져오기</a>
+                <a href="#" data-url="/mp/product/front/import" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+              </dd>
+              <dd>
+                <a href="#">상품매칭하기</a>
+                <a href="#" data-url="/mp/product/front/unmatch" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+              </dd>
+            </dl>
+          </div>
+          <div class="mk-sitemap-item">
+            <h3 class="mk-sitemap-title">재고</h3>
+            <dl>
+              <dt>재고관리</dt>
+              <dd>
+                <a href="#">재고목록</a>
+                <a href="#" data-url="/mp/router/wms/stock/manage/front/list" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+              </dd>
+              <dd>
+                <a href="#">재고상품목록</a>
+                <a href="#" data-url="/mp/router/wms/product/manage/front/list" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+              </dd>
+              <dd>
+                <a href="#">재고매칭관리</a>
+                <a href="#" data-url="/mp/router/wms/product/match/front/list" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+              </dd>
+              <dd>
+                <a href="#">사은품관리</a>
+                <a href="#" data-url="/mp/router/wms/product/benefit/front/list" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+              </dd>
+              <dd>
+                <a href="#">로케이션관리</a>
+                <a href="#" data-url="/mp/router/wms/stock/location/front/list" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+              </dd>
+            </dl>
+            <dl>
+              <dt>입출고관리</dt>
+              <dd>
+                <a href="#">입출고목록</a>
+                <a href="#" data-url="/mp/router/wms/stock/inout/front/list" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+              </dd>
+              <dd>
+                <a href="#">입고관리</a>
+                <a href="#" data-url="/mp/router/wms/stock/in/front/list" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+              </dd>
+              <dd>
+                <a href="#">출고관리</a>
+                <a href="#" data-url="/mp/router/wms/stock/out/front/list" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+              </dd>
+              <dd>
+                <a href="#">재고조사</a>
+                <a href="#" data-url="/mp/router/wms/stock/research/statement/front/list" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+              </dd>
+            </dl>
+            <dl>
+              <dt>공급사요청</dt>
+              <dd>
+                <a href="#">발주요청</a>
+                <a href="#" data-url="/mp/router/wms/stock/supplier/request/front/list" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+              </dd>
+              <dd>
+                <a href="#">발주관리</a>
+                <a href="#" data-url="/mp/router/wms/stock/supplier/request/front/statement" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+              </dd>
+              <dd>
+                <a href="#">발주목록</a>
+                <a href="#" data-url="/mp/router/wms/stock/supplier/request/front/item" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+              </dd>
+            </dl>
+          </div>
+          <div class="mk-sitemap-item">
+            <h3 class="mk-sitemap-title">주문</h3>
+            <dl>
+              <dt>주문관리</dt>
+              <dd>
+                <a href="#">전체주문목록</a>
+                <a href="#" data-url="//wmsplus07.cafe24.com/admin/php/shop1/s_new/order_list.php" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+              </dd>
+              <dd>
+                <a href="#">배송관리</a>
+                <a href="#" data-url="//wmsplus07.cafe24.com/admin/php/shop1/s/payment_list.php" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+              </dd>
+              <dd>
+                <a href="#">취소/교환/반품/환불</a>
+                <a href="#" data-url="//wmsplus07.cafe24.com/admin/php/shop1/s_new/order_cancel_market.php" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+              </dd>
+              <dd>
+                <a href="#">해외배송처리</a>
+                <a href="#" data-url="/mp/order/front/foreignShipping" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+              </dd>
+            </dl>
+            <dl>
+              <dt>통합주문관리</dt>
+              <dd>
+                <a href="#">통합주문목록</a>
+                <a href="#" data-url="/mp/router/wms/order/stock/front/list" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+              </dd>
+              <dd>
+                <a href="#">간편주문처리</a>
+                <a href="#" data-url="/mp/router/wms/order/stock/front/simple" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+              </dd>
+              <dd>
+                <a href="#">개별주문처리</a>
+                <a href="#" data-url="/mp/router/wms/order/stock/front/regist" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+              </dd>
+              <dd>
+                <a href="#">송장내역관리</a>
+                <a href="#" data-url="/mp/router/wms/invoice/print/front/list" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+              </dd>
+            </dl>
+            <dl>
+              <dt>통합CS관리</dt>
+              <dd>
+                <a href="#"
+                  onclick="oMenu.openPopupWms(&#39;/mp/router/wms/cs/manage/front/list&#39;,&#39;wms_cs_manage&#39;,&#39;width=1600,height=1200,left=0,top=0,resizable=yes,menubar=no,status=no,scrollbars=yes&#39;);">고객CS관리</a>
+              </dd>
+              <dd>
+                <a href="#">CS내역관리</a>
+                <a href="#" data-url="/mp/router/wms/cs/manage/memo/front/list" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+              </dd>
+              <dd>
+                <a href="#">수거/회수관리</a>
+                <a href="#" data-url="/mp/router/wms/cs/return/front/list" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+              </dd>
+              <dd>
+                <a href="#">메시지전송</a>
+                <a href="#" data-url="/mp/router/wms/message/send/front/list" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+              </dd>
+            </dl>
+          </div>
+          <div class="mk-sitemap-item">
+            <h3 class="mk-sitemap-title">게시글</h3>
+            <dl>
+              <dt>마켓게시글</dt>
+              <dd>
+                <a href="#">공지사항</a>
+                <a href="#" data-url="/mp/board/notice/front/lists" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+              </dd>
+              <dd>
+                <a href="#">문의사항</a>
+                <a href="#" data-url="/mp/board/qna/front/lists" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+              </dd>
+              <dd>
+                <a href="#">긴급메시지</a>
+                <a href="#" data-url="/mp/board/emergency/front/lists" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+              </dd>
+              <dd>
+                <a href="#">구매후기</a>
+                <a href="#" data-url="/mp/board/review/front/lists" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+              </dd>
+            </dl>
+          </div>
+          <div class="mk-sitemap-item">
+            <h3 class="mk-sitemap-title">통계</h3>
+            <dl>
+              <dt>현황통계</dt>
+              <dd>
+                <a href="#">매출분석</a>
+                <a href="#" data-url="/ec/report/dailylist" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+              </dd>
+              <dd>
+                <a href="#">상품분석</a>
+                <a href="#" data-url="/ec/report/productPrdchart" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+              </dd>
+            </dl>
+            <dl>
+              <dt>재고통계</dt>
+              <dd>
+                <a href="#">매출현황</a>
+                <a href="#" data-url="/mp/router/wms/stats/stock/front/status" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+              </dd>
+              <dd>
+                <a href="#">매출베스트</a>
+                <a href="#" data-url="/mp/router/wms/stats/stock/front/best" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+              </dd>
+              <dd>
+                <a href="#">매출통계</a>
+                <a href="#" data-url="/mp/router/wms/stats/stock/front/sales" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+              </dd>
+              <dd>
+                <a href="#">판매처통계</a>
+                <a href="#" data-url="/mp/router/wms/stats/stock/front/seller" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+              </dd>
+              <dd>
+                <a href="#">상품옵션통계</a>
+                <a href="#" data-url="/mp/router/wms/stats/stock/front/product" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+              </dd>
+              <dd>
+                <a href="#">입출고통계</a>
+                <a href="#" data-url="/mp/router/wms/stats/stock/front/inout" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+              </dd>
+              <dd>
+                <a href="#">배송현황</a>
+                <a href="#" data-url="/mp/router/wms/stats/stock/front/delivery" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+              </dd>
+            </dl>
+          </div>
+          <div class="mk-sitemap-item">
+            <h3 class="mk-sitemap-title">이력</h3>
+            <dl>
+              <dt>이력조회</dt>
+              <dd>
+                <a href="#">상품관리이력</a>
+                <a href="#" data-url="/mp/queue/front/productList" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+              </dd>
+              <dd>
+                <a href="#">주문수집이력</a>
+                <a href="#" data-url="/mp/queue/front/crawlList" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+              </dd>
+              <dd>
+                <a href="#">주문처리이력</a>
+                <a href="#" data-url="/mp/queue/front/orderList" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+              </dd>
+              <dd>
+                <a href="#">게시글관리이력</a>
+                <a href="#" data-url="/mp/queue/front/boardList" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+              </dd>
+              <dd>
+                <a href="#">재고전송이력</a>
+                <a href="#" data-url="/mp/queue/front/wmsbcMarketSendHistory" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+              </dd>
+              <dd>
+                <a href="#">재고관리이력</a>
+                <a href="#" data-url="/mp/router/wms/util/log/front/list" class="lnk-newtab" rel="noopener"><span class="sp-image">새창으로 열기</span></a>
+              </dd>
+            </dl>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="mk-header-func">
+    <div class="mk-header-func-item">
+      <button type="button" class="mkbtn-func-basic mkbtn-func-ez">
+        <span>QUICK</span>
+      </button>
+      <div class="mk-func-ezmenu">
+        <ul>
+          <li><a href="#">고객CS</a></li>
+          <li><a href="#">입출고</a></li>
+          <li><a href="#">간편처리</a></li>
+          <li><a href="#">배송처리</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="mk-header-func-item">
+      <a href="#" class="mkbtn-func-basic btnShopManage">
+        <span>쇼핑몰관리자</span>
+      </a>
+    </div>
+    <div class="mk-header-func-item">
+      <a href="#" class="mkbtn-func-basic btnFaqOpen" title="새창열림">
+        <span>Help Center</span>
+      </a>
+    </div>
+    <div class="mk-header-func-item">
+      <button class="mkbtn-image mkbtn-func-window btnBrowserClone" title="현재 화면 새창에서 열기"><span class="sp-image">현재 창 복사</span></button>
+    </div>
+    <div class="mk-header-func-item">
+      <button type="button" class="mkbtn-image mkbtn-func-more"><span class="sp-image">더보기</span></button>
+      <div class="mk-func-submenu">
+        <ul>
+          <li>
+            <a href="#" class="btnHeaderSubMenu" data-link_type="notice">공지사항</a>
+          </li>
+          <li>
+            <a href="#" class="btnHeaderSubMenu" data-link_type="qna">1:1 문의</a>
+          </li>
+          <li>
+            <a href="#" class="btnHeaderSubMenu" data-link_type="guide">이용가이드</a>
+          </li>
+          <li>
+            <a href="#" class="btnHeaderSubMenu" data-link_type="manual">매뉴얼</a>
+          </li>
+          <li>
+            <a href="#" class="btnHeaderSubMenu" data-link_type="mpSite">마켓플러스</a>
+          </li>
+          <li>
+            <a href="#" class="btnHeaderSubMenu" data-link_type="logout">로그아웃</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <div id="mk-container" class="mk-container">
+      <div class="mk-snb " style="left: 0px;">
+        <div class="mk-snb-body">
+          <!-- 마켓 자동 로그인 -->
+          <!-- 2022-09-22 자동로그인 영역 제거 -->
+          <!-- 2022-11-11 EZP-7396 자동로그인 주석 제거(활성화) -->
+          <div class="mk-snb-autolgn">
+            <button type="button" class="mkbtn-autolgn">
+              <span>마켓 자동 로그인</span>
+            </button>
+            <div class="mk-autolgn-list" style="display:none;">
+              <div class="add-extension" style="display: none">
+                <strong class="title">크롬 확장프로그램</strong>
+                <button type="button" name="button" class="btn btn-lm btn-outline-blue"
+                  onclick="#">
+                  <span>설치</span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- 마켓 자동 로그인 -->
+
+          <!-- 2022-11-11- EZP-7385 mk-snb-scroller 제거 
+          <div class="mk-snb-scroller">
+          -->
+            <!-- 이지믹 메뉴 작업영역 -->
+            <!-- 2022-11-11 EZP-7385 실서버와 nav 구조 동일하게 변경 -->
+<div class="mk-snb-menu">
+	<ul class="deps-nav">
+		<li>
+  		이지픽사입하기
+  		<div class="mk-snb-submenu">
+  			<ul>
+          <!-- 2022-10-06 EZP-7004 맞춤상품 <-> 전체상품 위치변경 -->
+          <li class="active">
+              <a href="../sub/index.html">전체상품보기</a>
+          </li>
+          <li>
+              <a href="../main/index.html">맞춤상품추천</a>
+          </li>
+          <li>
+              <a href="../direct-order/direct-order-case01-1.html">바로주문</a>
+          </li>
+          <li>
+              <a href="../mypick/index.html">마이픽관리</a>
+          </li>
+  			</ul>
+  		</div>
+		</li>
+		<li>
+  		사입내역조회
+  		<div class="mk-snb-submenu">
+  			<ul>
+          <li>
+              <a href="../buy/index.html">주문내역</a>
+          </li>
+          <li>
+              <a href="../buy-sell-pick/index.html">셀픽주문내역</a>
+          </li>
+          <li>
+              <a href="../buy-undeliver/index.html">미송/환불내역</a>
+          </li>
+          <li>
+              <a href="../buy-sample/index.html">샘플/제작/불량관리</a>
+          </li>
+  			</ul>
+  		</div>
+		</li>
+		<li>
+  		입고상품검수
+  		<div class="mk-snb-submenu">
+  			<ul>
+          <li>
+              <a href="../stock/index.html">오늘입고상품</a>
+          </li>
+          <li>
+              <a href="../inspection/index.html">검수대기상품</a>
+          </li>
+          <li>
+              <a href="../inspection/inspection-complete.html">검수완료내역</a>
+          </li>
+          <li>
+              <a href="../stock-matching/index.html">입고상품매칭</a>
+          </li>
+          <li>
+              <a href="../repeat-confirm/index.html">재확인요청관리</a>
+          </li>
+  			</ul>
+  		</div>
+		</li>
+    <li>
+    정산관리
+    <div class="mk-snb-submenu">
+        <ul>
+        <li>
+            <a href="../account/account-list.html">정산내역</a>
+        </li>
+        <li>
+            <a href="../shop-purchase-point/shop-purchase-index.html">가게매입금관리</a>
+        </li>
+        <li>
+            <a href="../shop-purchase-point/point-money-history.html">적립금내역</a>
+        </li>
+        </ul>
+    </div>
+    </li>
+    <li>
+    설정
+    <div class="mk-snb-submenu">
+        <ul>
+        <li>
+            <a href="../easypick-setting/setting-easypickinfo-case1-1.html">이지픽 설정</a>
+        </li>
+        </ul>
+    </div>
+    </li>
+	</ul>
+    <!-- 2022-11-11 EZP-7385 layout.njk로 이동
+    <div class="state-nav">
+        <div class="top-msg">
+            <dl>
+                <dt>이지픽 고객센터</dt>
+                <dd>
+                    <a href="tel:02-6296-8794">02-6296-8794</a>
+                </dd>
+            </dl>
+        </div>
+        <div class="bottom-msg">
+            <p>주중 10:00 ~ 18:00</p>
+            <p>점심 12:30 ~ 13:30</p>
+            <p>(토, 일, 공휴일 휴무)</p>
+            <a href="javascript:void(0);" onclick="targetModalPopup('modal-navigation')">[사업자 정보 확인]</a>
+        </div>
+        -->
+        <!-- 2022-09-22 EZP-6951 -->
+        <!-- 이지픽 바로가기 -->
+        <!-- 2022-11-11 EZP-7385 layout.njk로 이동
+        <div class="easypick-link-wrap nav-inner-type">
+            <a href="#" class="easypick-btn"><i><img src="../../img/easypick_logo_white.svg"></i>바로가기</a>
+        </div>
+        -->
+        <!-- 이지픽 바로가기 -->
+        <!-- 2022-11-11 EZP-7385 layout.njk로 이동
+        <ul class="service-link-wrap">
+            <li>
+                <a href="../sub/service-index.html">
+                    <i class="intro"></i>
+                    <span>이지픽<br />서비스소개</span>
+                </a>
+            </li>
+            <li>
+                <a href="../sub/service-index.html">
+                    <i class="serivce"></i>
+                    <span>서비스<br />상담신청</span>
+                </a>
+            </li>
+        </ul>
+        <p class="easypick-notice">
+            <a href="../service-info/notice-list.html">이지픽 공지사항</a>
+            <i></i>
+        </p>
+        <p class="copyright">
+            Copyright ⓒ EasyPick. <br />
+            All Rights Reserved.
+        </p>
+    </div>
+    -->
+</div>
+
+  <!-- modal-->
+<div class="modal-pop" id="modal-navigation">
+  <div class="modal-dialog">
+    <div class="modal-inner w800">
+      <section class="modal-head">
+        <div class="modal-head-inner">
+          <h1>사업자 정보 확인</h1>
+          <a href="#" class="btn-manual" target="_blank" title="매뉴얼">매뉴얼</a>
+        </div>
+      </section>
+      <div class="modal-body modal-pn">
+
+        <div class="businessinfo-table-wrap">
+            <a href="#" class="info-check">공정거래위원회 사업자 정보 확인은 여기를 클릭해 주세요.</a>
+            <table class="tbl-register-row">
+                <colgroup>
+                <col style="width:160px;">
+                <col style="width:auto;">
+                </colgroup>
+                <tbody>
+                <tr>
+                    <th>회사명</th>
+                    <td>제이씨어패럴(주)</td>
+                </tr>
+                <tr>
+                    <th>대표자</th>
+                    <td>정문섭</td>
+                </tr>
+                <tr>
+                    <th>사업자등록번호</th>
+                    <td>204-86-42339</td>
+                </tr>
+                <tr>
+                    <th>통신판매업신고</th>
+                    <td>제2016-서울동대문-1326호</td>
+                </tr>
+                <tr>
+                    <th>개인정보보호책임자</th>
+                    <td>김용해</td>
+                </tr>
+                <tr>
+                    <th>사업장주소</th>
+                    <td>서울특별시 동대문구 천호대로17길 6 (용두동) 제이씨어패럴빌딩</td>
+                </tr>
+                <tr>
+                    <th>대표번호</th>
+                    <td>02-6296-8794</td>
+                </tr>
+                <tr>
+                    <th>팩스번호</th>
+                    <td>02-929-4332</td>
+                </tr>
+                <tr>
+                    <th>이메일</th>
+                    <td>jcapparel@jcapparel.co.kr</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+      </div>
+      <!--//modal-body-->
+      <div class="modal-footer">
+        <div class="modal-footer-btn">
+          <button type="button" name="button" class="btn btn-lg btn-darkgray page-close">닫기</button>
+        </div>
+      </div>
+      <a href="javascript:void(0);" class="page-close"></a>
+    </div>
+    <div class="dim"></div>
+  </div>
+  <!--//-->
+</div>
+
+            <!--// 이지믹 메뉴 작업영역 -->
+          <!-- 2022-11-11- EZP-7385 mk-snb-scroller 제거 
+          </div>
+          -->
+
+          <button type="button" class="mkbtn-snbclose">
+            <span class="sp-image">메뉴 닫기</span>
+          </button>
+
+          <!-- 2022-11-11 EZP-7385 navigation.njk에서 layout.njk 이동 -->
+          <div class="mk-snb-foot">
+            <div class="state-nav">
+                <div class="top-msg">
+                    <dl>
+                        <dt>이지픽 고객센터</dt>
+                        <dd>
+                            <a href="tel:02-6296-8794">02-6296-8794</a>
+                        </dd>
+                    </dl>
+                </div>
+                <div class="bottom-msg">
+                    <p>주중 10:00 ~ 18:00</p>
+                    <p>점심 12:30 ~ 13:30</p>
+                    <p>(토, 일, 공휴일 휴무)</p>
+                    <!-- 2022-11-21 EZP-7385 p태그에서 ul > li 형식으로 변경 후 공지사항과 사업자 한줄로 이동 -->
+                    <ul class="easypick-notice">
+                      <li>
+                        <a href="../service-info/notice-list.html">공지사항</a><i></i>
+                      </li>
+                      <li>
+                        <a href="javascript:void(0);" onclick="targetModalPopup('modal-navigation')">사업자 정보</a>
+                      </li>
+                    </ul>
+                </div>
+                    <i></i>
+                <!-- 2022-09-22 EZP-6951 -->
+                <!-- 이지픽 바로가기 -->
+                <div class="easypick-link-wrap nav-inner-type">
+                    <a href="#" class="easypick-btn"><i><img src="../../img/easypick_logo_white.svg"></i>바로가기</a>
+                </div>
+                <!-- 이지픽 바로가기 -->
+                <ul class="service-link-wrap">
+                    <li>
+                        <a href="../sub/service-index.html">
+                            <i class="intro"></i>
+                            <!-- 2022-11-21 EZP-7385 br 제거 -->
+                            <span>이지픽 서비스소개</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../sub/service-index.html">
+                            <i class="serivce"></i>
+                            <!-- 2022-11-21 EZP-7385 br 제거 -->
+                            <span>서비스 상담신청</span>
+                        </a>
+                    </li>
+                </ul>
+                <!-- 2022-11-21 EZP-7385 하단에서 사업자정보 옆으로 위치 이동
+                <p class="easypick-notice">
+                    <a href="../service-info/notice-list.html">이지픽 공지사항</a>
+                    <i></i>
+                </p>
+                -->
+                <p class="copyright">
+                    Copyright ⓒ EasyPick. <br />
+                    All Rights Reserved.
+                </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mk-content wide">
+        <!--div class="mk-dashboard v2"-->
+          <!-- 이지믹 메뉴 작업영역 -->
+          
+<div class="section-left">
+    <div class="column-wrap">
+        <div id="wrap">
+            <div class="content-head">
+                <div class="page-title">
+                  <h3 class="h3-tit">동대문사입</h3>
+                  <a href="#" class="btn-manual" target="_blank" title="매뉴얼">매뉴얼</a>
+                </div>
+
+                <div class="cont-info-right">
+                  <ul class="breadcrumb">
+                    <li>기본</li>
+                    <li>부가기능</li>
+                    <li class="now" title="현재 페이지">동대문사입</li>
+                  </ul>
+                </div>
+              </div>
+
+                <div class="easypick-service-wrap">
+                    <div class="easypick-service-banner-wrap">
+                        <div class="banner-title">
+                            <i><img src="../../img/easypick-service-banner-logo.png" alt="easypick logo"></i>
+                            <h6>
+                                가장 쉬운 No.1 동대문 사입 서비스 <br />
+                                <b>이지픽에 오신 것을 환영합니다!</b>
+                            </h6>
+                        </div>
+                    </div>
+                    <div class="easypick-intro">
+                        <h6>
+                            <small>NO.1 쉬운 사입 서비스</small><br />
+                            <b>EASY PICK 이란?</b>
+                        </h6>
+                        <i><img src="../../img/easypick-caption-slash.png" alt="easypick caption slash"></i>
+                        
+                        <p class="description">
+                            이지픽은 직접 다녀온 듯 <b>다양하고 트렌디한 최신 상품을 간편</b>하게 만나볼 수 있어 <br />
+                            <b>편리함</b>은 물론, <b>성공적인 비즈니스</b>를 목표로 하는 우리 고객님들을 위한 최고의 온라인 사입 서비스 입니다.
+                        </p>
+                        <p class="point-text">
+                            오늘도 발품 팔고 계신 사장님, 담당자님! <br />
+                            <b>전문화된 상품 구성</b>과 <b>쉬운 서비스 제공</b>을 통해 고객님에게 <b>최상의 사입 경험</b>과 함께 <b>비즈니스 파트너로서의 성공</b>을 함께하고자 합니다.
+                        </p>
+                        <div class="easypick-youtube-player">
+                            <iframe width="700" height="390" src="https://www.youtube.com/embed/IshCu0LqyUo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div class="easypick-service-step-wrap">
+                        <ul>
+                            <li>
+                                <div class="step-title-wrap white-con">
+                                    <i>01</i>
+                                    <h6>
+                                        사입은 저희가 해드릴게요 <br />
+                                        <b>사장님은 비즈니스에 집중하세요!</b>
+                                    </h6>
+                                </div>
+                                <ul class="check-business-ul">
+                                    <li class="active">
+                                        <div class="check-icon">
+                                            <i></i>
+                                        </div>
+                                        <p>
+                                            머나먼 동대문... 직접 가실 필요 없이 <b>저희가 대신 보고</b> 빠르게 사입 해드릴게요.
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <div class="check-icon">
+                                            <i></i>
+                                        </div>
+                                        <p>
+                                            가게와 단골 맺기 어색하고 힘드시죠?! 이지픽이 <b>고객님의 시간과 에너지</b>를 아껴드립니다.
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <div class="check-icon">
+                                            <i></i>
+                                        </div>
+                                        <p>
+                                            상품 일일히 보고 주문하려면 밤새도 모자란 시간! 이지픽에서는 <b>간편하게 주문</b>할 수 있어요!
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <div class="check-icon">
+                                            <i></i>
+                                        </div>
+                                        <p>
+                                            <b>잊어버리기 쉬운 장끼</b>도 이제 이지픽에서 쉽게 <b>솔루션 관리</b> 해보세요.
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <div class="check-icon">
+                                            <i></i>
+                                        </div>
+                                        <p>
+                                            매번 번거로웠던 <b>미송, 불량 신청과 환불 과정</b>도 이지픽에서 <b>클릭 한 번</b>이면 대신 해드립니다!
+                                        </p>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <div class="step-title-wrap green-con">
+                                    <i>02</i>
+                                    <h6>
+                                        가장 쉬운 사입 서비스<br />
+                                        <b>고객님의 시간과 비용을 소중하게 생각하는 솔루션</b>
+                                    </h6>
+                                </div>
+                                <ul class="service-circle-ul">
+                                    <li>
+                                        <div class="circle-bg">
+                                            <i><img src="../../img/icons/easypick-step-circle01.png" alt="solution icon"></i>
+                                        </div>
+                                        <div class="text-box">
+                                            <h6>발빠른 신상품 업데이트</h6>
+                                            <p>
+                                                매일 업데이트되는 최신 트렌드의 <br />
+                                                상품을 한 눈에 보고 PICK!
+                                            </p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="circle-bg">
+                                            <i><img src="../../img/icons/easypick-step-circle02.png" alt="solution icon"></i>
+                                        </div>
+                                        <div class="text-box">
+                                            <h6>다양한 가게 추천</h6>
+                                            <p>
+                                                마음에 쏙! 드는 가게를 찾으실 수 <br />
+                                                있도록 추천해드릴게요!
+                                            </p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="circle-bg">
+                                            <i><img src="../../img/icons/easypick-step-circle03.png" alt="solution icon"></i>
+                                        </div>
+                                        <div class="text-box">
+                                            <h6>낱장 구매 가능</h6>
+                                            <p>
+                                                소규모 상점 고객님도 부담없이 <br />
+                                                시작할 수 있도록 낱장 구매도 OK!
+                                            </p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="circle-bg">
+                                            <i><img src="../../img/icons/easypick-step-circle04.png" alt="solution icon"></i>
+                                        </div>
+                                        <div class="text-box">
+                                            <h6>쉬운 대량 주문</h6>
+                                            <p>
+                                                거래 중인 상품을 대량으로 주문할 때는 <br />
+                                                바로주문 기능으로 원클릭 사입!
+                                            </p>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <ul id="service-solution-slide" class="service-solution-slide">
+                                    <li>
+                                        <div>
+                                            <b>01</b>
+                                            <h6>
+                                                <b>신상품 </b>둘러보기
+                                            </h6>
+                                            <p>
+                                                이지픽에 업로드 되는 신상품을 확인하세요! <br />
+                                                나에게 맞는 큐레이션 상품도 놓치지 마세요!
+                                            </p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <b>02</b>
+                                            <h6>
+                                                상품 <b>주문</b> 하기
+                                            </h6>
+                                            <p>
+                                                평소 엑셀로 관리하시던 주문 파일을 <br />
+                                                이지픽에 업로드해서 주문할 수도 있어요!
+                                            </p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <b>03</b>
+                                            <h6>
+                                                동대문 상품 <b>픽업</b>
+                                            </h6>
+                                            <p>
+                                                이지픽 삼촌을 이용하거나 <br />
+                                                기존에 거래하던 사입삼촌을 그대로 <br />
+                                                이용할 수 있어요! 혹은 직접 수령도 가능해요!
+                                            </p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <b>04</b>
+                                            <h6>
+                                                <b>입고</b>된 상품 확인/검수
+                                            </h6>
+                                            <p>
+                                                오늘 주문한 상품은 내일 아침이면 도착! <br />
+                                                입고된 상품을 확인하고 검수하세요!
+                                            </p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <b>05</b>
+                                            <h6>
+                                                미송/환불/불량 관리
+                                            </h6>
+                                            <p>
+                                                미송 관리, 불량 접수, 환불 처리, 샘플 반납 <br />
+                                                모두 이지픽에서 쉽게 관리하세요!
+                                            </p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <b>06</b>
+                                            <h6>
+                                                <b>정산</b>관리
+                                            </h6>
+                                            <p>
+                                                어려운 정산처리도 쉽게! <br />
+                                                입고일별로 금액을 확인하고, <br />
+                                                가게별로 정산처리를 할 수 있어요!
+                                            </p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <b>07</b>
+                                            <h6>
+                                                <b>세금계산서</b> 발행
+                                            </h6>
+                                            <p>
+                                                불편했던 세금계산서 발행 신청! <br />
+                                                이제 이지픽에서 편하게 하세요!
+                                            </p>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div class="sol-slider-controls">
+                                    <button type="button" class="sol-arrow sol-slide-prev">prev</button>
+                                    <div class="sol-slide-dots"></div>
+                                    <button type="button" class="sol-arrow sol-slide-next">next</button>
+                                  </div>
+                            </li>
+                            <li>
+                                <div class="step-title-wrap white-con">
+                                    <i>03</i>
+                                    <h6>
+                                        원하는 상품이 안보이시나요? <br />
+                                        <b>어떤 상품이라도 사입해드리니 <span class="gold-text">바로주문</span>하세요!</b>
+                                    </h6>
+                                    <p class="step-title-caption">
+                                        <span class="gold-text">꼭 사입해야 하는 상품</span>이 이지픽에 없어서 동대문에 직접 가신다구요?! <br />
+                                        가게와 상품 이름 적어 <span class="gold-text">바로주문</span> 요청하시면 <span class="gold-text">이지픽이 해결</span>해드립니다!
+                                    </p>
+                                </div>
+                                <h6 class="order-depstitle">바로주문 하는 방법</h6>
+                                <div class="order-depstab-wrap">
+                                    <ul class="easypick-order-tab">
+                                        <li data-tab="conttab1" class="active">
+                                            <a href="javascript: void(0);">01.[바로주문]메뉴클릭</a>
+                                        </li>
+                                        <li data-tab="conttab2" class="">
+                                            <a href="javascript: void(0);">02. 주문서 작성</a>
+                                        </li>
+                                        <li data-tab="conttab3">
+                                            <a href="javascript: void(0);">03. 주문 및 결제</a>
+                                        </li>
+                                        <li data-tab="conttab4">
+                                            <a href="javascript: void(0);">04. 익일 오전 상품 수령</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="all-tab-con">
+                                    <div class="easypick-service-order tab-item active" id="conttab1">
+                                        <div class="text-box">
+                                            <dl>
+                                                <dt>01</dt>
+                                                <dd>
+                                                    <h6>[바로주문] 메뉴클릭</h6>
+                                                    <p>
+                                                        이지픽 메인화면에서 <br />
+                                                        우측 상단 메뉴 바에있는 <br />
+                                                        <b>바로주문</b> 버튼을 클릭하세요.
+                                                    </p>
+                                                </dd>
+                                            </dl>
+                                        </div>
+                                        <div class="img-box">
+                                            <i><img src="../../img/easypick-service-tab01.png" alt="easypick service img"></i>
+                                        </div>
+                                    </div>
+                                    <div class="easypick-service-order tab-item" id="conttab2">
+                                        <div class="text-box">
+                                            <dl>
+                                                <dt>02</dt>
+                                                <dd>
+                                                    <h6>주문서 작성</h6>
+                                                    <p>
+                                                        사입을 요청할 도매처 및 상품 <br />
+                                                        정보를 기재한 <b>주문서를 작성</b>하여 <br />
+                                                        엑셀 업로드 기능을 통해 <br />
+                                                        <b>대량의 주문도 쉽고 빠르게</b> <br />
+                                                        등록할 수 있습니다.
+                                                    </p>
+                                                </dd>
+                                            </dl>
+                                        </div>
+                                        <div class="img-box">
+                                            <i><img src="../../img/easypick-service-tab02.png" alt="easypick service img"></i>
+                                        </div>
+                                    </div>
+                                    <div class="easypick-service-order tab-item" id="conttab3">
+                                        <div class="text-box">
+                                            <dl>
+                                                <dt>03</dt>
+                                                <dd>
+                                                    <h6>주문 및 결제</h6>
+                                                    <p>
+                                                        배송 정보 및 구매상품 리스트를 <br />
+                                                        확인한 뒤 <b>결제를 완료</b>합니다.
+                                                    </p>
+                                                    <span></span>
+                                                </dd>
+                                            </dl>
+                                        </div>
+                                        <div class="img-box">
+                                            <i><img src="../../img/easypick-service-tab03.png" alt="easypick service img"></i>
+                                        </div>
+                                    </div>
+                                    <div class="easypick-service-order tab-item" id="conttab4">
+                                        <div class="text-box">
+                                            <dl>
+                                                <dt>04</dt>
+                                                <dd>
+                                                    <h6>익일 오전 상품 수령</h6>
+                                                    <p>
+                                                        주문한 상품은 <b>익일 오전에</b> <br />
+                                                        <b>수령</b>할 수 있습니다.
+                                                    </p>
+                                                    <span>
+                                                        (단, 미송/불량 등의 경우 <br />
+                                                        배송시간이 다소 지연될 수 있습니다.)
+                                                    </span>
+                                                </dd>
+                                            </dl>
+                                        </div>
+                                        <div class="img-box">
+                                            <i><img src="../../img/easypick-service-tab04.png" alt="easypick service img"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="step-title-wrap green-con">
+                                    <i>04</i>
+                                    <h6>
+                                        편리한 서비스와 합리적인 금액 <br />
+                                        <b>이 모든 혜택을 지금부터 시작해보세요!</b>
+                                    </h6>
+                                </div>
+                                <div class="easypick-service-table">
+                                    <table>
+                                        <colgroup>
+                                          <col />
+                                          <col />
+                                          <col />
+                                        </colgroup>
+                                        <thead>
+                                          <tr>
+                                            <th>월 사입 금액</th>
+                                            <th>사입 대행 수수료</th>
+                                            <th>최고금액</th>
+                                          </tr>
+                                        </thead>
+                                        <tbody>
+                                          <tr>
+                                            <td>5천만원</td>
+                                            <td>3.00 %</td>
+                                            <td>85 만원</td>
+                                          </tr>
+                                          <tr>
+                                            <td>5천이상 ~ 1억 미만</td>
+                                            <td>1.70 %</td>
+                                            <td>150 만원</td>
+                                          </tr>
+                                          <tr>
+                                            <td>1억이상 ~ 2억 미만</td>
+                                            <td>1.50 %</td>
+                                            <td>280 만원</td>
+                                          </tr>
+                                          <tr>
+                                            <td>2억이상 ~ 3억 미만</td>
+                                            <td>1.40 %</td>
+                                            <td>390 만원</td>
+                                          </tr>
+                                          <tr>
+                                            <td>3억 이상 ~ 4억 미만</td>
+                                            <td>1.30 %</td>
+                                            <td>480 만원</td>
+                                          </tr>
+                                          <tr>
+                                            <td>4억 이상 ~ 5억 미만</td>
+                                            <td>1.20 %</td>
+                                            <td>500 만원</td>
+                                          </tr>
+                                          <tr>
+                                            <td>5억 이상 ~ 6억 미만</td>
+                                            <td>1.10 %</td>
+                                            <td>600 만원</td>
+                                          </tr>
+                                          <tr>
+                                            <td>6억 이상</td>
+                                            <td>1.00 %</td>
+                                            <td>-</td>
+                                          </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="table-description">
+                                    <p>* 단, 최저이용수수료는 60만원</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="easypick-service-bottom">
+                        <div class="logo-box">
+                            <a href="#">
+                                <i><img src="../../img/easypick-btm-logo.png" alt="easypick logo"></i>
+                            </a>
+                            <a href="#">
+                                이지픽 공식 사이트 바로가기 
+                                <i><img src="../../img/easypick-btm-arrw.png" alt="easypick bottom arrow"></i>
+                            </a>
+                        </div>
+                        <div class="qr-box">
+                            <h5>
+                                QR code 찍고 모바일에서도 <br />
+                                이지픽을 이용하세요!
+                            </h5>
+                            <i><img src="../../img/easypick-service-qr.png" alt="easypick logo"></i>
+                        </div>
+                    </div>
+                </div>
+
+
+        </div>
+    </div>
+</div>
+
+<script>
+
+    $(document).ready(function(){
+
+        // 01 비지니스 집중 
+        $('.check-business-ul li').hover(            
+            function(){
+                // 2022 08 09 전체 remove후 active 추가
+                $('.check-business-ul li').removeClass('active')
+                $(this).addClass('active')
+            },
+            function(){
+                $(this).removeClass('active')
+            }
+        )
+
+        // 서비스 인덱스페이지
+        $('#service-solution-slide').slick({
+            autoplay : true,
+            infinite : true,
+            centerMode: true,
+            centerPadding: '200px',
+            slidesToShow: 3,
+            slidesToScroll : 1,
+            speed : 1000,
+            autoplaySpeed : 5000,
+            focusOnSelect: true,
+            dots : true,
+            arrows : true,
+            appendDots: $(".sol-slide-dots"),
+            prevArrow: $(".sol-slide-prev"),
+            nextArrow: $(".sol-slide-next"),
+            draggable : true,
+
+        });
+
+        // 기존에 잡혀있던 공통 탭메뉴가 css적으로 틀어지는것이 있어 새로 잡았습니다.
+        $(".easypick-order-tab li").click(function(e){
+            $('.easypick-order-tab li').removeClass('active');
+            $(this).addClass("active");
+            const tabCon = $(this).attr('data-tab');
+            $('.all-tab-con > div').removeClass('active');
+            $('#'+tabCon).addClass('active');
+        })
+
+
+    })
+</script>
+
+<!-- 문의 modal -->
+<!-- 개인정보약관 -->
+<div class="modal-pop modal-easypick-privacy" id="modal-easypick-privacy">
+    <div class="modal-dialog">
+        <div class="modal-inner w650">
+            <section class="modal-head">
+                <div class="modal-head-inner">
+                    <h1>개인정보 제3자 제공 동의 (필수)</h1>
+                </div>
+            </section>
+            <div class="modal-body">
+                <h6>1. 개인정보 제공 목적</h6>
+                <p>카페24 계정 연동 및 이용자 식별, 이지픽 서비스 신규 가입, 마켓플러스에서 이지픽 서비스 이용<p>
+                <h6>2. 제공하는 개인정보 항목</h6>
+                <ul>
+                    <li>
+                        이지픽 서비스 신규 신청일 경우 : 카페24 아이디, 이메일, 담당자 정보 <br />
+                        (이름, 휴대폰번호), 사업자 정보(대표자명, 사업장 주소, 사업자등록증)
+                    </li>
+                    <li>기존 이지픽 계정연동일 경우 : 카페24 아이디</li>
+                </ul>
+                <h6>3. 제공받는 곳</h6>
+                <p>제이씨어패럴(주)</p>
+                <h6>4. 제공받는 자의 개인정보 보유 및 이용 기간</h6>
+                <p>원칙적으로 개인정보의 수집 및 이용목적이 달성되면 지체 없이 파기합니다. 단, 관계 법령의 규정에 의하여 일정 기간 보존이 필요한 경우에는 해당 기간만큼 보관 후 삭제합니다.<p>
+                <h6>* 해당 동의를 거부할 수 있으나, 거부 시 서비스 이용에 제한이 있을 수 있습니다.</h6>
+            </div>
+
+            <div class="modal-footer">
+                <div class="modal-footer-btn">
+                    <button type="button" name="button" class="btn btn-lg btn-easypick-point page-close">확인</button>
+                </div>
+            </div>
+            <a href="javascript:void(0);" class="page-close"></a>
+        </div>
+    </div>
+    <div class="dim"></div>
+</div>
+
+<!-- 이지픽계정연동하기 -->
+<div class="modal-pop modal-easypick-account" id="modal-easypick-account">
+    <div class="modal-dialog">
+        <div class="modal-inner w650">
+            <section class="modal-head">
+                <div class="modal-head-inner">
+                    <h1>이지픽 계정 연동하기</h1>
+                </div>
+            </section>
+            <div class="modal-body">
+                <div class="title-wrap">
+                    <span>이용 중인 이지픽 기존 계정으로 로그인해주세요!</span>
+                    <p>
+                        마켓플러스에 이지픽 계정이 연동되어 <br />
+                        이용 정보 그대로 마켓플러스에서 이지픽을 이용하실 수 있습니다!
+                    </p>
+                </div>
+                <div class="user-area-wrap">
+                    <div class="form-control">
+                        <input type="text" placeholder="이메일 아이디 입력 (easypick@easypick.com)">
+                    </div>
+                    <div class="form-control">
+                        <input type="text" placeholder="비밀번호 입력">
+                    </div>
+                    <a href="#">아이디 비밀번호 찾기</a>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <div class="modal-footer-btn">
+                    <button type="button" name="button" class="btn btn-lg btn-easypick-point page-close">로그인</button>
+                    <button type="button" name="button" class="btn btn-lg btn-darkgray page-close">취소</button>
+                </div>
+            </div>
+            <a href="javascript:void(0);" class="page-close"></a>
+        </div>
+    </div>
+    <div class="dim"></div>
+</div>
+
+
+
+<div class="content-footer easypick-service-footer">
+    <!-- 2022-10-06 EZP-7004 -->
+    <!-- 2022-10-31 EZP-7306 div.content-footer 밖에서 안으로 위치이동 -->
+    <!-- 2022-11-02 EZP-7344 하단플로팅 영역이 없을 경우 content-footer-acc-btn에 .bottom-none class를 넣어주세요 -->
+    <div class="content-footer-acc-btn">
+        <a href="../sub/index.html"><i class="new-product-ico"><img src="../../img/icons/new-product-btn-ico.png"></i><p>동대문 <span>신상품</span>을<br/>지금 바로 확인해보세요!</p></a>
+    </div>
+
+    <div class="service-footer-wrap">
+        <div class="text-box">
+            <dl>
+                <dt>가장 쉬운 No.1 동대문 사입 서비스 '이지픽'</dt>
+                <dd>간단하게 서비스 신청하고, <br class="tablet-br">이제 마켓플러스에서도 쉽게 Pick 하세요!</dd>
+            </dl>
+        </div>
+        <ul class="button-box">
+            <li class="green-con">
+                <div class="con-wrap">
+                    <div class="form-control">
+                        <label>
+                            <input type="checkbox" class="custom-service-input">
+                            <span>개인정보 제3자 제공 동의 (필수)</span>
+                        </label>
+                    </div>
+                    <a href="javascript:void(0);" class="popup-open" onclick="targetModalPopup('modal-easypick-privacy')">보기</a>
+                </div>
+                <div class="description-wrap">
+                    <p>서비스 신청을 위해서는 동의가 꼭 필요합니다.</p>
+                </div>
+            </li>
+            <li class="white-con">
+                <a class="con-wrap" href="#">
+                    <p>이지픽 서비스 신청하기</p>
+                    <!-- 2022-09-06 EZP-6940 brown 붙어있는 이미지 추가 후 수정 -->
+                    <i><img src="../../img/icons/brown-service-index-arrow.png" alt="serivce arrow"></i>
+                </a>
+                <div class="description-wrap">
+                    <p>이지픽을 이미 이용하고 계시다면?</p>
+                    <a href="javascript:void(0);" onclick="targetModalPopup('modal-easypick-account')">이지픽 계정 연동하기</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+
+
+          <!--// 이지믹 메뉴 작업영역 -->
+        <!--/div-->
+      </div>
+    </div>
+  </div>
+</body>
+
+
+
+
+</html>

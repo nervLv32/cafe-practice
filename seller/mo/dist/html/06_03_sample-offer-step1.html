@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="utf-8">
+	<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width, viewport-fit=cover">
+  <link rel="stylesheet" type="text/css" href="../css/mobile/swiper-bundle.min.css">
+  <link rel="stylesheet" type="text/css" href="../css/mobile/jquery-ui.min.css">
+  <link rel="stylesheet" type="text/css" href="../css/mobile/default.import.css">
+  <link rel="stylesheet" type="text/css" href="../css/mobile/ui.css">
+  <link rel="stylesheet" type="text/css" href="../css/mobile/style.css">
+
+  <script type="text/javascript" src="../js/mobile/jquery-3.5.1.min.js"></script>
+  <script type="text/javascript" src="../js/mobile/jquery-ui.min.js"></script>
+  <script type="text/javascript" src="../js/mobile/swiper-bundle.min.js"></script>
+  <script type="text/javascript" src="../js/mobile/common_front.js"></script>
+  <script type="text/javascript" src="../js/mobile/ui.js"></script>
+</head>
+
+<body>
+  <!DOCTYPE html>
+<html lang="ko">
+
+
+<body>
+  <!-- 2023-01-06 샘플제안등록 팝업 신규추가 -->
+  <div class="ui-popup full sample-offer-popup active" id="sample-offer-popup">
+    <div class="content">
+      <div class="header">
+        <button type="button" class="btn-close"></button>
+        <strong>샘플제안등록</strong>
+      </div>
+      <div class="body" style="padding-bottom: 70px">
+        <div class="offer-step-list">
+          <ul>
+            <li class="active">
+              <i></i>
+              <span>제안서정보</span>
+            </li>
+            <li>
+              <i>02</i>
+              <span>상품선택</span>
+            </li>
+            <li>
+              <i>03</i>
+              <span>제안하기</span>
+            </li>
+          </ul>
+        </div>
+        <div class="cont">
+          <dl>
+            <dt><strong>제안서명 <em class="txt-red">*</em></strong></dt>
+            <dd><input type="text" placeholder="제안서명 입력 (필수)"></dd>
+          </dl>
+          <dl>
+            <dt><strong>제안서 상세내용</strong></dt>
+            <dd><textarea name="" id="" cols="" rows="5" placeholder="제안서 상세정보 입력"></textarea></dd>
+          </dl>
+        </div>
+        <div class="cont">
+          <dl>
+            <dt><strong>쇼핑몰 선택 <em class="txt-red">*</em></strong>
+              <!-- 2023-01-20 EZP-6818 거래처만 보기 .with-tool-wrap 추가 -->
+              <div class="with-tool-wrap">
+                <label class="checkbox">
+                  <input type="checkbox">
+                  <span class="ui-popup-call" data-popup-target="#no-store-alret1">거래처만 보기</span>
+                </label>
+                <!-- 2023-01-20 EZP-6818 툴팁추가 시작 -->
+                <div class="ico-tip-wrap">
+                  <button type="button" class="btn-tip eTooltip">도움말</button>
+                  <div class="tip">
+                    <div class="txt">
+                      최근 3개월 이내 주문이력이 있는<br/>
+                      거래처만 보기 가능합니다.
+                    </div>
+                  </div>
+                </div>
+                <!-- 2023-01-20 EZP-6818 툴팁추가 끝 -->
+              </div>
+            </dt>
+            <dd>
+              <div class="input-search">
+                <input type="text" placeholder="쇼핑몰명 입력">
+                <button>검색</button>
+              </div>
+            </dd>
+          </dl>
+          <dl>
+            <dt><strong>쇼핑몰 리스트</strong></dt>
+            <dd>
+              <p class="message-empty" style="height: 300px">
+                <span>일치하는 쇼핑몰이 없습니다.</span>
+              </p>
+                <div class="button-list">
+                  <div class="re-btn-box">
+                    <button type="button" class="product-btn"><span>핫핑</span></button>
+                    <!-- <i class="share-btn" style="margin-left: 5px"></i> -->
+                </div>
+                <div class="re-btn-box">
+                  <button type="button" class="product-btn"><span>쇼핑몰명이 길면 줄바꿈되어서 표시됩니다.</span></button>
+                </div>
+                <div class="re-btn-box">
+                  <button type="button" class="product-btn"><span>쇼핑몰명이 길면 줄바꿈되어서 표시됩니다.</span></button>
+                </div>
+                <div class="re-btn-box">
+                  <button type="button" class="product-btn"><span>쇼핑몰명</span></button>
+                </div>
+                <div class="re-btn-box">
+                  <button type="button" class="product-btn"><span>쇼핑몰명</span></button>
+                </div>
+                <div class="re-btn-box">
+                  <button type="button" class="product-btn"><span>쇼핑몰명</span></button>
+                  <!-- <i class="share-btn" style="margin-left: 5px"></i> -->
+                </div>
+                <div class="re-btn-box">
+                  <button type="button" class="product-btn"><span>핫핑</span></button>
+                </div>
+                <div class="re-btn-box">
+                  <button type="button" class="product-btn"><span>쇼핑몰명</span></button>
+                </div>
+                <div class="re-btn-box">
+                  <button type="button" class="product-btn"><span>쇼핑몰명(법인명)</span></button>
+                </div>
+                <div class="re-btn-box">
+                  <button type="button" class="product-btn"><span>쇼핑몰명(법인명)</span></button>
+                </div>
+              </div>
+              <div class="pagination">
+                <button type="button" name="button" class="first">처음</button>
+                <button type="button" name="button" class="prev">이전</button>
+                <div class="group">
+                  <a href="#" class="active">1</a>
+                  <a href="#">2</a>
+                  <a href="#">3</a>
+                  <a href="#">4</a>
+                </div>
+                <button type="button" name="button" class="next on">다음</button>
+                <button type="button" name="button" class="last on">마지막</button>
+              </div>
+            </dd>
+          </dl>
+          <dl>
+            <dt><strong>제안 쇼핑몰</strong></dt>
+            <dd>
+              <!-- case1. 정상 -->
+              <span>핫핑</span><br/>
+              <!-- case2. 선택한 쇼핑몰이 없는경우 -->
+              <span>선택한 쇼핑몰이 없습니다.</span><br/>
+              <!-- case3. 주문타입, 탈퇴 쇼핑몰인 경우 -->
+              <span>핫핑 <em class="txt-red">(제안불가)</em></span>
+            </dd>
+          </dl>
+        </div>
+        <ul class="offer-acc-txt">
+          <li>샘플제안 시 1~3영업일 내 승인 절차가 완료되며,<br/> 승인된 제안만 쇼핑몰쪽에 제안서가 전송됩니다.</li>
+          <li>샘플제안 시 제안서가 반려될 수 있는 점 참고해 주시기 바랍니다.</li>
+          <!-- 2023-03-10 EZP-8725 텍스트 변경 -->
+          <li>샘플제안 시에만 승인 절차가 이뤄지며, 저장 시에는 승인 절차가 이뤄지지 않습니다.</li>
+        </ul>
+      </div>
+      <div class="btn-footer">
+        <button type="button" class="case-02 ui-popup-call" data-popup-target="#continue-alret1">계속하기</button>
+      </div>
+      <a href="#" class="re-quick-top-btn fix">TOP</a>
+    </div>
+  </div>
+
+  <!-- 거래처 검색 checkbox 버튼 클릭후 나오는 알럿창 -->
+  <div class="ui-popup message" id="no-store-alret1">
+    <div class="content">
+      <div class="body">
+        거래처가 없습니다.
+      </div>
+      <div class="btn-group">
+        <button type="button" class="case-02" data-popup-close>확인</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 계속하기 버튼 클릭후 나오는 알럿창 -->
+  <div class="ui-popup message" id="continue-alret1">
+    <div class="content">
+      <!-- case2. 필수값미입력 -->
+      <div class="body">
+        필수항목을 모두 입력해주세요.
+      </div>
+      <!-- case3. 쇼핑몰 상태가 변경된 경우 -->
+      <div class="body">
+        제안서 전송이 불가능한 쇼핑몰입니다.<br/>
+        제안할 쇼핑몰 상태를 확인해주세요.
+      </div>
+      <div class="btn-group">
+        <button type="button" class="case-02" data-popup-close>확인</button>
+      </div>
+    </div>
+  </div>
+    
+  <script>
+    $(function () {
+      $(".amount em.txt-line").click(function () {
+        $(".popup_order_wearing").addClass("disabled");
+        $(".btn-footer .case-02").hide();
+      });
+
+      // 쇼핑몰 리스트 toggle
+      $('.sample-offer-popup .button-list button').click(function(){
+        $(this).toggleClass('on');
+      })
+
+      // 2023-01-20 EZP-6818 거래처만보기 툴팁
+        $(".eTooltip").click(function (e) {
+          var $this = $(this);
+          var $tip = $this.next(".tip");
+          if ($this.hasClass("on")) {
+            $this.removeClass("on");
+            $tip.removeClass("on");
+          } else {
+            $this.addClass("on");
+            $tip.addClass("on");
+          }
+        });
+        $(".eTooltip").focusout(function () {
+          $(".tip, .eTooltip").removeClass("on");
+        });
+    });
+  </script>
+
+
+</body>
+
+</html>

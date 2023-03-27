@@ -1,0 +1,2931 @@
+<!DOCTYPE html>
+<html lang="ko" class="js">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="format-detection" content="telephone=no">
+	<meta content="ZmEqWoY7EMkTNPemq5oIBLa1uoGzaWc2LUCSIQfPcjk=" name="csrf-token">
+	<link rel="shortcut icon" type="image/x-icon" href="/img/favicon/ezp.ico">
+	<title>easypick-square</title>
+
+	<link rel="stylesheet" type="text/css" href="../css/default.css">
+	<link rel="stylesheet" type="text/css" href="../css/default.custom.css">
+</head>
+
+<body>
+
+	<!-- header// -->
+	<header>
+		<div class="inner">
+			<h1>
+				<a href="/order/front/list">
+					<img src="https://square.easypick.co.kr/img/square/logo.png" alt="이지픽스퀘어">
+				</a>
+			</h1>
+			<!-- 2021-02-23 EZP-1903 -->
+			<!-- 2022-10-28 EZP-6245 픽업예정목록 추가 및 전체 경로 변경 시작 -->
+			<div id="gnb">
+				<ul>
+					<li>
+						<a href="../html/all.html" class="active">주문픽업</a>
+					</li>
+					<li>
+						<a href="../html/미매칭픽업.html" class="">미매칭픽업</a>
+					</li>
+					<li>
+						<a href="../html/발주관리.html" class="">발주관리</a>
+					</li>
+					<li>
+						<a href="../html/가게정보관리.html" class="">가게정보관리</a>
+					</li>
+					<li>
+						<a id="btnMenuPickup" href="#">픽업순서설정</a>
+					</li>
+					<!-- <li>
+						<a href="/order/front/list" class="">내담당픽업관리</a>
+					</li> -->
+					<li>
+						<a href="../html/pickUp-expected-list.html">픽업예정목록</a>
+					</li>
+				</ul>
+			</div>
+			<!-- 2022-10-28 EZP-6245 픽업예정목록 추가 및 전체 경로 변경 끝 -->
+			<div class="util">
+				<strong>사입삼촌01 님</strong>
+				<button type="button" name="button" onclick="javascript:location.href='/sign/front/out';">로그아웃
+				</button>
+			</div>
+		</div>
+	</header>
+	<!-- //header -->
+
+	<!--container// -->
+	<div id="container">
+		<div class="search-wrap">
+			<div class="inner">
+				<form id="frmOrderListSearch" name="frmOrderListSearch" action="/order/front/all" method="get">
+
+					<input name="list_type" type="hidden" value="all">
+					<input name="selected_date" type="hidden" value="2020-05-05">
+
+					<!-- 1번째 줄 -->
+					<div class="search-item date-wrap">
+						<!-- 2021-08-06 EZP-3726 -->
+						<div class="search-item">
+							<strong>발주일</strong>
+							<input type="hidden" name="date_range" id="date_range" value="2">
+						</div>
+						<button class="prev btnDateMove">이전</button>
+						<div class="datepicker-wrap">
+							<input type="text" name="start_date" class="datepicker from" style="width: 121px; border: none;" value="2021-08-14" readonly>
+						</div>
+						<span>~</span>
+						<div class="datepicker-wrap">
+							<input type="text" name="end_date" class="datepicker to" style="width: 121px; border: none;" value="2021-08-17" readonly>
+						</div>
+						<button class="next btnDateMove mr30">다음</button>
+
+						<!-- 2021-08-06 EZP-3726 -->
+						<div class="search-item period-filter mr40">
+							<a href="#">오늘</a>
+							<a href="#">3일</a>
+						</div>
+
+						<div class="search-item mr0">
+							<strong>검색</strong>
+							<!-- 2020-08-25 EZP-933 ex 추가 -->
+							<div class="ui-select mr5 ex" style="width:100px;">
+								<input type="hidden" name="search_key" id="selSearchKey" value="">
+								<div class="ui-select" data-target_id="#selSearchKey" id="sel_selSearchKey" style="width:100px;">
+									<button type="button" id="btn_selSearchKey" data-value="">전체</button>
+									<ul>
+										<!-- 2020-08-25 EZP-933 -->
+										<li data-key="" class="active" tabindex="0">전체</li>
+										<li data-key="seller_name" tabindex="0">가게</li><!-- 2021-08-09 EZP-3825 -->
+										<li data-key="buyer_name" tabindex="0">쇼핑몰</li>
+										<li data-key="seller_addr" tabindex="0">주소</li>
+									</ul>
+								</div>
+							</div>
+							<div class="input-search">
+								<input type="text" class="fText height-adjust" placeholder="검색어를 입력해 주세요." name="search_value" id="search_value" style="width:230px;" value="">
+							</div>
+						</div>
+						<button id="form-submit" name="button" class="btn small filter-search">검색</button>
+						<button id="btnReset" type="button" name="button" class="filter-reset"></button>
+					</div>
+
+					<!-- 2번째 줄 -->
+					<div class="search-item date-wrap divCustomCheckBox">
+						<div class="divInline">
+							<strong>픽업상태</strong>
+							<span class="checkbox"> <input class="btnAllChk" type="checkbox" id="buyer_pickup_status0" name="buyer_pickup_status[]" value="" checked=""> <label for="buyer_pickup_status0">전체</label></span><span class="checkbox"> <input
+									type="checkbox" id="buyer_pickup_status10" name="buyer_pickup_status[]" value="10" checked=""> <label for="buyer_pickup_status10">대기</label></span><span class="checkbox"> <input type="checkbox" id="buyer_pickup_status20"
+									name="buyer_pickup_status[]" value="20" checked=""> <label for="buyer_pickup_status20">픽업후대기</label></span><span class="checkbox"> <input type="checkbox" id="buyer_pickup_status30" name="buyer_pickup_status[]" value="30" checked="">
+								<label for="buyer_pickup_status30">체크후대기</label></span><span class="checkbox"> <input type="checkbox" id="buyer_pickup_status50" name="buyer_pickup_status[]" value="50" checked=""> <label for="buyer_pickup_status50">완료</label></span>
+						</div>
+
+						<div class="divInline" style="margin-left: 100px;">
+							<strong>유형</strong><!--2022-07-19 EZP-3157 워딩수정-->
+							<span class="checkbox">
+								<input class="btnAllChk" type="checkbox" id="order_type0" name="order_type[]" value="" checked="">
+								<label for="order_type0">전체</label>
+							</span>
+							<span class="checkbox">
+								<input type="checkbox" id="order_type10" name="order_type[]" value="10" checked="">
+								<label for="order_type10">신규</label>
+							</span>
+							<span class="checkbox">
+								<input type="checkbox" id="order_type20" name="order_type[]" value="20" checked="">
+								<label for="order_type20">미송</label>
+							</span>
+							<span class="checkbox">
+								<input type="checkbox" id="order_type30" name="order_type[]" value="30" checked="">
+								<label for="order_type30">불량</label>
+							</span>
+							<span class="checkbox">
+								<input type="checkbox" id="order_type40" name="order_type[]" value="40" checked="">
+								<label for="order_type40">샘플</label>
+							</span>
+							<!--EZP-3157-->
+							<span class="checkbox">
+								<input type="checkbox" id="order_type45" name="order_type[]" value="45" checked="">
+								<label for="order_type50">유료샘플</label>
+							</span>
+							<!--//EZP-3157-->
+							<span class="checkbox">
+								<input type="checkbox" id="order_type50" name="order_type[]" value="50" checked="">
+								<label for="order_type50">샘플반납</label><!--2022-07-19 EZP-3157 워딩변경-->
+							</span>
+							<span class="checkbox">
+								<input type="checkbox" id="order_type60" name="order_type[]" value="50" checked="">
+								<label for="order_type50">제작신규</label>
+							</span>
+							<span class="checkbox">
+								<input type="checkbox" id="order_type70" name="order_type[]" value="50" checked="">
+								<label for="order_type50">제작미송</label>
+							</span>
+						</div>
+					</div>
+
+
+					<!-- 3번째 줄 -->
+					<div class="search-item">
+						<div class="search-item mr30">
+							<strong>낮/밤</strong>
+							<div id="divIsOpened" class="ui-select" style="width: 100px;">
+								<input name="is_opened" type="hidden" value="">
+								<button type="button">전체</button>
+								<!-- 2020-08-25 EZP-933 -->
+								<ul class="select_ul mt0">
+									<li data-value="" class="active" tabindex="0">전체</li>
+									<li data-value="D" tabindex="0">낮시장</li>
+									<li data-value="N" tabindex="0">밤시장</li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="search-item mr30">
+							<strong>마켓</strong>
+							<div id="divMarketNo" class="ui-select">
+								<input name="market_no" type="hidden" value="">
+								<button type="button">전체</button>
+								<div class="select_search">
+									<input type="text" placeholder="마켓 검색">
+									<button class="search-btn">검색</button>
+								</div>
+								<ul class="select_ul">
+									<!-- 2020-08-25 EZP-933 -->
+									<li data-value="" tabindex="0">전체</li>
+									<li class="" data-value="40" data-is_opened="N" tabindex="0">APM</li>
+									<li class="" data-value="36" data-is_opened="N" tabindex="0">APM럭스</li>
+									<li class="" data-value="46" data-is_opened="N" tabindex="0">APM플레이스</li>
+									<li class="" data-value="48" data-is_opened="N" tabindex="0">DDP(유어스)</li>
+									<li class="" data-value="34" data-is_opened="D" tabindex="0">DWP</li>
+									<li class="" data-value="30" data-is_opened="D" tabindex="0">남평화</li>
+									<li class="" data-value="32" data-is_opened="N" tabindex="0">누죤</li>
+									<li class="" data-value="19" data-is_opened="D" tabindex="0">동평화</li>
+									<li class="" data-value="16" data-is_opened="D" tabindex="0">디오트</li>
+									<li class="" data-value="31" data-is_opened="N" tabindex="0">디자이너클럽</li>
+									<li class="" data-value="49" data-is_opened="D" tabindex="0">맥스타일</li>
+									<li class="" data-value="51" data-is_opened="N" tabindex="0">벨포스트</li>
+									<li class="" data-value="43" data-is_opened="N" tabindex="0">스튜디오W</li>
+									<li class="" data-value="58" data-is_opened="D" tabindex="0">신발상가 B동</li>
+									<li class="" data-value="59" data-is_opened="D" tabindex="0">신발상가 C동</li>
+									<li class="" data-value="60" data-is_opened="D" tabindex="0">신발상가 D동</li>
+									<li class="" data-value="37" data-is_opened="D" tabindex="0">신평화</li>
+									<li class="" data-value="44" data-is_opened="N" tabindex="0">제일평화</li>
+									<li class="" data-value="17" data-is_opened="D" tabindex="0">청평화</li>
+									<li class="" data-value="39" data-is_opened="N" tabindex="0">퀸즈스퀘어(광희)</li>
+									<li class="" data-value="18" data-is_opened="D" tabindex="0">테크노</li>
+									<li class="" data-value="41" data-is_opened="N" tabindex="0">팀204</li>
+									<li class="" data-value="38" data-is_opened="D" tabindex="0">평화시장</li>
+									<li class="" data-value="1" data-is_opened="D" tabindex="0">프로모션</li>
+									<li class="" data-value="45" data-is_opened="D" tabindex="0">혜양엘리시움</li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="search-item mr30">
+							<strong>가게</strong><!-- 2021-08-09 EZP-3825 -->
+							<div id="divSellerNo" class="ui-select">
+								<input name="seller_no" type="hidden" value="">
+								<button type="button">전체</button>
+								<div class="select_search">
+									<input type="text" placeholder="가게 검색"><!-- 2021-08-09 EZP-3825 -->
+									<button class="search-btn">검색</button>
+								</div>
+								<!-- 2020-08-25 EZP-933 -->
+								<ul class="select_ul">
+									<li class="eSelectTooltip" data-value="" tabindex="0">전체</li>
+									<li class="eSelectTooltip " data-over_msg="APM플레이스 1층 7호" data-value="1492" data-market_no="46" data-is_opened="N" data-buyer_no_list="1388" tabindex="0">101문</li>
+									<li class="eSelectTooltip " data-over_msg="APM 2층 62호" data-value="1541" data-market_no="40" data-is_opened="N" data-buyer_no_list="2154,1388" tabindex="0">140에비뉴</li>
+									<li class="eSelectTooltip " data-over_msg="디오트 1층 H열 7호" data-value="3131" data-market_no="16" data-is_opened="D" data-buyer_no_list="3267" tabindex="0">1969문</li>
+									<li class="eSelectTooltip " data-over_msg="테크노 3층 22호" data-value="23" data-market_no="18" data-is_opened="D" data-buyer_no_list="2478,3267,2963,1338" tabindex="0">1프로</li>
+									<li class="eSelectTooltip " data-over_msg="DWP 외곽 1층 A열 2호" data-value="878" data-market_no="34" data-is_opened="D" data-buyer_no_list="2963" tabindex="0">가가</li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="search-item divSearchStore mr30">
+							<strong>쇼핑몰</strong>
+							<div id="divBuyerNo" class="ui-select">
+								<button type="button" name="button">전체</button>
+								<div class="select_search">
+									<input type="text" placeholder="쇼핑몰 검색" autocomplete="off">
+									<button type="button" name="button" class="search-btn btnSearch">검색</button>
+								</div>
+								<!-- 2020-08-25 EZP-933 -->
+								<ul class="select_ul">
+									<li class="" data-key="2046" tabindex="0">그레이스유</li>
+									<li class="" data-key="1351" tabindex="0">달트</li>
+								</ul>
+							</div>
+						</div>
+						<!-- 2021-06-17 EZP-1765 -->
+						<div class="search-item mr30">
+							<strong>배송구분</strong>
+							<div class="ui-select">
+								<button type="button" id="btn_date_range" data-value="">전체</button>
+								<ul>
+									<li data-key="1" class="active" tabindex="0">전체</li>
+									<li data-key="2" tabindex="0">직배송</li>
+									<li data-key="3" tabindex="0">택배송</li>
+								</ul>
+							</div>
+						</div>
+
+						<!-- 2021-02-23 EZP-1903 삭제 -->
+					</div>
+
+
+					<!-- 2022-12-12 EZP-7627 삭제 -->
+					<!-- 우측 체크박스 -->
+					<!-- <div class="inbound-wrap tar" style="display: flex; top: 0;">
+						<div>
+							<div style="margin: 12px 0">
+								<span class="checkbox tal" style="width: 160px;">
+									<input type="checkbox" id="inbound5" name="is_sms_fail" value="T">
+									<label for="inbound5">발송실패건 모아보기</label>
+								</span>
+							</div>
+							<div style="margin: 12px 0">
+								<span class="checkbox tal" style="width: 160px;">
+									<input type="checkbox" id="inbound6" name="is_unmatch" value="T">
+									<label for="inbound6">미매칭건 모아보기</label>
+								</span>
+							</div>
+							<div style="margin: 12px 0">
+								<span class="checkbox tal" style="width: 160px;">
+									<input type="checkbox" id="chkIsAddSpecMethod" name="is_add_spec_method" value="2">
+									<label for="chkIsAddSpecMethod">추가발주건 모아보기</label>
+								</span>
+							</div>
+						</div>
+					</div> -->
+
+					<!-- 쇼핑몰 멀티 셀렉트 리스트 -->
+					<div class="divSearchStore" style="position: relative;">
+						<div id="divSelectArea" class="tag-area">
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+
+		<!-- 데이터가 있는 날짜의 버튼 리스트 -->
+
+		<div class="date-tab mb30">
+			<a href="#" class="active" data-spec_date="2020-05-05" data-spec_method="" style="width:11%">05/05</a><a href="#" data-spec_date="2020-05-04" data-spec_method="" style="width:11%">05/04</a></div>
+
+		<!-- 테이블 상단 데이터 합계와 버튼 리스트 -->
+		<div class="search-result-wrap">
+			<!-- 결과 값 카운트 -->
+			<div class="mb20">
+				<a href="javascript:;" id="btnOrderUncleMemo" style="color:#50C258;">
+					<img src="https://square.easypick.co.kr/img/square/icon_uncle_memo.png" style="height: 20px;">
+					확인메모 (9) </a>
+			</div>
+
+			<div class="result">
+				<ul>
+					<li>
+						<span>총 수량</span> <strong>24,627</strong> <em>개</em>
+					</li>
+					<li>
+						<span>입고</span> <strong>10,572</strong> <em>개</em>)
+					</li>
+					<li>
+						<span>총 품목</span> <strong>5,380</strong> <em>개</em>
+					</li>
+					<li>
+						<span>가게</span> <strong>981</strong> <em>곳</em>
+						<!-- 2021-02-23 EZP-1903 삭제 -->
+					</li>
+					<li>
+						<span>쇼핑몰</span> <strong>24</strong> <em>곳</em>
+					</li>
+				</ul>
+			</div>
+
+			<div class="btn-wrap">
+
+				<!-- 2021-06-04 EZP-2903 -->
+				<button class="btn smaller line ui-popup-open" data-target="#pop-full-stock">품목 전량입고</button>
+				<div class="all-in">
+					<button class="btn smaller line">유형 전량입고</button>
+					<div class="layer-select-list layer-all-in">
+						<ul>
+							<li><button type="button">불량</button></li>
+							<li><button type="button">신규</button></li>
+							<li><button type="button">샘플</button></li>
+							<li><button type="button">미송</button></li>
+							<!-- 2020-07-31	EZP-779 -->
+							<li><button type="button">제작신규</button></li>
+							<li><button type="button">제작미송</button></li>
+						</ul>
+						<button type="button" class="apply">적용</button>
+					</div>
+				</div>
+
+				<button type="button" class="btn smaller line btnExcelDown" href="/order/front/allExcel">
+					<img src="https://square.easypick.co.kr/img/square/excel_black.png">
+				</button>
+				<button type="button" class="btn smaller line printer" id="btnPrint" href="/order/front/print">
+					<img src="https://square.easypick.co.kr/img/square/printer_black.png">
+				</button>
+			</div>
+		</div>
+
+		<div class="result-table">
+			<!-- 입고 수정이 가능한 테이블 템플릿 : 내 담당 주문 조회, 전체 주문 조회 -->
+			<!-- 2021-06-04 EZP-2903 시작 -->
+			<table cellpadding="1" cellspacing="1" >
+				<!-- 2020-06-18 EZP-778 -->
+				<colgroup>
+					<col width="40px">
+					<col width="60px" >
+					<col width="*" >
+					<col width="170px">
+					<col width="114px">
+					<col width="80px">
+					<col width="70px">
+					<col width="230px">
+					<col width="100px">
+					<col width="190px">
+					<col width="160px">
+					<col width="100px">
+				</colgroup>
+				<thead>
+					<tr>
+						<th colspan="3"><span class="checkbox"><input type="checkbox" class="check-all"><label for="check11">상품명</label></span></th>
+						<th>옵션</th>
+						<th>판매가</th>
+						<th>수량</th>
+						<th>입고수량</th>
+						<th>품절처리</th>
+						<th>상품상태</th>
+						<th>구매자 메모</th>
+						<th>출고메모</th> <!-- 2022-09-26 EZP-5867 워딩수정 -->
+						<th>입고예정일</th>
+					</tr>
+				</thead>
+				<tbody id="eListArea">
+					<tr class="opener trOpener seller" data-seller_key="3037">
+						<td colspan="12" style="border-bottom: none;">
+							<div class="text-group">
+								<span class="checkbox">
+									<input type="checkbox" class="sellerList" id="seller3037" data-seller_key="3037" data-seller_name="앤드모어" data-uncle_name="">
+									<label for="seller3037">
+										<em>호웰호웰</em>
+										(일이삼사오육칠팔 / 010-3389-0213)
+									</label>
+								</span>
+								<strong>밤시장</strong>
+								<button name="button" class="btn state ml10 ui-popup-open" data-target="#matching-pop">매칭하기</button>
+								<!-- 2021-06-17 EZP-1765 -->
+								<!-- 2021-07-19 EZP-3405 -->
+								<!-- 2022-11-30 EZP-7447 .url-select class 추가 -->
+								<div class="divSellerHeader search-item url-select">
+									<div class="ui-select">
+										<button type="button">URL 복사</button>
+										<ul class="select_ul">
+											<li class="ePopupSellerSpec divInline" href="http://ezp.cafe24test.com/spec/Q44ToGypIZQ=">
+												정기 08:36
+											</li>
+										</ul>
+									</div>
+								</div>
+
+							</div>
+							<div class="btn-group"> <span style="font-weight: bold">완료 쇼핑몰 수 : <span class="spnStatusCount">1 / 1</span></span> <button class="btnStatus  completed" data-ss_no="3037">완료</button>
+								<button class="btn-opener" data-type="seller">열기/닫기</button>
+							</div>
+						</td>
+					</tr>
+					<tr class="opener trOpener buyer" data-seller_key="3037" data-seller_buyer_key="3037_2963">
+						<td colspan="12" class="tdBuyerHeader" style="border-bottom: none;">
+							<div class="text-group">
+								<label>
+									<!-- 2021-04-06 EZP-1902 -->
+									<!-- <em><strong><i class="ico-delivery blue">직</i>유니크온</strong></em> -->
+									<!-- 2021-06-16 EZP-3118 -->
+									<em><strong><i class="ico-delivery">택</i><em class="secession">[중지]</em><em class="secession">[탈퇴]</em>유니크온</strong><em class="badge-reserve">미송안함</em></em><!-- 2021-10-06 EZP-4258-->
+									
+									<strong class="vertical-bar">처리자: 관리자(05-06 08:23:32 )</strong>
+									<strong class="vertical-bar">입고금액/발주금액 : <span class="in_amt">22,000</span>원 / 22,000원</strong>
+									<!-- 2021-02-23 EZP-1903 -->
+									<strong class="vertical-bar"><em style="color:#ff4800;">팀미지정</em></strong><!-- 2022-1-20 EZP-4997-->
+								</label>
+							</div>
+							<div class="btn-group"> <button class="btn-opener" data-type="buyer">열기/닫기</button> </div>
+							<div class="search-item mr30" style="width: 150px; position: absolute; right: 40px; top: 12px;">
+								<div class="ui-select" style="width: 150px;"> <input id="eBuyerStatus3037_2963" type="hidden" value="50"> <button type="button" disabled="">완료</button>
+									<ul class="select_ul">
+										<li data-value="10">대기</li>
+										<li data-value="20">픽업후대기</li>
+										<li data-value="30">체크후대기</li>
+										<li data-value="50">완료</li>
+									</ul>
+								</div>
+							</div>
+						</td>
+					</tr>
+					<tr class="opener" data-seller_key="3037" data-seller_buyer_key="3037_2963" data-ss_no="106957" data-ss_buyer_no="88888">
+						<td colspan="12" class="tdSpecHeader">
+							<div class="text-group tal">
+								<label>
+									<em><strong>정기</strong></em>
+									<!-- 2022-12-20 EZP-7760 날짜 하이픈 형식으로 변경 -->
+									<strong class="vertical-bar">05-05 21:17:13 </strong>
+									<!-- 2021-02-23 EZP-1903 삭제 -->
+									<!-- <strong class="vertical-bar">담당삼촌 : <em> - </em></strong> -->
+								</label>
+								<!-- 2021-02-23 EZP-1903 삭제 -->
+								<!-- <div class="btn-group"> <button class="btnChargeHistory manager" data-ss_no="106957">담당자 이력</button> </div> -->
+							</div>
+						</td>
+					</tr>
+					<!-- 2020-08-12 EZP-798 -->
+					<tr class="" data-seller_key="3037" data-seller_buyer_key="3037_2963">
+						<td class="tac">
+							<span class="checkbox">
+								<label>
+									<input type="checkbox">
+								</label>
+							</span>
+						</td>
+						<td class="tac">1</td>
+						<td class="detail view_memo" style="padding-top: 9px; padding-bottom: 9px; " data-memo_tooltip="[M]아크 브이넥 하찌 니트 가디건 (11colors) / S68509">
+							<span class="badge"><i class="new">신규</i></span>
+							<span class="pr5">
+								상품명 / 매우매우매우매우매우매우매우매우매우매우매우 긴 케이스
+								<!-- 2022-12-20 EZP-7760 날짜 하이픈 형식으로 변경 -->
+								<strong class="withDate">(7-28)</strong>
+								<a href="javascript:;" class="eProductImgUrl" data-url="http://realcoco1.cafe24.com/web/product/tiny/202008/980a0b2f5e4099c5146dc341bdbd01fb.gif">
+									<img src="../img/ico_image.png" style="width: 20px; margin-bottom: 2px;">
+								</a>
+								<!-- 2020-11-11 EZP-1149 -->
+								<i class="ico-new">N1</i>
+							</span>
+						</td>
+						<td class="option" style="">
+							<p>[블루-FREE]</p>
+						</td>
+						<td class="tar" style="">22,000</td>
+						<td class="tac txt-line" id="tdOrderQty443560" style="">1</td><!-- 2021-12-15 EZP-4620 -->
+						<td class="tac" style="">
+							<div class="small-amount amount">
+								<!-- 2020-11-20 EZP-798/EZP-1149 fcr 클레스 추가 -->
+								<input type="text" class="txtInQty fcr" name="in_qty" maxlength="4" value="1" data-ss_no="106957" data-ss_item_no="443560" data-order_price="22000.00" data-order_qty="1" data-seller_buyer_key="3037_2963"
+									data-is_refunded="T" data-spec_item_type="10" tabindex="0" data-index="1" autocomplete="off">
+							</div>
+						</td>
+						<td style="">
+							<!-- 2020-06-18 EZP-778 -->
+							<div class="divSoldOutProc" style="/* opacity: 0.5; */">
+								<input type="hidden" id="txtSoldOutType443560-1" value="T">
+								<input type="radio" id="toggleReserve4435601-1" class="rdoToggle" name="toggle4435609-1" value="F" data-ss_item_no="443560">
+								<label for="toggleReserve4435601-1">미송</label>
+								<input type="radio" id="toggleRefund4435602-1" class="rdoToggle rdoToggleRight" name="toggle4435609-1" value="T" data-ss_item_no="443560">
+								<label for="toggleRefund4435602-1">오늘차감</label>
+							</div>
+						</td>
+						<td style="">최소 1000</td>
+						<td class="view_memo pl5 pr5" data-memo_tooltip="" style=""></td>
+						<td class="view_memo" data-memo_tooltip="!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" style=""></td>
+						<!-- 2020-07-15 EZP-811 -->
+						<td class="pop-wrap" style="">
+							<button name="button" class="btn state">선택안함</button>
+							<div class="date-uipopup">
+								<strong>입고예정일</strong>
+								<div>
+									<!-- 2022-12-20 EZP-7760 날짜 하이픈 형식으로 변경 -->
+									<button type="button" class="btn-item">07-13(월)</button>
+									<button type="button" class="btn-item">07-14(화)</button>
+									<button type="button" class="btn-item">07-15(수)</button>
+									<button type="button" class="btn-item">07-16(목)</button>
+									<button type="button" class="btn-item">07-17(금)</button>
+									<!-- 2022-12-12 EZP-7273 입고예정일 옵션 추가 시작 -->
+									<button type="button" class="btn-item">07-20(월)</button>
+									<button type="button" class="btn-item">07-21(화)</button>
+									<button type="button" class="btn-item">07-22(수)</button>
+									<button type="button" class="btn-item">07-23(목)</button>
+									<!-- 2022-12-12 EZP-7273 입고예정일 옵션 추가 끝 -->
+									<button type="button" class="btn-item">다음주 중</button>
+									<button type="button" class="btn-item">미정</button>
+									<button type="button" class="btn-item">선택안함</button>
+								</div>
+								<button class="btn_close"><span>닫기</span></button>
+							</div>
+						</td>
+					</tr>
+					<tr class="" data-seller_key="3037" data-seller_buyer_key="3037_2963">
+						<td class="tac">
+							<span class="checkbox">
+								<label>
+									<input type="checkbox">
+								</label>
+							</span>
+						</td>
+						<td class="tac">2</td>
+						<td class="detail view_memo" style="padding-top: 9px; padding-bottom: 9px; " data-memo_tooltip="[M]아크 브이넥 하찌 니트 가디건 (11colors) / S68509">
+							<span class="badge"><i class="new">신규</i></span>
+							<span class="pr5">
+								스윗 소매리본트렌치 반코트
+								<!-- 2022-12-20 EZP-7760 날짜 하이픈 형식으로 변경 -->
+								<strong class="withDate">(7-28)</strong>
+								<a href="javascript:;" class="eProductImgUrl" data-url="http://realcoco1.cafe24.com/web/product/tiny/202008/980a0b2f5e4099c5146dc341bdbd01fb.gif">
+									<img src="../img/ico_image.png" style="width: 20px; margin-bottom: 2px;">
+								</a>
+								<!-- 2020-11-11 EZP-1149 -->
+								<i class="ico-new">N2</i>
+							</span>
+						</td>
+						<td class="option" style="">
+							<p>[블루-FREE]</p>
+						</td>
+						<td class="tar" style="">22,000</td>
+						<td class="tac" id="tdOrderQty443560" style="">1</td>
+						<td class="tac" style="">
+							<div class="small-amount amount"> <input type="text" class="txtInQty" name="in_qty" maxlength="4" value="1" data-ss_no="106957" data-ss_item_no="443560" data-order_price="22000.00" data-order_qty="1" data-seller_buyer_key="3037_2963"
+									data-is_refunded="T" data-spec_item_type="10" tabindex="0" data-index="1" autocomplete="off" disabled=""> </div>
+						</td>
+						<td style="">
+							<!-- 2020-06-18 EZP-778 -->
+							<div class="divSoldOutProc" style="/* opacity: 0.5; */">
+								<input type="hidden" id="txtSoldOutType443560-2" value="T">
+								<input type="radio" id="toggleReserve4435601-2" class="rdoToggle" name="toggle4435609-2" value="F" data-ss_item_no="443560">
+								<label for="toggleReserve4435601-2">미송</label>
+								<input type="radio" id="toggleRefund4435602-2" class="rdoToggle rdoToggleRight" name="toggle4435609-2" value="T" data-ss_item_no="443560">
+								<label for="toggleRefund4435602-2">오늘차감</label>
+							</div>
+						</td>
+						<td style="">
+							<!-- 2020-05-04 비활성화/활성화-->
+							<!-- <p class="prd-date">
+								<em>품,색,사,최소</em>
+								<span>1000</span>
+								<span>2020-04-27</span>
+							</p> -->
+							<button name="button" class="btn state ui-popup-open" data-target="#targetItemSoldoutStatus">선택</button>
+							<!-- <button name="button" class="btn state ui-popup-open" data-target="#targetItemSoldoutStatus" disabled>선택</button> -->
+						</td>
+						<td class="view_memo pl5 pr5" data-memo_tooltip="" style=""></td>
+						<td class="view_memo" data-memo_tooltip="" style=""></td>
+						<!-- 2020-07-15 EZP-811 -->
+						<td class="pop-wrap" style="">
+							<button name="button" class="btn state">선택안함</button>
+							<div class="date-uipopup">
+								<strong>입고예정일</strong>
+								<div>
+									<!-- 2022-12-20 EZP-7760 날짜 하이픈 형식으로 변경 -->
+									<button type="button" class="btn-item">07-13(월)</button>
+									<button type="button" class="btn-item">07-14(화)</button>
+									<button type="button" class="btn-item">07-15(수)</button>
+									<button type="button" class="btn-item">07-16(목)</button>
+									<button type="button" class="btn-item">07-17(금)</button>
+									<!-- 2022-12-12 EZP-7273 입고예정일 옵션 추가 시작 -->
+									<button type="button" class="btn-item">07-20(월)</button>
+									<button type="button" class="btn-item">07-21(화)</button>
+									<button type="button" class="btn-item">07-22(수)</button>
+									<button type="button" class="btn-item">07-23(목)</button>
+									<!-- 2022-12-12 EZP-7273 입고예정일 옵션 추가 끝 -->
+									<button type="button" class="btn-item">다음주 중</button>
+									<button type="button" class="btn-item">미정</button>
+									<button type="button" class="btn-item">선택안함</button>
+								</div>
+								<button class="btn_close"><span>닫기</span></button>
+							</div>
+						</td>
+					</tr>
+
+					<tr class="opener trdetailOpener" data-seller_key="3037" data-seller_buyer_key="3037_2963">
+						<td colspan="3" class="detail" style="padding-top: 9px; padding-bottom: 9px; " data-memo_tooltip="[M]아크 브이넥 하찌 니트 가디건 (11colors) / S68509">
+							<span class="pr5">
+								<i class="t_type1">1미송3</i><i class="t_new">신규1</i>
+								린넨 데님 (제품명이 길어지면 공백 포함 최대 40자까지 노출)
+							</span>
+						</td>
+						<td class="option" style="" colspan="2">
+							<p>[블루-FREE]</p>
+						</td>
+						<td class="tac txt-red" id="tdOrderQty443560" style="">1</td><!-- 2021-12-15 EZP-4620 -->
+						<td class="tac" style="">
+							<div class="small-amount amount"> <input type="text" class="txtInQty" name="in_qty" maxlength="4" value="1" data-ss_no="106957" data-ss_item_no="443560" data-order_price="22000.00" data-order_qty="1" data-seller_buyer_key="3037_2963"
+									data-is_refunded="T" data-spec_item_type="10" tabindex="0" data-index="1" autocomplete="off" disabled=""> </div>
+						</td>
+						<td style="" colspan="5">
+							<div class="btn-group">
+								<button class="btn-opener" data-type="detail">열기/닫기</button>
+							</div>
+						</td>
+					</tr>
+					<tr class="indetail" data-seller_key="3037" data-seller_buyer_key="3037_2963">
+						<td class="tac">
+							<span class="checkbox">
+								<label>
+									<input type="checkbox">
+								</label>
+							</span>
+						</td>
+						<td class="tac">3</td>
+						<td class="detail view_memo" style="padding-top: 9px; padding-bottom: 9px; " data-memo_tooltip="[M]아크 브이넥 하찌 니트 가디건 (11colors) / S68509">
+							<span class="badge"><i class="type1">미송</i></span>
+							<span class="pr5">
+								린넨 데님
+								<!-- 2022-12-20 EZP-7760 날짜 하이픈 형식으로 변경 -->
+								<strong class="withDate">(7-28)</strong>
+								<a href="javascript:;" class="eProductImgUrl" data-url="http://realcoco1.cafe24.com/web/product/tiny/202008/980a0b2f5e4099c5146dc341bdbd01fb.gif">
+									<img src="../img/ico_image.png" style="width: 20px;">
+								</a>
+							</span>
+						</td>
+						<td class="option" style="">
+							<p>[블루-FREE]</p>
+						</td>
+						<td class="tar" style="">22,000</td>
+						<td class="tac" id="tdOrderQty443560" style="">1</td>
+						<td class="tac" style="">
+							<div class="small-amount amount"> <input type="text" class="txtInQty" name="in_qty" maxlength="4" value="1" data-ss_no="106957" data-ss_item_no="443560" data-order_price="22000.00" data-order_qty="1" data-seller_buyer_key="3037_2963"
+									data-is_refunded="T" data-spec_item_type="10" tabindex="0" data-index="1" autocomplete="off" disabled=""> </div>
+						</td>
+						<td style="">
+							<!-- 2020-06-18 EZP-778 -->
+							<div class="divSoldOutProc" style="/* opacity: 0.5; */">
+								<input type="hidden" id="txtSoldOutType4435601-3" value="T">
+								<input type="radio" id="toggleReserve44356011-3" class="rdoToggle" name="toggle4435601-3" value="F" data-ss_item_no="443560">
+								<label for="toggleReserve44356011-3">미송</label>
+								<input type="radio" id="toggleRefund44356022-3" class="rdoToggle rdoToggleRight" name="toggle4435601-3" value="T" data-ss_item_no="443560">
+								<label for="toggleRefund44356022-3">오늘차감</label>
+								<input type="radio" id="toggleRefund44356133-3" class="rdoToggle rdoToggleRight" name="toggle4435601-3" value="T" data-ss_item_no="443560">
+								<label for="toggleRefund44356133-3">추후차감</label>
+							</div>
+						</td>
+						<td style="">
+							<!-- 2020-05-04 비활성화/활성화-->
+							<!-- <p class="prd-date">
+								<em>품,색,사,최소</em>
+								<span>1000</span>
+								<span>2020-04-27</span>
+							</p> -->
+							<button name="button" class="btn state ui-popup-open" data-target="#targetItemSoldoutStatus">선택</button>
+							<!-- <button name="button" class="btn state ui-popup-open" data-target="#targetItemSoldoutStatus" disabled>선택</button> -->
+						</td>
+						<td class="view_memo pl5 pr5" data-memo_tooltip="" style=""></td>
+						<td class="view_memo" data-memo_tooltip="" style=""></td>
+						<!-- 2020-07-15 EZP-811 -->
+						<td class="pop-wrap" style="">
+							<button name="button" class="btn state">선택안함</button>
+							<div class="date-uipopup">
+								<strong>입고예정일</strong>
+								<div>
+									<!-- 2022-12-20 EZP-7760 날짜 하이픈 형식으로 변경 -->
+									<button type="button" class="btn-item">07-13(월)</button>
+									<button type="button" class="btn-item">07-14(화)</button>
+									<button type="button" class="btn-item">07-15(수)</button>
+									<button type="button" class="btn-item">07-16(목)</button>
+									<button type="button" class="btn-item">07-17(금)</button>
+									<!-- 2022-12-12 EZP-7273 입고예정일 옵션 추가 시작 -->
+									<button type="button" class="btn-item">07-20(월)</button>
+									<button type="button" class="btn-item">07-21(화)</button>
+									<button type="button" class="btn-item">07-22(수)</button>
+									<button type="button" class="btn-item">07-23(목)</button>
+									<!-- 2022-12-12 EZP-7273 입고예정일 옵션 추가 끝 -->
+									<button type="button" class="btn-item">다음주 중</button>
+									<button type="button" class="btn-item">미정</button>
+									<button type="button" class="btn-item">선택안함</button>
+								</div>
+								<button class="btn_close"><span>닫기</span></button>
+							</div>
+						</td>
+					</tr>
+					<tr class="indetail" data-seller_key="3037" data-seller_buyer_key="3037_2963">
+						<td class="tac">
+							<span class="checkbox">
+								<label>
+									<input type="checkbox">
+								</label>
+							</span>
+						</td>
+						<td class="tac">4</td>
+						<td class="detail view_memo" style="padding-top: 9px; padding-bottom: 9px; " data-memo_tooltip="[M]아크 브이넥 하찌 니트 가디건 (11colors) / S68509">
+							<span class="badge"><i class="type1">미송</i></span>
+							<span class="pr5">
+								린넨 데님
+								<!-- 2022-12-20 EZP-7760 날짜 하이픈 형식으로 변경 -->
+								<strong class="withDate">(7-28)</strong>
+								<a href="javascript:;" class="eProductImgUrl" data-url="http://realcoco1.cafe24.com/web/product/tiny/202008/980a0b2f5e4099c5146dc341bdbd01fb.gif">
+									<img src="../img/ico_image.png" style="width: 20px;">
+								</a>
+							</span>
+						</td>
+						<td class="option" style="">
+							<p>[블루-FREE]</p>
+						</td>
+						<td class="tar" style="">22,000</td>
+						<td class="tac" id="tdOrderQty443560" style="">1</td>
+						<td class="tac" style="">
+							<div class="small-amount amount"> <input type="text" class="txtInQty" name="in_qty" maxlength="4" value="1" data-ss_no="106957" data-ss_item_no="443560" data-order_price="22000.00" data-order_qty="1" data-seller_buyer_key="3037_2963"
+									data-is_refunded="T" data-spec_item_type="10" tabindex="0" data-index="1" autocomplete="off" disabled=""> </div>
+						</td>
+						<td style="">
+							<!-- 2020-06-18 EZP-778 -->
+							<div class="divSoldOutProc" style="/* opacity: 0.5; */">
+								<input type="hidden" id="txtSoldOutType4435601-4" value="T">
+								<input type="radio" id="toggleReserve44356011-4" class="rdoToggle" name="toggle4435601-4" value="F" data-ss_item_no="443560">
+								<label for="toggleReserve44356011-4">미송</label>
+								<input type="radio" id="toggleRefund44356022-4" class="rdoToggle rdoToggleRight" name="toggle4435601-4" value="T" data-ss_item_no="443560">
+								<label for="toggleRefund44356022-4">오늘차감</label>
+								<input type="radio" id="toggleRefund44356133-4" class="rdoToggle rdoToggleRight" name="toggle4435601-4" value="T" data-ss_item_no="443560">
+								<label for="toggleRefund44356133-4">추후차감</label>
+							</div>
+						</td>
+						<td style="">
+							<!-- 2020-05-04 비활성화/활성화-->
+							<!-- <p class="prd-date">
+								<em>품,색,사,최소</em>
+								<span>1000</span>
+								<span>2020-04-27</span>
+							</p> -->
+							<button name="button" class="btn state ui-popup-open" data-target="#targetItemSoldoutStatus">선택</button>
+							<!-- <button name="button" class="btn state ui-popup-open" data-target="#targetItemSoldoutStatus" disabled>선택</button> -->
+						</td>
+						<td class="view_memo pl5 pr5" data-memo_tooltip="" style=""></td>
+						<td class="view_memo" data-memo_tooltip="" style=""></td>
+						<!-- 2020-07-15 EZP-811 -->
+						<td class="pop-wrap" style="">
+							<button name="button" class="btn state">선택안함</button>
+							<div class="date-uipopup">
+								<strong>입고예정일</strong>
+								<div>
+									<!-- 2022-12-20 EZP-7760 날짜 하이픈 형식으로 변경 -->
+									<button type="button" class="btn-item">07-13(월)</button>
+									<button type="button" class="btn-item">07-14(화)</button>
+									<button type="button" class="btn-item">07-15(수)</button>
+									<button type="button" class="btn-item">07-16(목)</button>
+									<button type="button" class="btn-item">07-17(금)</button>
+									<!-- 2022-12-12 EZP-7273 입고예정일 옵션 추가 시작 -->
+									<button type="button" class="btn-item">07-20(월)</button>
+									<button type="button" class="btn-item">07-21(화)</button>
+									<button type="button" class="btn-item">07-22(수)</button>
+									<button type="button" class="btn-item">07-23(목)</button>
+									<!-- 2022-12-12 EZP-7273 입고예정일 옵션 추가 끝 -->
+									<button type="button" class="btn-item">다음주 중</button>
+									<button type="button" class="btn-item">미정</button>
+									<button type="button" class="btn-item">선택안함</button>
+								</div>
+								<button class="btn_close"><span>닫기</span></button>
+							</div>
+						</td>
+					</tr>
+					<tr class="indetail" data-seller_key="3037" data-seller_buyer_key="3037_2963">
+						<td class="tac">
+							<span class="checkbox">
+								<label>
+									<input type="checkbox">
+								</label>
+							</span>
+						</td>
+						<td class="tac">5</td>
+						<td class="detail view_memo" style="padding-top: 9px; padding-bottom: 9px; " data-memo_tooltip="[M]아크 브이넥 하찌 니트 가디건 (11colors) / S68509">
+							<span class="badge"><i class="type1">미송</i></span>
+							<span class="pr5">
+								린넨 데님
+								<!-- 2022-12-20 EZP-7760 날짜 하이픈 형식으로 변경 -->
+								<strong class="withDate">(7-28)</strong>
+							</span>
+						</td>
+						<td class="option" style="">
+							<p>[블루-FREE]</p>
+						</td>
+						<td class="tar" style="">22,000</td>
+						<td class="tac" id="tdOrderQty443560" style="">1</td>
+						<td class="tac" style="">
+							<div class="small-amount amount"> <input type="text" class="txtInQty" name="in_qty" maxlength="4" value="1" data-ss_no="106957" data-ss_item_no="443560" data-order_price="22000.00" data-order_qty="1" data-seller_buyer_key="3037_2963"
+									data-is_refunded="T" data-spec_item_type="10" tabindex="0" data-index="1" autocomplete="off" disabled=""> </div>
+						</td>
+						<td style="">
+							<!-- 2020-06-18 EZP-778 -->
+							<div class="divSoldOutProc" style="/* opacity: 0.5; */">
+								<input type="hidden" id="txtSoldOutType4435601-5" value="T">
+								<input type="radio" id="toggleReserve44356011-5" class="rdoToggle" name="toggle4435601-5" value="F" data-ss_item_no="443560">
+								<label for="toggleReserve44356011-5">미송</label>
+								<input type="radio" id="toggleRefund44356022-5" class="rdoToggle rdoToggleRight" name="toggle4435601-5" value="T" data-ss_item_no="443560">
+								<label for="toggleRefund44356022-5">오늘차감</label>
+								<input type="radio" id="toggleRefund44356133-5" class="rdoToggle rdoToggleRight" name="toggle4435601-5" value="T" data-ss_item_no="443560">
+								<label for="toggleRefund44356133-5">추후차감</label>
+							</div>
+						</td>
+						<td style="">
+							<!-- 2020-05-04 비활성화/활성화-->
+							<!-- <p class="prd-date">
+								<em>품,색,사,최소</em>
+								<span>1000</span>
+								<span>2020-04-27</span>
+							</p> -->
+							<button name="button" class="btn state ui-popup-open" data-target="#targetItemSoldoutStatus">선택</button>
+							<!-- <button name="button" class="btn state ui-popup-open" data-target="#targetItemSoldoutStatus" disabled>선택</button> -->
+						</td>
+						<td class="view_memo pl5 pr5" data-memo_tooltip="" style=""></td>
+						<td class="view_memo" data-memo_tooltip="" style=""></td>
+						<!-- 2020-07-15 EZP-811 -->
+						<td class="pop-wrap" style="">
+							<button name="button" class="btn state">선택안함</button>
+							<div class="date-uipopup">
+								<strong>입고예정일</strong>
+								<div>
+									<!-- 2022-12-20 EZP-7760 날짜 하이픈 형식으로 변경 -->
+									<button type="button" class="btn-item">07-13(월)</button>
+									<button type="button" class="btn-item">07-14(화)</button>
+									<button type="button" class="btn-item">07-15(수)</button>
+									<button type="button" class="btn-item">07-16(목)</button>
+									<button type="button" class="btn-item">07-17(금)</button>
+									<!-- 2022-12-12 EZP-7273 입고예정일 옵션 추가 시작 -->
+									<button type="button" class="btn-item">07-20(월)</button>
+									<button type="button" class="btn-item">07-21(화)</button>
+									<button type="button" class="btn-item">07-22(수)</button>
+									<button type="button" class="btn-item">07-23(목)</button>
+									<!-- 2022-12-12 EZP-7273 입고예정일 옵션 추가 끝 -->
+									<button type="button" class="btn-item">다음주 중</button>
+									<button type="button" class="btn-item">미정</button>
+									<button type="button" class="btn-item">선택안함</button>
+								</div>
+								<button class="btn_close"><span>닫기</span></button>
+							</div>
+						</td>
+					</tr>
+					<tr class="indetail" data-seller_key="3037" data-seller_buyer_key="3037_2963">
+						<td class="tac">
+							<span class="checkbox">
+								<label>
+									<input type="checkbox">
+								</label>
+							</span>
+						</td>
+						<td class="tac">6</td>
+						<td class="detail view_memo" style="padding-top: 9px; padding-bottom: 9px; " data-memo_tooltip="[M]아크 브이넥 하찌 니트 가디건 (11colors) / S68509">
+							<span class="badge"><i class="new">신규</i></span>
+							<span class="pr5">
+								린넨 데님
+								<!-- 2022-12-20 EZP-7760 날짜 하이픈 형식으로 변경 -->
+								<strong class="withDate">(7-28)</strong>
+								<a href="javascript:;" class="eProductImgUrl" data-url="http://realcoco1.cafe24.com/web/product/tiny/202008/980a0b2f5e4099c5146dc341bdbd01fb.gif">
+									<img src="../img/ico_image.png" style="width: 20px;">
+								</a>
+							</span>
+						</td>
+						<td class="option" style="">
+							<p>[블루-FREE]</p>
+						</td>
+						<td class="tar" style="">22,000</td>
+						<td class="tac" id="tdOrderQty443560" style="">1</td>
+						<td class="tac" style="">
+							<div class="small-amount amount"> <input type="text" class="txtInQty" name="in_qty" maxlength="4" value="1" data-ss_no="106957" data-ss_item_no="443560" data-order_price="22000.00" data-order_qty="1" data-seller_buyer_key="3037_2963"
+									data-is_refunded="T" data-spec_item_type="10" tabindex="0" data-index="1" autocomplete="off" disabled=""> </div>
+						</td>
+						<td style="">
+							<!-- 2020-06-18 EZP-778 -->
+							<div class="divSoldOutProc" style="/* opacity: 0.5; */">
+								<input type="hidden" id="txtSoldOutType4435601-6" value="T">
+								<input type="radio" id="toggleReserve44356011-6" class="rdoToggle" name="toggle4435601-6" value="F" data-ss_item_no="443560">
+								<label for="toggleReserve44356011-6">미송</label>
+								<input type="radio" id="toggleRefund44356022-6" class="rdoToggle rdoToggleRight" name="toggle4435601-6" value="T" data-ss_item_no="443560">
+								<label for="toggleRefund44356022-6">오늘차감</label>
+								<input type="radio" id="toggleRefund44356133-6" class="rdoToggle rdoToggleRight" name="toggle4435601-6" value="T" data-ss_item_no="443560">
+								<label for="toggleRefund44356133-6">추후차감</label>
+							</div>
+						</td>
+						<td style="">
+							<!-- 2020-05-04 비활성화/활성화-->
+							<!-- <p class="prd-date">
+								<em>품,색,사,최소</em>
+								<span>1000</span>
+								<span>2020-04-27</span>
+							</p> -->
+							<button name="button" class="btn state ui-popup-open" data-target="#targetItemSoldoutStatus">선택</button>
+							<!-- <button name="button" class="btn state ui-popup-open" data-target="#targetItemSoldoutStatus" disabled>선택</button> -->
+						</td>
+						<td class="view_memo pl5 pr5" data-memo_tooltip="" style=""></td>
+						<td class="view_memo" data-memo_tooltip="" style=""></td>
+						<!-- 2020-07-15 EZP-811 -->
+						<td class="pop-wrap" style="">
+							<button name="button" class="btn state">선택안함</button>
+							<div class="date-uipopup">
+								<strong>입고예정일</strong>
+								<div>
+									<!-- 2022-12-20 EZP-7760 날짜 하이픈 형식으로 변경 -->
+									<button type="button" class="btn-item">07-13(월)</button>
+									<button type="button" class="btn-item">07-14(화)</button>
+									<button type="button" class="btn-item">07-15(수)</button>
+									<button type="button" class="btn-item">07-16(목)</button>
+									<button type="button" class="btn-item">07-17(금)</button>
+									<!-- 2022-12-12 EZP-7273 입고예정일 옵션 추가 시작 -->
+									<button type="button" class="btn-item">07-20(월)</button>
+									<button type="button" class="btn-item">07-21(화)</button>
+									<button type="button" class="btn-item">07-22(수)</button>
+									<button type="button" class="btn-item">07-23(목)</button>
+									<!-- 2022-12-12 EZP-7273 입고예정일 옵션 추가 끝 -->
+									<button type="button" class="btn-item">다음주 중</button>
+									<button type="button" class="btn-item">미정</button>
+									<button type="button" class="btn-item">선택안함</button>
+								</div>
+								<button class="btn_close"><span>닫기</span></button>
+							</div>
+						</td>
+					</tr>
+
+					<tr class="opener trdetailOpener" data-seller_key="3037" data-seller_buyer_key="3037_2963">
+						<td colspan="3" class="detail" style="padding-top: 9px; padding-bottom: 9px; " data-memo_tooltip="[M]아크 브이넥 하찌 니트 가디건 (11colors) / S68509">
+							<span class="pr5">
+								<i class="t_new">신규1</i>
+								린넨 데님 (제품명이 길어지면 공백 포함 최대 40자까지 노출)
+							</span>
+						</td>
+						<td class="option" style="" colspan="2">
+							<p>[블루-FREE]</p>
+						</td>
+						<td class="tac" id="tdOrderQty443560" style="">1</td>
+						<td class="tac" style="">
+							<div class="small-amount amount"> <input type="text" class="txtInQty" name="in_qty" maxlength="4" value="1" data-ss_no="106957" data-ss_item_no="443560" data-order_price="22000.00" data-order_qty="1" data-seller_buyer_key="3037_2963"
+									data-is_refunded="T" data-spec_item_type="10" tabindex="0" data-index="1" autocomplete="off" disabled=""> </div>
+						</td>
+						<td style="" colspan="5">
+							<div class="btn-group">
+								<button class="btn-opener" data-type="detail">열기/닫기</button>
+							</div>
+						</td>
+					</tr>
+					<tr class="indetail" data-seller_key="3037" data-seller_buyer_key="3037_2963">
+						<td class="tac">
+							<span class="checkbox">
+								<label>
+									<input type="checkbox">
+								</label>
+							</span>
+						</td>
+						<td class="tac">7</td>
+						<td class="detail view_memo" style="padding-top: 9px; padding-bottom: 9px; " data-memo_tooltip="[M]아크 브이넥 하찌 니트 가디건 (11colors) / S68509">
+							<span class="badge"><i class="new">신규</i></span>
+							<span class="pr5">
+								린넨 데님
+								<!-- 2022-12-20 EZP-7760 날짜 하이픈 형식으로 변경 -->
+								<strong class="withDate">(7-28)</strong>
+								<a href="javascript:;" class="eProductImgUrl" data-url="http://realcoco1.cafe24.com/web/product/tiny/202008/980a0b2f5e4099c5146dc341bdbd01fb.gif">
+									<img src="../img/ico_image.png" style="width: 20px; margin-bottom: 2px;">
+								</a>
+							</span>
+						</td>
+						<td class="option" style="">
+							<p>[블루-FREE]</p>
+						</td>
+						<td class="tar" style="">22,000</td>
+						<td class="tac" id="tdOrderQty443560" style="">1</td>
+						<td class="tac" style="">
+							<div class="small-amount amount"> <input type="text" class="txtInQty" name="in_qty" maxlength="4" value="1" data-ss_no="106957" data-ss_item_no="443560" data-order_price="22000.00" data-order_qty="1" data-seller_buyer_key="3037_2963"
+									data-is_refunded="T" data-spec_item_type="10" tabindex="0" data-index="1" autocomplete="off" disabled=""> </div>
+						</td>
+						<td style="">
+							<!-- 2020-06-18 EZP-778 -->
+							<div class="divSoldOutProc" style="/* opacity: 0.5; */">
+								<input type="hidden" id="txtSoldOutType4435601-7" value="T">
+								<input type="radio" id="toggleReserve44356011-7" class="rdoToggle" name="toggle4435601-7" value="F" data-ss_item_no="443560">
+								<label for="toggleReserve44356011-7">미송</label>
+								<input type="radio" id="toggleRefund44356022-7" class="rdoToggle rdoToggleRight" name="toggle4435601-7" value="T" data-ss_item_no="443560">
+								<label for="toggleRefund44356022-7">오늘차감</label>
+								<input type="radio" id="toggleRefund44356133-7" class="rdoToggle rdoToggleRight" name="toggle4435601-7" value="T" data-ss_item_no="443560">
+								<label for="toggleRefund44356133-7">추후차감</label>
+							</div>
+						</td>
+						<td style="">
+							<!-- 2020-05-04 비활성화/활성화-->
+							<!-- <p class="prd-date">
+								<em>품,색,사,최소</em>
+								<span>1000</span>
+								<span>2020-04-27</span>
+							</p> -->
+							<button name="button" class="btn state ui-popup-open" data-target="#targetItemSoldoutStatus">선택</button>
+							<!-- <button name="button" class="btn state ui-popup-open" data-target="#targetItemSoldoutStatus" disabled>선택</button> -->
+						</td>
+						<td class="view_memo pl5 pr5" data-memo_tooltip="" style=""></td>
+						<td class="view_memo" data-memo_tooltip="" style=""></td>
+						<!-- 2020-07-15 EZP-811 -->
+						<td class="pop-wrap" style="">
+							<button name="button" class="btn state">선택안함</button>
+							<div class="date-uipopup">
+								<strong>입고예정일</strong>
+								<div>
+									<!-- 2022-12-20 EZP-7760 날짜 하이픈 형식으로 변경 -->
+									<button type="button" class="btn-item">07-13(월)</button>
+									<button type="button" class="btn-item">07-14(화)</button>
+									<button type="button" class="btn-item">07-15(수)</button>
+									<button type="button" class="btn-item">07-16(목)</button>
+									<button type="button" class="btn-item">07-17(금)</button>
+									<!-- 2022-12-12 EZP-7273 입고예정일 옵션 추가 시작 -->
+									<button type="button" class="btn-item">07-20(월)</button>
+									<button type="button" class="btn-item">07-21(화)</button>
+									<button type="button" class="btn-item">07-22(수)</button>
+									<button type="button" class="btn-item">07-23(목)</button>
+									<!-- 2022-12-12 EZP-7273 입고예정일 옵션 추가 끝 -->
+									<button type="button" class="btn-item">다음주 중</button>
+									<button type="button" class="btn-item">미정</button>
+									<button type="button" class="btn-item">선택안함</button>
+								</div>
+								<button class="btn_close"><span>닫기</span></button>
+							</div>
+						</td>
+					</tr>
+					<tr class="opener trdetailOpener" data-seller_key="3037" data-seller_buyer_key="3037_2963">
+						<td class="detail" colspan="3" style="padding-top: 9px; padding-bottom: 9px; " data-memo_tooltip="[M]아크 브이넥 하찌 니트 가디건 (11colors) / S68509">
+							<span class="pr5">
+								<i class="t_type1">미송1</i>
+								린넨 데님 (제품명이 길어지면 공백 포함 최대 40자까지 노출)
+							</span>
+						</td>
+						<td class="option" style="" colspan="2">
+							<p>[블루-FREE]</p>
+						</td>
+						<td class="tac" id="tdOrderQty443560" style="">1</td>
+						<td class="tac" style="">
+							<div class="small-amount amount"> <input type="text" class="txtInQty" name="in_qty" maxlength="4" value="1" data-ss_no="106957" data-ss_item_no="443560" data-order_price="22000.00" data-order_qty="1" data-seller_buyer_key="3037_2963"
+									data-is_refunded="T" data-spec_item_type="10" tabindex="0" data-index="1" autocomplete="off" disabled=""> </div>
+						</td>
+						<td style="" colspan="5">
+							<div class="btn-group">
+								<button class="btn-opener" data-type="detail">열기/닫기</button>
+							</div>
+						</td>
+					</tr>
+					<tr class="indetail" data-seller_key="3037" data-seller_buyer_key="3037_2963">
+						<td class="tac">
+							<span class="checkbox">
+								<label>
+									<input type="checkbox">
+								</label>
+							</span>
+						</td>
+						<td class="tac">8</td>
+						<td class="detail view_memo" style="padding-top: 9px; padding-bottom: 9px; " data-memo_tooltip="[M]아크 브이넥 하찌 니트 가디건 (11colors) / S68509">
+							<span class="badge"><i class="type1">미송</i></span>
+							<span class="pr5">
+								린넨 데님
+								<!-- 2022-12-20 EZP-7760 날짜 하이픈 형식으로 변경 -->
+								<strong class="withDate">(7-28)</strong>
+								<a href="javascript:;" class="eProductImgUrl" data-url="http://realcoco1.cafe24.com/web/product/tiny/202008/980a0b2f5e4099c5146dc341bdbd01fb.gif">
+									<img src="../img/ico_image.png" style="width: 20px; margin-bottom: 2px;">
+								</a>
+							</span>
+						</td>
+						<td class="option" style="">
+							<p>[블루-FREE]</p>
+						</td>
+						<td class="tar" style="">22,000</td>
+						<td class="tac" id="tdOrderQty443560" style="">1</td>
+						<td class="tac" style="">
+							<div class="small-amount amount"> <input type="text" class="txtInQty" name="in_qty" maxlength="4" value="1" data-ss_no="106957" data-ss_item_no="443560" data-order_price="22000.00" data-order_qty="1" data-seller_buyer_key="3037_2963"
+									data-is_refunded="T" data-spec_item_type="10" tabindex="0" data-index="1" autocomplete="off" disabled=""> </div>
+						</td>
+						<td style="">
+							<!-- 2020-06-18 EZP-778 -->
+							<div class="divSoldOutProc" style="/* opacity: 0.5; */">
+								<input type="hidden" id="txtSoldOutType4435601-8" value="T">
+								<input type="radio" id="toggleReserve44356011-8" class="rdoToggle" name="toggle4435601-8" value="F" data-ss_item_no="443560">
+								<label for="toggleReserve44356011-8">미송</label>
+								<input type="radio" id="toggleRefund44356022-8" class="rdoToggle rdoToggleRight" name="toggle4435601-8" value="T" data-ss_item_no="443560">
+								<label for="toggleRefund44356022-8">오늘차감</label>
+								<input type="radio" id="toggleRefund44356133-8" class="rdoToggle rdoToggleRight" name="toggle4435601-8" value="T" data-ss_item_no="443560">
+								<label for="toggleRefund44356133-8">추후차감</label>
+							</div>
+						</td>
+						<td style="">
+							<!-- 2020-05-04 비활성화/활성화-->
+							<!-- <p class="prd-date">
+								<em>품,색,사,최소</em>
+								<span>1000</span>
+								<span>2020-04-27</span>
+							</p> -->
+							<button name="button" class="btn state ui-popup-open" data-target="#targetItemSoldoutStatus">선택</button>
+							<!-- <button name="button" class="btn state ui-popup-open" data-target="#targetItemSoldoutStatus" disabled>선택</button> -->
+						</td>
+						<td class="view_memo pl5 pr5" data-memo_tooltip="" style=""></td>
+						<td class="view_memo" data-memo_tooltip="" style=""></td>
+						<!-- 2020-07-15 EZP-811 -->
+						<td class="pop-wrap" style="">
+							<button name="button" class="btn state">선택안함</button>
+							<div class="date-uipopup">
+								<strong>입고예정일</strong>
+								<div>
+									<!-- 2022-12-20 EZP-7760 날짜 하이픈 형식으로 변경 -->
+									<button type="button" class="btn-item">07-13(월)</button>
+									<button type="button" class="btn-item">07-14(화)</button>
+									<button type="button" class="btn-item">07-15(수)</button>
+									<button type="button" class="btn-item">07-16(목)</button>
+									<button type="button" class="btn-item">07-17(금)</button>
+									<!-- 2022-12-12 EZP-7273 입고예정일 옵션 추가 시작 -->
+									<button type="button" class="btn-item">07-20(월)</button>
+									<button type="button" class="btn-item">07-21(화)</button>
+									<button type="button" class="btn-item">07-22(수)</button>
+									<button type="button" class="btn-item">07-23(목)</button>
+									<!-- 2022-12-12 EZP-7273 입고예정일 옵션 추가 끝 -->
+									<button type="button" class="btn-item">다음주 중</button>
+									<button type="button" class="btn-item">미정</button>
+									<button type="button" class="btn-item">선택안함</button>
+								</div>
+								<button class="btn_close"><span>닫기</span></button>
+							</div>
+						</td>
+					</tr>
+					<tr class="" data-seller_key="3037" data-seller_buyer_key="3037_2963">
+						<td class="tac">
+							<span class="checkbox">
+								<label>
+									<input type="checkbox">
+								</label>
+							</span>
+						</td>
+						<td class="tac">9</td>
+						<td class="detail view_memo" style="padding-top: 9px; padding-bottom: 9px; " data-memo_tooltip="[M]아크 브이넥 하찌 니트 가디건 (11colors) / S68509">
+							<span class="badge"><i class="type2">불량</i></span>
+							<span class="pr5">
+								디즈정품 믹키맨투맨
+								<!-- 2022-12-20 EZP-7760 날짜 하이픈 형식으로 변경 -->
+								<strong class="withDate">(5-13)</strong>
+								<a href="javascript:;" class="eProductImgUrl" data-url="http://realcoco1.cafe24.com/web/product/tiny/202008/980a0b2f5e4099c5146dc341bdbd01fb.gif">
+									<img src="../img/ico_image.png" style="width: 20px; margin-bottom: 2px;">
+								</a>
+							</span>
+						</td>
+						<td class="option" style="">
+							<p>[블루-FREE]</p>
+						</td>
+						<td class="tar" style="">22,000</td>
+						<td class="tac" id="tdOrderQty443560" style="">1</td>
+						<td class="tac" style="">
+							<div class="small-amount amount"> <input type="text" class="txtInQty" name="in_qty" maxlength="4" value="1" data-ss_no="106957" data-ss_item_no="443560" data-order_price="22000.00" data-order_qty="1" data-seller_buyer_key="3037_2963"
+									data-is_refunded="T" data-spec_item_type="10" tabindex="0" data-index="1" autocomplete="off" disabled=""> </div>
+						</td>
+						<td style="">
+							<!-- 2020-06-18 EZP-778 -->
+							<div class="divSoldOutProc" style="/* opacity: 0.5; */">
+								<input type="hidden" id="txtSoldOutType443560-9" value="T">
+								<input type="radio" id="toggleReserve4435601-9" class="rdoToggle" name="toggle4435609-9" value="F" data-ss_item_no="443560">
+								<label for="toggleReserve4435601-9">미송</label>
+								<input type="radio" id="toggleRefund4435602-9" class="rdoToggle rdoToggleRight" name="toggle4435609-9" value="T" data-ss_item_no="443560">
+								<label for="toggleRefund4435602-9">오늘차감</label>
+							</div>
+						</td>
+						<td style="">최소 1000</td>
+						<td class="view_memo pl5 pr5" data-memo_tooltip="" style=""></td>
+						<td class="view_memo" data-memo_tooltip="" style=""></td>
+						<!-- 2020-07-15 EZP-811 -->
+						<td class="pop-wrap" style="">
+							<button name="button" class="btn state">선택안함</button>
+							<div class="date-uipopup">
+								<strong>입고예정일</strong>
+								<div>
+									<!-- 2022-12-20 EZP-7760 날짜 하이픈 형식으로 변경 -->
+									<button type="button" class="btn-item">07-13(월)</button>
+									<button type="button" class="btn-item">07-14(화)</button>
+									<button type="button" class="btn-item">07-15(수)</button>
+									<button type="button" class="btn-item">07-16(목)</button>
+									<button type="button" class="btn-item">07-17(금)</button>
+									<!-- 2022-12-12 EZP-7273 입고예정일 옵션 추가 시작 -->
+									<button type="button" class="btn-item">07-20(월)</button>
+									<button type="button" class="btn-item">07-21(화)</button>
+									<button type="button" class="btn-item">07-22(수)</button>
+									<button type="button" class="btn-item">07-23(목)</button>
+									<!-- 2022-12-12 EZP-7273 입고예정일 옵션 추가 끝 -->
+									<button type="button" class="btn-item">다음주 중</button>
+									<button type="button" class="btn-item">미정</button>
+									<button type="button" class="btn-item">선택안함</button>
+								</div>
+								<button class="btn_close"><span>닫기</span></button>
+							</div>
+						</td>
+					</tr>
+					<tr class="" data-seller_key="3037" data-seller_buyer_key="3037_2963">
+						<td class="tac">
+							<span class="checkbox">
+								<label>
+									<input type="checkbox">
+								</label>
+							</span>
+						</td>
+						<td class="tac">10</td>
+						<td class="detail view_memo" style="padding-top: 9px; padding-bottom: 9px; " data-memo_tooltip="[M]아크 브이넥 하찌 니트 가디건 (11colors) / S68509">
+							<span class="badge"><i class="type1 pink">제작신규</i></span>
+							<span class="pr5">
+								린넨 데님 (제품명이 길어지면 공백 포함 최대 40자까지 노출)
+								<!-- 2022-12-20 EZP-7760 날짜 하이픈 형식으로 변경 -->
+								<strong class="withDate">(5-13)</strong>
+								<a href="javascript:;" class="eProductImgUrl" data-url="http://realcoco1.cafe24.com/web/product/tiny/202008/980a0b2f5e4099c5146dc341bdbd01fb.gif">
+									<img src="../img/ico_image.png" style="width: 20px; margin-bottom: 2px;">
+								</a>
+							</span>
+						</td>
+						<td class="option" style="">
+							<p>[블루-FREE]</p>
+						</td>
+						<td class="tar" style="">22,000</td>
+						<td class="tac" id="tdOrderQty443560" style="">1</td>
+						<td class="tac" style="">
+							<div class="small-amount amount"> <input type="text" class="txtInQty" name="in_qty" maxlength="4" value="1" data-ss_no="106957" data-ss_item_no="443560" data-order_price="22000.00" data-order_qty="1" data-seller_buyer_key="3037_2963"
+									data-is_refunded="T" data-spec_item_type="10" tabindex="0" data-index="1" autocomplete="off" disabled=""> </div>
+						</td>
+						<td style="">
+							<!-- 2020-06-18 EZP-778 -->
+							<div class="divSoldOutProc" style="/* opacity: 0.5; */">
+								<input type="hidden" id="txtSoldOutType443560-10" value="T">
+								<input type="radio" id="toggleReserve4435601-10" class="rdoToggle" name="toggle4435609-10" value="F" data-ss_item_no="443560">
+								<label for="toggleReserve4435601-10">미송</label>
+								<input type="radio" id="toggleRefund4435602-10" class="rdoToggle rdoToggleRight" name="toggle4435609-10" value="T" data-ss_item_no="443560">
+								<label for="toggleRefund4435602-10">오늘차감</label>
+							</div>
+						</td>
+						<td style="">최소 1000</td>
+						<td class="view_memo pl5 pr5" data-memo_tooltip="" style=""></td>
+						<td class="view_memo" data-memo_tooltip="" style=""></td>
+						<!-- 2020-07-15 EZP-811 -->
+						<td class="pop-wrap" style="">
+							<button name="button" class="btn state">선택안함</button>
+							<div class="date-uipopup">
+								<strong>입고예정일</strong>
+								<div>
+									<!-- 2022-12-20 EZP-7760 날짜 하이픈 형식으로 변경 -->
+									<button type="button" class="btn-item">07-13(월)</button>
+									<button type="button" class="btn-item">07-14(화)</button>
+									<button type="button" class="btn-item">07-15(수)</button>
+									<button type="button" class="btn-item">07-16(목)</button>
+									<button type="button" class="btn-item">07-17(금)</button>
+									<!-- 2022-12-12 EZP-7273 입고예정일 옵션 추가 시작 -->
+									<button type="button" class="btn-item">07-20(월)</button>
+									<button type="button" class="btn-item">07-21(화)</button>
+									<button type="button" class="btn-item">07-22(수)</button>
+									<button type="button" class="btn-item">07-23(목)</button>
+									<!-- 2022-12-12 EZP-7273 입고예정일 옵션 추가 끝 -->
+									<button type="button" class="btn-item">다음주 중</button>
+									<button type="button" class="btn-item">미정</button>
+									<button type="button" class="btn-item">선택안함</button>
+								</div>
+								<button class="btn_close"><span>닫기</span></button>
+							</div>
+						</td>
+					</tr>
+					<tr class="" data-seller_key="3037" data-seller_buyer_key="3037_2963">
+						<td class="tac">
+							<span class="checkbox">
+								<label>
+									<input type="checkbox">
+								</label>
+							</span>
+						</td>
+						<td class="tac">11</td>
+						<td class="detail view_memo" style="padding-top: 9px; padding-bottom: 9px; " data-memo_tooltip="[M]아크 브이넥 하찌 니트 가디건 (11colors) / S68509">
+							<span class="badge"><i class="type1">제작미송</i></span>
+							<span class="pr5">
+								린넨 데님 (제품명이 길어지면 공백 포함 최대 40자까지 노출)
+								<!-- 2022-12-20 EZP-7760 날짜 하이픈 형식으로 변경 -->
+								<strong class="withDate">(5-13)</strong>
+							</span>
+						</td>
+						<td class="option" style="">
+							<p>[블루-FREE]</p>
+						</td>
+						<td class="tar" style="">22,000</td>
+						<td class="tac" id="tdOrderQty443560" style="">1</td>
+						<td class="tac" style="">
+							<div class="small-amount amount"> <input type="text" class="txtInQty" name="in_qty" maxlength="4" value="1" data-ss_no="106957" data-ss_item_no="443560" data-order_price="22000.00" data-order_qty="1" data-seller_buyer_key="3037_2963"
+									data-is_refunded="T" data-spec_item_type="10" tabindex="0" data-index="1" autocomplete="off" disabled=""> </div>
+						</td>
+						<td style="">
+							<!-- 2020-06-18 EZP-778 -->
+							<div class="divSoldOutProc" style="/* opacity: 0.5; */">
+								<input type="hidden" id="txtSoldOutType443560-11" value="T">
+								<input type="radio" id="toggleReserve4435601-11" class="rdoToggle" name="toggle4435609-11" value="F" data-ss_item_no="443560">
+								<label for="toggleReserve4435601-11">미송</label>
+								<input type="radio" id="toggleRefund4435602-11" class="rdoToggle rdoToggleRight" name="toggle4435609-11" value="T" data-ss_item_no="443560">
+								<label for="toggleRefund4435602-11">오늘차감</label>
+							</div>
+						</td>
+						<td style="">최소 1000</td>
+						<td class="view_memo pl5 pr5" data-memo_tooltip="" style=""></td>
+						<td class="view_memo" data-memo_tooltip="" style=""></td>
+						<!-- 2020-07-15 EZP-811 -->
+						<td class="pop-wrap" style="">
+							<button name="button" class="btn state">선택안함</button>
+							<div class="date-uipopup">
+								<strong>입고예정일</strong>
+								<div>
+									<!-- 2022-12-20 EZP-7760 날짜 하이픈 형식으로 변경 -->
+									<button type="button" class="btn-item">07-13(월)</button>
+									<button type="button" class="btn-item">07-14(화)</button>
+									<button type="button" class="btn-item">07-15(수)</button>
+									<button type="button" class="btn-item">07-16(목)</button>
+									<button type="button" class="btn-item">07-17(금)</button>
+									<!-- 2022-12-12 EZP-7273 입고예정일 옵션 추가 시작 -->
+									<button type="button" class="btn-item">07-20(월)</button>
+									<button type="button" class="btn-item">07-21(화)</button>
+									<button type="button" class="btn-item">07-22(수)</button>
+									<button type="button" class="btn-item">07-23(목)</button>
+									<!-- 2022-12-12 EZP-7273 입고예정일 옵션 추가 끝 -->
+									<button type="button" class="btn-item">다음주 중</button>
+									<button type="button" class="btn-item">미정</button>
+									<button type="button" class="btn-item">선택안함</button>
+								</div>
+								<button class="btn_close"><span>닫기</span></button>
+							</div>
+						</td>
+					</tr>
+					<tr class="" data-seller_key="3037" data-seller_buyer_key="3037_2963">
+						<td class="tac">
+							<span class="checkbox">
+								<label>
+									<input type="checkbox">
+								</label>
+							</span>
+						</td>
+						<td class="tac">12</td>
+						<td class="detail view_memo" style="padding-top: 9px; padding-bottom: 9px; " data-memo_tooltip="[M]아크 브이넥 하찌 니트 가디건 (11colors) / S68509">
+							<span class="badge"><i class="type3">샘플</i></span>
+							<span class="pr5">
+								디즈정품 믹키맨투맨
+								<!-- 2022-12-20 EZP-7760 날짜 하이픈 형식으로 변경 -->
+								<strong class="withDate">(5-13)</strong>
+							</span>
+						</td>
+						<td class="option" style="">
+							<p>[블루-FREE]</p>
+						</td>
+						<td class="tar" style="">22,000</td>
+						<td class="tac" id="tdOrderQty443560" style="">1</td>
+						<td class="tac" style="">
+							<div class="small-amount amount"> <input type="text" class="txtInQty" name="in_qty" maxlength="4" value="1" data-ss_no="106957" data-ss_item_no="443560" data-order_price="22000.00" data-order_qty="1" data-seller_buyer_key="3037_2963"
+									data-is_refunded="T" data-spec_item_type="10" tabindex="0" data-index="1" autocomplete="off" disabled=""> </div>
+						</td>
+						<td style="">
+							<!-- 2020-06-18 EZP-778 -->
+							<div class="divSoldOutProc" style="/* opacity: 0.5; */">
+								<input type="hidden" id="txtSoldOutType443560-16" value="T">
+								<input type="radio" id="toggleReserve4435601-16" class="rdoToggle" name="toggle4435609-16" value="F" data-ss_item_no="443560">
+								<label for="toggleReserve4435601-16">미송</label>
+								<input type="radio" id="toggleRefund4435602-16" class="rdoToggle rdoToggleRight" name="toggle4435609-16" value="T" data-ss_item_no="443560">
+								<label for="toggleRefund4435602-16">오늘차감</label>
+							</div>
+						</td>
+						<td style="">최소 1000</td>
+						<td class="view_memo pl5 pr5" data-memo_tooltip="" style=""></td>
+						<td class="view_memo" data-memo_tooltip="" style=""></td>
+						<!-- 2020-07-15 EZP-811 -->
+						<td class="pop-wrap" style="">
+							<button name="button" class="btn state">선택안함</button>
+							<div class="date-uipopup">
+								<strong>입고예정일</strong>
+								<div>
+									<!-- 2022-12-20 EZP-7760 날짜 하이픈 형식으로 변경 -->
+									<button type="button" class="btn-item">07-13(월)</button>
+									<button type="button" class="btn-item">07-14(화)</button>
+									<button type="button" class="btn-item">07-15(수)</button>
+									<button type="button" class="btn-item">07-16(목)</button>
+									<button type="button" class="btn-item">07-17(금)</button>
+									<!-- 2022-12-12 EZP-7273 입고예정일 옵션 추가 시작 -->
+									<button type="button" class="btn-item">07-20(월)</button>
+									<button type="button" class="btn-item">07-21(화)</button>
+									<button type="button" class="btn-item">07-22(수)</button>
+									<button type="button" class="btn-item">07-23(목)</button>
+									<!-- 2022-12-12 EZP-7273 입고예정일 옵션 추가 끝 -->
+									<button type="button" class="btn-item">다음주 중</button>
+									<button type="button" class="btn-item">미정</button>
+									<button type="button" class="btn-item">선택안함</button>
+								</div>
+								<button class="btn_close"><span>닫기</span></button>
+							</div>
+						</td>
+					</tr>
+					<!--EZP-3157-->
+					<tr class="" data-seller_key="3037" data-seller_buyer_key="3037_2963">
+						<td class="tac">
+							<span class="checkbox">
+								<label>
+									<input type="checkbox">
+								</label>
+							</span>
+						</td>
+						<td class="tac">12</td>
+						<td class="detail view_memo" style="padding-top: 9px; padding-bottom: 9px; " data-memo_tooltip="[M]아크 브이넥 하찌 니트 가디건 (11colors) / S68509">
+							<span class="badge"><i class="type3">유료샘플</i></span>
+							<span class="pr5">
+								디즈정품 믹키맨투맨
+								<!-- 2022-12-20 EZP-7760 날짜 하이픈 형식으로 변경 -->
+								<strong class="withDate">(5-13)</strong>
+							</span>
+						</td>
+						<td class="option" style="">
+							<p>[블루-FREE]</p>
+						</td>
+						<td class="tar" style="">22,000</td>
+						<td class="tac" id="tdOrderQty443560" style="">1</td>
+						<td class="tac" style="">
+							<div class="small-amount amount"> <input type="text" class="txtInQty" name="in_qty" maxlength="4" value="1" data-ss_no="106957" data-ss_item_no="443560" data-order_price="22000.00" data-order_qty="1" data-seller_buyer_key="3037_2963"
+									data-is_refunded="T" data-spec_item_type="10" tabindex="0" data-index="1" autocomplete="off" disabled=""> </div>
+						</td>
+						<td style="">
+							<!-- 2020-06-18 EZP-778 -->
+							<div class="divSoldOutProc" style="/* opacity: 0.5; */">
+								<input type="hidden" id="txtSoldOutType443560-12" value="T">
+								<input type="radio" id="toggleReserve4435601-12" class="rdoToggle" name="toggle4435609-12" value="F" data-ss_item_no="443560">
+								<label for="toggleReserve4435601-12">미송</label>
+								<input type="radio" id="toggleRefund4435602-12" class="rdoToggle rdoToggleRight" name="toggle4435609-12" value="T" data-ss_item_no="443560">
+								<label for="toggleRefund4435602-12">오늘차감</label>
+							</div>
+						</td>
+						<td style="">최소 1000</td>
+						<td class="view_memo pl5 pr5" data-memo_tooltip="" style=""></td>
+						<td class="view_memo" data-memo_tooltip="" style=""></td>
+						<!-- 2020-07-15 EZP-811 -->
+						<td class="pop-wrap" style="">
+							<button name="button" class="btn state">선택안함</button>
+							<div class="date-uipopup">
+								<strong>입고예정일</strong>
+								<div>
+									<!-- 2022-12-20 EZP-7760 날짜 하이픈 형식으로 변경 -->
+									<button type="button" class="btn-item">07-13(월)</button>
+									<button type="button" class="btn-item">07-14(화)</button>
+									<button type="button" class="btn-item">07-15(수)</button>
+									<button type="button" class="btn-item">07-16(목)</button>
+									<button type="button" class="btn-item">07-17(금)</button>
+									<!-- 2022-12-12 EZP-7273 입고예정일 옵션 추가 시작 -->
+									<button type="button" class="btn-item">07-20(월)</button>
+									<button type="button" class="btn-item">07-21(화)</button>
+									<button type="button" class="btn-item">07-22(수)</button>
+									<button type="button" class="btn-item">07-23(목)</button>
+									<!-- 2022-12-12 EZP-7273 입고예정일 옵션 추가 끝 -->
+									<button type="button" class="btn-item">다음주 중</button>
+									<button type="button" class="btn-item">미정</button>
+									<button type="button" class="btn-item">선택안함</button>
+								</div>
+								<button class="btn_close"><span>닫기</span></button>
+							</div>
+						</td>
+					</tr>
+					<!--//EZP-3157-->
+					<tr class="" data-seller_key="3037" data-seller_buyer_key="3037_2963">
+						<td class="tac">
+							<span class="checkbox">
+								<label>
+									<input type="checkbox">
+								</label>
+							</span>
+						</td>
+						<td class="tac">13</td>
+						<td class="detail view_memo" style="padding-top: 9px; padding-bottom: 9px; " data-memo_tooltip="[M]아크 브이넥 하찌 니트 가디건 (11colors) / S68509">
+							<span class="badge"><i class="type4">반납</i></span>
+							<span class="pr5">
+								디즈정품 믹키맨투맨
+								<!-- 2022-12-20 EZP-7760 날짜 하이픈 형식으로 변경 -->
+								<strong class="withDate">(5-13)</strong>
+							</span>
+						</td>
+						<td class="option" style="">
+							<p>[블루-FREE]</p>
+						</td>
+						<td class="tar" style="">22,000</td>
+						<td class="tac" id="tdOrderQty443560" style="">1</td>
+						<td class="tac" style="">
+							<div class="small-amount amount"> <input type="text" class="txtInQty" name="in_qty" maxlength="4" value="1" data-ss_no="106957" data-ss_item_no="443560" data-order_price="22000.00" data-order_qty="1" data-seller_buyer_key="3037_2963"
+									data-is_refunded="T" data-spec_item_type="10" tabindex="0" data-index="1" autocomplete="off" disabled=""> </div>
+						</td>
+						<td style="">
+							<!-- 2020-06-18 EZP-778 -->
+							<div class="divSoldOutProc" style="/* opacity: 0.5; */">
+								<input type="hidden" id="txtSoldOutType443560-13" value="T">
+								<input type="radio" id="toggleReserve4435601-13" class="rdoToggle" name="toggle4435609-13" value="F" data-ss_item_no="443560">
+								<label for="toggleReserve4435601-13">미송</label>
+								<input type="radio" id="toggleRefund4435602-13" class="rdoToggle rdoToggleRight" name="toggle4435609-13" value="T" data-ss_item_no="443560">
+								<label for="toggleRefund4435602-13">오늘차감</label>
+							</div>
+						</td>
+						<td style="">최소 1000</td>
+						<td class="view_memo pl5 pr5" data-memo_tooltip="" style=""></td>
+						<td class="view_memo" data-memo_tooltip="" style=""></td>
+						<!-- 2020-07-15 EZP-811 -->
+						<td class="pop-wrap" style="">
+							<button name="button" class="btn state">선택안함</button>
+							<div class="date-uipopup">
+								<strong>입고예정일</strong>
+								<div>
+									<!-- 2022-12-20 EZP-7760 날짜 하이픈 형식으로 변경 -->
+									<button type="button" class="btn-item">07-13(월)</button>
+									<button type="button" class="btn-item">07-14(화)</button>
+									<button type="button" class="btn-item">07-15(수)</button>
+									<button type="button" class="btn-item">07-16(목)</button>
+									<button type="button" class="btn-item">07-17(금)</button>
+									<!-- 2022-12-12 EZP-7273 입고예정일 옵션 추가 시작 -->
+									<button type="button" class="btn-item">07-20(월)</button>
+									<button type="button" class="btn-item">07-21(화)</button>
+									<button type="button" class="btn-item">07-22(수)</button>
+									<button type="button" class="btn-item">07-23(목)</button>
+									<!-- 2022-12-12 EZP-7273 입고예정일 옵션 추가 끝 -->
+									<button type="button" class="btn-item">다음주 중</button>
+									<button type="button" class="btn-item">미정</button>
+									<button type="button" class="btn-item">선택안함</button>
+								</div>
+								<button class="btn_close"><span>닫기</span></button>
+							</div>
+						</td>
+					</tr>
+					<tr class="opener trOpener buyer" data-seller_key="3037" data-seller_buyer_key="3037_2963">
+						<td colspan="12" class="tdBuyerHeader" style="border-bottom: none;">
+							<div class="text-group">
+								<label>
+									<!-- 2021-04-06 EZP-1902 -->
+									<em><strong><i class="ico-delivery blue">직</i>주하샵</strong></em>
+									
+									<strong class="vertical-bar">처리자: 관리자(05-06 08:23:32 )</strong>
+									<strong class="vertical-bar">입고금액/발주금액 :
+										<span class="in_amt">22,000</span>원 / 22,000원
+									</strong>
+								</label>
+							</div>
+							<div class="btn-group"> <button class="btn-opener" data-type="buyer">열기/닫기</button> </div>
+							<div class="search-item mr30" style="width: 150px; position: absolute; right: 40px; top: 12px;">
+								<div class="ui-select" style="width: 150px;"> <input id="eBuyerStatus3037_2963" type="hidden" value="50"> <button type="button" disabled="">완료</button>
+									<ul class="select_ul">
+										<li data-value="10">대기</li>
+										<li data-value="20">픽업후대기</li>
+										<li data-value="30">체크후대기</li>
+										<li data-value="50">완료</li>
+									</ul>
+								</div>
+							</div>
+						</td>
+					</tr>
+					<tr class="opener" data-seller_key="3037" data-seller_buyer_key="3037_2963" data-ss_no="106957" data-ss_buyer_no="88888">
+						<td colspan="12" class="tdSpecHeader">
+							<div class="text-group tal"> 
+								<label>
+									<em><strong>정기</strong></em> 
+									<!-- 2022-12-20 EZP-7760 날짜 하이픈 형식으로 변경 -->
+									<strong class="vertical-bar">05-05 21:17:13 </strong> 
+									<!-- 2022-12-06 EZP-7627 담당삼촌 삭제 -->
+									<!-- <strong class="vertical-bar">담당삼촌 : <em> - </em></strong> -->
+								</label>
+								<!-- 2022-12-06 EZP-7627 담당자 이력 삭제 -->
+								<!-- <div class="btn-group"> <button class="btnChargeHistory manager" data-ss_no="106957">담당자 이력</button> </div> -->
+							</div>
+						</td>
+					</tr>
+					<tr class="" data-seller_key="3037" data-seller_buyer_key="3037_2963">
+						<td class="tac">
+							<span class="checkbox">
+								<label>
+									<input type="checkbox">
+								</label>
+							</span>
+						</td>
+						<td class="tac">14</td>
+						<td class="detail view_memo" style="padding-top: 9px; padding-bottom: 9px; " data-memo_tooltip="[M]아크 브이넥 하찌 니트 가디건 (11colors) / S68509">
+							<span class="badge"><i class="new">신규</i></span>
+							<span class="pr5">
+								상품명 / 매우매우매우매우매우매우매우매우매우매우매우 긴 케이스
+								<!-- 2022-12-20 EZP-7760 날짜 하이픈 형식으로 변경 -->
+								<strong class="withDate">(7-28)</strong>
+								<a href="javascript:;" class="eProductImgUrl" data-url="http://realcoco1.cafe24.com/web/product/tiny/202008/980a0b2f5e4099c5146dc341bdbd01fb.gif">
+									<img src="../img/ico_image.png" style="width: 20px; margin-bottom: 2px;">
+								</a>
+							</span>
+						</td>
+						<td class="option" style="">
+							<p>[블루-FREE]</p>
+						</td>
+						<td class="tar" style="">22,000</td>
+						<td class="tac" id="tdOrderQty443560" style="">1</td>
+						<td class="tac" style="">
+							<div class="small-amount amount"> <input type="text" class="txtInQty" name="in_qty" maxlength="4" value="1" data-ss_no="106957" data-ss_item_no="443560" data-order_price="22000.00" data-order_qty="1" data-seller_buyer_key="3037_2963"
+									data-is_refunded="T" data-spec_item_type="10" tabindex="0" data-index="1" autocomplete="off" disabled=""> </div>
+						</td>
+						<td style="">
+							<!-- 2020-06-18 EZP-778 -->
+							<div class="divSoldOutProc" style="/* opacity: 0.5; */">
+								<input type="hidden" id="txtSoldOutType443560-14" value="T">
+								<input type="radio" id="toggleReserve4435601-14" class="rdoToggle" name="toggle4435609-14" value="F" data-ss_item_no="443560">
+								<label for="toggleReserve4435601-14">미송</label>
+								<input type="radio" id="toggleRefund4435602-14" class="rdoToggle rdoToggleRight" name="toggle4435609-14" value="T" data-ss_item_no="443560">
+								<label for="toggleRefund4435602-14">오늘차감</label>
+							</div>
+						</td>
+						<td style="">최소 1000</td>
+						<td class="view_memo pl5 pr5" data-memo_tooltip="" style=""></td>
+						<td class="view_memo" data-memo_tooltip="" style=""></td>
+						<!-- 2020-07-15 EZP-811 -->
+						<td class="pop-wrap" style="">
+							<button name="button" class="btn state">선택안함</button>
+							<div class="date-uipopup">
+								<strong>입고예정일</strong>
+								<div>
+									<!-- 2022-12-20 EZP-7760 날짜 하이픈 형식으로 변경 -->
+									<button type="button" class="btn-item">07-13(월)</button>
+									<button type="button" class="btn-item">07-14(화)</button>
+									<button type="button" class="btn-item">07-15(수)</button>
+									<button type="button" class="btn-item">07-16(목)</button>
+									<button type="button" class="btn-item">07-17(금)</button>
+									<!-- 2022-12-12 EZP-7273 입고예정일 옵션 추가 시작 -->
+									<button type="button" class="btn-item">07-20(월)</button>
+									<button type="button" class="btn-item">07-21(화)</button>
+									<button type="button" class="btn-item">07-22(수)</button>
+									<button type="button" class="btn-item">07-23(목)</button>
+									<!-- 2022-12-12 EZP-7273 입고예정일 옵션 추가 끝 -->
+									<button type="button" class="btn-item">다음주 중</button>
+									<button type="button" class="btn-item">미정</button>
+									<button type="button" class="btn-item">선택안함</button>
+								</div>
+								<button class="btn_close"><span>닫기</span></button>
+							</div>
+						</td>
+					</tr>
+					<tr class="" data-seller_key="3037" data-seller_buyer_key="3037_2963">
+						<td class="tac">
+							<span class="checkbox">
+								<label>
+									<input type="checkbox">
+								</label>
+							</span>
+						</td>
+						<td class="tac">15</td>
+						<td class="detail view_memo" style="padding-top: 9px; padding-bottom: 9px; " data-memo_tooltip="[M]아크 브이넥 하찌 니트 가디건 (11colors) / S68509">
+							<span class="badge"><i class="new">신규</i></span>
+							<span class="pr5">
+								스윗 소매리본트렌치 반코트
+								<!-- 2022-12-20 EZP-7760 날짜 하이픈 형식으로 변경 -->
+								<strong class="withDate">(7-28)</strong>
+								<a href="javascript:;" class="eProductImgUrl" data-url="http://realcoco1.cafe24.com/web/product/tiny/202008/980a0b2f5e4099c5146dc341bdbd01fb.gif">
+									<img src="../img/ico_image.png" style="width: 20px; margin-bottom: 2px;">
+								</a>
+							</span>
+						</td>
+						<td class="option" style="">
+							<p>[블루-FREE]</p>
+						</td>
+						<td class="tar" style="">22,000</td>
+						<td class="tac" id="tdOrderQty443560" style="">1</td>
+						<td class="tac" style="">
+							<div class="small-amount amount"> <input type="text" class="txtInQty" name="in_qty" maxlength="4" value="1" data-ss_no="106957" data-ss_item_no="443560" data-order_price="22000.00" data-order_qty="1" data-seller_buyer_key="3037_2963"
+									data-is_refunded="T" data-spec_item_type="10" tabindex="0" data-index="1" autocomplete="off" disabled=""> </div>
+						</td>
+						<td style="">
+							<!-- 2020-06-18 EZP-778 -->
+							<div class="divSoldOutProc" style="/* opacity: 0.5; */">
+								<input type="hidden" id="txtSoldOutType443560-15" value="T">
+								<input type="radio" id="toggleReserve4435601-15" class="rdoToggle" name="toggle4435609-15" value="F" data-ss_item_no="443560">
+								<label for="toggleReserve4435601-15">미송</label>
+								<input type="radio" id="toggleRefund4435602-15" class="rdoToggle rdoToggleRight" name="toggle4435609-15" value="T" data-ss_item_no="443560">
+								<label for="toggleRefund4435602-15">오늘차감</label>
+							</div>
+						</td>
+						<td style="">
+							<!-- 2020-05-04 비활성화/활성화-->
+							<!-- <p class="prd-date">
+								<em>품,색,사,최소</em>
+								<span>1000</span>
+								<span>2020-04-27</span>
+							</p> -->
+							<button name="button" class="btn state ui-popup-open" data-target="#targetItemSoldoutStatus">선택</button>
+							<!-- <button name="button" class="btn state ui-popup-open" data-target="#targetItemSoldoutStatus" disabled>선택</button> -->
+						</td>
+						<td class="view_memo pl5 pr5" data-memo_tooltip="" style=""></td>
+						<td class="view_memo" data-memo_tooltip="" style=""></td>
+						<!-- 2020-07-15 EZP-811 -->
+						<td class="pop-wrap" style="">
+							<button name="button" class="btn state">선택안함</button>
+							<div class="date-uipopup">
+								<strong>입고예정일</strong>
+								<div>
+									<!-- 2022-12-20 EZP-7760 날짜 하이픈 형식으로 변경 -->
+									<button type="button" class="btn-item">07-13(월)</button>
+									<button type="button" class="btn-item">07-14(화)</button>
+									<button type="button" class="btn-item">07-15(수)</button>
+									<button type="button" class="btn-item">07-16(목)</button>
+									<button type="button" class="btn-item">07-17(금)</button>
+									<!-- 2022-12-12 EZP-7273 입고예정일 옵션 추가 시작 -->
+									<button type="button" class="btn-item">07-20(월)</button>
+									<button type="button" class="btn-item">07-21(화)</button>
+									<button type="button" class="btn-item">07-22(수)</button>
+									<button type="button" class="btn-item">07-23(목)</button>
+									<!-- 2022-12-12 EZP-7273 입고예정일 옵션 추가 끝 -->
+									<button type="button" class="btn-item">다음주 중</button>
+									<button type="button" class="btn-item">미정</button>
+									<button type="button" class="btn-item">선택안함</button>
+								</div>
+								<button class="btn_close"><span>닫기</span></button>
+							</div>
+						</td>
+					</tr>
+					<!-- //2020-08-12 EZP-798 -->
+					<tr class="opener trOpener seller" data-seller_key="383">
+						<td colspan="12" style="border-bottom: none;">
+							<div class="text-group"> <span class="checkbox"> <input type="checkbox" class="sellerList" id="seller383" data-seller_key="383" data-seller_name="블랙바나나" data-uncle_name="이용우"> <label for="seller383"><em>블랙바나나</em> (DWP 2층 13호 /
+										010-3389-0213)</label></span><strong>낮시장</strong> </div>
+							<div class="btn-group"> <span style="font-weight: bold">완료 쇼핑몰 수 : <span class="spnStatusCount">1 / 1</span></span> <button class="btnStatus  completed" data-ss_no="383">완료</button> <button class="btn-opener"
+									data-type="seller">열기/닫기</button> </div>
+						</td>
+					</tr>
+					<tr class="opener trOpener buyer" data-seller_key="383" data-seller_buyer_key="383_991">
+						<td colspan="12" class="tdBuyerHeader" style="border-bottom: none;">
+							<!-- 2022-12-20 EZP-7760 날짜 하이픈 형식으로 변경 -->
+							<div class="text-group"> <label><em><strong>딜라잇문</strong></em> <strong class="vertical-bar">처리자: 최현태(08-04 05:55:57 )</strong> <strong class="vertical-bar">입고금액/발주금액 : <span class="in_amt">0</span>원 / 0원</strong></label> </div>
+							<div class="btn-group"> <button class="btn-opener" data-type="buyer">열기/닫기</button> </div>
+							<div class="search-item mr30" style="width: 150px; position: absolute; right: 40px; top: 12px;">
+								<div class="ui-select" style="width: 150px;"> <input id="eBuyerStatus383_991" type="hidden" value="50"> <button type="button" disabled="">완료</button>
+									<ul class="select_ul">
+										<li data-value="10">대기</li>
+										<li data-value="20">픽업후대기</li>
+										<li data-value="30">체크후대기</li>
+										<li data-value="50">완료</li>
+									</ul>
+								</div>
+							</div>
+						</td>
+					</tr>
+					<tr class="opener" data-seller_key="383" data-seller_buyer_key="383_991" data-ss_no="179855" data-ss_buyer_no="199221">
+						<td colspan="12" class="tdSpecHeader">
+							<div class="text-group tal"> 
+								<label>
+									<em><strong>정기</strong></em> 
+									<!-- 2022-12-20 EZP-7760 날짜 하이픈 형식으로 변경 -->
+									<strong class="vertical-bar">08-03 21:22:44 </strong> 
+									<!-- 2022-12-06 EZP-7627 담당삼촌 삭제 -->
+									<!-- <strong class="vertical-bar">담당삼촌 : <em>이용우</em></strong> -->
+								</label>
+								<!-- 2022-12-06 EZP-7627 담당자 이력 삭제 -->
+								<!-- <div class="btn-group"> <button class="btnChargeHistory manager" data-ss_no="179855">담당자 이력</button> </div> -->
+							</div>
+						</td>
+					</tr>
+					<!-- 2020-08-12 EZP-798 -->
+					<tr class="transparent" data-seller_key="383" data-seller_buyer_key="383_991">
+						<td class="tac">
+							<span class="checkbox">
+								<label>
+									<input type="checkbox">
+								</label>
+							</span>
+						</td>
+						<td class="tac">16</td>
+						<td class="detail view_memo" style="padding-top: 9px; padding-bottom: 9px;" data-memo_tooltip="">
+							<span class="badge"><i class="new">신규</i></span>
+							<span class="pr5">
+								스윗 소매리본트렌치 반코트
+								<!-- 2022-12-20 EZP-7760 날짜 하이픈 형식으로 변경 -->
+								<strong class="withDate">(7-28)</strong>
+								<a href="javascript:;" class="eProductImgUrl" data-url="http://realcoco1.cafe24.com/web/product/tiny/202008/980a0b2f5e4099c5146dc341bdbd01fb.gif">
+									<img src="../img/ico_image.png" style="width: 20px; margin-bottom: 2px;">
+								</a>
+							</span>
+						</td>
+						<td class="option">
+							<p>블랙<span>-</span></p>
+						</td>
+						<td class="tar">7,000</td>
+						<td class="tac" id="tdOrderQty814847">1</td>
+						<td class="tac">
+							<div class="small-amount amount"> <input type="text" class="txtInQty" name="in_qty" maxlength="4" value="1" data-ss_no="179855" data-ss_item_no="814847" data-order_price="7000.00" data-order_qty="1" data-seller_buyer_key="383_991"
+									data-is_refunded="T" data-spec_item_type="40" tabindex="0" data-index="1" autocomplete="off" disabled=""> </div>
+						</td>
+						<td>
+							<div style=" text-align: left; margin-left: 10px;" class="divSoldOutProc"> <input type="hidden" id="txtSoldOutType814847" value="T"> <input type="radio" id="toggleReserve814847" class="rdoToggle" name="toggle814847" value="F"
+									data-ss_item_no="814847" disabled=""> <label for="toggleReserve814847">미송</label> <input type="radio" id="toggleRefund814847" class="rdoToggle rdoToggleRight" name="toggle814847" value="T" data-ss_item_no="814847" checked=""
+									disabled=""> <label for="toggleRefund814847">오늘차감</label> <input type="radio" id="toggleHold814847" class="rdoToggle rdoToggleRight" name="toggle814847" value="H" data-ss_item_no="814847" disabled=""> <label
+									for="toggleHold814847">추후차감</label>
+								<div></div>
+							</div>
+						</td>
+						<td></td>
+						<td class="view_memo pl5 pr5" data-memo_tooltip=""></td>
+						<td class="view_memo" data-memo_tooltip=""></td>
+						<td><span>선택안함</span></td>
+					</tr>
+					<tr class="transparent" data-seller_key="383" data-seller_buyer_key="383_991">
+						<td class="tac">
+							<span class="checkbox">
+								<label>
+									<input type="checkbox">
+								</label>
+							</span>
+						</td>
+						<td class="tac">17</td>
+						<td class="detail view_memo" style="padding-top: 9px; padding-bottom: 9px;" data-memo_tooltip="">
+							<span class="badge"><i class="type1">미송</i></span>
+							<span class="pr5">
+								스윗 소매리본트렌치 반코트
+								<!-- 2022-12-20 EZP-7760 날짜 하이픈 형식으로 변경 -->
+								<strong class="withDate">(7-28)</strong>
+								<a href="javascript:;" class="eProductImgUrl" data-url="http://realcoco1.cafe24.com/web/product/tiny/202008/980a0b2f5e4099c5146dc341bdbd01fb.gif">
+									<img src="../img/ico_image.png" style="width: 20px; margin-bottom: 2px;">
+								</a>
+							</span>
+						</td>
+						<td class="option">
+							<p>아이<span>-</span></p>
+						</td>
+						<td class="tar">7,000</td>
+						<td class="tac" id="tdOrderQty814848">1</td>
+						<td class="tac">
+							<div class="small-amount amount"> <input type="text" class="txtInQty" name="in_qty" maxlength="4" value="1" data-ss_no="179855" data-ss_item_no="814848" data-order_price="7000.00" data-order_qty="1" data-seller_buyer_key="383_991"
+									data-is_refunded="T" data-spec_item_type="40" tabindex="0" data-index="1" autocomplete="off" disabled=""> </div>
+						</td>
+						<td>
+							<div style=" text-align: left; margin-left: 10px;" class="divSoldOutProc"> <input type="hidden" id="txtSoldOutType814848" value="T"> <input type="radio" id="toggleReserve814848" class="rdoToggle" name="toggle814848" value="F"
+									data-ss_item_no="814848" disabled=""> <label for="toggleReserve814848">미송</label> <input type="radio" id="toggleRefund814848" class="rdoToggle rdoToggleRight" name="toggle814848" value="T" data-ss_item_no="814848" checked=""
+									disabled=""> <label for="toggleRefund814848">오늘차감</label> <input type="radio" id="toggleHold814848" class="rdoToggle rdoToggleRight" name="toggle814848" value="H" data-ss_item_no="814848" disabled=""> <label
+									for="toggleHold814848">추후차감</label>
+								<div></div>
+							</div>
+						</td>
+						<td></td>
+						<td class="view_memo pl5 pr5" data-memo_tooltip=""></td>
+						<td class="view_memo" data-memo_tooltip=""></td>
+						<td><span>선택안함</span></td>
+					</tr>
+					<tr class="transparent" data-seller_key="383" data-seller_buyer_key="383_991">
+						<td class="tac">
+							<span class="checkbox">
+								<label>
+									<input type="checkbox">
+								</label>
+							</span>
+						</td>
+						<td class="tac">18</td>
+						<td class="detail view_memo" style="padding-top: 9px; padding-bottom: 9px;" data-memo_tooltip="">
+							<span class="badge"><i class="type2">불량</i></span>
+							<span class="pr5">
+								스윗 소매리본트렌치 반코트
+								<!-- 2022-12-20 EZP-7760 날짜 하이픈 형식으로 변경 -->
+								<strong class="withDate">(7-28)</strong>
+								<a href="javascript:;" class="eProductImgUrl" data-url="http://realcoco1.cafe24.com/web/product/tiny/202008/980a0b2f5e4099c5146dc341bdbd01fb.gif">
+									<img src="../img/ico_image.png" style="width: 20px; margin-bottom: 2px;">
+								</a>
+							</span>
+						</td>
+						<td class="option">
+							<p>[Light Blue Denim(라이트데님)-모델착용컬러-Free]</p>
+						</td>
+						<td class="tar">7,000</td>
+						<td class="tac" id="tdOrderQty814848">1</td>
+						<td class="tac">
+							<div class="small-amount amount"> <input type="text" class="txtInQty" name="in_qty" maxlength="4" value="1" data-ss_no="179855" data-ss_item_no="814848" data-order_price="7000.00" data-order_qty="1" data-seller_buyer_key="383_991"
+									data-is_refunded="T" data-spec_item_type="40" tabindex="0" data-index="1" autocomplete="off" disabled=""> </div>
+						</td>
+						<td>
+							미송(9,999), 오늘차감(9,999),<br>
+							추후차감(9,999), 폐기(9,999)
+						</td>
+						<td></td>
+						<td class="view_memo pl5 pr5" data-memo_tooltip=""></td>
+						<td class="view_memo" data-memo_tooltip=""></td>
+						<td><span>선택안함</span></td>
+					</tr>
+					<tr class="transparent" data-seller_key="383" data-seller_buyer_key="383_991">
+						<td class="tac">
+							<span class="checkbox">
+								<label>
+									<input type="checkbox">
+								</label>
+							</span>
+						</td>
+						<td class="tac">19</td>
+						<td class="detail view_memo" style="padding-top: 9px; padding-bottom: 9px;" data-memo_tooltip="">
+							<span class="badge"><i class="type3">샘플</i></span>
+							<span class="pr5">
+								스윗 소매리본트렌치 반코트
+								<!-- 2022-12-20 EZP-7760 날짜 하이픈 형식으로 변경 -->
+								<strong class="withDate">(7-28)</strong>
+								<a href="javascript:;" class="eProductImgUrl" data-url="http://realcoco1.cafe24.com/web/product/tiny/202008/980a0b2f5e4099c5146dc341bdbd01fb.gif">
+									<img src="../img/ico_image.png" style="width: 20px; margin-bottom: 2px;">
+								</a>
+							</span>
+						</td>
+						<td class="option">
+							<p>[Light Blue Denim(라이트데님)-모델착용컬러-Free]</p>
+						</td>
+						<td class="tar">7,000</td>
+						<td class="tac" id="tdOrderQty814848">1</td>
+						<td class="tac">
+							<div class="small-amount amount"> <input type="text" class="txtInQty" name="in_qty" maxlength="4" value="1" data-ss_no="179855" data-ss_item_no="814848" data-order_price="7000.00" data-order_qty="1" data-seller_buyer_key="383_991"
+									data-is_refunded="T" data-spec_item_type="40" tabindex="0" data-index="1" autocomplete="off" disabled=""> </div>
+						</td>
+						<td>
+							미송(9,999), 오늘차감(9,999),<br>
+							추후차감(9,999), 폐기(9,999)
+						</td>
+						<td></td>
+						<td class="view_memo pl5 pr5" data-memo_tooltip=""></td>
+						<td class="view_memo" data-memo_tooltip=""></td>
+						<td><span>선택안함</span></td>
+					</tr>
+					<tr class="transparent" data-seller_key="383" data-seller_buyer_key="383_991">
+						<td class="tac">
+							<span class="checkbox">
+								<label>
+									<input type="checkbox">
+								</label>
+							</span>
+						</td>
+						<td class="tac">20</td>
+						<td class="detail view_memo" style="padding-top: 9px; padding-bottom: 9px;" data-memo_tooltip="">
+							<span class="badge"><i class="type4">반납</i></span>
+							<span class="pr5">
+								스윗 소매리본트렌치 반코트
+								<!-- 2022-12-20 EZP-7760 날짜 하이픈 형식으로 변경 -->
+								<strong class="withDate">(7-28)</strong>
+								<a href="javascript:;" class="eProductImgUrl" data-url="http://realcoco1.cafe24.com/web/product/tiny/202008/980a0b2f5e4099c5146dc341bdbd01fb.gif">
+									<img src="../img/ico_image.png" style="width: 20px; margin-bottom: 2px;">
+								</a>
+							</span>
+						</td>
+						<td class="option">
+							<p>[Light Blue Denim(라이트데님)-모델착용컬러-Free]</p>
+						</td>
+						<td class="tar">7,000</td>
+						<td class="tac" id="tdOrderQty814848">1</td>
+						<td class="tac">
+							<div class="small-amount amount"> <input type="text" class="txtInQty" name="in_qty" maxlength="4" value="1" data-ss_no="179855" data-ss_item_no="814848" data-order_price="7000.00" data-order_qty="1" data-seller_buyer_key="383_991"
+									data-is_refunded="T" data-spec_item_type="40" tabindex="0" data-index="1" autocomplete="off" disabled=""> </div>
+						</td>
+						<td>
+							미송(9,999), 오늘차감(9,999),<br>
+							추후차감(9,999), 폐기(9,999)
+						</td>
+						<td></td>
+						<td class="view_memo pl5 pr5" data-memo_tooltip=""></td>
+						<td class="view_memo" data-memo_tooltip=""></td>
+						<td><span>선택안함</span></td>
+					</tr>
+					<tr class="transparent opener trdetailOpener" data-seller_key="3037" data-seller_buyer_key="3037_2963">
+						<td colspan="3" class="detail" style="padding-top: 9px; padding-bottom: 9px; " data-memo_tooltip="[M]아크 브이넥 하찌 니트 가디건 (11colors) / S68509">
+							<span class="pr5">
+								<i class="t_type1">미송1</i><i class="t_new">신규1</i>
+								린넨 데님 (제품명이 길어지면 공백 포함 최대 40자까지 노출)
+							</span>
+						</td>
+						<td class="option" style="" colspan="2">
+							<p>[블루-FREE]</p>
+						</td>
+						<td class="tac" id="tdOrderQty443560" style="">1</td>
+						<td class="tac" style="">
+							<div class="small-amount amount"> <input type="text" class="txtInQty" name="in_qty" maxlength="4" value="1" data-ss_no="106957" data-ss_item_no="443560" data-order_price="22000.00" data-order_qty="1" data-seller_buyer_key="3037_2963"
+									data-is_refunded="T" data-spec_item_type="10" tabindex="0" data-index="1" autocomplete="off" disabled=""> </div>
+						</td>
+						<td style="" colspan="5">
+							<div class="btn-group">
+								<button class="btn-opener" data-type="detail">열기/닫기</button>
+							</div>
+						</td>
+					</tr>
+					<tr class="transparent indetail" data-seller_key="3037" data-seller_buyer_key="3037_2963">
+						<td class="tac">
+							<span class="checkbox">
+								<label>
+									<input type="checkbox">
+								</label>
+							</span>
+						</td>
+						<td class="tac">21</td>
+						<td class="detail view_memo" style="padding-top: 9px; padding-bottom: 9px; " data-memo_tooltip="[M]아크 브이넥 하찌 니트 가디건 (11colors) / S68509">
+							<span class="badge"><i class="type1">미송</i></span>
+							<span class="pr5">
+								린넨 데님
+								<!-- 2022-12-20 EZP-7760 날짜 하이픈 형식으로 변경 -->
+								<strong class="withDate">(7-28)</strong>
+							</span>
+						</td>
+						<td class="option" style="">
+							<p>[블루-FREE]</p>
+						</td>
+						<td class="tar" style="">22,000</td>
+						<td class="tac" id="tdOrderQty443560" style="">1</td>
+						<td class="tac" style="">
+							<div class="small-amount amount"> <input type="text" class="txtInQty" name="in_qty" maxlength="4" value="1" data-ss_no="106957" data-ss_item_no="443560" data-order_price="22000.00" data-order_qty="1" data-seller_buyer_key="3037_2963"
+									data-is_refunded="T" data-spec_item_type="10" tabindex="0" data-index="1" autocomplete="off" disabled=""> </div>
+						</td>
+						<td style="">
+							<div class="divSoldOutProc" style="text-align: left; margin-left: 10px;">
+								<input type="hidden" id="txtSoldOutType4435601" value="T">
+								<input type="radio" id="toggleReserve44356011" class="rdoToggle" name="toggle4435601" value="F" data-ss_item_no="443560">
+								<label for="toggleReserve44356011">미송</label>
+								<input type="radio" id="toggleRefund44356022" class="rdoToggle rdoToggleRight" name="toggle4435601" value="T" data-ss_item_no="443560" checked="">
+								<label for="toggleRefund44356022">오늘차감</label>
+								<input type="radio" id="toggleRefund44356133" class="rdoToggle rdoToggleRight" name="toggle4435601" value="T" data-ss_item_no="443560" checked="">
+								<label for="toggleRefund44356133">추후차감</label>
+							</div>
+						</td>
+						<td style="">
+							<!-- 2020-05-04 비활성화/활성화-->
+							<!-- <p class="prd-date">
+								<em>품,색,사,최소</em>
+								<span>1000</span>
+								<span>2020-04-27</span>
+							</p> -->
+							<button name="button" class="btn state ui-popup-open" data-target="#targetItemSoldoutStatus">선택</button>
+							<!-- <button name="button" class="btn state ui-popup-open" data-target="#targetItemSoldoutStatus" disabled>선택</button> -->
+						</td>
+						<td class="view_memo pl5 pr5" data-memo_tooltip="" style=""></td>
+						<td class="view_memo" data-memo_tooltip="" style=""></td>
+						<!-- 2020-07-15 EZP-811 -->
+						<td class="pop-wrap" style="">
+							<button name="button" class="btn state">선택안함</button>
+							<div class="date-uipopup">
+								<strong>입고예정일</strong>
+								<div>
+									<!-- 2022-12-20 EZP-7760 날짜 하이픈 형식으로 변경 -->
+									<button type="button" class="btn-item">07-13(월)</button>
+									<button type="button" class="btn-item">07-14(화)</button>
+									<button type="button" class="btn-item">07-15(수)</button>
+									<button type="button" class="btn-item">07-16(목)</button>
+									<button type="button" class="btn-item">07-17(금)</button>
+									<!-- 2022-12-12 EZP-7273 입고예정일 옵션 추가 시작 -->
+									<button type="button" class="btn-item">07-20(월)</button>
+									<button type="button" class="btn-item">07-21(화)</button>
+									<button type="button" class="btn-item">07-22(수)</button>
+									<button type="button" class="btn-item">07-23(목)</button>
+									<!-- 2022-12-12 EZP-7273 입고예정일 옵션 추가 끝 -->
+									<button type="button" class="btn-item">다음주 중</button>
+									<button type="button" class="btn-item">미정</button>
+									<button type="button" class="btn-item">선택안함</button>
+								</div>
+								<button class="btn_close"><span>닫기</span></button>
+							</div>
+						</td>
+					</tr>
+					<tr class="transparent indetail" data-seller_key="3037" data-seller_buyer_key="3037_2963">
+						<td class="tac">
+							<span class="checkbox">
+								<label>
+									<input type="checkbox">
+								</label>
+							</span>
+						</td>
+						<td class="tac">22</td>
+						<td class="detail view_memo" style="padding-top: 9px; padding-bottom: 9px; " data-memo_tooltip="[M]아크 브이넥 하찌 니트 가디건 (11colors) / S68509">
+							<span class="badge"><i class="new">신규</i></span>
+							<span class="pr5">
+								린넨 데님
+								<!-- 2022-12-20 EZP-7760 날짜 하이픈 형식으로 변경 -->
+								<strong class="withDate">(7-28)</strong>
+							</span>
+						</td>
+						<td class="option" style="">
+							<p>[블루-FREE]</p>
+						</td>
+						<td class="tar" style="">22,000</td>
+						<td class="tac" id="tdOrderQty443560" style="">1</td>
+						<td class="tac" style="">
+							<div class="small-amount amount"> <input type="text" class="txtInQty" name="in_qty" maxlength="4" value="1" data-ss_no="106957" data-ss_item_no="443560" data-order_price="22000.00" data-order_qty="1" data-seller_buyer_key="3037_2963"
+									data-is_refunded="T" data-spec_item_type="10" tabindex="0" data-index="1" autocomplete="off" disabled=""> </div>
+						</td>
+						<td style="">
+							<div class="divSoldOutProc" style="text-align: left; margin-left: 10px;">
+								<input type="hidden" id="txtSoldOutType4435601" value="T">
+								<input type="radio" id="toggleReserve44356011" class="rdoToggle" name="toggle4435601" value="F" data-ss_item_no="443560">
+								<label for="toggleReserve44356011">미송</label>
+								<input type="radio" id="toggleRefund44356022" class="rdoToggle rdoToggleRight" name="toggle4435601" value="T" data-ss_item_no="443560" checked="">
+								<label for="toggleRefund44356022">오늘차감</label>
+								<input type="radio" id="toggleRefund44356133" class="rdoToggle rdoToggleRight" name="toggle4435601" value="T" data-ss_item_no="443560" checked="">
+								<label for="toggleRefund44356133">추후차감</label>
+							</div>
+						</td>
+						<td style="">
+							<!-- 2020-05-04 비활성화/활성화-->
+							<!-- <p class="prd-date">
+								<em>품,색,사,최소</em>
+								<span>1000</span>
+								<span>2020-04-27</span>
+							</p> -->
+							<button name="button" class="btn state ui-popup-open" data-target="#targetItemSoldoutStatus">선택</button>
+							<!-- <button name="button" class="btn state ui-popup-open" data-target="#targetItemSoldoutStatus" disabled>선택</button> -->
+						</td>
+						<td class="view_memo pl5 pr5" data-memo_tooltip="" style=""></td>
+						<td class="view_memo" data-memo_tooltip="" style=""></td>
+						<!-- 2020-07-15 EZP-811 -->
+						<td class="pop-wrap" style="">
+							<button name="button" class="btn state">선택안함</button>
+							<div class="date-uipopup">
+								<strong>입고예정일</strong>
+								<div>
+									<!-- 2022-12-20 EZP-7760 날짜 하이픈 형식으로 변경 -->
+									<button type="button" class="btn-item">07-13(월)</button>
+									<button type="button" class="btn-item">07-14(화)</button>
+									<button type="button" class="btn-item">07-15(수)</button>
+									<button type="button" class="btn-item">07-16(목)</button>
+									<button type="button" class="btn-item">07-17(금)</button>
+									<!-- 2022-12-12 EZP-7273 입고예정일 옵션 추가 시작 -->
+									<button type="button" class="btn-item">07-20(월)</button>
+									<button type="button" class="btn-item">07-21(화)</button>
+									<button type="button" class="btn-item">07-22(수)</button>
+									<button type="button" class="btn-item">07-23(목)</button>
+									<!-- 2022-12-12 EZP-7273 입고예정일 옵션 추가 끝 -->
+									<button type="button" class="btn-item">다음주 중</button>
+									<button type="button" class="btn-item">미정</button>
+									<button type="button" class="btn-item">선택안함</button>
+								</div>
+								<button class="btn_close"><span>닫기</span></button>
+							</div>
+						</td>
+					</tr>
+					<!-- //2020-08-12 EZP-798 -->
+				</tbody>
+			</table>
+			<!-- 2021-06-04 EZP-2903 종료 -->
+		</div>
+
+		<div class="mt30">
+			<div class="pagination"><a href="#none;" class="first none">처음</a><a href="#none;" class="prev none">이전</a><a href="#none;" class="active">1</a> <a
+					href="/order/front/all?page=2&amp;session_uncle_no=50&amp;list_type=all&amp;start_date=2020-05-04&amp;end_date=2020-05-06&amp;buyer_pickup_status%5B0%5D=10&amp;buyer_pickup_status%5B1%5D=20&amp;buyer_pickup_status%5B2%5D=30&amp;buyer_pickup_status%5B3%5D=50&amp;order_type%5B0%5D=10&amp;order_type%5B1%5D=20&amp;order_type%5B2%5D=30&amp;order_type%5B3%5D=40&amp;order_type%5B4%5D=50&amp;date_range=2&amp;limit=500&amp;selected_date=2020-05-05">2</a>
+				<a
+					href="/order/front/all?page=3&amp;session_uncle_no=50&amp;list_type=all&amp;start_date=2020-05-04&amp;end_date=2020-05-06&amp;buyer_pickup_status%5B0%5D=10&amp;buyer_pickup_status%5B1%5D=20&amp;buyer_pickup_status%5B2%5D=30&amp;buyer_pickup_status%5B3%5D=50&amp;order_type%5B0%5D=10&amp;order_type%5B1%5D=20&amp;order_type%5B2%5D=30&amp;order_type%5B3%5D=40&amp;order_type%5B4%5D=50&amp;date_range=2&amp;limit=500&amp;selected_date=2020-05-05">3</a>
+				<a
+					href="/order/front/all?page=4&amp;session_uncle_no=50&amp;list_type=all&amp;start_date=2020-05-04&amp;end_date=2020-05-06&amp;buyer_pickup_status%5B0%5D=10&amp;buyer_pickup_status%5B1%5D=20&amp;buyer_pickup_status%5B2%5D=30&amp;buyer_pickup_status%5B3%5D=50&amp;order_type%5B0%5D=10&amp;order_type%5B1%5D=20&amp;order_type%5B2%5D=30&amp;order_type%5B3%5D=40&amp;order_type%5B4%5D=50&amp;date_range=2&amp;limit=500&amp;selected_date=2020-05-05">4</a>
+				<a
+					href="/order/front/all?page=5&amp;session_uncle_no=50&amp;list_type=all&amp;start_date=2020-05-04&amp;end_date=2020-05-06&amp;buyer_pickup_status%5B0%5D=10&amp;buyer_pickup_status%5B1%5D=20&amp;buyer_pickup_status%5B2%5D=30&amp;buyer_pickup_status%5B3%5D=50&amp;order_type%5B0%5D=10&amp;order_type%5B1%5D=20&amp;order_type%5B2%5D=30&amp;order_type%5B3%5D=40&amp;order_type%5B4%5D=50&amp;date_range=2&amp;limit=500&amp;selected_date=2020-05-05">5</a>
+				<a
+					href="/order/front/all?page=6&amp;session_uncle_no=50&amp;list_type=all&amp;start_date=2020-05-04&amp;end_date=2020-05-06&amp;buyer_pickup_status%5B0%5D=10&amp;buyer_pickup_status%5B1%5D=20&amp;buyer_pickup_status%5B2%5D=30&amp;buyer_pickup_status%5B3%5D=50&amp;order_type%5B0%5D=10&amp;order_type%5B1%5D=20&amp;order_type%5B2%5D=30&amp;order_type%5B3%5D=40&amp;order_type%5B4%5D=50&amp;date_range=2&amp;limit=500&amp;selected_date=2020-05-05">6</a>
+				<a
+					href="/order/front/all?page=7&amp;session_uncle_no=50&amp;list_type=all&amp;start_date=2020-05-04&amp;end_date=2020-05-06&amp;buyer_pickup_status%5B0%5D=10&amp;buyer_pickup_status%5B1%5D=20&amp;buyer_pickup_status%5B2%5D=30&amp;buyer_pickup_status%5B3%5D=50&amp;order_type%5B0%5D=10&amp;order_type%5B1%5D=20&amp;order_type%5B2%5D=30&amp;order_type%5B3%5D=40&amp;order_type%5B4%5D=50&amp;date_range=2&amp;limit=500&amp;selected_date=2020-05-05">7</a>
+				<a
+					href="/order/front/all?page=8&amp;session_uncle_no=50&amp;list_type=all&amp;start_date=2020-05-04&amp;end_date=2020-05-06&amp;buyer_pickup_status%5B0%5D=10&amp;buyer_pickup_status%5B1%5D=20&amp;buyer_pickup_status%5B2%5D=30&amp;buyer_pickup_status%5B3%5D=50&amp;order_type%5B0%5D=10&amp;order_type%5B1%5D=20&amp;order_type%5B2%5D=30&amp;order_type%5B3%5D=40&amp;order_type%5B4%5D=50&amp;date_range=2&amp;limit=500&amp;selected_date=2020-05-05">8</a>
+				<a
+					href="/order/front/all?page=9&amp;session_uncle_no=50&amp;list_type=all&amp;start_date=2020-05-04&amp;end_date=2020-05-06&amp;buyer_pickup_status%5B0%5D=10&amp;buyer_pickup_status%5B1%5D=20&amp;buyer_pickup_status%5B2%5D=30&amp;buyer_pickup_status%5B3%5D=50&amp;order_type%5B0%5D=10&amp;order_type%5B1%5D=20&amp;order_type%5B2%5D=30&amp;order_type%5B3%5D=40&amp;order_type%5B4%5D=50&amp;date_range=2&amp;limit=500&amp;selected_date=2020-05-05">9</a>
+				<a
+					href="/order/front/all?page=10&amp;session_uncle_no=50&amp;list_type=all&amp;start_date=2020-05-04&amp;end_date=2020-05-06&amp;buyer_pickup_status%5B0%5D=10&amp;buyer_pickup_status%5B1%5D=20&amp;buyer_pickup_status%5B2%5D=30&amp;buyer_pickup_status%5B3%5D=50&amp;order_type%5B0%5D=10&amp;order_type%5B1%5D=20&amp;order_type%5B2%5D=30&amp;order_type%5B3%5D=40&amp;order_type%5B4%5D=50&amp;date_range=2&amp;limit=500&amp;selected_date=2020-05-05">10</a>
+				<a href="/order/front/all?page=11&amp;session_uncle_no=50&amp;list_type=all&amp;start_date=2020-05-04&amp;end_date=2020-05-06&amp;buyer_pickup_status%5B0%5D=10&amp;buyer_pickup_status%5B1%5D=20&amp;buyer_pickup_status%5B2%5D=30&amp;buyer_pickup_status%5B3%5D=50&amp;order_type%5B0%5D=10&amp;order_type%5B1%5D=20&amp;order_type%5B2%5D=30&amp;order_type%5B3%5D=40&amp;order_type%5B4%5D=50&amp;date_range=2&amp;limit=500&amp;selected_date=2020-05-05"
+					class="next">다음</a><a
+					href="/order/front/all?page=11&amp;session_uncle_no=50&amp;list_type=all&amp;start_date=2020-05-04&amp;end_date=2020-05-06&amp;buyer_pickup_status%5B0%5D=10&amp;buyer_pickup_status%5B1%5D=20&amp;buyer_pickup_status%5B2%5D=30&amp;buyer_pickup_status%5B3%5D=50&amp;order_type%5B0%5D=10&amp;order_type%5B1%5D=20&amp;order_type%5B2%5D=30&amp;order_type%5B3%5D=40&amp;order_type%5B4%5D=50&amp;date_range=2&amp;limit=500&amp;selected_date=2020-05-05"
+					class="last">다음</a></div>
+		</div>
+	</div>
+
+	<!-- 2020-09-03 EZP-1062 시작 -->
+	<!-- Alert Layer -->
+	<div id="alert-order-deadline" class="ui-popup">
+		<!-- 발주마감 대기 건 유무 : 없음 -->
+		<div class="content" style="min-width:412px; max-width: 700px;" tabindex="-1">
+			<div class="body">
+				<div class="txt-cont">
+					<div class="txt-cont result order">
+						<div class="confirm">
+							<p>
+								발주마감 처리할 주문 건이 없거나,<br>이미 발주마감 되었습니다.
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="btn_wrap mt40 tac">
+					<span class="commLayerConfirm"><button type="button" class="btn point medium btn_close" style="width:100px; min-width:100px;">확인</button></span>
+				</div>
+			</div>
+		</div>
+		<!-- 발주마감 대기 건 유무 : 있음 -->
+		<div class="content" style="min-width:412px; max-width: 700px;" tabindex="-1">
+			<div class="body">
+				<div class="txt-cont">
+					<div class="txt-cont result order">
+						<div class="confirm">
+							<p>
+								미매칭 가게 발주 건이 존재합니다.<br>가게 매칭 후 발주마감 가능합니다.
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="btn_wrap mt40 tac">
+					<span class="commLayerConfirm"><button type="button" class="btn point medium btn_close" style="width:100px; min-width:100px;">확인</button></span>
+				</div>
+			</div>
+		</div>
+		<!-- 발주마감 완료 -->
+		<div class="content" style="min-width:412px; max-width: 700px;" tabindex="-1">
+			<div class="body">
+				<div class="txt-cont">
+					<div class="txt-cont result order">
+						<div class="confirm">
+							<p>바로주문 전체 발주마감<br>처리가 완료되었습니다.</p>
+						</div>
+					</div>
+				</div>
+				<div class="btn_wrap mt40 tac">
+					<span class="commLayerConfirm"><button type="button" class="btn point medium btn_close" style="width:100px; min-width:100px;">확인</button></span>
+				</div>
+			</div>
+		</div>
+		<!-- 입고예정일 필수 품목 : 미입력 건 있음 -->
+		<div class="content" style="min-width:412px; max-width: 700px;" tabindex="-1">
+			<div class="body">
+				<div class="txt-cont">
+					<div class="txt-cont result order">
+						<div class="confirm">
+							<p>
+								신규/미송 미입고 건의<br>
+								입고예정일이 지정되지 않았습니다.<br>
+								발주마감 처리하시겠습니까?
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="btn_wrap mt40 tac">
+					<button type="button" class="btn medium btn_close" style="width:100px; min-width:100px;">취소</button>
+					<span class="commLayerConfirm"><button type="button" class="btn point medium btn_close" style="width:100px; min-width:100px;">확인</button></span>
+				</div>
+			</div>
+		</div>
+		<!-- 입고예정일 필수 품목 : 미입력 건 있음 - 미완료 건 있을 경우 -->
+		<div class="content" style="min-width:412px; max-width: 700px;" tabindex="-1">
+			<div class="body">
+				<div class="txt-cont">
+					<div class="txt-cont result order">
+						<div class="confirm">
+							<p>
+								진행 건이 존재합니다.<br>
+								발주마감 처리하시겠습니까?
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="btn_wrap mt40 tac">
+					<button type="button" class="btn medium btn_close" style="width:100px; min-width:100px;">취소</button>
+					<span class="commLayerConfirm"><button type="button" class="btn point medium btn_close" style="width:100px; min-width:100px;">확인</button></span>
+				</div>
+			</div>
+		</div>
+		<!-- 쇼핑몰 선택 여부 : 미선택 -->
+		<div class="content" style="min-width:412px; max-width: 700px;" tabindex="-1">
+			<div class="body">
+				<div class="txt-cont">
+					<div class="txt-cont result order">
+						<div class="confirm">
+							<p>
+								쇼핑몰을 선택해주세요.
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="btn_wrap mt40 tac">
+					<button type="button" class="btn medium btn_close" style="width:100px; min-width:100px;">취소</button>
+					<span class="commLayerConfirm"><button type="button" class="btn point medium btn_close" style="width:100px; min-width:100px;">확인</button></span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="all-order-deadline" class="ui-popup">
+		<div class="content" style="min-width:412px; width: 500px;" tabindex="-1">
+			<div class="body">
+				<div class="txt-cont">
+					<div class="txt-cont result order">
+						<h3>[바로주문] 발주마감 비밀번호 입력</h3>
+						<div class="confirm">
+							<div class="text-wrap">
+								<p>
+									비밀번호를 입력 후 [발주마감]을 선택하세요.
+								</p>
+								<span>※ 마감 시 입고정보 변경 및 취소 불가 ※</span>
+								<em>※ 'JC어패럴' 주문 은 [일반주문]으로, 발주마감 처리되지 않습니다.</em>
+							</div>
+							<div class="password-box">
+								<input type="password" placeholder="계정 비밀번호 입력">
+							</div>
+							<ul>
+								<li>
+									<span>발주마감일</span>
+									<em>2020-12-25</em>
+								</li>
+								<li>
+									<span>발주일</span>
+									<em>2020-12-25</em>
+								</li>
+								<li>
+									<span>대상 쇼핑몰</span>
+									<em>(전체)</em>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="btn_wrap mt40 tac">
+					<button type="button" class="btn medium btn_close" style="width:100px; min-width:100px;">취소</button>
+					<span class="commLayerConfirm"><button type="button" class="btn point medium btn_close" style="width:100px; min-width:100px;">확인</button></span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="mall-order-deadline" class="ui-popup">
+		<div class="content" style="width:500px;" tabindex="-1">
+			<div class="body">
+				<div class="txt-cont">
+					<div class="txt-cont result order">
+						<h3>[바로주문] 발주마감 비밀번호 입력</h3>
+						<div class="confirm">
+							<div class="text-wrap">
+								<p>
+									비밀번호를 입력 후 [발주마감]을 선택하세요.
+								</p>
+								<span>※ 마감 시 입고정보 변경 및 취소 불가 ※</span>
+								<em>※ 'JC어패럴' 주문 은 [일반주문]으로, 발주마감 처리되지 않습니다.</em>
+							</div>
+							<div class="password-box">
+								<input type="password" placeholder="계정 비밀번호 입력">
+							</div>
+							<ul>
+								<li>
+									<span>발주마감일</span>
+									<em>2020-12-25</em>
+								</li>
+								<li>
+									<span>발주일</span>
+									<em>2020-12-25</em>
+								</li>
+								<li>
+									<span>대상 쇼핑몰</span>
+									<em class="ellipsis" title="핫핑, 츄, 엔비룩, 체리코코, 오늘의집, 텐바이텐, 에브리모닝, 제이엘프, 젝시믹스, 뮬라웨어">핫핑, 츄, 엔비룩, 체리코코, 오늘의집, 텐바이텐, 에브리모닝, 제이엘프, 젝시믹스, 뮬라웨어, ...</em>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="btn_wrap mt40 tac">
+					<button type="button" class="btn medium btn_close" style="width:100px; min-width:100px;">취소</button>
+					<span class="commLayerConfirm"><button type="button" class="btn point medium btn_close" style="width:200px;">쇼핑몰 발주마감</button></span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- 미매칭 발주건 유무  -->
+	<div id="popup1" class="ui-popup alert-pop">
+		<div class="content" style="width:484px; max-width: 700px;" tabindex="-1">
+			<div class="body">
+				<div class="txt-cont">
+					<div class="txt-cont result order">
+						<div class="confirm">
+							<p class="scroll-cont">
+								쇼핑몰1, 쇼핑몰2, 쇼핑몰3, 쇼핑몰4<br />
+								쇼핑몰 발주건에 미매칭 도매처가 존재합니다.<br />
+								해당 쇼핑몰은 제외하고 발주마감 처리하시겠습니까?<br />
+								쇼핑몰1, 쇼핑몰2, 쇼핑몰3, 쇼핑몰4<br />
+								쇼핑몰 발주건에 미매칭 도매처가 존재합니다.<br />
+								해당 쇼핑몰은 제외하고 발주마감 처리하시겠습니까?
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="btn_wrap mt40 tac">
+					<button type="button" class="btn medium btn_close" style="width:100px; min-width:100px;">취소</button>
+					<span class="commLayerConfirm"><button type="button" class="btn point medium btn_close" style="width:100px; min-width:100px;">확인</button></span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- 2020-09-03 EZP-1062 종료 -->
+
+	<div id="layerOrderAssign" class="ui-popup-open" data-target="#orderAssign" hidden=""></div>
+	<div id="orderAssign" class="ui-popup">
+		<div class="content" style="width:412px;" tabindex="-1">
+			<div class="body">
+				<h3 class="mb20">담당자 지정</h3>
+				<div class="txt-cont mb20">
+					<div class="txt-cont result order">
+						<div class="table-wrap">
+							<table id="tblSellerList">
+								<colgroup>
+									<col width="50%">
+									<col>
+								</colgroup>
+								<thead>
+									<tr>
+										<th>도매처명</th>
+										<th>담당삼촌</th>
+									</tr>
+								</thead>
+								<tbody>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+				<div class="toss">
+					<p>선택한 도매처의 담당자를</p>
+					<input type="hidden" name="" id="layerUncleNo" value="50">
+					<div class="ui-select" data-scroll="3" data-target_id="#layerUncleNo" id="sel_layerUncleNo">
+						<button type="button" id="btn_layerUncleNo" data-value="">사입삼촌01</button>
+						<ul style="height: 123px; overflow: auto;">
+							<li data-key="">선택</li>
+							<li data-key="50" class="active">사입삼촌01</li>
+							<li data-key="75">김건일</li>
+							<li data-key="87">노현우</li>
+							<li data-key="62">문경민</li>
+							<li data-key="68">박상욱</li>
+							<li data-key="63">박성철</li>
+							<li data-key="60">박수인</li>
+							<li data-key="81">박주하</li>
+							<li data-key="51">사입삼촌02</li>
+							<li data-key="59">여인기</li>
+							<li data-key="84">유지운영</li>
+							<li data-key="74">육성규</li>
+							<li data-key="64">이용우</li>
+							<li data-key="58">이태호</li>
+							<li data-key="83">임승철</li>
+							<li data-key="86">전상민</li>
+							<li data-key="82">지석준</li>
+							<li data-key="88">채현규</li>
+							<li data-key="61">최용조</li>
+							<li data-key="56">최현태</li>
+							<li data-key="57">홍재영</li>
+						</ul>
+					</div> <span>으로 지정합니다.</span>
+				</div>
+				<div class="btn-wrap btns2">
+					<button type="button" class="btn medium btn_close">취소</button>
+					<button id="btnOrderChargeModify" class="btn point medium btn_close">확인</button>
+				</div>
+			</div>
+			<button type="button" class="btn_close"><span>닫기</span></button>
+		</div>
+	</div>
+	<div id="layerChargeHistory" class="ui-popup-open" data-target="#manager" hidden=""></div>
+	<div id="manager" class="ui-popup">
+		<div class="content" style="width:412px;" tabindex="-1">
+			<div class="body">
+				<h3>담당자 이력</h3>
+				<div class="manager">
+					<table id="tblHistory">
+						<colgroup>
+							<col width="200px">
+							<col>
+						</colgroup>
+						<thead>
+							<tr>
+								<th>일자</th>
+								<th>담당자</th>
+							</tr>
+						</thead>
+						<tbody>
+						</tbody>
+					</table>
+				</div>
+				<div class="btn-wrap">
+					<button class="btn point medium btn_close">확인</button>
+				</div>
+			</div>
+			<button class="btn_close"><span>닫기</span></button>
+		</div>
+	</div>
+	<div id="layerOrderUncleMemo" class="ui-popup-open" data-target="#targetOrderUncleMemo" hidden=""></div>
+	<div id="targetOrderUncleMemo" class="ui-popup">
+		<div class="content" style="width:800px;" tabindex="-1">
+			<div class="body">
+				<h3>확인 메모</h3>
+				<div style="font-size:14px;">총 메모 <span style="color:#50C258;">9</span> 건</div>
+				<div class="manager">
+					<table>
+						<colgroup>
+							<col width="80px">
+							<col width="200px">
+							<col>
+						</colgroup>
+						<thead>
+							<tr>
+								<th>No</th>
+								<th>쇼핑몰(상호)</th>
+								<th>메모 내용</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>9</td>
+								<td>러브썸원<br>(러브썸원)</td>
+								<td style="text-align:left; white-space: normal;">교환x차감으로 처리부탁드려요(반발심한 업체는 교환으로 해주세요)</td>
+							</tr>
+							<tr>
+								<td>8</td>
+								<td>러브썸원<br>(러브썸원)</td>
+								<td style="text-align:left; white-space: normal;">교환x 차감으로 진행해주세요. 반발이 심한 업체는 교환으로 처리해주세요 </td>
+							</tr>
+							<tr>
+								<td>7</td>
+								<td>러브썸원<br>(러브썸원)</td>
+								<td style="text-align:left; white-space: normal;">교환x차감으로 처리해주세요(반발이 심한업체는 교환으로 처리해주세요)</td>
+							</tr>
+							<tr>
+								<td>6</td>
+								<td>러브썸원<br>(러브썸원)</td>
+								<td style="text-align:left; white-space: normal;">교환X차감으로 처리해주세요. 반발이 심한업체는 교환으로 해주세요 </td>
+							</tr>
+							<tr>
+								<td>5</td>
+								<td>러브썸원<br>(러브썸원)</td>
+								<td style="text-align:left; white-space: normal;">차감으로 처리 요청드리며,반발이 심한 업체는 교환으로 처리 부탁드려요</td>
+							</tr>
+							<tr>
+								<td>4</td>
+								<td>러브썸원<br>(러브썸원)</td>
+								<td style="text-align:left; white-space: normal;">교환x차감처리해주세요.반발이 심한업체만 교환으로 처리+메모부탁드려요</td>
+							</tr>
+							<tr>
+								<td>3</td>
+								<td>러브썸원<br>(러브썸원)</td>
+								<td style="text-align:left; white-space: normal;">교환x차감으로처리해주세요</td>
+							</tr>
+							<tr>
+								<td>2</td>
+								<td>러브썸원<br>(러브썸원)</td>
+								<td style="text-align:left; white-space: normal;">교환x차감으로 처리 부탁드립니다 </td>
+							</tr>
+							<tr>
+								<td>1</td>
+								<td>불량소녀<br>(2068693080)</td>
+								<td style="text-align:left; white-space: normal;">KDG 연락받으셨으면 픽업부탁드려요</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="btn-wrap">
+					<button class="btn point medium btn_close">확인</button>
+				</div>
+			</div>
+			<button class="btn_close"><span>닫기</span></button>
+		</div>
+	</div>
+	<!-- 2020-05-04 시작 -->
+	<div id="targetItemSoldoutStatus" class="ui-popup">
+		<div class="content" style="width:486px;" tabindex="-1">
+			<input type="hidden" id="eItemSoldoutStatusSsItemNo">
+			<button class="btn_close"><span>닫기</span></button>
+			<div class="body">
+				<h3>상품상태</h3>
+				<div class="manager divCustomCheckToggle new">
+					<button class="btn btnItemSoldoutStatusList" data-value="1">품절</button><button class="btn btnItemSoldoutStatusList" data-value="2">색상품절</button><button class="btn btnItemSoldoutStatusList" data-value="3">사이즈품절</button><button
+						class="btn btnItemSoldoutStatusList" data-value="4">낱장불가</button>
+				</div>
+				<div class="min-count" style="display:none;">
+					<input type="text" value="0">
+					<button class="btn">최소 10개</button>
+					<button class="btn">최소 20개</button>
+					<button class="btn">최소 30개</button>
+				</div>
+				<p class="notice">* 상품상태 선택 시, 품절처리방식은 오늘차감으로 자동 변경됩니다.</p>
+				<div class="btn-wrap">
+					<button class="btn small btn_close"> 취소</button>
+					<button id="layerAlertOpen" class="ui-popup-open btn point small btn_close" data-target="#layerAlert"> 확인</button>
+				</div>
+				<button class="btn_close" hidden=""></button>
+			</div>
+		</div>
+	</div>
+
+	<!-- Alert Layer -->
+	<div id="layerAlert" class="ui-popup">
+		<div class="content" style="min-width:412px; max-width: 700px;" tabindex="-1">
+			<div class="body">
+				<div class="txt-cont">
+					<div class="txt-cont result order">
+						<h3 id="commLayerTitle"></h3>
+						<div class="confirm">
+							<p id="commLayerContents">적용 완료되었습니다.</p>
+							<!-- <p id="commLayerContents">최소수량을 입력해주세요.</p> -->
+						</div>
+					</div>
+				</div>
+				<div class="btn_wrap mt40 tac">
+					<span class="commLayerConfirm"><button type="button" class="btn point medium btn_close" style="width:100px; min-width:100px;">확인</button></span>
+				</div>
+			</div>
+			<button type="button" class="btn_close">
+				<div class="commLayerConfirm"><span>닫기</span></div>
+			</button>
+		</div>
+	</div>
+
+	<!-- 2020-05-04 종료 -->
+
+
+
+	<div class="divExpectedDateContainer" id="divExpectedDate">
+		<div class="head">입고예정일</div>
+		<button class="btn_close" style="position: absolute; top: 12px; right: 20px; font-weight: bold"><span>X</span>
+		</button>
+		<div class="body">
+			<div>
+				<button class="btnDate" data-value="2020-05-08">05/08(금)</button> <button class="btnDate" data-value="2020-05-09">05/09(토)</button> <button class="btnDate" data-value="2020-05-10">05/10(일)</button> <button class="btnDate"
+					data-value="2020-05-11">05/11(월)</button> <button class="btnDate" data-value="2020-05-12">05/12(화)</button> <button class="btnDate" data-value="2020-05-13">05/13(수)</button> <button class="btnDate" data-value="0000-00-00">다음주 중 </button>
+				<button class="btnDate none" data-value="">선택안함</button>
+			</div>
+		</div>
+	</div>
+
+
+	<div id="matching-pop" class="ui-popup matching-pop">
+		<div class="content" style="width:1000px;" tabindex="-1">
+			<button class="btn_close"><span>닫기</span></button>
+			<div class="body">
+				<h3>가게 매칭</h3>
+				<div class="cont">
+					<!-- 2021-06-17 EZP-1765 -->
+					<div class="info">
+						<span class="result">검색결과 <em>3,333</em>건</span>
+						<span class="matching-type">
+							<button type="button" class="btn xsmall active">단일매칭</button>
+							<button type="button" class="btn xsmall">멀티매칭</button>
+						</span>
+					</div>
+					<div class="left">
+						<table cellpadding="1" cellspacing="1" >
+							<!-- 2020-06-18 EZP-778 -->
+							<colgroup>
+								<col width="50%">
+								<col width="*">
+							</colgroup>
+							<thead>
+								<tr>
+									<th>미매칭가게명</th>
+									<th>매칭가게명</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr class="complete">
+									<td>
+										<div>
+											<strong>미매칭 가게명</strong>
+											<span>미매칭주소 2</span>
+											<span>연락처 2</span>
+											<button type="button" class="complete">매칭완료</button>
+										</div>
+									</td>
+									<td>
+										<div>
+											<strong>반야인터트리</strong>
+											<span>디오트 2층 B열 101호</span>
+											<span>010-1004-1004</span>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<div>
+											<strong>미매칭 가게명</strong>
+											<span>미매칭주소 2</span>
+											<span>연락처 2</span>
+											<button type="button" class="">매칭대기</button>
+										</div>
+									</td>
+									<td>
+										가게 매칭이 필요합니다.
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<div>
+											<strong>미매칭 가게명</strong>
+											<span>미매칭주소 2</span>
+											<span>연락처 2</span>
+											<button type="button" class="">매칭대기</button>
+										</div>
+									</td>
+									<td>
+										가게 매칭이 필요합니다.
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<div>
+											<strong>미매칭 가게명</strong>
+											<span>미매칭주소 2</span>
+											<span>연락처 2</span>
+											<button type="button" class="">매칭대기</button>
+										</div>
+									</td>
+									<td>
+										<div>
+											<strong>반야인터트리</strong>
+											<span>디오트 2층 B열 101호</span>
+											<span>010-1004-1004</span>
+										</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="right">
+						<h4>가게 검색</h4>
+						<div class="search-item mr0">
+							<!-- 2021-08-17 EZP-3943 -->
+							<div class="ui-select mr5" style="width:auto;">
+								<div class="ui-select">
+									<button type="button" id="btn_selSellerSearchKey" data-value="">전체</button>
+									<ul>
+										<li data-key="" class="active" tabindex="0">전체</li>
+										<li data-key="seller_name" tabindex="0">도매처</li>
+										<li data-key="buyer_name" tabindex="0">쇼핑몰</li>
+										<li data-key="seller_addr" tabindex="0">주소</li>
+									</ul>
+								</div>
+							</div>
+							<div class="input-search">
+								<input type="text" class="fText height-adjust" placeholder="검색어를 입력해 주세요." name="search_value" id="seller_search_value" value="">
+							</div>
+							<button type="button" class="btn small filter-search">검색</button>
+						</div>
+
+						<ul class="search-list">
+							<li>
+								<strong>반양인더트리1번</strong>
+								<p>
+									디오트 2층 101호 / 010-1233-1233
+								</p>
+								<button type="button" class="btn small state">매칭</button>
+							</li>
+							<li>
+								<strong>반양인더트리1번</strong>
+								<p>
+									디오트 2층 101호 / 010-1233-1233
+								</p>
+								<button type="button" class="btn small state">매칭</button>
+							</li>
+							<li>
+								<strong>반양인더트리1번</strong>
+								<p>
+									디오트 2층 101호 / 010-1233-1233
+								</p>
+								<button type="button" class="btn small state">매칭</button>
+							</li>
+							<li>
+								<strong>반양인더트리1번</strong>
+								<p>
+									디오트 2층 101호 / 010-1233-1233
+								</p>
+								<button type="button" class="btn small state">매칭</button>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<!-- <div class="btn-wrap">
+					<button class="btn small btn_close"> 취소</button>
+					<button class="btn point small btn_close" > 확인</button>
+				</div> -->
+				<button class="btn_close" hidden=""></button>
+			</div>
+		</div>
+	</div>
+
+	<!-- 2021-06-04 EZP-2903 -->
+	<div id="pop-full-stock" class="ui-popup pop-full-stock">
+		<div class="content" style="min-width:412px; max-width: 700px;" tabindex="-1">
+			<div class="body">
+				<div class="txt-cont">
+					<p id="commLayerContents">선택된 품목을 전량입고 처리하시겠습니까?</p>
+					<p class="notice">
+						* 수량 개별 입력한 품목 제외<br>
+						* 전량입고 처리완료된 품목 제외
+					</p>
+				</div>
+				<div class="btn_wrap mt40 tac">
+					<button type="button" class="btn medium btn_close" style="width:100px; min-width:100px;">취소</button>
+					<span class="commLayerConfirm"><button type="button" class="btn point medium btn_close" style="width:100px; min-width:100px;">확인</button></span>
+				</div>
+			</div>
+			<button type="button" class="btn_close">
+				<div class="commLayerConfirm"><span>닫기</span></div>
+			</button>
+		</div>
+	</div>
+	<!--//container -->
+
+	<!-- footer// -->
+	<footer>
+		Copyright ⓒ 2019 EasyPickSquare. All Rights Reserved.
+	</footer><!-- //footer -->
+
+	<script type="text/javascript" src="../js/ui/lib/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="../js/ui/lib/jquery-ui.min.js"></script>
+	<!-- 2022-11-01 EZP-6245 추가해서 tr.opner 작동함 -->
+	<script type="text/javascript" src="./script.js"></script> 
+	<script type="text/javascript" src="../js/ui/common_front.js"></script>
+	<script type="text/javascript" src="../js/ui/ui.js"></script>
+	<script type="text/javascript" src="../js/ui/pub.js"></script>
+
+	<script type="text/javascript">
+		// LocalStorage.set("csrf-token", "ZmEqWoY7EMkTNPemq5oIBLa1uoGzaWc2LUCSIQfPcjk=", "uncle");
+		$('#btn_date_range').click(function() {
+			$(this).data('value', $('#date_range').val());
+		});
+		$('#sel_date_range li').click(function() {
+			var sPrevValue = $('#btn_date_range').data('value');
+			var sThisValue = $(this).data('key');
+			let sTarget = $(this).closest('.ui-select').data('target_id');
+			$(sTarget).val(sThisValue);
+			if (sPrevValue != sThisValue) {
+				$(sTarget).trigger('change');
+			}
+		});
+		$('#btn_selSearchKey').click(function() {
+			$(this).data('value', $('#selSearchKey').val());
+		});
+		$('#sel_selSearchKey li').click(function() {
+			var sPrevValue = $('#btn_selSearchKey').data('value');
+			var sThisValue = $(this).data('key');
+			let sTarget = $(this).closest('.ui-select').data('target_id');
+			$(sTarget).val(sThisValue);
+			if (sPrevValue != sThisValue) {
+				$(sTarget).trigger('change');
+			}
+		});
+		$('#btn_layerUncleNo').click(function() {
+			$(this).data('value', $('#layerUncleNo').val());
+		});
+		$('#sel_layerUncleNo li').click(function() {
+			var sPrevValue = $('#btn_layerUncleNo').data('value');
+			var sThisValue = $(this).data('key');
+			let sTarget = $(this).closest('.ui-select').data('target_id');
+			$(sTarget).val(sThisValue);
+			if (sPrevValue != sThisValue) {
+				$(sTarget).trigger('change');
+			}
+		});
+		// 2021-01-06 EZP-1765
+		$(function(){
+			// 2021-06-22 EZP-1765
+			$('.matching-type button').click(function(){
+				$('.matching-type button').removeClass('active');
+				$(this).addClass('active');
+				var idx = $('.matching-type button.active').index();
+				if(idx == 0){
+					$(this).parents('.cont').find('tr').removeClass('complete');
+					$(this).parents('.cont').find('tbody tr:first').addClass('complete');
+				}
+			})
+			$('.matching-pop .left table td').click(function(){
+				var idx = $('.matching-type button.active').index();
+				if(idx == 0){
+					$(this).parents('table').find('tr').removeClass('complete');
+					$(this).parent().toggleClass('complete');
+				}else{
+					$(this).parent().toggleClass('complete')
+				}
+			})
+
+			// 2021-06-04	EZP-2903
+			$('.all-in button').click(function(){
+				$(this).parent().toggleClass('on');
+			})
+
+			$('.layer-all-in li button').click(function(){
+				$(this).parent().toggleClass('selected');
+			})
+		})
+
+		// 2021-08-06 EZP-3726
+		$('.search-item.period-filter a').click(function(){
+			$('.search-item.period-filter a').removeClass('on');
+			$(this).addClass('on');
+		});
+	</script>
+
+
+</body>
+
+</html>

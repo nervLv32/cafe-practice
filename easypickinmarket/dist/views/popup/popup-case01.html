@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="ko" xml:lang="ko">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="title">
+  <meta name="copyright" content="Copyright ⓒ Cafe24 Corp.All Rights Reserved.">
+  <meta name="description" content="">
+  <title>Cafe24 이지픽 마켓플러스</title>
+
+  <!-- cafe24 운영에서 바로가져온다-->
+  <link rel="shortcut icon" type="image/x-icon" href="https://m-img.cafe24.com/images/event/common/market_favicon.ico">
+  <link rel="stylesheet" type="text/css" href="https://wmsplus07.shopcafe.cafe24.com/mp/css/common.css?ver=1649196508">
+  <link rel="stylesheet" type="text/css" href="https://wmsplus07.shopcafe.cafe24.com/mp/css/market.css?ver=1652220163">
+  <link rel="stylesheet" type="text/css" href="https://wmsplus07.shopcafe.cafe24.com/mp/css/jquery-ui.css?ver=1632873099" />
+  <!--// cafe24 운영에서 바로가져온다-->
+
+  <!--1.비온미  추가할 부분 -->
+  <link rel="stylesheet" type="text/css" href="../../css/style.css">
+  <!--// 비온미  추가할 부분-->
+
+  <!-- jquery -->
+  <script src="../../js/ui/lib/jquery-1.11.1.min.js"></script>
+
+  <!-- bonme -->
+  <script src="../../js/ui/easypick-ui.js" type="text/javascript"></script>
+
+  <!-- tooltip -->
+  <link rel="stylesheet" href="../../js/ui/lib/protip.min.css">
+  <script src="../../js/ui/lib/protip.min.js"></script>
+
+  <!-- slick slide -->
+  <link rel="stylesheet" type="text/css" href="../../js/ui/lib/slick.css"/>
+  <script type="text/javascript" src="../../js/ui/lib/slick.min.js"></script>
+
+  <!-- table resizable -->
+  <script type="text/javascript" src="../../js/ui/cp/suio.table.fix.resize.js"></script>
+
+  <!-- modal -->
+  <script src="../../js/ui/cp/jquery-ui.js" type="text/javascript"></script>
+  <script src="../../js/ui/cp/ui.js" type="text/javascript"></script>
+  <script src="../../js/ui/cp/wickedpicker.js" type="text/javascript"></script>
+</head>
+
+<body>
+    
+
+<div class="modal-pop window active inspection-modal-case04" id="content">
+    <div class="modal-dialog w100p">
+        <div class="modal-inner">
+            <section class="modal-head">
+                <div class="modal-head-inner">
+                    <h1>재확인 일괄요청 엑셀 업로드</h1>
+                    <a href="#" class="btn-manual" target="_blank" title="매뉴얼">매뉴얼</a>
+                </div>
+            </section>
+            <div class="modal-body inspection-modal">
+                <div class="xlsx-upload">
+                    <table>
+                        <colgroup>
+                            <col style="width: 150px">
+                            <col style="width: auto">
+                        </colgroup>
+                        <tbody>
+                            <tr>
+                                <th>
+                                    엑셀업로드
+                                    <!-- 07/13 tooltip 수정 -->
+                                    <div class="tool-tip-wrap tool-gray">
+                                        <a href="javascript:void(0)" class="tool-tip">툴팁</a>
+                                        <div class="tool-tip-area w-auto">
+                                            <section class="tool-tip-title">
+                                                <h1>엑셀 업로드</h1>
+                                                <div class="tool-tip-inner">
+                                                    <p class="mb10">[재확인요청 엑셀 업로드 방법]</p>
+                                                    <h2 class="dot">
+                                                        [공급 > 입고상품검수 > 오늘입고상품] 또는 [공급 > 입고상품검수 > <br>
+                                                        검수대기상품]에서 [엑셀다운로드 > 재확인 요청 양식]을 다운로드받으세요.
+                                                    </h2>
+                                                    <h2 class="dot mt5">
+                                                        주문 내용을 확인하여 재확인 요청이 필요한 품목은 재확인 요청<br>
+                                                        열에 요청내용을 기입하고 저장하세요.
+                                                    </h2>
+                                                    <h2 class="dot mt5">[공급 > 입고상품검수 > 검수대기상품]에서 [재확인일괄요청]버튼을 클릭하세요.</h2>
+                                                    <h2 class="dot mt5">
+                                                        본 팝업에서 요청내용이 입력된 엑셀 파일을 [파일찾기] 버튼을<br>
+                                                        통해 불러온 뒤 업로드해주세요.
+                                                    </h2>
+                                                    <p class="mt10">[유의사항]</p>
+                                                    <ul class="list-dash mt-0">
+                                                        <li>[재확인 요청 양식]인 경우에만 업로드 시 매칭이 가능합니다.</li>
+                                                        <li>최대 1,000건 까지 등록가능합니다.</li>
+                                                        <li>xlsx 또는 xls 파일 형식만 업로드가 가능합니다.</li>
+                                                        <li>
+                                                            업로드 후 실패 건이 있는 경우 재확인요청 [적용]이 불가합니다.<br>
+                                                            실패 건의 오류상태를 확인하여, 엑셀을 수정하여 다시 업로드해주세요.
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </section>
+                                            <button type="button" class="tool-tip-close">닫기</button>
+                                        </div>
+                                    </div>
+                                    <!--//tooltip-->
+                                </th>
+                                <td>
+                                    <div class="dflex">
+                                        <div class="file-route-box">
+                                            <input type="text" readonly="readonly" id="file-route" class="file_txt" placeholder="-  첨부파일 xls, xlsx 확장자, 최대 1,000건">
+                                            <label>
+                                                파일 찾기
+                                                <input type="file" id="" name="" onchange="javascript:document.getElementById('file-route').value=this.value">
+                                            </label> 
+                                        </div>
+                                        <button type="submit" class="upload-btn">업로드</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="tab-top-round">
+                    <!-- 2022 08 02 padding 추가 -->
+                    <ul class="tab-rounds tab padding-rounds">
+                        <li data-tab="conttab1"><a href="javascript:void(0)" class="bul-new off"><span>업로드건 전체보기 (12)</span></a></li>
+                        <li data-tab="conttab2" class="active"><a href="javascript:void(0)" class="bul-new off"><span>재확인요청 건만 보기 (9)</span></a></li>
+                    </ul>
+                </div>
+
+                <!-- 업로드건 전체보기 -->
+                <div class="tab-content tabCont hidden" id="conttab1">
+                    <!-- 07/13 테이블 resize 수정 -->
+                    <div class="gridTableArea">
+                        <div class="mGridTable tbl-height01 td-height-60 tbl-th-two">
+                            <table id="eMultiTable" class="eChkColor">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" rowspan="2" style="width: 50px;" class="resizebar">번호</th>
+                                        <th scope="col" rowspan="2" style="width: 60px;" class="resizebar">결과</th>
+                                        <th scope="col" rowspan="2" style="width: 150px;" class="resizebar">주문번호<br>(상세주문번호)</th>
+                                        <th scope="col" rowspan="2" style="width: 150px;" class="resizebar">거래처명</th>
+                                        <th scope="col" rowspan="2" style="width: 150px;" class="resizebar">상품명<br>옵션</th>
+                                        <th scope="col" colspan="2" style="width: 158px;" class="resizebar bar-center">판매가</th>
+                                        <th scope="col" colspan="2" style="width: 158px;" class="resizebar bar-center">입고수량</th>
+                                        <th scope="col" colspan="2" style="width: 158px;" class="resizebar bar-center">품절처리방식</th>
+                                        <th scope="col" rowspan="2" style="width: 136px;">실패사유</th>
+                                    </tr>
+                                    <tr>
+                                        <th scope="col" style="width: 79px;">기존</th>
+                                        <th scope="col" style="width: 79px;">재확인</th>
+                                        <th scope="col" style="width: 79px;">기존</th>
+                                        <th scope="col" style="width: 79px;">재확인</th>
+                                        <th scope="col" style="width: 79px;">기존</th>
+                                        <th scope="col" style="width: 79px;" class="bd-line">재확인</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td><span class="ftpointcolor">성공</span></td>
+                                        <td>
+                                            2022041400115889<br>
+                                            (313763)
+                                        </td>
+                                        <td>남이</td>
+                                        <td>
+                                            밀크반팔니트<br>
+                                            (옐로우 / free)
+                                        </td>
+                                        <td class="text-ar">11,000</td>
+                                        <td class="text-ar">11,000</td>
+                                        <td>3</td>
+                                        <td>-</td>
+                                        <td>미송</td>
+                                        <td>-</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td><span class="ftpointcolor">성공</span></td>
+                                        <td>
+                                            2022041400115889<br>
+                                            (313763)
+                                        </td>
+                                        <td>남이</td>
+                                        <td>
+                                            밀크반팔니트<br>
+                                            옐로우 / free
+                                        </td>
+                                        <td class="text-ar">11,000</td>
+                                        <td class="text-ar">11,000</td>
+                                        <td>3</td>
+                                        <td>-</td>
+                                        <td>미송</td>
+                                        <td>-</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td><span class="ftpointcolor">성공</span></td>
+                                        <td>
+                                            2022041400115889<br>
+                                            (313763)
+                                        </td>
+                                        <td>남이</td>
+                                        <td>
+                                            밀크반팔니트<br>
+                                            (옐로우 / free)
+                                        </td>
+                                        <td class="text-ar">11,000</td>
+                                        <td class="text-ar">11,000</td>
+                                        <td>3</td>
+                                        <td>-</td>
+                                        <td>미송</td>
+                                        <td>-</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td><span class="ftpointcolor">성공</span></td>
+                                        <td>
+                                            2022041400115889<br>
+                                            (313763)
+                                        </td>
+                                        <td>남이</td>
+                                        <td>
+                                            밀크반팔니트<br>
+                                            옐로우 / free
+                                        </td>
+                                        <td class="text-ar">11,000</td>
+                                        <td class="text-ar">11,000</td>
+                                        <td>3</td>
+                                        <td>-</td>
+                                        <td>미송</td>
+                                        <td>-</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td><span class="ftpointcolor">성공</span></td>
+                                        <td>
+                                            2022041400115889<br>
+                                            (313763)
+                                        </td>
+                                        <td>네온히치</td>
+                                        <td>
+                                            모던SL<br>
+                                            멜론 / 스몰
+                                        </td>
+                                        <td class="text-ar">23,000</td>
+                                        <td class="text-ar">-</td>
+                                        <td>5</td>
+                                        <td>4</td>
+                                        <td>미송</td>
+                                        <td>-</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td><span class="ftpointcolor1">실패</span></td>
+                                        <td>
+                                            2022041400115889<br>
+                                            (313763)
+                                        </td>
+                                        <td>더모스트</td>
+                                        <td>
+                                            베베조끼NT<br>
+                                            소라 / free
+                                        </td>
+                                        <td class="text-ar">20,000</td>
+                                        <td class="text-ar">-</td>
+                                        <td>5</td>
+                                        <td>-</td>
+                                        <td>미송</td>
+                                        <td>폐기</td>
+                                        <td>폐기불가 품목</td>
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+                                        <td><span class="ftpointcolor">성공</span></td>
+                                        <td>
+                                            2022041400115889<br>
+                                            (313763)
+                                        </td>
+                                        <td>더모스트</td>
+                                        <td>
+                                            베베조끼NT<br>
+                                            소라 / free
+                                        </td>
+                                        <td class="text-ar">20,000</td>
+                                        <td class="text-ar">-</td>
+                                        <td>4</td>
+                                        <td>-</td>
+                                        <td>미송</td>
+                                        <td>-</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>5</td>
+                                        <td><span class="ftpointcolor">성공</span></td>
+                                        <td>
+                                            2022041400115889<br>
+                                            (313763)
+                                        </td>
+                                        <td>리썸</td>
+                                        <td>
+                                            베베조끼NT<br>
+                                            소라 / free
+                                        </td>
+                                        <td class="text-ar">21,000</td>
+                                        <td class="text-ar">-</td>
+                                        <td>1</td>
+                                        <td>0</td>
+                                        <td>미송</td>
+                                        <td>-</td>
+                                        <td>매입 불가 품목</td>
+                                    </tr>
+                                    <tr>
+                                        <td>6</td>
+                                        <td><span class="ftpointcolor1">실패</span></td>
+                                        <td>
+                                            2022041400115889<br>
+                                            (313763)
+                                        </td>
+                                        <td>마리셀</td>
+                                        <td>
+                                            베베조끼NT<br>
+                                            소라 / free
+                                        </td>
+                                        <td class="text-ar">20,000</td>
+                                        <td class="text-ar">-</td>
+                                        <td>3</td>
+                                        <td>-</td>
+                                        <td>미송</td>
+                                        <td>매입</td>
+                                        <td>입력내용 확인 필요</td>
+                                    </tr>
+                                    <tr>
+                                        <td>7</td>
+                                        <td><span class="ftpointcolor1">실패</span></td>
+                                        <td>
+                                            2022041400115889<br>
+                                            (313763)
+                                        </td>
+                                        <td>매하탄</td>
+                                        <td>
+                                            베베조끼NT<br>
+                                            소라 / free
+                                        </td>
+                                        <td class="text-ar">27,000</td>
+                                        <td class="text-ar">20,000</td>
+                                        <td>4</td>
+                                        <td>-1</td>
+                                        <td>미송</td>
+                                        <td>-</td>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div><!-- 07/13 테이블 resize 수정 -->
+                </div><!-- 업로드건 전체보기 -->
+
+                <!-- 재확인요청 건만 보기 -->
+                <div class="tab-content tabCont" id="conttab2">
+
+                    <!-- 07/13 재확인 요청건만 노출되도록 수정 -->
+                    <div class="expectation-area">
+                        <div class="form-inline justify-content-center">
+                            <div class="form-control">
+                                <label>
+                                    <input type="checkbox">
+                                    <span>성공예상 6건</span>
+                                </label>
+                            </div>
+                            <div class="form-control">
+                                <label>
+                                    <input type="checkbox">
+                                    <span>실패예상 3건</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div><!-- 07/13 재확인 요청건만 노출되도록 수정 -->
+
+                    <!-- 07/13 테이블 resize 수정 -->
+                    <div class="gridTableArea">
+                        <div class="mGridTable tbl-height01 td-height-60 tbl-th-two">
+                            <table id="eMultiTable1" class="eChkColor">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" rowspan="2" style="width: 50px;" class="resizebar">번호</th>
+                                        <th scope="col" rowspan="2" style="width: 60px;" class="resizebar">결과</th>
+                                        <th scope="col" rowspan="2" style="width: 150px;" class="resizebar">주문번호<br>(상세주문번호)</th>
+                                        <th scope="col" rowspan="2" style="width: 150px;" class="resizebar">거래처명</th>
+                                        <th scope="col" rowspan="2" style="width: 150px;" class="resizebar">상품명<br>옵션</th>
+                                        <th scope="col" colspan="2" style="width: 158px;" class="resizebar bar-center">판매가</th>
+                                        <th scope="col" colspan="2" style="width: 158px;" class="resizebar bar-center">입고수량</th>
+                                        <th scope="col" colspan="2" style="width: 158px;" class="resizebar bar-center">품절처리방식</th>
+                                        <th scope="col" rowspan="2" style="width: 136px;">실패사유</th>
+                                    </tr>
+                                    <tr>
+                                        <th scope="col" style="width: 79px">기존</th>
+                                        <th scope="col" style="width: 79px">재확인</th>
+                                        <th scope="col" style="width: 79px">기존</th>
+                                        <th scope="col" style="width: 79px">재확인</th>
+                                        <th scope="col" style="width: 79px">기존</th>
+                                        <th scope="col" style="width: 79px" class="bd-line">재확인</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td><span class="ftpointcolor">성공</span></td>
+                                        <td>
+                                            2022041400115889<br>
+                                            (313763)
+                                        </td>
+                                        <td>남이</td>
+                                        <td>
+                                            밀크반팔니트<br>
+                                            옐로우 / free
+                                        </td>
+                                        <td class="text-ar">11,000</td>
+                                        <td class="text-ar">11,000</td>
+                                        <td>3</td>
+                                        <td>-</td>
+                                        <td>미송</td>
+                                        <td>-</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td><span class="ftpointcolor">성공</span></td>
+                                        <td>
+                                            2022041400115889<br>
+                                            (313763)
+                                        </td>
+                                        <td>네온히치</td>
+                                        <td>
+                                            모던SL<br>
+                                            멜론 / 스몰
+                                        </td>
+                                        <td class="text-ar">23,000</td>
+                                        <td class="text-ar">-</td>
+                                        <td>5</td>
+                                        <td>4</td>
+                                        <td>미송</td>
+                                        <td>-</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td><span class="ftpointcolor1">실패</span></td>
+                                        <td>
+                                            2022041400115889<br>
+                                            (313763)
+                                        </td>
+                                        <td>더모스트</td>
+                                        <td>
+                                            베베조끼NT<br>
+                                            소라 / free
+                                        </td>
+                                        <td class="text-ar">20,000</td>
+                                        <td class="text-ar">-</td>
+                                        <td>5</td>
+                                        <td>-</td>
+                                        <td>미송</td>
+                                        <td>폐기</td>
+                                        <td>폐기불가 품목</td>
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+                                        <td><span class="ftpointcolor">성공</span></td>
+                                        <td>
+                                            2022041400115889<br>
+                                            (313763)
+                                        </td>
+                                        <td>더모스트</td>
+                                        <td>
+                                            베베조끼NT<br>
+                                            소라 / free
+                                        </td>
+                                        <td class="text-ar">20,000</td>
+                                        <td class="text-ar">-</td>
+                                        <td>4</td>
+                                        <td>-</td>
+                                        <td>미송</td>
+                                        <td>-</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>5</td>
+                                        <td><span class="ftpointcolor">성공</span></td>
+                                        <td>
+                                            2022041400115889<br>
+                                            (313763)
+                                        </td>
+                                        <td>리썸</td>
+                                        <td>
+                                            베베조끼NT<br>
+                                            소라 / free
+                                        </td>
+                                        <td class="text-ar">21,000</td>
+                                        <td class="text-ar">-</td>
+                                        <td>1</td>
+                                        <td>0</td>
+                                        <td>미송</td>
+                                        <td>-</td>
+                                        <td>매입 불가 품목</td>
+                                    </tr>
+                                    <tr>
+                                        <td>6</td>
+                                        <td><span class="ftpointcolor1">실패</span></td>
+                                        <td>
+                                            2022041400115889<br>
+                                            (313763)
+                                        </td>
+                                        <td>마리셀</td>
+                                        <td>
+                                            베베조끼NT<br>
+                                            소라 / free
+                                        </td>
+                                        <td class="text-ar">20,000</td>
+                                        <td class="text-ar">-</td>
+                                        <td>3</td>
+                                        <td>-</td>
+                                        <td>미송</td>
+                                        <td>매입</td>
+                                        <td>입력내용 확인 필요</td>
+                                    </tr>
+                                    <tr>
+                                        <td>7</td>
+                                        <td><span class="ftpointcolor1">실패</span></td>
+                                        <td>
+                                            2022041400115889<br>
+                                            (313763)
+                                        </td>
+                                        <td>매하탄</td>
+                                        <td>
+                                            베베조끼NT<br>
+                                            소라 / free
+                                        </td>
+                                        <td class="text-ar">27,000</td>
+                                        <td class="text-ar">20,000</td>
+                                        <td>4</td>
+                                        <td>-1</td>
+                                        <td>미송</td>
+                                        <td>-</td>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div><!-- 07/13 테이블 resize 수정 -->
+
+                </div><!-- 재확인요청 건만 보기 -->
+
+            </div>
+            <div class="modal-footer">
+                <div class="modal-footer-btn">
+                    <button type="button" name="button" class="btn btn-lg btn-point">적용</button>	
+                    <button type="button" name="button" class="btn btn-lg btn-darkgray" onclick='window.open("about:blank","_self").close();'>닫기</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- 07/13 테이블 가로스크롤 수정 -->
+<script>
+    $(document).ready(function() {
+        $('#eMultiTable').fixResize({
+            colResize: true,
+            resizeVer: 'flex'
+        });
+        $('#eMultiTable1').fixResize({
+            colResize: true,
+            resizeVer: 'flex'
+        });
+    });
+</script><!-- 07/13 테이블 가로스크롤 수정 -->
+
+
+</body>
+
+</html>

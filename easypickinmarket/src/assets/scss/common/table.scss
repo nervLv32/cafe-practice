@@ -1,0 +1,202 @@
+.mGridTable th.two-line {
+  height: 30px;
+}
+
+.tbl-register-row {
+  th {
+    &.th-top {
+      /*! 2022-11-15 EZP-7016 th text 위로정렬 / padding 으로 여백 추가 시작 */
+      vertical-align: top;
+      padding-top: 10px;
+      /*! 2022-11-15 EZP-7016 th text 위로정렬 / padding 으로 여백 추가 끝 */
+    }
+  }
+}
+
+.tbl-register-row td {
+  &.easy-pick-border-right-none {
+    border-right: none;
+  }
+
+  span {
+    &.name {
+      /*! 2022-11-22 EZP-7449 구매자정보 라인추가 */
+      position: relative;
+      display: inline-block;
+      margin-right: 4px;
+      padding-right: 4px;
+
+      &::after {
+        /*! 2022-11-22 EZP-7449 구매자정보 라인추가 */
+        content: '';
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+        width: 1px;
+        height: 11px;
+        background-color: #2E3031;
+      }
+    }
+  }
+}
+
+.mGridTable {
+  .easy-pick-catpion-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    span.title {
+      font-weight: bold;
+
+      &.order-complete {
+        color: #FF2052;
+      }
+
+      &.packing-complete {
+        font-weight: bold;
+        color: #2E3031;
+      }
+
+      &.cancel-complete {
+        color: #999999;
+      }
+    }
+
+    span.content {
+      &.order-complete {
+        color: #FF2052;
+      }
+
+      &.pay-request {
+        color: #2E3031;
+      }
+
+      &.cancel-complete {
+        color: #999999;
+      }
+    }
+
+    .btn-text-wrapper {
+      display: inline-block;
+      margin-right: 5px;
+    }
+  }
+
+  tbody {
+    .tr-disabled {
+  	  background-color: #F8F8F8;
+
+      &:hover {
+        background-color: #F8F8F8;
+      }
+      .btn-outline-gray {
+        opacity: 0.5;
+      }
+      .easy-pick-case {
+        opacity: 0.5;
+      }
+    }
+
+    .tr-caption {
+      background: #F8FAFC;
+
+      td.force-visible {
+        overflow: initial !important;
+        /*! 2022-11-11 EZP-7409 height, padding 수정 시작 */
+        height: 42px;
+        padding: 6px 20px;
+        /*! 2022-11-11 EZP-7409 height, padding 수정 끝 */
+      }
+    }
+
+    td.force-visible {
+      overflow: initial !important;
+    }
+  }
+}
+
+.tbl-top {
+  &.easy-pick-tbl-top {
+    td {
+      text-align: left;
+      border-right: 1px solid #EAF1F6;
+      vertical-align: top;
+
+      &:last-child {
+        border-right: 0;
+      }
+
+      .tbl-title-wrap {
+        h4 {
+          font-size: 13px;
+        }
+
+        span.total {
+          display: block;
+          margin-top: 5px;
+          font-size: 22px;
+        }
+      }
+
+      ul {
+        display: flex;
+        flex: 1;
+        justify-content: space-between;
+
+        li {
+          display: flex;
+          flex: 1;
+          justify-content: space-between;
+          padding: 3px 0;
+
+          span:first-child {
+            color: #888888;
+          }
+
+          &:last-child {
+            padding-right: 20px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.tbl-round {
+  &.easy-pick-table-list-view {
+    border: 0;
+
+    table {
+      th {
+        border:1px solid #EAF1F6;
+
+        .with-tooltip {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          // 2022 08 18 text-underline
+          a.underline{
+            text-decoration: underline !important;
+          }
+        }
+      }
+    }
+
+  }
+}
+
+.easy-pick-inner-table {
+  th {
+    height: 29px !important;
+    border: 1px solid #EAF1F6 !important;
+  }
+  td {
+    border: 1px solid #EAF1F6 !important;
+    text-align: center !important;
+    height: 29px !important;
+    padding: initial !important;
+  }
+}

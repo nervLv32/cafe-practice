@@ -1,0 +1,185 @@
+{% extends "../_templates/layout_blank.njk" %}
+{% block content %}
+
+<div class="modal-pop window active account-popup-case02-1" id="content">
+    <div class="modal-dialog">
+        <div class="modal-inner">
+            <section class="modal-head">
+                <div class="modal-head-inner">
+                    <h1>{거래처명} 총 정산상세내역 <span class="settlement-amount">정산금액 : <storng>1,385,500</strong>원</span></h1>
+                    <a href="#" class="btn-manual" target="_blank" title="매뉴얼">매뉴얼</a>
+                </div>
+            </section>
+            <div class="modal-body">
+                <div class="top-info mb20">
+                    <div class="f-left dflex align-center">
+                        <span class="mr10" style="font-weight: 500;">정산월</span>
+                        <div class="select-control active">
+                            <button type="button" class="btn-sel">2022-04</button>
+                            <ul class="sel-panel is-select" style="display: block;">
+                                <li class="active hover">2022-04</li>
+                                <li class="">2022-03</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="btns-multi f-right">
+                        <button type="button" name="button" class="btn btn-sm btn-outline-gray">
+                            <i class="ico ico-excel"></i>
+                            엑셀다운로드
+                        </button>
+                    </div>
+                </div>
+                <div class="tround-box detail-tbl detail-tbl-type02">
+                    <div class="tbl-scroll-box">
+                        <div class="tbl-head">
+                            <table class="tbl-list-view">
+                                <thead>
+                                    <tr>
+                                        <th>입고일</th>
+                                        <th>구분</th>
+                                        <th>신규주문</th>
+                                        <th>신규입고</th>
+                                        <th class="plus-info-ico">신규미송</th>
+                                        <th class="plus-info-ico">샘플입고</th>
+                                        <th class="minus-info-ico">반품</th>
+                                        <th class="minus-info-ico">매입환불</th>
+                                        <th class="plus-info-ico">조정금액</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                        <div class="tbl-body">
+                            <table class="tbl-list-view">
+                                <tbody>
+                                    <tr>
+                                        <td rowspan="4">2022-04-03</td>
+                                        <td colspan="8" class="td-p20">
+                                            정산금액 <span class="ftpointcolor">220,000</span>원 (공급가 기준 <span>200,000</span>원)
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>공급가액</td>
+                                        <td class="text-ar">200,000</td>
+                                        <td class="text-ar">100,000</td>
+                                        <td class="text-ar">100,000</td>
+                                        <td class="text-ar">100,000</td>
+                                        <td class="text-ar">0</td>
+                                        <td class="text-ar">0</td>
+                                        <td class="text-ar">0</td>
+                                    </tr>
+                                    <tr>
+                                        <td>부가세</td>
+                                        <td class="text-ar">20,000</td>
+                                        <td class="text-ar">10,000</td>
+                                        <td class="text-ar">10,000</td>
+                                        <td class="text-ar">10,000</td>
+                                        <td class="text-ar">0</td>
+                                        <td class="text-ar">0</td>
+                                        <td class="text-ar">0</td>
+                                    </tr>
+                                    <tr class="tbl-gray">
+                                        <td><strong>합계<strong></td>
+                                        <td class="text-ar"><strong>220,000<strong></td>
+                                        <td class="text-ar"><strong>110,000<strong></td>
+                                        <td class="text-ar"><strong>110,000<strong></td>
+                                        <td class="text-ar"><strong>110,000<strong></td>
+                                        <td class="text-ar"><strong>0<strong></td>
+                                        <td class="text-ar"><strong>0<strong></td>
+                                        <td class="text-ar"><strong>0<strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td rowspan="4">2022-04-03</td>
+                                        <td colspan="8" class="td-p20">
+                                            정산금액 <span class="ftpointcolor">335,000</span>원 (공급가 기준 <span>305,000</span>원)
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>공급가액</td>
+                                        <td class="text-ar">200,000</td>
+                                        <td class="text-ar">100,000</td>
+                                        <td class="text-ar">100,000</td>
+                                        <td class="text-ar">100,000</td>
+                                        <td class="text-ar">0</td>
+                                        <td class="text-ar">0</td>
+                                        <td class="text-ar">
+                                            <span class="ftpointcolor1">105,000</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>부가세</td>
+                                        <td class="text-ar">20,000</td>
+                                        <td class="text-ar">10,000</td>
+                                        <td class="text-ar">10,000</td>
+                                        <td class="text-ar">10,000</td>
+                                        <td class="text-ar">0</td>
+                                        <td class="text-ar">0</td>
+                                        <td class="text-ar">
+                                            <span class="ftpointcolor1">10,500</span>
+                                        </td>
+                                    </tr>
+                                    <tr class="tbl-gray">
+                                        <td><strong>합계<strong></td>
+                                        <td class="text-ar"><strong>220,000<strong></td>
+                                        <td class="text-ar"><strong>110,000<strong></td>
+                                        <td class="text-ar"><strong>110,000<strong></td>
+                                        <td class="text-ar"><strong>110,000<strong></td>
+                                        <td class="text-ar"><strong>0<strong></td>
+                                        <td class="text-ar"><strong>0<strong></td>
+                                        <td class="text-ar">
+                                            <strong class="ftpointcolor1">115,000</strong>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td rowspan="4">2022-04-03</td>
+                                        <td colspan="8" class="td-p20">
+                                            정산금액 <span class="ftpointcolor">335,000</span>원 (공급가 기준 <span>305,000</span>원)<br>
+                                            = 합계 <span>-66,000</span>원 + 매입금적립금액 반영 <span>66,000</span>원 <span class="pointColor-gray">(상품금액 60,000원 + 부가세 6,000원)</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>공급가액</td>
+                                        <td class="text-ar">0</td>
+                                        <td class="text-ar">0</td>
+                                        <td class="text-ar">0</td>
+                                        <td class="text-ar">0</td>
+                                        <td class="text-ar">60,000</td>
+                                        <td class="text-ar">0</td>
+                                        <td class="text-ar">0</td>
+                                    </tr>
+                                    <tr>
+                                        <td>부가세</td>
+                                        <td class="text-ar">0</td>
+                                        <td class="text-ar">0</td>
+                                        <td class="text-ar">0</td>
+                                        <td class="text-ar">0</td>
+                                        <td class="text-ar">6,000</td>
+                                        <td class="text-ar">0</td>
+                                        <td class="text-ar">0</td>
+                                    </tr>
+                                    <tr class="tbl-gray">
+                                        <td class="text-ar"><strong>합계<strong></td>
+                                        <td class="text-ar"><strong>0<strong></td>
+                                        <td class="text-ar"><strong>0<strong></td>
+                                        <td class="text-ar"><strong>0<strong></td>
+                                        <td class="text-ar"><strong>0<strong></td>
+                                        <td class="text-ar"><strong>66,000<strong></td>
+                                        <td class="text-ar"><strong>0<strong></td>
+                                        <td class="text-ar"><strong>0</strong></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="modal-footer-btn">
+                    <button type="button" name="button" class="btn btn-lg btn-darkgray" onclick='window.open("about:blank","_self").close();'>닫기</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

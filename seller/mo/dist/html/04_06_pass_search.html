@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<!--EZP-5398-->
+<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width, viewport-fit=cover">
+<link rel="stylesheet" type="text/css" href="../css/mobile/swiper-bundle.min.css">
+<link rel="stylesheet" type="text/css" href="../css/mobile/jquery-ui.min.css">
+<link rel="stylesheet" type="text/css" href="../css/mobile/default.import.css">
+<link rel="stylesheet" type="text/css" href="../css/mobile/ui.css">
+<link rel="stylesheet" type="text/css" href="../css/mobile/style.css">
+
+<script type="text/javascript" src="../js/mobile/jquery-3.5.1.min.js"></script>
+<script type="text/javascript" src="../js/mobile/jquery-ui.min.js"></script>
+<script type="text/javascript" src="../js/mobile/swiper-bundle.min.js"></script>
+<script type="text/javascript" src="../js/mobile/common_front.js"></script>
+<script type="text/javascript" src="../js/mobile/ui.js"></script>
+</head>
+<body>
+    <!-- 2022-10-14 EZP-5609 body > banner + #wrap > header로 변경 -->
+
+    <div id="wrap" class="member_wrap find_member">
+        <!-- 2022-10-14 EZP-5609 header 위치변경 (body안에서 #wrap안으로) -->
+        <header>
+            <div class="back">
+                <a href="#">뒤로가기</a>
+            </div>
+            <strong class="tit">아이디/비밀번호 찾기</strong>
+        </header>
+        <section class="content">
+            <nav class="nav-product">
+                <ul>
+                    <li><a href="#">아이디 찾기</a></li>
+                    <li><a href="#" class="active">비밀번호 찾기</a></li>
+                </ul>
+            </nav>
+            <div class="find-group">
+                <div class="box">
+                    <p class="message">가입한 아이디를 통해<br>비밀번호 찾기</p>
+                    <p class="desc">회원가입시 등록한 가입자 이름과 아이디로<br>비밀번호 찾기가 가능합니다.</p>
+                </div>
+                <dl class="input">
+                    <dt>가입자 이름</dt>
+                    <dd><input type="text" placeholder="가입자 이름 입력"/></dd>
+                    <dt>아이디(이메일)</dt>
+                    <dd class="email select-email">
+                        <input type="text" placeholder="아이디 입력"/>
+                        <select>
+                            <option>네이버</option>
+                            <option>직접입력</option>
+                        </select>
+                        <input type="email" class="etc none" placeholder="직접입력"/>
+                    </dd>
+                </dl>
+
+                <!-- 케이스@ 임시비밀번호 전송
+                <div class="box">
+                    <p class="message pass"><span>abcd1234@email.com</span>주소로<br>임시비밀번호가 전송되었습니다.</p>
+                    <p class="desc">개인정보 보안을 위해 임시 발급된 비밀번호로 로그인 후 비밀번호 변경을 해주시기 바랍니다.</p>
+                </div>
+                 -->
+            </div>
+
+            <div class="btn-footer">
+                <button type="button" class="case-02">비밀번호 찾기</button>
+            </div>
+        </section>
+    </div>
+
+    <!-- 팝업@ 메세지 -->
+    <div class="ui-popup message" id="popup_message_01">
+        <div class="content">
+            <div class="body">가입자 이름을 입력하세요.</div>
+            <div class="btn-group">
+                <button type="button" class="case-02" data-popup-close>확인</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 팝업@ 메세지 -->
+    <div class="ui-popup message" id="popup_message_02">
+        <div class="content">
+            <div class="body">휴대폰 번호를 입력하세요.</div>
+            <div class="btn-group">
+                <button type="button" class="case-02" data-popup-close>확인</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 팝업@ 메세지 -->
+    <div class="ui-popup message" id="popup_message_03">
+        <div class="content">
+            <div class="body">
+            해당 정보로 가입된 아이디가 없습니다.<br>
+            <span>문의사항은 <a href="tel:02-6296-8794">고객센터(02-6296-8794)</a>로</span>
+            연락 바랍니다.
+            </div>
+            <div class="btn-group">
+                <button type="button" class="case-02" data-popup-close>확인</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

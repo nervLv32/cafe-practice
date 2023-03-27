@@ -1,0 +1,107 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Cafe24</title>
+    <link rel="stylesheet" href="./js/tree/default/style.min.css" />
+    <style>
+        html,
+        body {
+            display: flex;
+            flex: 1;
+            margin: 0;
+            padding: 0;
+            font-size: 10px;
+        }
+
+        #app {
+            display: flex;
+            flex: 1;
+        }
+
+        .tree {
+            display: flex;
+            flex-direction: column;
+            min-width: 25rem;
+            max-width: 25rem;
+            border-right: .1rem solid #efebef;
+            overflow-y: scroll;
+        }
+
+        .tree-title {
+            font: bold 15px/15px 'sans-serif';
+            margin: 0;
+            margin-bottom: 10px;
+            padding: 23px 7px 22px;
+            color: #616161;
+            border-bottom: 1px solid #e9e9e9;
+        }
+
+        .content {
+            display: flex;
+            flex: 1;
+        }
+
+        /*****************
+       tree style
+      ******************/
+
+        .jstree-default .jstree-anchor {
+            font-size: 1.2rem;
+        }
+
+        #tree>.jstree-container-ul>.jstree-node:last-child {
+            padding-bottom: 10rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div class="tree">
+            <div class="tree-title">EASYPICK 사입삼촌 발주서 MOBILE</div>
+            <div id="tree"></div>
+        </div>
+        <div class="content">
+            <iframe id="path" style="border-style: none; width: 100%; height: 100%;" src="./html/guidemain/index.html">
+            </iframe>
+        </div>
+    </div>
+    <script src="./js/jquery-3.5.1.min.js"></script>
+    <script src="./js/tree/jstree.min.js"></script>
+    <script>
+        $('#tree')
+            .on("changed.jstree", function (e, data) {
+                var url = data.instance.get_node(data.selected[0]).data
+                // if(data.selected.length && url) {
+                //   $('#path').attr('src', url)
+                // }
+                if(url !== null) {
+                    window.open(url, '_blank');
+                }
+            })
+            .jstree({
+                'core': {
+                    'data': [
+                        // 기본부가기능
+                        {
+                            "text": "화면리스트",
+                            "state": { "opened": true },
+                            "children": [
+                                {
+                                    'text': '발주서 목록',
+                                    'data': './html/발주서-목록.html'
+                                },
+                                {
+                                    'text': '발주서 전체',
+                                    'data': './html/발주서-전체.html'
+                                }
+                            ]
+                        },
+                    ]
+                }
+            });
+    </script>
+</body>
+
+</html>

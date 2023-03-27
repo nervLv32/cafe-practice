@@ -1,0 +1,633 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Cafe24</title>
+    <link rel="stylesheet" href="./js/tree/default/style.min.css" />
+    <style>
+        html,
+        body {
+            display: flex;
+            flex: 1;
+            margin: 0;
+            padding: 0;
+            font-size: 10px;
+        }
+
+        #app {
+            display: flex;
+            flex: 1;
+        }
+
+        .tree {
+            display: flex;
+            flex-direction: column;
+            min-width: 25rem;
+            max-width: 25rem;
+            border-right: .1rem solid #efebef;
+            overflow-y: scroll;
+        }
+
+        .tree-title {
+            font: bold 15px/15px 'sans-serif';
+            margin: 0;
+            margin-bottom: 10px;
+            padding: 23px 7px 22px;
+            color: #616161;
+            border-bottom: 1px solid #e9e9e9;
+        }
+
+        .content {
+            display: flex;
+            flex: 1;
+        }
+
+        /*****************
+       tree style
+      ******************/
+
+        .jstree-default .jstree-anchor {
+            font-size: 1.2rem;
+        }
+
+        #tree>.jstree-container-ul>.jstree-node:last-child {
+            padding-bottom: 10rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div class="tree">
+            <div class="tree-title">EASYPICK MO 가이드</div>
+            <div id="tree"></div>
+        </div>
+        <div class="content">
+            <iframe id="path" style="border-style: none; width: 100%; height: 100%;" src="./html/guidemain/index.html">
+            </iframe>
+        </div>
+    </div>
+    <script src="./js/lib/jquery-3.5.1.min.js"></script>
+    <script src="./js/tree/jstree.min.js"></script>
+    <script>
+        $('#tree')
+            .on("changed.jstree", function (e, data) {
+                var url = data.instance.get_node(data.selected[0]).data
+                // if(data.selected.length && url) {
+                //   $('#path').attr('src', url)
+                // }
+                if(url !== null) {
+                    window.open(url, '_blank');
+                }
+            })
+            .jstree({
+                'core': {
+                    'data': [
+                        // 기본부가기능
+                        {
+                            "text": "화면리스트",
+                            "state": { "opened": true },
+                            "children": [
+                                {
+                                    "text": "이지톡",
+                                    "state": { "opened": true },
+                                    "children": [
+                                        {
+                                            "text": "이지톡",
+                                            "data": "./html/easytalk/easytalk.html",
+                                        },
+                                    ]
+                                },
+                                {
+                                    "text": "로그인",
+                                    "state": { "opened": true },
+                                    "children": [
+                                        {
+                                            "text": "로그인",
+                                            "data": "./html/login/login.html",
+                                        },
+                                    ]
+                                },
+                                {
+                                    "text": "회원가입",
+                                    "state": { "opened": true },
+                                    "children": [
+                                        {
+                                            "text": "회원가입-이용약관동의",
+                                            "data": "./html/join/up.html",
+                                        },
+                                        {
+                                            "text": "회원가입-가입정보입력",
+                                            "data": "./html/join/up_step2.html",
+                                        },
+                                        {
+                                            "text": "회원가입-가입신청완료",
+                                            "data": "./html/join/join_completed.html",
+                                        },
+                                        {
+                                            "text": "회원가입-첨부파일미리보기",
+                                            "data": "./html/join/attachment_preview.html",
+                                        },
+                                    ]
+                                },
+                                {
+                                    "text": "서비스상담신청",
+                                    "state": { "opened": true },
+                                    "children": [
+                                        {
+                                            "text": "서비스상담신청",
+                                            "data": "./html/service_application/service_application.html",
+                                        },
+                                    ]
+                                },
+                                {
+                                    "text": "팝업이벤트",
+                                    "state": { "opened": true },
+                                    "children": [
+                                        {
+                                            "text": "팝업이벤트",
+                                            "data": "./html/popup/popup.html",
+                                        },
+                                    ]
+                                },
+                                {
+                                    "text": "홈(메인)",
+                                    "state": { "opened": true },
+                                    "children": [
+                                        {
+                                            "text": "홈",
+                                            "data": "./html/home/home.html",
+                                        },
+                                        {
+                                            "text": "홈_nodata",
+                                            "data": "./html/home/home_nodata.html",
+                                        },
+                                        {
+                                            "text": "홈(큐레이션X)",
+                                            "data": "./html/home/home_curation_nodata.html",
+                                        },
+                                    ]
+                                },
+                                {
+                                    "text": "FNB",
+                                    "state": { "opened": true },
+                                    "children": [
+                                        {
+                                            "text": "카테고리",
+                                            "data": "./html/FNB/category.html",
+                                        },
+                                        {
+                                            "text": "카테고리상세",
+                                            "data": "./html/FNB/category_details.html",
+                                        },
+                                        {
+                                            "text": "FNB_통합검색",
+                                            "data": "./html/FNB/search.html",
+                                        },
+                                        {
+                                            "text": "FNB_통합검색-검색후",
+                                            "data": "./html/FNB/search_data.html",
+                                        },
+                                        {
+                                            "text": "FNB_MYPICK",
+                                            "data": "./html/FNB/mypick.html",
+                                        },
+                                    ]
+                                },
+                                {
+                                    "text": "상품목록",
+                                    "state": { "opened": true },
+                                    "children": [
+                                        {
+                                            "text": "가게상세",
+                                            "data": "./html/FNB/shop_details.html",
+                                        },
+                                    ]
+                                },
+                                {
+                                    "text": "마이페이지",
+                                    "state": { "opened": true },
+                                    "children": [
+                                        {
+                                            "text": "마이페이지",
+                                            "data": "./html/mypage/mypage.html",
+                                        },
+                                        {
+                                            "text": "푸시알림설정",
+                                            "data": "./html/alarm/alarm-setting.html", //2022-11-02 EZP-5109
+                                        },
+                                        {
+                                            "text": "샘플제안서",
+                                            "data": "./html/mypage/sample-list.html",
+                                        },
+                                        {
+                                            "text": "샘플제안서상세",
+                                            "data": "./html/mypage/sample-list-detail.html",
+                                        },
+                                        {
+                                            "text": "회원정보수정(개인)",
+                                            "data": "./html/mypage/modify.html",
+                                        },
+                                        {
+                                            "text": "회원정보수정(법인)",
+                                            "data": "./html/mypage/modify2.html",
+                                        },
+                                        {
+                                            "text": "비밀번호변경",
+                                            "data": "./html/mypage/modify_password.html",
+                                        },
+                                        {
+                                            "text": "큐레이션정보수정",
+                                            "data": "./html/mypage/modify_curation.html",
+                                        },
+                                        {
+                                            "text": "사입삼촌정보",
+                                            "data": "./html/mypage/info_uncle.html",
+                                        },
+                                        {
+                                            "text": "회원탈퇴",
+                                            "data": "./html/mypage/withdrawal.html",
+                                        },
+                                    ]
+                                },
+                                {
+                                    "text": "공통화면",
+                                    "state": { "opened": true },
+                                    "children": [
+                                        {
+                                            "text": "상품상세",
+                                            "data": "./html/common/product_details.html",
+                                        },
+                                        {
+                                            "text": "내 쇼핑몰 상품으로 등록(팝업)",
+                                            "data": "./html/order_management/productRegistration_popup.html",
+                                        },
+                                        {
+                                            "text": "알림",
+                                            "data": "./html/common/notice.html",
+                                        },
+                                        {
+                                            "text": "주문/결제(이지픽)_일반주문",
+                                            "data": "./html/order_payment/order_easypick.html",
+                                        },
+                                        {
+                                            "text": "주문/결제(이지픽)_바로주문",
+                                            "data": "./html/order_payment/order_easypick_direct.html",
+                                        },
+                                        {
+                                            "text": "주문/결제(셀픽)_일반주문",
+                                            "data": "./html/order_payment/order_sellpick.html",
+                                        },
+                                        {
+                                            "text": "주문/결제(셀픽)_바로주문",
+                                            "data": "./html/order_payment/order_sellpick_direct.html",
+                                        },
+                                        {
+                                            "text": "주문/결제(셀픽)_일반주문(불량)",
+                                            "data": "./html/order_payment/order_sellpick_defectiv.html",
+                                        },
+                                        {
+                                            "text": "주문완료(일반/미송)",
+                                            "data": "./html/order_payment/order_completed_notsent.html",
+                                        },
+                                        {
+                                            "text": "주문완료(셀픽)",
+                                            "data": "./html/order_payment/order_completed_sellpick.html",
+                                        },
+                                        {
+                                            "text": "주문완료(그 외)",
+                                            "data": "./html/order_payment/order_completed.html",
+                                        },
+                                        {
+                                            "text": "장바구니",
+                                            "data": "./html/common/shopping-basket.html",
+                                        },
+                                    ]
+                                },
+                                {
+                                    "text": "자동주문",
+                                    "state": { "opened": true },
+                                    "children": [
+                                        {
+                                            "text": "자동주문",
+                                            "data": "./html/order_auto/auto.html",
+                                        },
+                                        {
+                                            "text": "시나리오 설정",
+                                            "data": "./html/order_auto/scenario.html",
+                                        },
+                                        {
+                                            "text": "시나리오 설정-SET",
+                                            "data": "./html/order_auto/set.html",
+                                        },
+                                        {
+                                            "text": "시나리오 예약 설정",
+                                            "data": "./html/order_auto/reservation.html",
+                                        },
+                                    ]
+                                },
+                                {
+                                    "text": "바로주문",
+                                    "state": { "opened": true },
+                                    "children": [
+                                        {
+                                            "text": "바로주문",
+                                            "data": "./html/order_now/order_now.html",
+                                        },
+                                        {
+                                            "text": "팝업(바로주문)",
+                                            "data": "./html/order_now/pop_order.html",
+                                        },
+                                        {
+                                            "text": "샘플 바로주문",
+                                            "data": "./html/sample_order_now/sample_order_now.html",
+                                        },
+                                        {
+                                            "text": "샘플상품 결제접수",
+                                            "data": "./html/sample_order_now/sample_pay_rec.html",
+                                        },
+                                    ]
+                                },
+                                {
+                                    "text": "주문관리",
+                                    "state": { "opened": true },
+                                    "children": [
+                                        {
+                                            "text": "주문현황",
+                                            "data": "./html/order_management/order_list.html",
+                                        },
+                                        {
+                                            "text": "주문상세",
+                                            "data": "./html/order_management/order_detail.html",
+                                        },
+                                        {
+                                            "text": "셀픽주문현황",
+                                            "data": "./html/order_management/sellpickList.html",
+                                        },
+                                        {
+                                            "text": "셀픽주문현황상세(기본)",
+                                            "data": "./html/order_management/sellpickDetail.html",
+                                        },
+                                        {
+                                            "text": "셀픽주문현황상세(샘플)",
+                                            "data": "./html/order_management/sellpickDetailSample.html",
+                                        },
+                                        {
+                                            "text": "샘플주문현황",
+                                            "data": "./html/order_management/sampleList.html",
+                                        },
+                                        {
+                                            "text": "샘플상품현황",
+                                            "data": "./html/order_management/sampleProduct.html",
+                                        },
+                                        {
+                                            "text": "샘플주문상세",
+                                            "data": "./html/order_management/sampleDetail.html",
+                                        },
+                                        {
+                                            "text": "불량접수현황",
+                                            "data": "./html/order_management/orderList.html",
+                                        },
+                                        {
+                                            "text": "불량접수상세",
+                                            "data": "./html/order_management/orderDetail.html",
+                                        },
+                                        {
+                                            "text": "불량상품현황",
+                                            "data": "./html/order_management/productList.html",
+                                        },
+                                        {
+                                            "text": "불량처리내역",
+                                            "data": "./html/order_management/procList.html",
+                                        },
+                                        {
+                                            "text": "오늘입고상품",
+                                            "data": "./html/order_management/todayList.html",
+                                        },
+                                        {
+                                            "text": "검수대기상품 - 품목",
+                                            "data": "./html/order_management/inspectList.html",
+                                        },
+                                        {
+                                            "text": "검수대기상품 - 정산",
+                                            "data": "./html/order_management/inspectList_calculate.html",
+                                        },
+                                        {
+                                            "text": "검수대기상품 - 추가입고등록(신규)",
+                                            "data": "./html/order_now/add_order.html",
+                                        },
+                                        {
+                                            "text": "검수대기상품 - 추가입고등록(샘플)",
+                                            "data": "./html/sample_order_now/add_order.html",
+                                        },
+                                        {
+                                            "text": "검수대기상품_nodata",
+                                            "data": "./html/order_management/inspectList_calculate_nodata.html",
+                                        },
+                                        {
+                                            "text": "검수완료내역",
+                                            "data": "./html/order_management/inspectCompleteList.html",
+                                        },
+                                        {
+                                            "text": "검수완료상세 - 상품",
+                                            "data": "./html/order_management/inspectCompleteDetail.html",
+                                        },
+                                        {
+                                            "text": "검수완료상세 - 정산",
+                                            "data": "./html/order_management/inspectCompleteDetail_calculate.html",
+                                        },
+                                        {
+                                            "text": "검수완료상세_nodata",
+                                            "data": "./html/order_management/inspectCompleteDetail_calculate_nodata.html",
+                                        },
+                                        {
+                                            "text": "재확인요청현황",
+                                            "data": "./html/order_management/inspectRequestList.html",
+                                        },
+                                        {
+                                            "text": "재확인요청현황_미송옵션",
+                                            "data": "./html/order_management/inspectOptionList.html",
+                                        },
+                                        {
+                                            "text": "미송매입환불_미송내역_미송상품",
+                                            "data": "./html/order_management/reserveList_undelivered.html",
+                                        },
+                                        {
+                                            "text": "미송매입환불_미송내역_제작상품",
+                                            "data": "./html/order_management/reserveList_making.html",
+                                        },
+                                        {
+                                            "text": "미송매입환불_매입내역",
+                                            "data": "./html/order_management/settleList.html",
+                                        },
+                                        {
+                                            "text": "미송매입환불_매입내역상세",
+                                            "data": "./html/order_management/settleDetail.html",
+                                        },
+                                        {
+                                            "text": "미송매입환불_환불내역",
+                                            "data": "./html/order_management/refundList.html",
+                                        },
+                                        {
+                                            "text": "정산 - 정산내역",
+                                            "data": "./html/order_management/buyerSettleList.html",
+                                        },
+                                        {
+                                            "text": "정산 - 정산내역상세",
+                                            "data": "./html/order_management/buyerSettleDetail.html",
+                                        },
+                                        {
+                                            "text": "거래처정산내역 - 입고별보기",
+                                            "data": "./html/order_management/sellerSettleList.html",
+                                        },
+                                        {
+                                            "text": "거래처정산내역 - 거래처별보기",
+                                            "data": "./html/order_management/sellerSettleList2.html",
+                                        },
+                                        {
+                                            "text": "정산 - 적립금내역",
+                                            "data": "./html/order_management/point_details.html",
+                                        },
+                                        {
+                                            "text": "검색결과없을경우(공통)",
+                                            "data": "./html/order_management/search_nodata.html",
+                                        },
+                                        {
+                                            "text": "문의하기",
+                                            "data": "./html/order_management/contactSeller.html",
+                                        },
+                                    ]
+                                },
+                                {
+                                    "text": "서비스안내",
+                                    "state": { "opened": true },
+                                    "children": [
+                                        {
+                                            "text": "서비스소개",
+                                            "data": "./html/service_info/service_info.html",
+                                        },
+                                        {
+                                            "text": "일대일문의",
+                                            "data": "./html/service_info/qna_list.html",
+                                        },
+                                        {
+                                            "text": "일대일문의상세",
+                                            "data": "./html/service_info/qna_detail.html",
+                                        },
+                                        {
+                                            "text": "공지사항",
+                                            "data": "./html/service_info/notice.html",
+                                        },
+                                        {
+                                            "text": "공지사항상세",
+                                            "data": "./html/service_info/notice_detail.html",
+                                        },
+                                        {
+                                            "text": "공지사항상세(개정 공지)",
+                                            "data": "./html/service_info/notice_detail_new.html",
+                                        },
+                                        {
+                                            "text": "FAQ",
+                                            "data": "./html/service_info/FAQ.html",
+                                        },
+                                    ]
+                                },
+                                {
+                                    "text": "약관및정책",
+                                    "state": { "opened": true },
+                                    "children": [
+                                        {
+                                            "text": "개인정보처리방침",
+                                            "data": "./html/privacy/privacy.html",
+                                        },
+                                        {
+                                            "text": "개인정보처리방침_2",
+                                            "data": "./html/privacy/privacy_20200813.html",
+                                        },
+                                        {
+                                            "text": "개인정보처리방침_3",
+                                            "data": "./html/privacy/privacy_20190626.html",
+                                        },
+                                        {
+                                            "text": "개인정보처리방침(NEW)",
+                                            "data": "./html/privacy/privacy_2022.html",
+                                        },
+                                        {
+                                            "text": "이용약관",
+                                            "data": "./html/privacy/detail.html",
+                                        },
+                                        {
+                                            "text": "이용약관(NEW)",
+                                            "data": "./html/privacy/detail_2022.html",
+                                        },
+                                    ]
+                                },
+                                {
+                                    "text": "기타",
+                                    "state": { "opened": true },
+                                    "children": [
+                                        {
+                                            "text": "로딩",
+                                            "data": "./html/etc/loading.html",
+                                        },
+                                        {
+                                            "text": "컨텐츠 로딩",
+                                            "data": "./html/etc/cont_loading.html",
+                                        },
+                                        {
+                                            "text": "404에러",
+                                            "data": "./html/etc/404error.html",
+                                        },
+                                        {
+                                            "text": "서비스점검",
+                                            "data": "./html/etc/service_check.html",
+                                        },
+                                        {
+                                            "text": "서비스에러",
+                                            "data": "./html/etc/service_error.html",
+                                        },
+                                        {
+                                            "text": "미판매상품",
+                                            "data": "./html/etc/error-page-mo.html",
+                                        },
+                                    ]
+                                },
+                                {
+                                    "text": "이메일컨텐츠",
+                                    "state": { "opened": true },
+                                    "children": [
+                                        {
+                                            "text": "이지픽/셀픽 주문완료",
+                                            "data": "./html/mail/mail-sellpick-complect.html",
+                                        },
+                                        {
+                                            "text": "회원가입접수",
+                                            "data": "./html/mail/mail-join-checking.html",
+                                        },
+                                        {
+                                            "text": "회원가입완료",
+                                            "data": "./html/mail/mail-join-complete.html",
+                                        },
+                                        {
+                                            "text": "비밀번호변경",
+                                            "data": "./html/mail/mail-password.html",
+                                        },
+                                        {
+                                            "text": "약관개정안내",
+                                            "data": "./html/mail/이지픽 서비스 약관 개정 안내.html",
+                                        },
+                                        {
+                                            "text": "개인정보처리방침개정안내",
+                                            "data": "./html/mail/이지픽 개인정보 처리방침 개정 안내.html",
+                                        },
+                                    ]
+                                },
+                            ]
+                        },
+                    ]
+                }
+            });
+    </script>
+</body>
+
+</html>

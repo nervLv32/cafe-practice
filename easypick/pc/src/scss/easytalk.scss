@@ -1,0 +1,1011 @@
+@charset "UTF-8";
+
+$color_1: inherit;
+$color_2: #fff;
+$color_3: #333;
+$color_4: #999;
+$color_5: #666;
+$color_6: #36c25d;
+$color_7: #c6c6c6;
+$color_8: #3297cc;
+$font-family_1: "Roboto";
+$background-color_1: #e7e7e7;
+$background-color_2: #fff;
+$background-color_3: #36c25d;
+$background-color_4: #f9f9f9;
+$background-color_5: #9a96ee;
+$background-color_6: #66aeec;
+$background-color_7: #6ec679;
+$background-color_8: #eebb62;
+$background-color_9: #f3895b;
+$background-color_10: #f18cbe;
+$background-color_11: #ff4900;
+$background-color_12: #eee;
+$background-color_13: #666;
+$background-color_14: #000;
+$background-color_15: #999;
+$background-color_16: transparent;
+$border-color_1: #36c25d;
+
+/* 2022-01-05 EZP-4920 */
+/* IE */
+/* easypick front만 적용 :: 위는 front, seller 공통 적용 */
+a {
+	color: $color_1;
+	text-decoration: none;
+}
+dd {
+	margin: 0;
+}
+body {
+	background-color: $background-color_1;
+}
+.chat-wrap {
+	display: flex;
+	min-height: 600px;
+	height: calc(100vh - 202px);
+	.add-clear-span {
+		width: 100%;
+		input {
+			padding-right: 30px !important;
+		}
+	}
+}
+.chat {
+	display: flex;
+	overflow: hidden;
+	width: 100%;
+	background-color: $background-color_2;
+	box-shadow: 0 0 11px rgba(0, 0, 0, 0.1);
+}
+.chat-list-wrap {
+	display: flex;
+	flex-direction: column;
+	flex-shrink: 0;
+	width: 340px;
+	border-right: 1px solid #e9e9e9;
+}
+.chat-list-search {
+	display: flex;
+	flex-wrap: wrap;
+	align-content: center;
+	align-items: center;
+	flex-shrink: 0;
+	height: 130px;
+	padding: 0 15px;
+	border-bottom: 1px solid #e9e9e9;
+	.ui-select {
+		>ul {
+			top: 41px;
+			padding: 0;
+			border: 1px solid #000;
+			border-radius: 0;
+		}
+		button {
+			border: 0;
+		}
+	}
+	.ui-select-wrap {
+		width: 155px;
+		.ui-select {
+			width: 100%;
+		}
+	}
+	.ui-select.active {
+		box-shadow: none;
+		>ul {
+			box-shadow: none;
+		}
+	}
+	.add-chat {
+		position: relative;
+		flex-shrink: 0;
+		width: 30px;
+		height: 30px;
+		margin-left: auto;
+		border-radius: 100%;
+		background-color: $background-color_3;
+		text-indent: -9999px;
+		&::before {
+			content: "";
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			background-color: $background-color_2;
+			width: 2px;
+			height: 10px;
+			margin: -5px 0 0 -1px;
+		}
+		&::after {
+			content: "";
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			background-color: $background-color_2;
+			width: 10px;
+			height: 2px;
+			margin: -1px 0 0 -5px;
+		}
+	}
+	.input-text {
+		position: relative;
+		width: 100%;
+		margin-top: 10px;
+		padding-left: 35px;
+		border: 1px solid #d6d6d6;
+		.btn-search {
+			position: absolute;
+			top: 50%;
+			left: 15px;
+			width: 20px;
+			height: 20px;
+			margin-top: -7px;
+			background: url("../img/chat/ico-search.png") 0 0 no-repeat;
+			text-indent: -9999px;
+		}
+		input {
+			border: 0;
+			border-radius: 0;
+			padding-left: 8px;
+		}
+	}
+}
+.chat-list-box {
+	overflow-x: hidden;
+	overflow-y: auto;
+	flex: 1 1 auto;
+}
+.chat-list {
+	>li {
+		position: relative;
+		border-bottom: 1px solid #e9e9e9;
+	}
+	>li.on {
+		background-color: $background-color_4;
+		&::before {
+			content: "";
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			width: 5px;
+			background-color: $background-color_3;
+		}
+	}
+	.chat-list-link {
+		display: flex;
+		align-items: center;
+		padding: 15px;
+		text-align: left;
+	}
+	.thumb-wrap {
+		flex: none;
+		margin-right: 14px;
+	}
+	.thumb {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 52px;
+		height: 52px;
+		border-radius: 100%;
+		background: #b5b5b5 url("../img/chat/ico-store-sm.png") 50% 50% no-repeat;
+		.txt {
+			font-size: 14px;
+			color: $color_2;
+		}
+	}
+	.thumb.purple {
+		background-color: $background-color_5;
+	}
+	.thumb.blue {
+		background-color: $background-color_6;
+	}
+	.thumb.green {
+		background-color: $background-color_7;
+	}
+	.thumb.yellow {
+		background-color: $background-color_8;
+	}
+	.thumb.orange {
+		background-color: $background-color_9;
+	}
+	.thumb.pink {
+		background-color: $background-color_10;
+	}
+	.text-wrap {
+		overflow: hidden;
+		flex: 1 1;
+	}
+	.name-box {
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		align-items: center;
+		.name {
+			display: inline-block;
+			flex: 1 1;
+			margin-right: 5px;
+			font-size: 14px;
+			color: $color_3;
+			overflow: hidden;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+		}
+		.date {
+			flex: none;
+			display: inline-block;
+			margin-left: auto;
+			font-size: 12px;
+			color: $color_4;
+			white-space: nowrap;
+		}
+		.add-favorite {
+			flex: none;
+			display: inline-block;
+			overflow: hidden;
+			width: 15px;
+			height: 15px;
+			margin-left: 5px;
+			background: url("../img/chat/ico-star-off.png") 0 0 no-repeat;
+			text-indent: -9999px;
+		}
+		.add-favorite.on {
+			background: url("../img/chat/ico-star-on.png") 0 0 no-repeat;
+		}
+	}
+	.message-box {
+		display: flex;
+		align-items: center;
+		margin-top: 5px;
+		.message {
+			flex: 1 1;
+			overflow: hidden;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+			height: 20px;
+			font-size: 13px;
+			color: $color_5;
+		}
+		.unread {
+			display: flex;
+			align-items: center;
+			flex-shrink: 0;
+			height: 20px;
+			padding: 1px 10px 0;
+			margin-left: 10px;
+			border-radius: 20px;
+			font-family: $font-family_1;
+			font-size: 11px;
+			color: $color_2;
+			background-color: $background-color_11;
+		}
+	}
+}
+.chat-content-wrap {
+	display: flex;
+	flex: 1 1;
+	min-width: 0;
+	&:not(.on) {
+		justify-content: center;
+		align-items: center;
+		&::before {
+			content: "대화 상대를 선택해주세요.";
+			display: block;
+			width: 223px;
+			padding-top: 200px;
+			background: url("../img/chat/ico-chat-balloon.png") 50% 0 no-repeat;
+			text-align: center;
+		}
+	}
+	.chat-content {
+		display: none;
+	}
+	.chat-info-wrap {
+		display: none;
+	}
+}
+.chat-content-wrap.on {
+	.chat-content {
+		display: flex;
+	}
+	.chat-info-wrap {
+		display: flex;
+	}
+}
+.chat-content {
+	display: flex;
+	flex-direction: column;
+	flex: 1 1;
+	min-width: 0;
+	width: 75%;
+}
+.chat-content-view {
+	flex: 1 1 auto;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+.chat-content-list {
+	padding: 25px 30px 20px;
+	.chat-message {
+		word-wrap: break-word;
+		word-break: keep-all;
+		font-size: 14px;
+		display: flex;
+		align-items: flex-end;
+		&:not(:first-child) {
+			margin-top: 10px;
+		}
+		.chat-status {
+			display: flex;
+			flex-direction: column;
+			width: 80px;
+		}
+		.date {
+			margin: 0 10px;
+			font-size: 12px;
+			color: $color_4;
+		}
+	}
+	.chat-message.receive+.chat-message.send {
+		margin-top: 30px;
+	}
+	.chat-message.send+.chat-message.receive {
+		margin-top: 30px;
+	}
+	.chat-message.send {
+		justify-content: flex-end;
+		.message-balloon {
+			order: 2;
+		}
+		.chat-status {
+			text-align: right;
+		}
+		.message-content {
+			background-color: $background-color_3;
+			border-radius: 10px 10px 0;
+		}
+		.info-balloon {
+			flex: none;
+			order: 2;
+			border: 1px solid #36c25d;
+			border-radius: 10px 10px 0;
+			background-color: $background-color_3;
+			.info-order {
+				background-color: $background-color_3;
+			}
+			.btn-confirm {
+				border: 1px solid #36c25d;
+				color: $color_6;
+			}
+		}
+	}
+	.message-balloon {
+		color: $color_2;
+		max-width: 60%;
+	}
+	.message-content {
+		overflow: hidden;
+		padding: 12px 15px;
+		background-color: $background-color_12;
+		word-break: break-all;
+		a {
+			line-height: inherit;
+			vertical-align: top;
+			text-decoration: underline;
+		}
+	}
+	.chat-message.receive {
+		.message-content {
+			background-color: $background-color_13;
+			border-radius: 10px 10px 10px 0;
+		}
+		.info-balloon {
+			border: 1px solid #666;
+			border-radius: 10px 10px 10px 0;
+			background-color: $background-color_13;
+			.btn-confirm {
+				border: 1px solid #666;
+				color: $color_5;
+				&.fill {
+					/* 2022-12-09 EZP-6818 이지톡 검은색 배경 버튼 case 추가 */
+					background-color: #111111;
+					color: #ffffff;
+					border: 1px solid #111111;
+				}
+			}
+		}
+	}
+	.info-balloon {
+		overflow: hidden;
+		.info-order {
+			padding: 8px 15px;
+			font-size: 12px;
+			color: $color_2;
+			border-radius: 10px 10px 0 0;
+			&.center {
+				/* 2022-12-09 EZP-6818 샘플제안 title 가운데정렬 */
+				text-align: center;
+			}
+		}
+		.info-content-wrap {
+			max-width: 320px;
+			padding: 15px;
+			background-color: $background-color_2;
+			&.sample {
+				/* 2022-12-09 EZP-6818 샘플제안케이스 최대넓이 조정 */
+				width: 245px;
+				.text-wrap {
+					dl {
+						dt {
+							/* 2022-12-09 EZP-6818 샘플제안케이스 color font 조정 */
+							font-size: 14px;
+							color: #333333;
+						}
+						dd {
+							/* 2022-12-09 EZP-6818 샘플제안케이스 color font 조정 */
+							display: block;
+							width: 100%;
+							white-space: nowrap;
+							text-overflow: ellipsis;
+							overflow: hidden;
+							font-size: 12px;
+							color: #666666;
+						}
+					}
+				}
+			}
+		}
+		.info-content {
+			display: flex;
+		}
+		.thumb-wrap {
+			flex: none;
+			width: 80px;
+			margin-right: 10px;
+		}
+		.text-wrap {
+			flex: 1 1;
+			min-width: 0;
+		}
+		.name {
+			word-break: break-all;
+		}
+		.price-box {
+			margin-top: 5px;
+			font-size: 12px;
+			color: $color_5;
+			dt {
+				display: inline;
+			}
+			dd {
+				display: inline;
+			}
+		}
+		.option-box {
+			margin-top: 5px;
+			font-size: 12px;
+			color: $color_4;
+			.row {
+				word-break: break-all;
+				&:not(:first-child) {
+					margin-top: 3px;
+				}
+			}
+			dt {
+				display: inline;
+			}
+			dd {
+				display: inline;
+			}
+		}
+		.qty-box {
+			dt {
+				display: inline;
+			}
+			dd {
+				display: inline;
+			}
+		}
+		.brief-box {
+			font-size: 12px;
+			color: $color_4;
+			.row {
+				display: flex;
+				word-break: break-all;
+				&:not(:first-child) {
+					margin-top: 3px;
+				}
+			}
+			dt {
+				flex: none;
+				width: 40px;
+				color: $color_3;
+			}
+			dd {
+				flex: 1 1;
+			}
+			.price {
+				dt {
+					color: $color_5;
+				}
+				dd {
+					color: $color_5;
+				}
+			}
+		}
+		.btn-wrap {
+			margin-top: 10px;
+		}
+		.btn-confirm {
+			display: inline-block;
+			width: 100%;
+			height: 27px;
+			border-radius: 3px;
+			font-size: 12px;
+			line-height: 24px;
+			text-align: center;
+		}
+		.thumb {
+			display: flex;
+			align-items: center;
+			overflow: hidden;
+			width: 80px;
+			height: 80px;
+			background-color: $background-color_14;
+			img {
+				width: 100%;
+			}
+		}
+	}
+	.chat-date {
+		position: relative;
+		margin: 20px 0;
+		text-align: center;
+		&:first-child {
+			margin-top: 0;
+		}
+		&::before {
+			content: "";
+			display: block;
+			position: absolute;
+			left: 0;
+			right: 0;
+			top: 50%;
+			height: 1px;
+			background-color: $background-color_15;
+		}
+		.chat-date-block {
+			display: inline-block;
+			position: relative;
+			z-index: 1;
+			padding: 0 30px;
+			font-size: 13px;
+			color: $color_4;
+			background-color: $background-color_2;
+		}
+	}
+	.chat-unread-section {
+		margin: 30px 0;
+		padding: 5px 0;
+		font-size: 13px;
+		color: $color_4;
+		background-color: $background-color_4;
+		text-align: center;
+	}
+}
+.chat-content-input {
+	padding: 0 30px;
+	border-top: 1px solid #e9e9e9;
+	.chat-input-wrap {
+		flex: 1 1;
+		display: flex;
+		align-items: center;
+		height: 80px;
+	}
+	.warn {
+		flex: 1 1;
+		font-size: 14px;
+		color: $color_7;
+	}
+	.chat-input {
+		flex: 1 1;
+		overflow-y: auto;
+		width: 100%;
+		height: 100%;
+		padding: 20px 0;
+		border: 0;
+		border-radius: 0;
+		font-size: 14px;
+		line-height: 20px;
+		background-color: $background-color_16;
+		box-sizing: border-box;
+	}
+	.btn-send {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-shrink: 0;
+		width: 100px;
+		height: 40px;
+		margin-left: 20px;
+		border-radius: 20px;
+		font-size: 16px;
+		color: $color_7;
+		background-color: $background-color_15;
+		pointer-events: none;
+		&::before {
+			content: "";
+			display: inline-block;
+			width: 21px;
+			height: 18px;
+			margin: 3px 7px 0 0;
+			background: url("../img/chat/ico-send-off.png") 0 0 no-repeat;
+		}
+	}
+}
+.chat-content-input.ing {
+	.btn-send {
+		color: $color_2;
+		background-color: $background-color_3;
+		pointer-events: auto;
+		&::before {
+			background-image: url("../img/chat/ico-send-on.png");
+		}
+	}
+}
+.chat-content-input.disabled {
+	background-color: $background-color_4;
+}
+.chat-info-wrap {
+	display: flex;
+	flex-direction: column;
+	min-width: 280px;
+	width: 25%;
+	padding: 30px 2%;
+	border-left: 1px solid #e9e9e9;
+	text-align: center;
+	.btn-exit {
+		width: 100%;
+		height: 40px;
+		margin-top: auto;
+		padding: 0;
+		line-height: 38px;
+		border: 1px solid #36c25d;
+		border-radius: 2px;
+		font-size: 14px;
+		color: $color_6;
+		background-color: $background-color_2;
+	}
+}
+.chat-info {
+	.thumb-wrap {
+		display: flex;
+		justify-content: center;
+	}
+	.thumb {
+		overflow: hidden;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 120px;
+		height: 120px;
+		border-radius: 100%;
+		background: #b5b5b5 url("../img/chat/ico-store.png") 50% 50% no-repeat;
+		img {
+			width: 100%;
+		}
+		.txt {
+			font-size: 28px;
+			color: $color_2;
+		}
+	}
+	.thumb.purple {
+		background-color: $background-color_5;
+	}
+	.thumb.blue {
+		background-color: $background-color_6;
+	}
+	.thumb.green {
+		background-color: $background-color_7;
+	}
+	.thumb.yellow {
+		background-color: $background-color_8;
+	}
+	.thumb.orange {
+		background-color: $background-color_9;
+	}
+	.thumb.pink {
+		background-color: $background-color_10;
+	}
+	.text-wrap {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		word-break: keep-all;
+		word-wrap: break-word;
+	}
+	.name {
+		max-width: 220px;
+		width: 100%;
+		margin-top: 26px;
+		font-size: 20px;
+	}
+	.ex {
+		max-width: 220px;
+		width: 100%;
+		margin-top: 10px;
+		font-size: 13px;
+	}
+	.sub-info {
+		max-width: 220px;
+		width: 100%;
+		margin-top: 10px;
+		font-size: 13px;
+		color: $color_4;
+	}
+	.hashtag {
+		max-width: 220px;
+		width: 100%;
+		margin-top: 16px;
+		font-size: 13px;
+		.word {
+			display: inline-block;
+			color: $color_8;
+		}
+		.word.disabled {
+			color: $color_3;
+		}
+	}
+	.contact {
+		max-width: 220px;
+		width: 100%;
+		font-size: 13px;
+		color: $color_3;
+		text-align: left;
+		.row {
+			display: flex;
+			&:not(:first-child) {
+				margin-top: 3px;
+			}
+		}
+		dt {
+			width: 80px;
+			flex-shrink: 0;
+		}
+		dd {
+			flex: 1 1;
+			min-width: 0;
+		}
+	}
+	.contact-wrap {
+		display: flex;
+		justify-content: center;
+		width: 100%;
+		margin-top: 20px;
+		padding: 20px;
+		border-top: 1px solid #e9e9e9;
+	}
+}
+.add-chat-popup {
+	.content {
+		text-align: left;
+		>.btn_close {
+			right: 28px;
+		}
+	}
+	.input-text {
+		position: relative;
+		width: 100%;
+		padding-left: 35px;
+		border: 1px solid #d6d6d6;
+		.btn-search {
+			position: absolute;
+			top: 50%;
+			left: 15px;
+			width: 20px;
+			height: 20px;
+			margin-top: -7px;
+			background: url("../img/chat/ico-search.png") 0 0 no-repeat;
+			text-indent: -9999px;
+		}
+		input {
+			border: 0;
+			border-radius: 0;
+			padding-left: 8px;
+		}
+	}
+	.body {
+		.cont {
+			margin-top: 30px;
+		}
+		padding: 30px;
+		border: 0;
+		border-top: 1px solid #d6d6d6;
+	}
+	.title {
+		display: block;
+		margin-bottom: 17px;
+		font-weight: 700;
+		font-size: 16px;
+		color: $color_3;
+	}
+	.store-select-list-wrap {
+		overflow-x: hidden;
+		overflow-y: auto;
+		height: 300px;
+		background-color: $background-color_4;
+	}
+	.store-select-list-wrap+.pagination {
+		margin-top: 20px;
+	}
+	.store-select-list {
+		padding: 20px 10px;
+		>li {
+			&:not(:first-child) {
+				margin-top: 16px;
+			}
+		}
+	}
+	.warn {
+		margin-top: 30px;
+		font-size: 14px;
+		color: $color_5;
+	}
+	.selected-store {
+		margin-top: 10px;
+		.store {
+			overflow: hidden;
+			max-width: 100%;
+			height: 40px;
+			padding: 0 20px;
+			border-radius: 40px;
+			font-size: 16px;
+			color: $color_2;
+			line-height: 40px;
+			background-color: $background-color_3;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+		}
+	}
+	.add-clear-span {
+		width: 100%;
+		input {
+			padding-right: 30px !important;
+		}
+	}
+	.header {
+		display: flex;
+		align-items: center;
+		height: 76px;
+		padding: 0 30px;
+		border: 0;
+		&::after {
+			display: none;
+		}
+		p {
+			font-weight: 700;
+			font-size: 24px;
+			color: $color_3;
+		}
+	}
+}
+.chat-radio {
+	display: flex;
+	position: relative;
+	min-height: 16px;
+	padding-left: 24px;
+	word-wrap: break-word;
+	input {
+		position: absolute;
+		top: 0;
+		left: 0;
+		display: block;
+		width: 16px;
+		height: 16px;
+		opacity: 0;
+		&:checked+label {
+			&::before {
+				border-color: $border-color_1;
+			}
+			&::after {
+				content: "";
+				position: absolute;
+				top: 50%;
+				left: 4px;
+				width: 8px;
+				height: 8px;
+				margin-top: -4px;
+				border-radius: 100%;
+				background-color: $background-color_3;
+			}
+		}
+	}
+	label {
+		font-size: 14px;
+		line-height: 1.4;
+		color: $color_3;
+		cursor: pointer;
+		&::before {
+			content: "";
+			position: absolute;
+			top: 50%;
+			left: 0;
+			display: block;
+			width: 16px;
+			height: 16px;
+			margin-top: -8px;
+			border: 2px solid #d7d7d7;
+			border-radius: 100%;
+			background-color: $background-color_2;
+			box-sizing: border-box;
+		}
+	}
+	.addr {
+		&::before {
+			content: "/ ";
+		}
+	}
+}
+.chat-nodata {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+	font-size: 16px;
+	.inner {
+		position: relative;
+		padding-top: 65px;
+		color: $color_3;
+		&::before {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 50%;
+			width: 52px;
+			height: 52px;
+			margin-left: -26px;
+			background: url("../img/common/ico-nodata-big.png") no-repeat 50% 50%;
+		}
+	}
+}
+#container-full {
+	padding-top: 30px;
+	padding-bottom: 10px;
+}
+@media screen and (-ms-high-contrast: active) {
+	.chat-content-list {
+		.info-balloon {
+			.text-wrap {
+				flex: none;
+			}
+			.thumb-wrap+.text-wrap {
+				max-width: 200px;
+			}
+			.brief-box {
+				dd {
+					flex: none;
+					max-width: 250px;
+				}
+			}
+		}
+	}
+}
+@media (-ms-high-contrast: none) {
+	.chat-content-list {
+		.info-balloon {
+			.text-wrap {
+				flex: none;
+			}
+			.thumb-wrap+.text-wrap {
+				max-width: 200px;
+			}
+			.brief-box {
+				dd {
+					flex: none;
+					max-width: 250px;
+				}
+			}
+		}
+	}
+}

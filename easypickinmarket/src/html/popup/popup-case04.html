@@ -1,0 +1,247 @@
+{% extends "../_templates/layout_blank.njk" %}
+{% block content %}
+
+<div class="modal-pop window active inspection-modal-case01" id="content">
+    <div class="modal-dialog">
+        <div class="modal-inner">
+            <section class="modal-head">
+                <div class="modal-head-inner">
+                    <h1>검수완료 거래처별 정산금액 <span class="date">(MM/DD 입고)</span></h1>
+                    <a href="#" class="btn-manual" target="_blank" title="매뉴얼">매뉴얼</a>
+                </div>
+            </section>
+            <div class="modal-body inspection-modal">
+                <div class="top-info mb20">
+                    <div class="f-left dflex align-center">
+                        <span class="" style="font-weight: 500;">거래처별 정산 금액은 총 금액을 표시하고 있으며 검색이 적용되지 않습니다.</span>
+                    </div>
+                    <div class="btns-multi f-right">
+                        <button type="button" name="button" class="btn btn-sm btn-outline-gray">
+                            <i class="ico ico-excel"></i>
+                            엑셀다운로드
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- 07/13 테이블 가로스크롤 수정 -->
+                <div class="gridTableArea">
+                    <div class="mGridTable tbl-height01 height-60">
+                        <table id="eMultiTable" class="eChkColor">
+                            <thead>
+                                <tr>
+                                    <th scope="col" style="width: 130px;" class="resizable">거래처명</th>
+                                    <th scope="col" style="width: 130px;" class="resizable">주소</th>
+                                    <th scope="col" style="width: 108px;" class="resizable">신규주문</th>
+                                    <th scope="col" style="width: 108px;" class="resizable">신규입고</th>
+                                    <th scope="col" style="width: 108px;" class="resizable">신규미송</th>
+                                    <th scope="col" style="width: 108px;" class="resizable">샘플입고</th>
+                                    <th scope="col" style="width: 108px;" class="resizable">반품</th>
+                                    <th scope="col" style="width: 145px;" class="resizable">매입환불<br>사용금액</th>
+                                    <th scope="col" style="width: 125px;" class="resizable">총 결제금액</th>
+                                    <th scope="col" style="width: 100px;">매입금<br>적립금액</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="tbl-gray">
+                                    <td></td>
+                                    <!-- 2022 08 18 가격단위 추가 -->
+                                    <td><strong>합계<strong></td>
+                                    <td class="text-ar"><strong>16,773,000원<strong></td>
+                                    <td class="text-ar"><strong>7,728,000원<strong></td>
+                                    <td class="text-ar"><strong>1,251,000원<strong></td>
+                                    <td class="text-ar"><strong>1,251,000원<strong></td>
+                                    <td class="text-ar"><strong>340,000원<strong></td> 
+                                    <td class="text-ar"><strong>80,000원<strong></td>
+                                    <td class="text-ar"><strong>8,639,000원<strong></td>
+                                    <td class="text-ar"><strong>50,000원<strong></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-al"><a href="javascript: void(0);" class="white-space-normal" onclick="window.open('../popup/popup-case03.html','주문내역','width=1120,height=800,location=no,status=no,scrollbars=yes');">mean it (민잇)</a></td>
+                                    <td class="text-al">디오트<br>B1층 E열 12-1호</td>
+                                    <td class="text-ar">32,000원</td>
+                                    <td class="text-ar">0원</td>
+                                    <td class="text-ar">18,000원</td>
+                                    <td class="text-ar">18,000원</td>
+                                    <td class="text-ar">0원</td>
+                                    <td class="text-ar">0원</td>
+                                    <td class="text-ar">18,000원</td>
+                                    <td class="text-ar">0원</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-al"><a href="javascript: void(0);" class="white-space-normal" onclick="window.open('../popup/popup-case03.html','주문내역','width=1120,height=800,location=no,status=no,scrollbars=yes');">남이</a></td>
+                                    <td class="text-al">디오트<br>4층 B열 24호</td>
+                                    <td class="text-ar">65,000원</td>
+                                    <td class="text-ar">0원</td>
+                                    <td class="text-ar">0원</td>
+                                    <td class="text-ar">0원</td>
+                                    <td class="text-ar">0원</td>
+                                    <td class="text-ar">0원</td>
+                                    <td class="text-ar">0원</td>
+                                    <td class="text-ar">0원</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-al"><a href="javascript: void(0);" class="white-space-normal" onclick="window.open('../popup/popup-case03.html','주문내역','width=1120,height=800,location=no,status=no,scrollbars=yes');">네온히치</a></td>
+                                    <td class="text-al">디오트<br>4층 F열 10호</td>
+                                    <td class="text-ar">1,744,000원</td>
+                                    <td class="text-ar">6,752,000원</td>
+                                    <td class="text-ar">0원</td>
+                                    <td class="text-ar">0원</td>
+                                    <td class="text-ar">120,000원</td>
+                                    <td class="text-ar">
+                                        <span>50,000</span> 원 
+                                        <button type="button" class="memo-btn" onclick="targetModalPopup('modal-outputmemo-popup')">
+                                            <i class="ico-easy-pick ico-memo-on"></i>
+                                        </button>
+                                    </td>
+                                    <td class="text-ar">6,582,000원</td>
+                                    <td class="text-ar">0원</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-al"><a href="javascript: void(0);" class="white-space-normal" onclick="window.open('../popup/popup-case03.html','주문내역','width=1120,height=800,location=no,status=no,scrollbars=yes');">네온히치</a></td>
+                                    <td class="text-al">디오트<br>4층 F열 10호</td>
+                                    <td class="text-ar">50,000원</td>
+                                    <td class="text-ar">0원</td>
+                                    <td class="text-ar">0원</td>
+                                    <td class="text-ar">0원</td>
+                                    <td class="text-ar">50,000원</td>
+                                    <td class="text-ar">0원</td>
+                                    <td class="text-ar">
+                                        0
+                                        <span class="txt1">
+                                            (=합계 -50,000원<br>
+                                            + 매입금적립반영<br>
+                                            50,000원)<br>
+                                        </span>
+                                    </td>
+                                    <td class="text-ar">50,000원</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-al"><a href="javascript: void(0);" class="white-space-normal" onclick="window.open('../popup/popup-case03.html','주문내역','width=1120,height=800,location=no,status=no,scrollbars=yes');">네온히치</a></td>
+                                    <td class="text-al">디오트<br>4층 F열 10호</td>
+                                    <td class="text-ar">37,000원</td>
+                                    <td class="text-ar">0원</td>
+                                    <td class="text-ar">54,000원</td>
+                                    <td class="text-ar">54,000원</td>
+                                    <td class="text-ar">0원</td>
+                                    <td class="text-ar">0원</td>
+                                    <td class="text-ar">54,000원</td>
+                                    <td class="text-ar">0원</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-al"><a href="javascript: void(0);" class="white-space-normal" onclick="window.open('../popup/popup-case03.html','주문내역','width=1120,height=800,location=no,status=no,scrollbars=yes');">네온히치</a></td>
+                                    <td class="text-al">디오트<br>4층 F열 10호</td>
+                                    <td class="text-ar">115,000원</td>
+                                    <td class="text-ar">133,000원</td>
+                                    <td class="text-ar">0원</td>
+                                    <td class="text-ar">0원</td>
+                                    <td class="text-ar">100,000원</td>
+                                    <td class="text-ar">
+                                        <span>50,000</span> 원 
+                                        <button type="button" class="memo-btn" onclick="targetModalPopup('modal-outputmemo-popup')">
+                                            <i class="ico-easy-pick ico-memo-off"></i>
+                                        </button>
+                                    </td>
+                                    <td class="text-ar">33,000원</td>
+                                    <td class="text-ar">0원</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-al"><a href="javascript: void(0);" class="white-space-normal" onclick="window.open('../popup/popup-case03.html','주문내역','width=1120,height=800,location=no,status=no,scrollbars=yes');">네온히치</a></td>
+                                    <td class="text-al">디오트<br>4층 F열 10호</td>
+                                    <td class="text-ar">125,000원</td>
+                                    <td class="text-ar">0원</td>
+                                    <td class="text-ar">156,000원</td>
+                                    <td class="text-ar">156,000원</td>
+                                    <td class="text-ar">0원</td>
+                                    <td class="text-ar">0원</td>
+                                    <td class="text-ar">156,000원</td>
+                                    <td class="text-ar">0원</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-al"><a href="javascript: void(0);" class="white-space-normal" onclick="window.open('../popup/popup-case03.html','주문내역','width=1120,height=800,location=no,status=no,scrollbars=yes');">코이</a></td>
+                                    <td class="text-al">뉴존<br>B1층 404호</td>
+                                    <td class="text-ar">90,000원</td>
+                                    <td class="text-ar">0원</td>
+                                    <td class="text-ar">0원</td>
+                                    <td class="text-ar">0원</td>
+                                    <td class="text-ar">0원</td>
+                                    <td class="text-ar">0원</td>
+                                    <td class="text-ar">0원</td>
+                                    <td class="text-ar">0원</td>
+                                </tr> 
+                                <tr>
+                                    <td class="text-al"><a href="javascript: void(0);" class="white-space-normal" onclick="window.open('../popup/popup-case03.html','주문내역','width=1120,height=800,location=no,status=no,scrollbars=yes');">코이</a></td>
+                                    <td class="text-al">뉴존<br>B1층 404호</td>
+                                    <td class="text-ar">90,000원</td>
+                                    <td class="text-ar">0원</td>
+                                    <td class="text-ar">0원</td>
+                                    <td class="text-ar">0원</td>
+                                    <td class="text-ar">0원</td>
+                                    <td class="text-ar">0원</td>
+                                    <td class="text-ar">0원</td>
+                                    <td class="text-ar">0원</td>
+                                </tr> 
+                                <tr>
+                                    <td class="text-al"><a href="javascript: void(0);" class="white-space-normal" onclick="window.open('../popup/popup-case03.html','주문내역','width=1120,height=800,location=no,status=no,scrollbars=yes');">코이</a></td>
+                                    <td class="text-al">뉴존<br>B1층 404호</td>
+                                    <td class="text-ar">90,000원</td>
+                                    <td class="text-ar">0원</td>
+                                    <td class="text-ar">0원</td>
+                                    <td class="text-ar">0원</td>
+                                    <td class="text-ar">0원</td>
+                                    <td class="text-ar">0원</td>
+                                    <td class="text-ar">0원</td>
+                                    <td class="text-ar">0원</td>
+                                </tr> 
+                                <tr>
+                                    <td class="text-al"><a href="javascript: void(0);" class="white-space-normal" onclick="window.open('../popup/popup-case03.html','주문내역','width=1120,height=800,location=no,status=no,scrollbars=yes');">코이</a></td>
+                                    <td class="text-al">뉴존<br>B1층 404호</td>
+                                    <td class="text-ar">90,000원</td>
+                                    <td class="text-ar">0원</td>
+                                    <td class="text-ar">0원</td>
+                                    <td class="text-ar">0원</td>
+                                    <td class="text-ar">0원</td>
+                                    <td class="text-ar">0원</td>
+                                    <td class="text-ar">0원</td>
+                                    <td class="text-ar">0원</td>
+                                </tr> 
+                                <tr>
+                                    <td class="text-al"><a href="javascript: void(0);" class="white-space-normal" onclick="window.open('../popup/popup-case03.html','주문내역','width=1120,height=800,location=no,status=no,scrollbars=yes');">코이</a></td>
+                                    <td class="text-al">뉴존<br>B1층 404호</td>
+                                    <td class="text-ar">90,000원</td>
+                                    <td class="text-ar">0원</td>
+                                    <td class="text-ar">0원</td>
+                                    <td class="text-ar">0원</td>
+                                    <td class="text-ar">0원</td>
+                                    <td class="text-ar">0원</td>
+                                    <td class="text-ar">0원</td>
+                                    <td class="text-ar">0원</td>
+                                </tr> 
+                            </tbody>
+                        </table>
+                    </div>
+                </div><!-- 07/13 테이블 가로스크롤 수정 -->
+                
+            </div>
+            <div class="modal-footer">
+                <div class="modal-footer-btn">
+                    <button type="button" name="button" class="btn btn-lg btn-darkgray" onclick='window.open("about:blank","_self").close();'>닫기</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 07/13 테이블 가로스크롤 수정 -->
+<script>
+    $(document).ready(function() {
+        $('#eMultiTable').fixResize({
+            colResize: true,
+            resizeVer: 'flex'
+        });
+    });
+</script><!-- 07/13 테이블 가로스크롤 수정 -->
+
+<!-- 메모 -->
+{% include("./modals/memo/modal-memo.njk") %}
+
+{% endblock %}

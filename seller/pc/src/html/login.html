@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="shortcut icon" type="image/x-icon" href="/img/favicon/ezp.ico">
+
+	<link rel="stylesheet" type="text/css" href="../css/pc/default.css">
+
+	<script type="text/javascript" src="../js/pc/jquery-3.5.1.min.js"></script>
+	<script type="text/javascript" src="../js/pc/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="../js/pc/swiper-bundle.min.js"></script>
+	<script type="text/javascript" src="../js/pc/common_front.js"></script>
+	<script type="text/javascript" src="../js/pc/ui.js"></script>
+	<script type="text/javascript" src="../js/pc/pub.js"></script>
+
+	<title>로그인</title>
+</head>
+<body>
+	<!--2022-08-31 EZP-EZP-5609 앱출시 팝업추가-->
+	<!-- 2022-10-17 EZP-5609 .login-banner 추가-->
+	<div class="topBanner login-banner">
+		<!-- 2022-09-07 EZP-5609 이미지화질로 인해 팝업이미지 변경 -->
+		<img src="../img/common/re-topBanner.jpg">
+		<div class="bottom">
+			<span class="checkbox" id="check">
+				<!-- 2022-09-15 EZP-5609 텍스트 수정 다시보지않기에서 아래문구 -->
+				<input type="checkbox" value="checkbox" name="chkbox" id="chkday" /><label for="chkday">오늘 하루 동안 다시 보지 않기</label>
+			</span>
+			<span id="close"><img src="../img/common/btn-popup-close.svg"></span>
+		</div>
+	</div>
+
+	<div id="member">
+		<div class="login">
+			<div class="login-logo">
+				<img src="../img/common/logo-big.svg" alt="easypick seller">
+			</div>
+			<div class="login-input">
+				<input type="text" name="" value="" placeholder="이메일 입력(easypick@easypick.com)" class="gray mb10">
+				<!-- 2021-01-27 수정// -->
+				<input type="password" name="" value="" placeholder="비밀번호 입력" class="gray mb15">
+				<!-- //2021-01-27 수정 -->
+				<button type="button" name="button" class="btn big point">로그인</button>
+				<div class="login-check">
+					<span class="checkbox">
+						<input type="checkbox" name="" id="c1">
+						<label for="c1">로그인 상태 유지</label>
+					</span>
+					<div class="link-wrap">
+						<a href="#">아이디 찾기</a>
+						<a href="#">비밀번호 찾기</a>
+					</div>
+				</div>
+			</div>
+			<a href="#" class="btn big line">회원가입</a>
+		</div>
+
+	</div>
+
+	<!-- footer -->
+	<footer>
+		<div class="inner">
+			<div class="terms">
+				<a href="이용약관-로그인전.html">서비스 이용약관</a>
+				<a href="개인정보처리방침-로그인전.html">개인정보처리방침</a>
+			</div>
+
+			<p><span>고객센터 02-6296-8794</span><span>주중 10:00~18:00   점심시간 12:30~13:30 (토,일 / 공휴일 휴무)</span></p>
+			<p>
+				<span>회사명 : 제이씨어패럴(주)</span><span>대표자 : 정문섭</span><span>사업자등록번호 : 204-86-42339</span><span class="bdn">통신판매업신고 : 제2016-서울동대문-1326호</span>
+				<a href="http://www.ftc.go.kr/bizCommPop.do?wrkr_no=2048642339" target="_blank">사업자 정보확인</a>
+			</p>
+			<p><span>주소 : 서울특별시 동대문구 천호대로17길 6 (용두동) 제이씨어패럴빌딩</span><span>대표번호 : 02-6296-8794</span><span>팩스번호 : 02-929-4332</span></p>
+			<p><span>대표이메일 : jcapparel@jcapparel.co.kr</span><span>호스팅 제공자 : 카페24(주)</span><span>개인정보보호 책임자 : 김용해</span></p>
+
+			<div class="copy"><img src="../img/pc/common/img-copyright.svg" alt="copyright"></div><!-- 2021-02-15 수정 -->
+		</div>
+	</footer>
+	<!-- //footer -->
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+			//$('footer').load('include/footer.html');
+			// 2022-08-31 EZP-5609
+			// 쿠키 가져오기
+			var getCookie = function (cname) {
+				var name = cname + "=";
+				var ca = document.cookie.split(';');
+				for (var i = 0; i < ca.length; i++) {
+					var c = ca[i];
+					while (c.charAt(0) == ' ') c = c.substring(1);
+					if (c.indexOf(name) != -1) return c.substring(name.length, c.length);
+				}
+				return "";
+			}
+
+			// 24시간 기준 쿠키 설정하기  
+			var setCookie = function (cname, cvalue, exdays) {
+				var todayDate = new Date();
+				todayDate.setTime(todayDate.getTime() + (exdays * 24 * 60 * 60 * 1000));
+				var expires = "expires=" + todayDate.toUTCString(); // UTC기준의 시간에 exdays인자로 받은 값에 의해서 cookie가 설정 됩니다.
+				document.cookie = cname + "=" + cvalue + "; " + expires;
+			}
+
+			var couponClose = function () {
+				if ($("input[name='chkbox']").is(":checked") == true) {
+					setCookie("close", "Y", 1);   //기간( ex. 1은 하루, 7은 일주일)
+				}
+				$(".topBanner").css("display", "none");
+			}
+
+			$(document).ready(function () {
+				var cookiedata = document.cookie;
+				if (cookiedata.indexOf("close=Y") < 0) {
+					$(".topBanner").css("display", "block");
+				} else {
+					$(".topBanner").css("display", "none");
+				}
+				$("#close").click(function () {
+					couponClose();
+				});
+			});
+		});
+	</script>
+</body>
+</html>

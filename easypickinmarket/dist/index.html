@@ -1,0 +1,654 @@
+<html>
+  <head>
+  	<meta charset="UTF-8">
+  	<title>Cafe24</title>
+  	<link rel="stylesheet" href="../js/ui/tree/default/style.min.css" />
+    <style>
+      html,
+      body {
+        display: flex;
+        flex: 1;
+        margin: 0;
+        padding: 0;
+        font-size: 10px;
+      }
+
+      #app {
+        display: flex;
+        flex: 1;
+      }
+
+      .tree {
+        display: flex;
+        flex: 1;
+        min-width: 20rem;
+        max-width: 20rem;
+        border-right: .1rem solid #efebef;
+        overflow-y : scroll;
+      }
+
+      .content {
+        display: flex;
+        flex: 1;
+      }
+
+      /*****************
+       tree style
+      ******************/
+
+      .jstree-default .jstree-anchor {
+        font-size: 1.2rem;
+      }
+      #tree > .jstree-container-ul > .jstree-node:last-child {
+        padding-bottom : 10rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <div id="tree" class="tree"></div>
+      <div class="content">
+        <iframe
+          id="path"
+          style="border-style: none; width: 100%; height: 100%;"
+          src="../views/main/index.html"
+        >
+        </iframe>
+      </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="../js/ui/tree/jstree.min.js"></script>
+    <script>
+      $('#tree')
+      .on("changed.jstree", function (e, data) {
+        var url = data.instance.get_node(data.selected[0]).data
+        /* 2022-10-11 퍼블 VIEW를 위한 수정 start */
+  			// if(data.selected.length && url) {
+        //   $('#path').attr('src', url)
+  			// }
+        window.open(url, '_blank');
+        /* 2022-10-11 퍼블 VIEW를 위한 수정 end */
+  		})
+      .jstree({
+        'core' : {
+          'data' : [
+            // 기본부가기능
+            {
+              "text": "기본/부가기능",
+              "state" : { "opened": true },
+              "children": [
+                {
+                  "text": "동대문사입",
+                  "data": "../views/sub/service-index.html",
+                },
+                {
+                  "text": "서비스신청",
+                  "data": "../views/sub/service-agree.html",
+                },
+              ]
+            },
+            // 이지픽사입하기
+            {
+              "text": "이지픽사입하기",
+              "state" : { "opened": true },
+              "children": [
+                {
+                  "text": "맞춤추천상품",
+                  "data": "../views/main/index.html",
+                },
+                {
+                  "text": "전체상품보기",
+                  "data": "../views/sub/index.html",
+                },
+                {
+                  "text": "통합검색결과",
+                  "data": "../views/sub/total-search-result.html",
+                },
+                {
+                  "text": "상품상세",
+                  "data": "../views/sub/goods-detail.html",
+                },
+                {
+                  "text": "가게상세",
+                  "data": "../views/sub/shop-details.html",
+                },
+                {
+                  "text": "장바구니",
+                  "data": "../views/direct-order/direct-order-case01-1.html",
+                  "children": [
+                    {
+                      "text": "이지픽-장바구니",
+                      "data": "../views/sub/basket-easy.html",
+                    },
+                    {
+                      "text": "셀픽-장바구니",
+                      "data": "../views/sub/basket-sell.html",
+                    },
+                    {
+                      "text": "no-data-장바구니",
+                      "data": "../views/sub/basket-none.html",
+                    },
+                  ]
+                },
+                {
+                  "text": "바로주문-셀픽",
+                  "data": "../views/direct-order/direct-order-case01-1.html",
+                },
+                {
+                  "text": "바로주문-이지픽",
+                  "data": "../views/direct-order/direct-order-case02-1.html",
+                },
+                {
+                  "text": "추가입고등록",
+                  "data": "../views/additional-warehousing/table-list-case01.html",
+                },
+                {
+                  "text": "샘플상품결제접수",
+                  "data": "../views/sample-product-payment/sample-product-payment.html",
+                },
+                {
+                  "text": "주문/결제-일반-셀픽",
+                  "data": "../views/order-normal-sellpick/normal-sellpick-case1.html",
+                  "children": [
+                    {
+                      "text": "신규",
+                      "data": "../views/order-normal-sellpick/normal-sellpick-case1.html",
+                    },
+                    {
+                      "text": "샘플신청",
+                      "data": "../views/order-normal-sellpick/normal-sellpick-case2.html",
+                    },
+                    {
+                      "text": "불량접수",
+                      "data": "../views/order-normal-sellpick/normal-sellpick-case3.html",
+                    },
+                  ]
+                },
+                {
+                  "text": "주문/결제-바로-셀픽",
+                  "data": "../views/order-quick-sellpick/quick-sellpick-case1.html",
+                  "children": [
+                    {
+                      "text": "신규",
+                      "data": "../views/order-quick-sellpick/quick-sellpick-case1.html",
+                    },
+                    {
+                      "text": "샘플신청",
+                      "data": "../views/order-quick-sellpick/quick-sellpick-case2.html",
+                    },
+                    {
+                      "text": "샘플반납",
+                      "data": "../views/order-quick-sellpick/quick-sellpick-case3.html",
+                    },
+                    {
+                      "text": "샘플결제접수",
+                      "data": "../views/order-quick-sellpick/quick-sellpick-case4.html",
+                    },
+                    {
+                      "text": "불량접수",
+                      "data": "../views/order-quick-sellpick/quick-sellpick-case5.html",
+                    },
+                    {
+                      "text": "미송주문",
+                      "data": "../views/order-quick-sellpick/quick-sellpick-case6.html",
+                    },
+                    {
+                      "text": "제작주문",
+                      "data": "../views/order-quick-sellpick/quick-sellpick-case7.html",
+                    },
+                  ]
+                },
+                {
+                  "text": "주문/결제-일반-이지픽",
+                  "data": "../views/order-normal-easypick/normal-easypick-case1.html",
+                  "children": [
+                    {
+                      "text": "신규",
+                      "data": "../views/order-normal-easypick/normal-easypick-case1.html",
+                    },
+                    {
+                      "text": "샘플신청",
+                      "data": "../views/order-normal-easypick/normal-easypick-case2.html",
+                    },
+                    {
+                      "text": "샘플반납",
+                      "data": "../views/order-normal-easypick/normal-easypick-case3.html",
+                    },
+                    {
+                      "text": "샘플결제",
+                      "data": "../views/order-normal-easypick/normal-easypick-case4.html",
+                    },
+                    {
+                      "text": "불량접수",
+                      "data": "../views/order-normal-easypick/normal-easypick-case5.html",
+                    },
+                  ]
+                },
+                {
+                  "text": "주문/결제-바로-이지픽",
+                  "data": "../views/order-quick-sellpick/quick-sellpick-case1.html",
+                  "children": [
+                    {
+                      "text": "신규",
+                      "data": "../views/order-quick-sellpick/quick-sellpick-case1.html",
+                    },
+                    {
+                      "text": "샘플신청",
+                      "data": "../views/order-quick-easypick/quick-easypick-case2.html",
+                    },
+                    {
+                      "text": "샘플반납",
+                      "data": "../views/order-quick-easypick/quick-easypick-case3.html",
+                    },
+                    {
+                      "text": "샘플결제접수",
+                      "data": "../views/order-quick-easypick/quick-easypick-case4.html",
+                    },
+                    {
+                      "text": "불량접수",
+                      "data": "../views/order-quick-easypick/quick-easypick-case5.html",
+                    },
+                    {
+                      "text": "미송주문",
+                      "data": "../views/order-quick-easypick/quick-easypick-case6.html",
+                    },
+                    {
+                      "text": "제작주문",
+                      "data": "../views/order-quick-easypick/quick-easypick-case7.html",
+                    },
+                  ]
+                },
+                {
+                  "text": "주문완료",
+                  "data": "../views/order-complete/order-complete-case1-1.html",
+                  "children": [
+                    {
+                      "text": "신규+선",
+                      "data": "../views/order-complete/order-complete-case1-1.html",
+                    },
+                    {
+                      "text": "신규+후",
+                      "data": "../views/order-complete/order-complete-case1-2.html",
+                    },
+                    {
+                      "text": "샘플+선,후",
+                      "data": "../views/order-complete/order-complete-case2.html",
+                    },
+                    {
+                      "text": "샘플+선",
+                      "data": "../views/order-complete/order-complete-case3-1.html",
+                    },
+                    {
+                      "text": "샘플+후",
+                      "data": "../views/order-complete/order-complete-case3-2.html",
+                    },
+                    {
+                      "text": "샘플반납+선,후",
+                      "data": "../views/order-complete/order-complete-case4.html",
+                    },
+                    {
+                      "text": "샘플상품+선",
+                      "data": "../views/order-complete/order-complete-case5-1.html",
+                    },
+                    {
+                      "text": "샘플상품+후",
+                      "data": "../views/order-complete/order-complete-case5-2.html",
+                    },
+                    {
+                      "text": "불량+선,후",
+                      "data": "../views/order-complete/order-complete-case6.html",
+                    },
+                    {
+                      "text": "미송+선,후",
+                      "data": "../views/order-complete/order-complete-case7.html",
+                    },
+                    {
+                      "text": "제작+선,후",
+                      "data": "../views/order-complete/order-complete-case8.html",
+                    },
+                    {
+                      "text": "상품>셀픽",
+                      "data": "../views/order-complete/order-complete-case9.html",
+                    },
+                  ]
+                },
+                {
+                  "text": "마이픽관리",
+                  "data": "../views/mypick/index.html",
+                  "children": [
+                    {
+                      "text": "마이픽관리",
+                      "data": "../views/mypick/index.html",
+                    },
+                    {
+                      "text": "매칭정보관리",
+                      "data": "../views/mypick/matching-info.html",
+                    },
+                    {
+                      "text": "주문매칭관리",
+                      "data": "../views/mypick/order-matching-info.html",
+                    },
+                    {
+                      "text": "주문매칭 - 팝업",
+                      "data": "../views/popup/popup-case12-matching.html",
+                    },
+                    {
+                      "text": "샘플제안관리",
+                      "data": "../views/mypick/sample-list.html",
+                    },
+                    {
+                      "text": "샘플제안관리 - 상세",
+                      "data": "../views/mypick/sample-detail.html",
+                    },
+                  ]
+                },
+              ]
+            },
+            // 사입내역조회
+            {
+              "text": "사입내역조회",
+              "state" : { "opened": true },
+              "children": [
+                {
+                  "text": "주문내역",
+                  "data": "../views/buy/index.html",
+                  "children": [
+                    {
+                      "text": "주문내역",
+                      "data": "../views/buy/index.html",
+                    },
+                    {
+                      "text": "주문내역-상세",
+                      "data": "../views/buy/buy-detail.html",
+                    },
+                    {
+                      "text": "주문내역-상세(옵션변경)",
+                      "data": "../views/buy/buy-option-detail.html",
+                    },
+                    {
+                      "text": "샘플주문내역",
+                      "data": "../views/buy/buy-sample.html",
+                    },
+                    {
+                      "text": "샘플내역-상세",
+                      "data": "../views/buy/buy-sample-detail.html",
+                    },
+                    {
+                      "text": "불량주문내역",
+                      "data": "../views/buy/failure.html",
+                    },
+                    {
+                      "text": "불량내역-상세",
+                      "data": "../views/buy/failure-detail.html",
+                    },
+                  ]
+                },
+                {
+                  "text": "셀픽주문내역",
+                  "data": "../views/buy-sell-pick/index.html",
+                  "children": [
+                    {
+                      "text": "셀픽주문내역",
+                      "data": "../views/buy-sell-pick/index.html",
+                    },
+                    {
+                      "text": "셀픽주문상세",
+                      "data": "../views/buy-sell-pick/sell-pick-detail.html",
+                    },
+                    {
+                      "text": "샘플상세",
+                      "data": "../views/buy-sell-pick/sell-pick-detail-sample.html",
+                    },
+                  ]
+                },
+                {
+                  "text": "미송/환불내역",
+                  "data": "../views/buy-undeliver/index.html",
+                  "children": [
+                    {
+                      "text": "미송내역",
+                      "data": "../views/buy-undeliver/index.html",
+                    },
+                    {
+                      "text": "미송모아보기",
+                      "data": "../views/buy-undeliver/undeliver-all.html",
+                    },
+                    {
+                      "text": "환불내역",
+                      "data": "../views/buy-refund/index.html",
+                    },
+                  ]
+                },
+                {
+                  "text": "샘플/제작/불량",
+                  "data": "../views/buy-sample/index.html",
+                  "children": [
+                    {
+                      "text": "샘플관리",
+                      "data": "../views/buy-sample/index.html",
+                    },
+                    {
+                      "text": "제작관리",
+                      "data": "../views/buy-produce/index.html",
+                    },
+                    {
+                      "text": "제작모아보기",
+                      "data": "../views/buy-produce/produce-all.html",
+                    },
+                    {
+                      "text": "불량관리",
+                      "data": "../views/buy-failure/index.html",
+                    },
+                    {
+                      "text": "불량처리내역",
+                      "data": "../views/buy-failure/failure-history.html",
+                    },
+                  ]
+                }
+              ]
+            },
+            // 입고상품검수
+            {
+              "text": "입고상품검수",
+              "state" : { "opened": true },
+              "children": [
+                {
+                  "text": "오늘입고상품",
+                  "data": "../views/stock/index.html",
+                },
+                {
+                  "text": "입고예정일 쇼핑몰 연동",
+                  "data": "../views/stock/today-store-link.html",
+                },
+                {
+                  "text": "검수대기상품",
+                  "data": "../views/inspection/index.html",
+                },
+                {
+                  "text": "검수완료내역",
+                  "data": "../views/inspection/inspection-complete.html",
+                  "children": [
+                    {
+                      "text": "검수완료내역",
+                      "data": "../views/inspection/inspection-complete.html",
+                    },
+                    {
+                      "text": "검수완료상세",
+                      "data": "../views/inspection/inspection-complete-detail.html",
+                    },
+                  ]
+                },
+                {
+                  "text": "입고상품매칭",
+                  "data": "../views/stock-matching/index.html",
+                  "children": [
+                    {
+                      "text": "입고상품매칭",
+                      "data": "../views/stock-matching/index.html",
+                    },
+                    {
+                      "text": "입고매칭결과",
+                      "data": "../views/stock-matching/matching-result.html",
+                    },
+                  ]
+                },
+                {
+                  "text": "재확인요청관리",
+                  "data": "../views/repeat-confirm/index.html",
+                  "children": [
+                    {
+                      "text": "입고정보 재확인",
+                      "data": "../views/repeat-confirm/index.html",
+                    },
+                    {
+                      "text": "미송 옵션변경",
+                      "data": "../views/repeat-confirm/option-change.html",
+                    },
+                  ]
+                }
+              ]
+            },
+            // 정산관리
+            {
+              "text": "정산내역",
+              "state" : { "opened": false },
+              "children": [
+                {
+                  "text": "정산내역",
+                  "data": "../views/account/account-list.html",
+                  "children": [
+                    {
+                      "text": "정산내역",
+                      "data": "../views/account/account-list.html",
+                    },
+                    {
+                      "text": "정산내역상세",
+                      "data": "../views/account/account-view.html",
+                    },
+                    {
+                      "text": "거래처정산",
+                      "data": "../views/account/cor-account-list.html",
+                    }
+                  ]
+                },
+                {
+                  "text": "가게매입금관리",
+                  "data": "../views/shop-purchase-point/shop-purchase-index.html",
+                  "children": [
+                    {
+                      "text": "매입금관리",
+                      "data": "../views/shop-purchase-point/shop-purchase-index.html",
+                    },
+                    {
+                      "text": "매입금상세",
+                      "data": "../views/shop-purchase-point/shop-purchase-detail.html",
+                    },
+                  ]
+                },
+                {
+                  "text" : "적립금내역",
+                  "data": "../views/shop-purchase-point/point-money-history.html",
+                }
+              ]
+            },
+            // 설정
+            {
+              "text": "설정",
+              "state" : { "opened": false },
+              "children": [
+                {
+                  "text": "이지픽설정",
+                  "data": "../views/easypick-setting/setting-easypickinfo-case1-1.html",
+                  "children": [
+                    {
+                      "text": "설정-법인",
+                      "data": "../views/easypick-setting/setting-easypickinfo-case1-1.html",
+                    },
+                    {
+                      "text": "설정-개인",
+                      "data": "../views/easypick-setting/setting-easypickinfo-case1-2.html",
+                    },
+                    {
+                      "text": "큐레이션정보",
+                      "data": "../views/easypick-setting/setting-easypickinfo-case2.html",
+                    },
+                    {
+                      "text": "삼촌정보",
+                      "data": "../views/easypick-setting/setting-easypickinfo-case3.html",
+                    }
+                  ]
+                },
+                {
+                  "text": "이용약관",
+                  "data": "../views/easypick-setting/terms-service.html",
+                },
+                {
+                  "text" : "처리방침",
+                  "data": "../views/easypick-setting/privacy-policy.html",
+                },
+                {
+                  "text" : "회원탈퇴",
+                  "data": "../views/easypick-setting/user-signout.html",
+                }
+              ]
+            },
+            // 서비스안내
+            {
+              "text": "서비스안내",
+              "state" : { "opened": false },
+              "children": [
+                {
+                  "text": "상담신청",
+                  "data": "../views/service-info/index.html",
+                },
+                {
+                  "text": "공지사항",
+                  "data": "../views/service-info/notice-list.html",
+                  "children": [
+                    {
+                      "text": "공지사항",
+                      "data": "../views/service-info/notice-list.html",
+                    },
+                    {
+                      "text": "공지사항상세",
+                      "data": "../views/service-info/notice-detail.html",
+                    },
+                  ]
+                },
+                {
+                  "text": "이지톡",
+                  "data": "../views/easytalk/index.html",
+                },
+              ]
+            },
+            // 오류페이지
+            {
+              "text": "오류페이지",
+              "state" : { "opened": false },
+              "children": [
+                {
+                  "text": "오류페이지",
+                  "data": "../views/errorpage/error-case1.html",
+                  "children": [
+                    {
+                      "text": "접근오류",
+                      "data": "../views/errorpage/error-case1.html",
+                    },
+                    {
+                      "text": "미판매상품",
+                      "data": "../views/errorpage/error-case2.html",
+                    },
+                    {
+                      "text": "서비스점검중",
+                      "data": "../views/errorpage/error-case3.html",
+                    },
+                  ]
+                },
+              ]
+            },
+          ]
+        }
+      });
+    </script>
+  </body>
+</html>

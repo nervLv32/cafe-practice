@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"
+    />
+    <meta name="format-detection" content="telephone=no" />
+    <title>이지픽스퀘어</title>
+    <link href="css/mobile/style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="eps-container -floating-top">
+      <!-- 2020-08-19 EZP-992  -->
+      <header>
+        <span class="back"
+          ><a href="#" title="이전"
+            ><svg class="svg-icon">
+              <use xlink:href="#icon-arrow-hor1"></use></svg></a
+        ></span>
+        <h1>
+          <span>픽업정보</span
+          ><em class="pop-open" data-open="#popup">(9,999)</em>
+        </h1>
+        <!-- 2021-08-18 EZP-3403 -->
+        <!-- <span class="home"><a href="./" title="홈"><svg class="svg-icon"><use xlink:href="#icon-home"></use></svg></a></span>
+			<span class="memo"><!- 2021-08-18 EZP-3403 ->
+				<a href="./memo.html" title="메모"><svg class="svg-icon"><use xlink:href="#icon-letter"></use></svg></a>
+			</span>
+			<span class="notice">
+				<a href="./notice.html" title="알림"><svg class="svg-icon"><use xlink:href="#icon-bell"></use></svg> <em class="new">N</em></a>
+			</span> -->
+      </header>
+      <main>
+        <div class="mismatch-pickup-list">
+          <div class="search-form">
+            <!-- class "expand" -->
+            <div class="wrap">
+              <div class="keyword-search">
+                <input
+                  type="text"
+                  placeholder="가게명 또는 주소를 입력하세요."
+                /><button type="button">검색</button
+                ><!-- 2021-08-09 EZP-3825 -->
+              </div>
+              <span class="btn-expand"><button type="button"></button></span>
+            </div>
+            <div class="search-option">
+              <dl>
+                <dt>픽업상태</dt>
+                <dd>
+                  <button type="button" class="selected">대기</button>
+                  <button type="button" class="selected">픽업후대기</button>
+                  <button type="button">체크후대기</button>
+                  <button type="button">완료</button>
+                </dd>
+                <!-- 2020-10-12 EZP-1149 <dt>매칭상태</dt>
+							<dd>
+								<button type="button" class="selected">매칭대기</button>
+								<button type="button">매칭완료</button>
+							</dd> -->
+              </dl>
+            </div>
+          </div>
+          <div class="pickup-list">
+            <ul>
+              <li class="selected">
+                <a href="./mismatch-pickup-detail.html">
+                  <span class="market">
+                    <svg class="svg-icon">
+                      <use xlink:href="#icon-home2"></use>
+                    </svg>
+                    디오트 4층 F19
+                  </span>
+                  <!-- 2020-12-02 EZP-1647 -->
+                  <strong
+                    ><span class="new">New</span
+                    ><em class="secession">[탈퇴]</em> 4층 F19
+                    싱글레이디</strong
+                  >
+                  <em class="status">대기</em>
+                  <!-- <span class="matching done">매칭완료</span> 2020-10-12 EZP-1149 -->
+                  <span class="order-count todo">0 / 10</span
+                  ><!-- order-count : todo/ing/done -->
+                </a>
+              </li>
+              <li class="selected">
+                <a href="#">
+                  <span class="market">
+                    <svg class="svg-icon">
+                      <use xlink:href="#icon-home2"></use>
+                    </svg>
+                    청평화 4층 F 19
+                  </span>
+                  <strong>4층 F19 싱글레이디싱글레이디싱글레이디</strong>
+                  <em class="status">대기 / 픽업후대기 / 체크후대기</em>
+                  <!-- <span class="matching">매칭대기</span> 2020-10-12 EZP-1149 -->
+                  <span class="order-count ing">5 / 10</span>
+                </a>
+              </li>
+              <li class="selected">
+                <a href="#">
+                  <span class="market">
+                    <svg class="svg-icon">
+                      <use xlink:href="#icon-home2"></use>
+                    </svg>
+                    신발상가 A동 B1층 S 503~504신발상가 A동 B1층 S 503~504
+                  </span>
+                  <strong>4층 F19 싱글레이디</strong>
+                  <em class="status">대기</em>
+                  <!-- <span class="matching done">매칭완료</span> 2020-10-12 EZP-1149 -->
+                  <span class="order-count done">10 / 10</span>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <span class="market">
+                    <svg class="svg-icon">
+                      <use xlink:href="#icon-home2"></use>
+                    </svg>
+                    신발상가 A동 B1층 S 503~504신발상가 A동 B1층 S 503~504
+                  </span>
+                  <strong>4층 F19 싱글레이디</strong>
+                  <em class="status">체크후대기</em>
+                  <!-- <span class="matching">매칭대기</span> 2020-10-12 EZP-1149 -->
+                  <span class="order-count todo">0 / 10</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="floating-menu">
+            <!--2020-04-16-->
+            <div class="top"><a href="#" title="위로">TOP</a></div>
+            <!-- 2022-12-13 EZP-7627, EZP-7448 이전 다음 버튼 제거 -->
+            <!-- <div class="nav">
+						<a href="#" title="이전" class="prev">이전</a><a href="#" title="다음" class="next">다음</a>
+					</div> -->
+          </div>
+        </div>
+      </main>
+
+      <!-- 2022-12-06 EZP-7448 : 하단 버튼 추가 시작 -->
+      <div class="renew-fixed">
+        <div class="btn-wrap">
+          <span class="home"
+            ><a href="./" title="홈"
+              ><svg class="svg-icon">
+                <use xlink:href="#icon-home"></use></svg></a
+          ></span>
+          <span class="memo"
+            ><!-- 2021-08-18 EZP-3403 -->
+            <a href="./memo.html" title="메모">
+              <svg class="svg-icon"><use xlink:href="#icon-letter"></use></svg>
+              <em class="new">
+                <!-- 2022-12-19 EZP-7448, EZP-7627 : New icon 변경 -->
+                <!-- <img src="./img/icon-new.png" alt="icon-new"/> -->
+                N
+              </em>
+            </a>
+          </span>
+          <span class="notice">
+            <a href="./notice.html" title="알림">
+              <svg class="svg-icon"><use xlink:href="#icon-bell"></use></svg>
+              <em class="new">
+                <!-- 2022-12-19 EZP-7448, EZP-7627 : New icon 변경 -->
+                <!-- <img src="./img/icon-new.png" alt="icon-new"/> -->
+                N
+              </em>
+            </a>
+          </span>
+        </div>
+      </div>
+      <!-- 2022-12-06 EZP-7448 : 하단 버튼 추가 끝 -->
+
+      <!-- 2020-08-19 EZP-992 -->
+      <!-- 2020-10-06 EZP-4258 -->
+      <include-html page="./include/resetPickupList.html"></include-html>
+    </div>
+
+    <!-- ui check -->
+    <script
+      type="text/javascript"
+      src="./jquery-3.5.1.min.js"
+    ></script>
+    <script src="./ui.js"></script>
+  </body>
+</html>

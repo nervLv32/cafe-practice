@@ -1,0 +1,123 @@
+{% extends "../_templates/layout.njk" %}
+{% block content %}
+
+<div class="wrapper" id="wrap">
+    <div class="content" id="content">
+        <div class="content-head">
+            <div class="page-title">
+                <h3 class="h3-tit">이지픽설정</h3>
+                <a href="#" class="btn-manual" target="_blank" title="매뉴얼">매뉴얼</a>
+            </div>
+            <div class="cont-info-right">
+                <ul class="breadcrumb">
+                    <li>공급</li>
+                    <li>설정</li>
+                    <li class="now" title="현재 페이지">이지픽설정</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="tab-top-round">
+            <ul class="tab-rounds tab">
+                <li>
+                    <a href="setting-easypickinfo-case1-1.html"><span>이지픽 정보</span></a>
+                </li>
+                <li>
+                    <a href="setting-easypickinfo-case2.html">큐레이션 정보</a>
+                </li>
+                <li class="active">
+                    <!-- 2022 08 16 삼촌정보 >  사입삼촌 정보로 텍스트변경 -->
+                    <a href="setting-easypickinfo-case3.html">셀픽주문 사입삼촌 정보</a>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="notice-wrap db renewal">
+            <p class="ico-notice fnsize13">    
+                셀픽 주문 이용 시, 사입삼촌 정보로 사용되는 정보입니다. 셀픽주문 시 '사입삼촌 픽업'을 위해서는 필수항목을 꼭 입력해주세요.
+            </p>
+            <br />
+            <!-- 2023-01-05 EZP-7765 워딩변경 (기존 : 연락처) -->
+            <p class="fnsize13 p-l-14">셀픽 주문 완료 시 아래에 등록된 사입삼촌의 휴대폰 번호와 이메일로 주문서가 전송되어 상품 픽업이 진행됩니다. (단, 직접 수령인 경우는 사입삼촌 정보로 주문서가 전송되지 않습니다.)</p>
+        </div>
+
+        <!-- 사입삼촌 정보 -->
+        <div class="title-jc-wrap">
+            <h3 class="tbl-title fw500">셀픽주문 사입삼촌 정보</h3>
+        </div>
+        <div class="tbl-round fw400">
+            <table class="tbl-register-row">
+                <colgroup>
+                    <col style="width:220px">
+                    <col style="width:calc(100% - 220px);">
+                </colgroup>
+                <tbody>
+                    <tr>
+                        <th>이름<span class="label label-point ml5">필수</span></th>
+                        <td>
+                            <div class="form-control w220 address">
+                                <input type="text" placeholder="이름을 입력해주세요.">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <!-- 2023-01-05 EZP-7765 워딩변경 (기존 : 연락처) -->
+                        <th>휴대폰 번호<span class="label label-point ml5">필수</span></th>
+                        <td class="hp-input-table">
+                            <div class="form-inline">
+                                <div class="select-control">
+                                    <button type="button" class="btn-sel">010</button>
+                                    <ul class="sel-panel">
+                                        <li selected="" value="010">010</li>
+                                        <li value="011">011</li>
+                                        <li value="016">016</li>
+                                        <li value="017">017</li>
+                                        <li value="018">018</li>
+                                        <li value="019">019</li>
+                                    </ul>
+                                </div>
+                                <div class="form-control">
+                                    <i class="number-hypen">-</i>
+                                    <input type="text" placeholder="" >
+                                    <i class="number-hypen">-</i>
+                                    <input type="text" placeholder="" >
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>이메일</th>
+                        <td>
+                            <div class="form-inline">
+                                <div class="form-control w220">
+                                    <!-- 2022 08 18 placeholder 수정 -->
+                                    <input type="text" placeholder="이메일을 입력해주세요." >
+                                </div>
+                                <span class="wave-txt"> @ </span>
+                                <div class="select-control">
+                                    <button type="button" class="btn-sel w120">직접입력</button>
+                                    <ul class="sel-panel">
+                                        <li>직접입력</li>
+                                        <li>선택1</li>
+                                        <li>선택2</li>
+                                        <li>선택3</li>
+                                        <li>선택4</li>
+                                        <li>선택5</li>
+                                        <li>선택6</li>
+                                    </ul>
+                                </div>
+                                <div class="form-control w180">
+                                    <input type="text">
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div> 
+        
+</div>
+
+{% include ("../_templates/content-footer/easypick-setting-footer.njk") %}
+
+{% endblock %}

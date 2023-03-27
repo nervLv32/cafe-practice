@@ -1,0 +1,127 @@
+.easy-pick-modal-type-wrapper {
+  .types {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+
+    li {
+      width: 49%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .check-type {
+        position: absolute;
+        display: none;
+
+        &.check-type + label:before {
+          border-radius: .3rem;
+        }
+
+        &.check-type + label {
+          width: 100%;
+          position: relative;
+          padding-right: 28px;
+          cursor: pointer;
+          line-height: 27px;
+          display: inline-block;
+          font-size: 13px;
+          font-weight: 500;
+          color: #000000;
+          margin-right: 0;
+          white-space: nowrap;
+          padding: 2px 10px;
+          border: 1px solid #D8E2EC;
+
+          &:after {
+            top: 8px;
+            right: 18px;
+            box-sizing: border-box;
+            width: 6px;
+            height: 12px;
+            transform: rotate(45deg);
+            border-width: 2px;
+            border-style: solid;
+            border-color: #fff;
+            border-top: 0;
+            border-left: 0;
+          }
+        }
+
+        &.check-type + label:hover:before {
+          animation-duration: 0.4s;
+          animation-fill-mode: both;
+          animation-name: hover-color;
+        }
+
+        &.check-type + label:before {
+          position: absolute;
+          top: 3px;
+          right: 0;
+          display: inline-block;
+          width: 20px;
+          height: 20px;
+          content: '';
+          border: 1px solid transparent;
+          background: transparent;
+        }
+
+        &.check-type + label:after {
+          position: absolute;
+          display: none;
+          content: '';
+        }
+
+        &.check-type:checked + label {
+          color: #ffffff;
+          background: #198CFF;
+          border: 1px solid #198CFF;
+        }
+
+        &.check-type:checked + label:before {
+          border: 1px solid transparent;
+          background: transparent;
+        }
+
+        &.check-type:checked + label:before {
+          animation-name: none;
+        }
+
+        &.check-type:checked + label:after {
+          display: block;
+        }
+      }
+    }
+    &.item4 {
+      /*! 2023-02-09 EZP-6948 입고예정일 팝업 */
+      flex-wrap: wrap;
+      gap: 10px;
+      li {
+        /*! 2023-02-09 EZP-6948 입고예정일 팝업 */
+        width: calc(50% - 5px);
+      
+        .calendar-box {
+          /*! 2023-02-09 EZP-6948 입고예정일 팝업 */
+          width: 100%;
+          margin: 0;
+          * {
+            /*! 2023-02-09 EZP-6948 입고예정일 팝업 */
+            width: 100%;
+          }
+          input {
+            /*! 2023-02-09 EZP-6948 입고예정일 팝업 */
+            width: 100% !important;
+            height: 40px;
+            background-position: 7px 50%;
+          }
+        }
+        label {
+          /*! 2023-02-09 EZP-6948 입고예정일 팝업 */
+          height: 40px;
+          line-height: 33px !important;
+        }
+      }
+    }
+  }
+}

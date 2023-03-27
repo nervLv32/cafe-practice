@@ -1,0 +1,62 @@
+<div class="modal-pop" id="direct-order-modal-case05">
+    <div class="modal-dialog">
+        <div class="modal-inner w480">
+            <section class="modal-head">
+                <div class="modal-head-inner">
+                    <h1>엑셀양식 다운로드</h1>
+                    <a href="#" class="btn-manual" target="_blank" title="매뉴얼">매뉴얼</a>
+                </div>
+            </section>
+            <div class="modal-body direct-order-modal-case05">
+                <div class="txt-box">
+                    <!-- 2022 08 18 텍스트 수정 -->
+                    <p>다운로드하려는 양식을 선택해주세요.</p>
+                    <p>
+                        - 최대 10,000개가 다운로드됩니다.
+                    </p>    
+                </div>
+                <div class="xlsx-download-wrap">
+                    <ul>
+                        <li>
+                            <a href="javascript: void(0);">
+                                기본 양식
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript: void(0);">
+                                신규주문 양식
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript: void(0);">
+                                불량주문 양식
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="modal-footer-btn">
+                    <button type="button" name="button" class="btn btn-lg btn-point page-close">다운로드</button>	
+                    <button type="button" name="button" class="btn btn-lg btn-gray page-close">닫기</button>
+                </div>
+            </div>
+            <a href="javascript:void(0);" class="page-close"></a>
+        </div>
+    </div>
+    <div class="dim"></div>
+</div>
+
+
+<script>
+    $(function(){
+        $('.direct-order-modal-case05 .xlsx-download-wrap ul li').click(function(){
+            $('.direct-order-modal-case05 .xlsx-download-wrap ul li').removeClass('active');
+            if($(this).hasClass('active') == true){
+                $(this).removeClass('active');
+            }else{
+                $(this).addClass('active');
+            }
+        })
+    })
+</script>

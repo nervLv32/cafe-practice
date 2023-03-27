@@ -1,0 +1,847 @@
+{% extends "../_templates/layout.njk" %}
+{% block content %}
+
+<div class="wrapper" id="wrap">
+    <div class="content" id="content">
+        <div class="content-head">
+            <div class="page-title">
+                <h3 class="h3-tit">추가입고등록</h3>
+                <div class="date display-flex align-center ml10">
+                    (추가입고일 <span>yyy-mm-dd</span>)
+                    <div class="tooltip-case1 type-md ml4">
+                        <button type="button" class="tooltip-btn">툴팁</button>
+                        <div class="tooltip-box">
+                            <button type="button" class="tooltip-close-btn">닫기버튼</button>
+                            <div class="tit">추가입고등록</div>
+                            <ul>
+                                <li>
+                                    추가입고 등록, 결제 시 '관리자 승인' 후 [입고상품검수 > 검수대기상품]<br>
+                                   페이지에서 내역을 확인할 수 있습니다.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <a href="#" class="btn-manual" target="_blank" title="매뉴얼">매뉴얼</a>
+                <div class="form-box">
+                    <form onsubmit="return submitHandler();">
+                        <fieldset>
+                            <legend class="skip">통합검색</legend>
+                            <label for="total-search" class="skip">검색어 입력</label>
+                            <input type="search" name="total-search" id="total-search" title="검색어 입력" class="text"
+                                placeholder="상품을 검색해보세요.">
+                            <input type="submit" value="검색" class="submit">
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+            <div class="cont-info-right">
+                <ul class="breadcrumb">
+                    <li>공급</li>
+                    <li class="now" title="현재 페이지">추가입고등록</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 탭메뉴 -->
+        <div class="tab-top-round">
+            <ul class="tab-rounds tab lh40">
+                <li>
+                    <a href="./table-list-case01.html"><span>상품주문</span></a>
+                </li>
+                <li>
+                    <a href="./table-list-case02.html">불량접수</a>
+                </li>
+                <li>
+                    <a href="./table-list-case03.html">샘플주문</a>
+                </li>
+                <li class="display-flex align-center justify-center active">
+                    <a href="./table-list-case04.html">
+                        미송주문
+                    </a>
+                    <div class="tooltip-case1 type-md ml4">
+                        <button type="button" class="tooltip-btn">툴팁</button>
+                        <div class="tooltip-box">
+                            <button type="button" class="tooltip-close-btn">닫기버튼</button>
+                            <div class="tit">미송주문</div>
+                            <ul>
+                                <li>
+                                    미송 주문 시 '미송' 유형으로 발주가 진행됩니다.<br>
+                                    거래처와 협의 없이 미송 주문 시 상품 입고가 제한될 수 있습니다.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="direct-order-info mb40">
+            <ul>
+                <li>
+                    <div class="tit">주문요청 건수</div>
+                    <div class="info">
+                        <span>5</span>건
+                    </div>
+                </li>
+                <li>
+                    <div class="tit">총 거래처 수</div>
+                    <div class="info">
+                        <span>41</span>개
+                    </div>
+                </li>
+                <li>
+                    <div class="tit">총 상품 수</div>
+                    <div class="info">
+                        <span>13</span>개
+                    </div>
+                </li>
+                <li>
+                    <div class="tit">총 상품 금액(VAT 추가)</div>
+                    <div class="info ftpointcolor">
+                        <strong>
+                            <span>5,145,000</span>원
+                        </strong>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- 상품주문 -->
+        <div class="tableType01">
+
+            <div class="gridTableArea direct-order-table">
+                <div class="table-top-info">
+                    <div class="dflex btns-multi">
+                        <!-- 
+                            2022 08 12
+                            업로드 품목 없을 때
+                            cursor default 추가
+                        -->
+                        <button type="button" name="button" class="btn btn-sm btn-gray disabled">RESET</button>
+                        <!-- 업로드 품목 있을 때 -->
+                        <button type="button" name="button" class="btn btn-sm pointColor-gray2">RESET</button>
+                        <button type="button" name="button" class="btn btn-sm btn-outline-gray">선택상품 삭제</button>
+                    </div>
+                    <div class="dflex btns-multi-area">
+                        <div class="btns-multi dflex">
+                            <button type="button" name="button" class="btn btn-sm btn-outline-gray" onclick="targetModalPopup('direct-order-modal-case01')"><i class="ico ico-excel"></i>엑셀 양식 설정</button>
+                            <div class="tool-tip-wrap">
+                                <select name="" id="" class="select-type01 default-select">
+                                    <option value="">기본양식_TYPE1</option>
+                                    <option value="">기본양식_TYPE2</option>
+                                    <option value="">기본양식_TYPE3</option>
+                                </select>
+                                <div class="tool-tip-area sm">
+                                    <section class="tool-tip-title">
+                                        <h1>엑셀 양식 설정</h1>
+                                        <div class="tool-tip-inner">
+                                            <h2 class="dot">선택한 양식은 바로주문 각 탭별로 적용됩니다.</h2>
+                                        </div>
+                                    </section>
+                                    <button type="button" class="tool-tip-close">닫기</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btns-multi dflex">
+                            <button type="button" name="button" class="btn btn-sm btn-outline-gray" onclick="targetModalPopup('direct-order-modal-case05')"><i class="ico ico-excel"></i>엑셀 양식 다운</button>
+                            <button type="button" name="button" class="btn btn-sm btn-outline-gray" onclick="targetModalPopup('direct-order-modal-case04')"><i class="ico ico-excel"></i>엑셀업로드</button>
+                            <button type="button" name="button" class="btn btn-sm pointColor-green1">선택추가입고</button>
+                            <button type="button" name="button" class="btn btn-sm pointColor-green2">전체추가입고</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="tround-box">
+                    <div class="tbl-round ">
+                        <div class="tbl-info-area">
+                            <div class="btns-multi f-left">
+                                <select name="" id="" class="default-select">
+                                    <option value="">전체보기</option>
+                                    <option value="">오류보기</option>
+                                </select>
+                                <span class="ftpointcolor1 fnsize12 ml15">* 표시는 필수 입력 정보입니다.</span>
+                                <span class="save-time pl10 ml10 fnsize12">
+                                    임시저장시간 : <strong style="font-weight: 400;">-</strong>
+                                </span>
+                            </div>
+                            <div class="tbl-order-info f-right dflex sel-algin-type">
+                                <button type="button" class="sell-plus-btn">
+                                    <img src="../assets/images/icons/btn_plus_ico.png" alt="plus-icon">
+                                    <span>셀 추가</span>
+                                </button>
+                                <div class="btn-wrap dflex sel-algin-type">
+                                    <span>끝으로 이동</span>
+                                    <button type="button" class="arrow arrow-prev ml10"><img src="../assets/images/icons/prev-btn-icon.png" alt="좌측 화살표" class="db"></button>
+                                    <button type="button" class="arrow arrow-next ml10"><img src="../assets/images/icons/next-btn-icon.png" alt="우측 화살표" class="db"></button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 그리드 테이블-->
+                        <div class="mGridTable tbl-line">
+                            <table id="eMultiTable" class="eChkColor">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" style="width:50px;">
+                                            <div class="form-control check-one">
+                                                <label>
+                                                    <input type="checkbox">
+                                                    <span>체크</span>
+                                                </label>
+                                            </div>
+                                        </th>
+                                        <th scope="col" style="width:43px;">
+                                          번호
+                                        </th>
+                                        <th scope="col" style="width:230px;">
+                                          거래처명 <em class="ftpointcolor1">*</em>
+                                        </th>
+                                        <th scope="col" style="width:222px;">
+                                          거래처주소 <em class="ftpointcolor1">*</em>
+                                        </th>
+                                        <th scope="col" style="width:116px;">
+                                          거래처연락처
+                                        </th>
+                                        <th scope="col" style="width:222px;">
+                                          상품명 <em class="ftpointcolor1">*</em>
+                                        </th>
+                                        <th scope="col" style="width:88px;">
+                                          색상
+                                        </th>
+                                        <th scope="col" style="width:88px;">
+                                          사이즈
+                                        </th>
+                                        <th scope="col" style="width:116px;">
+                                          단가 <em class="ftpointcolor1">*</em>
+                                        </th>
+                                        <th scope="col" style="width:88px;">
+                                            수량 <em class="ftpointcolor1">*</em>
+                                        </th>
+                                        <th scope="col" style="width: 116px;">
+                                            품절처리방식 <em class="ftpointcolor1">*</em>
+                                        </th>
+                                        <th scope="col" style="width:163px;">
+                                            메모
+                                        </th>
+                                        <th scope="col" style="width:163px;">
+                                            쇼핑몰상품명
+                                        </th>
+                                        <th scope="col" style="width:163px;">
+                                            쇼핑몰상품코드
+                                        </th>
+                                        <th scope="col" style="width:163px;">
+                                            이미지URL
+                                        </th>
+                                        <th scope="col" style="width:163px;">
+                                            기타정보1
+                                        </th>
+                                        <th scope="col" style="width:163px;">
+                                            기타정보2
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for list in directOrderCase01 %}
+                                    <tr>
+                                        <td>
+                                            <div class="form-control check-one">
+                                                <label>
+                                                    <input type="checkbox">
+                                                    <span>체크</span>
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>{{list.no}}</td>
+                                        <td>
+                                            <div class="result-box">
+                                                {% if list.customerName === "" %}
+                                                <input type="text" value="" class="result1">
+                                                {% elif list.customerName === "오류" %}
+                                                <!-- 2022-11-17 EZP-7223 outline : red-case class .error-line 추가 / .result1 제거 -->
+                                                <input type="text" value="" class="error-line ftpointcolor1">
+                                                {% else %}
+                                                <input type="text" value="{{list.customerName}}" class="result1">
+                                                {% endif %}
+                                                <ul class="result-list result-case1">
+                                                    <li>
+                                                        <label>
+                                                            <span>테스트가게1</span>(<span>디오트 1층 B열 32호</span>, <span>010-1234-1234</span>)
+                                                        </label>
+                                                    </li>
+                                                    <li>
+                                                        <label>
+                                                            <span>테스트가게2</span>(<span>마켓명 위치</span>, <span>연락처</span>)
+                                                        </label>
+                                                    </li>
+                                                    <li>
+                                                        <label>
+                                                            <span>테스트가게3</span>(<span>마켓명 위치</span>, <span>연락처</span>)
+                                                        </label>
+                                                    </li>
+                                                    <li>
+                                                        <label>
+                                                            <span>테스트가게4</span>(<span>마켓명 위치</span>, <span>연락처</span>)
+                                                        </label>
+                                                    </li>
+                                                    <li>
+                                                        <label>
+                                                            <span>테스트가게5</span>(<span>마켓명 위치</span>, <span>연락처</span>)
+                                                        </label>
+                                                    </li>
+                                                    <li>
+                                                        <label>
+                                                            <span>테스트가게6</span>(<span>마켓명 위치</span>, <span>연락처</span>)
+                                                        </label>
+                                                    </li>
+                                                    <li>
+                                                        <label>
+                                                            <span>테스트가게7</span>(<span>마켓명 위치</span>, <span>연락처</span>)
+                                                        </label>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            {% if list.address === "" %}
+                                            <input type="text" value="">
+                                            {% elif list.address === "오류" %}
+                                            <!-- 2022-11-17 EZP-7223 outline : red-case class .error-line 추가 -->
+                                            <input type="text" value="" class="error-line ftpointcolor1">
+                                            {% else %}
+                                            <input type="text" value="{{list.address}}">
+                                            {% endif %}
+                                        </td>
+                                        <td>
+                                            {% if list.customerTel === "" %}
+                                            <input type="text" value="">
+                                            {% elif list.customerTel === "오류" %}
+                                            <input type="text" value="">
+                                            {% else %}
+                                            <input type="text" value="{{list.customerTel}}">
+                                            {% endif %}
+                                        </td>
+                                        <td>
+                                            <div class="result-box">
+                                                {% if list.productName === "" %}
+                                                <input type="text" value="" class="result2">
+                                                {% elif list.productName === "오류" %}
+                                                <input type="text" value="" class="result2">
+                                                {% else %}
+                                                <input type="text" value="{{list.productName}}" class="result2">
+                                                {% endif %}
+                                                <!-- 2022-10-04 EZP-5857 result-list에서 list2로 클래스 변경 -->
+                                                <ul class="result-list2 result-case2">
+                                                    <li>
+                                                        <!-- 2022-10-04 EZP-5857 삭제버튼 / .w-clear 추가 시작 -->
+                                                        <!-- 2022-10-25 EZP-7272 툴팁 구조 변경
+                                                        <label label class="w-clear">
+                                                            <a href="javascript: void(0);" class="hover-btn">
+                                                                <span>테스트상품</span> / <span>화이트</span> /
+                                                                <span>Free</span> /<span>5000</span>
+                                                            </a>
+                                                            <a href="#" class="clear-btn"></a>
+                                                        </label>
+                                                        -->
+                                                        <!-- 2022-10-04 EZP-5857 삭제버튼 / .w-clear 추가 끝 -->
+                                                        <label label class="hover-box2 w-clear">
+                                                            <a href="javascript: void(0);" class="hover-btn">
+                                                                <p>
+                                                                    <span>테스트상품</span> / <span>화이트</span> /
+                                                                    <span>Free</span> /<span>5000</span>
+                                                                </p>
+                                                                <button type="button" class="clear-btn"></button>
+                                                            </a>
+                                                        </label>
+                                                    </li>
+                                                    <li>
+                                                         <!-- 2022-10-04 EZP-5857 삭제버튼 / .w-clear 추가 시작 -->
+                                                         <!-- 2022-10-25 EZP-7272 툴팁 구조 변경
+                                                         <label label class="w-clear">
+                                                            <a href="javascript: void(0);" class="hover-btn">
+                                                                <span>테스트상품</span> / <span>화이트</span> /
+                                                                <span>Free</span> /<span>5000</span>
+                                                            </a>
+                                                            <a href="#" class="clear-btn"></a>
+                                                        </label>
+                                                        -->
+                                                        <!-- 2022-10-04 EZP-5857 삭제버튼 / .w-clear 추가 끝 -->
+                                                        <label label class="hover-box2 w-clear">
+                                                            <a href="javascript: void(0);" class="hover-btn">
+                                                                <p>
+                                                                    <span>테스트상품</span> / <span>화이트</span> /
+                                                                    <span>Free</span> /<span>5000</span>
+                                                                </p>
+                                                                <button type="button" class="clear-btn"></button>
+                                                            </a>
+                                                        </label>
+                                                    </li>
+                                                    <li>
+                                                         <!-- 2022-10-04 EZP-5857 삭제버튼 / .w-clear 추가 시작 -->
+                                                         <!-- 2022-10-25 EZP-7272 툴팁 구조 변경
+                                                         <label label class="w-clear">
+                                                            <a href="javascript: void(0);" class="hover-btn">
+                                                                <span>테스트상품</span> / <span>화이트</span> /
+                                                                <span>Free</span> /<span>5000</span>
+                                                            </a>
+                                                            <a href="#" class="clear-btn"></a>
+                                                        </label>
+                                                        -->
+                                                        <!-- 2022-10-04 EZP-5857 삭제버튼 / .w-clear 추가 끝 -->
+                                                        <label label class="hover-box2 w-clear w-clear-tip">
+                                                            <a href="javascript: void(0);" class="hover-btn">
+                                                                <p>
+                                                                    <span>테스트상품테스트상품</span> / <span>화이트</span> /
+                                                                    <span>Free</span> /<span>500000000000000</span>
+                                                                </p>
+                                                                <button type="button" class="clear-btn"></button>
+                                                                <div class="info-box">
+                                                                    <span class="shop-name">마켓명 #층 ##열 ##호</span><br>
+                                                                    <span class="tel">(010-1234-1235)</span>
+                                                                </div>
+                                                            </a>
+                                                        </label>
+                                                    </li>
+                                                    <li>
+                                                         <!-- 2022-10-04 EZP-5857 삭제버튼 / .w-clear 추가 시작 -->
+                                                         <!-- 2022-10-25 EZP-7272 툴팁 구조 변경
+                                                         <label label class="w-clear">
+                                                            <a href="javascript: void(0);" class="hover-btn">
+                                                                <span>테스트상품</span> / <span>화이트</span> /
+                                                                <span>Free</span> /<span>5000</span>
+                                                            </a>
+                                                            <a href="#" class="clear-btn"></a>
+                                                        </label>
+                                                        -->
+                                                        <!-- 2022-10-04 EZP-5857 삭제버튼 / .w-clear 추가 끝 -->
+                                                        <label label class="hover-box2 w-clear w-clear-tip">
+                                                            <a href="javascript: void(0);" class="hover-btn">
+                                                                <p>
+                                                                    <span>테스트상품테스트상품</span> / <span>화이트</span> /
+                                                                    <span>Free</span> /<span>500000000000000</span>
+                                                                </p>
+                                                                <button type="button" class="clear-btn"></button>
+                                                                <div class="info-box">
+                                                                    <span class="shop-name">마켓명 #층 ##열 ##호</span><br>
+                                                                    <span class="tel">(010-1234-1235)</span>
+                                                                </div>
+                                                            </a>
+                                                        </label>
+                                                    </li>
+                                                    <li>
+                                                         <!-- 2022-10-04 EZP-5857 삭제버튼 / .w-clear 추가 시작 -->
+                                                         <!-- 2022-10-25 EZP-7272 툴팁 구조 변경
+                                                         <label label class="w-clear">
+                                                            <a href="javascript: void(0);" class="hover-btn">
+                                                                <span>테스트상품</span> / <span>화이트</span> /
+                                                                <span>Free</span> /<span>5000</span>
+                                                            </a>
+                                                            <a href="#" class="clear-btn"></a>
+                                                        </label>
+                                                        -->
+                                                        <!-- 2022-10-04 EZP-5857 삭제버튼 / .w-clear 추가 끝 -->
+                                                        <label label class="hover-box2 w-clear w-clear-tip">
+                                                            <a href="javascript: void(0);" class="hover-btn">
+                                                                <p>
+                                                                    <span>테스트상품테스트상품</span> / <span>화이트</span> /
+                                                                    <span>Free</span> /<span>500000000000000</span>
+                                                                </p>
+                                                                <button type="button" class="clear-btn"></button>
+                                                                <div class="info-box">
+                                                                    <span class="shop-name">마켓명 #층 ##열 ##호</span><br>
+                                                                    <span class="tel">(010-1234-1235)</span>
+                                                                </div>
+                                                            </a>
+                                                        </label>
+                                                    </li>
+                                                    <li>
+                                                         <!-- 2022-10-04 EZP-5857 삭제버튼 / .w-clear 추가 시작 -->
+                                                         <!-- 2022-10-25 EZP-7272 툴팁 구조 변경
+                                                         <label label class="w-clear">
+                                                            <a href="javascript: void(0);" class="hover-btn">
+                                                                <span>테스트상품</span> / <span>화이트</span> /
+                                                                <span>Free</span> /<span>5000</span>
+                                                            </a>
+                                                            <a href="#" class="clear-btn"></a>
+                                                        </label>
+                                                        -->
+                                                        <!-- 2022-10-04 EZP-5857 삭제버튼 / .w-clear 추가 끝 -->
+                                                        <label label class="hover-box2 w-clear w-clear-tip">
+                                                            <a href="javascript: void(0);" class="hover-btn">
+                                                                <p>
+                                                                    <span>테스트상품테스트상품</span> / <span>화이트</span> /
+                                                                    <span>Free</span> /<span>500000000000000</span>
+                                                                </p>
+                                                                <button type="button" class="clear-btn"></button>
+                                                                <div class="info-box">
+                                                                    <span class="shop-name">마켓명 #층 ##열 ##호</span><br>
+                                                                    <span class="tel">(010-1234-1235)</span>
+                                                                </div>
+                                                            </a>
+                                                        </label>
+                                                    <li>
+                                                        <!-- 2022-10-04 EZP-5857 삭제버튼 / .w-clear 추가 시작 -->
+                                                         <!-- 2022-10-25 EZP-7272 툴팁 구조 변경
+                                                         <label label class="w-clear">
+                                                            <a href="javascript: void(0);" class="hover-btn">
+                                                                <span>테스트상품</span> / <span>화이트</span> /
+                                                                <span>Free</span> /<span>5000</span>
+                                                            </a>
+                                                            <a href="#" class="clear-btn"></a>
+                                                        </label>
+                                                        -->
+                                                        <!-- 2022-10-04 EZP-5857 삭제버튼 / .w-clear 추가 끝 -->
+                                                        <label label class="hover-box2 w-clear w-clear-tip">
+                                                            <a href="javascript: void(0);" class="hover-btn">
+                                                                <p>
+                                                                    <span>테스트상품테스트상품</span> / <span>화이트</span> /
+                                                                    <span>Free</span> /<span>500000000000000</span>
+                                                                </p>
+                                                                <button type="button" class="clear-btn"></button>
+                                                                <div class="info-box">
+                                                                    <span class="shop-name">마켓명 #층 ##열 ##호</span><br>
+                                                                    <span class="tel">(010-1234-1235)</span>
+                                                                </div>
+                                                            </a>
+                                                        </label>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            {% if list.color === "" %}
+                                            <input type="text" value="">
+                                            {% elif list.color === "오류" %}
+                                            <input type="text" value="" class="">
+                                            {% else %}
+                                            <input type="text" value="{{list.color}}">
+                                            {% endif %}
+                                        </td>
+                                        <td>
+                                            {% if list.size === "" %}
+                                            <input type="text" value="">
+                                            {% elif list.size === "오류" %}
+                                            <input type="text" value="" class="">
+                                            {% else %}
+                                            <input type="text" value="{{list.size}}">
+                                            {% endif %}
+                                        </td>
+                                        <td>
+                                            <!-- 2022 08 09 좌측정렬 -->
+                                            {% if list.unitPrice === "" %}
+                                            <input type="text" value="" class="text-al">
+                                            {% elif list.unitPrice === "오류" %}
+                                            <input type="text" value="" class="text-al">
+                                            {% else %}
+                                            <input type="text" value="{{list.unitPrice}}" class="text-al">
+                                            {% endif %}
+                                        </td>
+                                        <td>
+                                            {% if list.quantity === "" %}
+                                            <input type="text" value="">
+                                            {% elif list.quantity === "오류" %}
+                                            <input type="text" value="" class="">
+                                            {% else %}
+                                            <input type="text" value="{{list.quantity}}">
+                                            {% endif %}
+                                        </td>
+                                        <!-- 2022-11-15 EZP-4734 select에서 일반 txt형식으로 변경 
+                                        <td>
+                                            <select name="" id="" class="default-select">
+                                                <option value="">미송</option>
+                                                <option value="">환불</option>
+                                            </select>
+                                        </td>
+                                        -->
+                                        <!-- 2022-11-15 EZP-4734 select에서 일반 txt형식으로 변경 시작 -->
+                                        <td>
+                                            미송
+                                        </td>
+                                        <!-- 2022-11-15 EZP-4734 select에서 일반 txt형식으로 변경 끝 -->
+                                        <td>
+                                            {% if list.memo === "" %}
+                                            <input type="text" value="">
+                                            {% elif list.memo === "오류" %}
+                                            <input type="text" value="" class="">
+                                            {% else %}
+                                            <input type="text" value="{{list.memo}}">
+                                            {% endif %}
+                                        </td>
+                                        <td>
+                                            {% if list.shopProductName === "" %}
+                                            <input type="text" value="">
+                                            {% elif list.shopProductName === "오류" %}
+                                            <input type="text" value="" class="">
+                                            {% else %}
+                                            <input type="text" value="{{list.shopProductName}}">
+                                            {% endif %}
+                                        </td>
+                                        <td>
+                                            {% if list.shopProductCode === "" %}
+                                            <input type="text" value="">
+                                            {% elif list.shopProductCode === "오류" %}
+                                            <input type="text" value="" class="">
+                                            {% else %}
+                                            <input type="text" value="{{list.shopProductCode}}">
+                                            {% endif %}
+                                        </td>
+                                        <td>
+                                            {% if list.img === "" %}
+                                            <input type="text" value="">
+                                            {% elif list.img === "오류" %}
+                                            <input type="text" value="" class="">
+                                            {% else %}
+                                            <input type="text" value="{{list.img}}">
+                                            {% endif %}
+                                        </td>
+                                        <td>
+                                            {% if list.text1 === "" %}
+                                            <input type="text" value="">
+                                            {% elif list.text1 === "오류" %}
+                                            <input type="text" value="" class="">
+                                            {% else %}
+                                            <input type="text" value="{{list.text1}}">
+                                            {% endif %}
+                                        </td>
+                                        <td>
+                                            {% if list.text2 === "" %}
+                                            <input type="text" value="">
+                                            {% elif list.text2 === "오류" %}
+                                            <input type="text" value="" class="">
+                                            {% else %}
+                                            <input type="text" value="{{list.text2}}">
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- //그리드 테이블-->
+                </div>
+                <div class="btn-submit-wrap">
+                    <a href="javascript:void(0);" class="btn btn-lg pointColor-green1">선택추가입고</a>
+                    <a href="javascript:void(0);" class="btn btn-lg pointColor-green2">전체추가입고</a>
+                </div>
+            </div>
+
+            <!-- 2022-11-11 EZP-7314 검색결과 없는 case 추가 시작 -->
+            <div class="gridTableArea direct-order-table">
+                <div class="table-top-info">
+                    <div class="dflex btns-multi">
+                        <!-- 
+                            2022 08 12
+                            업로드 품목 없을 때
+                            cursor default 추가
+                        -->
+                        <button type="button" name="button" class="btn btn-sm btn-gray disabled">RESET</button>
+                        <!-- 업로드 품목 있을 때 -->
+                        <button type="button" name="button" class="btn btn-sm pointColor-gray2">RESET</button>
+                        <button type="button" name="button" class="btn btn-sm btn-outline-gray">선택상품 삭제</button>
+                        <button type="button" name="button" class="btn btn-sm btn-outline-gray">선택상품 미결제</button>
+                        <button type="button" name="button" class="btn btn-sm btn-outline-gray">선택상품 결제</button>
+                    </div>
+                    <div class="dflex btns-multi-area">
+                        <div class="btns-multi dflex">
+                            <button type="button" name="button" class="btn btn-sm btn-outline-gray" onclick="targetModalPopup('direct-order-modal-case01')"><i class="ico ico-excel"></i>엑셀 양식 설정</button>
+                            <div class="tool-tip-wrap">
+                                <select name="" id="" class="select-type01 default-select">
+                                    <option value="">기본양식_TYPE1</option>
+                                    <option value="">기본양식_TYPE2</option>
+                                    <option value="">기본양식_TYPE3</option>
+                                </select>
+                                <div class="tool-tip-area sm">
+                                    <section class="tool-tip-title">
+                                        <h1>엑셀 양식 설정</h1>
+                                        <div class="tool-tip-inner">
+                                            <h2 class="dot">선택한 양식은 바로주문 각 탭별로 적용됩니다.</h2>
+                                        </div>
+                                    </section>
+                                    <button type="button" class="tool-tip-close">닫기</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btns-multi dflex">
+                            <button type="button" name="button" class="btn btn-sm btn-outline-gray" onclick="targetModalPopup('direct-order-modal-case05')"><i class="ico ico-excel"></i>엑셀 양식 다운</button>
+                            <button type="button" name="button" class="btn btn-sm btn-outline-gray" onclick="targetModalPopup('direct-order-modal-case04')"><i class="ico ico-excel"></i>엑셀업로드</button>
+                            <button type="button" name="button" class="btn btn-sm pointColor-green1">선택추가입고</button>
+                            <button type="button" name="button" class="btn btn-sm pointColor-green2">전체추가입고</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="tround-box">
+                    <div class="tbl-round ">
+                        <div class="tbl-info-area">
+                            <div class="btns-multi f-left">
+                                <select name="" id="" class="default-select">
+                                    <option value="">전체보기</option>
+                                    <option value="">오류보기</option>
+                                </select>
+                                <span class="ftpointcolor1 fnsize12 ml15">* 표시는 필수 입력 정보입니다.</span>
+                                <span class="save-time pl10 ml10 fnsize12">
+                                    임시저장시간 : <strong style="font-weight: 400;">-</strong>
+                                </span>
+                            </div>
+                            <div class="tbl-order-info f-right dflex sel-algin-type">
+                                <button type="button" class="sell-plus-btn">
+                                    <img src="../assets/images/icons/btn_plus_ico.png" alt="plus-icon">
+                                    <span>셀 추가</span>
+                                </button>
+                                <div class="btn-wrap dflex sel-algin-type">
+                                    <span>끝으로 이동</span>
+                                    <button type="button" class="arrow arrow-prev ml10"><img
+                                            src="../assets/images/icons/prev-btn-icon.png" alt="좌측 화살표"
+                                            class="db"></button>
+                                    <button type="button" class="arrow arrow-next ml10"><img
+                                            src="../assets/images/icons/next-btn-icon.png" alt="우측 화살표"
+                                            class="db"></button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 그리드 테이블-->
+                       <!-- 2022-11-17 EZP-7314 .no-data-type class 추가 -->
+                       <div class="mGridTable tbl-line tbl-type07 no-data-type">
+                            <table id="eMultiTable1" class="eChkColor">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" style="width:50px;">
+                                            <div class="form-control check-one">
+                                                <label>
+                                                    <input type="checkbox">
+                                                    <span>체크</span>
+                                                </label>
+                                            </div>
+                                        </th>
+                                        <th scope="col" style="width:43px;">
+                                          번호
+                                        </th>
+                                        <th scope="col" style="width:230px;">
+                                          거래처명 <em class="ftpointcolor1">*</em>
+                                        </th>
+                                        <th scope="col" style="width:222px;">
+                                          거래처주소 <em class="ftpointcolor1">*</em>
+                                        </th>
+                                        <th scope="col" style="width:116px;">
+                                          거래처연락처
+                                        </th>
+                                        <th scope="col" style="width:222px;">
+                                          상품명 <em class="ftpointcolor1">*</em>
+                                        </th>
+                                        <th scope="col" style="width:88px;">
+                                          색상
+                                        </th>
+                                        <th scope="col" style="width:88px;">
+                                          사이즈
+                                        </th>
+                                        <th scope="col" style="width:116px;">
+                                          단가 <em class="ftpointcolor1">*</em>
+                                        </th>
+                                        <th scope="col" style="width:88px;">
+                                            수량 <em class="ftpointcolor1">*</em>
+                                        </th>
+                                        <th scope="col" style="width: 116px;">
+                                            품절처리방식 <em class="ftpointcolor1">*</em>
+                                        </th>
+                                        <th scope="col" style="width:163px;">
+                                            메모
+                                        </th>
+                                        <th scope="col" style="width:163px;">
+                                            쇼핑몰상품명
+                                        </th>
+                                        <th scope="col" style="width:163px;">
+                                            쇼핑몰상품코드
+                                        </th>
+                                        <th scope="col" style="width:163px;">
+                                            이미지URL
+                                        </th>
+                                        <th scope="col" style="width:163px;">
+                                            기타정보1
+                                        </th>
+                                        <th scope="col" style="width:163px;">
+                                            기타정보2
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="tr-empty">
+                                      <td>
+                                        <div class="txt">
+                                          <i><img src="../assets/images/guide-ico.png" alt="guide-icon"></i>
+                                          <span>검색 결과가 없습니다.</span>
+                                        </div>
+                                      </td>
+                                    </tr>
+                                  </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- //그리드 테이블-->
+                </div>
+                <div class="btn-submit-wrap">
+                    <a href="javascript:void(0);" class="btn btn-lg pointColor-green1">선택추가입고</a>
+                    <a href="javascript:void(0);" class="btn btn-lg pointColor-green2">전체추가입고</a>
+                </div>
+            </div>
+            <!-- 2022-11-11 EZP-7314 검색결과 없는 case 추가 끝 -->
+        </div>
+
+    </div>
+</div>
+<!-- //content -->
+
+
+<script>
+    $(document).ready(function() {
+        $('#eMultiTable').fixResize({
+            colResize: true,
+            resizeVer: 'flex'
+        });
+
+        // 2022-11-11 EZP-7314 검색결과 없는 case script 추가
+        // 데이터 없을시 새로운 테이블
+        $('#eMultiTable1').fixResize({
+        colResize: true,
+        resizeVer: 'flex'
+        });
+
+        // 2022-11-11 EZP-7314 검색결과 없는 case script 추가
+        // 검색결과 없을때 tr 높이 조절
+        const emptyTh = $('.tr-empty').parents('table').find('thead tr th').length;
+        const emptyMt = $('.tr-empty').parents('table').css('margin-top').replace('-', '');
+        const emptyMg = emptyMt.replace('px', '');
+        $('.tr-empty td').attr('colspan', emptyTh);
+        $('.tr-empty').parents('table').css('height', `calc(100% + ${emptyMg}px)`);
+
+        //2022-11-17 EZP-7314 txt 중앙정렬
+        $(window).on('resize load', function () {
+            const tb1 = $('.direct-order-table .grid-tbody').width();
+            const tb2 = $('.direct-order-table .grid-tbody tbody').width();
+            const tb3 = $('.direct-order-table .grid-tbody').height();
+            const tb4 = $('.direct-order-table .grid-tbody tbody').height();
+            $('.direct-order-table .tr-empty .txt').css('margin-left', -(tb2 - tb1) / 2 - 80);
+            // $('.direct-order-table .tr-empty .txt').css('margin-top', -(tb4 - tb3) / 2);
+        })
+
+        // 2022-11-17 EZP-7314 txt 중앙정렬
+        window.addEventListener('DOMContentLoaded', function () {
+            const table = document.querySelector('.no-data-type .grid-tbody');
+            if (table) {
+                const empty = document.querySelector('.no-data-type .txt');
+                table.addEventListener("scroll", (event) => {
+                    let x = table.scrollLeft;
+                    let y = table.scrollTop;
+                    empty.style.left = `calc(50% + ${x}px)`;
+                    // empty.style.top = `calc(50% + ${y}px)`;
+                    console.log(empty.style.left = `calc(50% + ${x}px)`)
+                });
+            }
+        })
+    });
+</script>
+
+{% include("./modals/shop/modal-order-type.njk") %}
+{% include("./modals/direct-order/direct-order-modal-case01.njk") %}
+{% include("./modals/direct-order/direct-order-modal-case04.njk") %}
+{% include("./modals/direct-order/direct-order-modal-case05.njk") %}
+
+{% endblock %}

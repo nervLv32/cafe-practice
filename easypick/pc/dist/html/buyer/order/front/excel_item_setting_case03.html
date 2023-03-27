@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="ko" data-livestyle-extension="available" class="js">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="format-detection" content="telephone=no">
+	<meta content="lK0RWxdehsio/icXlDgOD1/0XccqggRiBvNtJOsCkmw=" name="csrf-token">
+	<meta content="T" name="login-required">
+	<link rel="shortcut icon" type="image/x-icon" href="https://easypick.co.kr/img/favicon/ezp.ico">
+
+	<!-- css -->
+	<link rel="stylesheet" type="text/css" href="../../../../css/default.css">
+	<link rel="stylesheet" type="text/css" href="../../../../css/month.picker.css">
+
+	<title>이지픽</title>
+</head>
+
+<body class="window-pop-wrap">
+	<!--container// -->
+    <!-- 2022-09-05 EZP-4011 제작상품관리 case 시작-->
+	<div id="container" class="item-setting-wrap">
+		<h1 class="layer-tit">엑셀 항목 설정</h1>
+		<div class="ui-tab" data-active-idx="0">
+			<ul class="tab-nav">
+				<li class="active"><a href="#tab-con1">전체보기 양식</a></li>
+				<li class=""><a href="#tab-con2">모아보기 양식 </a></li>
+			</ul>
+			<div class="tab-content mt25">
+				<div id="tab-con1" class="active" style="display: block;">
+					<p>
+						엑셀 '전체보기' 다운로드 시 노출되는 항목을 직접 설정할 수 있습니다.
+					</p>
+					<div class="cont-flex">
+						<div class="left-wrap">
+							<div class="tit">
+								<strong>전체항목</strong>
+								<button type="button" name="button" onclick="javascript:location.reload();" class="btn-reset">RESET</button>
+							</div>
+							<div class="list-item">
+								<table class="excel-modify-table table-hover">
+									<tbody class="left" id="tbodyExcelDefaultArea">
+										<tr data-col_id="order_no" data-col_name="주문번호" data-fill_class="">
+											<td>
+												<sapn class="">주문번호</sapn> 
+												<!-- 2022-09-14 EZP-4011 필수 항목 띄어쓰기 수정 -->
+												<span style="float:right;" class="switch  eIsUse">
+													필수항목
+												</span>
+												
+											</td>
+										</tr>
+										<tr data-col_id="seller_name" data-col_name="거래처명" data-fill_class="">
+											<td>
+												<sapn class="">거래처명</sapn> <span style="float:right;" class="switch  eIsUse"> <input type="checkbox" checked="checked">
+													<div class=" slider round"> <span class="on active">사용함</span> <span class="off ">사용안함</span>
+													</div>
+												</span>
+											</td>
+										</tr>
+										<tr data-col_id="seller_address" data-col_name="거래처주소" data-fill_class="">
+											<td>
+												<sapn class="">거래처주소</sapn> <span style="float:right;" class="switch  eIsUse"> <input type="checkbox" checked="checked">
+													<div class=" slider round"> <span class="on active">사용함</span> <span class="off ">사용안함</span>
+													</div>
+												</span>
+											</td>
+										</tr>
+										<tr data-col_id="seller_tel" data-col_name="거래처연락처" data-fill_class="">
+											<td>
+												<sapn class="">거래처연락처</sapn> <span style="float:right;" class="switch  eIsUse"> <input type="checkbox" checked="checked">
+													<div class=" slider round"> <span class="on active">사용함</span> <span class="off ">사용안함</span>
+													</div>
+												</span>
+											</td>
+										</tr>
+										<tr data-col_id="product_name" data-col_name="상품명" data-fill_class="excel-modify-essential">
+											<td>
+												<sapn class="excel-modify-essential">상품명</sapn>
+												<!-- 2022-09-14 EZP-4011 필수 항목 띄어쓰기 수정 -->
+												<span style="float:right;" class="switch no_change eIsUse">
+													필수항목
+												</span>
+											</td>
+										</tr>
+										<tr data-col_id="option" data-col_name="옵션" data-fill_class="">
+											<td>
+												<sapn class="">옵션</sapn> <span style="float:right;" class="switch  eIsUse"> <input type="checkbox" checked="checked">
+													<div class=" slider round"> <span class="on active">사용함</span> <span class="off ">사용안함</span>
+													</div>
+												</span>
+											</td>
+										</tr>
+										<tr data-col_id="product_price" data-col_name="판매가" data-fill_class="">
+											<td>
+												<sapn class="">판매가</sapn> <span style="float:right;" class="switch  eIsUse"> <input type="checkbox" checked="checked">
+													<div class=" slider round"> <span class="on active">사용함</span> <span class="off ">사용안함</span> </div>
+												</span>
+											</td>
+										</tr>
+										<tr data-col_id="order_qty" data-col_name="주문수량" data-fill_class="">
+											<td>
+												<sapn class="">주문수량</sapn> <span style="float:right;" class="switch  eIsUse"> <input type="checkbox" checked="checked">
+													<div class=" slider round"> <span class="on active">사용함</span> <span class="off ">사용안함</span> </div>
+												</span>
+											</td>
+										</tr>
+										<tr data-col_id="issued_qty" data-col_name="입고수량"  data-fill_class="">
+											<td>
+												<sapn class="">입고수량</sapn> <span style="float:right;" class="switch  eIsUse"> <input type="checkbox" checked="checked">
+													<div class=" slider round"> <span class="on active">사용함</span> <span class="off ">사용안함</span> </div>
+												</span>
+											</td>
+										</tr>
+										<tr data-col_id="disposal_qty" data-col_name="폐기수량" data-fill_class="">
+											<td>
+												<sapn class="">폐기수량</sapn> <span style="float:right;" class="switch  eIsUse"> <input type="checkbox" checked="checked">
+													<div class=" slider round"> <span class="on active">사용함</span> <span class="off ">사용안함</span> </div>
+												</span>
+											</td>
+										</tr>
+                                        <tr data-col_id="remaining_qty" data-col_name="잔여수량" data-fill_class="">
+											<td>
+												<sapn class="">잔여수량</sapn> <span style="float:right;" class="switch  eIsUse"> <input type="checkbox" checked="checked">
+													<div class=" slider round"> <span class="on active">사용함</span> <span class="off ">사용안함</span> </div>
+												</span>
+											</td>
+										</tr>
+										<tr data-col_id="
+                                        finished_product" data-col_name="제작상품 마감" data-fill_class="">
+											<td>
+												<sapn class="">제작상품 마감</sapn> <span style="float:right;" class="switch  eIsUse"> <input type="checkbox" checked="checked">
+													<div class=" slider round"> <span class="on active">사용함</span> <span class="off ">사용안함</span> </div>
+												</span>
+											</td>
+										</tr>
+										<tr data-col_id="processing_status" data-col_name="처리상태" data-fill_class="">
+											<td>
+												<sapn class="">처리상태</sapn> <span style="float:right;" class="switch  eIsUse"> <input type="checkbox" checked="checked">
+													<div class=" slider round"> <span class="on active">사용함</span> <span class="off ">사용안함</span> </div>
+												</span>
+											</td>
+										</tr>
+										<tr data-col_id="buyer_note" data-col_name="구매자메모" data-fill_class="">
+											<td>
+												<sapn class="">구매자메모</sapn> <span style="float:right;" class="switch  eIsUse"> <input type="checkbox">
+													<div class=" slider round"> <span class="on ">사용함</span> <span class="off active">사용안함</span> </div>
+												</span>
+											</td>
+										</tr>
+										<tr data-col_id="receiving_note" data-col_name="입고메모" data-fill_class="">
+											<td>
+												<sapn class="">입고메모</sapn> <span style="float:right;" class="switch  eIsUse"> <input type="checkbox">
+													<div class=" slider round"> <span class="on ">사용함</span> <span class="off active">사용안함</span> </div>
+												</span>
+											</td>
+										</tr>
+										<tr data-col_id="seller_product_name" data-col_name="쇼핑몰상품명" data-fill_class="">
+											<td>
+												<sapn class="">쇼핑몰상품명</sapn> <span style="float:right;" class="switch  eIsUse"> <input type="checkbox" checked="checked">
+													<div class=" slider round"> <span class="on active">사용함</span> <span class="off ">사용안함</span> </div>
+												</span>
+											</td>
+										</tr>
+										<tr data-col_id="seller_product_code" data-col_name="쇼핑몰상품코드" data-fill_class="">
+											<td>
+												<sapn class="">쇼핑몰상품코드</sapn> <span style="float:right;" class="switch  eIsUse"> <input type="checkbox" checked="checked">
+													<div class=" slider round"> <span class="on active">사용함</span> <span class="off ">사용안함</span> </div>
+												</span>
+											</td>
+										</tr>
+                                        <tr data-col_id="management_note" data-col_name="관리노트" data-fill_class="">
+											<td>
+												<sapn class="">관리노트</sapn> <span style="float:right;" class="switch  eIsUse"> <input type="checkbox" checked="checked">
+													<div class=" slider round"> <span class="on active">사용함</span> <span class="off ">사용안함</span> </div>
+												</span>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							<div class="btn_wrap mt20 tac">
+								<button type="button" href="#none" class="btn point smaller btnAllUse">모두 사용</button>
+								<button type="button" href="#none" class="btn line smaller btnNotUse">모두 사용안함</button>
+							</div>
+						</div>
+						<div class="right-wrap">
+							<div class="tit">
+								<!-- 2022-09-14 EZP-4011 사용 항목 띄어쓰기 수정 -->
+								<strong>사용항목</strong>
+							</div>
+							<div class="excel-modify-div-green">
+								<form id="frmExcelSave" method="post">
+									<input type="hidden" name="menu_no" value="3">
+									<table class="excel-modify-table-green">
+										<tbody class="left" id="tbodyExcelSaveArea">
+                                            <tr data-col_id="order_no"><input type="hidden" name="excel_form[]" value="order_no">
+												<td>
+													<sapn class="excel-modify-essential">주문번호</sapn>
+												</td>
+											</tr>
+											<tr data-col_id="seller_name"><input type="hidden" name="excel_form[]" value="seller_name">
+												<td>
+													<sapn class="">거래처명</sapn>
+												</td>
+											</tr>
+											<tr data-col_id="seller_address" style=""><input type="hidden" name="excel_form[]" value="seller_address">
+												<td>
+													<sapn class="">거래처주소</sapn>
+												</td>
+											</tr>
+											<tr data-col_id="seller_tel" style=""><input type="hidden" name="excel_form[]" value="seller_tel">
+												<td>
+													<sapn class="">거래처연락처</sapn>
+												</td>
+											</tr>
+                                            <tr data-col_id="product_name"><input type="hidden" name="excel_form[]" value="product_name">
+												<td>
+													<sapn class="excel-modify-essential">상품명</sapn>
+												</td>
+											</tr>
+                                            <tr data-col_id="option" style=""><input type="hidden" name="excel_form[]" value="option">
+												<td>
+													<sapn class="">옵션</sapn>
+												</td>
+											</tr>
+                                            <tr data-col_id="product_price" style=""><input type="hidden" name="excel_form[]" value="product_price">
+												<td>
+													<sapn class="">판매가</sapn>
+												</td>
+											</tr>
+                                            <tr data-col_id="order_qty" style=""><input type="hidden" name="excel_form[]" value="order_qty">
+												<td>
+													<sapn class="">주문수량</sapn>
+												</td>
+											</tr>
+                                            <tr data-col_id="issued_qty" style=""><input type="hidden" name="excel_form[]" value="issued_qty">
+												<td>
+													<sapn class="">입고수량</sapn>
+												</td>
+											</tr>
+                                            <tr data-col_id="disposal_qty" style=""><input type="hidden" name="excel_form[]" value="disposal_qty">
+												<td>
+													<sapn class="">폐기수량</sapn>
+												</td>
+											</tr>
+                                            <tr data-col_id="remaining_qty" style=""><input type="hidden" name="excel_form[]" value="remaining_qty">
+												<td>
+													<sapn class="">잔여수량</sapn>
+												</td>
+											</tr>
+                                            <tr data-col_id="
+                                            finished_product" style=""><input type="hidden" name="excel_form[]" value="
+                                            finished_product">
+												<td>
+													<sapn class="">제작상품 마감</sapn>
+												</td>
+											</tr>
+                                            <tr data-col_id="processing_status" style=""><input type="hidden" name="excel_form[]" value="processing_status">
+												<td>
+													<sapn class="">처리상태</sapn>
+												</td>
+											</tr>
+                                            <tr data-col_id="buyer_note" style=""><input type="hidden" name="excel_form[]" value="buyer_note">
+												<td>
+													<sapn class="">구매자메모</sapn>
+												</td>
+											</tr>
+                                            <tr data-col_id="receiving_note" style=""><input type="hidden" name="excel_form[]" value="receiving_note">
+												<td>
+													<sapn class="">입고메모</sapn>
+												</td>
+											</tr>
+                                            <tr data-col_id="seller_product_name" style=""><input type="hidden" name="excel_form[]" value="seller_product_name">
+												<td>
+													<sapn class="">쇼핑몰상품명</sapn>
+												</td>
+											</tr>
+                                            <tr data-col_id="seller_product_code" style=""><input type="hidden" name="excel_form[]" value="seller_product_code">
+												<td>
+													<sapn class="">쇼핑몰상품코드</sapn>
+												</td>
+											</tr>
+                                            <tr data-col_id="management_note" style=""><input type="hidden" name="excel_form[]" value="management_note">
+												<td>
+													<sapn class="">관리노트</sapn>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</form>
+							</div>
+							<div class="btn_wrap mt20 tac spr-sort-btn">
+								<button type="button" href="#none" class="modify-btn-edit-first btnFormFirst">처음으로 이동</button>
+								<button type="button" href="#none" class="modify-btn-edit-prev btnFormPrev">위로 이동</button>
+								<button type="button" href="#none" class="modify-btn-edit-next btnFormNext">아래로 이동</button>
+								<button type="button" href="#none" class="modify-btn-edit-last btnFormLast">마지막으로 이동</button>
+							</div>
+						</div>
+
+					</div>
+
+
+				</div>
+				<div id="tab-con2" style="display: none;" class="">
+					<p>
+						엑셀 '모아보기' 다운로드 시 노출되는 항목을 직접 설정할 수 있습니다.
+					</p>
+					<div class="cont-flex">
+						<div class="left-wrap">
+							<div class="tit">
+								<strong>전체항목</strong>
+								<button type="button" name="button" onclick="javascript:location.reload();" class="btn-reset">RESET</button>
+							</div>
+							<div class="list-item">
+								<table class="excel-modify-table table-hover">
+									<tbody class="left" id="tbodyExcelDefaultArea">
+										<tr data-col_id="seller_name" data-col_name="거래처명" data-fill_class="">
+											<td>
+												<sapn class="">거래처명</sapn> 
+												<!-- 2022-09-14 EZP-4011 필수 항목 띄어쓰기 수정 -->
+												<span style="float:right;" class="switch  eIsUse">
+													필수항목
+												</span>
+												
+											</td>
+										</tr>
+										<tr data-col_id="seller_address" data-col_name="거래처주소" data-fill_class="">
+											<td>
+												<sapn class="">거래처주소</sapn> <span style="float:right;" class="switch  eIsUse"> <input type="checkbox" checked="checked">
+													<div class=" slider round"> <span class="on active">사용함</span> <span class="off ">사용안함</span>
+													</div>
+												</span>
+											</td>
+										</tr>
+										<tr data-col_id="seller_tel" data-col_name="거래처연락처" data-fill_class="">
+											<td>
+												<sapn class="">거래처연락처</sapn> <span style="float:right;" class="switch  eIsUse"> <input type="checkbox" checked="checked">
+													<div class=" slider round"> <span class="on active">사용함</span> <span class="off ">사용안함</span>
+													</div>
+												</span>
+											</td>
+										</tr>
+										<tr data-col_id="product_name" data-col_name="상품명" data-fill_class="excel-modify-essential">
+											<td>
+												<sapn class="excel-modify-essential">상품명</sapn>
+												<!-- 2022-09-14 EZP-4011 필수 항목 띄어쓰기 수정 -->
+												<span style="float:right;" class="switch no_change eIsUse">
+													필수항목
+												</span>
+											</td>
+										</tr>
+										<tr data-col_id="option" data-col_name="옵션" data-fill_class="">
+											<td>
+												<sapn class="">옵션</sapn> <span style="float:right;" class="switch  eIsUse"> <input type="checkbox" checked="checked">
+													<div class=" slider round"> <span class="on active">사용함</span> <span class="off ">사용안함</span>
+													</div>
+												</span>
+											</td>
+										</tr>
+										<tr data-col_id="order_qty" data-col_name="주문수량" data-fill_class="">
+											<td>
+												<sapn class="">주문수량</sapn> <span style="float:right;" class="switch  eIsUse"> <input type="checkbox" checked="checked">
+													<div class=" slider round"> <span class="on active">사용함</span> <span class="off ">사용안함</span> </div>
+												</span>
+											</td>
+										</tr>
+										<tr data-col_id="issued_qty" data-col_name="입고수량"  data-fill_class="">
+											<td>
+												<sapn class="">입고수량</sapn> <span style="float:right;" class="switch  eIsUse"> <input type="checkbox" checked="checked">
+													<div class=" slider round"> <span class="on active">사용함</span> <span class="off ">사용안함</span> </div>
+												</span>
+											</td>
+										</tr>
+										<tr data-col_id="disposal_qty" data-col_name="폐기수량" data-fill_class="">
+											<td>
+												<sapn class="">폐기수량</sapn> <span style="float:right;" class="switch  eIsUse"> <input type="checkbox" checked="checked">
+													<div class=" slider round"> <span class="on active">사용함</span> <span class="off ">사용안함</span> </div>
+												</span>
+											</td>
+										</tr>
+										<tr data-col_id="remaining_qty" data-col_name="잔여수량" data-fill_class="">
+											<td>
+												<sapn class="">잔여수량</sapn> <span style="float:right;" class="switch  eIsUse"> <input type="checkbox" checked="checked">
+													<div class=" slider round"> <span class="on active">사용함</span> <span class="off ">사용안함</span> </div>
+												</span>
+											</td>
+										</tr>
+										<tr data-col_id="seller_product_name" data-col_name="쇼핑몰상품명" data-fill_class="">
+											<td>
+												<sapn class="">쇼핑몰상품명</sapn> <span style="float:right;" class="switch  eIsUse"> <input type="checkbox" checked="checked">
+													<div class=" slider round"> <span class="on active">사용함</span> <span class="off ">사용안함</span> </div>
+												</span>
+											</td>
+										</tr>
+										<tr data-col_id="seller_product_code" data-col_name="쇼핑몰상품코드" data-fill_class="">
+											<td>
+												<sapn class="">쇼핑몰상품코드</sapn> <span style="float:right;" class="switch  eIsUse"> <input type="checkbox" checked="checked">
+													<div class=" slider round"> <span class="on active">사용함</span> <span class="off ">사용안함</span> </div>
+												</span>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							<div class="btn_wrap mt20 tac">
+								<button type="button" href="#none" class="btn point smaller btnAllUse">모두 사용</button>
+								<button type="button" href="#none" class="btn line smaller btnNotUse">모두 사용안함</button>
+							</div>
+						</div>
+						<div class="right-wrap">
+							<div class="tit">
+								<!-- 2022-09-14 EZP-4011 사용 항목 띄어쓰기 수정 -->
+								<strong>사용항목</strong>
+							</div>
+							<div class="excel-modify-div-green">
+								<form id="frmExcelSave" method="post">
+									<input type="hidden" name="menu_no" value="3">
+									<table class="excel-modify-table-green">
+										<tbody class="left" id="tbodyExcelSaveArea">
+											<tr data-col_id="seller_name"><input type="hidden" name="excel_form[]" value="seller_name">
+												<td>
+													<sapn class="excel-modify-essential">거래처명</sapn>
+												</td>
+											</tr>
+											<tr data-col_id="seller_address" style=""><input type="hidden" name="excel_form[]" value="seller_address">
+												<td>
+													<sapn class="">거래처주소</sapn>
+												</td>
+											</tr>
+											<tr data-col_id="seller_tel" style=""><input type="hidden" name="excel_form[]" value="seller_tel">
+												<td>
+													<sapn class="">거래처연락처</sapn>
+												</td>
+											</tr>
+                                            <tr data-col_id="product_name"><input type="hidden" name="excel_form[]" value="product_name">
+												<td>
+													<sapn class="excel-modify-essential">상품명</sapn>
+												</td>
+											</tr>
+                                            <tr data-col_id="option" style=""><input type="hidden" name="excel_form[]" value="option">
+												<td>
+													<sapn class="">옵션</sapn>
+												</td>
+											</tr>
+                                            <tr data-col_id="order_qty" style=""><input type="hidden" name="excel_form[]" value="order_qty">
+												<td>
+													<sapn class="">주문수량</sapn>
+												</td>
+											</tr>
+                                            <tr data-col_id="issued_qty" style=""><input type="hidden" name="excel_form[]" value="issued_qty">
+												<td>
+													<sapn class="">입고수량</sapn>
+												</td>
+											</tr>
+                                            <tr data-col_id="disposal_qty" style=""><input type="hidden" name="excel_form[]" value="disposal_qty">
+												<td>
+													<sapn class="">폐기수량</sapn>
+												</td>
+											</tr>
+                                            <tr data-col_id="remaining_qty" style=""><input type="hidden" name="excel_form[]" value="remaining_qty">
+												<td>
+													<sapn class="">잔여수량</sapn>
+												</td>
+											</tr>
+                                            <tr data-col_id="seller_product_name" style=""><input type="hidden" name="excel_form[]" value="seller_product_name">
+												<td>
+													<sapn class="">쇼핑몰상품명</sapn>
+												</td>
+											</tr>
+                                            <tr data-col_id="seller_product_code" style=""><input type="hidden" name="excel_form[]" value="seller_product_code">
+												<td>
+													<sapn class="">쇼핑몰상품코드</sapn>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</form>
+							</div>
+							<div class="btn_wrap mt20 tac spr-sort-btn">
+								<button type="button" href="#none" class="modify-btn-edit-first btnFormFirst">처음으로 이동</button>
+								<button type="button" href="#none" class="modify-btn-edit-prev btnFormPrev">위로 이동</button>
+								<button type="button" href="#none" class="modify-btn-edit-next btnFormNext">아래로 이동</button>
+								<button type="button" href="#none" class="modify-btn-edit-last btnFormLast">마지막으로 이동</button>
+							</div>
+						</div>
+
+					</div>
+
+
+				</div>
+			</div>
+			<div class="btn_wrap mt40 tac">
+				<button type="button" class="btn smaller btn_close" style="width:150px;">취소</button>
+				<button id="btnExcelSave" type="button" class="btn point smaller" style="width:150px;">저장</button>
+			</div>
+		</div>
+         <!-- 2022-09-05 EZP-4011 제작상품관리 case 끝-->
+
+
+  		<script src="../../../../js/jquery.min.js"></script><!--jquery default-->
+
+  		<script src="../../../../js/jquery-ui.min.js"></script>
+  		<script src="../../../../js/swiper-ie9.min.js"></script>
+		<script src="../../../../js/default.input.js"></script><!-- 2022-10-04 -->
+  		<script src="../../../../js/addclear.min.js"></script>
+  		<script src="../../../../js/common.front.js"></script>
+  		<script src="../../../../js/ui.js"></script>
+  		<script src="../../../../js/pub.js"></script>
+  		<script src="../../../../js/jquery.scrollbar.min.js"></script>
+
+	</div>
+	<div class="ui-load" style="display:none"><img src="/img/common/loading.svg"></div>
+</body>
+
+</html>

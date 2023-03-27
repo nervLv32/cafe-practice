@@ -1,0 +1,749 @@
+{% extends "../_templates/layout.njk" %}
+{% block content %}
+
+<!-- 2022-12-20 EZP-6948 입고예정일 쇼핑몰연동 페이지 신규 추가 -->
+<div class="wrapper" id="wrap">
+  <!-- container -->
+  <div class="container" id="container">
+    <!-- content -->
+    <div class="content" id="content">
+      <div class="content-head">
+        <div class="page-title">
+          <h3 class="h3-tit">입고예정일 쇼핑몰 연동</h3>
+          <!-- <a href="#" class="btn-manual" target="_blank" title="매뉴얼">매뉴얼</a> -->
+          <div class="form-box">
+            <form onsubmit="return submitHandler();">
+              <fieldset>
+                <legend class="skip">통합검색</legend>
+                <label for="total-search" class="skip">검색어 입력</label>
+                <input type="search" name="total-search" id="total-search" title="검색어 입력" class="text"
+                  placeholder="상품을 검색해보세요.">
+                <input type="submit" value="검색" class="submit">
+              </fieldset>
+            </form>
+          </div>
+        </div>
+        <div class="cont-info-right">
+          <ul class="breadcrumb">
+            <li>공급</li>
+            <li>입고상품검수</li>
+            <li class="now" title="오늘입고상품">오늘입고상품</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="notice-wrap today-info-wrap p-t-10 p-b-10 m-b-40">
+        <div>
+          <i class="ico-notice">
+            <span class="txt-hide">공지아이콘</span>
+          </i>
+          <b>입고예정일 쇼핑몰 연동 가이드</b>
+
+          <br>
+          <div class="easy-pick-text m-t-5">
+            <ol class="p-l-12">
+              <li><em>①</em> <p>오른쪽의<b>'iframe 소스 복사'</b>버튼을 눌러 소스를 복사해 주세요.</p></li>
+              <li><em>②</em> <p>쇼핑몰로 이동하신 후 입고예정일을 표시할 위치에 <b>붙여넣기(저장)</b> 해주세요.</p></li>
+              <li><em>③</em> <p>쇼핑몰에 표시할 상품의 입고예정일<b>노출여부를 설정</b>해주세요.</p></li>
+              <li><em>④</em> <p>쇼핑몰에 표시할 상품의 <b>입고예정일을 설정</b>해주세요.</p></li>
+              <li><em>⑤</em> <p>쇼핑몰에 표시할 상품의 입고예정일 설정이 끝나면,<b>'쇼핑몰에 적용하기'</b>버튼 또는 <b>'미리보기'</b>버튼을 클릭해주세요.<br/>
+              '쇼핑몰에 적용하기'는 미리보기 없이 바로 쇼핑몰에 업데이트되며,'미리보기'는 설정한 내용을 미리보기로 확인 후 쇼핑몰에 적용할 수 있습니다.<br/>
+            적용한 입고예정일은 <b>iframe 소스를 붙여넣은 위치에서 확인</b>할 수 있습니다.</p></li>
+            </ol>
+            <p class="m-t-10 p-l-12"><em class="easy-pick-text red">위의 ①,②작업은 최초 한번만 필요합니다.</em><br/>
+            iframe소스 붙여넣기 작업이 완료되면, 이후 '쇼핑몰에 적용하기'버튼 클릭 시 iframe소스가 저장된 위치에 입고예정일이 자동 업데이트 됩니다.</p>
+          </div>
+        </div>
+        <div>
+          <i class="ico-iframe">
+            <span class="txt-hide">iframe소스복사</span>
+          </i>
+          <b>iframe 소스 복사</b>
+          <br/>
+          <div class="iframe-url-info">
+            <div class="iframe-source-box">
+              <p>iframe 소스 표시</p>
+            </div>
+            <ol>
+              <li><em>①</em> 오른쪽의 'iframe 소스복사'버튼을 클릭하시면 iframe 소스가 복사됩니다.</li>
+              <li><em>②</em> 쇼핑몰 내 입고예정일이 표시되길 원하시는 위치에 붙여넣기 해주세요.</li>
+            </ol>
+            <button type="button" class="btn btn-md btn-outline-gray2" style="width: 156px; height: 30px;">iframe 소스복사</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="title-area dflex">
+        <div class="title">입고예정일 표시 상품 선택</div>
+        <button type="button" class="btn btn-sm btn-outline-blue" onclick="targetModalPopup('modal-today-default-pop')">기본설정</button>
+      </div>
+      <div class="folder">
+        <form name="" id="">
+          <input type="hidden" name="" value="">
+          <div class="tborder-box m-b-10">
+            <div class="tbl-top-search">
+              <div class="table-row">
+                <table class="tbl-top">
+                  <colgroup>
+                    <col style="width:120px;">
+                    <col style="width:auto">
+                  </colgroup>
+                  <tbody>
+                    <tr class="rowFix rowFold">
+                      <th>입고일</th>
+                      <td>
+                        <div class="form-inline">
+                          <div class="calendar-box">
+                            <div class="form-inline">
+                              <div class="form-control">
+                                <button type="button" class="left-arrow"></button>
+                                <input type="text" class="cal-input" value="2022-03-13" data-range="cal01">
+                                <button type="button" class="right-arrow"></button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr class="rowFold">
+                      <th>주문유형</th>
+                      <td>
+                        <div class="form-inline">
+                          <div class="form-control">
+                            <label>
+                              <input type="checkbox" class="custom-control-input" checked="checked">
+                              <span>전체</span>
+                            </label>
+                          </div>
+                          <div class="form-control">
+                            <label>
+                              <input type="checkbox">
+                              <span>신규</span>
+                            </label>
+                          </div>
+                          <div class="form-control">
+                            <label>
+                              <input type="checkbox">
+                              <span>미송</span>
+                            </label>
+                          </div>
+                          <div class="form-control">
+                            <label>
+                              <input type="checkbox" class="custom-control-input">
+                              <span>불량</span>
+                            </label>
+                          </div>
+                          <div class="form-control">
+                            <label>
+                              <input type="checkbox" class="custom-control-input">
+                              <span>샘플</span>
+                            </label>
+                          </div>
+                          <div class="form-control">
+                            <label>
+                              <input type="checkbox" class="custom-control-input">
+                              <span>유료샘플</span>
+                            </label>
+                          </div>
+                          <div class="form-control">
+                            <label>
+                              <input type="checkbox" class="custom-control-input">
+                              <span>샘플결제</span>
+                            </label>
+                          </div>
+                          <div class="form-control">
+                            <label>
+                              <input type="checkbox" class="custom-control-input">
+                              <span>샘플반납</span>
+                            </label>
+                          </div>
+                          <div class="form-control">
+                            <label>
+                              <input type="checkbox" class="custom-control-input">
+                              <span>제작신규</span>
+                            </label>
+                          </div>
+                          <div class="form-control">
+                            <label>
+                              <input type="checkbox" class="custom-control-input">
+                              <span>제작미송</span>
+                            </label>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="top-btn-search">
+                <button type="button" name="button" class="btn btn-lg btn-point">검색</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <div class="store-order-info-box m-b-30">
+        <ul>
+          <li><em>1.</em> 상품의 [노출여부]가 OFF인 경우 해당 상품은 노출되지 않습니다.</li>
+          <li><em>2.</em> [주문유형]은 실제 쇼핑몰에는 노출되지 않습니다.(쇼핑몰에 표시되는 정보는 상품명/옵션/쇼핑몰 입고에정일입니다.)</li>
+          <li><em>3.</em> 입고예정일 설명 : <span>이지픽 입고예정일 → 이지픽에 상품이 입고되는 날짜.쇼핑몰에 표시되지 않습니다.</span>
+          <span>쇼핑몰 입고에정일 → 쇼핑몰에 표시할 입고예정일.해당 날짜가 쇼핑몰에 표시됩니다.</span></li>
+        </ul>
+      </div>
+
+      <div class="gridTableArea">
+        <div class="tround-box">
+          <div class="tbl-round ">
+            <div class="tbl-info-area">
+              <div class="btns-multi f-left">
+                <span class="btn-acc-txt">선택상품의</span>
+                <button type="button" name="button" class="btn btn-sm btn-outline-gray2" onclick="targetModalPopup('modal-today-on-off-pop')">노출설정</button>
+                <button type="button" name="button" class="btn btn-sm btn-outline-gray2" onclick="targetModalPopup('modal-today-expected-date')">입고예정일 설정</button>
+              </div>
+              <div class="f-right">
+                <div class="dflex">
+                  <div class="btns-multi">
+                    <button type="button" name="button" class="btn btn-sm btn-outline-blue" onclick="targetModalPopup('modal-today-preview-pop')">미리보기</button>
+                    <button type="button" name="button" class="btn btn-sm btn-primary">쇼핑몰에 적용하기</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- 그리드 테이블-->
+            <div class="mGridTable td-height-60 tbl-height01">
+              <table id="eMultiTable" class="eChkColor">
+                <thead>
+                  <tr>
+                    <th scope="col" style="width:48px;" class="resizable">
+                      <div class="form-control check-one">
+                        <label>
+                          <input type="checkbox">
+                          <span>체크</span>
+                        </label>
+                      </div>
+                    </th>
+                    <th scope="col" style="width:83px;" class="resizable">
+                      No.
+                    </th>
+                    <th scope="col" style="width:151px;" class="resizable">
+                      노출여부
+                    </th>
+                    <th scope="col" style="width:150px;" class="resizable">
+                      주문유형
+                    </th>
+                    <th scope="col" style="width:491px;" class="resizable">
+                      상품명
+                    </th>
+                    <th scope="col" style="width:177px;" class="resizable">
+                      옵션
+                    </th>
+                    <th scope="col" style="width:280px;" class="resizable">
+                      이지픽 입고예정일
+                    </th>
+                    <th scope="col" style="width:280px;">
+                      쇼핑몰 입고예정일
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <div class="form-control check-one">
+                        <label>
+                          <input type="checkbox">
+                          <span>체크</span>
+                        </label>
+                      </div>
+                    </td>
+                    <td>10</td>
+                    <td>
+                      <div class="btn-switch on-off">
+                        <label>
+                          <input type="checkbox">
+                          <div class="slider"></div>
+                        </label>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="easy-pick-case">
+                        <span class="undeliver">
+                          미송
+                        </span>
+                      </div>
+                    </td>
+                    <td>
+                      <p>따뜻한기모안감편한티셔츠예요.</p>
+                    </td>
+                    <td>
+                      <span>블랙/M</span>
+                    </td>
+                    <td>
+                      <span>2021-12-07</span>
+                    </td>
+                    <td class="bg-blue">
+                      <a href="javascript: void(0);" class="txt-link">2021-12-07</a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="form-control check-one">
+                        <label>
+                          <input type="checkbox">
+                          <span>체크</span>
+                        </label>
+                      </div>
+                    </td>
+                    <td>9</td>
+                    <td>
+                      <div class="btn-switch on-off">
+                        <label>
+                          <input type="checkbox">
+                          <div class="slider"></div>
+                        </label>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="easy-pick-case">
+                        <span class="new">
+                          신규
+                        </span>
+                      </div>
+                    </td>
+                    <td>
+                      <p>고잉고잉 좋아요</p>
+                    </td>
+                    <td>
+                      <span>블랙/L</span>
+                    </td>
+                    <td>
+                      <span>다음주중</span>
+                    </td>
+                    <td class="bg-blue">
+                      <a href="javascript: void(0);" class="txt-link">다음주중</a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="form-control check-one">
+                        <label>
+                          <input type="checkbox">
+                          <span>체크</span>
+                        </label>
+                      </div>
+                    </td>
+                    <td>8</td>
+                    <td>
+                      <div class="btn-switch on-off">
+                        <label>
+                          <input type="checkbox">
+                          <div class="slider"></div>
+                        </label>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="easy-pick-case">
+                        <span class="new">
+                          신규
+                        </span>
+                      </div>
+                    </td>
+                    <td>
+                      <p>따뜻한기모안감편한티셔츠</p>
+                    </td>
+                    <td>
+                      <span>블랙/S</span>
+                    </td>
+                    <td>
+                      <span>2021-12-07</span>
+                    </td>
+                    <td class="bg-blue">
+                      <a href="javascript: void(0);" class="txt-link">2021-12-07</a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="form-control check-one">
+                        <label>
+                          <input type="checkbox">
+                          <span>체크</span>
+                        </label>
+                      </div>
+                    </td>
+                    <td>7</td>
+                    <td>
+                      <div class="btn-switch on-off">
+                        <label>
+                          <input type="checkbox">
+                          <div class="slider"></div>
+                        </label>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="easy-pick-case">
+                        <span class="return">
+                          반납
+                        </span>
+                      </div>
+                    </td>
+                    <td>
+                      <p>플리츠이쁜스커트입니다.</p>
+                    </td>
+                    <td>
+                      <span>블랙/XL</span>
+                    </td>
+                    <td>
+                      <span>미정</span>
+                    </td>
+                    <td class="bg-blue">
+                      <a href="javascript: void(0);" class="txt-link">미정</a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="form-control check-one">
+                        <label>
+                          <input type="checkbox">
+                          <span>체크</span>
+                        </label>
+                      </div>
+                    </td>
+                    <td>6</td>
+                    <td>
+                      <div class="btn-switch on-off">
+                        <label>
+                          <input type="checkbox">
+                          <div class="slider"></div>
+                        </label>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="easy-pick-case">
+                        <span class="new">
+                          신규
+                        </span>
+                      </div>
+                    </td>
+                    <td>
+                      <p>레이크</p>
+                    </td>
+                    <td>
+                      <span>-</span>
+                    </td>
+                    <td>
+                      <span>2021-12-07</span>
+                    </td>
+                    <td class="bg-blue">
+                      <a href="javascript: void(0);" class="txt-link">2021-12-07</a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="form-control check-one">
+                        <label>
+                          <input type="checkbox">
+                          <span>체크</span>
+                        </label>
+                      </div>
+                    </td>
+                    <td>5</td>
+                    <td>
+                      <div class="btn-switch on-off">
+                        <label>
+                          <input type="checkbox">
+                          <div class="slider"></div>
+                        </label>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="easy-pick-case">
+                        <span class="new">
+                          신규
+                        </span>
+                      </div>
+                    </td>
+                    <td>
+                      <p>프리미엄코트</p>
+                    </td>
+                    <td>
+                      <span>화이트/미디움</span>
+                    </td>
+                    <td>
+                      <span>-</span>
+                    </td>
+                    <td class="bg-blue">
+                      <a href="javascript: void(0);" class="txt-link">-</a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="form-control check-one">
+                        <label>
+                          <input type="checkbox">
+                          <span>체크</span>
+                        </label>
+                      </div>
+                    </td>
+                    <td>4</td>
+                    <td>
+                      <div class="btn-switch on-off">
+                        <label>
+                          <input type="checkbox">
+                          <div class="slider"></div>
+                        </label>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="easy-pick-case">
+                        <span class="new">
+                          신규
+                        </span>
+                      </div>
+                    </td>
+                    <td>
+                      <p>따뜻한기모안감편한티셔츠</p>
+                    </td>
+                    <td>
+                      <span>블랙/1</span>
+                    </td>
+                    <td>
+                      <span>2021-12-07</span>
+                    </td>
+                    <td class="bg-blue">
+                      <a href="javascript: void(0);" class="txt-link">2021-12-07</a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="form-control check-one">
+                        <label>
+                          <input type="checkbox">
+                          <span>체크</span>
+                        </label>
+                      </div>
+                    </td>
+                    <td>3</td>
+                    <td>
+                      <div class="btn-switch on-off">
+                        <label>
+                          <input type="checkbox">
+                          <div class="slider"></div>
+                        </label>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="easy-pick-case">
+                        <span class="new-produce no-br">
+                          제작<br/>신규
+                        </span>
+                      </div>
+                    </td>
+                    <td>
+                      <p>따뜻한기모안감편한티셔츠</p>
+                    </td>
+                    <td>
+                      <span>옐로우/66</span>
+                    </td>
+                    <td>
+                      <span>2021-12-07</span>
+                    </td>
+                    <td class="bg-blue">
+                      <a href="javascript: void(0);" class="txt-link">2021-12-07</a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="form-control check-one">
+                        <label>
+                          <input type="checkbox">
+                          <span>체크</span>
+                        </label>
+                      </div>
+                    </td>
+                    <td>2</td>
+                    <td>
+                      <div class="btn-switch on-off">
+                        <label>
+                          <input type="checkbox">
+                          <div class="slider"></div>
+                        </label>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="easy-pick-case">
+                        <span class="failure">
+                          불량
+                        </span>
+                      </div>
+                    </td>
+                    <td>
+                      <p>따뜻한기모안감편한티셔츠</p>
+                    </td>
+                    <td>
+                      <span>-</span>
+                    </td>
+                    <td>
+                      <span>2021-12-07</span>
+                    </td>
+                    <td class="bg-blue">
+                      <a href="javascript: void(0);" class="txt-link">2021-12-07</a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="form-control check-one">
+                        <label>
+                          <input type="checkbox">
+                          <span>체크</span>
+                        </label>
+                      </div>
+                    </td>
+                    <td>1</td>
+                    <td>
+                      <div class="btn-switch on-off">
+                        <label>
+                          <input type="checkbox">
+                          <div class="slider"></div>
+                        </label>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="easy-pick-case">
+                        <span class="sample">
+                          샘플
+                        </span>
+                      </div>
+                    </td>
+                    <td>
+                      <p>따뜻한기모안감편한티셔츠</p>
+                    </td>
+                    <td>
+                      <span>블랙/M</span>
+                    </td>
+                    <td>
+                      <span>2021-12-07</span>
+                    </td>
+                    <td class="bg-blue">
+                      <a href="javascript: void(0);" class="txt-link">2021-12-07</a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <!-- //그리드 테이블-->
+        </div>
+      </div>
+
+      <!-- 데이터 없을시 -->
+      <div class="gridTableArea m-t-100">
+        <div class="tround-box">
+          <div class="tbl-round ">
+            <div class="tbl-info-area">
+              <div class="btns-multi f-left">
+                <span class="btn-acc-txt">선택상품의</span>
+                <button type="button" name="button" class="btn btn-sm btn-outline-gray2">노출설정</button>
+                <button type="button" name="button" class="btn btn-sm btn-outline-gray2">입고예정일 설정</button>
+              </div>
+              <div class="f-right">
+                <div class="dflex">
+                  <div class="btns-multi">
+                    <button type="button" name="button" class="btn btn-sm btn-outline-blue" onclick="targetModalPopup('modal-today-preview-pop')">미리보기</button>
+                    <button type="button" name="button" class="btn btn-sm btn-primary">쇼핑몰에 적용하기</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- 그리드 테이블-->
+            <div class="mGridTable td-height-60 tbl-height01">
+              <table id="eMultiTable1" class="eChkColor">
+                <thead>
+                  <tr>
+                    <th scope="col" style="width:48px;" class="resizable">
+                      <div class="form-control check-one">
+                        <label>
+                          <input type="checkbox">
+                          <span>체크</span>
+                        </label>
+                      </div>
+                    </th>
+                    <th scope="col" style="width:83px;" class="resizable">
+                      No.
+                    </th>
+                    <th scope="col" style="width:151px;" class="resizable">
+                      노출여부
+                    </th>
+                    <th scope="col" style="width:150px;" class="resizable">
+                      주문유형
+                    </th>
+                    <th scope="col" style="width:491px;" class="resizable">
+                      상품명
+                    </th>
+                    <th scope="col" style="width:177px;" class="resizable">
+                      옵션
+                    </th>
+                    <th scope="col" style="width:280px;" class="resizable">
+                      이지픽 입고예정일
+                    </th>
+                    <th scope="col" style="width:280px;">
+                      쇼핑몰 입고예정일
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="tr-empty">
+                    <td>
+                      <div class="txt">
+                        <i><img src="../assets/images/guide-ico.png" alt="guide-icon"></i>
+                        <span>선택한 날짜에 이지픽에 입고된 상품이 없습니다.</span>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <!-- //그리드 테이블-->
+        </div>
+      </div>
+    </div>
+    <!-- //content -->
+    <div class="content-footer">
+      <div class="content-footer-btns">
+        <button type="button" class="btn btn-lg btn-outline-blue mr10 w110" onclick="targetModalPopup('modal-today-preview-pop')">미리보기</button>
+        <button type="button" class="btn btn-lg btn-point w165">쇼핑몰에 적용하기</button>
+      </div>
+    </div>
+  </div>
+  <!-- container -->
+</div>
+
+<script>
+  $(document).ready(function () {
+    $('#eMultiTable').fixResize({
+      colResize: true,
+      resizeVer: 'flex'
+    });
+    // 데이터 없을시 새로운 테이블
+    $('#eMultiTable1').fixResize({
+      colResize: true,
+      resizeVer: 'flex'
+    });
+
+    // 검색결과 없을때 tr 높이 조절
+    const emptyTh = $('.tr-empty').parents('table').find('thead tr th').length;
+    const emptyMt = $('.tr-empty').parents('table').css('margin-top').replace('-', '');
+    const emptyMg = emptyMt.replace('px', '');
+    $('.tr-empty td').attr('colspan', emptyTh);
+    $('.tr-empty').parents('table').css('height', `calc(100% + ${emptyMg}px)`);
+  });
+</script>
+
+<!-- 처리현황 -->
+{% include("./modals/process-status/reconfirm-process-status.njk") %}
+
+<!-- 입고예정일 쇼핑몰 연동 팝업 -->
+{% include("./modals/stock-today/modal-stock-change-date.njk") %}
+
+
+{% endblock %}

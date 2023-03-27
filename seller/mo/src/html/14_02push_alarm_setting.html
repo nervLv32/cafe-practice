@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<!--EZP-5398-->
+<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width, viewport-fit=cover">
+<link rel="stylesheet" type="text/css" href="../css/mobile/swiper-bundle.min.css">
+<link rel="stylesheet" type="text/css" href="../css/mobile/jquery-ui.min.css">
+<link rel="stylesheet" type="text/css" href="../css/mobile/default.import.css">
+<link rel="stylesheet" type="text/css" href="../css/mobile/ui.css">
+<link rel="stylesheet" type="text/css" href="../css/mobile/style.css">
+
+<script type="text/javascript" src="../js/mobile/jquery-3.5.1.min.js"></script>
+<script type="text/javascript" src="../js/mobile/jquery-ui.min.js"></script>
+<script type="text/javascript" src="../js/mobile/swiper-bundle.min.js"></script>
+<script type="text/javascript" src="../js/mobile/common_front.js"></script>
+<script type="text/javascript" src="../js/mobile/ui.js"></script>
+</head>
+<body>
+    <!-- 2022-11-03 EZP-5110 알림설정 신규페이지 -->
+    <!-- 2022-10-14 EZP-5609 body > banner + #wrap > header로 변경 -->
+    <div id="wrap" class="alarm-setting layout">
+      <header>
+        <div class="back">
+          <a href="#">뒤로가기</a>
+        </div>
+        <div class="title">
+          <span class="title-inner">
+            알림설정
+          </span>
+        </div>
+      </header>
+      <section class="content">
+        <ul>
+            <li>
+                <div class="txt-box">
+                    <strong>프로모션/이벤트 알림 수신 동의</strong>
+                    <p>프로모션 및 다양한 혜택에 관한 알림을 받을 수 있습니다.</p>
+                </div>
+                <div class="switch with-text">
+                    <input type="checkbox" name="s1" id="s1">
+                    <label for="s1">
+                        <span class="on">ON</span>
+                        <span class="off">OFF</span>
+                    </label>
+                </div>
+            </li>
+            <li>
+                <div class="txt-box">
+                    <strong>야간 정보성 알림 수신 동의</strong>
+                    <p>야간 시간대 (21시~08시) 정보성 푸시에 관한 알림을 받을 수 있습니다.</p>
+                </div>
+                <div class="switch with-text">
+                    <input type="checkbox" name="s2" id="s2">
+                    <label for="s2">
+                        <span class="on">ON</span>
+                        <span class="off">OFF</span>
+                    </label>
+                </div>
+            </li>
+            <li>
+                <div class="txt-box">
+                    <strong>정보성 알림 수신</strong>
+                    <p>주문 관련 및 활동에 대한 알림을 받을 수 있습니다.</p>
+                </div>
+                <div class="switch with-text">
+                    <input type="checkbox" name="s3" id="s3">
+                    <label for="s3">
+                        <span class="on">ON</span>
+                        <span class="off">OFF</span>
+                    </label>
+                </div>
+            </li>
+            <li>
+                <div class="txt-box">
+                    <strong>이지톡 알림 수신</strong>
+                    <p>이지톡 채팅 알림을 받을 수 있습니다.</p>
+                </div>
+                <div class="switch with-text">
+                    <input type="checkbox" name="s4" id="s4">
+                    <label for="s4">
+                        <span class="on">ON</span>
+                        <span class="off">OFF</span>
+                    </label>
+                </div>
+            </li>
+        </ul>
+        <p class="info-txt">기기의 알림 설정은 설정 > 알림 > 이지픽셀러에서 변경할 수 있습니다.</p>
+    </div>
+
+    <!-- 기기알림 OFF popup -->
+    <div class="ui-popup message" id="message_confirm">
+        <div class="content">
+          <div class="body">
+            기기알림이 꺼져있습니다.<br>
+            설정>알림>이지픽셀러에서 알림을 켜주세요.<br>
+          </div>
+          <div class="btn-group"> 
+            <button type="button" class="case-01" data-popup-close>취소</button>
+            <button type="button" class="case-02" data-popup-close>확인</button>
+          </div>
+        </div>
+      </div>
+  </body>
+</html>

@@ -1,0 +1,978 @@
+{% extends "../_templates/layout.njk" %}
+{% block content %}
+
+<div class="wrapper" id="wrap">
+  <!-- container -->
+  <div class="container" id="container">
+    <!-- content -->
+    <div class="content" id="content">
+      <div class="content-head">
+        <div class="page-title">
+          <h3 class="h3-tit">셀픽주문내역</h3>
+          <a href="#" class="btn-manual" target="_blank" title="매뉴얼">매뉴얼</a>
+          <div class="form-box">
+            <form onsubmit="return submitHandler();">
+              <fieldset>
+                <legend class="skip">통합검색</legend>
+                <label for="total-search" class="skip">검색어 입력</label>
+                <input type="search" name="total-search" id="total-search" title="검색어 입력" class="text"
+                  placeholder="상품을 검색해보세요.">
+                <input type="submit" value="검색" class="submit">
+              </fieldset>
+            </form>
+          </div>
+        </div>
+        <div class="cont-info-right">
+          <ul class="breadcrumb">
+            <li>공급</li>
+            <li>사입내역조회</li>
+            <li class="now" title="현재 페이지">셀픽주문내역</li>
+          </ul>
+        </div>
+      </div>
+      <div class="notice-wrap p-t-10 p-b-10">
+        <div>
+          <i class="ico-notice">
+            <span class="txt-hide">공지아이콘</span>
+          </i>
+          안내
+          <br />
+          <div class="easy-pick-text m-t-5">
+            셀픽주문으로 주문된 내역만 확인 가능합니다.
+          </div>
+        </div>
+      </div>
+      <div class="mSearchEngine folder">
+        <form name="" id="">
+          <input type="hidden" name="" value="">
+          <div class="tborder-box">
+            <div class="tbl-top-search">
+              <div class="table-row">
+                <table class="tbl-top">
+                  <colgroup>
+                    <col style="width:120px;">
+                    <col style="width:47%">
+                    <col style="width:25px;">
+                    <col style="width:120px;">
+                    <col style="width:33%">
+                  </colgroup>
+                  <tbody>
+                    <tr class="rowFix rowFold">
+                      <th>기간</th>
+                      <td>
+                        <div class="form-inline">
+                          <select name="" id="" class="default-select w120">
+                            <option value="">주문일시</option>
+                            <option value="">취소일시</option>
+                          </select>
+                          <div class="sel-date-type">
+                            <button type="button" class="label-date active">1개월</button>
+                            <ul class="sel-date-list">
+                              <li class="label-date">오늘</li>
+                              <li class="label-date">3일</li>
+                              <li class="label-date">7일</li>
+                              <li class="label-date active">1개월</li>
+                              <li class="label-date">3개월</li>
+                              <li class="label-date">6개월</li>
+                              <li class="label-date">1년</li>
+                              <li class="label-date">선택</li>
+                            </ul>
+                          </div>
+                          <div class="calendar-box">
+                            <div class="form-inline">
+                              <div class="form-control">
+                                <input type="text" class="cal-input" value="2019-04-01" data-range="cal01">
+                              </div>
+                              <div class="wave-txt">~</div>
+                              <div class="form-control">
+                                <input type="text" class="cal-input" value="2019-04-01" data-range="cal01">
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                      <td></td>
+                      <th>검색</th>
+                      <td>
+                        <div class="form-inline">
+                          <select name="" id="" class="default-select w120">
+                            <option value="">전체</option>
+                            <option value="">주문번호</option>
+                            <option value="">거래처명</option>
+                            <option value="">거래처명(주문)</option>
+                            <option value="">상품명</option>
+                            <option value="">쇼핑몰상품명</option>
+                            <option value="">쇼핑몰상품코드</option>
+                          </select>
+                          <div class="form-control searchValue">
+                            <input type="text" class="search-input-w2" name="" id="" value="" placeholder="">
+                          </div>
+                        </div>
+                      </td>
+                      <td></td>
+                    </tr>
+                    <tr class="rowFold">
+                      <th>유형</th>
+                      <td>
+                        <div class="form-inline form-oneline-wrap">
+                          <div class="form-control">
+                            <label>
+                              <input type="checkbox" class="custom-control-input" checked="checked">
+                              <span>전체</span>
+                            </label>
+                          </div>
+                          <div class="form-control">
+                            <label>
+                              <input type="checkbox">
+                              <span>신규</span>
+                            </label>
+                          </div>
+                          <div class="form-control">
+                            <label>
+                              <input type="checkbox">
+                              <span>미송</span>
+                            </label>
+                          </div>
+                          <div class="form-control">
+                            <label>
+                              <input type="checkbox" class="custom-control-input">
+                              <span>불량</span>
+                            </label>
+                          </div>
+                          <div class="form-control">
+                            <label>
+                              <input type="checkbox" class="custom-control-input">
+                              <span>샘플</span>
+                            </label>
+                          </div>
+                          <div class="form-control">
+                            <label>
+                              <input type="checkbox" class="custom-control-input">
+                              <span>유료샘플</span>
+                            </label>
+                          </div>
+                          <div class="form-control">
+                            <label>
+                              <input type="checkbox" class="custom-control-input">
+                              <span>샘플반납</span>
+                            </label>
+                          </div>
+                          <div class="form-control">
+                            <label>
+                              <input type="checkbox" class="custom-control-input">
+                              <span>제작신규</span>
+                            </label>
+                          </div>
+                        </div>
+                      </td>
+                      <td></td>
+                      <th>진행상태</th>
+                      <td>
+                        <div class="form-inline">
+                          <div class="form-control">
+                            <label>
+                              <input type="checkbox" class="custom-control-input" checked="checked">
+                              <span>전체</span>
+                            </label>
+                          </div>
+                          <div class="form-control">
+                            <label>
+                              <input type="checkbox">
+                              <span>주문완료</span>
+                            </label>
+                          </div>
+                          <div class="form-control">
+                            <label>
+                              <input type="checkbox">
+                              <span>진행중</span>
+                            </label>
+                          </div>
+                          <div class="form-control">
+                            <label>
+                              <input type="checkbox">
+                              <span>거래완료</span>
+                            </label>
+                          </div>
+                          <div class="form-control">
+                            <label>
+                              <input type="checkbox" class="custom-control-input">
+                              <span>취소완료</span>
+                            </label>
+                          </div>
+                        </div>
+                      </td>
+                      <td></td>
+                    </tr>
+                    <tr class="rowFold">
+                      <th>삼촌주문서 전송</th>
+                      <td>
+                        <div class="form-inline">
+                          <div class="form-control">
+                            <label>
+                              <input type="checkbox" class="custom-control-input" checked="checked">
+                              <span>전체</span>
+                            </label>
+                          </div>
+                          <div class="form-control">
+                            <label>
+                              <input type="checkbox">
+                              <span>전송대기</span>
+                            </label>
+                          </div>
+                          <div class="form-control">
+                            <label>
+                              <input type="checkbox">
+                              <span>전송완료</span>
+                            </label>
+                          </div>
+                          <div class="form-control">
+                            <label>
+                              <input type="checkbox" class="custom-control-input">
+                              <span>전송실패</span>
+                            </label>
+                          </div>
+                          <div class="form-control">
+                            <label>
+                              <input type="checkbox" class="custom-control-input">
+                              <span>전송안함(-)</span>
+                            </label>
+                          </div>
+                        </div>
+                      </td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="top-btn-search">
+                <button type="button" name="button" class="btn btn-lg btn-point">검색</button>
+                <div class="search-btns">
+                  <a href="#" class="serchsortbtn">
+                    <button type="button" class="btn btn-lg btn-sub-primary sarchsortbtn">검색관리</button>
+                    <div class="top-search-sort">
+                      <button type="button" class="reset"><i class="ico ico-reset"></i>초기화</button>
+                      <div class="top-search-depth">
+                        <button type="button" class="add-search-save"><i class="ico ico-plus-blue"></i>검색조건 저장</button>
+                        <ul class="add-search-element">
+                          <li class="dflex">
+                            <div class="form-control">
+                              <input type="text" value="저장1" readonly="readonly">
+                            </div>
+                            <div class="s-search-btns">
+                              <button type="button" class="btn btn-write">쓰기</button>
+                              <button type="button" class="btn btn-del">삭제</button>
+                            </div>
+                          </li>
+                          <li class="dflex">
+                            <div class="form-control">
+                              <input type="text" value="저장2" readonly="readonly">
+                            </div>
+                            <div class="s-search-btns">
+                              <button type="button" class="btn btn-write">쓰기</button>
+                              <button type="button" class="btn btn-del">삭제</button>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="gridTableArea">
+        <div class="table-top-info">
+          <div class="top-txt-inline">
+            <span class="txt-inline">검색결과 <strong>1,000</strong>건
+          </div>
+          <div class="sort-sel-area">
+            <select id="list_limit" class="default-select">
+              <option value="20" selected="selected">20개씩 보기</option>
+              <option value="30">30개씩 보기</option>
+              <option value="50">50개씩 보기</option>
+              <option value="100">100개씩 보기</option>
+              <option value="200">200개씩 보기</option>
+              <!-- 2023-02-17 EZP-7830 보기 옵션 추가 시작 -->
+              <option value="300">300개씩 보기</option>
+              <option value="500">500개씩 보기</option>
+              <!-- 2023-02-17 EZP-7830 보기 옵션 추가 끝 -->
+            </select>
+          </div>
+        </div>
+        <div class="tround-box">
+          <div class="tbl-round ">
+            <div class="tbl-info-area">
+              <div class="f-left">
+                <div class="btns-multi">
+                  <button type="button" name="button" class="btn btn-sm btn-outline-gray">거래완료하기</button>
+                </div>
+              </div>
+              <div class="f-right">
+                <div class="dflex">
+                  <div class="btns-multi">
+                    <button type="button" name="button" class="btn btn-sm btn-outline-gray"><i
+                        class="ico ico-excel"></i>엑셀다운로드</button>
+                    <button type="button" name="button" class="btn btn-ico btn-outline-gray"><i
+                        class="ico ico-sort"></i>설정</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- 그리드 테이블-->
+            <div class="mGridTable td-height-60 tbl-height01">
+              <table id="eMultiTable" class="eChkColor">
+                <thead>
+                  <tr>
+                    <th scope="col" style="width:50px;" class="resizable">
+                      <div class="form-control check-one">
+                        <label>
+                          <input type="checkbox">
+                          <span>체크</span>
+                        </label>
+                      </div>
+                    </th>
+                    <th scope="col" style="width:62px;" class="resizable">
+                      No
+                    </th>
+                    <th scope="col" style="width:90px;" class="resizable">
+                      주문구분
+                    </th>
+                    <th scope="col" style="width:74px;" class="resizable">
+                      유형
+                    </th>
+                    <th scope="col" style="width:163px;" class="resizable">
+                      주문번호(주문일시)
+                    </th>
+                    <th scope="col" style="width:230px;" class="resizable">
+                      품목정보
+                    </th>
+                    <th scope="col" style="width:87px;" class="resizable">
+                      주문수량
+                    </th>
+                    <th scope="col" style="width:87px;" class="resizable">
+                      입고수량
+                    </th>
+                    <th scope="col" style="width:138px;" class="resizable">
+                      주문금액 (취소금액)
+                    </th>
+                    <th scope="col" style="width:103px;" class="resizable">
+                      최종금액
+                    </th>
+                    <th scope="col" style="width:86px;" class="resizable">
+                      입고금액
+                    </th>
+                    <th scope="col" style="width:185px;" class="resizable">
+                      진행상태(최근 수정일)
+                    </th>
+                    <th scope="col" style="width:76px;" class="resizable">
+                      메모
+                    </th>
+                    <th scope="col" style="width:148px;" class="resizable">
+                      삼촌주문서 전송
+
+                      <div class="tool-tip-wrap tool-gray">
+                        <a href="javascript:void(0)" class="tool-tip m-b-1">툴팁</a>
+                        <div class="tool-tip-area w-auto left3">
+                          <section class="tool-tip-title">
+                            <h1>삼촌주문서 전송상태 안내</h1>
+                            <div class="tool-tip-inner">
+                              <ul class="list-dash">
+                                <li>
+                                  실패 건이 있는 경우 상세페이지에서 사입삼촌 정보 클릭 후<br>
+                                  URL복사를 통해 직접 전송 가능합니다.
+                                </li>
+                                <li class="m-t-5">
+                                  취소완료된 건인 경우에도 주문서 전송대기/완료 후 취소된 경우<br>
+                                  주문서 전송 여부가 표시될 수 있습니다.
+                                </li>
+                              </ul>
+                            </div>
+                          </section>
+                          <button type="button" class="tool-tip-close">닫기</button>
+                        </div>
+                      </div>
+                    </th>
+                    <th scope="col" style="width:91px;">
+                      관리
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+
+                  <tr>
+                    <td>
+                      <div class="form-control check-one">
+                        <label>
+                          <input type="checkbox">
+                          <span>체크</span>
+                        </label>
+                      </div>
+                    </td>
+                    <td>7</td>
+                    <td>일반주문</td>
+                    <td>
+                      <div class="easy-pick-case">
+                        <span class="undeliver">
+                          미송
+                        </span>
+                      </div>
+                    </td>
+                    <td>
+                      2022031600007965<br>
+                      (2022-03-16 15:52:02)
+                    </td>
+                    <td>
+                      <a href="../buy-sell-pick/sell-pick-detail.html">
+                        <span class="txt-link">
+                          2타입 두줄 조거 트레이닝 바지미송
+                        </span>
+                      </a>
+                    </td>
+                    <td>39</td>
+                    <td>39</td>
+                    <td class="tar">
+                      11,000
+                    </td>
+                    <td class="tar">
+                      <strong>11,000</strong>
+                    </td>
+                    <td class="tar">
+                      11,000
+                    </td>
+                    <td>
+                      <span class="easy-pick-text-step pay-complete">
+                        주문완료
+                      </span>
+                    </td>
+                    <td>
+                      <a href="#" onclick="targetModalPopup('modal-order-memo-popup')">
+                        <i class="ico-easy-pick ico-memo-on"></i>
+                      </a>
+                    </td>
+                    <td>
+                      전송완료
+                    </td>
+                    <td>
+                      <button class="btn btn-btn btn-sm btn-outline-gray">주문취소</button>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      <div class="form-control check-one">
+                        <label>
+                          <input type="checkbox">
+                          <span>체크</span>
+                        </label>
+                      </div>
+                    </td>
+                    <td>6</td>
+                    <td>일반주문</td>
+                    <td>
+                      <div class="easy-pick-case">
+                        <span class="new">
+                          신규
+                        </span>
+                      </div>
+                    </td>
+                    <td>
+                      2022041200008169<br>
+                      (2022-04-12 14:13:04)
+                    </td>
+                    <td>
+                      <a href="../buy-sell-pick/sell-pick-detail.html">
+                        <span class="txt-link">
+                          2타입 두줄 조거 트레이닝 바지신규
+                        </span>
+                      </a>
+                    </td>
+                    <td>39</td>
+                    <td>39</td>
+                    <td class="tar">
+                      11,000
+                    </td>
+                    <td class="tar">
+                      <strong>11,000</strong>
+                    </td>
+                    <td class="tar">
+                      11,000
+                    </td>
+                    <td>
+                      <span class="easy-pick-text-step">
+                        진행중
+                      </span>
+                    </td>
+                    <td>
+                      <!-- 2022 08 26 a링크 수정 -->
+                        <i class="ico-easy-pick ico-memo-off"></i>
+                    </td>
+                    <td>
+                      -
+                    </td>
+                    <td>
+                      <button class="btn btn-btn btn-sm btn-outline-gray">주문취소</button>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      <div class="form-control check-one">
+                        <label>
+                          <input type="checkbox">
+                          <span>체크</span>
+                        </label>
+                      </div>
+                    </td>
+                    <td>5</td>
+                    <td>일반주문</td>
+                    <td>
+                      <div class="easy-pick-case">
+                        <span class="new-produce no-br">
+                          제작신규
+                        </span>
+                      </div>
+                    </td>
+                    <td>
+                      2022031600007966<br>
+                      (2022-03-16 15:52:48)
+                    </td>
+                    <td>
+                      <a href="../buy-sell-pick/sell-pick-detail.html">
+                        <span class="txt-link">
+                          2타입 두줄 조거 트레이닝 바지
+                        </span>
+                      </a>
+                    </td>
+                    <td>39</td>
+                    <td>39</td>
+                    <td class="tar">
+                      220,000<br>
+                      (220,000)
+                    </td>
+                    <td class="tar">
+                      <strong>0</strong>
+                    </td>
+                    <td class="tar">
+                      0
+                    </td>
+                    <td>
+                      <span class="easy-pick-text-step">
+                        거래완료
+                      </span>
+                    </td>
+                    <td>
+                      <!-- 2022 08 26 a링크 수정 -->
+                        <i class="ico-easy-pick ico-memo-off"></i>
+                    </td>
+                    <td>
+                      전송대기
+                    </td>
+                    <td>
+                      <button class="btn btn-btn btn-sm btn-outline-gray">주문취소</button>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      <div class="form-control check-one">
+                        <label>
+                          <input type="checkbox">
+                          <span>체크</span>
+                        </label>
+                      </div>
+                    </td>
+                    <td>4</td>
+                    <td>바로주문</td>
+                    <td>
+                      <div class="easy-pick-case">
+                        <span class="undeliver">
+                          미송
+                        </span>
+                      </div>
+                    </td>
+                    <td>
+                      2022040400008129<br>
+                      (2022-04-04 15:51:58)
+                    </td>
+                    <td>
+                      <a href="../buy-sell-pick/sell-pick-detail.html">
+                        <span class="txt-link">
+                          2타입 두줄 조거 트레이닝 바지
+                        </span>
+                      </a>
+                    </td>
+                    <td>39</td>
+                    <td>39</td>
+                    <td class="tar">
+                      11,000
+                    </td>
+                    <td class="tar">
+                      <strong>11,000</strong>
+                    </td>
+                    <td class="tar">
+                      8,000
+                    </td>
+                    <td>
+                      <span class="easy-pick-text-step pay-complete">
+                        주문완료
+                      </span>
+                    </td>
+                    <td>
+                      <!-- 2022 08 26 a링크 수정 -->
+                        <i class="ico-easy-pick ico-memo-off"></i>
+                    </td>
+                    <td>
+                      전송실패
+                    </td>
+                    <td>
+                      <button class="btn btn-btn btn-sm btn-outline-gray">주문취소</button>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      <div class="form-control check-one">
+                        <label>
+                          <input type="checkbox">
+                          <span>체크</span>
+                        </label>
+                      </div>
+                    </td>
+                    <td>3</td>
+                    <td>바로주문</td>
+                    <td>
+                      <div class="easy-pick-case">
+                        <span class="new">신규</span>
+                      </div>
+                    </td>
+                    <td>
+                      2022040400008129<br>
+                      (2022-04-04 15:51:58)
+                    </td>
+                    <td>
+                      <a href="../buy-sell-pick/sell-pick-detail.html">
+                        <span class="txt-link">
+                          2타입 두줄 조거 트레이닝 바지
+                        </span>
+                      </a>
+                    </td>
+                    <td>39</td>
+                    <td>39</td>
+                    <td class="tar">
+                      220,000
+                      <br />
+                      (220,000)
+                    </td>
+                    <td class="tar">
+                      <strong>0</strong>
+                    </td>
+                    <td class="tar">
+                      0
+                    </td>
+                    <td>
+                      <span class="easy-pick-text-step cancel-complete">
+                        취소완료<br>
+                        (2022-04-04 15:51:58)
+                      </span>
+                    </td>
+                    <td>
+                      <!-- 2022 08 26 a링크 수정 -->
+                        <i class="ico-easy-pick ico-memo-off"></i>
+                    </td>
+                    <td>
+                      전송완료
+                    </td>
+                    <td>
+                      <button class="btn btn-btn btn-sm btn-outline-gray">주문취소</button>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      <div class="form-control check-one">
+                        <label>
+                          <input type="checkbox">
+                          <span>체크</span>
+                        </label>
+                      </div>
+                    </td>
+                    <td>2</td>
+                    <td>일반주문</td>
+                    <td>
+                      <div class="easy-pick-case">
+                        <span class="undeliver">미송</span>
+                      </div>
+                    </td>
+                    <td>
+                      2022040400008129<br>
+                      (2022-04-04 15:51:58)
+                    </td>
+                    <td>
+                      <a href="../buy-sell-pick/sell-pick-detail.html">
+                        <span class="txt-link">
+                          2타입 두줄 조거 트레이닝 바지
+                        </span>
+                      </a>
+                    </td>
+                    <td>39</td>
+                    <td>39</td>
+                    <td class="tar">
+                      11,000
+                    </td>
+                    <td class="tar">
+                      <strong>11,000</strong>
+                    </td>
+                    <td class="tar">
+                      0
+                    </td>
+                    <td>
+                      <span class="easy-pick-text-step pay-complete">
+                        주문완료
+                      </span>
+                    </td>
+                    <td>
+                      <!-- 2022 08 26 a링크 수정 -->
+                        <i class="ico-easy-pick ico-memo-off"></i>
+                    </td>
+                    <td>
+                      전송완료
+                    </td>
+                    <td>
+                      <button class="btn btn-btn btn-sm btn-outline-gray">주문취소</button>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      <div class="form-control check-one">
+                        <label>
+                          <input type="checkbox">
+                          <span>체크</span>
+                        </label>
+                      </div>
+                    </td>
+                    <td>1</td>
+                    <td>일반주문</td>
+                    <td>
+                      <div class="easy-pick-case">
+                        <span class="new">
+                          신규
+                        </span>
+                      </div>
+                    </td>
+                    <td>
+                      2022040400008129<br>
+                      (2022-04-04 15:51:58)
+                    </td>
+                    <td>
+                      <a href="../buy-sell-pick/sell-pick-detail.html">
+                        <span class="txt-link">
+                          2타입 두줄 조거 트레이닝 바지
+                        </span>
+                      </a>
+                    </td>
+                    <td>39</td>
+                    <td>39</td>
+                    <td class="tar">
+                      11,000
+                    </td>
+                    <td class="tar">
+                      <strong>11,000</strong>
+                    </td>
+                    <td class="tar">
+                      11,000
+                    </td>
+                    <td>
+                      <span class="easy-pick-text-step pay-complete">
+                        주문완료
+                      </span>
+                    </td>
+                    <td>
+                      <!-- 2022 08 26 a링크 수정 -->
+                        <i class="ico-easy-pick ico-memo-off"></i>
+                    </td>
+                    <td>
+                      전송실패
+                    </td>
+                    <td>
+                      <button class="btn btn-btn btn-sm btn-outline-gray">주문취소</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <!-- //그리드 테이블-->
+        </div>
+        {% include("../_templates/default/pagination.njk") %}
+      </div>
+
+      <!-- 데이터 없을시 -->
+      <div class="gridTableArea">
+        <div class="table-top-info">
+          <div class="top-txt-inline">
+            <span class="txt-inline">검색결과 <strong>1,000</strong>건
+          </div>
+          <div class="sort-sel-area">
+            <select id="list_limit" class="default-select">
+              <option value="20" selected="selected">20개씩 보기</option>
+              <option value="30">30개씩 보기</option>
+              <option value="50">50개씩 보기</option>
+              <option value="100">100개씩 보기</option>
+              <option value="200">200개씩 보기</option>
+              <!-- 2023-02-17 EZP-7830 보기 옵션 추가 시작 -->
+              <option value="300">300개씩 보기</option>
+              <option value="500">500개씩 보기</option>
+              <!-- 2023-02-17 EZP-7830 보기 옵션 추가 끝 -->
+            </select>
+          </div>
+        </div>
+        <div class="tround-box">
+          <div class="tbl-round ">
+            <div class="tbl-info-area">
+              <div class="f-left">
+                <div class="btns-multi">
+                  <button type="button" name="button" class="btn btn-sm btn-outline-gray">거래완료하기</button>
+                </div>
+              </div>
+              <div class="f-right">
+                <div class="dflex">
+                  <div class="btns-multi">
+                    <button type="button" name="button" class="btn btn-sm btn-outline-gray"><i
+                        class="ico ico-excel"></i>엑셀다운로드</button>
+                    <button type="button" name="button" class="btn btn-ico btn-outline-gray"><i
+                        class="ico ico-sort"></i>설정</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- 그리드 테이블-->
+            <div class="mGridTable td-height-60 tbl-height01">
+              <table id="eMultiTable1" class="eChkColor">
+                <thead>
+                  <tr>
+                    <th scope="col" style="width:50px;" class="resizable">
+                      <div class="form-control check-one">
+                        <label>
+                          <input type="checkbox">
+                          <span>체크</span>
+                        </label>
+                      </div>
+                    </th>
+                    <th scope="col" style="width:62px;" class="resizable">
+                      No
+                    </th>
+                    <th scope="col" style="width:90px;" class="resizable">
+                      주문구분
+                    </th>
+                    <th scope="col" style="width:74px;" class="resizable">
+                      유형
+                    </th>
+                    <th scope="col" style="width:163px;" class="resizable">
+                      주문번호(주문일시)
+                    </th>
+                    <th scope="col" style="width:230px;" class="resizable">
+                      품목정보
+                    </th>
+                    <th scope="col" style="width:87px;" class="resizable">
+                      주문수량
+                    </th>
+                    <th scope="col" style="width:87px;" class="resizable">
+                      입고수량
+                    </th>
+                    <th scope="col" style="width:138px;" class="resizable">
+                      주문금액 (취소금액)
+                    </th>
+                    <th scope="col" style="width:103px;" class="resizable">
+                      최종금액
+                    </th>
+                    <th scope="col" style="width:86px;" class="resizable">
+                      입고금액
+                    </th>
+                    <th scope="col" style="width:185px;" class="resizable">
+                      진행상태(최근 수정일)
+                    </th>
+                    <th scope="col" style="width:76px;" class="resizable">
+                      메모
+                    </th>
+                    <th scope="col" style="width:148px;" class="resizable">
+                      삼촌주문서 전송
+
+                      <div class="tool-tip-wrap tool-gray">
+                        <a href="javascript:void(0)" class="tool-tip m-b-1">툴팁</a>
+                        <div class="tool-tip-area w-auto left3">
+                          <section class="tool-tip-title">
+                            <h1>삼촌주문서 전송상태 안내</h1>
+                            <div class="tool-tip-inner">
+                              <ul class="list-dash">
+                                <li>
+                                  실패 건이 있는 경우 상세페이지에서 사입삼촌 정보 클릭 후<br>
+                                  URL복사를 통해 직접 전송 가능합니다.
+                                </li>
+                                <li class="m-t-5">
+                                  취소완료된 건인 경우에도 주문서 전송대기/완료 후 취소된 경우<br>
+                                  주문서 전송 여부가 표시될 수 있습니다.
+                                </li>
+                              </ul>
+                            </div>
+                          </section>
+                          <button type="button" class="tool-tip-close">닫기</button>
+                        </div>
+                      </div>
+                    </th>
+                    <th scope="col" style="width:91px;">
+                      관리
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="tr-empty">
+                    <td>
+                      <div class="txt">
+                        <i><img src="../assets/images/guide-ico.png" alt="guide-icon"></i>
+                        <span>검색 결과가 없습니다.</span>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <!-- //그리드 테이블-->
+        </div>
+        {% include("../_templates/default/pagination.njk") %}
+      </div>
+
+    </div>
+    <!-- //content -->
+  </div>
+  <!-- container -->
+</div>
+
+<script>
+  $(document).ready(function () {
+    $('#eMultiTable').fixResize({
+      colResize: true,
+      resizeVer: 'flex'
+    });
+    // 데이터 없을시 새로운 테이블
+    $('#eMultiTable1').fixResize({
+      colResize: true,
+      resizeVer: 'flex'
+    });
+
+    // 검색결과 없을때 tr 높이 조절
+    const emptyTh = $('.tr-empty').parents('table').find('thead tr th').length;
+    const emptyMt = $('.tr-empty').parents('table').css('margin-top').replace('-', '');
+    const emptyMg = emptyMt.replace('px', '');
+    $('.tr-empty td').attr('colspan', emptyTh);
+    $('.tr-empty').parents('table').css('height', `calc(100% + ${emptyMg}px)`);
+  });
+</script>
+
+<!-- 메모 작성 -->
+{% include("./modals/memo/modal-memo.njk") %}
+
+{% endblock %}

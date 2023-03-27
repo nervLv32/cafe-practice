@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="shortcut icon" type="image/x-icon" href="/img/favicon/ezp.ico">
+
+	<link rel="stylesheet" type="text/css" href="../css/pc/default.css">
+
+	<script type="text/javascript" src="../js/pc/jquery-3.5.1.min.js"></script>
+	<script type="text/javascript" src="../js/pc/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="../js/pc/swiper-bundle.min.js"></script>
+	<script type="text/javascript" src="../js/pc/common_front.js"></script>
+	<script type="text/javascript" src="../js/pc/ui.js"></script>
+	<script type="text/javascript" src="../js/pc/pub.js"></script>
+
+	<title>회원탈퇴</title>
+</head>
+<body>
+    <header></header>
+
+	<div id="container" class="active">
+		<aside></aside>
+
+		<section class="mypage">
+			<h2>회원탈퇴</h2>
+
+			<div class="quit">
+				<div class="visual">
+					<img src="../img/common/logo-big.svg" alt="easypick seller">
+					<p>그동안 이지픽을 이용해 주셔서 대단히 감사합니다.<br>더욱더 좋은 서비스로 보답하겠습니다.</p>
+				</div>
+
+				<div class="quit-notice">
+					<h3>회원 탈퇴를 신청하기 전, 다음 내용을 꼭 확인해주세요.</h3>
+					<ul>
+						<li>회원 탈퇴완료 시 사용하고 계신 아이디는 재사용 및 복구가 불가합니다.</li>
+						<li>고객 정보 및 개인형 서비스 이용 기록은 개인 정보보호 처리 방침 기준에 따라 삭제됩니다.</li>
+						<li>잔여업무가 남아있을 경우, 관리자가 해당업무 처리 후에 승인해드립니다.</li>
+					</ul>
+
+					<ul class="mt40 mb20">
+						<li>잔여업무 현황</li>
+					</ul>
+					<div class="left-work">
+						<p><strong>• 잔여 발주예정건</strong><span><em>0</em>건</span></p>
+						<p><strong>• 잔여 발주품목</strong><span><em>0</em>건</span></p>
+						<p><strong>• 잔여 검수대기품목</strong><span><em class="red">2</em>건</span></p>
+						<p><strong>• 잔여 정산미확정건</strong><span><em>1</em>건</span></p>
+						<p><strong>• 잔여 미송품목</strong><span><em class="red">0</em>건</span></p>
+						<p><strong>• 잔여 매입금액</strong><span><em class="red">100,000</em>원</span></p>
+					</div>
+
+					<ul>
+						<li>탈퇴 시 등록하신 상품이 이지픽 사이트에 게시 중단되며 더이상 주문을 받을 수 없습니다.</li>
+						<li>그 외 상품관리, 발주관리, 정산관리 비롯한 모든 이지픽 서비스 이용이 불가하오니 신중하게 고려한 후 선택하시길 바랍니다.</li>
+						<li>탈퇴요청 후 대부분 4~5영업일 이내에 승인 처리됩니다. 잔여업무가 많을 경우 최대 2주까지 소요될 수 있습니다.</li>
+					</ul>
+
+					<div class="quit-agree">
+						<span class="checkbox">
+							<input type="checkbox" name="" id="ccc1">
+							<label for="ccc1">안내 사항을 모두 확인하였으며, 이에 동의합니다.</label>
+						</span>
+						<input type="password" name="" value="" placeholder="비밀번호 입력" class="gray check-pw">
+					</div>
+				</div>
+			</div>
+
+			<div class="btn-wrap center">
+				<a href="#" class="btn gray">취소</a>
+				<a href="#" class="btn point">탈퇴요청</a>
+			</div>
+		</section>
+
+	</div>
+
+	<footer></footer>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			// include
+			$('header').load('include/header.html');
+			$('footer').load('include/footer.html');
+			$('aside').load('include/aside.html');
+
+			$('.quit-agree .checkbox').on('change', function(){
+				if ($('.quit-agree .checkbox input').is(':checked')) {
+					$('.quit-agree .check-pw').show();
+				} else {
+					$('.quit-agree .check-pw').hide();
+				}
+
+			});
+		});
+	</script>
+</body>
+</html>

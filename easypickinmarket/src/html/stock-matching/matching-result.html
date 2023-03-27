@@ -1,0 +1,421 @@
+{% extends "../_templates/layout.njk" %}
+{% block content %}
+
+<div class="wrapper" id="wrap">
+  <!-- container -->
+  <div class="container" id="container">
+    <!-- content -->
+    <div class="content" id="content">
+      <div class="content-head">
+        <div class="page-title">
+          <h3 class="h3-tit">입고상품매칭</h3>
+          <a href="#" class="btn-manual" target="_blank" title="매뉴얼">매뉴얼</a>
+          <div class="form-box">
+            <form onsubmit="return submitHandler();">
+              <fieldset>
+                <legend class="skip">통합검색</legend>
+                <label for="total-search" class="skip">검색어 입력</label>
+                <input type="search" name="total-search" id="total-search" title="검색어 입력" class="text"
+                  placeholder="상품을 검색해보세요.">
+                <input type="submit" value="검색" class="submit">
+              </fieldset>
+            </form>
+          </div>
+        </div>
+        <div class="cont-info-right">
+          <ul class="breadcrumb">
+            <li>공급</li>
+            <li>입고상품검수</li>
+            <li class="now" title="입고상품매칭">입고상품매칭</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tab-top-round">
+        <ul class="tab-rounds tab">
+          <li data-tab="conttab1">
+            <a href="../stock-matching/"><span>매칭하기</span></a>
+          </li>
+          <li data-tab="conttab2" class="active">
+            <a href="../stock-matching/matching-result.html">매칭결과</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="notice-wrap p-t-10 p-b-10 m-b-10">
+        <div>
+          <i class="ico-notice">
+            <span class="txt-hide">공지아이콘</span>
+          </i>
+          수동/자동 매칭된 상품들의 매칭 결과를 확인 할 수 있습니다.
+        </div>
+      </div>
+
+      <div class="folder">
+        <form name="" id="">
+          <input type="hidden" name="" value="">
+          <div class="tborder-box">
+            <div class="tbl-top-search">
+              <div class="table-row">
+                <table class="tbl-top">
+                  <colgroup>
+                    <col style="width:120px;">
+                    <col style="width:38%">
+                    <col style="width:25px;">
+                    <col style="width:80px;">
+                    <col style="width:42%">
+                  </colgroup>
+                  <tbody>
+                    <tr class="rowFix rowFold">
+                      <th>기간</th>
+                      <td>
+                        <div class="form-inline">
+                          <select name="" id="" class="default-select w120">
+                            <option value="">매칭완료일</option>
+                          </select>
+                          <div class="sel-date-type">
+                            <button type="button" class="label-date active">1개월</button>
+                            <ul class="sel-date-list">
+                              <li class="label-date">오늘</li>
+                              <li class="label-date">3일</li>
+                              <li class="label-date">7일</li>
+                              <li class="label-date active">1개월</li>
+                              <li class="label-date">3개월</li>
+                              <li class="label-date">6개월</li>
+                              <li class="label-date">1년</li>
+                              <li class="label-date">선택</li>
+                            </ul>
+                          </div>
+                          <div class="calendar-box">
+                            <div class="form-inline">
+                              <div class="form-control">
+                                <input type="text" class="cal-input" value="2019-04-01" data-range="cal01">
+                              </div>
+                              <div class="wave-txt">~</div>
+                              <div class="form-control">
+                                <input type="text" class="cal-input" value="2019-04-01" data-range="cal01">
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                      <td></td>
+                    </tr>
+                    <tr class="rowFix rowFold">
+                      <th>검색</th>
+                      <td>
+                        <div class="form-inline">
+                          <select name="" id="" class="default-select w120">
+                            <option value="">전체</option>
+                            <option value="">거래처명</option>
+                            <option value="">상품명</option>
+                            <option value="">매칭상품명</option>
+                            <option value="">품목코드</option>
+                          </select>
+                          <div class="form-control searchValue">
+                            <input type="text" class="search-input-w2" name="" id="" value="" placeholder="">
+                          </div>
+                        </div>
+                      </td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="top-btn-search">
+                <button type="button" name="button" class="btn btn-lg btn-point">검색</button>
+                <div class="search-btns">
+                  <a href="#" class="serchsortbtn">
+                    <button type="button" class="btn btn-lg btn-sub-primary sarchsortbtn">검색관리</button>
+                    <div class="top-search-sort">
+                      <button type="button" class="reset"><i class="ico ico-reset"></i>초기화</button>
+                      <div class="top-search-depth">
+                        <button type="button" class="add-search-save"><i class="ico ico-plus-blue"></i>검색조건 저장</button>
+                        <ul class="add-search-element">
+                          <li class="dflex">
+                            <div class="form-control">
+                              <input type="text" value="저장1" readonly="readonly">
+                            </div>
+                            <div class="s-search-btns">
+                              <button type="button" class="btn btn-write">쓰기</button>
+                              <button type="button" class="btn btn-del">삭제</button>
+                            </div>
+                          </li>
+                          <li class="dflex">
+                            <div class="form-control">
+                              <input type="text" value="저장2" readonly="readonly">
+                            </div>
+                            <div class="s-search-btns">
+                              <button type="button" class="btn btn-write">쓰기</button>
+                              <button type="button" class="btn btn-del">삭제</button>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <div class="gridTableArea">
+        <div class="table-top-info">
+          <div class="top-txt-inline">
+            <span class="txt-inline">검색결과 <strong>1,000</strong>건</span>
+          </div>
+          <div class="sort-sel-area">
+            <select id="list_limit" class="default-select">
+              <option value="20" selected="selected">20개씩 보기</option>
+              <option value="30">30개씩 보기</option>
+              <option value="50">50개씩 보기</option>
+              <option value="100">100개씩 보기</option>
+              <option value="200">200개씩 보기</option>
+            </select>
+          </div>
+        </div>
+        <div class="tround-box">
+          <div class="tbl-round ">
+            <div class="tbl-info-area">
+              <div class="btns-multi f-left">
+                <button type="button" name="button" class="btn btn-sm btn-outline-gray">매칭해제</button>
+              </div>
+              <div class="f-right">
+                <div class="dflex">
+                  <div class="btns-multi">
+                    <button type="button" name="button" class="btn btn-sm btn-outline-gray"><i
+                        class="ico ico-excel"></i>엑셀다운로드</button>
+                    <button type="button" name="button" class="btn btn-ico btn-outline-gray"><i
+                        class="ico ico-sort"></i>설정</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- 그리드 테이블-->
+            <div class="mGridTable tbl-height01 td-height-60">
+              <table id="eMultiTable" class="eChkColor">
+                <thead>
+                  <tr>
+                    <th scope="col" style="width:48px;" class="resizable">
+                      <div class="form-control check-one">
+                        <label>
+                          <input type="checkbox">
+                          <span>체크</span>
+                        </label>
+                      </div>
+                    </th>
+                    <th scope="col" style="width:203px;" class="resizable">
+                      거래처명
+                    </th>
+                    <th scope="col" style="width:203px;" class="resizable">
+                      거래처주소
+                    </th>
+                    <th scope="col" style="width:251px;" class="resizable">
+                      상품명
+                    </th>
+                    <th scope="col" style="width:155px;" class="resizable">
+                      옵션
+                    </th>
+                    <th scope="col" style="width:163px;" class="resizable">
+                      품목코드
+                    </th>
+                    <th scope="col" style="width:243x;" class="resizable">
+                      매칭상품명
+                    </th>
+                    <th scope="col" style="width:188x;" class="resizable">
+                      매칭상품 옵션
+                    </th>
+                    <th scope="col" style="width:217px;">
+                      매칭일
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for list in matching %}
+                  <tr>
+                    <td>
+                      <div class="form-control check-one">
+                        <label>
+                          <input type="checkbox">
+                          <span>체크</span>
+                        </label>
+                      </div>
+                    </td>
+                    <td>{{list.vendor}}</td>
+                    <td>{{list.address}}</td>
+                    <td>
+                      <a href="#">
+                        {% if list.no === "5" %}
+                        <span class="txt-link">
+                          {{list.name}}
+                        </span>
+                        {% else %}
+                        <span class="txt-link">{{list.name}}</span><br>
+                        <span class="txt-link">[쇼핑몰상품명] 로맨틱맨투맨</span>
+                        {% endif %}
+                      </a>
+                    </td>
+                    <!-- 2022 08 29 tooltip 추가 -->
+                    <td class="overflow-unset">
+                      <div class="hover-box re-opction-hover-box">
+                        <a href="javascript: void(0);" class="re-opction-tooltip hover-btn">
+                          <span>
+                            {{list.option}}
+                          </span>
+                        </a>
+                        <div class="info-box">
+                          <span class="shop-name">
+                            {{list.option}}
+                          </span>
+                        </div>
+                      </div>
+                    </td>
+                    <td>{{list.code}}</td>
+                    <td>{{list.mname}}</td>
+                    <!-- 2022 08 29 tooltip 추가 -->
+                    <td class="overflow-unset">
+                      <div class="hover-box re-opction-hover-box">
+                        <a href="javascript: void(0);" class="re-opction-tooltip hover-btn">
+                          <span>
+                            {{list.option}}
+                          </span>
+                        </a>
+                        <div class="info-box">
+                          <span class="shop-name">
+                            {{list.option}}
+                          </span>
+                        </div>
+                      </div>
+                    </td>
+                    <td>{{list.date19}}</td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <!-- //그리드 테이블-->
+        </div>
+        {% include("../_templates/default/pagination.njk") %}
+      </div>
+
+      <!-- 데이터 없을시 -->
+      <div class="gridTableArea">
+        <div class="table-top-info">
+          <div class="top-txt-inline">
+            <span class="txt-inline">검색결과 <strong>1,000</strong>건</span>
+          </div>
+          <div class="sort-sel-area">
+            <select id="list_limit" class="default-select">
+              <option value="20" selected="selected">20개씩 보기</option>
+              <option value="30">30개씩 보기</option>
+              <option value="50">50개씩 보기</option>
+              <option value="100">100개씩 보기</option>
+              <option value="200">200개씩 보기</option>
+            </select>
+          </div>
+        </div>
+        <div class="tround-box">
+          <div class="tbl-round ">
+            <div class="tbl-info-area">
+              <div class="btns-multi f-left">
+                <button type="button" name="button" class="btn btn-sm btn-outline-gray">매칭해제</button>
+              </div>
+              <div class="f-right">
+                <div class="dflex">
+                  <div class="btns-multi">
+                    <button type="button" name="button" class="btn btn-sm btn-outline-gray"><i
+                        class="ico ico-excel"></i>엑셀다운로드</button>
+                    <button type="button" name="button" class="btn btn-ico btn-outline-gray"><i
+                        class="ico ico-sort"></i>설정</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- 그리드 테이블-->
+            <div class="mGridTable tbl-height01 td-height-60">
+              <table id="eMultiTable1" class="eChkColor">
+                <thead>
+                  <tr>
+                    <th scope="col" style="width:48px;" class="resizable">
+                      <div class="form-control check-one">
+                        <label>
+                          <input type="checkbox">
+                          <span>체크</span>
+                        </label>
+                      </div>
+                    </th>
+                    <th scope="col" style="width:203px;" class="resizable">
+                      거래처명
+                    </th>
+                    <th scope="col" style="width:203px;" class="resizable">
+                      거래처주소
+                    </th>
+                    <th scope="col" style="width:251px;" class="resizable">
+                      상품명
+                    </th>
+                    <th scope="col" style="width:155px;" class="resizable">
+                      옵션
+                    </th>
+                    <th scope="col" style="width:163px;" class="resizable">
+                      품목코드
+                    </th>
+                    <th scope="col" style="width:243x;" class="resizable">
+                      매칭상품명
+                    </th>
+                    <th scope="col" style="width:188x;" class="resizable">
+                      매칭상품 옵션
+                    </th>
+                    <th scope="col" style="width:217px;">
+                      매칭일
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="tr-empty">
+                    <td>
+                      <div class="txt">
+                        <i><img src="../assets/images/guide-ico.png" alt="guide-icon"></i>
+                        <span>검색 결과가 없습니다.</span>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <!-- //그리드 테이블-->
+        </div>
+        {% include("../_templates/default/pagination.njk") %}
+      </div>
+
+    </div>
+    <!-- //content -->
+  </div>
+  <!-- container -->
+</div>
+
+<script>
+  $(document).ready(function () {
+    $('#eMultiTable').fixResize({
+      colResize: true,
+      resizeVer: 'flex'
+    });
+    // 데이터 없을시 새로운 테이블
+    $('#eMultiTable1').fixResize({
+      colResize: true,
+      resizeVer: 'flex'
+    });
+
+    // 검색결과 없을때 tr 높이 조절
+    const emptyTh = $('.tr-empty').parents('table').find('thead tr th').length;
+    const emptyMt = $('.tr-empty').parents('table').css('margin-top').replace('-', '');
+    const emptyMg = emptyMt.replace('px', '');
+    $('.tr-empty td').attr('colspan', emptyTh);
+    $('.tr-empty').parents('table').css('height', `calc(100% + ${emptyMg}px)`);
+  });
+</script>
+
+{% endblock %}

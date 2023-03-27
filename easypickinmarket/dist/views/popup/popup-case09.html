@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="ko" xml:lang="ko">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="title">
+  <meta name="copyright" content="Copyright ⓒ Cafe24 Corp.All Rights Reserved.">
+  <meta name="description" content="">
+  <title>Cafe24 이지픽 마켓플러스</title>
+
+  <!-- cafe24 운영에서 바로가져온다-->
+  <link rel="shortcut icon" type="image/x-icon" href="https://m-img.cafe24.com/images/event/common/market_favicon.ico">
+  <link rel="stylesheet" type="text/css" href="https://wmsplus07.shopcafe.cafe24.com/mp/css/common.css?ver=1649196508">
+  <link rel="stylesheet" type="text/css" href="https://wmsplus07.shopcafe.cafe24.com/mp/css/market.css?ver=1652220163">
+  <link rel="stylesheet" type="text/css" href="https://wmsplus07.shopcafe.cafe24.com/mp/css/jquery-ui.css?ver=1632873099" />
+  <!--// cafe24 운영에서 바로가져온다-->
+
+  <!--1.비온미  추가할 부분 -->
+  <link rel="stylesheet" type="text/css" href="../../css/style.css">
+  <!--// 비온미  추가할 부분-->
+
+  <!-- jquery -->
+  <script src="../../js/ui/lib/jquery-1.11.1.min.js"></script>
+
+  <!-- bonme -->
+  <script src="../../js/ui/easypick-ui.js" type="text/javascript"></script>
+
+  <!-- tooltip -->
+  <link rel="stylesheet" href="../../js/ui/lib/protip.min.css">
+  <script src="../../js/ui/lib/protip.min.js"></script>
+
+  <!-- slick slide -->
+  <link rel="stylesheet" type="text/css" href="../../js/ui/lib/slick.css"/>
+  <script type="text/javascript" src="../../js/ui/lib/slick.min.js"></script>
+
+  <!-- table resizable -->
+  <script type="text/javascript" src="../../js/ui/cp/suio.table.fix.resize.js"></script>
+
+  <!-- modal -->
+  <script src="../../js/ui/cp/jquery-ui.js" type="text/javascript"></script>
+  <script src="../../js/ui/cp/ui.js" type="text/javascript"></script>
+  <script src="../../js/ui/cp/wickedpicker.js" type="text/javascript"></script>
+</head>
+
+<body>
+    
+
+  <div class="modal-pop price-check-modal modal-price-check-case1 window active" id="content">
+    <div class="modal-dialog">
+        <div class="modal-inner">
+            <section class="modal-head">
+                <div class="modal-head-inner">
+                    <h1>가게별 금액확인</h1>
+                    <a href="#" class="btn-manual" target="_blank" title="매뉴얼">매뉴얼</a>
+                </div>
+            </section>
+            <div class="modal-body">
+                <div class="top-info mb20">
+                    <p>셀픽 주문은 가게에 직접 상품금액 + 부가세를 입금해 주세요.</p>
+                    <p>가게 별 주문한 상품의 금액을 확인할 수 있습니다.</p>
+                    <h6>[금액안내]</h6>
+                    <ul>
+                        <li>- 주문상품금액 : 주문한 상품의 총 금액 (판매가*주문수량 합계)</li>
+                        <li>- 주문결제금액 : 주문한 상품의 결제 금액 (주문금액과 동일)</li>
+                    </ul>
+                    <div class="search-shop-wrap">
+                        <dl>
+                            <dt>가게명</dt>
+                            <!-- 2022 08 10 dd로 수정 -->
+                            <dd class="search-form-type01 w290">
+                                <div class="search-box">
+                                    <input type="text" value="" placeholder="가게명을 입력해 주세요" class="name-input search-input">
+                                    <button type="button" class="search-btn"></button>
+                                </div>
+                                <!-- 2022 08 11 데이터 없을시 구조 변경-->
+                                <div class="search-list no-data">
+                                    <ul>
+                                        <li class="noData">검색결과가 없습니다.</li>
+                                        <li>디오트 (4층 F열 10호)</li>
+                                        <li>디오트 (4층 F열 11호)</li>
+                                        <li>디오트 (4층 F열 12호)</li>
+                                        <li>디오트 (4층 F열 13호)</li>
+                                        <li>디오트 (4층 F열 14호)</li>
+                                    </ul>
+                                </div>
+                            </dd>
+                        </dl>
+                    </div>
+                    
+                </div>
+                <div class="tround-box detail-tbl detail-tbl-type02 mb0">
+                    <div>
+                        <table class="tbl-list-view">
+                            <!-- 2022 08 29 no 넓이수정 -->
+                            <colgroup>
+                                <col style="width: 70px;">
+                                <col style="width: auto;">
+                                <col style="width: auto;">
+                                <col style="width: auto;">
+                                <col style="width: auto;">
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>가게명</th>
+                                    <th>주소</th>
+                                    <th>
+                                        주문상품금액<br />
+                                        (상품금액 + 부가세)
+                                    </th>
+                                    <th>
+                                        주문결제금액<br />
+                                        (상품금액 + 부가세)
+                                    </th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+                <!-- 그리드 테이블-->
+                <div class="mGridTable tbl-line">
+                    <table id="eModalTable" class="eModalTable eChkColor">
+                        <!-- 2022 08 29 no 넓이 조정 -->
+                            <colgroup>
+                                <col style="width: 70px;">
+                                <col style="width: auto;">
+                                <col style="width: auto;">
+                                <col style="width: auto;">
+                                <col style="width: auto;">
+                            </colgroup>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td class="modal-shop-name" onclick="targetModalPopup('modal-price-check-case1-1')">진짜피카소</td>
+                                <td>
+                                    <span>디오트 4층 A열 1호</span>
+                                </td>
+                                <td class="text-ar">
+                                    <b>550,000</b>
+                                    <span>(500,000 + 50,0555)</span>
+                                </td>
+                                <td class="text-ar">
+                                    <b>550,000</b>
+                                    <span>(500,000 + 50,0555)</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td class="modal-shop-name" onclick="targetModalPopup('modal-price-check-case1-1')">핫핑</td>
+                                <td>
+                                    <span>APM 2층 E열 7호</span>
+                                </td>
+                                <td class="text-ar">
+                                    <b>1,100,000</b>
+                                    <span>(500,000 + 50,0555)</span>
+                                </td>
+                                <td class="text-ar">
+                                    <b>1,100,000</b>
+                                    <span>(500,000 + 50,0555)</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td class="modal-shop-name" onclick="targetModalPopup('modal-price-check-case1-1')">가게명</td>
+                                <td>
+                                    <span>APM 2층 E열 7호</span>
+                                </td>
+                                <td class="text-ar">
+                                    <b>550,000</b>
+                                    <span>(500,000 + 50,0555)</span>
+                                </td>
+                                <td class="text-ar">
+                                    <b>550,000</b>
+                                    <span>(500,000 + 50,0555)</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td class="modal-shop-name" onclick="targetModalPopup('modal-price-check-case1-1')">가게명</td>
+                                <td>
+                                    <span>APM 2층 E열 7호</span>
+                                </td>
+                                <td class="text-ar">
+                                    <b>1,100,000</b>
+                                    <span>(500,000 + 50,0555)</span>
+                                </td>
+                                <td class="text-ar">
+                                    <b>1,100,000</b>
+                                    <span>(500,000 + 50,0555)</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td class="modal-shop-name" onclick="targetModalPopup('modal-price-check-case1-1')">가게명</td>
+                                <td>
+                                    <span>APM 2층 E열 7호</span>
+                                </td>
+                                <td class="text-ar">
+                                    <b>550,000</b>
+                                    <span>(500,000 + 50,0555)</span>
+                                </td>
+                                <td class="text-ar">
+                                    <b>550,000</b>
+                                    <span>(500,000 + 50,0555)</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td class="modal-shop-name" onclick="targetModalPopup('modal-price-check-case1-1')">진짜피카소</td>
+                                <td>
+                                    <span>APM 2층 E열 7호</span>
+                                </td>
+                                <td class="text-ar">
+                                    <b>550,000</b>
+                                    <span>(500,000 + 50,0555)</span>
+                                </td>
+                                <td class="text-ar">
+                                    <b>550,000</b>
+                                    <span>(500,000 + 50,0555)</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>7</td>
+                                <td class="modal-shop-name" onclick="targetModalPopup('modal-price-check-case1-1')">진짜피카소</td>
+                                <td>
+                                    <span>APM 2층 E열 7호</span>
+                                </td>
+                                <td class="text-ar">
+                                    <b>550,000</b>
+                                    <span>(500,000 + 50,0555)</span>
+                                </td>
+                                <td class="text-ar">
+                                    <b>550,000</b>
+                                    <span>(500,000 + 50,0555)</span>
+                                </td>
+                            </tr>
+                            <!-- -->
+                            <tr>
+                                <td>7</td>
+                                <td class="modal-shop-name" onclick="targetModalPopup('modal-price-check-case1-1')">진짜피카소</td>
+                                <td>
+                                    <span>APM 2층 E열 7호</span>
+                                </td>
+                                <td class="text-ar">
+                                    <b>550,000</b>
+                                    <span>(500,000 + 50,0555)</span>
+                                </td>
+                                <td class="text-ar">
+                                    <b>550,000</b>
+                                    <span>(500,000 + 50,0555)</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>7</td>
+                                <td class="modal-shop-name" onclick="targetModalPopup('modal-price-check-case1-1')">진짜피카소</td>
+                                <td>
+                                    <span>APM 2층 E열 7호</span>
+                                </td>
+                                <td class="text-ar">
+                                    <b>550,000</b>
+                                    <span>(500,000 + 50,0555)</span>
+                                </td>
+                                <td class="text-ar">
+                                    <b>550,000</b>
+                                    <span>(500,000 + 50,0555)</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>7</td>
+                                <td class="modal-shop-name" onclick="targetModalPopup('modal-price-check-case1-1')">진짜피카소</td>
+                                <td>
+                                    <span>APM 2층 E열 7호</span>
+                                </td>
+                                <td class="text-ar">
+                                    <b>550,000</b>
+                                    <span>(500,000 + 50,0555)</span>
+                                </td>
+                                <td class="text-ar">
+                                    <b>550,000</b>
+                                    <span>(500,000 + 50,0555)</span>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                </table>
+            </div>
+            </div>
+            <div class="modal-footer">
+                <div class="modal-footer-btn">
+                    <button type="button" name="button" class="btn btn-lg btn-darkgray" onclick='window.open("about:blank","_self").close();'>닫기</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal-pop price-shopname-mini-modal" id="modal-price-check-case1-1">
+    <div class="modal-dialog">
+        <div class="modal-inner w300">
+            <section class="modal-head">
+                <div class="modal-head-inner">
+                    <h1>가게정보</h1>
+                    <a href="#" class="btn-manual" target="_blank" title="매뉴얼">매뉴얼</a>
+                </div>
+            </section>
+            <div class="modal-body">
+                <div class="info-wrap">
+                    <dl>
+                        <dt>가게명</dt>
+                        <dd>진짜피카소</dd>
+                    </dl>
+                    <dl>
+                        <dt>주소</dt>
+                        <dd>디오트 4층 A열 1호</dd>
+                    </dl>
+                    <dl>
+                        <dt>연락처</dt>
+                        <dd>010-1234-1234</dd>
+                    </dl>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="modal-footer-btn">
+                    <button type="button" name="button" class="btn btn-lg btn-point page-close">확인</button>	
+                </div>
+            </div>
+            <a href="javascript:void(0);" class="page-close"></a>
+        </div>
+    </div>
+    <div class="dim"></div>
+</div>
+
+<script>
+    $(document).ready(function(){
+        const searchInput = $('.search-form-type01 .search-input');
+        const searchList = $('.search-form-type01 .search-list');
+        const searchItem = $('.search-form-type01 .search-list ul li');
+
+
+        searchList.hide();
+        searchInput.focus(function(){
+            searchList.show();
+        })
+        searchInput.blur(function(){
+            searchList.hide();
+        })
+        searchItem.hover(function(){
+            searchInput.focus();
+        })
+        searchItem.click(function(){
+
+            // 2022 08 11 데이터 없을시 return 
+            if ($(this).hasClass('noData')) { 
+                return false;
+            }
+
+            const searchValue = $(this).text();
+            searchInput.val(searchValue);
+
+        })
+    })
+</script>
+
+
+</body>
+
+</html>

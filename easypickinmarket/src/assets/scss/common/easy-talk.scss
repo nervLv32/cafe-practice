@@ -1,0 +1,697 @@
+/* *********************************************** 이지톡 CSS *********************************************** */
+.easy-talk {
+  width: 100%;
+  height: calc(100vh - 236px);
+  min-height: 900px;
+  display: flex;
+  background-color: #fff;
+  border: 1px solid #e6ecef;
+  border-radius: 10px;
+  .aside {
+      width: 376px;
+      height: auto;
+      border-right: 1px solid #d8e2ec;
+      .easy-talk-search {
+        width: 100%;
+        height: auto;
+        padding: 30px;
+        border-bottom: 1px solid #d9e2ec;
+        .talk-head {
+          width: 100%;
+          height: auto;
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 10px;
+          .member-plus {
+            padding: 0 12px;
+            height: 28px;
+            border-radius: 3px;
+            background-color: #198cff;
+            font-size: 12px;
+            line-height: 1;
+            font-weight: 500;
+            color: #fff;
+            .plus-ico {
+              display: inline-block;
+              margin-left: 5px;
+              width: 10px;
+              height: 10px;
+              background: url('../assets/images/icons/easy-talk-plus-icon.png') no-repeat 50% 50% / cover;
+            }
+          }
+        }
+        .form-control {
+          input[type="text"] {
+            padding: 0 30px 0 5px;
+          }
+        }
+      }
+      .chat-box {
+        width: 100%;
+        height: calc(100% - 127px);
+        position: relative;
+        .chat-list {
+          width: 100%;
+          height: 100%;
+          overflow-y: scroll;
+          .chat-item {
+            width: 100%;
+            height: auto;
+            border-bottom: 1px solid #eaf1f6;
+            position: relative;
+            &.on {
+              background-color: #f0f7ff;
+            }
+            a {
+              display: flex;
+              align-items: center;
+              width: 100%;
+              height: auto;
+              padding: 20px 12px 20px 20px;
+              .store-profile {
+                width: 50px;
+                height: 50px;
+                line-height: 50px;
+                border-radius: 50%;
+                text-align: center;
+                .store-initial {
+                  font-size: 18px;
+                  font-weight: 500;
+                  color: #fff;
+                }
+              }
+              .msg-container {
+                width: calc(100% - 50px);
+                height: auto;
+                padding-left: 12px;
+                .msg-info-box {
+                  width: 100%;
+                  height: auto;
+                  display: flex;
+                  align-items: center;
+                  justify-content: space-between;
+                  margin-bottom: 8px;
+                  .store-name {
+                    width: 130px;
+                    height: auto;
+                    font-size: 16px;
+                    line-height: 1.45;
+                    font-weight: 500;
+                    color: #333;
+                    overflow:hidden;
+                    text-overflow:ellipsis;
+                    white-space:nowrap;
+                  }
+                  .info {
+                    padding-right: 30px;
+                    .date {
+                      font-size: 13px;
+                      font-weight: 400;
+                      color: #999;
+                    }
+                  }
+                }
+                .msg-text-box {
+                  width: 100%;
+                  height: auto;
+                  display: flex;
+                  align-items: center;
+                  justify-content: space-between;
+                  .msg-text {
+                    width: 167px;
+                    height: auto;
+                    font-size: 13px;
+                    font-weight: 400;
+                    line-height: 1.45;
+                    color: #2e3031;
+                    overflow:hidden;
+                    text-overflow:ellipsis;
+                    white-space:nowrap;
+                  }
+                  .msg-count {
+                    padding: 0 10px;
+                    height: 20px;
+                    line-height: 20px;
+                    border-radius: 10px;
+                    background-color: #ff2052;
+                    text-align: center;
+                    font-size: 12px;
+                    font-weight: 700;
+                    color: #fff;
+                  }
+                }
+              }
+            }
+            .favorite-ico {
+              display: block;
+              width: 20px;
+              height: 19px;
+              background: url('../assets/images/icons/easy-talk-favorite-ico-off.png') no-repeat center / cover;
+              position: absolute;
+              right: 12px;
+              top: 22px;
+              cursor: pointer;
+              &.on {
+                background: url('../assets/images/icons/easy-talk-favorite-ico-on.png') no-repeat center / cover;
+              }
+            }
+          }
+        }
+        .empty {
+          display: inline-block;
+          font-size: 13px;
+          line-height: 1;
+          font-weight: 400;
+          color: #2e3031;
+          text-align: center;
+          padding-left: 24px;
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+          &::after {
+            content: '';
+            display: block;
+            width: 20px;
+            height: 20px;
+            background: url('../assets/images/icons/guide-ico.png') no-repeat center / cover;
+            position: absolute;
+            left: 0;
+            top: -2px;
+          }
+        }
+      }
+  }
+  .contents {
+    width: calc(100% - 376px);
+    height: 100%;
+    display: flex;
+    position: relative;
+    .no-data {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .msg-stage {
+      width: calc(100% - 376px);
+      height: auto;
+      position: relative;
+      .chat-messages {
+        width: 100%;
+        height: 100%;
+        padding: 0 30px 136px;
+        overflow-y: scroll;
+        .system-message {
+          width: 100%;
+          height: auto;
+          text-align: center;
+          position: relative;
+          padding: 30px 0;
+          &::before {
+            content: '';
+            display: block;
+            width: 100%;
+            height: 1px;
+            background-color: #ccc;
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+          }
+          span {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 400;
+            color: #999;
+            padding: 0 20px;
+            background-color: #fff;
+            position: relative;
+            z-index: 9;
+          }
+        }
+        .message {
+          width: 100%;
+          height: auto;
+          position: relative;
+          margin-top: 15px;
+          &::after {
+            content: '';
+            display: block;
+            clear: both;
+          }
+          &.msg-type1 {
+            .msg-container {
+              float: right;
+              flex-direction: row-reverse;
+              .msg-item {
+                border-radius: 10px 10px 0 10px;
+                background-color: #198cff;
+                margin-left: 15px;
+              }
+              .msg-shop {
+                border-radius: 10px 10px 0 10px;
+                margin-left: 15px;
+              }
+              .msg-order {
+                margin-left: 15px;
+                .order-info-bd {
+                  border-radius: 0 0 0 10px;
+                }
+              }
+            }
+          }
+          &.msg-type2 {
+            .msg-container {
+              .msg-item {
+                border-radius: 10px 10px 10px 0;
+                background-color: #666;
+                margin-right: 15px;
+              }
+            }
+            .msg-shop {
+              border-radius: 10px 10px 10px 0;
+              margin-right: 15px;
+            }
+            .msg-order {
+              margin-right: 15px;
+              .order-info-bd {
+                border-radius: 0 0 10px 0;
+              }
+            }
+          }
+          .msg-container {
+            display: flex;
+            align-items: flex-end;
+            .msg-item {
+              display: inline-block;
+              max-width: 350px;
+              padding: 12px 15px;
+              font-size: 14px;
+              font-weight: 700;
+              line-height: 1.45;
+              text-align: left;
+              color: #fff;
+              word-break: keep-all;
+            }
+            .msg-shop {
+              display: inline-block;
+              min-width: 263px;
+              max-width: 350px;
+              padding: 20px;
+              border: 1px solid #198cff;
+              .shop-info {
+                display: flex;
+                .figure {
+                  width: 80px;
+                  height: 80px;
+                  a {
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                  }
+                }
+                .info {
+                  width: calc(100% - 80px);
+                  height: auto;
+                  padding-left: 16px;
+                  span {
+                    display: block;
+                    width: 100%;
+                    height: auto;
+                    &.shop-name {
+                      font-size: 14px;
+                      font-weight: 700;
+                      color: #2e3031;
+                      line-height: 1.45;
+                      overflow:hidden;
+                      text-overflow:ellipsis;
+                      white-space:nowrap;
+                    }
+                    &.price {
+                      font-size: 13px;
+                      font-weight: 400;
+                      color: #2e3031;
+                      line-height: 1.45;
+                      margin-top: 3px;
+                    }
+                  }
+                }
+              }
+            }
+            .msg-order {
+              display: inline-block;
+              min-width: 263px;
+              max-width: 350px;
+              .order-info-hd {
+                width: 100%;
+                height: auto;
+                background-color: #198cff;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 6px;
+                font-size: 12px;
+                font-weight: 500;
+                color: #fff;
+                border-radius: 10px 10px 0 0;
+                .order-date {
+                  margin-right: 8px;
+                  padding-right: 8px;
+                  position: relative;
+                  &::after {
+                    content: '';
+                    display: block;
+                    width: 1px;
+                    height: 12px;
+                    background-color: rgba(255, 255, 255, 0.5);
+                    position: absolute;
+                    right: 0;
+                    top: 50%;
+                    transform: translateY(-50%);
+                  }
+                }
+              }
+              .order-info-bd {
+                width: 100%;
+                height: auto;
+                border: 1px solid #198cff;
+                border-top: 0;
+                padding: 20px;
+                &.info-type1 {
+                  dl {
+                    dt {
+                      width: 60px;
+                    }
+                    dd {
+                      width: calc(100% - 60px);
+                    }
+                  }
+                }
+                &.info-type2 {
+                  dl {
+                    dt {
+                      width: 80px;
+                    }
+                    dd {
+                      width: calc(100% - 80px);
+                    }
+                  }
+                }
+                dl {
+                  width: 100%;
+                  height: auto;
+                  display: flex;
+                  &:not(:last-of-type) {
+                    margin-bottom: 5px;
+                  }
+                  dt {
+                    font-size: 13px;
+                    font-weight: 500;
+                    line-height: 1.45;
+                    color: #2e3031;
+                  }
+                  dd {
+                    font-size: 13px;
+                    font-weight: 400;
+                    line-height: 1.45;
+                    color: #2e3031;
+                  }
+                }
+              }
+            }
+            .btn-confirm {
+              display: block;
+              width: 100%;
+              height: 28px;
+              line-height: 28px;
+              border: 1px solid #198cff;
+              text-align: center;
+              padding: 0;
+              border-radius: 3px;
+              font-size: 12px;
+              font-weight: 500;
+              color: #198cff;
+              margin-top: 20px;
+            }
+            .send-date {
+              display: inline-block;
+              font-size: 12px;
+              font-weight: 400;
+              color: #999;
+            }
+          }
+        }
+      }
+      .write-box {
+        width: 100%;
+        height: auto;
+        padding: 30px;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-top: 1px solid #d8e2ec;
+        background-color: #fff;
+        textarea {
+          width: calc(100% - 120px);
+          height: 45px;
+          font-size: 14px;
+          font-weight: 400;
+          line-height: 1.45;
+          color: #2e3031;
+          resize: none;
+          &:focus {
+            outline: none;
+          }
+          &::placeholder {
+            font-size: 14px;
+            font-weight: 400;
+            color: #999;
+          }
+        }
+        .btn-chat-write {
+          width: 90px;
+          height: 42px;
+          border-radius: 21px;
+          background-color: #999;
+          text-align: center;
+          font-size: 14px;
+          font-weight: 700;
+          color: #fff;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          &.on {
+            background-color: #198cff;
+          }
+          .send-icon {
+            display: inline-block;
+            width: 16px;
+            height: 17px;
+            background: url('../assets/images/icons/easy-talk-send-icon.png') no-repeat center / cover;
+            margin-right: 5px;
+          }
+        }
+      }
+    }
+    .store-info {
+      width: 376px;
+      height: 100%;
+      border-left: 1px solid #d9e2ec;
+      padding: 40px 30px 30px;
+      position: relative;
+      .store-profile {
+        width: 100px;
+        height: 100px;
+        line-height: 100px;
+        border-radius: 50%;
+        text-align: center;
+        margin: 0 auto 23px;
+        .store-initial {
+          font-size: 34px;
+          font-weight: 500;
+          color: #fff;
+        }
+      }
+      .store-name {
+        width: 100%;
+        height: auto;
+        font-size: 22px;
+        font-weight: 500;
+        line-height: 1.45;
+        color: #333;
+        text-align: center;
+        word-break: keep-all;
+      }
+      .hashtag {
+        width: 100%;
+        height: auto;
+        font-size: 14px;
+        font-weight: 400;
+        color: #198cff;
+        text-align: center;
+        margin-top: 15px;
+        word-break: keep-all;
+      }
+      .guide-txt {
+        width: 100%;
+        height: auto;
+        text-align: center;
+        margin-top: 15px;
+        word-break: keep-all;
+        font-size: 14px;
+        font-weight: 400;
+        color: #666;
+        line-height: 1.45;
+      }
+      .info {
+        width: 100%;
+        height: auto;
+        margin-top: 37px;
+        padding-top: 32px;
+        border-top: 1px solid #eaf1f6;
+        li {
+          width: 100%;
+          height: auto;
+          display: flex;
+          &:not(:last-child) {
+            margin-bottom: 10px;
+          }
+          .title {
+            width: 56px;
+            height: auto;
+            font-size: 14px;
+            font-weight: 500;
+            color: #2e3031;
+            line-height: 1.45;
+          }
+          .text {
+            width: calc(100% - 56px);
+            height: auto;
+            font-size: 14px;
+            line-height: 1.45;
+            font-weight: 400;
+            color: #666;
+            word-break: keep-all;
+          }
+        }
+      }
+      .leave-chat {
+        width: calc(100% - 60px);
+        height: auto;
+        position: absolute;
+        left: 50%;
+        bottom: 30px;
+        transform: translateX(-50%);
+        .btn-leave {
+          width: 100%;
+          height: 42px;
+          line-height: 42px;
+          border: 1px solid #aaa;
+          border-radius: 3px;
+          text-align: center;
+          padding: 0;
+          font-size: 15px;
+          font-weight: 500;
+          color: #666;
+        }
+      }
+    }
+  }
+}
+
+
+
+/* ****************************** 대화상대 추가 팝업 CSS ****************************** */
+.modal-add-contact {
+  .modal-body {
+    max-height: 627px !important;
+    .notice-txt {
+      width: 100%;
+      height: auto;
+      padding: 12px 20px;
+      background-color: #fffffa;
+      border: 1px solid #e6ecef;
+      border-radius: 10px;
+      margin-top: 26px;
+      .notice-ico {
+        font-size: 13px;
+        font-weight: 400;
+        letter-spacing: -0.01em;
+        line-height: 1.45;
+        color: #4f5f71;
+        padding-left: 19px;
+        position: relative;
+        &::after {
+          content: '';
+          display: block;
+          width: 14px;
+          height: 14px;
+          background: url('../assets/images/icons/guide-ico.png') no-repeat center / cover;
+          position: absolute;
+          left: 0;
+          top: 3px;
+        }
+      }
+    }
+    .contact-list {
+      width: 100%;
+      height: auto;
+      min-height: 390px;
+      max-height: 399px;
+      border-top: 1px solid #d8e2ec;
+      border-bottom: 1px solid #d8e2ec;
+      margin-top: 14px;
+      overflow-y: auto;
+      position: relative;
+      ul {
+        width: 100%;
+        height: auto;
+        li {
+          width: 100%;
+          height: auto;
+          border-bottom: 1px solid #eaf1f6;
+          &.on {
+            background-color: #f0f7ff;
+          }
+          a {
+            display: block;
+            width: 100%;
+            height: auto;
+            padding: 10px 20px;
+            font-size: 13px;
+            font-weight: 400;
+            line-height: 1.45;
+            color: #0c233d;
+          }
+        }
+      }
+      .empty {
+        display: inline-block;
+        font-size: 13px;
+        line-height: 1;
+        font-weight: 400;
+        color: #2e3031;
+        text-align: center;
+        padding-left: 24px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        &::after {
+          content: '';
+          display: block;
+          width: 20px;
+          height: 20px;
+          background: url('../assets/images/icons/guide-ico.png') no-repeat center / cover;
+          position: absolute;
+          left: 0;
+          top: -2px;
+        }
+      }
+    }
+  }
+}

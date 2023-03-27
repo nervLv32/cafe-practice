@@ -1,0 +1,93 @@
+{% extends "../_templates/layout.njk" %}
+{% block content %}
+
+<div class="wrapper" id="wrap">
+  <!-- container -->
+  <div class="container" id="container">
+    <!-- content -->
+    <div class="content" id="content">
+
+      <div class="content-head">
+        <div class="page-title">
+          <h3 class="h3-tit">이지톡</h3>
+          <a href="#" class="btn-manual" target="_blank" title="매뉴얼">매뉴얼</a>
+          <div class="form-box">
+            <form onsubmit="return submitHandler();">
+              <fieldset>
+                <legend class="skip">통합검색</legend>
+                <label for="total-search" class="skip">검색어 입력</label>
+                <input type="search" name="total-search" id="total-search" title="검색어 입력" class="text"
+                  placeholder="상품을 검색해보세요.">
+                <input type="submit" value="검색" class="submit">
+              </fieldset>
+            </form>
+          </div>
+        </div>
+        <div class="cont-info-right">
+          <ul class="breadcrumb">
+            <li>공급</li>
+            <li class="now" title="이지톡">이지톡</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Easy-talk Area Start -->
+      <div class="easy-talk">
+        <!-- Aside Area Start -->
+        <div class="aside">
+          <!-- Easy-talk-search Area Start -->
+          <div class="easy-talk-search">
+            <div class="talk-head">
+              <select name="" id="" class="default-select w120">
+                <option value="">전체 메시지</option>
+                <option value="">안 읽은 메시지</option>
+                <option value="">중요 메시지</option>
+              </select>
+              <button type="button" class="member-plus" onclick="targetModalPopup('modal-no-contact')">대화상대 추가<i
+                  class="plus-ico"></i></button>
+            </div>
+            <div class="form-control">
+              <input type="text" class="inp-search" placeholder="가게명을 입력해 주세요">
+              <button type="button" class="btn btn-search"></button>
+            </div>
+          </div><!-- Easy-talk-search Area End -->
+          <!-- caht-box Area Start -->
+          <div class="chat-box">
+            <span class="empty">검색 결과가 없습니다.</span>
+          </div><!-- chat-box Area End -->
+        </div><!-- Aside Area End -->
+
+        <!-- No-data Area Start -->
+        <div id="no-data" class="contents">
+          <div class="no-data">
+            <img src="../assets/images/easy-talk-no-data-img.png" alt="no-data">
+          </div>
+        </div><!-- No-data Area End -->
+
+      </div><!-- Easy-talk Area End -->
+
+    </div>
+    <!-- //content -->
+  </div>
+  <!-- container -->
+</div>
+
+
+<script>
+  $(document).ready(function () {
+    // 대화상대 추가 팝업 클릭
+    $('.modal-add-contact .modal-body .contact-list ul li').click(function () {
+      if ($(this).hasClass('on') == true) {
+        $(this).removeClass('on');
+      } else {
+        $('.modal-add-contact .modal-body .contact-list ul li').removeClass('on');
+        $(this).addClass('on');
+      }
+    })
+  })
+</script>
+
+
+{% include("./modals/easy-talk/easy-talk-no.njk") %}
+
+{% endblock %}

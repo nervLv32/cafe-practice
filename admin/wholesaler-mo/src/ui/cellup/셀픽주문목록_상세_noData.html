@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="format-detection" content="telephone=yes">
+	<link rel="stylesheet" href="../../css/orderbook.css">
+
+	<script src="../../js/libs/jquery.min.js"></script>
+	<script src="../../js/libs/jquery-ui.min.js"></script>
+	<script src="../../js/libs/addclear.min.js"></script>
+	<script src="../../js/common_front.js"></script>
+	<script src="../../js/ui.js"></script>
+	<script src="../../js/pub.js"></script>
+
+	<title>전체 발주상세</title>
+</head>
+
+<body>
+	<!-- header// -->
+	<header class="bg-green">
+		<button type="button" name="button" id="back" class="btn-back"><img src="../../img/orderbook/btn-back.png" alt="뒤로"></button>
+		<h1>
+			<span class="header-title">메이크라이트</span>
+		</h1>
+		<span class="logo"><img src="../../img/orderbook/logo.png" alt="EASYPICK"></span>
+	</header>
+	<!-- //header -->
+
+	<!--container// -->
+	<div id="container" class="sellpick-order cellup-detail">
+		<div class="order-btn-wrap">
+			<button type="button" class="btn-excel"><span>엑셀다운</span></button>
+			<button type="button" class="btn-allPick">전체픽업완료</button>
+		</div>
+
+		<div class="order-info">
+			<div class="left">
+				<p class="total">총 <span class="txt-red">N</span> 건</p>
+				<div class="ico-tip-wrap">
+					<button type="button" class="btn-tip">!</button>
+					<div class="tip">
+						<div class="txt">
+							<ul class="dot-list mt0">
+								<li>
+									품목 클릭 시 입고 수량과 메모 입력이 가능합니다.
+								</li>
+								<li>
+									포장완료인 품목은 <span class="txt-green">●</span> 준비중인 품목은 <span class="txt-dark">●</span>로 표시됩니다.<br>
+									(거래완료, 취소완료 처리된 푸목은 표시되지 않습니다.)
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<button type="button" name="button" class="filter ui-popup-open" data-target="#market-pop">필터</button>
+		</div>
+
+		<div class="order-list sp-order-list">
+			<div class="nodata">
+				<p class="message-empty"><span>검색결과가 없습니다.</span></p>
+			</div>
+		</div>
+	</div>
+	<!--//container -->
+
+	<!-- footer// -->
+	<footer>
+		<a href="list.html">목록</a>
+	</footer>
+	<!-- //footer -->
+	<div id="popup1" class="ui-popup login">
+		<div class="content" style="width:320px;">
+			<div class="header">
+				<h1>입고 로그인</h1>
+			</div>
+			<div class="body">
+				<div class="bg">
+					<strong>비밀번호</strong>
+					<div class="input-box">
+						<input type="text" placeholder="아이디(이메일) 입력" style="width: 100%; padding-right: 20px;">
+						<em>비밀번호를 다시 입력해주세요.</em>
+					</div>
+				</div>
+			</div>
+			<div class="btn-wrap tac">
+				<button type="button" class="btn medium btn_close" style="width:110px;">닫기</button>
+				<button type="button" class="btn point medium" style="width:110px;">확인</button>
+			</div>
+			<button type="button" class="btn_close"><span>닫기</span></button>
+		</div>
+	</div>
+
+
+	<div id="popup2" class="ui-popup product-list sellpick-list">
+		<div class="content" style="width:320px;">
+			<div class="header">
+				<h1>메이크라이트</h1>
+			</div>
+			<div class="body">
+				<div class="prd-info-wrap">
+					<div class="sec1">
+						<span class="ico-type blue">신규</span>
+						<a href="#">멜로우블라우스</a>
+						<p>
+							[소녀made]앤더슨 프리티 후드기모 글렌체크 CT후드기모 글렌체크 CT후드기모 CT후드기모
+						</p>
+						<span class="option">ivory / FREE</span>
+					</div>
+					<div class="sec2">
+						<div class="left" style="width:100px">
+							<strong calss="s-title">수량 : <em>9999</em></strong>
+							<button class="ui-popup-open btn-cancel" data-target="#popup-cancel" type="button">주문취소</button>
+						</div>
+						<div class="right">
+							<button class="refresh"></button>
+							<div class="amount">
+								<button type="button" class="minus">-</button>
+								<input type="number" value="1" style="">
+								<button type="button" class="plus">+</button>
+							</div>
+						</div>
+					</div>
+
+					<div class="sec6">
+						<strong calss="s-title">고객요청메모</strong>
+						<p>
+							사이즈 품절이면 미송 잡아주세요. 색상 품절이면 환불 해주세요. 재입고 예정이면 미송 잡아주세요.
+						</p>
+					</div>
+
+					<div class="sec7">
+						<strong calss="s-title">메모 입력</strong>
+						<textarea>오늘 오전에 꼭 방문.사입삼촌이 입력한 내용이 저장됩니다.</textarea>
+					</div>
+				</div>
+			</div>
+			<div class="btn-wrap">
+				<button type="button" class="btn medium btn_close" style="width:110px;">닫기</button>
+				<button type="button" class="btn point medium" style="width:110px;">확인</button>
+			</div>
+			<button type="button" class="btn_close"><span>닫기</span></button>
+		</div>
+	</div>
+
+	<!-- 2022-06-08 EZP-5433 출고 로그인 팝업 -->
+	<div id="pop-login" class="ui-popup login">
+		<div class="content" style="width:350px;">
+			<div class="header">
+				<h1>출고 로그인</h1>
+			</div>
+			<div class="body no-line">
+				<div class="bg">
+					<strong>비밀번호</strong>
+					<div class="input-box">
+						<input type="text" placeholder="비밀번호를 입력해주세요">
+						<em>비밀번호를 다시 입력해주세요.</em>
+					</div>
+				</div>
+			</div>
+			<div class="btn-wrap tac">
+				<button type="button" class="btn medium btn_close" style="width:110px;">취소</button>
+				<button type="button" class="btn point medium" style="width:110px;">확인</button>
+			</div>
+		</div>
+	</div>
+
+	<!-- 2022-06-08 EZP-5433 거래완료 팝업 -->
+	<div id="pop-completed" class="ui-popup">
+		<div class="content" style="width:350px;">
+			<div class="header">
+			</div>
+			<div class="body no-line cont-txt">
+				<p>해당 주문의 상태를<br>거래완료 처리하시겠습니까?</p>
+				<p class="txt-blue txt-small mt15">*거래완료 처리 시 이전 상태로 되돌릴 수 없습니다.</p>
+			</div>
+			<div class="btn-wrap tac">
+				<button type="button" class="btn medium btn_close" style="width:110px;">취소</button>
+				<button type="button" class="btn point medium" style="width:110px;">확인</button>
+			</div>
+		</div>
+	</div>
+
+	<div id="popup3" class="ui-popup deadline-pop">
+		<div class="content" style="width:260px;">
+			<div class="header"></div>
+			<div class="body">
+				<p>
+					발주 마감되어 출고처리를<br>
+					할 수 없습니다.
+				</p>
+			</div>
+			<div class="btn-wrap tac">
+				<button type="button" class="btn point medium ui-popup-open btn_close" data-target="#popup3" style="width:110px;">확인</button>
+			</div>
+		</div>
+	</div>
+
+	<div id="popup5" class="ui-popup order-detail-pop alert"><!-- 2022-06-08 EZP-5433 alert 클래스 추가-->
+		<div class="content" style="width:320px;">
+			<div class="header">
+				<h1>쇼핑몰 발주상세</h1>
+			</div>
+			<div class="body">
+				<div class="prd-wrap">
+					<span class="ico-type blue">신규</span>
+					<strong class="prd-name">멜로우블라우스</strong>
+					<span class="price">14,000원</span>
+				</div>
+				<p class="option">
+					Beige(베이지)-모델착용컬러 / S
+				</p>
+				<div class="scroll-wrap">
+					<table>
+						<colgroup>
+							<col width="*">
+							<col width="90">
+						</colgroup>
+						<thead>
+							<tr>
+								<th>
+									쇼핑몰별
+								</th>
+								<th>
+									발주수량
+								</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>소녀레시피</td>
+								<td class="txt-red">1</td><!-- 2021-12-15 EZP-4620 -->
+							</tr>
+							<tr>
+								<td>소녀레시피</td>
+								<td>1</td>
+							</tr>
+							<tr>
+								<td>소녀레시피</td>
+								<td>1</td>
+							</tr>
+							<tr>
+								<td>소녀레시피</td>
+								<td>1</td>
+							</tr>
+							<tr>
+								<td>소녀레시피</td>
+								<td>1</td>
+							</tr>
+							<tr>
+								<td>소녀레시피</td>
+								<td>1</td>
+							</tr>
+							<tr>
+								<td>소녀레시피</td>
+								<td>1</td>
+							</tr>
+							<tr>
+								<td>소녀레시피</td>
+								<td>1</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="btn-wrap">
+				<button type="button" class="btn large btn_close">닫기</button>
+			</div>
+			<button type="button" class="btn_close"><span>닫기</span></button>
+		</div>
+	</div>
+
+	<!-- 2022-05-27 EZP-5433 [검색필터] 팝업 시작 -->
+	<div class="ui-popup full product-list pop-market" id="market-pop">
+        <div class="content">
+			<div class="header pop-tl">
+				<button type="button" class="reset txt-green">초기화</button>
+				<h1>검색필터</h1>
+				<button type="button" class="btn_close icon_close">닫기</button>
+            </div>
+				<div class="body">
+					<div class="prd-info-wrap">
+						<div class="type-chk">
+							<strong calss="s-title">마켓선택ㅁ</strong>
+							<p class="sub-txt">픽업대기 건이 있는 경우 <span class="cirlce"></span>으로 표시됩니다.</p>						
+							<div class="market-list">
+								<div >
+									<input type="checkbox" id="chk1">
+									<label for="chk1">전체</label>
+								</div>
+								<div>
+									<input type="checkbox" id="chk2">
+									<label for="chk2">DDP(유어스)</label>
+								</div>
+								<div class="active">
+									<input type="checkbox" id="chk3">
+									<label for="chk3">동평화</label>
+								</div>
+								<div class="active">
+									<input type="checkbox" id="chk4">
+									<label for="chk4">청평화</label>
+								</div>
+								<div>
+									<input type="checkbox" id="chk5">
+									<label for="chk5">APM</label>
+								</div>
+								<div>
+									<input type="checkbox" id="chk6">
+									<label for="chk6">마켓2</label>
+								</div>
+								<div>
+									<input type="checkbox" id="chk7">
+									<label for="chk7">마켓3</label>
+								</div>
+								<div>
+									<input type="checkbox" id="chk8">
+									<label for="chk8">마켓4</label>
+								</div>
+								<div>
+									<input type="checkbox" id="chk9">
+									<label for="chk9">마켓5</label>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			<div class="btn-wrap btn-bottom">
+				<button type="button" class="btn submit point w100">검색하기</button>
+			</div>
+		</div>
+	</div>
+
+	<!-- ui check -->
+	<script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
+	<script src="../../js/jquery-ui.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="../../css/jquery-ui.min.css">
+
+	<script>
+		$(document).ready(function() {
+			$('#back').on('click', function() {
+				window.history.back();
+			});
+		});
+
+		$(".pickup-detail .item").hide();
+		//content 클래스를 가진 div를 표시/숨김(토글)
+		$(".pickup-shop .name").click(function(){
+			$(this).closest('.pickup-detail').children('.item').slideToggle(300);
+			
+            if($(this).closest('.pickup-detail').children('.pickup-shop').hasClass("active")){
+                $(this).closest('.pickup-detail').children('.pickup-shop').removeClass("active");
+            } else{
+                $(this).closest('.pickup-detail').children('.pickup-shop').addClass("active");
+            }
+		});
+
+	</script>
+</body>
+
+</html>

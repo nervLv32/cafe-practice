@@ -1,0 +1,474 @@
+{% extends "../_templates/layout.njk" %}
+{% block content %}
+
+<div class="wrapper" id="wrap">
+    <!-- container -->
+    <div class="container" id="container">
+        <!-- content -->
+        <div class="content" id="content">
+            <div class="content-head">
+                <div class="page-title">
+                    <h3 class="h3-tit">가게매입금관리</h3>
+                    <a href="#" class="btn-manual" target="_blank" title="매뉴얼">매뉴얼</a>
+                    <div class="form-box">
+                        <form onsubmit="return submitHandler();">
+                            <fieldset>
+                                <legend class="skip">통합검색</legend>
+                                <label for="total-search" class="skip">검색어 입력</label>
+                                <input type="search" name="total-search" id="total-search" title="검색어 입력" class="text"
+                                    placeholder="상품을 검색해보세요.">
+                                <input type="submit" value="검색" class="submit">
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+                <div class="cont-info-right">
+                    <ul class="breadcrumb">
+                        <li>공급</li>
+                        <li>정산관리</li>
+                        <li class="now" title="현재 페이지">가게매입금관리</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mSearchEngine folder">
+                <div class="tborder-box">
+                    <div class="tbl-top-search">
+                        <div class="table-row">
+                            <table class="tbl-top">
+                                <colgroup>
+                                    <col style="width:120px;">
+                                    <col style="width:42%;">
+                                    <col style="width:25px;">
+                                    <col style="width:120px;">
+                                    <col style="width:42%">
+                                </colgroup>
+                                <tbody>
+                                    <tr class="rowFix rowFold">
+                                        <th>매입잔액</th>
+                                        <td>
+                                            <div class="form-inline">
+                                                <div class="form-control">
+                                                    <label>
+                                                        <input type="checkbox">
+                                                        <span>전체</span>
+                                                    </label>
+                                                </div>
+                                                <div class="form-control">
+                                                    <label>
+                                                        <input type="checkbox" checked>
+                                                        <span>있음</span>
+                                                    </label>
+                                                </div>
+                                                <div class="form-control">
+                                                    <label>
+                                                        <input type="checkbox" checked>
+                                                        <span>없음</span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td></td>
+                                        <th>검색</th>
+                                        <td>
+                                            <div class="form-inline">
+                                                <div class="select-control">
+                                                    <button type="button" class="btn-sel">전체</button>
+                                                    <ul class="sel-panel">
+                                                        <li>전체</li>
+                                                        <li>거래처명</li>
+                                                    </ul>
+                                                </div>
+                                                <div class="form-control ml4">
+                                                    <input type="text" class="search-input-w1">
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="top-btn-search">
+                            <button type="button" name="button" class="btn btn-lg btn-point">검색</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gridTableArea purchase-point-table">
+                <div class="table-top-info">
+                    <div class="top-txt-inline">
+                        <span class="txt-inline">검색결과 <strong><span class="txt-link-blue">1,000</span></strong>건</span>
+                        <span class="txt-inline">총 매입잔액 <strong><span
+                                    class="txt-link-blue">200,000</span></strong>원</span>
+                    </div>
+                    <div class="sort-sel-area">
+                        <select id="list_limit" class="default-select">
+                            <option value="20" selected="selected">20개씩 보기</option>
+                            <option value="30">30개씩 보기</option>
+                            <option value="50">50개씩 보기</option>
+                            <option value="100">100개씩 보기</option>
+                            <option value="200">200개씩 보기</option>
+                            <!-- 2023-02-17 EZP-7830 보기 옵션 추가 시작 -->
+                            <option value="300">300개씩 보기</option>
+                            <option value="500">500개씩 보기</option>
+                            <!-- 2023-02-17 EZP-7830 보기 옵션 추가 끝 -->
+                        </select>
+                    </div>
+                </div>
+
+                <div class="tround-box">
+                    <div class="tbl-round ">
+                        <div class="tbl-info-area">
+                            <div class="f-right">
+                                <div class="dflex">
+                                    <div class="btns-multi">
+                                        <button type="button" name="button" class="btn btn-sm btn-outline-gray"><i
+                                                class="ico ico-excel"></i>엑셀다운로드</button>
+                                        <button type="button" name="button" class="btn btn-ico btn-outline-gray"><i
+                                                class="ico ico-sort"></i>설정</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 그리드 테이블-->
+                        <!-- 2022 08 22 table height 수정 -->
+                        <div class="mGridTable yscroll tbl-height03">
+                            <table id="eMultiTable" class="eChkColor">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" style="width:70px;" class="resizable">No</th>
+                                        <th scope="col" style="width: 229px;" class="resizable">거래처명</th>
+                                        <th scope="col" style="width: 229px;" class="resizable">매입수량</th>
+                                        <th scope="col" style="width: 229px;" class="resizable">적립금액</th>
+                                        <th scope="col" style="width: 229px;" class="resizable">환불금액</th>
+                                        <th scope="col" style="width: 229px;" class="resizable">매입잔액</th>
+                                        <th scope="col" style="width: 229px;" class="resizable">최근발생일</th>
+                                        <th scope="col" style="width: 229px;">
+                                            <span>매입환불설정</span>
+                                            <div style="display:inline-block">
+                                                <!--tooltip-->
+                                                <div class="tool-tip-wrap tool-gray">
+                                                    <a href="javascript:void(0)" class="tool-tip">툴팁1</a>
+                                                    <div class="tool-tip-area renewal-tool-tip-area md left3">
+                                                        <section class="tool-tip-title">
+                                                            <h1>매입환불설정</h1>
+                                                            <div class="tool-tip-inner">
+                                                                <h2 class="dot second-line">매입잔액을 상품 입고 시 주문금액에서 차감할지
+                                                                    여부를 <br />
+                                                                    설정 할 수 있습니다.</h2>
+                                                                <ul class="list-dash mt10">
+                                                                    <li>- 설정함 : 매입잔액 즉시 차감</li>
+                                                                    <li>- 설정안함 : 매입잔액 차감하지 않음</li>
+                                                                </ul>
+                                                            </div>
+                                                        </section>
+                                                        <button type="button" class="tool-tip-close">닫기</button>
+                                                    </div>
+                                                </div>
+                                                <!--//tooltip-->
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>7</td>
+                                        <td class="overflow-unset">
+                                            <div class="hover-box">
+                                                <a href="javascript: void(0);"
+                                                    class="hover-btn txt-link pointer">테스트공급처</a>
+                                                <div class="info-box">
+                                                    <span class="shop-name">마켓명 #층 ##열 ##호</span><br>
+                                                    <span class="tel">(010-1234-1235)</span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>10</td>
+                                        <td class="text-ar">1,370,000</td>
+                                        <td class="text-ar">116,110</td>
+                                        <td class="text-ar"><strong class="ftpointcolor">1,253,890</strong></td>
+                                        <td>2022-04-05</td>
+                                        <td>
+                                            <div class="toggle-btn auto">
+                                                <button type="button" class="btn btn-toggle">설정함</button>
+                                                <button type="button" class="btn btn-toggle active">설정안함</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>6</td>
+                                        <td class="overflow-unset">
+                                            <div class="hover-box">
+                                                <a href="javascript: void(0);"
+                                                    class="hover-btn txt-link pointer">테스트공급처</a>
+                                                <div class="info-box">
+                                                    <span class="shop-name">마켓명 #층 ##열 ##호</span><br>
+                                                    <span class="tel">(010-1234-1235)</span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>10</td>
+                                        <td class="text-ar">1,370,000</td>
+                                        <td class="text-ar">116,110</td>
+                                        <td class="text-ar"><strong class="ftpointcolor">1,253,890</strong></td>
+                                        <td>2022-04-05</td>
+                                        <td>
+                                            <div class="toggle-btn auto">
+                                                <button type="button" class="btn btn-toggle active">설정함</button>
+                                                <button type="button" class="btn btn-toggle">설정안함</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>5</td>
+                                        <td class="overflow-unset">
+                                            <div class="hover-box">
+                                                <a href="javascript: void(0);"
+                                                    class="hover-btn txt-link pointer">테스트공급처</a>
+                                                <div class="info-box">
+                                                    <span class="shop-name">마켓명 #층 ##열 ##호</span><br>
+                                                    <span class="tel">(010-1234-1235)</span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>10</td>
+                                        <td class="text-ar">1,370,000</td>
+                                        <td class="text-ar">116,110</td>
+                                        <td class="text-ar"><strong class="ftpointcolor">1,253,890</strong></td>
+                                        <td>2022-04-05</td>
+                                        <td>
+                                            <div class="toggle-btn auto">
+                                                <button type="button" class="btn btn-toggle active">설정함</button>
+                                                <button type="button" class="btn btn-toggle">설정안함</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+                                        <td class="overflow-unset">
+                                            <div class="hover-box">
+                                                <a href="javascript: void(0);"
+                                                    class="hover-btn txt-link pointer">테스트공급처</a>
+                                                <div class="info-box">
+                                                    <span class="shop-name">마켓명 #층 ##열 ##호</span><br>
+                                                    <span class="tel">(010-1234-1235)</span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>10</td>
+                                        <td class="text-ar">1,370,000</td>
+                                        <td class="text-ar">116,110</td>
+                                        <td class="text-ar"><strong class="ftpointcolor">1,253,890</strong></td>
+                                        <td>2022-04-05</td>
+                                        <td>
+                                            <div class="toggle-btn auto">
+                                                <button type="button" class="btn btn-toggle active">설정함</button>
+                                                <button type="button" class="btn btn-toggle">설정안함</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td class="overflow-unset">
+                                            <div class="hover-box">
+                                                <a href="javascript: void(0);"
+                                                    class="hover-btn txt-link pointer">테스트공급처</a>
+                                                <div class="info-box">
+                                                    <span class="shop-name">마켓명 #층 ##열 ##호</span><br>
+                                                    <span class="tel">(010-1234-1235)</span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>10</td>
+                                        <td class="text-ar">1,370,000</td>
+                                        <td class="text-ar">116,110</td>
+                                        <td class="text-ar"><strong class="ftpointcolor">1,253,890</strong></td>
+                                        <td>2022-04-05</td>
+                                        <td>
+                                            <div class="toggle-btn auto">
+                                                <button type="button" class="btn btn-toggle active">설정함</button>
+                                                <button type="button" class="btn btn-toggle">설정안함</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td class="overflow-unset">
+                                            <div class="hover-box">
+                                                <a href="javascript: void(0);"
+                                                    class="hover-btn txt-link pointer">테스트공급처</a>
+                                                <div class="info-box">
+                                                    <span class="shop-name">마켓명 #층 ##열 ##호</span><br>
+                                                    <span class="tel">(010-1234-1235)</span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>10</td>
+                                        <td class="text-ar">1,370,000</td>
+                                        <td class="text-ar">116,110</td>
+                                        <td class="text-ar"><strong class="ftpointcolor">1,253,890</strong></td>
+                                        <td>2022-04-05</td>
+                                        <td>
+                                            <div class="toggle-btn auto">
+                                                <button type="button" class="btn btn-toggle active">설정함</button>
+                                                <button type="button" class="btn btn-toggle">설정안함</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td class="overflow-unset">
+                                            <div class="hover-box">
+                                                <a href="javascript: void(0);"
+                                                    class="hover-btn txt-link pointer">테스트공급처</a>
+                                                <div class="info-box">
+                                                    <span class="shop-name">마켓명 #층 ##열 ##호</span><br>
+                                                    <span class="tel">(010-1234-1235)</span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>10</td>
+                                        <td class="text-ar">1,370,000</td>
+                                        <td class="text-ar">116,110</td>
+                                        <td class="text-ar"><strong class="ftpointcolor">1,253,890</strong></td>
+                                        <td>2022-04-05</td>
+                                        <td>
+                                            <div class="toggle-btn auto">
+                                                <button type="button" class="btn btn-toggle active">설정함</button>
+                                                <button type="button" class="btn btn-toggle">설정안함</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- //그리드 테이블-->
+                    </div>
+                </div>
+                {% include("../_templates/default/pagination.njk") %}
+            </div>
+
+            <!-- 데이터 없을시 -->
+            <div class="gridTableArea purchase-point-table">
+                <div class="table-top-info">
+                    <div class="top-txt-inline">
+                        <span class="txt-inline">검색결과 <strong><span class="txt-link-blue">1,000</span></strong>건</span>
+                        <span class="txt-inline">총 매입잔액 <strong><span
+                                    class="txt-link-blue">200,000</span></strong>원</span>
+                    </div>
+                    <div class="sort-sel-area">
+                        <select id="list_limit" class="default-select">
+                            <option value="20" selected="selected">20개씩 보기</option>
+                            <option value="30">30개씩 보기</option>
+                            <option value="50">50개씩 보기</option>
+                            <option value="100">100개씩 보기</option>
+                            <option value="200">200개씩 보기</option>
+                            <!-- 2023-02-17 EZP-7830 보기 옵션 추가 시작 -->
+                            <option value="300">300개씩 보기</option>
+                            <option value="500">500개씩 보기</option>
+                            <!-- 2023-02-17 EZP-7830 보기 옵션 추가 끝 -->
+                        </select>
+                    </div>
+                </div>
+
+                <div class="tround-box">
+                    <div class="tbl-round ">
+                        <div class="tbl-info-area">
+                            <div class="f-right">
+                                <div class="dflex">
+                                    <div class="btns-multi">
+                                        <button type="button" name="button" class="btn btn-sm btn-outline-gray"><i
+                                                class="ico ico-excel"></i>엑셀다운로드</button>
+                                        <button type="button" name="button" class="btn btn-ico btn-outline-gray"><i
+                                                class="ico ico-sort"></i>설정</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 그리드 테이블-->
+                        <div class="mGridTable yscroll tbl-height03">
+                            <table id="eMultiTable1" class="eChkColor">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" style="width:70px;" class="resizable">No</th>
+                                        <th scope="col" style="width: 229px;" class="resizable">거래처명</th>
+                                        <th scope="col" style="width: 229px;" class="resizable">매입수량</th>
+                                        <th scope="col" style="width: 229px;" class="resizable">적립금액</th>
+                                        <th scope="col" style="width: 229px;" class="resizable">환불금액</th>
+                                        <th scope="col" style="width: 229px;" class="resizable">매입잔액</th>
+                                        <th scope="col" style="width: 229px;" class="resizable">최근발생일</th>
+                                        <th scope="col" style="width: 229px;">
+                                            <span>매입환불설정</span>
+                                            <div style="display:inline-block">
+                                                <!--tooltip-->
+                                                <div class="tool-tip-wrap tool-gray">
+                                                    <a href="javascript:void(0)" class="tool-tip">툴팁1</a>
+                                                    <div class="tool-tip-area renewal-tool-tip-area md left3">
+                                                        <section class="tool-tip-title">
+                                                            <h1>매입환불설정</h1>
+                                                            <div class="tool-tip-inner">
+                                                                <h2 class="dot second-line">매입잔액을 상품 입고 시 주문금액에서 차감할지
+                                                                    여부를 <br />
+                                                                    설정 할 수 있습니다.</h2>
+                                                                <ul class="list-dash mt10">
+                                                                    <li>- 설정함 : 매입잔액 즉시 차감</li>
+                                                                    <li>- 설정안함 : 매입잔액 차감하지 않음</li>
+                                                                </ul>
+                                                            </div>
+                                                        </section>
+                                                        <button type="button" class="tool-tip-close">닫기</button>
+                                                    </div>
+                                                </div>
+                                                <!--//tooltip-->
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="tr-empty">
+                                        <td>
+                                            <div class="txt">
+                                                <i><img src="../assets/images/guide-ico.png" alt="guide-icon"></i>
+                                                <span>검색 결과가 없습니다.</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- //그리드 테이블-->
+                    </div>
+                </div>
+                {% include("../_templates/default/pagination.njk") %}
+            </div>
+
+        </div>
+        <!-- //content -->
+    </div>
+    <!-- container -->
+</div>
+
+
+<script>
+    $(document).ready(function () {
+        $('#eMultiTable').fixResize({
+            colResize: true,
+            resizeVer: 'flex'
+        });
+        // 데이터 없을시 새로운 테이블
+        $('#eMultiTable1').fixResize({
+            colResize: true,
+            resizeVer: 'flex'
+        });
+
+        // 검색결과 없을때 tr 높이 조절
+        const emptyTh = $('.tr-empty').parents('table').find('thead tr th').length;
+        const emptyMt = $('.tr-empty').parents('table').css('margin-top').replace('-', '');
+        const emptyMg = emptyMt.replace('px', '');
+        $('.tr-empty td').attr('colspan', emptyTh);
+        $('.tr-empty').parents('table').css('height', `calc(100% + ${emptyMg}px)`);
+    });
+</script>
+
+{% endblock %}

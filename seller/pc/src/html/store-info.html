@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="shortcut icon" type="image/x-icon" href="/img/favicon/ezp.ico">
+
+	<link rel="stylesheet" type="text/css" href="../css/pc/default.css">
+
+	<script type="text/javascript" src="../js/pc/jquery-3.5.1.min.js"></script>
+	<script type="text/javascript" src="../js/pc/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="../js/pc/swiper-bundle.min.js"></script>
+	<script type="text/javascript" src="../js/pc/common_front.js"></script>
+	<script type="text/javascript" src="../js/pc/ui.js"></script>
+	<script type="text/javascript" src="../js/pc/pub.js"></script>
+
+	<title>개인/가게정보 관리</title>
+</head>
+<body>
+    <header></header>
+
+	<div id="container" class="active">
+		<aside></aside>
+
+		<section class="mypage">
+			<h2>개인/가게정보 관리</h2>
+
+			<div class="mypage-input-group">
+				<div class="title">
+					<h3>개인정보변경</h3>
+				</div>
+
+				<table>
+					<colgroup>
+						<col width="170px"><!--2021-02-24 수정-->
+						<col>
+					</colgroup>
+					<tbody>
+						<tr>
+							<th>아이디(이메일) <span class="necessary">*</span></th>
+							<td>
+								<div class="email">
+									<div class="ui-select gray">
+										<button type="button" disabled>selleruser</button>
+										<ul>
+											<li class="active">selleruser</li>
+											<li>selleruser</li>
+											<li>selleruser</li>
+										</ul>
+									</div>
+									<em>@</em>
+									<div class="ui-select gray">
+										<button type="button" disabled>네이버</button>
+										<ul>
+											<li class="active">네이버</li>
+											<li>네이버</li>
+											<li>네이버</li>
+										</ul>
+									</div>
+
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<th>가입자 이름 <span class="necessary">*</span></th>
+							<td>
+								<input type="text" name="" value="홍길동" class="gray">
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+			<div class="mypage-input-group">
+				<div class="title">
+					<h3>가게정보변경</h3>
+					<span class="wait-confirm">가게정보수정 승인대기</span>
+				</div>
+
+				<table>
+					<colgroup>
+						<col width="170px"><!--2021-02-24 수정-->
+						<col>
+					</colgroup>
+					<tbody>
+						<tr>
+							<th>가게명 <span class="necessary">*</span></th>
+							<td>
+								<input type="text" name="" value="제인모리스" class="gray">
+								<span class="alert">관리자 승인이 필요합니다.</span>
+								<p class="confirm-p">* 변경요청 : Jane morris</p>
+							</td>
+						</tr>
+						<tr>
+							<th>가게주소 <span class="necessary">*</span></th>
+							<td>
+								<!--2021-02-24 수정-->
+								<div class="shop-address">
+									<div class="ui-select gray mr5">
+										<button type="button">디오트디오트디오트디오트디오트디오트</button>
+										<ul>
+											<li class="active">디오트디오트디오트디오트디오트디오트</li>
+											<li>디오트</li>
+											<li>디오트</li>
+										</ul>
+									</div>
+									<div class="ui-select gray mr5">
+										<button type="button">B1</button>
+										<ul>
+											<li class="active">B1</li>
+											<li>B1</li>
+											<li>B1</li>
+										</ul>
+									</div>
+									<span class="mr10">층</span>
+									<!--21-02-18 수정 / placeholder 문구 추가-->
+									<input type="text" name="" value="A열" class="gray mr5" placeholder="열 입력">
+									<span class="mr10">열</span>
+									<input type="text" name="" value="23호" class="gray mr5" placeholder="호 입력">
+									<span class="">호</span>
+									<!--// 21-02-18 수정 / placeholder 문구 추가-->
+								</div>
+								<span class="alert">관리자 승인이 필요합니다.</span>
+								<p class="confirm-p">* 변경요청 : 디오트 3층 A 10</p>
+							</td>
+						</tr>
+						<tr>
+							<th>세금계산서 요청방식 <span class="necessary">*</span></th>
+							<td>
+								<div class="radio-wrap">
+									<span class="radio mr70">
+										<input type="radio" name="radio" id="r1" checked="">
+										<label for="r1">온라인</label>
+									</span>
+									<span class="radio">
+										<input type="radio" name="radio" id="r2">
+										<label for="r2">오프라인</label>
+									</span>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<th>휴대폰 번호 <span class="necessary">*</span></th>
+							<td>
+								<!-- 2021-05-11 EZP-2831 -->
+								<div class="phone-wrap top">
+									<p>알림톡 전용 <em>(최소 1개 ~ 최대 5개까지 등록 가능합니다.)</em></p>
+									<div class="item">
+										<span class="radio mr70">
+											<input type="radio" name="radio1" id="radio1" checked>
+											<label for="radio1">대표지정</label>
+										</span>
+										<div class="ui-select gray">
+											<button type="button">010</button>
+											<ul>
+												<li class="active">010</li>
+												<li>010</li>
+												<li>010</li>
+											</ul>
+										</div>
+										<input type="text" name="" value="1234" class="gray">
+										<input type="text" name="" value="5678" class="gray">
+										<div class="btn-wrap">
+											<button type="button" name="button" class="btn-round line green btn-add">추가</button>
+										</div>
+									</div>
+								</div>
+								<div class="phone-wrap">
+									<p>
+										세금계산서 전용
+										<span class="checkbox">
+											<input type="checkbox" name="" id="c1">
+											<label for="c1">알림톡 번호와 동일</label>
+										</span>
+									</p>
+									<div class="ui-select gray">
+										<button type="button">010</button>
+										<ul>
+											<li class="active">010</li>
+											<li>010</li>
+											<li>010</li>
+										</ul>
+									</div>
+									<input type="text" name="" value="1234" class="gray">
+									<input type="text" name="" value="5678" class="gray">
+								</div>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+			<div class="mypage-input-group">
+				<div class="title">
+					<h3>SMS 및 이메일 수신 동의 설정</h3>
+				</div>
+
+				<div class="sms-wrap">
+					<span class="checkbox">
+						<input type="checkbox" name="" id="c2" checked>
+						<label for="c2">SMS 수신 동의</label>
+					</span>
+					<span class="checkbox">
+						<input type="checkbox" name="" id="c3">
+						<label for="c3">이메일 수신 동의</label>
+					</span>
+				</div>
+			</div>
+
+			<div class="btn-wrap center">
+				<a href="#" class="btn gray">취소</a>
+				<a href="#" class="btn point ui-popup-call" data-target="#alert2">확인</a>
+			</div>
+		</section>
+
+		<div class="ui-popup alert" id="alert">
+			<div class="content">
+				<!-- <button type="button" class="btn-close">닫기</button> -->
+				<div class="body">
+					<p>수정되었습니다.</p>
+				</div>
+				<div class="btn-wrap">
+					<button type="button" name="button" class="btn-close">확인</button>
+				</div>
+			</div>
+		</div>
+
+		<div class="ui-popup alert" id="alert2">
+			<div class="content">
+				<!-- <button type="button" class="btn-close">닫기</button> -->
+				<div class="body">
+					<p>정보를 수정하시겠습니까?</p>
+				</div>
+				<div class="btn-wrap btn2">
+					<button type="button" name="button" class="gray btn-close">취소</button>
+					<button type="button" name="button" class="ui-popup-call btn-close" data-target="#alert">확인</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<footer></footer>
+
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+			// include
+			$('header').load('include/header.html');
+			$('footer').load('include/footer.html');
+			$('aside').load('include/aside.html');
+		});
+		// 2021-05-11 EZP-2831
+		var clone_item ='<div class="item"><span class="radio mr70"><input type="radio" name="radio1" id="radio1"><label for="radio1">대표지정</label></span><div class="ui-select gray"><button type="button">010</button><ul><li class="active">010</li><li>010</li><li>010</li></ul></div><input type="text" name="" class="gray"><input type="text" name="" class="gray"><div class="btn-wrap"><button type="button" name="button" class="btn-round line green btn-add">추가</button><button type="button" name="button" class="btn-round line red btn-del">삭제</button></div></div>';
+		$(document).on('click','.phone-wrap.top .item .btn-add', function(){
+			if( $('.phone-wrap.top .item').length >= 5) return false;
+			$(this).parents('.item').after(clone_item);
+			$(this).parent().hide();
+			if( $('.phone-wrap.top .item').length == 5) {
+	      $(this).parents('.item').next().find('.btn-add').remove();
+	    }
+		})
+
+		$(document).on('click','.phone-wrap.top .item .btn-del', function(){
+			$(this).parents('.item').prev('.item').addClass('asd').find('.btn-wrap').show();
+			$(this).parents('.item').remove();
+		})
+	</script>
+</body>
+</html>

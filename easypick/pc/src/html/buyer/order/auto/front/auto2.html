@@ -1,0 +1,1206 @@
+<!DOCTYPE html>
+<html lang="ko" class="js">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="format-detection" content="telephone=no">
+	<meta content="IMs0c1aVeYsDnnQOLkRn1Bu5zL3j5rbbYJoj9dYvgt4=" name="csrf-token">
+	<meta content="T" name="login-required">
+	<link rel="shortcut icon" type="image/x-icon" href="/img/favicon/ezp.ico">
+
+	<link rel="stylesheet" type="text/css" href="../../../../../css/default.css">
+	<link rel="stylesheet" type="text/css" href="../../../../../css/month.picker.css">
+
+	<title>이지픽</title>
+</head>
+
+<body>
+	<!-- header// -->
+	<header></header>
+	<!-- //header -->
+
+	<!--container// -->
+	<div id="container-full" class="min-wid">
+		<div class="order-top list">
+			<h2>자동주문 등록</h2>
+		</div>
+		<div class="auto-notice-wrap">
+			<div class="left_cont">
+				<h3>발주 자동등록 엑셀 업로드 방법</h3>
+				<ul>
+					<li>
+						1. [이지어드민 > 재고관리 > 재고부족요청/조회2 > 특정메뉴] 에서 필수항목을 포함해서 엑셀파일을 다운로드받으세요.
+						<table>
+							<tr>
+								<td>공급처</td>
+								<td>공급처주소</td>
+								<td>공급처연락처</td>
+								<td>상품명</td>
+								<td>옵션</td>
+								<td>공급가</td>
+								<td>정상+창고재고</td>
+								<td>입고대기</td>
+							</tr>
+							<tr>
+								<td>-7 주문</td>
+								<td>-6 주문</td>
+								<td>-5 주문</td>
+								<td>-4 주문</td>
+								<td>-3 주문</td>
+								<td>-2 주문</td>
+								<td>-1 주문</td>
+								<td>배송전취소</td>
+							</tr>
+						</table>
+					</li>
+					<li>
+						2. 발주해야 하는 품목 정보를 확인해주세요.
+					</li>
+					<li>
+						3. [엑셀업로드] 팝업에서 요청내용이 입력된 엑셀 파일을 [파일찾기] 버튼을 통해 불러온 뒤 업로드해주세요.
+					</li>
+				</ul>
+			</div>
+			<div class="right_cont">
+				<h3>유의사항</h3>
+				<ul class="dot-list">
+					<li>[이지어드민 > 재고관리 > 재고부족요청/조회2 > 특정메뉴] 에서 필수항목이 포함된 경우에만 발주수량 산정이 가능합니다.</li>
+					<li>최대 1,000건 까지 등록가능합니다. </li>
+					<li>xlsx 또는  xls 파일 형식만 업로드가 가능합니다.</li>
+					<li>발주수량 확인/수정 후 [주문하기] 버튼을 클릭하셔야 최종 주문이 완료됩니다.</li>
+				</ul>
+
+			</div>
+
+		</div>
+		<div class="order-list-wrap direct">
+			<div class="list-right direct">
+				<div class="top-wrap">
+					<div>
+						<button type="button" name="button" class="btn small reset aDeletedCart" data-type="all">RESET</button>
+						<button type="button" name="button" class="btn small line aDeletedCart" data-type="row">선택상품 삭제</button>
+					</div>
+					<div>
+						<button type="button" class="btn small line" id="btnExcelDown">엑셀 양식 다운</button>
+						<button type="button" name="button" class="btn small line ui-popup-open" id="btnExcelUp" data-target="#excel-upload" data-overflow="false">엑셀 업로드</button>
+						<button type="button" name="button" class="btn small point">주문하기</button>
+					</div>
+				</div>
+				<div class="mid-wrap">
+					<div>
+						<input type="hidden" name="view_type" id="selViewType" value="all">
+						<div class="ui-select" data-target_id="#selViewType">
+							<button type="button" data-target_id="#selViewType" data-value="">전체보기</button>
+							<ul>
+								<li data-key="all" class="active">전체보기</li>
+								<li data-key="error">오류보기</li>
+								<li data-key="error">오류보기</li>
+								<li data-key="error">오류보기</li>
+							</ul>
+						</div>
+						<div class="notice ex">
+							<p>
+								<span class="cnt">총 품목 수 : 5 개 (성공예상 <em class="txt-green">4</em> 개 / 실패예상 <em class="txt-red">1</em> 개)</span>
+								<span id="spnRecentUpdatedTs">임시저장시간 : YYYY-MM-DD hh:mm:ss</span>
+							</p>
+						</div>
+					</div>
+					<div class="right_cont">
+						<span>안전재고율</span>
+						<div class="txt-input" style="">
+							<input type="text" name="" id="" placeholder="">
+							<span>%</span>
+						</div>
+						<button type="button" name="button" class="btn small point">일괄적용</button>
+					</div>
+				</div>
+
+				<div class="table-wrap order-list tab-scroll-wrap auto-order-list">
+					<div class="fix">
+						<table class="th-hor">
+							<colgroup>
+								<col width="36">
+								<col width="50">
+								<col width="*">
+								<col width="*">
+								<col width="*">
+								<col width="120">
+								<col width="85">
+								<col width="35">
+								<col width="35">
+								<col width="35">
+								<col width="35">
+								<col width="35">
+								<col width="35">
+								<col width="35">
+								<col width="85">
+								<col width="95">
+								<col width="85">
+								<col width="130">
+								<col width="110">
+							</colgroup>
+							<thead>
+								<tr>
+									<th rowspan="2"><span class="checkbox"><input type="checkbox" class="allChk" id="allChk"><label for="allChk"></label></span></th>
+									<th rowspan="2">번호</th>
+									<th rowspan="2"><span>거래처명</span></th>
+									<th rowspan="2"><span>상품명</span></th>
+									<th rowspan="2"><span>색상/사이즈</span></th>
+									<th rowspan="2"><span>단가</span></th>
+									<th rowspan="2">
+										<span>현재재고</span>
+										<div class="tip-wrap">
+											<a href="javascript:;" class="btn-tip"></a>
+											<div class="tip-right" style="width:190px;">
+												<span class="title">현재재고?</span><br>
+												<span>
+													= 현재 이지어드민에 입력된<br>현재 재고 수량
+												</span>
+											</div>
+										</div>
+									</th>
+									<th colspan="7" class="small-th">
+										<span>주문수량</span>
+										<div class="tip-wrap">
+											<a href="javascript:;" class="btn-tip"></a>
+											<div class="tip-right" style="width:230px;">
+												<span class="title">주문수량?</span><br>
+												<span>
+													= 최근 1주일동안의 평균 주문수량
+												</span>
+											</div>
+										</div>
+									</th>
+									<th rowspan="2">
+										<span>입고대기</span>
+										<div class="tip-wrap">
+											<a href="javascript:;" class="btn-tip"></a>
+											<div class="tip-right" style="width:230px;">
+												<span class="title">입고대기?</span><br>
+												<span>
+													= 신규 발주 후 아직 입고되지 않은<br>
+													  수량의 합계
+												</span>
+											</div>
+										</div>
+									</th>
+									<th rowspan="2">
+										<span>배송전취소</span>
+										<div class="tip-wrap">
+											<a href="javascript:;" class="btn-tip"></a>
+											<div class="tip-right" style="width:240px;">
+												<span class="title">배송전취소?</span><br>
+												<span>
+													= 주문 취소/반품 등 검품이 확정되어<br>
+													재고에 추가 예정 수량
+												</span>
+											</div>
+										</div>
+									</th>
+									<th rowspan="2">
+										<span>발주예측<br>수량</span>
+										<div class="tip-wrap">
+											<a href="javascript:;" class="btn-tip"></a>
+											<div class="tip-right" style="width:220px;">
+												<span class="title">발주예측수량?</span><br>
+												<span>
+													= 현재재고수량 + 일평균주문수량<br>
+													- 입고대기 - 검품수량
+												</span>
+											</div>
+										</div>
+									</th>
+									<th rowspan="2">
+										<span>발주요청수량</span>
+										<button type="button" name="button" class="btn xsmall point">일괄적용</button>
+									</th>
+									<th rowspan="2"><span>실패사유</span></th>
+								</tr>
+								<tr>
+									<th class="small-th tac">-7</th>
+									<th class="small-th">-6</th>
+									<th class="small-th">-5</th>
+									<th class="small-th">-4</th>
+									<th class="small-th">-3</th>
+									<th class="small-th">-2</th>
+									<th class="small-th">-1</th>
+								</tr>
+							</thead>
+						</table>
+					</div>
+					<table class="th-hor ex">
+						<colgroup>
+							<col width="36">
+							<col width="50">
+							<col width="*">
+							<col width="*">
+							<col width="*">
+							<col width="120">
+							<col width="85">
+							<col width="35">
+							<col width="35">
+							<col width="35">
+							<col width="35">
+							<col width="35">
+							<col width="35">
+							<col width="35">
+							<col width="85">
+							<col width="95">
+							<col width="85">
+							<col width="130">
+							<col width="110">
+						</colgroup>
+						<tbody id="tbodyOrder">
+							<tr>
+								<td><span class="checkbox"><input type="checkbox" class="rowChk" id="1586986" name="bulk_cart_no[]" value="1586986"><label for="1586986"></label></span></td>
+								<td class="Enfont">1</td>
+								<td>알레지아 맨션</td>
+								<td>(마)이브반팔</td>
+								<td>아이보리/Free</td>
+								<td><em class="price">999,999,000</em>원</td>
+								<td class="Enfont">51</td>
+								<td class="Enfont">2</td>
+								<td class="Enfont">2</td>
+								<td class="Enfont">2</td>
+								<td class="Enfont">2</td>
+								<td class="Enfont">2</td>
+								<td class="Enfont">2</td>
+								<td class="Enfont">2</td>
+								<td class="Enfont">2</td>
+								<td class="Enfont">2</td>
+								<td class="Enfont">2</td>
+								<td>
+									<div class="amount">
+										<button type="button" class="minus">-</button>
+										<input type="number" value="1">
+										<button type="button" class="plus"></button>
+									</div>
+								</td>
+								<td></td>
+							</tr>
+							<tr>
+								<td><span class="checkbox"><input type="checkbox" class="rowChk" id="1586986" name="bulk_cart_no[]" value="1586986"><label for="1586986"></label></span></td>
+								<td class="Enfont">1</td>
+								<td>알레지아 맨션</td>
+								<td>(마)이브반팔</td>
+								<td>아이보리/Free</td>
+								<td><em class="price">999,999,000</em>원</td>
+								<td class="Enfont">51</td>
+								<td class="Enfont">2</td>
+								<td class="Enfont">2</td>
+								<td class="Enfont">2</td>
+								<td class="Enfont">2</td>
+								<td class="Enfont">2</td>
+								<td class="Enfont">2</td>
+								<td class="Enfont">2</td>
+								<td class="Enfont">2</td>
+								<td class="Enfont">2</td>
+								<td class="Enfont">2</td>
+								<td>
+									<div class="amount">
+										<button type="button" class="minus">-</button>
+										<input type="number" value="1">
+										<button type="button" class="plus"></button>
+									</div>
+								</td>
+								<td></td>
+							</tr>
+							<tr class="error">
+								<td><span class="checkbox"><input type="checkbox" class="rowChk" id="1586986" name="bulk_cart_no[]" value="1586986"><label for="1586986"></label></span></td>
+								<td class="Enfont">1</td>
+								<td>알레지아 맨션</td>
+								<td>(마)이브반팔</td>
+								<td>아이보리/Free</td>
+								<td><em class="price">999,999,000</em>원</td>
+								<td class="Enfont">51</td>
+								<td class="Enfont">2</td>
+								<td class="Enfont">2</td>
+								<td class="Enfont">2</td>
+								<td class="Enfont">2</td>
+								<td class="Enfont">2</td>
+								<td class="Enfont">2</td>
+								<td class="Enfont">2</td>
+								<td class="Enfont">2</td>
+								<td class="Enfont">2</td>
+								<td class="Enfont">2</td>
+								<td>
+									<div class="amount">
+										<button type="button" class="minus">-</button>
+										<input type="number" value="1">
+										<button type="button" class="plus"></button>
+									</div>
+								</td>
+								<td>입력데이터오류</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="go-order-wrap">
+					<a href="#" class="btn point">주문하기</a>
+				</div>
+			</div>
+			<!--listRight-->
+		</div>
+	</div>
+
+	<!-- 2020-08-18 EZP-991 -->
+
+
+	<!-- 엑셀 양식 설정 레이어 -->
+	<div id="excel-check" class="ui-popup">
+		<div class="content" style="width:640px;" tabindex="-1">
+			<div class="header">
+				<h3>엑셀 양식 설정</h3>
+			</div>
+			<div class="body reconfirm">
+				<div class="txt-cont mt20">
+					<p>이지픽 바로주문은 엑셀양식타입 설정 기능을 제공합니다.</p>
+					<span>고객님이 원하는 양식으로, 보다 빠르고 편리하게 주문을 진행하세요.</span>
+					<div class="top">
+						<a href="javascript:;" class="type-change active" data-seq_no="1">TYPE1</a>
+						<span class="line"></span>
+						<a href="javascript:;" class="type-change" data-seq_no="2">TYPE2</a>
+						<!-- 2020-06-16 EZP-754 -->
+						<span class="line"></span>
+						<a href="javascript:;" class="type-change" data-seq_no="3">TYPE3</a>
+						<p>* 표시는 필수 입력 정보입니다.</p>
+					</div>
+					<div class="table-wrap mb0">
+						<form name="frmExcelSettings" id="frmExcelSettings" method="post" action="/buyer/order/bulk/action/modifiedExcelSettings">
+							<input type="hidden" name="order_excel_no" value="0">
+							<input type="hidden" name="seq_no" value="0">
+							<table class="th-ver">
+								<colgroup>
+									<col width="132px">
+									<col width="142px">
+									<col width="*">
+								</colgroup>
+								<tbody>
+									<tr>
+										<th><span class="essential">양식이름</span></th>
+										<td colspan="2" class="top">
+											<div style="display:inline; position:relative;" class="add-clear-span"><input type="text" name="order_excel_name" value="" placeholder="TYPE1 양식이름" required="" style="padding-right: 20px;"><a href="#clear"
+													style="display: none; color: rgb(204, 204, 204); text-decoration: none; overflow: hidden; position: absolute; right: 12px; top: 1px; line-height: 1;">✖</a></div>
+										</td>
+									</tr>
+									<tr>
+										<th rowspan="3" class="row">거래처정보</th>
+										<td><span class="essential">거래처명</span></td>
+										<td>
+											<input type="hidden" name="seller_name" id="seller_name" value="A" required="">
+											<div class="ui-select" data-target_id="#seller_name">
+												<button type="button" data-target_id="#seller_name" data-value="">A</button>
+												<ul>
+													<li data-key="A" class="active">A</li>
+													<li data-key="B">B</li>
+													<li data-key="C">C</li>
+													<li data-key="D">D</li>
+													<li data-key="E">E</li>
+													<li data-key="F">F</li>
+													<li data-key="G">G</li>
+													<li data-key="H">H</li>
+													<li data-key="I">I</li>
+													<li data-key="J">J</li>
+													<li data-key="K">K</li>
+													<li data-key="L">L</li>
+													<li data-key="M">M</li>
+													<li data-key="N">N</li>
+													<li data-key="O">O</li>
+													<li data-key="P">P</li>
+													<li data-key="Q">Q</li>
+													<li data-key="R">R</li>
+													<li data-key="S">S</li>
+													<li data-key="T">T</li>
+													<li data-key="U">U</li>
+													<li data-key="V">V</li>
+													<li data-key="W">W</li>
+													<li data-key="X">X</li>
+													<li data-key="Y">Y</li>
+													<li data-key="Z">Z</li>
+												</ul>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td><span class="essential">거래처주소</span></td>
+										<td>
+											<input type="hidden" name="seller_addr" id="seller_addr" value="B" required="">
+											<div class="ui-select" data-target_id="#seller_addr">
+												<button type="button" data-target_id="#seller_addr" data-value="">B</button>
+												<ul>
+													<li data-key="A">A</li>
+													<li data-key="B" class="active">B</li>
+													<li data-key="C">C</li>
+													<li data-key="D">D</li>
+													<li data-key="E">E</li>
+													<li data-key="F">F</li>
+													<li data-key="G">G</li>
+													<li data-key="H">H</li>
+													<li data-key="I">I</li>
+													<li data-key="J">J</li>
+													<li data-key="K">K</li>
+													<li data-key="L">L</li>
+													<li data-key="M">M</li>
+													<li data-key="N">N</li>
+													<li data-key="O">O</li>
+													<li data-key="P">P</li>
+													<li data-key="Q">Q</li>
+													<li data-key="R">R</li>
+													<li data-key="S">S</li>
+													<li data-key="T">T</li>
+													<li data-key="U">U</li>
+													<li data-key="V">V</li>
+													<li data-key="W">W</li>
+													<li data-key="X">X</li>
+													<li data-key="Y">Y</li>
+													<li data-key="Z">Z</li>
+												</ul>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<!-- 2021-04-26 EZP-2705 -->
+										<td>거래처연락처</td>
+										<td>
+											<input type="hidden" name="seller_tel" id="seller_tel" value="C" required="">
+											<div class="ui-select" data-target_id="#seller_tel">
+												<button type="button" data-target_id="#seller_tel" data-value="">C</button>
+												<ul>
+													<li data-key="A">A</li>
+													<li data-key="B">B</li>
+													<li data-key="C" class="active">C</li>
+													<li data-key="D">D</li>
+													<li data-key="E">E</li>
+													<li data-key="F">F</li>
+													<li data-key="G">G</li>
+													<li data-key="H">H</li>
+													<li data-key="I">I</li>
+													<li data-key="J">J</li>
+													<li data-key="K">K</li>
+													<li data-key="L">L</li>
+													<li data-key="M">M</li>
+													<li data-key="N">N</li>
+													<li data-key="O">O</li>
+													<li data-key="P">P</li>
+													<li data-key="Q">Q</li>
+													<li data-key="R">R</li>
+													<li data-key="S">S</li>
+													<li data-key="T">T</li>
+													<li data-key="U">U</li>
+													<li data-key="V">V</li>
+													<li data-key="W">W</li>
+													<li data-key="X">X</li>
+													<li data-key="Y">Y</li>
+													<li data-key="Z">Z</li>
+												</ul>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<th rowspan="6" class="row">상품정보</th>
+										<td>상품명</td>
+										<td>
+											<input type="hidden" name="product_name" id="product_name" value="D">
+											<div class="ui-select" data-target_id="#product_name">
+												<button type="button" data-target_id="#product_name" data-value="">D</button>
+												<ul>
+													<li data-key="">선택해주세요.</li>
+													<li data-key="A">A</li>
+													<li data-key="B">B</li>
+													<li data-key="C">C</li>
+													<li data-key="D" class="active">D</li>
+													<li data-key="E">E</li>
+													<li data-key="F">F</li>
+													<li data-key="G">G</li>
+													<li data-key="H">H</li>
+													<li data-key="I">I</li>
+													<li data-key="J">J</li>
+													<li data-key="K">K</li>
+													<li data-key="L">L</li>
+													<li data-key="M">M</li>
+													<li data-key="N">N</li>
+													<li data-key="O">O</li>
+													<li data-key="P">P</li>
+													<li data-key="Q">Q</li>
+													<li data-key="R">R</li>
+													<li data-key="S">S</li>
+													<li data-key="T">T</li>
+													<li data-key="U">U</li>
+													<li data-key="V">V</li>
+													<li data-key="W">W</li>
+													<li data-key="X">X</li>
+													<li data-key="Y">Y</li>
+													<li data-key="Z">Z</li>
+												</ul>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td>색상</td>
+										<td>
+											<input type="hidden" name="color_name" id="color_name" value="E">
+											<div class="ui-select" data-target_id="#color_name">
+												<button type="button" data-target_id="#color_name" data-value="">E</button>
+												<ul>
+													<li data-key="">선택해주세요.</li>
+													<li data-key="A">A</li>
+													<li data-key="B">B</li>
+													<li data-key="C">C</li>
+													<li data-key="D">D</li>
+													<li data-key="E" class="active">E</li>
+													<li data-key="F">F</li>
+													<li data-key="G">G</li>
+													<li data-key="H">H</li>
+													<li data-key="I">I</li>
+													<li data-key="J">J</li>
+													<li data-key="K">K</li>
+													<li data-key="L">L</li>
+													<li data-key="M">M</li>
+													<li data-key="N">N</li>
+													<li data-key="O">O</li>
+													<li data-key="P">P</li>
+													<li data-key="Q">Q</li>
+													<li data-key="R">R</li>
+													<li data-key="S">S</li>
+													<li data-key="T">T</li>
+													<li data-key="U">U</li>
+													<li data-key="V">V</li>
+													<li data-key="W">W</li>
+													<li data-key="X">X</li>
+													<li data-key="Y">Y</li>
+													<li data-key="Z">Z</li>
+												</ul>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td><span class="">사이즈</span></td>
+										<td>
+											<input type="hidden" name="size_name" id="size_name" value="F">
+											<div class="ui-select" data-target_id="#size_name">
+												<button type="button" data-target_id="#size_name" data-value="">F</button>
+												<ul>
+													<li data-key="">선택해주세요.</li>
+													<li data-key="A">A</li>
+													<li data-key="B">B</li>
+													<li data-key="C">C</li>
+													<li data-key="D">D</li>
+													<li data-key="E">E</li>
+													<li data-key="F" class="active">F</li>
+													<li data-key="G">G</li>
+													<li data-key="H">H</li>
+													<li data-key="I">I</li>
+													<li data-key="J">J</li>
+													<li data-key="K">K</li>
+													<li data-key="L">L</li>
+													<li data-key="M">M</li>
+													<li data-key="N">N</li>
+													<li data-key="O">O</li>
+													<li data-key="P">P</li>
+													<li data-key="Q">Q</li>
+													<li data-key="R">R</li>
+													<li data-key="S">S</li>
+													<li data-key="T">T</li>
+													<li data-key="U">U</li>
+													<li data-key="V">V</li>
+													<li data-key="W">W</li>
+													<li data-key="X">X</li>
+													<li data-key="Y">Y</li>
+													<li data-key="Z">Z</li>
+												</ul>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td>단가</td>
+										<td>
+											<input type="hidden" name="order_price" id="order_price" value="G">
+											<div class="ui-select" data-target_id="#order_price">
+												<button type="button" data-target_id="#order_price" data-value="">G</button>
+												<ul>
+													<li data-key="">선택해주세요.</li>
+													<li data-key="A">A</li>
+													<li data-key="B">B</li>
+													<li data-key="C">C</li>
+													<li data-key="D">D</li>
+													<li data-key="E">E</li>
+													<li data-key="F">F</li>
+													<li data-key="G" class="active">G</li>
+													<li data-key="H">H</li>
+													<li data-key="I">I</li>
+													<li data-key="J">J</li>
+													<li data-key="K">K</li>
+													<li data-key="L">L</li>
+													<li data-key="M">M</li>
+													<li data-key="N">N</li>
+													<li data-key="O">O</li>
+													<li data-key="P">P</li>
+													<li data-key="Q">Q</li>
+													<li data-key="R">R</li>
+													<li data-key="S">S</li>
+													<li data-key="T">T</li>
+													<li data-key="U">U</li>
+													<li data-key="V">V</li>
+													<li data-key="W">W</li>
+													<li data-key="X">X</li>
+													<li data-key="Y">Y</li>
+													<li data-key="Z">Z</li>
+												</ul>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td>수량</td>
+										<td>
+											<input type="hidden" name="order_qty" id="order_qty" value="H">
+											<div class="ui-select" data-target_id="#order_qty">
+												<button type="button" data-target_id="#order_qty" data-value="">H</button>
+												<ul>
+													<li data-key="">선택해주세요.</li>
+													<li data-key="A">A</li>
+													<li data-key="B">B</li>
+													<li data-key="C">C</li>
+													<li data-key="D">D</li>
+													<li data-key="E">E</li>
+													<li data-key="F">F</li>
+													<li data-key="G">G</li>
+													<li data-key="H" class="active">H</li>
+													<li data-key="I">I</li>
+													<li data-key="J">J</li>
+													<li data-key="K">K</li>
+													<li data-key="L">L</li>
+													<li data-key="M">M</li>
+													<li data-key="N">N</li>
+													<li data-key="O">O</li>
+													<li data-key="P">P</li>
+													<li data-key="Q">Q</li>
+													<li data-key="R">R</li>
+													<li data-key="S">S</li>
+													<li data-key="T">T</li>
+													<li data-key="U">U</li>
+													<li data-key="V">V</li>
+													<li data-key="W">W</li>
+													<li data-key="X">X</li>
+													<li data-key="Y">Y</li>
+													<li data-key="Z">Z</li>
+												</ul>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td>품절처리방식</td>
+										<td>
+											<input type="hidden" name="is_reserved" id="is_reserved" value="I">
+											<div class="ui-select" data-target_id="#is_reserved">
+												<button type="button" data-target_id="#is_reserved" data-value="">I</button>
+												<ul>
+													<li data-key="">선택해주세요.</li>
+													<li data-key="A">A</li>
+													<li data-key="B">B</li>
+													<li data-key="C">C</li>
+													<li data-key="D">D</li>
+													<li data-key="E">E</li>
+													<li data-key="F">F</li>
+													<li data-key="G">G</li>
+													<li data-key="H">H</li>
+													<li data-key="I" class="active">I</li>
+													<li data-key="J">J</li>
+													<li data-key="K">K</li>
+													<li data-key="L">L</li>
+													<li data-key="M">M</li>
+													<li data-key="N">N</li>
+													<li data-key="O">O</li>
+													<li data-key="P">P</li>
+													<li data-key="Q">Q</li>
+													<li data-key="R">R</li>
+													<li data-key="S">S</li>
+													<li data-key="T">T</li>
+													<li data-key="U">U</li>
+													<li data-key="V">V</li>
+													<li data-key="W">W</li>
+													<li data-key="X">X</li>
+													<li data-key="Y">Y</li>
+													<li data-key="Z">Z</li>
+												</ul>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<th rowspan="6" class="row">기타정보</th>
+										<!-- 2021-04-26 EZP-2705 -->
+										<td><span>메모</span></td>
+										<td>
+											<input type="hidden" name="order_memo" id="order_memo" value="">
+											<div class="ui-select" data-target_id="#order_memo">
+												<button type="button" data-target_id="#order_memo" data-value="">선택해주세요.</button>
+												<ul>
+													<li data-key="" class="active">선택해주세요.</li>
+													<li data-key="A">A</li>
+													<li data-key="B">B</li>
+													<li data-key="C">C</li>
+													<li data-key="D">D</li>
+													<li data-key="E">E</li>
+													<li data-key="F">F</li>
+													<li data-key="G">G</li>
+													<li data-key="H">H</li>
+													<li data-key="I">I</li>
+													<li data-key="J">J</li>
+													<li data-key="K">K</li>
+													<li data-key="L">L</li>
+													<li data-key="M">M</li>
+													<li data-key="N">N</li>
+													<li data-key="O">O</li>
+													<li data-key="P">P</li>
+													<li data-key="Q">Q</li>
+													<li data-key="R">R</li>
+													<li data-key="S">S</li>
+													<li data-key="T">T</li>
+													<li data-key="U">U</li>
+													<li data-key="V">V</li>
+													<li data-key="W">W</li>
+													<li data-key="X">X</li>
+													<li data-key="Y">Y</li>
+													<li data-key="Z">Z</li>
+												</ul>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td><span>쇼핑몰상품명</span></td>
+										<td>
+											<input type="hidden" name="customer_product_name" id="customer_product_name" value="">
+											<div class="ui-select" data-target_id="#customer_product_name">
+												<button type="button" data-target_id="#customer_product_name" data-value="">선택해주세요.</button>
+												<ul>
+													<li data-key="" class="active">선택해주세요.</li>
+													<li data-key="A">A</li>
+													<li data-key="B">B</li>
+													<li data-key="C">C</li>
+													<li data-key="D">D</li>
+													<li data-key="E">E</li>
+													<li data-key="F">F</li>
+													<li data-key="G">G</li>
+													<li data-key="H">H</li>
+													<li data-key="I">I</li>
+													<li data-key="J">J</li>
+													<li data-key="K">K</li>
+													<li data-key="L">L</li>
+													<li data-key="M">M</li>
+													<li data-key="N">N</li>
+													<li data-key="O">O</li>
+													<li data-key="P">P</li>
+													<li data-key="Q">Q</li>
+													<li data-key="R">R</li>
+													<li data-key="S">S</li>
+													<li data-key="T">T</li>
+													<li data-key="U">U</li>
+													<li data-key="V">V</li>
+													<li data-key="W">W</li>
+													<li data-key="X">X</li>
+													<li data-key="Y">Y</li>
+													<li data-key="Z">Z</li>
+												</ul>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<!-- 2021-04-26 EZP-2705 -->
+										<td><span>쇼핑몰상품코드</span></td>
+										<td>
+											<input type="hidden" name="customer_product_code" id="customer_product_code" value="">
+											<div class="ui-select" data-target_id="#customer_product_code">
+												<button type="button" data-target_id="#customer_product_code" data-value="">선택해주세요.</button>
+												<ul>
+													<li data-key="" class="active">선택해주세요.</li>
+													<li data-key="A">A</li>
+													<li data-key="B">B</li>
+													<li data-key="C">C</li>
+													<li data-key="D">D</li>
+													<li data-key="E">E</li>
+													<li data-key="F">F</li>
+													<li data-key="G">G</li>
+													<li data-key="H">H</li>
+													<li data-key="I">I</li>
+													<li data-key="J">J</li>
+													<li data-key="K">K</li>
+													<li data-key="L">L</li>
+													<li data-key="M">M</li>
+													<li data-key="N">N</li>
+													<li data-key="O">O</li>
+													<li data-key="P">P</li>
+													<li data-key="Q">Q</li>
+													<li data-key="R">R</li>
+													<li data-key="S">S</li>
+													<li data-key="T">T</li>
+													<li data-key="U">U</li>
+													<li data-key="V">V</li>
+													<li data-key="W">W</li>
+													<li data-key="X">X</li>
+													<li data-key="Y">Y</li>
+													<li data-key="Z">Z</li>
+												</ul>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<!-- 2021-04-26 EZP-2705 -->
+										<td><span>이미지URL</span></td>
+										<td>
+											<input type="hidden" name="product_img_url" id="product_img_url" value="">
+											<div class="ui-select" data-target_id="#product_img_url">
+												<button type="button" data-target_id="#product_img_url" data-value="">선택해주세요.</button>
+												<ul>
+													<li data-key="" class="active">선택해주세요.</li>
+													<li data-key="A">A</li>
+													<li data-key="B">B</li>
+													<li data-key="C">C</li>
+													<li data-key="D">D</li>
+													<li data-key="E">E</li>
+													<li data-key="F">F</li>
+													<li data-key="G">G</li>
+													<li data-key="H">H</li>
+													<li data-key="I">I</li>
+													<li data-key="J">J</li>
+													<li data-key="K">K</li>
+													<li data-key="L">L</li>
+													<li data-key="M">M</li>
+													<li data-key="N">N</li>
+													<li data-key="O">O</li>
+													<li data-key="P">P</li>
+													<li data-key="Q">Q</li>
+													<li data-key="R">R</li>
+													<li data-key="S">S</li>
+													<li data-key="T">T</li>
+													<li data-key="U">U</li>
+													<li data-key="V">V</li>
+													<li data-key="W">W</li>
+													<li data-key="X">X</li>
+													<li data-key="Y">Y</li>
+													<li data-key="Z">Z</li>
+												</ul>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td><span>기타정보1</span></td>
+										<td>
+											<input type="hidden" name="etc_info_1" id="etc_info_1" value="">
+											<div class="ui-select" data-target_id="#etc_info_1">
+												<button type="button" data-target_id="#etc_info_1" data-value="">선택해주세요.</button>
+												<ul>
+													<li data-key="" class="active">선택해주세요.</li>
+													<li data-key="A">A</li>
+													<li data-key="B">B</li>
+													<li data-key="C">C</li>
+													<li data-key="D">D</li>
+													<li data-key="E">E</li>
+													<li data-key="F">F</li>
+													<li data-key="G">G</li>
+													<li data-key="H">H</li>
+													<li data-key="I">I</li>
+													<li data-key="J">J</li>
+													<li data-key="K">K</li>
+													<li data-key="L">L</li>
+													<li data-key="M">M</li>
+													<li data-key="N">N</li>
+													<li data-key="O">O</li>
+													<li data-key="P">P</li>
+													<li data-key="Q">Q</li>
+													<li data-key="R">R</li>
+													<li data-key="S">S</li>
+													<li data-key="T">T</li>
+													<li data-key="U">U</li>
+													<li data-key="V">V</li>
+													<li data-key="W">W</li>
+													<li data-key="X">X</li>
+													<li data-key="Y">Y</li>
+													<li data-key="Z">Z</li>
+												</ul>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td class="last"><span>기타정보2</span></td>
+										<td class="last">
+											<input type="hidden" name="etc_info_2" id="etc_info_2" value="">
+											<div class="ui-select" data-target_id="#etc_info_2">
+												<button type="button" data-target_id="#etc_info_2" data-value="">선택해주세요.</button>
+												<ul>
+													<li data-key="" class="active">선택해주세요.</li>
+													<li data-key="A">A</li>
+													<li data-key="B">B</li>
+													<li data-key="C">C</li>
+													<li data-key="D">D</li>
+													<li data-key="E">E</li>
+													<li data-key="F">F</li>
+													<li data-key="G">G</li>
+													<li data-key="H">H</li>
+													<li data-key="I">I</li>
+													<li data-key="J">J</li>
+													<li data-key="K">K</li>
+													<li data-key="L">L</li>
+													<li data-key="M">M</li>
+													<li data-key="N">N</li>
+													<li data-key="O">O</li>
+													<li data-key="P">P</li>
+													<li data-key="Q">Q</li>
+													<li data-key="R">R</li>
+													<li data-key="S">S</li>
+													<li data-key="T">T</li>
+													<li data-key="U">U</li>
+													<li data-key="V">V</li>
+													<li data-key="W">W</li>
+													<li data-key="X">X</li>
+													<li data-key="Y">Y</li>
+													<li data-key="Z">Z</li>
+												</ul>
+											</div>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</form>
+					</div>
+				</div>
+			</div><!-- //body -->
+			<div class="btn_wrap mt40 tac">
+				<button type="button" class="btn medium btn_close" style="width:150px;min-width:auto;">취소</button>
+				<button type="button" class="btn point medium btnSave" style="width:150px;min-width:auto;">저장</button>
+			</div>
+			<button type="button" class="btn_close reconfirm"><span>닫기</span></button>
+		</div>
+	</div>
+	<!-- 엑셀 업로드 레이어 -->
+	<div id="excel-upload" class="ui-popup">
+		<div class="content" style="width:412px;" tabindex="-1">
+			<div class="body">
+				<div class="txt-cont">
+					<div class="txt-cont result order">
+						<h3>엑셀 업로드</h3>
+						<div class="notice">
+							<p>엑셀파일을 업로드하여 주문을 등록할 수 있습니다.</p>
+							<ul>
+								<li>1. 엑셀의 등록 양식을 설정해주세요</li>
+								<li>2. 설정된 파일에 주문정보를 입력해주세요</li>
+								<li>3. 주문정보가 입력된 파일을 선택 후</li>
+								<li>4. '주문등록하기' 버튼을 클릭해 주세요</li>
+							</ul>
+							<p>주문정보가 잘못된 경우 주문을 할 수 없습니다.</p>
+							<ul>
+								<li>"오류" 상태를 확인하시어 주문을 수정해주세요</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="input-file">
+					<div class="list" style="overflow:hidden;">파일을 등록해주세요.</div>
+					<div class="btn">
+						<label>찾아보기<input type="file" id="fileExcelUpload" accept=".csv, .xls, .xlsx"></label>
+					</div>
+				</div>
+				<span class="file-sort">첨부파일: 2M 이하/ csv, xls, xlsx</span>
+				<div class="btn_wrap mt40 tac">
+					<button type="button" class="btn point medium" style="width:150px;" id="aExcelUpload">엑셀업로드</button>
+				</div>
+			</div><!-- //body -->
+			<button type="button" class="btn_close"><span>닫기</span></button>
+		</div>
+	</div>
+	<!--//container -->
+
+	<!-- footer// -->
+	<footer></footer>
+	<!-- //footer -->
+
+	<!-- dashboard// -->
+	<div id="dashboard" class=""></div>
+	<!-- //dashboard -->
+
+	<!-- <script type="text/javascript" src="../../../../../js/script.js"></script> -->
+
+	<!-- 21-01-18 수정-->
+	<script src="../../../../../js/jquery.min.js"></script>
+	<!--jquery default-->
+	<script src="../../../../../js/jquery-ui.min.js"></script>
+	<script src="../../../../../js/swiper-ie9.min.js"></script>
+	<script src="../../../../../js/default.input.js"></script> <!-- 2022-10-04 -->
+	<script src="../../../../../js/addclear.min.js"></script>
+	<script src="../../../../../js/common.front.js"></script>
+	<script src="../../../../../js/ui.js"></script>
+	<script src="../../../../../js/pub.js"></script>
+	<script src="../../../../../js/jquery.scrollbar.min.js"></script>
+
+	<!-- //21-01-18 수정-->
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('header').load('../../../../include/header.html');
+			$('footer').load('../../../../include/footer.html');
+			$('#dashboard').load('../../../../include/dashboard.html');
+		});
+	</script>
+	<!-- 2020-04-17 nodata scroll event -->
+	<style>
+		.noData {
+			width: 1460px;
+			position: relative;
+		}
+	</style>
+	<script type="text/javascript">
+		$(document).ready(function() {
+
+			$(window).resize(function() {
+				$('.noData').css('width', $('.tab-scroll-wrap').width());
+			}).resize();
+			// 2020-12-07 EZP-1674 웨일 브라우저
+			var agent = navigator.userAgent.toLowerCase();
+			if (agent.indexOf("whale") != -1) {
+				$('.tab-scroll-wrap .table-controls').css('top', '209px');
+				$('.tab-scroll-wrap .scrollbar span').css({
+					'height': '10px',
+					'background': '#fff'
+				});
+			}
+
+			// 2021-04-02 EZP-2674
+			$(window).load(function() {
+				$(window).resize(function() {
+					if ($(this).width() >= 1460) {
+						var th_position = $('.tab-scroll-wrap').offset().top - 139;
+						$('.fix').css('top', th_position);
+						$('.scrollbar').css('top', th_position + 66);
+						$(window).scroll(function() {
+							var scroll_position = $(this).scrollTop();
+							var scroll_x = $(this).scrollLeft();
+							if (th_position < scroll_position) {
+								$('.tab-scroll-wrap').addClass('on')
+								// $('.fix, .scrollbar').css({
+								// 	'transform': 'translateX('+-scroll_x+'px)'
+								// });
+							} else {
+								$('.tab-scroll-wrap').removeClass('on');
+
+								$('.fix, .scrollbar').css({
+									'transform': 'translateX(' + -scroll_x + 'px)'
+								});
+							}
+						});
+					} else {
+						var th_position = $('.tab-scroll-wrap').offset().top - 139
+						$('.fix').css('top', th_position);
+						$('.scrollbar').css('top', th_position + 66);
+						$(window).scroll(function() {
+							var scroll_position = $(this).scrollTop();
+							var scroll_x = $(this).scrollLeft();
+							if (th_position + 139 < scroll_position) {
+								$('.tab-scroll-wrap').addClass('on')
+								$('.fix, .scrollbar, .table-controls').css({
+									'transform': 'translateX(' + -scroll_x + 'px)'
+								});
+							} else {
+								$('.tab-scroll-wrap').removeClass('on')
+								$('.fix, .scrollbar, .table-controls').css({
+									'transform': 'translateX(' + 0 + 'px)'
+								});
+
+							}
+						});
+					}
+				}).resize();
+			});
+
+
+			/* 2020-12-04 EZP-1674 종료 */
+
+			$('.scrollbar').scroll(function() {
+				$('.tab-scroll-wrap, .fix').scrollLeft($(this).scrollLeft());
+				// 2021-03-31 EZP-2656
+				$('.noData').css('left', $(this).scrollLeft())
+			})
+			$('.tab-scroll-wrap').keydown(function() {
+				$(this).scroll(function() {
+					$('.scrollbar').scrollLeft($(this).scrollLeft());
+				})
+			})
+
+		});
+	</script>
+
+
+	<!-- Styles -->
+	<style>
+		#chartdiv {
+			width: 100%;
+			height: 84px;
+		}
+	</style>
+
+	<!-- Resources -->
+	<script src="https://cdn.amcharts.com/lib/4/core.js"></script>
+	<script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
+	<script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
+
+	<!-- Chart code -->
+	<script>
+		am4core.ready(function() {
+
+			am4core.addLicense("ch-custom-attribution");
+			// Themes begin
+			am4core.useTheme(am4themes_animated);
+			// Themes end
+
+			// Create chart instance
+			var chart = am4core.create("chartdiv", am4charts.XYChart);
+
+			// Add data
+			chart.data = [{
+				"country": "1",
+				"visits": 1
+			}, {
+				"country": "2",
+				"visits": 2
+			}, {
+				"country": "3",
+				"visits": 3
+			}, {
+				"country": "4",
+				"visits": 4
+			}, {
+				"country": "5",
+				"visits": 5
+			}, {
+				"country": "6",
+				"visits": 6
+			}, {
+				"country": "7",
+				"visits": 7
+			}];
+
+			// Create axes
+
+			var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
+			categoryAxis.dataFields.category = "country";
+			categoryAxis.renderer.grid.template.disabled = true;
+			categoryAxis.renderer.disabled = true;
+			var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+			valueAxis.renderer.grid.template.disabled = true;
+			valueAxis.renderer.disabled = true;
+			// Create series
+
+			var series = chart.series.push(new am4charts.ColumnSeries());
+			series.dataFields.valueY = "visits";
+			series.dataFields.categoryX = "country";
+			series.columns.template.width = 12;
+			series.columns.template.adapter.add("fill", function(fill, target) {
+			  return chart.colors="#36c25d"
+			});
+
+		}); // end am4core.ready()
+	</script>
+
+
+</body>
+
+</html>

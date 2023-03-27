@@ -1,0 +1,1754 @@
+<!DOCTYPE html>
+<html lang="ko" class="js">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="format-detection" content="telephone=no">
+	<meta content="ZiRW+feekzSS8TtN8Cq4vbMhyPvlxAgbsrNCw/pt+hM=" name="csrf-token">
+	<meta content="T" name="login-required">
+	<link rel="shortcut icon" type="image/x-icon" href="https://easypick.co.kr/img/favicon/ezp.ico">
+
+	<!-- css -->
+	<link rel="stylesheet" type="text/css" href="../../../../css/default.css">
+	<!-- 2022-09-13 loading icon 연결 위해 main-new.css 제거
+	<link rel="stylesheet" type="text/css" href="../../../../css/main-new.css">
+	-->
+	<link rel="stylesheet" type="text/css" href="../../../../css/month.picker.css">
+
+	<title>이지픽</title>
+</head>
+
+<body>
+	<!-- header// -->
+	<header></header>
+	<!-- //header -->
+
+	<!--container// -->
+	<div id="container" class="min-wid">
+		<!--2021-01-14 추가 / min-wid 클래스 추가-->
+		<div class="order-top">
+			<h2>주문 / 결제</h2>
+			<ul class="chapter">
+				<li class="on">
+					<!--활성화 on, 완료 finish-->
+					<span>01</span>
+					<p>장바구니</p>
+				</li>
+				<li>
+					<span>02</span>
+					<p>결제</p>
+				</li>
+				<li>
+					<span>03</span>
+					<p>주문완료</p>
+				</li>
+			</ul>
+		</div>
+
+		<!-- 2022-05-27 EZP-5433 [주문타입 추가] 시작-->
+		<div class="order-type cart-order-type">
+			<p>이지픽주문과 셀픽주문의 차이점이 궁금하신가요?</p>
+			<i class="btn-tip ui-popup-open" data-target="#orderType"></i>
+		</div>
+		<!--// 2022-05-27 EZP-5433 [주문타입 추가] 종료-->
+		
+		<!-- 2022-05-27 EZP-5433 토글 추가 시작 -->
+		<div class="cart-toggle">
+			<div class="switch-cart-wrap">
+				<span class="switch cart-switch cartSwitch">
+					<input type="checkbox" name="is_refunded">
+					<div class="slider round">
+						<span class="on">셀픽주문</span>
+						<span class="off active">이지픽주문</span>
+					</div>
+				</span>
+			</div>
+			<div class="cart-toggle-txt"><span class="typeName">셀픽</span>주문으로 진행하실 장바구니입니다.</div>
+		</div>
+		<!--// 2022-05-27 EZP-5433 토글 추가 시작 -->
+
+		<!-- 2022-09-14 loading case 제거
+		<div class="loading">
+			<span>로딩중</span>
+		</div>
+		-->
+
+		<!--20220317 EZP-1526 탭 추가 -->
+		<div class="ui-tab" >
+			<ul class="tab-nav order-direct ulOrderMethod ">
+				<li class="active" data-order_method_type="11" data-order_method="10" style="width:220px;">
+					<a href="#tab-cont1">장바구니 (5)</a>
+				</li>
+				<li data-order_method_type="31" data-order_method="30" style="width:220px;">
+					<a href="#tab-cont2">불량 장바구니 (5)</a>
+				</li>
+				<li data-order_method_type="31" data-order_method="30" style="width:220px;">
+					<a href="#tab-cont3">샘플 장바구니 (5) </a>
+				</li>
+			</ul>
+			<div class="tab-content" >
+				<div class="tab-cont1 active" style="display:block;">
+					<!-- 2022-05-27 EZP-5433 품절장바구니 내용 시작 -->
+					<div class="cart-wrap">
+						<div class="cart-top mb20">
+							<div>
+								<button type="button" name="button" id="btnAllDeleted" class="btn small">장바구니 비우기</button>
+								<button type="button" name="button" id="btnChkDeleted" class="btn small line">선택상품 삭제</button>
+								<button type="button" name="button" class="btn small line btnIsReserved toggle-switch" data-is_reserved="T">선택상품 미송</button>
+								<button type="button" name="button" class="btn small line btnIsReserved toggle-switch" data-is_reserved="F">선택상품 환불</button>
+							</div>
+							<div class="tip-wrap toggle-switch">
+								<p><a href="javascript:;" class="btn-tip"></a>미송 정책 관련 안내 보기</p>
+								<div class="tip" style="z-index: 4;">
+									<p><strong>미송이란?</strong>스토어에서 상품이 일시적으로 품절되는 경우, 입고 지연 일정을<br>안내받은 뒤 상품 재입고 시 전달받을 수 있습니다.<br>
+										상품 주문 전, 처리방법을 미송으로 선택하셔야만 스토어에서 <br>상품 구비 후 발송이 가능하오니 꼭 확인 바랍니다.<br>
+										미송 선택 시에는 주문 취소가 불가하오니 참고 바랍니다.</p>
+									<p>
+										<strong>미송 상품에 대한 환불 정책</strong>미송 상품은 기본적으로 주문 취소가 불가합니다.<br>안내되는 입고 예정일로부터 +1 영업일에 상품 수령이 가능하오며,<br>
+										예정일은 도매처 사정에 따라 변동될 수 있습니다.<br>주문 이후에는 환불이 불가하오니 이 점 또한 참고 바랍니다.</p>
+								</div>
+							</div>
+						</div>
+						<div class="table-wrap">
+							<table class="th-hor cart">
+								<form name="frmCart" id="frmCart"></form>
+								<input type="hidden" name="commission_rate" value="0">
+								<input type="hidden" name="shipping_price" value="0.00">
+								<colgroup>
+									<col width="5%"> 
+									<col width="40%">
+									<col width="10%">
+									<col width="10%">
+									<col width="10%">
+									<col width="10%">
+									<col width="10%" class="toggle-switch">
+									<col width="5%">
+								</colgroup><!--2022-08-03 EZP-3157 colgroup 전체변경-->
+								<thead>
+									<tr>
+										<th><span class="checkbox"><input type="checkbox" id="allChk" class="allChk"><label for="allChk"></label></span></th>
+										<th>상품정보</th>
+										<th>옵션</th>
+										<th>주문수량</th><!--2022-06-07 EZP-5433 워딩수정--> <!-- 2022-09-23 EZP-5935 워딩수정 -->
+										<th>판매가 합계</th>
+										<th>메모</th>
+										<th class="toggle-switch">품절 처리 방식</th> <!--2022-06-07 EZP-5433 위치변경-->
+										<th>삭제</th>
+									</tr>
+								</thead>
+								<tbody id="tbodyCart" class="tbodyCart">
+									<!-- 2022-11-04 EZP-7275 구매불가 case 추가 시작 -->
+									<!-- 구매불가 case ) input에 diasbled 처리 후 -> tr에 .disabled-tr 추가-->
+									<tr class="trOrder disabled-tr"> <input type="hidden" name="item_no[]" value="2004"> <input type="hidden" name="item_price[]" value="6000.00"> <input type="hidden" name="min_order_qty[]" value="1">
+										<td><span class="checkbox"><input type="checkbox" class="rowChk" name="cart_no[]" id="7" value="7" disabled><label for="7"></label></span></td>
+										<td class="prd-detail"> <a href="javascript: void(0);" class="img"><img src="https://s3.ap-northeast-2.amazonaws.com/bakan/devsdkwms1001/productMain/2019/09/03/c5dd66068e521d3c6f0608abda2c12c8"
+													alt="80110 두줄츄리닝"></a>
+											<div>
+												<span class="label">구매불가</span>
+												<p><a href="javascript: void(0);">[디오트] 암팡진암팡진암팡진암팡진암팡진암팡진</a></p> <strong><a href="javascript: void(0);">80110 두줄츄리닝두줄츄리닝두줄츄리닝두줄츄리닝두줄츄리닝</a></strong>
+												<em class="price"><i>6,000</i>원</em>
+											</div>
+										</td>
+										<td class="size">
+											<p>블랙<span>Free</span></p>
+										</td>
+										<td>
+											<div class="amount">
+												<button type="button" class="minus">-</button>
+												<input type="number" name="order_qty[]" value="1" class="eNum eOrderQty" maxlength="4" required="" disabled>
+												<button type="button" class="plus">+</button>
+											</div>
+											<em class="min-amount">최소주문수량 2개</em>
+										</td>
+										<td class="cost"> <span>6,000</span>원 </td>
+										<td> 
+											<button type="button" class="memo has-memo ui-popup-open" data-target="#layer_memo2" >메모</button> 
+										</td>
+										<td class="soldout toggle-switch"> <button type="button" class="btn-noshipping btnReserve active"
+												data-is_reserved="T" disabled>미송</button> <button type="button" class="btn-refund btnRefund "
+												data-is_reserved="F" disabled>환불</button> </td>
+										<!--2022-06-28 EZP-3528 위치변경-->
+										<td> <a href="#" class="del">삭제</a> </td>
+									</tr>
+									<!-- 2022-11-04 EZP-7275 구매불가 case 추가 끝 -->
+									<tr class="trOrder"> <input type="hidden" name="item_no[]" value="2004"> <input type="hidden" name="item_price[]" value="6000.00"> <input type="hidden" name="min_order_qty[]" value="1">
+										<td><span class="checkbox"><input type="checkbox" class="rowChk" name="cart_no[]" id="7" value="7"><label for="7"></label></span></td>
+										<td class="prd-detail"> <a href="https://easypick.co.kr/product/front/detail?product_no=419" class="img"><img src="https://s3.ap-northeast-2.amazonaws.com/bakan/devsdkwms1001/productMain/2019/09/03/c5dd66068e521d3c6f0608abda2c12c8"
+													alt="80110 두줄츄리닝"></a>
+											<div>
+												<p><a href="https://easypick.co.kr/product/seller/front/index?seller_no=1471">[디오트] 암팡진암팡진암팡진암팡진암팡진암팡진</a></p> <strong><a href="https://easypick.co.kr/product/front/detail?product_no=419">80110 두줄츄리닝두줄츄리닝두줄츄리닝두줄츄리닝두줄츄리닝</a></strong>
+												<em class="price"><i>6,000</i>원</em>
+											</div>
+										</td>
+										<td class="size">
+											<p>블랙<span>Free</span></p>
+										</td>
+										<td>
+											<div class="amount">
+												<button type="button" class="minus">-</button>
+												<input type="number" name="order_qty[]" value="1" class="eNum eOrderQty" maxlength="4" required="">
+												<button type="button" class="plus">+</button>
+											</div>
+											<em class="min-amount">최소주문수량 2개</em>
+										</td>
+										<td class="cost"> <span>6,000</span>원 </td>
+										<td> 
+											<button type="button" class="memo has-memo ui-popup-open" data-target="#layer_memo" >메모</button> 
+										</td>
+										<td class="soldout toggle-switch"> <button type="button" class="btn-noshipping btnReserve active"
+												data-is_reserved="T">미송</button> <button type="button" class="btn-refund btnRefund "
+												data-is_reserved="F">환불</button> </td>
+										<!--2022-06-28 EZP-3528 위치변경-->
+										<td> <a href="#" class="del">삭제</a> </td>
+									</tr>
+									<tr class="trOrder"> <input type="hidden" name="item_no[]" value="1443"> <input type="hidden" name="item_price[]" value="43000.00"> <input type="hidden" name="min_order_qty[]" value="1">
+										<td><span class="checkbox"><input type="checkbox" class="rowChk" name="cart_no[]" id="8" value="8"><label for="8"></label></span></td>
+										<td class="prd-detail"> <a href="https://easypick.co.kr/product/front/detail?product_no=252" class="img">
+											<img src="https://s3.ap-northeast-2.amazonaws.com/bakan/devsdkwms1001/productMain/2019/08/23/0fa3ab87328eab773a3e83f0d43e04ec"
+													alt="스톤BBY">
+												</a>
+											<div>
+												<p><a href="https://easypick.co.kr/product/seller/front/index?seller_no=511">[디오트] 아이유</a></p> <strong><a href="https://easypick.co.kr/product/front/detail?product_no=252">스톤BBY</a></strong> <em class="price"><i>43,000</i>원</em>
+											</div>
+										</td>
+										<td class="size">
+											<p>베이지<span>Free</span></p>
+										</td>
+										<td>
+											<div class="amount">
+												<button type="button" class="minus">-</button>
+												<input type="number" name="order_qty[]" value="1" class="eNum eOrderQty" maxlength="4" required="">
+												<button type="button" class="plus">+</button>
+											</div>
+											<em class="min-amount">최소주문수량 2개</em>
+										</td>
+										<td class="cost"> <span>430,000</span>원 </td>
+										<td>
+											<button type="button" class="memo has-memo ui-popup-open  " disabled="disabled" data-target="#layer_memo" >메모</button> 
+										</td>
+										<td class="soldout toggle-switch"> <button type="button" class="btn-noshipping btnReserve active"
+												data-is_reserved="T">미송</button> <button type="button" class="btn-refund btnRefund "
+												data-is_reserved="F">환불</button> </td>
+										<!--2022-06-28 EZP-3528 위치변경-->
+										<td> <a href="#" class="del">삭제</a> </td>
+									</tr>
+								</tbody>
+								<tfoot class="tfootCart">
+									<tr>
+										<!-- 2022-09-23 EZP-5935 금액단위 추가 -->
+										<td colspan="7" class="cart-total">
+											<p>판매가 합계<span>00,000</span>원</p>
+											<p class="plus">부가가치세<span>00,000</span>원</p>
+											<p class="plus toggle-switch">배송비<span>0,000</span>원</p>
+											<p class="total-sum">총 합계금액 <span class="all-price">00,0000</span></p>
+										</td>
+									</tr>
+								</tfoot>
+							</table>
+						</div>
+						<div class="btn-wrap tac">
+							<button type="button" name="button" id="btnChkOrder" class="btn">선택상품 주문</button>
+							<button type="button" name="button" id="btnAllOrder" class="btn point">전체상품 주문
+							</button>
+							<button type="button" name="button" id="btnGoShopping" class="btn" style="display: none;">계속 쇼핑하기</button>
+						</div>
+						<div class="more-product-wrap">
+							<div class="pos-rel">
+								<h2 class="more-product-title">이지픽의 다양한 상품</h2> <!-- 2022-05-27 EZP-5433 워딩수정 -->
+								<a href="#" class="prev">이전</a>
+								<a href="#" class="next">다음</a>
+							</div>
+							<div class="product-item-wrap" data-type="thumbnail">
+								<div class="swiper-container3">
+									<!-- //21-01-25 [분류명] 삭제 -->
+									<div class="swiper-wrapper" style="width: 1696px; height: 404px;">
+										<input type="hidden" name="arr_product_no" id="hidArrProductNo" value="547,612,635,193,778,842,651,132">
+										<div class="swiper-slide swiper-slide-visible swiper-slide-active" style="width: 212px; height: 404px;">
+											<!-- 2023-01-03 EZP-6829 soldout + sample 지원 case -->
+											<div class="product-item soldout sample-label"> <button type="button" name="button" class="btn-like ezp-login-required  btnWishProduct" data-product_no="547">픽템추가</button>
+												<div class="product-image"> <a href="javascript:;" data-product_no="547" class="aDetail"><img src="https://s3.ap-northeast-2.amazonaws.com/bakan/devsdkwms1001/productMain/2019/10/11/7e6b638051649e1b98081ca3cef1a4e7" alt=""></a>
+												</div>
+												<p class="product-text"> <em><a href="https://easypick.co.kr/product/seller/front/index?seller_no=880">[디오트] 에잇플랜에잇플랜에잇플랜에잇플랜에</a></em> <span><a href="javascript:;" data-product_no="547" class="aDetail">기모)니트폴라 원피스니트폴라 원피스니트폴라
+															원피스니트폴라 원피스</a></span> <strong>10,000</strong> </p>
+												<div class="product-option">
+													<ul>
+														<li><em>분류</em><span><strong>니트 </strong><strong>니트 원피스</strong></span></li>
+														<li><em>색상</em><span>머스타드,그레이,베이지,블랙,오트밀,핑크</span></li>
+														<li><em>사이즈</em><span>Free</span></li>
+														<li><em>소재</em><span>폴리95%, 스판5%</span></li>
+													</ul>
+												</div>
+												<div class="product-btn-group"> <button type="button" name="button" class="btn-cart">장바구니</button> <button type="button" name="button" class="btn-picktem">픽템추가</button> </div>
+											</div>
+										</div>
+										<div class="swiper-slide swiper-slide-visible" style="width: 212px; height: 404px;">
+											<!-- 2023-01-03 EZP-6829 soldout case -->
+											<div class="product-item soldout"> <button type="button" name="button" class="btn-like ezp-login-required  btnWishProduct" data-product_no="612">픽템추가</button>
+												<div class="product-image"> <a href="javascript:;" data-product_no="612" class="aDetail"><img src="https://s3.ap-northeast-2.amazonaws.com/bakan/devsdkwms1001/productMain/2019/10/22/c1d88c82dc8420900c9a5753c73d3206" alt=""></a>
+												</div>
+												<p class="product-text"> <em><a href="https://easypick.co.kr/product/seller/front/index?seller_no=774">[디오트] 파스텔디어</a></em> <span><a href="javascript:;" data-product_no="612" class="aDetail">양기모)아마존MTM</a></span>
+													<strong>13,000</strong> </p>
+												<div class="product-option">
+													<ul>
+														<li><em>분류</em><span><strong>상의</strong><strong>맨투맨</strong></span></li>
+														<li><em>색상</em><span>핑크,연베이지,그레이</span></li>
+														<li><em>사이즈</em><span>Free</span></li>
+														<li><em>소재</em><span>면100%(덤블워싱)</span></li>
+													</ul>
+												</div>
+												<div class="product-btn-group"> <button type="button" name="button" class="btn-cart">장바구니</button> <button type="button" name="button" class="btn-picktem">픽템추가</button> </div>
+											</div>
+										</div>
+										<div class="swiper-slide swiper-slide-visible" style="width: 212px; height: 404px;">
+											<!-- 2023-01-03 EZP-6829 sample 지원 case -->
+											<div class="product-item sample-label"> <button type="button" name="button" class="btn-like ezp-login-required  btnWishProduct" data-product_no="612">픽템추가</button>
+												<div class="product-image"> <a href="javascript:;" data-product_no="612" class="aDetail"><img src="https://s3.ap-northeast-2.amazonaws.com/bakan/devsdkwms1001/productMain/2019/10/22/c1d88c82dc8420900c9a5753c73d3206" alt=""></a>
+												</div>
+												<p class="product-text"> <em><a href="https://easypick.co.kr/product/seller/front/index?seller_no=774">[디오트] 파스텔디어</a></em> <span><a href="javascript:;" data-product_no="612" class="aDetail">양기모)아마존MTM</a></span>
+													<strong>13,000</strong> </p>
+												<div class="product-option">
+													<ul>
+														<li><em>분류</em><span><strong>상의</strong><strong>맨투맨</strong></span></li>
+														<li><em>색상</em><span>핑크,연베이지,그레이</span></li>
+														<li><em>사이즈</em><span>Free</span></li>
+														<li><em>소재</em><span>면100%(덤블워싱)</span></li>
+													</ul>
+												</div>
+												<div class="product-btn-group"> <button type="button" name="button" class="btn-cart">장바구니</button> <button type="button" name="button" class="btn-picktem">픽템추가</button> </div>
+											</div>
+										</div>
+										<div class="swiper-slide swiper-slide-visible" style="width: 212px; height: 404px;">
+											<div class="product-item"> <button type="button" name="button" class="btn-like ezp-login-required  btnWishProduct" data-product_no="612">픽템추가</button>
+												<div class="product-image"> <a href="javascript:;" data-product_no="612" class="aDetail"><img src="https://s3.ap-northeast-2.amazonaws.com/bakan/devsdkwms1001/productMain/2019/10/22/c1d88c82dc8420900c9a5753c73d3206" alt=""></a>
+												</div>
+												<p class="product-text"> <em><a href="https://easypick.co.kr/product/seller/front/index?seller_no=774">[디오트] 파스텔디어</a></em> <span><a href="javascript:;" data-product_no="612" class="aDetail">양기모)아마존MTM</a></span>
+													<strong>13,000</strong> </p>
+												<div class="product-option">
+													<ul>
+														<li><em>분류</em><span><strong>상의</strong><strong>맨투맨</strong></span></li>
+														<li><em>색상</em><span>핑크,연베이지,그레이</span></li>
+														<li><em>사이즈</em><span>Free</span></li>
+														<li><em>소재</em><span>면100%(덤블워싱)</span></li>
+													</ul>
+												</div>
+												<div class="product-btn-group"> <button type="button" name="button" class="btn-cart">장바구니</button> <button type="button" name="button" class="btn-picktem">픽템추가</button> </div>
+											</div>
+										</div>
+										<div class="swiper-slide swiper-slide-visible" style="width: 212px; height: 404px;">
+											<div class="product-item"> <button type="button" name="button" class="btn-like ezp-login-required  btnWishProduct" data-product_no="612">픽템추가</button>
+												<div class="product-image"> <a href="javascript:;" data-product_no="612" class="aDetail"><img src="https://s3.ap-northeast-2.amazonaws.com/bakan/devsdkwms1001/productMain/2019/10/22/c1d88c82dc8420900c9a5753c73d3206" alt=""></a>
+												</div>
+												<p class="product-text"> <em><a href="https://easypick.co.kr/product/seller/front/index?seller_no=774">[디오트] 파스텔디어</a></em> <span><a href="javascript:;" data-product_no="612" class="aDetail">양기모)아마존MTM</a></span>
+													<strong>13,000</strong> </p>
+												<div class="product-option">
+													<ul>
+														<li><em>분류</em><span><strong>상의</strong><strong>맨투맨</strong></span></li>
+														<li><em>색상</em><span>핑크,연베이지,그레이</span></li>
+														<li><em>사이즈</em><span>Free</span></li>
+														<li><em>소재</em><span>면100%(덤블워싱)</span></li>
+													</ul>
+												</div>
+												<div class="product-btn-group"> <button type="button" name="button" class="btn-cart">장바구니</button> <button type="button" name="button" class="btn-picktem">픽템추가</button> </div>
+											</div>
+										</div>
+										<div class="swiper-slide swiper-slide-visible" style="width: 212px; height: 404px;">
+											<div class="product-item"> <button type="button" name="button" class="btn-like ezp-login-required  btnWishProduct" data-product_no="612">픽템추가</button>
+												<div class="product-image"> <a href="javascript:;" data-product_no="612" class="aDetail"><img src="https://s3.ap-northeast-2.amazonaws.com/bakan/devsdkwms1001/productMain/2019/10/22/c1d88c82dc8420900c9a5753c73d3206" alt=""></a>
+												</div>
+												<p class="product-text"> <em><a href="https://easypick.co.kr/product/seller/front/index?seller_no=774">[디오트] 파스텔디어</a></em> <span><a href="javascript:;" data-product_no="612" class="aDetail">양기모)아마존MTM</a></span>
+													<strong>13,000</strong> </p>
+												<div class="product-option">
+													<ul>
+														<li><em>분류</em><span><strong>상의</strong><strong>맨투맨</strong></span></li>
+														<li><em>색상</em><span>핑크,연베이지,그레이</span></li>
+														<li><em>사이즈</em><span>Free</span></li>
+														<li><em>소재</em><span>면100%(덤블워싱)</span></li>
+													</ul>
+												</div>
+												<div class="product-btn-group"> <button type="button" name="button" class="btn-cart">장바구니</button> <button type="button" name="button" class="btn-picktem">픽템추가</button> </div>
+											</div>
+										</div>
+										<div class="swiper-slide swiper-slide-visible" style="width: 212px; height: 404px;">
+											<div class="product-item"> <button type="button" name="button" class="btn-like ezp-login-required  btnWishProduct" data-product_no="612">픽템추가</button>
+												<div class="product-image"> <a href="javascript:;" data-product_no="612" class="aDetail"><img src="https://s3.ap-northeast-2.amazonaws.com/bakan/devsdkwms1001/productMain/2019/10/22/c1d88c82dc8420900c9a5753c73d3206" alt=""></a>
+												</div>
+												<p class="product-text"> <em><a href="https://easypick.co.kr/product/seller/front/index?seller_no=774">[디오트] 파스텔디어</a></em> <span><a href="javascript:;" data-product_no="612" class="aDetail">양기모)아마존MTM</a></span>
+													<strong>13,000</strong> </p>
+												<div class="product-option">
+													<ul>
+														<li><em>분류</em><span><strong>상의</strong><strong>맨투맨</strong></span></li>
+														<li><em>색상</em><span>핑크,연베이지,그레이</span></li>
+														<li><em>사이즈</em><span>Free</span></li>
+														<li><em>소재</em><span>면100%(덤블워싱)</span></li>
+													</ul>
+												</div>
+												<div class="product-btn-group"> <button type="button" name="button" class="btn-cart">장바구니</button> <button type="button" name="button" class="btn-picktem">픽템추가</button> </div>
+											</div>
+										</div>
+										<div class="swiper-slide swiper-slide-visible" style="width: 212px; height: 404px;">
+											<div class="product-item"> <button type="button" name="button" class="btn-like ezp-login-required  btnWishProduct" data-product_no="612">픽템추가</button>
+												<div class="product-image"> <a href="javascript:;" data-product_no="612" class="aDetail"><img src="https://s3.ap-northeast-2.amazonaws.com/bakan/devsdkwms1001/productMain/2019/10/22/c1d88c82dc8420900c9a5753c73d3206" alt=""></a>
+												</div>
+												<p class="product-text"> <em><a href="https://easypick.co.kr/product/seller/front/index?seller_no=774">[디오트] 파스텔디어</a></em> <span><a href="javascript:;" data-product_no="612" class="aDetail">양기모)아마존MTM</a></span>
+													<strong>13,000</strong> </p>
+												<div class="product-option">
+													<ul>
+														<li><em>분류</em><span><strong>상의</strong><strong>맨투맨</strong></span></li>
+														<li><em>색상</em><span>핑크,연베이지,그레이</span></li>
+														<li><em>사이즈</em><span>Free</span></li>
+														<li><em>소재</em><span>면100%(덤블워싱)</span></li>
+													</ul>
+												</div>
+												<div class="product-btn-group"> <button type="button" name="button" class="btn-cart">장바구니</button> <button type="button" name="button" class="btn-picktem">픽템추가</button> </div>
+											</div>
+										</div>
+										<div class="swiper-slide swiper-slide-visible" style="width: 212px; height: 404px;">
+											<div class="product-item"> <button type="button" name="button" class="btn-like ezp-login-required  btnWishProduct" data-product_no="612">픽템추가</button>
+												<div class="product-image"> <a href="javascript:;" data-product_no="612" class="aDetail"><img src="https://s3.ap-northeast-2.amazonaws.com/bakan/devsdkwms1001/productMain/2019/10/22/c1d88c82dc8420900c9a5753c73d3206" alt=""></a>
+												</div>
+												<p class="product-text"> <em><a href="https://easypick.co.kr/product/seller/front/index?seller_no=774">[디오트] 파스텔디어</a></em> <span><a href="javascript:;" data-product_no="612" class="aDetail">양기모)아마존MTM</a></span>
+													<strong>13,000</strong> </p>
+												<div class="product-option">
+													<ul>
+														<li><em>분류</em><span><strong>상의</strong><strong>맨투맨</strong></span></li>
+														<li><em>색상</em><span>핑크,연베이지,그레이</span></li>
+														<li><em>사이즈</em><span>Free</span></li>
+														<li><em>소재</em><span>면100%(덤블워싱)</span></li>
+													</ul>
+												</div>
+												<div class="product-btn-group"> <button type="button" name="button" class="btn-cart">장바구니</button> <button type="button" name="button" class="btn-picktem">픽템추가</button> </div>
+											</div>
+										</div>
+										<div class="swiper-slide swiper-slide-visible" style="width: 212px; height: 404px;">
+											<div class="product-item"> <button type="button" name="button" class="btn-like ezp-login-required  btnWishProduct" data-product_no="635">픽템추가</button>
+												<div class="product-image"> <a href="javascript:;" data-product_no="635" class="aDetail"><img src="https://s3.ap-northeast-2.amazonaws.com/bakan/devsdkwms1001/productMain/2019/10/24/bc8cb28f8b5f1af6a5c47fe370e34d82" alt=""></a>
+												</div>
+												<p class="product-text"> <em><a href="https://easypick.co.kr/product/seller/front/index?seller_no=6">[프로모션] JC APPAREL</a></em> <span><a href="javascript:;" data-product_no="635" class="aDetail">JC-NT-10044</a></span>
+													<strong>9,500</strong> </p>
+												<div class="product-option">
+													<ul>
+														<li><em>분류</em><span><strong>니트 </strong><strong>니트 티</strong></span></li>
+														<li><em>색상</em><span>블랙,아이보리,연그레이,오트밀,진베이지</span></li>
+														<li><em>사이즈</em><span>Free</span></li>
+														<li><em>소재</em><span>레이온 50%, 폴리 28%, 나일론 22%</span></li>
+													</ul>
+												</div>
+												<div class="product-btn-group"> <button type="button" name="button" class="btn-cart">장바구니</button> <button type="button" name="button" class="btn-picktem">픽템추가</button> </div>
+											</div>
+										</div>
+										<div class="swiper-slide swiper-slide-visible" style="width: 212px; height: 404px;">
+											<div class="product-item"> <button type="button" name="button" class="btn-like ezp-login-required  btnWishProduct" data-product_no="193">픽템추가</button>
+												<div class="product-image"> <a href="javascript:;" data-product_no="193" class="aDetail"><img src="https://s3.ap-northeast-2.amazonaws.com/bakan/devsdkwms1001/productMain/2019/08/20/27200e102515acbfa4980c17d4dacadd" alt=""></a>
+												</div>
+												<p class="product-text"> <em><a href="https://easypick.co.kr/product/seller/front/index?seller_no=146">[디오트] 디제이소나</a></em> <span><a href="javascript:;" data-product_no="193" class="aDetail">루즈단폴라</a></span> <strong>7,000</strong>
+												</p>
+												<div class="product-option">
+													<ul>
+														<li><em>분류</em><span><strong>상의</strong><strong>티셔츠</strong></span></li>
+														<li><em>색상</em><span>아이/블랙,레드,네이비</span></li>
+														<li><em>사이즈</em><span>Free</span></li>
+														<li><em>소재</em><span>면 95%, 폴리우레탄 5%</span></li>
+													</ul>
+												</div>
+												<div class="product-btn-group"> <button type="button" name="button" class="btn-cart">장바구니</button> <button type="button" name="button" class="btn-picktem">픽템추가</button> </div>
+											</div>
+										</div>
+										<div class="swiper-slide swiper-slide-visible" style="width: 212px; height: 404px;">
+											<div class="product-item"> <button type="button" name="button" class="btn-like ezp-login-required  btnWishProduct" data-product_no="778">픽템추가</button>
+												<div class="product-image"> <a href="javascript:;" data-product_no="778" class="aDetail"><img src="https://s3.ap-northeast-2.amazonaws.com/bakan/devsdkwms1001/productMain/2019/11/20/5f8689a5269d5d62b44139e6da30cb08" alt=""></a>
+												</div>
+												<p class="product-text"> <em><a href="https://easypick.co.kr/product/seller/front/index?seller_no=94">[디오트] 달팡</a></em> <span><a href="javascript:;" data-product_no="778" class="aDetail">몽블랑후드m</a></span> <strong>15,000</strong>
+												</p>
+												<div class="product-option">
+													<ul>
+														<li><em>분류</em><span><strong>상의</strong><strong>후드</strong></span></li>
+														<li><em>색상</em><span>아이보리,핑크,브라운</span></li>
+														<li><em>사이즈</em><span>Free</span></li>
+														<li><em>소재</em><span>폴리 100%</span></li>
+													</ul>
+												</div>
+												<div class="product-btn-group"> <button type="button" name="button" class="btn-cart">장바구니</button> <button type="button" name="button" class="btn-picktem">픽템추가</button> </div>
+											</div>
+										</div>
+										<div class="swiper-slide swiper-slide-visible" style="width: 212px; height: 404px;">
+											<div class="product-item"> <button type="button" name="button" class="btn-like ezp-login-required  btnWishProduct" data-product_no="193">픽템추가</button>
+												<div class="product-image"> <a href="javascript:;" data-product_no="193" class="aDetail"><img src="https://s3.ap-northeast-2.amazonaws.com/bakan/devsdkwms1001/productMain/2019/08/20/27200e102515acbfa4980c17d4dacadd" alt=""></a>
+												</div>
+												<p class="product-text"> <em><a href="https://easypick.co.kr/product/seller/front/index?seller_no=146">[디오트] 디제이소나</a></em> <span><a href="javascript:;" data-product_no="193" class="aDetail">루즈단폴라</a></span> <strong>7,000</strong>
+												</p>
+												<div class="product-option">
+													<ul>
+														<li><em>분류</em><span><strong>상의</strong><strong>티셔츠</strong></span></li>
+														<li><em>색상</em><span>아이/블랙,레드,네이비</span></li>
+														<li><em>사이즈</em><span>Free</span></li>
+														<li><em>소재</em><span>면 95%, 폴리우레탄 5%</span></li>
+													</ul>
+												</div>
+												<div class="product-btn-group"> <button type="button" name="button" class="btn-cart">장바구니</button> <button type="button" name="button" class="btn-picktem">픽템추가</button> </div>
+											</div>
+										</div>
+										<div class="swiper-slide swiper-slide-visible" style="width: 212px; height: 404px;">
+											<div class="product-item"> <button type="button" name="button" class="btn-like ezp-login-required  btnWishProduct" data-product_no="778">픽템추가</button>
+												<div class="product-image"> <a href="javascript:;" data-product_no="778" class="aDetail"><img src="https://s3.ap-northeast-2.amazonaws.com/bakan/devsdkwms1001/productMain/2019/11/20/5f8689a5269d5d62b44139e6da30cb08" alt=""></a>
+												</div>
+												<p class="product-text"> <em><a href="https://easypick.co.kr/product/seller/front/index?seller_no=94">[디오트] 달팡</a></em> <span><a href="javascript:;" data-product_no="778" class="aDetail">몽블랑후드m</a></span> <strong>15,000</strong>
+												</p>
+												<div class="product-option">
+													<ul>
+														<li><em>분류</em><span><strong>상의</strong><strong>후드</strong></span></li>
+														<li><em>색상</em><span>아이보리,핑크,브라운</span></li>
+														<li><em>사이즈</em><span>Free</span></li>
+														<li><em>소재</em><span>폴리 100%</span></li>
+													</ul>
+												</div>
+												<div class="product-btn-group"> <button type="button" name="button" class="btn-cart">장바구니</button> <button type="button" name="button" class="btn-picktem">픽템추가</button> </div>
+											</div>
+										</div>
+										<div class="swiper-slide swiper-slide-visible" style="width: 212px; height: 404px;">
+											<div class="product-item"> <button type="button" name="button" class="btn-like ezp-login-required  btnWishProduct" data-product_no="842">픽템추가</button>
+												<div class="product-image"> <a href="javascript:;" data-product_no="842" class="aDetail"><img src="https://s3.ap-northeast-2.amazonaws.com/bakan/devsdkwms1001/productMain/2019/12/02/b80937395438efc93bbf475a34e63372" alt=""></a>
+												</div>
+												<p class="product-text"> <em><a href="https://easypick.co.kr/product/seller/front/index?seller_no=470">[디오트] 슬로우비</a></em> <span><a href="javascript:;" data-product_no="842" class="aDetail">베이글T</a></span> <strong>8,000</strong>
+												</p>
+												<div class="product-option">
+													<ul>
+														<li><em>분류</em><span><strong>상의</strong><strong>티셔츠</strong></span></li>
+														<li><em>색상</em><span>블랙,아이보리,올리브,와인,그레이</span></li>
+														<li><em>사이즈</em><span>Free</span></li>
+														<li><em>소재</em><span>폴리 60%, 레이온 20%, 면 10%, 모달, 6%, 폴리우레탄 4%</span></li>
+													</ul>
+												</div>
+												<div class="product-btn-group"> <button type="button" name="button" class="btn-cart">장바구니</button> <button type="button" name="button" class="btn-picktem">픽템추가</button> </div>
+											</div>
+										</div>
+										<div class="swiper-slide" style="width: 212px; height: 404px;">
+											<div class="product-item"> <button type="button" name="button" class="btn-like ezp-login-required  btnWishProduct" data-product_no="651">픽템추가</button>
+												<div class="product-image"> <a href="javascript:;" data-product_no="651" class="aDetail"><img src="https://s3.ap-northeast-2.amazonaws.com/bakan/devsdkwms1001/productMain/2019/10/25/b9b569f0c663df101f1f02c1add5c3fc" alt=""></a>
+												</div>
+												<p class="product-text"> <em><a href="https://easypick.co.kr/product/seller/front/index?seller_no=6">[프로모션] JC APPAREL</a></em> <span><a href="javascript:;" data-product_no="651" class="aDetail">JC-NT-10110</a></span>
+													<strong>13,300</strong> </p>
+												<div class="product-option">
+													<ul>
+														<li><em>분류</em><span><strong>니트 </strong><strong>니트 베스트</strong></span></li>
+														<li><em>색상</em><span>그레이,아이보리,카멜,핑크</span></li>
+														<li><em>사이즈</em><span>Free</span></li>
+														<li><em>소재</em><span>램스울 27%, 나일론 13%, 아크릴 60%</span></li>
+													</ul>
+												</div>
+												<div class="product-btn-group"> <button type="button" name="button" class="btn-cart">장바구니</button> <button type="button" name="button" class="btn-picktem">픽템추가</button> </div>
+											</div>
+										</div>
+										<div class="swiper-slide" style="width: 212px; height: 404px;">
+											<div class="product-item"> <button type="button" name="button" class="btn-like ezp-login-required  btnWishProduct" data-product_no="132">픽템추가</button>
+												<div class="product-image"> <a href="javascript:;" data-product_no="132" class="aDetail"><img src="https://s3.ap-northeast-2.amazonaws.com/bakan/devsdkwms1001/productMain/2019/08/13/f2bf918208f2fcfec0ae5278f19b0dfb" alt=""></a>
+												</div>
+												<p class="product-text"> <em><a href="https://easypick.co.kr/product/seller/front/index?seller_no=363">[디오트] 베이스스토어</a></em> <span><a href="javascript:;" data-product_no="132" class="aDetail">샌디JK</a></span> <strong>39,000</strong>
+												</p>
+												<div class="product-option">
+													<ul>
+														<li><em>분류</em><span><strong>아우터</strong><strong>재킷</strong></span></li>
+														<li><em>색상</em><span>블랙</span></li>
+														<li><em>사이즈</em><span>Free</span></li>
+														<li><em>소재</em><span>폴리우레탄 100%</span></li>
+													</ul>
+												</div>
+												<div class="product-btn-group"> <button type="button" name="button" class="btn-cart">장바구니</button> <button type="button" name="button" class="btn-picktem">픽템추가</button> </div>
+											</div>
+										</div>
+									</div>
+									<!-- 21-01-25 [분류명] 삭제// -->
+									<div class="swiper-pagination"></div>
+									<div class="swiper-button-next2"></div>
+									<div class="swiper-button-prev2"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- 2022-05-27 EZP-5433 품절장바구니 내용 종료 -->
+				</div>
+
+				<div class="tab-cont2">
+					<!-- 2022-05-27 EZP-5433 품절장바구니 내용 시작 -->
+					<div class="cart-wrap">
+						<div class="cart-top mb20">
+							<div>
+								<button type="button" name="button" id="btnAllDeleted" class="btn small">장바구니 비우기</button>
+								<button type="button" name="button" id="btnChkDeleted" class="btn small line">선택상품 삭제</button>
+								<!-- <button type="button" name="button" class="btn small line btnIsReserved toggle-switch" data-is_reserved="T">선택상품 미송</button>
+								<button type="button" name="button" class="btn small line btnIsReserved toggle-switch" data-is_reserved="F">선택상품 환불</button> --><!--2022-07-15 EZP-3157-->
+							</div>
+							<!-- <div class="tip-wrap toggle-switch">
+								<p><a href="javascript:;" class="btn-tip"></a>미송 정책 관련 안내 보기</p>
+								<div class="tip" style="z-index: 4; display: none;">
+									<p><strong>미송이란?</strong>스토어에서 상품이 일시적으로 품절되는 경우, 입고 지연 일정을<br>안내받은 뒤 상품 재입고 시 전달받을 수 있습니다.<br>
+										상품 주문 전, 처리방법을 미송으로 선택하셔야만 스토어에서 <br>상품 구비 후 발송이 가능하오니 꼭 확인 바랍니다.<br>
+										미송 선택 시에는 주문 취소가 불가하오니 참고 바랍니다.</p>
+									<p>
+										<strong>미송 상품에 대한 환불 정책</strong>미송 상품은 기본적으로 주문 취소가 불가합니다.<br>안내되는 입고 예정일로부터 +1 영업일에 상품 수령이 가능하오며,<br>
+										예정일은 도매처 사정에 따라 변동될 수 있습니다.<br>주문 이후에는 환불이 불가하오니 이 점 또한 참고 바랍니다.</p>
+								</div>
+							</div> --><!--2022-07-15 EZP-3157-->
+						</div>
+						<div class="table-wrap">
+							<table class="th-hor cart">
+								<form name="frmCart" id="frmCart"></form>
+								<input type="hidden" name="commission_rate" value="0">
+								<input type="hidden" name="shipping_price" value="0.00">
+								<colgroup>
+									<col width="5%"> 
+									<col width="50%">
+									<col width="10%">
+									<col width="10%">
+									<col width="10%">
+									<col width="10%">
+									<!-- <col width="150px"> --><!--2022-07-15 EZP-3157-->
+									<col width="5%">
+								</colgroup><!--2022-08-03 EZP-3157 colgroup 전체변경-->
+								<thead>
+									<tr>
+										<th><span class="checkbox"><input type="checkbox" id="allChk" class="allChk"><label for="allChk"></label></span></th>
+										<th>상품정보</th>
+										<th>옵션</th>
+										<th>불량수량</th>
+										<th>판매가 합계</th>
+										<th>메모</th>
+										<!--<th class="toggle-switch">품절 처리 방식</th>--><!--2022-07-15 EZP-3157 / 2022-06-28 EZP-3528 위치변경-->
+										<th>삭제</th>
+									</tr>
+								</thead>
+								<tbody id="tbodyCart" class="tbodyCart">
+									<tr class="trOrder"> <input type="hidden" name="item_no[]" value="2004"> <input type="hidden" name="item_price[]" value="6000.00"> <input type="hidden" name="min_order_qty[]" value="1">
+										<td><span class="checkbox"><input type="checkbox" class="rowChk" name="cart_no[]" id="7" value="7"><label for="7"></label></span></td>
+										<td class="prd-detail"> <a href="https://easypick.co.kr/product/front/detail?product_no=419" class="img"><img src="https://s3.ap-northeast-2.amazonaws.com/bakan/devsdkwms1001/productMain/2019/09/03/c5dd66068e521d3c6f0608abda2c12c8"
+													alt="80110 두줄츄리닝"></a>
+											<div>
+												<p><a href="https://easypick.co.kr/product/seller/front/index?seller_no=1471">[디오트] 암팡진암팡진암팡진암팡진암팡진암팡진</a></p> <strong><a href="https://easypick.co.kr/product/front/detail?product_no=419">80110 두줄츄리닝두줄츄리닝두줄츄리닝두줄츄리닝두줄츄리닝</a></strong>
+												<em class="price"><i>6,000</i>원</em>
+											</div>
+										</td>
+										<td class="size">
+											<p>블랙<span>Free</span></p>
+										</td>
+										<td>
+											<div class="amount">
+												<button type="button" class="minus">-</button>
+												<input type="number" name="order_qty[]" value="1" class="eNum eOrderQty" maxlength="4" required="">
+												<button type="button" class="plus">+</button>
+											</div>
+											
+										</td>
+										<td class="cost"> <span>6,000</span>원 </td>
+										<td> 
+											<button type="button" class="memo has-memo ui-popup-open" data-target="#layer_memo" >메모</button> 
+										</td>
+										<!-- <td class="soldout toggle-switch"> <button type="button" class="btn-noshipping btnReserve active"
+												data-is_reserved="T">미송</button> <button type="button" class="btn-refund btnRefund "
+												data-is_reserved="F">환불</button> </td> --><!--2022-07-15 EZP-3157-->
+										<!--2022-06-28 EZP-3528 위치변경-->
+										<td> <a href="#" class="del">삭제</a> </td>
+									</tr>
+									<tr class="trOrder"> <input type="hidden" name="item_no[]" value="1443"> <input type="hidden" name="item_price[]" value="43000.00"> <input type="hidden" name="min_order_qty[]" value="1">
+										<td><span class="checkbox"><input type="checkbox" class="rowChk" name="cart_no[]" id="8" value="8"><label for="8"></label></span></td>
+										<td class="prd-detail"> <a href="https://easypick.co.kr/product/front/detail?product_no=252" class="img"><img src="https://s3.ap-northeast-2.amazonaws.com/bakan/devsdkwms1001/productMain/2019/08/23/0fa3ab87328eab773a3e83f0d43e04ec"
+													alt="스톤BBY"></a>
+											<div>
+												<p><a href="https://easypick.co.kr/product/seller/front/index?seller_no=511">[디오트] 아이유</a></p> <strong><a href="https://easypick.co.kr/product/front/detail?product_no=252">스톤BBY</a></strong> <em class="price"><i>43,000</i>원</em>
+											</div>
+										</td>
+										<td class="size">
+											<p>베이지<span>Free</span></p>
+										</td>
+										<td>
+											<div class="amount">
+												<button type="button" class="minus">-</button>
+												<input type="number" name="order_qty[]" value="1" class="eNum eOrderQty" maxlength="4" required="">
+												<button type="button" class="plus">+</button>
+											</div>
+										</td>
+										<td class="cost"> <span>430,000</span>원 </td>
+										<td>
+											<button type="button" class="memo has-memo ui-popup-open  " disabled="disabled" data-target="#layer_memo" >메모</button> 
+										</td>
+										<!-- <td class="soldout toggle-switch"> <button type="button" class="btn-noshipping btnReserve active"
+												data-is_reserved="T">미송</button> <button type="button" class="btn-refund btnRefund "
+												data-is_reserved="F">환불</button> </td> --><!--2022-07-15 EZP-3157-->
+										<!--2022-06-28 EZP-3528 위치변경-->
+										<td> <a href="#" class="del">삭제</a> </td>
+									</tr>
+								</tbody>
+								<tfoot class="tfootCart">
+									<tr>
+										<!-- 2022-09-23 EZP-5935 가격단위 추가 -->
+										<td colspan="7" class="cart-total"><!--2022-07-15 EZP-3157-->
+											<p>판매가 합계<span>00,000</span>원</p>
+											<p class="plus">부가가치세<span>00,000</span>원</p>
+											<p class="plus toggle-switch">배송비<span>0,000</span>원</p>
+											<p class="total-sum">총 합계금액 <span class="all-price">00,0000</span></p>
+										</td>
+									</tr>
+								</tfoot>
+							</table>
+						</div>
+						<div class="btn-wrap tac">
+							<button type="button" name="button" id="btnChkOrder" class="btn">선택상품 주문</button>
+							<button type="button" name="button" id="btnAllOrder" class="btn point">전체상품 주문
+							</button>
+							<button type="button" name="button" id="btnGoShopping" class="btn" style="display: none;">계속 쇼핑하기</button>
+						</div>
+						<div class="more-product-wrap">
+							<div class="pos-rel">
+								<h2 class="more-product-title">이지픽의 다양한 상품</h2> <!-- 2022-05-27 EZP-5433 워딩수정 -->
+								<a href="#" class="prev">이전</a>
+								<a href="#" class="next">다음</a>
+							</div>
+							<div class="product-item-wrap" data-type="thumbnail">
+								<div class="swiper-container3">
+									<!-- //21-01-25 [분류명] 삭제 -->
+									<div class="swiper-wrapper" style="width: 1696px; height: 404px;">
+										<input type="hidden" name="arr_product_no" id="hidArrProductNo" value="547,612,635,193,778,842,651,132">
+										<div class="swiper-slide swiper-slide-visible swiper-slide-active" style="width: 212px; height: 404px;">
+											<div class="product-item"> <button type="button" name="button" class="btn-like ezp-login-required  btnWishProduct" data-product_no="547">픽템추가</button>
+												<div class="product-image"> <a href="javascript:;" data-product_no="547" class="aDetail"><img src="https://s3.ap-northeast-2.amazonaws.com/bakan/devsdkwms1001/productMain/2019/10/11/7e6b638051649e1b98081ca3cef1a4e7" alt=""></a>
+												</div>
+												<p class="product-text"> <em><a href="https://easypick.co.kr/product/seller/front/index?seller_no=880">[디오트] 에잇플랜에잇플랜에잇플랜에잇플랜에</a></em> <span><a href="javascript:;" data-product_no="547" class="aDetail">기모)니트폴라 원피스니트폴라 원피스니트폴라
+															원피스니트폴라 원피스</a></span> <strong>10,000</strong> </p>
+												<div class="product-option">
+													<ul>
+														<li><em>분류</em><span><strong>니트 </strong><strong>니트 원피스</strong></span></li>
+														<li><em>색상</em><span>머스타드,그레이,베이지,블랙,오트밀,핑크</span></li>
+														<li><em>사이즈</em><span>Free</span></li>
+														<li><em>소재</em><span>폴리95%, 스판5%</span></li>
+													</ul>
+												</div>
+												<div class="product-btn-group"> <button type="button" name="button" class="btn-cart">장바구니</button> <button type="button" name="button" class="btn-picktem">픽템추가</button> </div>
+											</div>
+										</div>
+										<div class="swiper-slide swiper-slide-visible" style="width: 212px; height: 404px;">
+											<div class="product-item"> <button type="button" name="button" class="btn-like ezp-login-required  btnWishProduct" data-product_no="612">픽템추가</button>
+												<div class="product-image"> <a href="javascript:;" data-product_no="612" class="aDetail"><img src="https://s3.ap-northeast-2.amazonaws.com/bakan/devsdkwms1001/productMain/2019/10/22/c1d88c82dc8420900c9a5753c73d3206" alt=""></a>
+												</div>
+												<p class="product-text"> <em><a href="https://easypick.co.kr/product/seller/front/index?seller_no=774">[디오트] 파스텔디어</a></em> <span><a href="javascript:;" data-product_no="612" class="aDetail">양기모)아마존MTM</a></span>
+													<strong>13,000</strong> </p>
+												<div class="product-option">
+													<ul>
+														<li><em>분류</em><span><strong>상의</strong><strong>맨투맨</strong></span></li>
+														<li><em>색상</em><span>핑크,연베이지,그레이</span></li>
+														<li><em>사이즈</em><span>Free</span></li>
+														<li><em>소재</em><span>면100%(덤블워싱)</span></li>
+													</ul>
+												</div>
+												<div class="product-btn-group"> <button type="button" name="button" class="btn-cart">장바구니</button> <button type="button" name="button" class="btn-picktem">픽템추가</button> </div>
+											</div>
+										</div>
+										<div class="swiper-slide swiper-slide-visible" style="width: 212px; height: 404px;">
+											<div class="product-item"> <button type="button" name="button" class="btn-like ezp-login-required  btnWishProduct" data-product_no="612">픽템추가</button>
+												<div class="product-image"> <a href="javascript:;" data-product_no="612" class="aDetail"><img src="https://s3.ap-northeast-2.amazonaws.com/bakan/devsdkwms1001/productMain/2019/10/22/c1d88c82dc8420900c9a5753c73d3206" alt=""></a>
+												</div>
+												<p class="product-text"> <em><a href="https://easypick.co.kr/product/seller/front/index?seller_no=774">[디오트] 파스텔디어</a></em> <span><a href="javascript:;" data-product_no="612" class="aDetail">양기모)아마존MTM</a></span>
+													<strong>13,000</strong> </p>
+												<div class="product-option">
+													<ul>
+														<li><em>분류</em><span><strong>상의</strong><strong>맨투맨</strong></span></li>
+														<li><em>색상</em><span>핑크,연베이지,그레이</span></li>
+														<li><em>사이즈</em><span>Free</span></li>
+														<li><em>소재</em><span>면100%(덤블워싱)</span></li>
+													</ul>
+												</div>
+												<div class="product-btn-group"> <button type="button" name="button" class="btn-cart">장바구니</button> <button type="button" name="button" class="btn-picktem">픽템추가</button> </div>
+											</div>
+										</div>
+										<div class="swiper-slide swiper-slide-visible" style="width: 212px; height: 404px;">
+											<div class="product-item"> <button type="button" name="button" class="btn-like ezp-login-required  btnWishProduct" data-product_no="612">픽템추가</button>
+												<div class="product-image"> <a href="javascript:;" data-product_no="612" class="aDetail"><img src="https://s3.ap-northeast-2.amazonaws.com/bakan/devsdkwms1001/productMain/2019/10/22/c1d88c82dc8420900c9a5753c73d3206" alt=""></a>
+												</div>
+												<p class="product-text"> <em><a href="https://easypick.co.kr/product/seller/front/index?seller_no=774">[디오트] 파스텔디어</a></em> <span><a href="javascript:;" data-product_no="612" class="aDetail">양기모)아마존MTM</a></span>
+													<strong>13,000</strong> </p>
+												<div class="product-option">
+													<ul>
+														<li><em>분류</em><span><strong>상의</strong><strong>맨투맨</strong></span></li>
+														<li><em>색상</em><span>핑크,연베이지,그레이</span></li>
+														<li><em>사이즈</em><span>Free</span></li>
+														<li><em>소재</em><span>면100%(덤블워싱)</span></li>
+													</ul>
+												</div>
+												<div class="product-btn-group"> <button type="button" name="button" class="btn-cart">장바구니</button> <button type="button" name="button" class="btn-picktem">픽템추가</button> </div>
+											</div>
+										</div>
+										<div class="swiper-slide swiper-slide-visible" style="width: 212px; height: 404px;">
+											<div class="product-item"> <button type="button" name="button" class="btn-like ezp-login-required  btnWishProduct" data-product_no="612">픽템추가</button>
+												<div class="product-image"> <a href="javascript:;" data-product_no="612" class="aDetail"><img src="https://s3.ap-northeast-2.amazonaws.com/bakan/devsdkwms1001/productMain/2019/10/22/c1d88c82dc8420900c9a5753c73d3206" alt=""></a>
+												</div>
+												<p class="product-text"> <em><a href="https://easypick.co.kr/product/seller/front/index?seller_no=774">[디오트] 파스텔디어</a></em> <span><a href="javascript:;" data-product_no="612" class="aDetail">양기모)아마존MTM</a></span>
+													<strong>13,000</strong> </p>
+												<div class="product-option">
+													<ul>
+														<li><em>분류</em><span><strong>상의</strong><strong>맨투맨</strong></span></li>
+														<li><em>색상</em><span>핑크,연베이지,그레이</span></li>
+														<li><em>사이즈</em><span>Free</span></li>
+														<li><em>소재</em><span>면100%(덤블워싱)</span></li>
+													</ul>
+												</div>
+												<div class="product-btn-group"> <button type="button" name="button" class="btn-cart">장바구니</button> <button type="button" name="button" class="btn-picktem">픽템추가</button> </div>
+											</div>
+										</div>
+										<div class="swiper-slide swiper-slide-visible" style="width: 212px; height: 404px;">
+											<div class="product-item"> <button type="button" name="button" class="btn-like ezp-login-required  btnWishProduct" data-product_no="612">픽템추가</button>
+												<div class="product-image"> <a href="javascript:;" data-product_no="612" class="aDetail"><img src="https://s3.ap-northeast-2.amazonaws.com/bakan/devsdkwms1001/productMain/2019/10/22/c1d88c82dc8420900c9a5753c73d3206" alt=""></a>
+												</div>
+												<p class="product-text"> <em><a href="https://easypick.co.kr/product/seller/front/index?seller_no=774">[디오트] 파스텔디어</a></em> <span><a href="javascript:;" data-product_no="612" class="aDetail">양기모)아마존MTM</a></span>
+													<strong>13,000</strong> </p>
+												<div class="product-option">
+													<ul>
+														<li><em>분류</em><span><strong>상의</strong><strong>맨투맨</strong></span></li>
+														<li><em>색상</em><span>핑크,연베이지,그레이</span></li>
+														<li><em>사이즈</em><span>Free</span></li>
+														<li><em>소재</em><span>면100%(덤블워싱)</span></li>
+													</ul>
+												</div>
+												<div class="product-btn-group"> <button type="button" name="button" class="btn-cart">장바구니</button> <button type="button" name="button" class="btn-picktem">픽템추가</button> </div>
+											</div>
+										</div>
+										<div class="swiper-slide swiper-slide-visible" style="width: 212px; height: 404px;">
+											<div class="product-item"> <button type="button" name="button" class="btn-like ezp-login-required  btnWishProduct" data-product_no="612">픽템추가</button>
+												<div class="product-image"> <a href="javascript:;" data-product_no="612" class="aDetail"><img src="https://s3.ap-northeast-2.amazonaws.com/bakan/devsdkwms1001/productMain/2019/10/22/c1d88c82dc8420900c9a5753c73d3206" alt=""></a>
+												</div>
+												<p class="product-text"> <em><a href="https://easypick.co.kr/product/seller/front/index?seller_no=774">[디오트] 파스텔디어</a></em> <span><a href="javascript:;" data-product_no="612" class="aDetail">양기모)아마존MTM</a></span>
+													<strong>13,000</strong> </p>
+												<div class="product-option">
+													<ul>
+														<li><em>분류</em><span><strong>상의</strong><strong>맨투맨</strong></span></li>
+														<li><em>색상</em><span>핑크,연베이지,그레이</span></li>
+														<li><em>사이즈</em><span>Free</span></li>
+														<li><em>소재</em><span>면100%(덤블워싱)</span></li>
+													</ul>
+												</div>
+												<div class="product-btn-group"> <button type="button" name="button" class="btn-cart">장바구니</button> <button type="button" name="button" class="btn-picktem">픽템추가</button> </div>
+											</div>
+										</div>
+										<div class="swiper-slide swiper-slide-visible" style="width: 212px; height: 404px;">
+											<div class="product-item"> <button type="button" name="button" class="btn-like ezp-login-required  btnWishProduct" data-product_no="612">픽템추가</button>
+												<div class="product-image"> <a href="javascript:;" data-product_no="612" class="aDetail"><img src="https://s3.ap-northeast-2.amazonaws.com/bakan/devsdkwms1001/productMain/2019/10/22/c1d88c82dc8420900c9a5753c73d3206" alt=""></a>
+												</div>
+												<p class="product-text"> <em><a href="https://easypick.co.kr/product/seller/front/index?seller_no=774">[디오트] 파스텔디어</a></em> <span><a href="javascript:;" data-product_no="612" class="aDetail">양기모)아마존MTM</a></span>
+													<strong>13,000</strong> </p>
+												<div class="product-option">
+													<ul>
+														<li><em>분류</em><span><strong>상의</strong><strong>맨투맨</strong></span></li>
+														<li><em>색상</em><span>핑크,연베이지,그레이</span></li>
+														<li><em>사이즈</em><span>Free</span></li>
+														<li><em>소재</em><span>면100%(덤블워싱)</span></li>
+													</ul>
+												</div>
+												<div class="product-btn-group"> <button type="button" name="button" class="btn-cart">장바구니</button> <button type="button" name="button" class="btn-picktem">픽템추가</button> </div>
+											</div>
+										</div>
+										<div class="swiper-slide swiper-slide-visible" style="width: 212px; height: 404px;">
+											<div class="product-item"> <button type="button" name="button" class="btn-like ezp-login-required  btnWishProduct" data-product_no="612">픽템추가</button>
+												<div class="product-image"> <a href="javascript:;" data-product_no="612" class="aDetail"><img src="https://s3.ap-northeast-2.amazonaws.com/bakan/devsdkwms1001/productMain/2019/10/22/c1d88c82dc8420900c9a5753c73d3206" alt=""></a>
+												</div>
+												<p class="product-text"> <em><a href="https://easypick.co.kr/product/seller/front/index?seller_no=774">[디오트] 파스텔디어</a></em> <span><a href="javascript:;" data-product_no="612" class="aDetail">양기모)아마존MTM</a></span>
+													<strong>13,000</strong> </p>
+												<div class="product-option">
+													<ul>
+														<li><em>분류</em><span><strong>상의</strong><strong>맨투맨</strong></span></li>
+														<li><em>색상</em><span>핑크,연베이지,그레이</span></li>
+														<li><em>사이즈</em><span>Free</span></li>
+														<li><em>소재</em><span>면100%(덤블워싱)</span></li>
+													</ul>
+												</div>
+												<div class="product-btn-group"> <button type="button" name="button" class="btn-cart">장바구니</button> <button type="button" name="button" class="btn-picktem">픽템추가</button> </div>
+											</div>
+										</div>
+										<div class="swiper-slide swiper-slide-visible" style="width: 212px; height: 404px;">
+											<div class="product-item"> <button type="button" name="button" class="btn-like ezp-login-required  btnWishProduct" data-product_no="635">픽템추가</button>
+												<div class="product-image"> <a href="javascript:;" data-product_no="635" class="aDetail"><img src="https://s3.ap-northeast-2.amazonaws.com/bakan/devsdkwms1001/productMain/2019/10/24/bc8cb28f8b5f1af6a5c47fe370e34d82" alt=""></a>
+												</div>
+												<p class="product-text"> <em><a href="https://easypick.co.kr/product/seller/front/index?seller_no=6">[프로모션] JC APPAREL</a></em> <span><a href="javascript:;" data-product_no="635" class="aDetail">JC-NT-10044</a></span>
+													<strong>9,500</strong> </p>
+												<div class="product-option">
+													<ul>
+														<li><em>분류</em><span><strong>니트 </strong><strong>니트 티</strong></span></li>
+														<li><em>색상</em><span>블랙,아이보리,연그레이,오트밀,진베이지</span></li>
+														<li><em>사이즈</em><span>Free</span></li>
+														<li><em>소재</em><span>레이온 50%, 폴리 28%, 나일론 22%</span></li>
+													</ul>
+												</div>
+												<div class="product-btn-group"> <button type="button" name="button" class="btn-cart">장바구니</button> <button type="button" name="button" class="btn-picktem">픽템추가</button> </div>
+											</div>
+										</div>
+										<div class="swiper-slide swiper-slide-visible" style="width: 212px; height: 404px;">
+											<div class="product-item"> <button type="button" name="button" class="btn-like ezp-login-required  btnWishProduct" data-product_no="193">픽템추가</button>
+												<div class="product-image"> <a href="javascript:;" data-product_no="193" class="aDetail"><img src="https://s3.ap-northeast-2.amazonaws.com/bakan/devsdkwms1001/productMain/2019/08/20/27200e102515acbfa4980c17d4dacadd" alt=""></a>
+												</div>
+												<p class="product-text"> <em><a href="https://easypick.co.kr/product/seller/front/index?seller_no=146">[디오트] 디제이소나</a></em> <span><a href="javascript:;" data-product_no="193" class="aDetail">루즈단폴라</a></span> <strong>7,000</strong>
+												</p>
+												<div class="product-option">
+													<ul>
+														<li><em>분류</em><span><strong>상의</strong><strong>티셔츠</strong></span></li>
+														<li><em>색상</em><span>아이/블랙,레드,네이비</span></li>
+														<li><em>사이즈</em><span>Free</span></li>
+														<li><em>소재</em><span>면 95%, 폴리우레탄 5%</span></li>
+													</ul>
+												</div>
+												<div class="product-btn-group"> <button type="button" name="button" class="btn-cart">장바구니</button> <button type="button" name="button" class="btn-picktem">픽템추가</button> </div>
+											</div>
+										</div>
+										<div class="swiper-slide swiper-slide-visible" style="width: 212px; height: 404px;">
+											<div class="product-item"> <button type="button" name="button" class="btn-like ezp-login-required  btnWishProduct" data-product_no="778">픽템추가</button>
+												<div class="product-image"> <a href="javascript:;" data-product_no="778" class="aDetail"><img src="https://s3.ap-northeast-2.amazonaws.com/bakan/devsdkwms1001/productMain/2019/11/20/5f8689a5269d5d62b44139e6da30cb08" alt=""></a>
+												</div>
+												<p class="product-text"> <em><a href="https://easypick.co.kr/product/seller/front/index?seller_no=94">[디오트] 달팡</a></em> <span><a href="javascript:;" data-product_no="778" class="aDetail">몽블랑후드m</a></span> <strong>15,000</strong>
+												</p>
+												<div class="product-option">
+													<ul>
+														<li><em>분류</em><span><strong>상의</strong><strong>후드</strong></span></li>
+														<li><em>색상</em><span>아이보리,핑크,브라운</span></li>
+														<li><em>사이즈</em><span>Free</span></li>
+														<li><em>소재</em><span>폴리 100%</span></li>
+													</ul>
+												</div>
+												<div class="product-btn-group"> <button type="button" name="button" class="btn-cart">장바구니</button> <button type="button" name="button" class="btn-picktem">픽템추가</button> </div>
+											</div>
+										</div>
+										<div class="swiper-slide swiper-slide-visible" style="width: 212px; height: 404px;">
+											<div class="product-item"> <button type="button" name="button" class="btn-like ezp-login-required  btnWishProduct" data-product_no="193">픽템추가</button>
+												<div class="product-image"> <a href="javascript:;" data-product_no="193" class="aDetail"><img src="https://s3.ap-northeast-2.amazonaws.com/bakan/devsdkwms1001/productMain/2019/08/20/27200e102515acbfa4980c17d4dacadd" alt=""></a>
+												</div>
+												<p class="product-text"> <em><a href="https://easypick.co.kr/product/seller/front/index?seller_no=146">[디오트] 디제이소나</a></em> <span><a href="javascript:;" data-product_no="193" class="aDetail">루즈단폴라</a></span> <strong>7,000</strong>
+												</p>
+												<div class="product-option">
+													<ul>
+														<li><em>분류</em><span><strong>상의</strong><strong>티셔츠</strong></span></li>
+														<li><em>색상</em><span>아이/블랙,레드,네이비</span></li>
+														<li><em>사이즈</em><span>Free</span></li>
+														<li><em>소재</em><span>면 95%, 폴리우레탄 5%</span></li>
+													</ul>
+												</div>
+												<div class="product-btn-group"> <button type="button" name="button" class="btn-cart">장바구니</button> <button type="button" name="button" class="btn-picktem">픽템추가</button> </div>
+											</div>
+										</div>
+										<div class="swiper-slide swiper-slide-visible" style="width: 212px; height: 404px;">
+											<div class="product-item"> <button type="button" name="button" class="btn-like ezp-login-required  btnWishProduct" data-product_no="778">픽템추가</button>
+												<div class="product-image"> <a href="javascript:;" data-product_no="778" class="aDetail"><img src="https://s3.ap-northeast-2.amazonaws.com/bakan/devsdkwms1001/productMain/2019/11/20/5f8689a5269d5d62b44139e6da30cb08" alt=""></a>
+												</div>
+												<p class="product-text"> <em><a href="https://easypick.co.kr/product/seller/front/index?seller_no=94">[디오트] 달팡</a></em> <span><a href="javascript:;" data-product_no="778" class="aDetail">몽블랑후드m</a></span> <strong>15,000</strong>
+												</p>
+												<div class="product-option">
+													<ul>
+														<li><em>분류</em><span><strong>상의</strong><strong>후드</strong></span></li>
+														<li><em>색상</em><span>아이보리,핑크,브라운</span></li>
+														<li><em>사이즈</em><span>Free</span></li>
+														<li><em>소재</em><span>폴리 100%</span></li>
+													</ul>
+												</div>
+												<div class="product-btn-group"> <button type="button" name="button" class="btn-cart">장바구니</button> <button type="button" name="button" class="btn-picktem">픽템추가</button> </div>
+											</div>
+										</div>
+										<div class="swiper-slide swiper-slide-visible" style="width: 212px; height: 404px;">
+											<div class="product-item"> <button type="button" name="button" class="btn-like ezp-login-required  btnWishProduct" data-product_no="842">픽템추가</button>
+												<div class="product-image"> <a href="javascript:;" data-product_no="842" class="aDetail"><img src="https://s3.ap-northeast-2.amazonaws.com/bakan/devsdkwms1001/productMain/2019/12/02/b80937395438efc93bbf475a34e63372" alt=""></a>
+												</div>
+												<p class="product-text"> <em><a href="https://easypick.co.kr/product/seller/front/index?seller_no=470">[디오트] 슬로우비</a></em> <span><a href="javascript:;" data-product_no="842" class="aDetail">베이글T</a></span> <strong>8,000</strong>
+												</p>
+												<div class="product-option">
+													<ul>
+														<li><em>분류</em><span><strong>상의</strong><strong>티셔츠</strong></span></li>
+														<li><em>색상</em><span>블랙,아이보리,올리브,와인,그레이</span></li>
+														<li><em>사이즈</em><span>Free</span></li>
+														<li><em>소재</em><span>폴리 60%, 레이온 20%, 면 10%, 모달, 6%, 폴리우레탄 4%</span></li>
+													</ul>
+												</div>
+												<div class="product-btn-group"> <button type="button" name="button" class="btn-cart">장바구니</button> <button type="button" name="button" class="btn-picktem">픽템추가</button> </div>
+											</div>
+										</div>
+										<div class="swiper-slide" style="width: 212px; height: 404px;">
+											<div class="product-item"> <button type="button" name="button" class="btn-like ezp-login-required  btnWishProduct" data-product_no="651">픽템추가</button>
+												<div class="product-image"> <a href="javascript:;" data-product_no="651" class="aDetail"><img src="https://s3.ap-northeast-2.amazonaws.com/bakan/devsdkwms1001/productMain/2019/10/25/b9b569f0c663df101f1f02c1add5c3fc" alt=""></a>
+												</div>
+												<p class="product-text"> <em><a href="https://easypick.co.kr/product/seller/front/index?seller_no=6">[프로모션] JC APPAREL</a></em> <span><a href="javascript:;" data-product_no="651" class="aDetail">JC-NT-10110</a></span>
+													<strong>13,300</strong> </p>
+												<div class="product-option">
+													<ul>
+														<li><em>분류</em><span><strong>니트 </strong><strong>니트 베스트</strong></span></li>
+														<li><em>색상</em><span>그레이,아이보리,카멜,핑크</span></li>
+														<li><em>사이즈</em><span>Free</span></li>
+														<li><em>소재</em><span>램스울 27%, 나일론 13%, 아크릴 60%</span></li>
+													</ul>
+												</div>
+												<div class="product-btn-group"> <button type="button" name="button" class="btn-cart">장바구니</button> <button type="button" name="button" class="btn-picktem">픽템추가</button> </div>
+											</div>
+										</div>
+										<div class="swiper-slide" style="width: 212px; height: 404px;">
+											<div class="product-item"> <button type="button" name="button" class="btn-like ezp-login-required  btnWishProduct" data-product_no="132">픽템추가</button>
+												<div class="product-image"> <a href="javascript:;" data-product_no="132" class="aDetail"><img src="https://s3.ap-northeast-2.amazonaws.com/bakan/devsdkwms1001/productMain/2019/08/13/f2bf918208f2fcfec0ae5278f19b0dfb" alt=""></a>
+												</div>
+												<p class="product-text"> <em><a href="https://easypick.co.kr/product/seller/front/index?seller_no=363">[디오트] 베이스스토어</a></em> <span><a href="javascript:;" data-product_no="132" class="aDetail">샌디JK</a></span> <strong>39,000</strong>
+												</p>
+												<div class="product-option">
+													<ul>
+														<li><em>분류</em><span><strong>아우터</strong><strong>재킷</strong></span></li>
+														<li><em>색상</em><span>블랙</span></li>
+														<li><em>사이즈</em><span>Free</span></li>
+														<li><em>소재</em><span>폴리우레탄 100%</span></li>
+													</ul>
+												</div>
+												<div class="product-btn-group"> <button type="button" name="button" class="btn-cart">장바구니</button> <button type="button" name="button" class="btn-picktem">픽템추가</button> </div>
+											</div>
+										</div>
+									</div>
+									<!-- 21-01-25 [분류명] 삭제// -->
+									<div class="swiper-pagination"></div>
+									<div class="swiper-button-next2"></div>
+									<div class="swiper-button-prev2"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- 2022-05-27 EZP-5433 품절장바구니 내용 종료 -->
+				</div>
+
+				<div class="tab-cont3">
+		<!-- //20220317 EZP-1526 탭 추가 -->
+				<div class="cart-wrap">
+					<div class="cart-top mb20">
+						<div>
+							<button type="button" name="button" id="btnAllDeleted" class="btn small">장바구니 비우기</button>
+							<button type="button" name="button" id="btnChkDeleted" class="btn small line">선택상품 삭제</button>
+					<!--20220317 EZP-1526 탭 추가 주석처리-->		
+							<!--button type="button" name="button" class="btn small line btnIsReserved" data-is_reserved="T">선택상품 미송</button>
+							<button type="button" name="button" class="btn small line btnIsReserved" data-is_reserved="F">선택상품 환불</button-->
+					<!--// 20220317 EZP-1526 탭 추가 -->
+						</div>
+						<!--div class="tip-wrap">
+							<p><a href="javascript:;" class="btn-tip"></a>미송 정책 관련 안내 보기</p>
+							<div class="tip" style="z-index: 4; display: none;">
+								<p><strong>미송이란?</strong>스토어에서 상품이 일시적으로 품절되는 경우, 입고 지연 일정을<br>안내받은 뒤 상품 재입고 시 전달받을 수 있습니다.<br>
+									상품 주문 전, 처리방법을 미송으로 선택하셔야만 스토어에서 <br>상품 구비 후 발송이 가능하오니 꼭 확인 바랍니다.<br>
+									미송 선택 시에는 주문 취소가 불가하오니 참고 바랍니다.</p>
+								<p>
+									<strong>미송 상품에 대한 환불 정책</strong>미송 상품은 기본적으로 주문 취소가 불가합니다.<br>안내되는 입고 예정일로부터 +1 영업일에 상품 수령이 가능하오며,<br>
+									예정일은 도매처 사정에 따라 변동될 수 있습니다.<br>주문 이후에는 환불이 불가하오니 이 점 또한 참고 바랍니다.</p>
+							</div>
+						</div-->
+					</div>
+					<div class="table-wrap">
+						<table class="th-hor cart">
+							<form name="frmCart" id="frmCart"></form>
+							<input type="hidden" name="commission_rate" value="0">
+							<input type="hidden" name="shipping_price" value="0.00">
+							<!--21-02-23 수정 / colgroup 수정-->
+						<!-- 20220317 EZP-1526  -->
+							<colgroup>
+								<col width="5%">
+								<col width="70%">
+								<col width="10%">
+								<col width="10%">
+								<col width="5%">
+							</colgroup><!--2022-08-03 EZP-3157 colgroup 전체변경-->
+						<!-- // 20220317 EZP-1526  -->
+
+							<!--// 21-02-23 수정 / colgroup 수정-->
+						<!-- 20220317 EZP-1526  -->
+							<thead>
+								<tr>
+									<th><span class="checkbox"><input type="checkbox" id="allChk" class="allChk"><label for="allChk"></label></span></th>
+									<th>상품정보</th>
+									<th>옵션</th>
+									<th>메모</th> <!--2022-06-28 EZP-3528 워딩수정-->
+									<th>삭제</th>
+								</tr>
+							</thead>
+						<!-- //20220317 EZP-1526  -->
+							<!-- //21-01-25 [분류명] 삭제 -->
+						<!--20220315 EZP-1526  -->
+							<tbody id="tbodyCart" class="tbodyCart">
+						<!-- //20220315 EZP-1526, class 추가  -->
+								<tr class="trOrder"> <input type="hidden" name="item_no[]" value="2004"> <input type="hidden" name="item_price[]" value="6000.00"> <input type="hidden" name="min_order_qty[]" value="1">
+									<td><span class="checkbox"><input type="checkbox" class="rowChk" name="cart_no[]" id="7" value="7"><label for="7"></label></span></td>
+									<td class="prd-detail"> <a href="https://easypick.co.kr/product/front/detail?product_no=419" class="img"><img src="https://s3.ap-northeast-2.amazonaws.com/bakan/devsdkwms1001/productMain/2019/09/03/c5dd66068e521d3c6f0608abda2c12c8"
+												alt="80110 두줄츄리닝"></a>
+										<div>
+											<p><a href="https://easypick.co.kr/product/seller/front/index?seller_no=1471">[디오트] 암팡진암팡진암팡진암팡진암팡진암팡진</a></p> <strong><a href="https://easypick.co.kr/product/front/detail?product_no=419">80110 두줄츄리닝두줄츄리닝두줄츄리닝두줄츄리닝두줄츄리닝</a></strong>
+											<em class="price"><i>6,000</i>원</em>
+										</div>
+									</td>
+									<td class="size">
+										<p>블랙<span>Free</span></p>
+									</td>
+						<!-- 20220317 EZP-1526  -->
+									<!--
+									<td>-->
+										<!-- 2021-04-16 EZP-2849 -->
+										<!--div class="amount">
+											<button type="button" class="minus">-</button>
+											<input type="number" name="order_qty[]" value="1" class="eNum eOrderQty" maxlength="4" required="">
+											<button type="button" class="plus">+</button>
+										</div-->
+										<!-- 2021-04-27 EZP-2849 -->
+										<!--em class="min-amount">최소주문수량 2개</em-->
+									<!--/td>
+									<td class="cost"> <span>6,000</span>원 </td>-->
+									<td> 
+										<button type="button" class="memo has-memo ui-popup-open" data-target="#layer_memo" >메모</button> 
+									</td>
+									<!-- <td class="soldout toggle-switch"> <button type="button" class="btn-noshipping btnReserve active"
+											data-is_reserved="T">미송</button> <button type="button" class="btn-refund btnRefund "
+											data-is_reserved="F">환불</button> </td> -->
+						<!-- // 20220317 EZP-1526  -->
+									<td> <a href="#" class="del">삭제</a> </td>
+								</tr>
+								<tr class="trOrder"> <input type="hidden" name="item_no[]" value="1443"> <input type="hidden" name="item_price[]" value="43000.00"> <input type="hidden" name="min_order_qty[]" value="1">
+									<td><span class="checkbox"><input type="checkbox" class="rowChk" name="cart_no[]" id="8" value="8"><label for="8"></label></span></td>
+									<td class="prd-detail"> <a href="https://easypick.co.kr/product/front/detail?product_no=252" class="img"><img src="https://s3.ap-northeast-2.amazonaws.com/bakan/devsdkwms1001/productMain/2019/08/23/0fa3ab87328eab773a3e83f0d43e04ec"
+												alt="스톤BBY"></a>
+										<div>
+											<p><a href="https://easypick.co.kr/product/seller/front/index?seller_no=511">[디오트] 아이유</a></p> <strong><a href="https://easypick.co.kr/product/front/detail?product_no=252">스톤BBY</a></strong> <em class="price"><i>43,000</i>원</em>
+										</div>
+									</td>
+									<td class="size">
+										<p>베이지<span>Free</span></p>
+									</td>
+						<!-- 20220317 EZP-1526  -->
+									<!--td-->
+										<!-- 2021-04-16 EZP-2849 -->
+										<!--div class="amount">
+											<button type="button" class="minus">-</button>
+											<input type="number" name="order_qty[]" value="1" class="eNum eOrderQty" maxlength="4" required="">
+											<button type="button" class="plus">+</button>
+										</div-->
+										<!-- 2021-04-27 EZP-2849 -->
+										<!--em class="min-amount">최소주문수량 2개</em>
+									</td-->
+									<!--
+									<td class="cost"> <span>430,000</span>원 </td>-->
+									<td>
+										<button type="button" class="memo has-memo ui-popup-open  " disabled="disabled" data-target="#layer_memo" >메모</button> 
+									</td>
+									<!-- <td class="soldout toggle-switch"> <button type="button" class="btn-noshipping btnReserve active"
+											data-is_reserved="T">미송</button> <button type="button" class="btn-refund btnRefund "
+											data-is_reserved="F">환불</button> </td> -->
+						<!-- //20220317 EZP-1526  -->
+									<td> <a href="#" class="del">삭제</a> </td>
+								</tr>
+								<!--tr>
+									<td colspan="7" class="cost-cart">
+										<span>판매가합계<em id="emOrderAmount">717,000</em></span>
+										<span>부가가치세<em id="emVatAmount">71,700</em></span>
+										<span style="display: none">서비스이용료<em id="emCommissionAmount">0</em></span>
+										<span>배송비<em id="emShippingPrice">0</em></span>
+										<span class="total">총 합계금액<em id="emPayAmount">788,700</em><i>원</i></span>
+									</td>
+								</tr-->
+							</tbody>
+							<!-- 21-01-25 [분류명] 삭제// -->
+						</table>
+					</div>
+					<div class="btn-wrap tac">
+						<button type="button" name="button" id="btnChkOrder" class="btn">선택상품 주문</button>
+						<button type="button" name="button" id="btnAllOrder" class="btn point">전체상품 주문
+						</button>
+						<button type="button" name="button" id="btnGoShopping" class="btn" style="display: none;">계속 쇼핑하기</button>
+					</div>
+					<div class="more-product-wrap">
+						<div class="pos-rel">
+							<h2 class="more-product-title">이지픽의 다양한 상품</h2> <!-- 2022-05-27 EZP-5433 워딩수정 -->
+							<a href="#" class="prev">이전</a>
+							<a href="#" class="next">다음</a>
+						</div>
+						<div class="product-item-wrap" data-type="thumbnail">
+							<div class="swiper-container3">
+								<!-- //21-01-25 [분류명] 삭제 -->
+								<div class="swiper-wrapper" style="width: 1696px; height: 404px;">
+									<input type="hidden" name="arr_product_no" id="hidArrProductNo" value="547,612,635,193,778,842,651,132">
+									<div class="swiper-slide swiper-slide-visible swiper-slide-active" style="width: 212px; height: 404px;">
+										<div class="product-item"> <button type="button" name="button" class="btn-like ezp-login-required  btnWishProduct" data-product_no="547">픽템추가</button>
+											<div class="product-image"> <a href="javascript:;" data-product_no="547" class="aDetail"><img src="https://s3.ap-northeast-2.amazonaws.com/bakan/devsdkwms1001/productMain/2019/10/11/7e6b638051649e1b98081ca3cef1a4e7" alt=""></a>
+											</div>
+											<p class="product-text"> <em><a href="https://easypick.co.kr/product/seller/front/index?seller_no=880">[디오트] 에잇플랜에잇플랜에잇플랜에잇플랜에</a></em> <span><a href="javascript:;" data-product_no="547" class="aDetail">기모)니트폴라 원피스니트폴라 원피스니트폴라
+														원피스니트폴라 원피스</a></span> <strong>10,000</strong> </p>
+											<div class="product-option">
+												<ul>
+													<li><em>분류</em><span><strong>니트 </strong><strong>니트 원피스</strong></span></li>
+													<li><em>색상</em><span>머스타드,그레이,베이지,블랙,오트밀,핑크</span></li>
+													<li><em>사이즈</em><span>Free</span></li>
+													<li><em>소재</em><span>폴리95%, 스판5%</span></li>
+												</ul>
+											</div>
+											<div class="product-btn-group"> <button type="button" name="button" class="btn-cart">장바구니</button> <button type="button" name="button" class="btn-picktem">픽템추가</button> </div>
+										</div>
+									</div>
+									<div class="swiper-slide swiper-slide-visible" style="width: 212px; height: 404px;">
+										<div class="product-item"> <button type="button" name="button" class="btn-like ezp-login-required  btnWishProduct" data-product_no="612">픽템추가</button>
+											<div class="product-image"> <a href="javascript:;" data-product_no="612" class="aDetail"><img src="https://s3.ap-northeast-2.amazonaws.com/bakan/devsdkwms1001/productMain/2019/10/22/c1d88c82dc8420900c9a5753c73d3206" alt=""></a>
+											</div>
+											<p class="product-text"> <em><a href="https://easypick.co.kr/product/seller/front/index?seller_no=774">[디오트] 파스텔디어</a></em> <span><a href="javascript:;" data-product_no="612" class="aDetail">양기모)아마존MTM</a></span>
+												<strong>13,000</strong> </p>
+											<div class="product-option">
+												<ul>
+													<li><em>분류</em><span><strong>상의</strong><strong>맨투맨</strong></span></li>
+													<li><em>색상</em><span>핑크,연베이지,그레이</span></li>
+													<li><em>사이즈</em><span>Free</span></li>
+													<li><em>소재</em><span>면100%(덤블워싱)</span></li>
+												</ul>
+											</div>
+											<div class="product-btn-group"> <button type="button" name="button" class="btn-cart">장바구니</button> <button type="button" name="button" class="btn-picktem">픽템추가</button> </div>
+										</div>
+									</div>
+									<div class="swiper-slide swiper-slide-visible" style="width: 212px; height: 404px;">
+										<div class="product-item"> <button type="button" name="button" class="btn-like ezp-login-required  btnWishProduct" data-product_no="612">픽템추가</button>
+											<div class="product-image"> <a href="javascript:;" data-product_no="612" class="aDetail"><img src="https://s3.ap-northeast-2.amazonaws.com/bakan/devsdkwms1001/productMain/2019/10/22/c1d88c82dc8420900c9a5753c73d3206" alt=""></a>
+											</div>
+											<p class="product-text"> <em><a href="https://easypick.co.kr/product/seller/front/index?seller_no=774">[디오트] 파스텔디어</a></em> <span><a href="javascript:;" data-product_no="612" class="aDetail">양기모)아마존MTM</a></span>
+												<strong>13,000</strong> </p>
+											<div class="product-option">
+												<ul>
+													<li><em>분류</em><span><strong>상의</strong><strong>맨투맨</strong></span></li>
+													<li><em>색상</em><span>핑크,연베이지,그레이</span></li>
+													<li><em>사이즈</em><span>Free</span></li>
+													<li><em>소재</em><span>면100%(덤블워싱)</span></li>
+												</ul>
+											</div>
+											<div class="product-btn-group"> <button type="button" name="button" class="btn-cart">장바구니</button> <button type="button" name="button" class="btn-picktem">픽템추가</button> </div>
+										</div>
+									</div>
+									<div class="swiper-slide swiper-slide-visible" style="width: 212px; height: 404px;">
+										<div class="product-item"> <button type="button" name="button" class="btn-like ezp-login-required  btnWishProduct" data-product_no="612">픽템추가</button>
+											<div class="product-image"> <a href="javascript:;" data-product_no="612" class="aDetail"><img src="https://s3.ap-northeast-2.amazonaws.com/bakan/devsdkwms1001/productMain/2019/10/22/c1d88c82dc8420900c9a5753c73d3206" alt=""></a>
+											</div>
+											<p class="product-text"> <em><a href="https://easypick.co.kr/product/seller/front/index?seller_no=774">[디오트] 파스텔디어</a></em> <span><a href="javascript:;" data-product_no="612" class="aDetail">양기모)아마존MTM</a></span>
+												<strong>13,000</strong> </p>
+											<div class="product-option">
+												<ul>
+													<li><em>분류</em><span><strong>상의</strong><strong>맨투맨</strong></span></li>
+													<li><em>색상</em><span>핑크,연베이지,그레이</span></li>
+													<li><em>사이즈</em><span>Free</span></li>
+													<li><em>소재</em><span>면100%(덤블워싱)</span></li>
+												</ul>
+											</div>
+											<div class="product-btn-group"> <button type="button" name="button" class="btn-cart">장바구니</button> <button type="button" name="button" class="btn-picktem">픽템추가</button> </div>
+										</div>
+									</div>
+									<div class="swiper-slide swiper-slide-visible" style="width: 212px; height: 404px;">
+										<div class="product-item"> <button type="button" name="button" class="btn-like ezp-login-required  btnWishProduct" data-product_no="612">픽템추가</button>
+											<div class="product-image"> <a href="javascript:;" data-product_no="612" class="aDetail"><img src="https://s3.ap-northeast-2.amazonaws.com/bakan/devsdkwms1001/productMain/2019/10/22/c1d88c82dc8420900c9a5753c73d3206" alt=""></a>
+											</div>
+											<p class="product-text"> <em><a href="https://easypick.co.kr/product/seller/front/index?seller_no=774">[디오트] 파스텔디어</a></em> <span><a href="javascript:;" data-product_no="612" class="aDetail">양기모)아마존MTM</a></span>
+												<strong>13,000</strong> </p>
+											<div class="product-option">
+												<ul>
+													<li><em>분류</em><span><strong>상의</strong><strong>맨투맨</strong></span></li>
+													<li><em>색상</em><span>핑크,연베이지,그레이</span></li>
+													<li><em>사이즈</em><span>Free</span></li>
+													<li><em>소재</em><span>면100%(덤블워싱)</span></li>
+												</ul>
+											</div>
+											<div class="product-btn-group"> <button type="button" name="button" class="btn-cart">장바구니</button> <button type="button" name="button" class="btn-picktem">픽템추가</button> </div>
+										</div>
+									</div>
+									<div class="swiper-slide swiper-slide-visible" style="width: 212px; height: 404px;">
+										<div class="product-item"> <button type="button" name="button" class="btn-like ezp-login-required  btnWishProduct" data-product_no="612">픽템추가</button>
+											<div class="product-image"> <a href="javascript:;" data-product_no="612" class="aDetail"><img src="https://s3.ap-northeast-2.amazonaws.com/bakan/devsdkwms1001/productMain/2019/10/22/c1d88c82dc8420900c9a5753c73d3206" alt=""></a>
+											</div>
+											<p class="product-text"> <em><a href="https://easypick.co.kr/product/seller/front/index?seller_no=774">[디오트] 파스텔디어</a></em> <span><a href="javascript:;" data-product_no="612" class="aDetail">양기모)아마존MTM</a></span>
+												<strong>13,000</strong> </p>
+											<div class="product-option">
+												<ul>
+													<li><em>분류</em><span><strong>상의</strong><strong>맨투맨</strong></span></li>
+													<li><em>색상</em><span>핑크,연베이지,그레이</span></li>
+													<li><em>사이즈</em><span>Free</span></li>
+													<li><em>소재</em><span>면100%(덤블워싱)</span></li>
+												</ul>
+											</div>
+											<div class="product-btn-group"> <button type="button" name="button" class="btn-cart">장바구니</button> <button type="button" name="button" class="btn-picktem">픽템추가</button> </div>
+										</div>
+									</div>
+									<div class="swiper-slide swiper-slide-visible" style="width: 212px; height: 404px;">
+										<div class="product-item"> <button type="button" name="button" class="btn-like ezp-login-required  btnWishProduct" data-product_no="612">픽템추가</button>
+											<div class="product-image"> <a href="javascript:;" data-product_no="612" class="aDetail"><img src="https://s3.ap-northeast-2.amazonaws.com/bakan/devsdkwms1001/productMain/2019/10/22/c1d88c82dc8420900c9a5753c73d3206" alt=""></a>
+											</div>
+											<p class="product-text"> <em><a href="https://easypick.co.kr/product/seller/front/index?seller_no=774">[디오트] 파스텔디어</a></em> <span><a href="javascript:;" data-product_no="612" class="aDetail">양기모)아마존MTM</a></span>
+												<strong>13,000</strong> </p>
+											<div class="product-option">
+												<ul>
+													<li><em>분류</em><span><strong>상의</strong><strong>맨투맨</strong></span></li>
+													<li><em>색상</em><span>핑크,연베이지,그레이</span></li>
+													<li><em>사이즈</em><span>Free</span></li>
+													<li><em>소재</em><span>면100%(덤블워싱)</span></li>
+												</ul>
+											</div>
+											<div class="product-btn-group"> <button type="button" name="button" class="btn-cart">장바구니</button> <button type="button" name="button" class="btn-picktem">픽템추가</button> </div>
+										</div>
+									</div>
+									<div class="swiper-slide swiper-slide-visible" style="width: 212px; height: 404px;">
+										<div class="product-item"> <button type="button" name="button" class="btn-like ezp-login-required  btnWishProduct" data-product_no="612">픽템추가</button>
+											<div class="product-image"> <a href="javascript:;" data-product_no="612" class="aDetail"><img src="https://s3.ap-northeast-2.amazonaws.com/bakan/devsdkwms1001/productMain/2019/10/22/c1d88c82dc8420900c9a5753c73d3206" alt=""></a>
+											</div>
+											<p class="product-text"> <em><a href="https://easypick.co.kr/product/seller/front/index?seller_no=774">[디오트] 파스텔디어</a></em> <span><a href="javascript:;" data-product_no="612" class="aDetail">양기모)아마존MTM</a></span>
+												<strong>13,000</strong> </p>
+											<div class="product-option">
+												<ul>
+													<li><em>분류</em><span><strong>상의</strong><strong>맨투맨</strong></span></li>
+													<li><em>색상</em><span>핑크,연베이지,그레이</span></li>
+													<li><em>사이즈</em><span>Free</span></li>
+													<li><em>소재</em><span>면100%(덤블워싱)</span></li>
+												</ul>
+											</div>
+											<div class="product-btn-group"> <button type="button" name="button" class="btn-cart">장바구니</button> <button type="button" name="button" class="btn-picktem">픽템추가</button> </div>
+										</div>
+									</div>
+									<div class="swiper-slide swiper-slide-visible" style="width: 212px; height: 404px;">
+										<div class="product-item"> <button type="button" name="button" class="btn-like ezp-login-required  btnWishProduct" data-product_no="612">픽템추가</button>
+											<div class="product-image"> <a href="javascript:;" data-product_no="612" class="aDetail"><img src="https://s3.ap-northeast-2.amazonaws.com/bakan/devsdkwms1001/productMain/2019/10/22/c1d88c82dc8420900c9a5753c73d3206" alt=""></a>
+											</div>
+											<p class="product-text"> <em><a href="https://easypick.co.kr/product/seller/front/index?seller_no=774">[디오트] 파스텔디어</a></em> <span><a href="javascript:;" data-product_no="612" class="aDetail">양기모)아마존MTM</a></span>
+												<strong>13,000</strong> </p>
+											<div class="product-option">
+												<ul>
+													<li><em>분류</em><span><strong>상의</strong><strong>맨투맨</strong></span></li>
+													<li><em>색상</em><span>핑크,연베이지,그레이</span></li>
+													<li><em>사이즈</em><span>Free</span></li>
+													<li><em>소재</em><span>면100%(덤블워싱)</span></li>
+												</ul>
+											</div>
+											<div class="product-btn-group"> <button type="button" name="button" class="btn-cart">장바구니</button> <button type="button" name="button" class="btn-picktem">픽템추가</button> </div>
+										</div>
+									</div>
+									<div class="swiper-slide swiper-slide-visible" style="width: 212px; height: 404px;">
+										<div class="product-item"> <button type="button" name="button" class="btn-like ezp-login-required  btnWishProduct" data-product_no="635">픽템추가</button>
+											<div class="product-image"> <a href="javascript:;" data-product_no="635" class="aDetail"><img src="https://s3.ap-northeast-2.amazonaws.com/bakan/devsdkwms1001/productMain/2019/10/24/bc8cb28f8b5f1af6a5c47fe370e34d82" alt=""></a>
+											</div>
+											<p class="product-text"> <em><a href="https://easypick.co.kr/product/seller/front/index?seller_no=6">[프로모션] JC APPAREL</a></em> <span><a href="javascript:;" data-product_no="635" class="aDetail">JC-NT-10044</a></span>
+												<strong>9,500</strong> </p>
+											<div class="product-option">
+												<ul>
+													<li><em>분류</em><span><strong>니트 </strong><strong>니트 티</strong></span></li>
+													<li><em>색상</em><span>블랙,아이보리,연그레이,오트밀,진베이지</span></li>
+													<li><em>사이즈</em><span>Free</span></li>
+													<li><em>소재</em><span>레이온 50%, 폴리 28%, 나일론 22%</span></li>
+												</ul>
+											</div>
+											<div class="product-btn-group"> <button type="button" name="button" class="btn-cart">장바구니</button> <button type="button" name="button" class="btn-picktem">픽템추가</button> </div>
+										</div>
+									</div>
+									<div class="swiper-slide swiper-slide-visible" style="width: 212px; height: 404px;">
+										<div class="product-item"> <button type="button" name="button" class="btn-like ezp-login-required  btnWishProduct" data-product_no="193">픽템추가</button>
+											<div class="product-image"> <a href="javascript:;" data-product_no="193" class="aDetail"><img src="https://s3.ap-northeast-2.amazonaws.com/bakan/devsdkwms1001/productMain/2019/08/20/27200e102515acbfa4980c17d4dacadd" alt=""></a>
+											</div>
+											<p class="product-text"> <em><a href="https://easypick.co.kr/product/seller/front/index?seller_no=146">[디오트] 디제이소나</a></em> <span><a href="javascript:;" data-product_no="193" class="aDetail">루즈단폴라</a></span> <strong>7,000</strong>
+											</p>
+											<div class="product-option">
+												<ul>
+													<li><em>분류</em><span><strong>상의</strong><strong>티셔츠</strong></span></li>
+													<li><em>색상</em><span>아이/블랙,레드,네이비</span></li>
+													<li><em>사이즈</em><span>Free</span></li>
+													<li><em>소재</em><span>면 95%, 폴리우레탄 5%</span></li>
+												</ul>
+											</div>
+											<div class="product-btn-group"> <button type="button" name="button" class="btn-cart">장바구니</button> <button type="button" name="button" class="btn-picktem">픽템추가</button> </div>
+										</div>
+									</div>
+									<div class="swiper-slide swiper-slide-visible" style="width: 212px; height: 404px;">
+										<div class="product-item"> <button type="button" name="button" class="btn-like ezp-login-required  btnWishProduct" data-product_no="778">픽템추가</button>
+											<div class="product-image"> <a href="javascript:;" data-product_no="778" class="aDetail"><img src="https://s3.ap-northeast-2.amazonaws.com/bakan/devsdkwms1001/productMain/2019/11/20/5f8689a5269d5d62b44139e6da30cb08" alt=""></a>
+											</div>
+											<p class="product-text"> <em><a href="https://easypick.co.kr/product/seller/front/index?seller_no=94">[디오트] 달팡</a></em> <span><a href="javascript:;" data-product_no="778" class="aDetail">몽블랑후드m</a></span> <strong>15,000</strong>
+											</p>
+											<div class="product-option">
+												<ul>
+													<li><em>분류</em><span><strong>상의</strong><strong>후드</strong></span></li>
+													<li><em>색상</em><span>아이보리,핑크,브라운</span></li>
+													<li><em>사이즈</em><span>Free</span></li>
+													<li><em>소재</em><span>폴리 100%</span></li>
+												</ul>
+											</div>
+											<div class="product-btn-group"> <button type="button" name="button" class="btn-cart">장바구니</button> <button type="button" name="button" class="btn-picktem">픽템추가</button> </div>
+										</div>
+									</div>
+									<div class="swiper-slide swiper-slide-visible" style="width: 212px; height: 404px;">
+										<div class="product-item"> <button type="button" name="button" class="btn-like ezp-login-required  btnWishProduct" data-product_no="193">픽템추가</button>
+											<div class="product-image"> <a href="javascript:;" data-product_no="193" class="aDetail"><img src="https://s3.ap-northeast-2.amazonaws.com/bakan/devsdkwms1001/productMain/2019/08/20/27200e102515acbfa4980c17d4dacadd" alt=""></a>
+											</div>
+											<p class="product-text"> <em><a href="https://easypick.co.kr/product/seller/front/index?seller_no=146">[디오트] 디제이소나</a></em> <span><a href="javascript:;" data-product_no="193" class="aDetail">루즈단폴라</a></span> <strong>7,000</strong>
+											</p>
+											<div class="product-option">
+												<ul>
+													<li><em>분류</em><span><strong>상의</strong><strong>티셔츠</strong></span></li>
+													<li><em>색상</em><span>아이/블랙,레드,네이비</span></li>
+													<li><em>사이즈</em><span>Free</span></li>
+													<li><em>소재</em><span>면 95%, 폴리우레탄 5%</span></li>
+												</ul>
+											</div>
+											<div class="product-btn-group"> <button type="button" name="button" class="btn-cart">장바구니</button> <button type="button" name="button" class="btn-picktem">픽템추가</button> </div>
+										</div>
+									</div>
+									<div class="swiper-slide swiper-slide-visible" style="width: 212px; height: 404px;">
+										<div class="product-item"> <button type="button" name="button" class="btn-like ezp-login-required  btnWishProduct" data-product_no="778">픽템추가</button>
+											<div class="product-image"> <a href="javascript:;" data-product_no="778" class="aDetail"><img src="https://s3.ap-northeast-2.amazonaws.com/bakan/devsdkwms1001/productMain/2019/11/20/5f8689a5269d5d62b44139e6da30cb08" alt=""></a>
+											</div>
+											<p class="product-text"> <em><a href="https://easypick.co.kr/product/seller/front/index?seller_no=94">[디오트] 달팡</a></em> <span><a href="javascript:;" data-product_no="778" class="aDetail">몽블랑후드m</a></span> <strong>15,000</strong>
+											</p>
+											<div class="product-option">
+												<ul>
+													<li><em>분류</em><span><strong>상의</strong><strong>후드</strong></span></li>
+													<li><em>색상</em><span>아이보리,핑크,브라운</span></li>
+													<li><em>사이즈</em><span>Free</span></li>
+													<li><em>소재</em><span>폴리 100%</span></li>
+												</ul>
+											</div>
+											<div class="product-btn-group"> <button type="button" name="button" class="btn-cart">장바구니</button> <button type="button" name="button" class="btn-picktem">픽템추가</button> </div>
+										</div>
+									</div>
+									<div class="swiper-slide swiper-slide-visible" style="width: 212px; height: 404px;">
+										<div class="product-item"> <button type="button" name="button" class="btn-like ezp-login-required  btnWishProduct" data-product_no="842">픽템추가</button>
+											<div class="product-image"> <a href="javascript:;" data-product_no="842" class="aDetail"><img src="https://s3.ap-northeast-2.amazonaws.com/bakan/devsdkwms1001/productMain/2019/12/02/b80937395438efc93bbf475a34e63372" alt=""></a>
+											</div>
+											<p class="product-text"> <em><a href="https://easypick.co.kr/product/seller/front/index?seller_no=470">[디오트] 슬로우비</a></em> <span><a href="javascript:;" data-product_no="842" class="aDetail">베이글T</a></span> <strong>8,000</strong>
+											</p>
+											<div class="product-option">
+												<ul>
+													<li><em>분류</em><span><strong>상의</strong><strong>티셔츠</strong></span></li>
+													<li><em>색상</em><span>블랙,아이보리,올리브,와인,그레이</span></li>
+													<li><em>사이즈</em><span>Free</span></li>
+													<li><em>소재</em><span>폴리 60%, 레이온 20%, 면 10%, 모달, 6%, 폴리우레탄 4%</span></li>
+												</ul>
+											</div>
+											<div class="product-btn-group"> <button type="button" name="button" class="btn-cart">장바구니</button> <button type="button" name="button" class="btn-picktem">픽템추가</button> </div>
+										</div>
+									</div>
+									<div class="swiper-slide" style="width: 212px; height: 404px;">
+										<div class="product-item"> <button type="button" name="button" class="btn-like ezp-login-required  btnWishProduct" data-product_no="651">픽템추가</button>
+											<div class="product-image"> <a href="javascript:;" data-product_no="651" class="aDetail"><img src="https://s3.ap-northeast-2.amazonaws.com/bakan/devsdkwms1001/productMain/2019/10/25/b9b569f0c663df101f1f02c1add5c3fc" alt=""></a>
+											</div>
+											<p class="product-text"> <em><a href="https://easypick.co.kr/product/seller/front/index?seller_no=6">[프로모션] JC APPAREL</a></em> <span><a href="javascript:;" data-product_no="651" class="aDetail">JC-NT-10110</a></span>
+												<strong>13,300</strong> </p>
+											<div class="product-option">
+												<ul>
+													<li><em>분류</em><span><strong>니트 </strong><strong>니트 베스트</strong></span></li>
+													<li><em>색상</em><span>그레이,아이보리,카멜,핑크</span></li>
+													<li><em>사이즈</em><span>Free</span></li>
+													<li><em>소재</em><span>램스울 27%, 나일론 13%, 아크릴 60%</span></li>
+												</ul>
+											</div>
+											<div class="product-btn-group"> <button type="button" name="button" class="btn-cart">장바구니</button> <button type="button" name="button" class="btn-picktem">픽템추가</button> </div>
+										</div>
+									</div>
+									<div class="swiper-slide" style="width: 212px; height: 404px;">
+										<div class="product-item"> <button type="button" name="button" class="btn-like ezp-login-required  btnWishProduct" data-product_no="132">픽템추가</button>
+											<div class="product-image"> <a href="javascript:;" data-product_no="132" class="aDetail"><img src="https://s3.ap-northeast-2.amazonaws.com/bakan/devsdkwms1001/productMain/2019/08/13/f2bf918208f2fcfec0ae5278f19b0dfb" alt=""></a>
+											</div>
+											<p class="product-text"> <em><a href="https://easypick.co.kr/product/seller/front/index?seller_no=363">[디오트] 베이스스토어</a></em> <span><a href="javascript:;" data-product_no="132" class="aDetail">샌디JK</a></span> <strong>39,000</strong>
+											</p>
+											<div class="product-option">
+												<ul>
+													<li><em>분류</em><span><strong>아우터</strong><strong>재킷</strong></span></li>
+													<li><em>색상</em><span>블랙</span></li>
+													<li><em>사이즈</em><span>Free</span></li>
+													<li><em>소재</em><span>폴리우레탄 100%</span></li>
+												</ul>
+											</div>
+											<div class="product-btn-group"> <button type="button" name="button" class="btn-cart">장바구니</button> <button type="button" name="button" class="btn-picktem">픽템추가</button> </div>
+										</div>
+									</div>
+								</div>
+								<!-- 21-01-25 [분류명] 삭제// -->
+								<div class="swiper-pagination"></div>
+								<div class="swiper-button-next2"></div>
+								<div class="swiper-button-prev2"></div>
+							</div>
+						</div>
+					</div>
+				</div>					
+
+<!--20220317 EZP-1526 탭 추가 -->
+				</div>
+				
+			</div>	
+
+		</div>
+<!-- //20220317 EZP-1526 탭 추가 -->		
+	</div>
+	<!--20220315 EZP-1526 -->
+	<!-- 메모 팝업 레이어 -->
+	<div id="layer_memo" class="ui-popup">
+		<!-- 2022-11-07 EZP-7275 일반 메모가 없는 case -->
+		<div class="content" style="width:560px;" tabindex="-1">
+			<div class="header">
+				<h3>메모</h3> <!-- 2022-06-28 EZP-3528 워딩변경-->
+			</div>
+			<div class="body reconfirm mt20">
+				<div class="txt-cont">
+					<div class="txt-cont reorder">
+						<form id="frmLayerOrderMemoModified" name="frmLayerOrderMemoModified">
+							<input type="hidden" name="reserve_no">
+							<p>
+								<textarea name="order_memo" style="width:100%; height:200px;" placeholder="품목 메모를 작성해주세요."></textarea>
+							</p>
+						</form>
+					</div>
+				</div>
+				<div class="btn_wrap mt40 tac">
+					<button type="button" class="btn medium btn_close" style="width:150px;">취소</button>
+					<button type="button" class="btn point medium btnSave" style="width:150px;" href="#">확인</button>
+				</div>
+			</div>
+			<button type="button" class="btn_close reconfirm"><span>닫기</span></button>
+		</div>
+
+		<!-- 2022-11-07 EZP-7275 일반 메모가 있는 case -->
+		<div class="content" style="width:560px;" tabindex="-1">
+			<div class="header">
+				<h3>메모</h3>
+			</div>
+			<div class="body reconfirm mt20">
+				<div class="txt-cont">
+					<div class="txt-cont reorder">
+						<form id="frmLayerOrderMemoModified" name="frmLayerOrderMemoModified">
+							<input type="hidden" name="reserve_no">
+							<p>
+								<textarea name="order_memo" style="width:100%; height:200px;" placeholder="">메모 입력된 내용 있는 경우 이렇게 표시됩니다.</textarea>
+							</p>
+						</form>
+					</div>
+				</div>
+				<div class="btn_wrap mt40 tac">
+					<button type="button" class="btn medium btn_close" style="width:150px;">취소</button>
+					<button type="button" class="btn point medium btnSave" style="width:150px;" href="#">확인</button>
+				</div>
+			</div>
+			<button type="button" class="btn_close reconfirm"><span>닫기</span></button>
+		</div>
+	</div>
+	<!-- // 20220315 EZP-1526 -->
+
+	<!--2022-11-07 EZP-7275 -->
+	<!-- 구매불가 메모 popup -->
+	<div id="layer_memo2" class="ui-popup">
+
+		<!-- 구매불가 메모정보가 있는 case -->
+		<div class="content" style="width:560px;" tabindex="-1">
+			<div class="header">
+				<h3>메모</h3> <!-- 2022-06-28 EZP-3528 워딩변경-->
+			</div>
+			<div class="body reconfirm mt20">
+				<div class="txt-cont">
+					<div class="txt-cont reorder">
+						<form id="frmLayerOrderMemoModified" name="frmLayerOrderMemoModified">
+							<input type="hidden" name="reserve_no">
+							<p>
+								<textarea name="order_memo" style="width:100%; height:200px;" placeholder="메모 입력된 내용 있는 경우 이렇게 표시됩니다." disabled></textarea>
+							</p>
+						</form>
+					</div>
+				</div>
+				<div class="btn_wrap mt40 tac">
+					<button type="button" class="btn point medium btnSave btn_close" style="width:150px;" href="#">확인</button>
+				</div>
+			</div>
+			<button type="button" class="btn_close reconfirm"><span>닫기</span></button>
+		</div>
+
+		<!-- 구매불가 메모정보가 없는 case -->
+		<div class="content" style="width:560px;" tabindex="-1">
+			<div class="header">
+				<h3>메모</h3> <!-- 2022-06-28 EZP-3528 워딩변경-->
+			</div>
+			<div class="body reconfirm mt20">
+				<div class="txt-cont">
+					<div class="txt-cont reorder">
+						<form id="frmLayerOrderMemoModified" name="frmLayerOrderMemoModified">
+							<input type="hidden" name="reserve_no">
+							<p>
+								<textarea name="order_memo" style="width:100%; height:200px;" placeholder="" disabled></textarea>
+							</p>
+						</form>
+					</div>
+				</div>
+				<div class="btn_wrap mt40 tac">
+					<button type="button" class="btn point medium btnSave btn_close" style="width:150px;" href="#">확인</button>
+				</div>
+			</div>
+			<button type="button" class="btn_close reconfirm"><span>닫기</span></button>
+		</div>
+
+	</div>
+	<!-- //2022-11-07 EZP-7275 -->
+
+	<!-- 주문타입안내 신규 팝업 시작 //-->
+	<div id="orderType" class="ui-popup order-type-pop">
+		<div class="content">
+			<div class="header">
+				<h3>주문타입 안내</h3>
+			</div>
+			<div class="body reconfirm">
+				<div class="item-wrap">
+					<div class="item sellpick">
+						<h3>셀픽주문<span>*수수료 무료</span></h3>
+						<div class="pop-wrap">
+							<div class="icon-area">
+								<p>이지픽 서비스를 이용하여 주문 후<br>
+									가게와 직접 거래하는 셀프픽업 주문방식</p>
+							</div>
+							<ul class="txt-cont">
+								<li>
+									<h4>거래방식</h4>
+									<p>가게와 직거래 방식</p>
+								</li>
+								<li>
+									<h4>결제</h4>
+									<p>직접결제</p>
+									<p style="color:#f9f9f9;">-</p>
+								</li>
+								<li>
+									<h4>상품픽업</h4>
+									<p>직접수령 또는 계약맺고 있는 사입삼촌수령</p>
+								</li>
+								<li>
+									<h4>특징</h4>
+									<p>주문 후 입고, 미송/환불/불량관리, 정산 등<br>
+										전반적인 관리 쇼핑몰 부담</p>
+								</li>
+								<li>
+									<p class="red">주문완료 시 가게와 사입삼촌에게 주문 내용이 전달됩니다.</p>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="item easypick">
+						<h3>이지픽주문<span>*수수료 부과</span></h3>
+						<div class="pop-wrap">
+							<div class="icon-area">
+								<p>주문만 하면 사입부터 정산까지 이지픽 서비스에서<br>
+									대행해드리는 주문방식</p>
+							</div>
+							<ul class="txt-cont">
+								<li>
+									<h4>거래방식</h4>
+									<p>이지픽 사입팀 대행</p>
+								</li>
+								<li>
+									<h4>결제</h4>
+									<p>무통장입금</p>
+									<p class="gray">*선결제 쇼핑몰의 경우 적립금 사용이 가능합니다.</p>
+								</li>
+								<li>
+									<h4>상품픽업</h4>
+									<p>이지픽사입팀이 상품 수령 후 발송</p>
+								</li>
+								<li>
+									<h4>특징</h4>
+									<p>상품입고, 미송/환불/불량관리,<br>
+										정산, 세금계산서 등 모든 관리 가능</p>
+								</li>
+								<li>
+									<p class="red">주문서는 저녁9-10시 경 가게에 전송되어 픽업이 진행됩니다.</p>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<button type="button" class="btn_close reconfirm"><span>닫기</span></button>
+		</div>
+	</div>
+	<!--// 주문타입안내 신규 팝업 종료 -->
+
+	<!--//container -->
+
+	<!-- 2022-09-28 EZP-5935 위치 변경 -->
+	<div class="ui-load" style="position: relative; height: auto;"><img src="https://easypick.co.kr/img/common/loading.svg"></div>
+
+	<!-- footer// -->
+	<footer></footer>
+	<!-- //footer -->
+	<!-- dashboard// -->
+	<div id="dashboard" class=""></div>
+	<!-- //dashboard -->
+
+	<!-- <script type="text/javascript"
+		src="https://easypick.co.kr/optimizer.php?filename=nZJBTsQwDEX3o2w5h9UdHIIdF3BSt-M2iYudqDOcniJgMVM0bZEsZfNe7G8ZzpIIPI6YoVNMNIuOoGRSNRAMBtw8ZzfYEzwmK08YRhjeK-n152lcs9Q_5VPiXrHQvZ7IbubrOBbSFcVtG9dhauEIUQJGOmJ4ldmWJlZEsV-p9DHdOgyR_W-Oyi5x3ulg24ZIqAeU7zbOgkqM_pBqM0-kJ6aXA9LbTJRf8bJTCZKSZNep5LIDX7a1DU3Vb1F2lmmT4T7DOsSjS_j72u4_9vVKCgG1LBuzr9if&amp;type=js&amp;k=fef8ee2303b6cca2e0b16f2b3969a9dbb168ff20&amp;t=1591245235">
+	</script> -->
+	<!-- 21-01-18 수정-->
+	<script src="../../../../js/jquery.min.js"></script>
+	<!--jquery default-->
+	<script src="../../../../js/jquery-ui.min.js"></script>
+	<script src="../../../../js/swiper-ie9.min.js"></script>
+	<script src="../../../../js/default.input.js"></script> <!-- 2022-10-04 -->
+	<script src="../../../../js/addclear.min.js"></script>
+	<script src="../../../../js/common.front.js"></script>
+	<script src="../../../../js/ui.js"></script>
+	<script src="../../../../js/pub.js"></script>
+	<script src="../../../../js/jquery.scrollbar.min.js"></script>
+
+	<script src="../../../../js/test.js"></script>
+
+	<!-- //21-01-18 수정-->
+
+	<!-- //21-01-18 수정-->
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('header').load('../../../include/header.html');
+			$('footer').load('../../../include/footer.html');
+			$('#dashboard').load('../../../include/dashboard.html');
+
+			// -- 21-02-26 수정, 기존과 동일한 소스
+
+			// 2021-04-13 EZP-2726
+			var swiper3 = new Swiper('.swiper-container3', {
+				slidesPerView: 7, //21-02-26 perview 변경
+				navigation: {
+					nextEl: '.swiper-button-next2',
+					prevEl: '.swiper-button-prev2',
+				},
+				pagination: '.swiper-pagination',
+			});
+			$('.more-product-wrap .prev').click(function() {
+				var nextIndex = swiper3.activeIndex - 1;
+				var nextLoopIndex = 0;
+				if(nextIndex > 0 && nextIndex < 6 ){
+					nextLoopIndex = 0;
+				}else{
+					nextLoopIndex = nextIndex < 0 ? swiper3.slides.length - 1 : nextIndex - 6;
+				}
+				swiper3.swipeTo(nextLoopIndex);
+				return false;
+			});
+
+			$('.more-product-wrap .next').click(function() {
+
+				var nextIndex = swiper3.activeIndex + 1,
+					nextLoopIndex = nextIndex + swiper3.params.slidesPerView > swiper3.slides.length ? 0 : nextIndex + 6;
+				swiper3.swipeTo(nextLoopIndex);
+				return false;
+			});
+			// -- // 21-02-26 수정
+			
+			// 2022-06-07 EZP-5433 툴팁관련
+			$('.btn-tip').on('mouseover', function() {
+				$('.tip').show();
+			});
+			$('.btn-tip').on('mouseleave', function() {
+				$('.tip').hide();
+			});
+
+			//셀픽/이지픽 스위치
+			$(".cart-switch .slider").click(function () {
+				$(".cart-switch input").is(":checked") == false ? $(".typeName").text("이지픽") : $(".typeName").text("셀픽");
+			});
+		});
+	</script>
+	<!-- <script type="text/javascript">
+		LocalStorage.set("csrf-token", "ZiRW+feekzSS8TtN8Cq4vbMhyPvlxAgbsrNCw/pt+hM=", "ses");
+	</script> -->
+
+
+	<div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+		<div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+	</div>
+	<!-- 2022-09-28 서버 확인때문에 위치 변경 
+	<div class="ui-load"><img src="https://easypick.co.kr/img/common/loading.svg"></div>
+	-->
+</body>
+
+</html>

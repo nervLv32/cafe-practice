@@ -1,0 +1,115 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Cafe24</title>
+    <link rel="stylesheet" href="./js/tree/default/style.min.css" />
+    <style>
+        html,
+        body {
+            display: flex;
+            flex: 1;
+            margin: 0;
+            padding: 0;
+            font-size: 10px;
+        }
+
+        #app {
+            display: flex;
+            flex: 1;
+        }
+
+        .tree {
+            display: flex;
+            flex-direction: column;
+            min-width: 25rem;
+            max-width: 25rem;
+            border-right: .1rem solid #efebef;
+            overflow-y: scroll;
+        }
+
+        .tree-title {
+            font: bold 15px/15px 'sans-serif';
+            margin: 0;
+            margin-bottom: 10px;
+            padding: 23px 7px 22px;
+            color: #616161;
+            border-bottom: 1px solid #e9e9e9;
+        }
+
+        .content {
+            display: flex;
+            flex: 1;
+        }
+
+        /*****************
+       tree style
+      ******************/
+
+        .jstree-default .jstree-anchor {
+            font-size: 1.2rem;
+        }
+
+        #tree>.jstree-container-ul>.jstree-node:last-child {
+            padding-bottom: 10rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div class="tree">
+            <div class="tree-title">EASYPICK 세금계산서 요청서 MOBILE</div>
+            <div id="tree"></div>
+        </div>
+        <div class="content">
+            <iframe id="path" style="border-style: none; width: 100%; height: 100%;" src="./ui/guidemain/index.html">
+            </iframe>
+        </div>
+    </div>
+    <script src="./js/libs/jquery.min.js"></script>
+    <script src="./js/tree/jstree.min.js"></script>
+    <script>
+        $('#tree')
+            .on("changed.jstree", function (e, data) {
+                var url = data.instance.get_node(data.selected[0]).data
+                // if(data.selected.length && url) {
+                //   $('#path').attr('src', url)
+                // }
+                if(url !== null) {
+                    window.open(url, '_blank');
+                }
+            })
+            .jstree({
+                'core': {
+                    'data': [
+                        // 기본부가기능
+                        {
+                            "text": "화면리스트",
+                            "state": { "opened": true },
+                            "children": [
+                                {
+                                    "text": "쇼핑몰별",
+                                    "data": "./ui/쇼핑몰별.html"
+                                },
+                                {
+                                    "text": "쇼핑몰별 상세페이지",
+                                    "data": "./ui/쇼핑몰별_상세페이지.html"
+                                },
+                                {
+                                    "text": "요청자",
+                                    "data": "./ui/요청자.html"
+                                },
+                                {
+                                    "text": "이체내역",
+                                    "data": "./ui/이체내역.html"
+                                },
+                            ]
+                        },
+                    ]
+                }
+            });
+    </script>
+</body>
+
+</html>

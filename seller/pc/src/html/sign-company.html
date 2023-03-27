@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="shortcut icon" type="image/x-icon" href="/img/favicon/ezp.ico">
+
+	<link rel="stylesheet" type="text/css" href="../css/pc/default.css">
+
+	<script type="text/javascript" src="../js/pc/jquery-3.5.1.min.js"></script>
+	<script type="text/javascript" src="../js/pc/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="../js/pc/swiper-bundle.min.js"></script>
+	<script type="text/javascript" src="../js/pc/common_front.js"></script>
+	<script type="text/javascript" src="../js/pc/ui.js"></script>
+	<script type="text/javascript" src="../js/pc/pub.js"></script>
+
+	<title>회원가입</title>
+</head>
+<body>
+	<div id="member">
+		<div class="member-logo">
+			<a href="#"><img src="../img/common/logo-small.svg" alt="easypick seller"></a> <!-- 2021-03-10 수정 -->
+		</div>
+
+		<h2>회원가입</h2>
+
+		<div class="step">
+			<div class="step1">
+				<span>01. 내 가게 찾기</span>
+			</div>
+			<i></i>
+			<div class="step2">
+				<span>02. 이용약관 동의</span>
+			</div>
+			<i></i>
+			<div class="step3 active">
+				<span>03. 가입정보 입력</span>
+			</div>
+			<i></i>
+			<div class="step4">
+				<span>04. 신청완료</span>
+			</div>
+		</div>
+
+		<div class="member-info-wrap">
+			<div class="member-info-group">
+				<table>
+					<colgroup>
+						<col width="160px">
+						<col>
+					</colgroup>
+					<tbody>
+						<tr>
+							<th>가게명 <span class="necessary">*</span></th>
+							<td>
+								<input type="text" name="" value="" class="gray" placeholder="가게명을 입력해 주세요.">
+							</td>
+						</tr>
+						<tr>
+							<th>가게주소 <span class="necessary">*</span></th>
+							<td>
+								<div class="member-address">
+									<div class="ui-select gray mr5">
+										<button type="button">디오트</button>
+										<ul>
+											<li class="active">디오트</li>
+											<li>디오트</li>
+											<li>디오트</li>
+										</ul>
+									</div>
+									<div class="ui-select gray mr5">
+										<button type="button">B1</button>
+										<ul>
+											<li class="active">B1</li>
+											<li>B1</li>
+											<li>B1</li>
+										</ul>
+									</div>
+									<!-- 2021-02-23 수정 -->
+									<span class="mr5">층</span>
+									<input type="text" name="" value="" placeholder="" class="gray mr5">
+									<span class="mr5">열</span>
+									<input type="text" name="" value="" placeholder="" class="gray mr5">
+									<span>호</span>
+									<!-- //2021-02-23 수정 -->
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<th>사업자 구분 <span class="necessary">*</span></th>
+							<td>
+								<div class="radio-wrap">
+									<span class="radio mr70">
+										<input type="radio" name="radio1" id="r11" checked="">
+										<label for="r11">개인 사업자</label>
+									</span>
+									<span class="radio">
+										<input type="radio" name="radio1" id="r21">
+										<label for="r21">법인 사업자</label>
+									</span>
+								</div>
+							</td>
+						</tr>
+						<!-- <tr>
+							<th>대표자명 <span class="necessary">*</span></th>
+							<td>
+								<input type="text" name="" value="" class="gray" placeholder="사업자등록증에 기재된 대표자명 입력">
+							</td>
+						</tr> -->
+
+						<!--21-02-18 수정 / placeholder 문구 수정-->
+						<!-- 법인// -->
+						<tr>
+							<th>법인명 <span class="necessary">*</span></th>
+							<td>
+								<input type="text" name="" value="" class="gray" placeholder="사업자등록증에 기재된 법인명 입력">
+							</td>
+						</tr>
+						<!-- //법인 -->
+
+						<!-- <tr>
+							<th>상호 <span class="necessary">*</span></th>
+							<td>
+								<input type="text" name="" value="" class="gray" placeholder="사업자등록증에 기재된 상호명 입력">
+							</td>
+						</tr> -->
+
+						<!--21-02-17 수정 / placeholder 문구 수정-->
+						<!-- 법인// -->
+						<tr>
+							<th>법인등록번호 <span class="necessary">*</span></th>
+							<td>
+								<input type="text" name="" value="" class="gray" placeholder="사업자등록증에 기재된 법인등록번호 입력">
+							</td>
+						</tr>
+						<!-- //법인 -->
+						<!-- 21-02-17 수정 / placeholder 문구 수정-->
+						<tr>
+							<th>사업자등록번호 <span class="necessary">*</span></th>
+							<td>
+								<div class="biz-num">
+									<input type="text" name="" value="" class="gray" placeholder="사업자등록증번호 입력">
+									<button type="button" name="button" class="btn medium">조회</button>
+									<!-- <p class="error">유효한 사업자등록번호가 아닙니다. 다시 확인해주세요.</p> -->
+								</div>
+							</td>
+						</tr>
+						<!-- // 21-02-17 수정 / placeholder 문구 수정-->
+						<tr>
+							<th>사업자등록증 <span class="necessary">*</span></th>
+							<td>
+								<div class="ui-file img" data-type="only" data-preview="true">
+									<ul class="list"></ul>
+									<div class="btn">
+										<label><input type="file"></label>
+									</div>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<th>사업장 주소 <span class="necessary">*</span></th>
+							<td>
+								<div class="company-address">
+									<div class="top">
+										<input type="text" name="" value="" class="gray" placeholder="우편번호 입력">
+										<button type="button" name="button" class="btn medium">우편번호 찾기</button>
+									</div>
+									<input type="text" name="" value="" class="gray" placeholder="주소 입력">
+									<input type="text" name="" value="" class="gray" placeholder="상세주소 입력">
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<th>계좌정보</th>
+							<td>
+								<div class="bank-title">① 공통 <span class="necessary">*</span></div>
+								<div class="bank-wrap mb15">
+									<div class="ui-select gray">
+										<button type="button">은행 선택</button>
+										<ul>
+											<li class="active">은행 선택</li>
+											<li>은행 선택</li>
+											<li>은행 선택</li>
+										</ul>
+									</div>
+									<input type="text" name="" value="" class="gray" placeholder="예금주명 입력">
+									<input type="text" name="" value="" class="gray w310" placeholder="사업자 명의 계좌번호 입력">
+								</div>
+								<div class="bank-title">② 부가세 전용 <em>(선택)</em></div> <!-- 2021-02-04 수정 -->
+								<div class="bank-wrap">
+									<div class="ui-select gray">
+										<button type="button">은행 선택</button>
+										<ul>
+											<li class="active">은행 선택</li>
+											<li>은행 선택</li>
+											<li>은행 선택</li>
+										</ul>
+									</div>
+									<input type="text" name="" value="" class="gray" placeholder="예금주명 입력">
+									<input type="text" name="" value="" class="gray w310" placeholder="사업자 명의 계좌번호 입력">
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<th>아이디(이메일) <span class="necessary">*</span></th>
+							<td>
+								<div class="email">
+									<input type="text" name="" value="" class="gray w220" placeholder="아이디">
+									<em>@</em>
+									<div class="ui-select gray w240">
+										<button type="button">네이버</button>
+										<ul>
+											<li class="active">네이버</li>
+											<li>네이버</li>
+											<li data-key="direct" class="">직접입력</li><!-- 2021-02-15 수정 -->
+										</ul>
+									</div>
+									<input type="text" name="" value="" id="dr" class="gray w215" placeholder="직접입력" style="display:none"><!-- 2021-02-15 수정 -->
+									<button type="button" name="button" class="btn medium">중복체크</button>
+									<!-- <p class="error">이미 가입된 이메일입니다. 다시 확인해주세요</p> -->
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<th>비밀번호 <span class="necessary">*</span></th>
+							<td>
+								<div class="pw-wrap">
+									<input type="password" name="" value="" class="gray mr5" placeholder="영문, 숫자, 특수문자 중 2가지 이상 조합, 6~16자">
+									<!-- <p class="correct">사용 가능한 비밀번호입니다.</p> -->
+									<input type="password" name="" value="" class="gray mr5" placeholder="비밀번호 확인">
+									<!-- <p class="error">비밀번호가 일치하지 않습니다. 다시 확인해주세요.</p> -->
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<th>가입자 이름 <span class="necessary">*</span></th>
+							<td>
+								<input type="text" name="" value="" class="gray" placeholder="가입자 이름 입력">
+							</td>
+						</tr>
+						<tr>
+							<th>사업자 구분 <span class="necessary">*</span></th>
+							<td>
+								<div class="radio-wrap">
+									<span class="radio mr70">
+										<input type="radio" name="radio" id="r1" checked="">
+										<label for="r1">온라인</label>
+									</span>
+									<span class="radio">
+										<input type="radio" name="radio" id="r2">
+										<label for="r2">오프라인</label>
+									</span>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<th>휴대폰 번호 <span class="necessary">*</span></th>
+							<td>
+								<!-- 2021-05-11 EZP-2831 -->
+								<div class="phone-wrap top">
+									<p>알림톡 전용 <em>(최소 1개 ~ 최대 5개까지 등록 가능합니다.)</em></p>
+									<div class="item">
+										<span class="radio mr70">
+											<input type="radio" name="radio1" id="radio1" checked>
+											<label for="radio1">대표지정</label>
+										</span>
+										<div class="ui-select gray">
+											<button type="button">010</button>
+											<ul>
+												<li class="active">010</li>
+												<li>010</li>
+												<li>010</li>
+											</ul>
+										</div>
+										<input type="text" name="" value="1234" class="gray">
+										<input type="text" name="" value="5678" class="gray">
+										<div class="btn-wrap">
+											<button type="button" name="button" class="btn-round line green btn-add">추가</button>
+										</div>
+									</div>
+								</div>
+								<!-- <div class="phone-wrap">
+									<p>
+										세금계산서 전용
+										<span class="checkbox">
+											<input type="checkbox" name="" id="c1">
+											<label for="c1">알림톡 번호와 동일</label>
+										</span>
+									</p>
+									<div class="ui-select gray">
+										<button type="button">010</button>
+										<ul>
+											<li class="active">010</li>
+											<li>010</li>
+											<li>010</li>
+										</ul>
+									</div>
+									<input type="text" name="" value="1234" class="gray">
+									<input type="text" name="" value="5678" class="gray">
+								</div> -->
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+		<div class="btn-wrap center">
+			<a href="#" class="btn gray big">이전</a>
+			<a href="#" class="btn point big">다음</a>
+		</div>
+
+	</div>
+
+	<footer></footer>
+
+	<!-- 2021-04-09 EZP-2532 -->
+	<div class="ui-popup" id="preview">
+		<div class="content" style="max-width:700px; height: auto;">
+			<button type="button" class="btn-close">닫기</button>
+			<div class="header">
+				<p>미리보기</p>
+			</div>
+			<div class="body p0">
+				<img src="" alt="이미지 미리보기">
+			</div>
+			<div class="btn-wrap">
+				<button type="button" name="button" class="btn-close">닫기</button>
+			</div>
+		</div>
+	</div>
+
+	
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('footer').load('include/footer.html');
+
+			$('#check-all').click( function() {
+				if ($('#check-all').prop('checked')) {
+					$('input[name=check]').prop('checked', true);
+				} else {
+					$('input[name=check]').prop('checked', false);
+				}
+		    });
+			$('input[name=check]').click( function() {
+				if ($('input[name=check]').prop('checked').length == 3) {
+					$('#check-all').prop('checked', true);
+				} else {
+					$('#check-all').prop('checked', false);
+				}
+		    });
+
+			// 2021-02-15 추가
+			$(".email .ui-select li").on('click',function () {
+				if($(this).is('[data-key=direct]')){
+					$("#dr").show();
+				}else{
+					$("#dr").hide();
+				}
+			});
+		});
+
+		// 2021-05-11 EZP-2831
+		var clone_item ='<div class="item"><span class="radio mr70"><input type="radio" name="radio1" id="radio1"><label for="radio1">대표지정</label></span><div class="ui-select gray"><button type="button">010</button><ul><li class="active">010</li><li>010</li><li>010</li></ul></div><input type="text" name="" class="gray"><input type="text" name="" class="gray"><div class="btn-wrap"><button type="button" name="button" class="btn-round line green btn-add">추가</button><button type="button" name="button" class="btn-round line red btn-del">삭제</button></div></div>';
+		$(document).on('click','.phone-wrap.top .item .btn-add', function(){
+			if( $('.phone-wrap.top .item').length >= 5) return false;
+			$(this).parents('.item').after(clone_item);
+			$(this).parent().hide();
+			if( $('.phone-wrap.top .item').length == 5) {
+	      $(this).parents('.item').next().find('.btn-add').remove();
+	    }
+		})
+
+		$(document).on('click','.phone-wrap.top .item .btn-del', function(){
+			$(this).parents('.item').prev('.item').addClass('asd').find('.btn-wrap').show();
+			$(this).parents('.item').remove();
+		})
+	</script>
+</body>
+</html>

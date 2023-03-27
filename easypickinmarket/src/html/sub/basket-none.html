@@ -1,0 +1,492 @@
+{% extends "../_templates/layout.njk" %}
+{% block content %}
+
+<!-- 2022 08 01 .img-wrap 추가 -->
+<div class="wrapper img-wrap" id="wrap">
+    <div class="content" id="content">
+        <div class="content-head">
+            <div class="page-title">
+                <h3 class="h3-tit">장바구니</h3>
+                <a href="#" class="btn-manual" target="_blank" title="매뉴얼">매뉴얼</a>
+                <div class="form-box">
+                    <form onsubmit="return submitHandler();">
+                        <fieldset>
+                            <legend class="skip">통합검색</legend>
+                            <label for="total-search" class="skip">검색어 입력</label>
+                            <input type="search" name="total-search" id="total-search" title="검색어 입력" class="text"
+                                placeholder="상품을 검색해보세요.">
+                            <input type="submit" value="검색" class="submit">
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+            <div class="cont-info-right">
+                <ul class="breadcrumb">
+                    <li>공급</li>
+                    <li class="now" title="현재 페이지">장바구니</li>
+                </ul>
+            </div>
+        </div>
+        <div class="basket-guide-info">
+            <div class="guide">
+                <span>이지픽주문과 셀픽주문의 차이점이 궁금하신가요?</span>
+                <!-- 2022 08 16 class 수정 -->
+                <a href="javascript: void(0);" class="question-mark" onclick="targetModalPopup('modal-order-type')">툴팁</a>
+            </div>
+            <div class="txt-box cart-type01">
+                <ul class="btn-wrap">
+                    <li class="on"><a href="javascript:void(0);">셀픽주문</a></li>
+                    <li><a href="javascript: void(0);" onclick="targetModalPopup('direct-order-modal-case03')">이지픽주문</a></li>
+                </ul>
+                <p>셀픽주문으로 진행하실 장바구니 입니다.</p>
+            </div>
+        </div>
+        <div class="tab-top-round">
+            <ul class="tab-rounds tab">
+                <li data-tab="conttab1" class="active">
+                    <a href="javascript: void(0);"><span>장바구니</span></a>
+                </li>
+                <li data-tab="conttab2">
+                    <a href="javascript: void(0);">불량 장바구니</a>
+                </li>
+                <li data-tab="conttab3">
+                    <a href="javascript: void(0);">샘플 장바구니</a>
+                </li>
+            </ul>
+        </div>
+        <div class="tab-content tabCont tableType01" id="conttab1">
+            <div class="gridTableArea posr">
+                <div class="table-top-info">
+                    <div class="top-txt-inline">
+                        <span class="txt-inline">총 <strong>1,000</strong>건
+                    </div>
+                </div>
+                <div class="tround-box">
+                    <div class="tbl-round">
+                        <div class="tbl-info-area">
+                            <div class="btns-multi f-left">
+                                <button type="button" name="button" class="btn btn-sm btn-primary">선택상품 삭제</button>
+                            </div>
+                        </div>
+                        <!-- 그리드 테이블-->
+                        <table class="tbl-list-view pdtype">
+                            <colgroup>
+                                <col style="width: 50px;">
+                                <col style="width: auto;">
+                                <col style="width: 200px;">
+                                <col style="width: 200px">
+                                <col style="width: 200px">
+                                <col style="width: 100px">
+                                <col style="width: 90px;">
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th>
+                                        <div class="form-control check-one">
+                                            <label>
+                                                <input type="checkbox" >
+                                                <span>체크</span>
+                                            </label>
+                                        </div>
+                                    </th>
+                                    <th>상품정보</th>
+                                    <th>옵션</th>
+                                    <th>주문수량</th>
+                                    <th>판매가 합계</th>
+                                    <th>메모</th>
+                                    <th>삭제</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="empty">
+                                    <td colspan="7">
+                                        <div class="txt">
+                                            <i><img src="../assets/images/guide-ico.png" alt="guide-icon"></i>
+                                            <span>장바구니가 비었습니다.</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <!-- //그리드 테이블-->
+                    </div>
+                </div>
+                <div class="btn-submit-wrap">
+                    <a href="javascript:void(0);" class="btn btn-lg btn-sub-primary">계속 쇼핑하기</a>
+                </div>
+            </div>
+        </div>
+        <div class="tab-content tabCont hidden tableType01" id="conttab2">
+            <div class="gridTableArea posr">
+                <div class="table-top-info">
+                    <div class="top-txt-inline">
+                        <span class="txt-inline">총 <strong>1,000</strong>건
+                    </div>
+                </div>
+                <div class="tround-box">
+                    <div class="tbl-round">
+                        <div class="tbl-info-area">
+                            <div class="btns-multi f-left">
+                                <button type="button" name="button" class="btn btn-sm btn-primary">선택상품 삭제</button>
+                            </div>
+                        </div>
+                        <!-- 그리드 테이블-->
+                        <table class="tbl-list-view pdtype">
+                            <colgroup>
+                                <col style="width: 50px;">
+                                <col style="width: auto;">
+                                <col style="width: 200px;">
+                                <col style="width: 200px">
+                                <col style="width: 200px">
+                                <col style="width: 100px">
+                                <col style="width: 90px;">
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th>
+                                        <div class="form-control check-one">
+                                            <label>
+                                                <input type="checkbox" >
+                                                <span>체크</span>
+                                            </label>
+                                        </div>
+                                    </th>
+                                    <th>상품정보</th>
+                                    <th>옵션</th>
+                                    <th>불량수량</th>
+                                    <th>판매가 합계</th>
+                                    <th>메모</th>
+                                    <th>삭제</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="empty">
+                                    <td colspan="7">
+                                        <div class="txt">
+                                            <i><img src="../assets/images/guide-ico.png" alt="guide-icon"></i>
+                                            <span>장바구니가 비었습니다.</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <!-- //그리드 테이블-->
+                    </div>
+                </div>
+                <div class="btn-submit-wrap">
+                    <a href="javascript:void(0);" class="btn btn-lg btn-sub-primary">계속 쇼핑하기</a>
+                </div>
+            </div>
+        </div>
+        <div class="tab-content tabCont hidden tableType01" id="conttab3">
+            <div class="gridTableArea posr">
+                <div class="table-top-info">
+                    <div class="top-txt-inline">
+                        <span class="txt-inline">총 <strong>1,000</strong>건
+                    </div>
+                </div>
+                <div class="tround-box">
+                    <div class="tbl-round">
+                        <div class="tbl-info-area">
+                            <div class="btns-multi f-left">
+                                <button type="button" name="button" class="btn btn-sm btn-primary">선택상품 삭제</button>
+                            </div>
+                        </div>
+                        <!-- 그리드 테이블-->
+                        <table class="tbl-list-view pdtype">
+                            <colgroup>
+                                <col style="width: 50px;">
+                                <col style="width: auto;">
+                                <col style="width: 150px;">
+                                <col style="width: 150px;">
+                                <col style="width: 90px;">
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th>
+                                        <div class="form-control check-one">
+                                            <label>
+                                                <input type="checkbox" >
+                                                <span>체크</span>
+                                            </label>
+                                        </div>
+                                    </th>
+                                    <th>상품정보</th>
+                                    <th>옵션</th>
+                                    <th>메모</th>
+                                    <th>삭제</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="empty">
+                                    <td colspan="5">
+                                        <div class="txt">
+                                            <i><img src="../assets/images/guide-ico.png" alt="guide-icon"></i>
+                                            <span>장바구니가 비었습니다.</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <!-- //그리드 테이블-->
+                    </div>
+                </div>
+                <div class="btn-submit-wrap">
+                    <a href="javascript:void(0);" class="btn btn-lg btn-sub-primary">계속 쇼핑하기</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- prd slide -->
+        <div class="prid6-slide-wrap">
+            <div class="slide-title-box">
+                <dl>
+                    <dt>이지픽의 다양한 상품</dt>
+                    <dd>
+                        <a href="#">
+                            <span>더보기</span>
+                            <i><img src="../assets/images/icons/detail-slide-arrow.png" alt="slide viewmore arrow"></i>
+                        </a>
+                    </dd>
+                </dl>
+                <div class="prd-slide-arrow">
+                    <span class="prd-slide-prev">
+                        <i><img src="../assets/images/icons/prd-slide-prev.png" alt="prd slide arrow"></i>
+                    </span>
+                    <span class="prd-slide-next">
+                        <i><img src="../assets/images/icons/prd-slide-next.png" alt="prd slide arrow"></i>
+                    </span>
+                </div>
+            </div>
+            <ul id="prd7-slide" class="prd7-slide">
+                <li>
+                    <ul class="prd-grid-wrap prd-grid7-wrap">
+                        <li>
+                            <div>
+                              <div class="img-box sold-out">
+                                <a href="#" style="background-image : url('../assets/images/goods-images/goods-img23.png');"></a>
+                                <div class="like-btn active"></div>
+                              </div>
+                              <div class="text-box">
+                                <a href="#" class="prd-cate">[디오트] 라이트워터</a>
+                                <a href="#" class="prd-name">빈티지 캔버스 스니커즈 뮬</a>
+                                <b class="prd-price">29,000</b>
+                              </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                              <!-- 2023-01-03 EZP-6829 soldout + sample case 추가 -->
+                              <div class="img-box sold-out sample">
+                                <a href="https://www.naver.com" style="background-image : url('../assets/images/goods-images/goods-img-horizon.png');"></a>
+                                <div class="like-btn active"></div>
+                              </div>
+                              <div class="text-box">
+                                <a href="https://www.daum.net" class="prd-cate">[디오트] 라이트워터</a>
+                                <a href="https://www.google.co.kr" class="prd-name">빈티지 캔버스 스니커즈 뮬</a>
+                                <b class="prd-price">29,000</b>
+                              </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                              <!-- 2023-01-03 EZP-6829 sample case 추가 -->
+                              <div class="img-box sample">
+                                <a href="#" style="background-image : url('../assets/images/goods-images/goods-img02.png');"></a>
+                                <div class="like-btn"></div>
+                              </div>
+                              <div class="text-box">
+                                <a href="#" class="prd-cate">[디오트] 라이트워터</a>
+                                <a href="#" class="prd-name">빈티지 캔버스 스니커즈 뮬</a>
+                                <b class="prd-price">29,000</b>
+                              </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                              <div class="img-box">
+                                <a href="#" style="background-image : url('../assets/images/goods-images/goods-img28.png');"></a>
+                                <div class="like-btn"></div>
+                              </div>
+                              <div class="text-box">
+                                <a href="#" class="prd-cate">[디오트] 라이트워터</a>
+                                <a href="#" class="prd-name">빈티지 캔버스 스니커즈 뮬</a>
+                                <b class="prd-price">29,000</b>
+                              </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                              <div class="img-box">
+                                <a href="#" style="background-image : url('../assets/images/goods-images/goods-img24.png');"></a>
+                                <div class="like-btn"></div>
+                              </div>
+                              <div class="text-box">
+                                <a href="#" class="prd-cate">[디오트] 라이트워터</a>
+                                <a href="#" class="prd-name">빈티지 캔버스 스니커즈 뮬</a>
+                                <b class="prd-price">29,000</b>
+                              </div>
+                            </div>
+                        </li>
+                        <li>
+                          <div>
+                            <div class="img-box">
+                              <a href="#" style="background-image : url('../assets/images/goods-images/goods-img14.png');"></a>
+                              <div class="like-btn active"></div>
+                            </div>
+                            <div class="text-box">
+                              <a href="#" class="prd-cate">[디오트] 라이트워터</a>
+                              <a href="#" class="prd-name">빈티지 캔버스 스니커즈 뮬</a>
+                              <b class="prd-price">29,000</b>
+                            </div>
+                          </div>
+                      </li>
+                        <li>
+                            <div>
+                              <div class="img-box">
+                                <a href="#" style="background-image : url('../assets/images/goods-images/goods-img25.png');"></a>
+                                <div class="like-btn"></div>
+                              </div>
+                              <div class="text-box">
+                                <a href="#" class="prd-cate">[디오트] 라이트워터</a>
+                                <a href="#" class="prd-name">빈티지 캔버스 스니커즈 뮬</a>
+                                <b class="prd-price">29,000</b>
+                              </div>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <ul class="prd-grid-wrap prd-grid7-wrap">
+                        <li>
+                            <div>
+                              <div class="img-box">
+                                <a href="#" style="background-image : url('../assets/images/goods-images/goods-img11.png');"></a>
+                                <div class="like-btn active"></div>
+                              </div>
+                              <div class="text-box">
+                                <a href="#" class="prd-cate">[디오트] 라이트워터</a>
+                                <a href="#" class="prd-name">빈티지 캔버스 스니커즈 뮬</a>
+                                <b class="prd-price">29,000</b>
+                              </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                              <div class="img-box">
+                                <a href="#" style="background-image : url('../assets/images/goods-images/goods-img14.png');"></a>
+                                <div class="like-btn"></div>
+                              </div>
+                              <div class="text-box">
+                                <a href="#" class="prd-cate">[디오트] 라이트워터</a>
+                                <a href="#" class="prd-name">빈티지 캔버스 스니커즈 뮬</a>
+                                <b class="prd-price">29,000</b>
+                              </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                              <div class="img-box sold-out">
+                                <a href="#" style="background-image : url('../assets/images/goods-images/goods-img17.png');"></a>
+                                <div class="like-btn active"></div>
+                              </div>
+                              <div class="text-box">
+                                <a href="#" class="prd-cate">[디오트] 라이트워터</a>
+                                <a href="#" class="prd-name">빈티지 캔버스 스니커즈 뮬</a>
+                                <b class="prd-price">29,000</b>
+                              </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                              <div class="img-box">
+                                <a href="#" style="background-image : url('../assets/images/goods-images/goods-img18.png');"></a>
+                                <div class="like-btn"></div>
+                              </div>
+                              <div class="text-box">
+                                <a href="#" class="prd-cate">[디오트] 라이트워터</a>
+                                <a href="#" class="prd-name">빈티지 캔버스 스니커즈 뮬</a>
+                                <b class="prd-price">29,000</b>
+                              </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                              <div class="img-box">
+                                <a href="#" style="background-image : url('../assets/images/goods-images/goods-img03.png');"></a>
+                                <div class="like-btn"></div>
+                              </div>
+                              <div class="text-box">
+                                <a href="#" class="prd-cate">[디오트] 라이트워터</a>
+                                <a href="#" class="prd-name">빈티지 캔버스 스니커즈 뮬</a>
+                                <b class="prd-price">29,000</b>
+                              </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                              <div class="img-box">
+                                <a href="#" style="background-image : url('../assets/images/goods-images/goods-img08.png');"></a>
+                                <div class="like-btn active"></div>
+                              </div>
+                              <div class="text-box">
+                                <a href="#" class="prd-cate">[디오트] 라이트워터</a>
+                                <a href="#" class="prd-name">빈티지 캔버스 스니커즈 뮬</a>
+                                <b class="prd-price">29,000</b>
+                              </div>
+                            </div>
+                        </li>
+                        <li>
+                          <div>
+                            <div class="img-box">
+                              <a href="#" style="background-image : url('../assets/images/goods-images/goods-img28.png');"></a>
+                              <div class="like-btn active"></div>
+                            </div>
+                            <div class="text-box">
+                              <a href="#" class="prd-cate">[디오트] 라이트워터</a>
+                              <a href="#" class="prd-name">빈티지 캔버스 스니커즈 뮬</a>
+                              <b class="prd-price">29,000</b>
+                            </div>
+                          </div>
+                      </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</div>
+<!-- //content -->
+
+
+<script>
+    $(document).ready(function(){
+
+        $('#prd7-slide').slick({
+        infinite: true,
+        slidesToShow : 1,
+        slidesToScroll : 1,
+        speed : 1000,
+        arrows : true,
+        dots : false,
+        autoplay : false,
+        autoplaySpeed : 3000,
+        pauseOnHover : false,
+        fade : false,
+        vertical : false,
+        prevArrow: $(".prd-slide-prev"),
+        nextArrow: $(".prd-slide-next"),
+        draggable : true,
+
+        });
+
+    })
+</script>
+
+
+{% include("./modals/shop/modal-order-type.njk") %}
+
+<!-- 이지픽 주문 불가일때 팝업 -->
+{% include("./modals/direct-order/direct-order-modal-case03.njk") %}
+
+{% endblock %}

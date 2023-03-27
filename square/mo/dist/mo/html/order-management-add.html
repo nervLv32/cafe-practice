@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport"
+		content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<meta name="format-detection" content="telephone=no">
+	<title>이지픽스퀘어</title>
+	<link rel="stylesheet" type="text/css" href="./css/mobile/jquery-ui.min.css">
+	<link href="css/mobile/style.css" rel="stylesheet">
+</head>
+
+<body>
+	<div class="eps-container -floating">
+		<!--2022-07-15 header 위치 변경-->
+		<header>
+			<span class="back"><a href="#" title="이전"><svg class="svg-icon">
+						<use xlink:href="#icon-arrow-hor1"></use>
+					</svg></a></span>
+			<h1><span>추가발주생성</span></h1>
+		</header>
+		<div class="full-layer full-page add-order-pop on">
+			<div class="wrap">
+				<div class="contents">
+					<div class="fix">
+						<div class="add-info-top">
+							<!-- <strong>추가발주 주문</strong> -->
+							<!--2022-07-23 EZP-5433 //-->
+							<span>※ 낮시장, 밤시장 정기발주 이후 접수된 주문 건에 대해 30분 단위로 자동으로 일괄 전송됩니다.</span>
+							<span>※ 휴일쇼핑몰은 예약된 건에 한하여 전송되며, 발주 예정 건들은 회색으로 표시됩니다</span> <!--2022-08-24 EZP-6341 워딩수정-->
+							<span>※ 미매칭 가게 주문 건은 낮시장으로 분류됩니다.</span>
+							<!--// 2022-07-05 EZP-5424-->
+						</div><!--2022-08-04 EZP-6341 워딩변경-->
+						<div class="tab-wrap">
+							<ul class="nav">
+								<!-- 2021-07-30 EZP-3659 -->
+								<li class="active" data-search_type="N"><a href="#">정상 쇼핑몰</a></li>
+								<li data-search_type="R"><a href="#">휴일 쇼핑몰</a></li>
+							</ul>
+							<!-- 2021-07-30 EZP-3659 -->
+							<div class="status-wrap">
+								<div class="status">
+									<span class="checkbox">
+										<input type="checkbox" id="a1" class="chk-all btnAllChk" checked>
+										<label for="a1">전체</label>
+									</span>
+									<span class="checkbox">
+										<input type="checkbox" id="a2" class="btnChkGroup" checked>
+										<label for="a2">신규</label>
+									</span>
+									<span class="checkbox">
+										<input type="checkbox" id="a3" class="btnChkGroup" checked>
+										<label for="a3">미송(N)</label>
+									</span>
+									<span class="checkbox">
+										<input type="checkbox" id="a5" class="btnChkGroup" checked>
+										<label for="a5">샘플</label>
+									</span>
+									<span class="checkbox">
+										<input type="checkbox" id="a6" class="btnChkGroup" checked>
+										<label for="a6">반납</label>
+									</span>
+									<span class="checkbox">
+										<input type="checkbox" id="a4" class="btnChkGroup" checked>
+										<label for="a4">불량</label>
+									</span>
+									<span class="checkbox">
+										<input type="checkbox" id="a7" class="btnChkGroup" checked>
+										<label for="a7">제작신규</label>
+									</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="add-order-list">
+						<div class="tab-cont active">
+							<ul class="nodata">
+								<!-- 2023-01-11 EZP-7973 주문건이 없습니다. 에서 워딩변경 -->
+								<li>
+									추가발주할 내역이 존재하지 않습니다.
+								</li>
+							</ul>
+							<div class="item">
+								<div class="mall-name">
+									<strong>쇼핑몰 A</strong>
+									<!-- 2021-07-19 EZP-3405 -->
+								</div>
+								<ul>
+									<li>
+										<!-- 2022-12-21 EZP-7760 날짜 표시 형식 / 에서 변경 -->
+										<span class="order-num"><em class="blue">신규</em> 2020101900001948<span class="order-date">(12.06 21:50:44)</span></span>
+										<div>
+											<strong>품목수 <em>5개</em></strong>
+											<strong>주문수량 <em>5개</em></strong>
+											<em class="red">[D]</em>
+										</div>
+										<span class="bdr-flag-red">미매칭</span>
+										<button class="pop-open" data-open="#order-detail">상세보기</button>
+									</li>
+									<li><!--2022-08-10 EZP-6341 회색케이스 .order-ready 제거-->
+										<!-- 2022-12-21 EZP-7760 날짜 표시 형식 / 에서 변경 -->
+										<span class="order-num"><em class="purple">샘플</em> 2020101900001948<span class="order-date">(12.06 21:50:44)</span></span>
+										<div>
+											<strong>품목수 <em>5개</em></strong>
+											<strong>주문수량 <em>5개</em></strong>
+											<em class="blue">[N]</em>
+										</div>
+										<button class="pop-open" data-open="#order-detail">상세보기</button>
+									</li>
+									<!-- 2021-07-19 EZP-3405 -->
+									<li>
+										<!-- 2022-12-21 EZP-7760 날짜 표시 형식 / 에서 변경 -->
+										<span class="order-num"><em class="green">미송</em> 2020101900001948<span class="order-date">(12.06 21:50:44)</span></span>
+										<div>
+											<strong>품목수 <em>5개</em></strong>
+											<strong>주문수량 <em>5개</em></strong>
+											<em class="blue">[N]</em>
+										</div>
+										<button class="pop-open" data-open="#order-detail">상세보기</button>
+									</li>
+								</ul>
+							</div>
+							<div class="item">
+								<div class="mall-name">
+									<strong><em class="secession">[중지]</em>쇼핑몰 C</strong>
+									<!-- 2021-07-19 EZP-3405 -->
+								</div>
+								<ul>
+									<li>
+										<!-- 2022-12-21 EZP-7760 날짜 표시 형식 / 에서 변경 -->
+										<span class="order-num"><em class="pink">제작신규</em> 2020101900001948<span class="order-date">(12.06 21:50:44)</span></span>
+										<div>
+											<strong>품목수 <em>5개</em></strong>
+											<strong>주문수량 <em>5개</em></strong>
+											<em class="red">[D]</em>
+										</div>
+										<button class="pop-open" data-open="#order-detail">상세보기</button>
+									</li>
+									<li>
+										<!-- 2022-12-21 EZP-7760 날짜 표시 형식 / 에서 변경 -->
+										<span class="order-num"><em class="sandy">반납</em> 2020101900001948<span class="order-date">(12.06 21:50:44)</span></span>
+										<div>
+											<strong>품목수 <em>5개</em></strong>
+											<strong>주문수량 <em>5개</em></strong>
+											<em class="red">[D]</em>
+										</div>
+										<button class="pop-open" data-open="#order-detail">상세보기</button>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="tab-cont holiday">
+							<div class="item">
+								<div class="mall-name">
+									<strong>쇼핑몰 A</strong>
+									<!-- 2021-07-19 EZP-3405 -->
+								</div>
+								<ul>
+									<li>
+										<!-- 2022-12-21 EZP-7760 날짜 표시 형식 / 에서 변경 -->
+										<span class="order-num"><em class="blue">신규</em> 2020101900001948<span class="order-date">(12.06 21:50:44)</span></span>
+										<div>
+											<strong>품목수 <em>5개</em></strong>
+											<strong>주문수량 <em>5개</em></strong>
+											<em class="red">[D]</em>
+										</div>
+										<span class="bdr-flag-red">미매칭</span>
+										<button class="pop-open" data-open="#order-detail">상세보기</button>
+									</li>
+									<li class="order-ready"><!--2022-08-10 EZP-6341 회색케이스 .order-ready 추가-->
+										<!-- 2022-12-21 EZP-7760 날짜 표시 형식 / 에서 변경 -->
+										<span class="order-num"><em class="purple">샘플</em> 2020101900001948<span class="order-date">(12.06 21:50:44)</span></span>
+										<div>
+											<strong>품목수 <em>5개</em></strong>
+											<strong>주문수량 <em>5개</em></strong>
+											<em class="blue">[N]</em>
+										</div>
+										<button class="pop-open" data-open="#order-detail">상세보기</button>
+									</li>
+									<!-- 2021-07-19 EZP-3405 -->
+									<li>
+										<!-- 2022-12-21 EZP-7760 날짜 표시 형식 / 에서 변경 -->
+										<span class="order-num"><em class="green">미송(N)</em> 2020101900001948<span class="order-date">(12.06 21:50:44)</span></span>
+										<div>
+											<strong>품목수 <em>5개</em></strong>
+											<strong>주문수량 <em>5개</em></strong>
+											<em class="blue">[N]</em>
+										</div>
+										<button class="pop-open" data-open="#order-detail">상세보기</button>
+									</li>
+								</ul>
+							</div>
+							<div class="item">
+								<div class="mall-name">
+									<strong><em class="secession">[중지]</em>쇼핑몰 C</strong>
+									<!-- 2021-07-19 EZP-3405 -->
+								</div>
+								<ul>
+									<li>
+										<span class="order-num">미송</span>
+										<div>
+											<strong>품목수 <em>5개</em></strong>
+											<em class="red">[D]</em><em class="blue">[N]</em>
+										</div>
+										<!-- <button class="pop-open" data-open="#order-detail">상세보기</button> -->
+									</li>
+									<li>
+										<!-- 2022-12-21 EZP-7760 날짜 표시 형식 / 에서 변경 -->
+										<span class="order-num"><em class="pink">제작신규</em> 2020101900001948<span class="order-date">(12.06 21:50:44)</span></span>
+										<div>
+											<strong>품목수 <em>5개</em></strong>
+											<strong>주문수량 <em>5개</em></strong>
+											<em class="red">[D]</em>
+										</div>
+										<button class="pop-open" data-open="#order-detail">상세보기</button>
+									</li>
+									<li>
+										<!-- 2022-12-21 EZP-7760 날짜 표시 형식 / 에서 변경 -->
+										<span class="order-num"><em class="sandy">반납</em> 2020101900001948<span class="order-date">(12.06 21:50:44)</span></span>
+										<div>
+											<strong>품목수 <em>5개</em></strong>
+											<strong>주문수량 <em>5개</em></strong>
+											<em class="red">[D]</em>
+										</div>
+										<button class="pop-open" data-open="#order-detail">상세보기</button>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- 2022-12-14 EZP-7627, EZP-7448 추가 시작 -->
+			<div class="btns renew-f">
+				<button type="button" class="submit point">발주즉시실행</button> <!--disabled시 .disabled 클래스 추가 --><!--2022-08-24 EZP-6341 / 2022-07-05 EZP-5424-->
+				<button type="button" class="submit point line" style="display: none;">발주예약</button><!--2022-08-24 EZP-6341 추가-->
+			</div>
+			<!-- 2022-12-14 EZP-7627, EZP-7448 추가 끝 -->
+		</div>
+	</div>
+
+	<!-- 2022-07-05 EZP-5424 주문상세보기 팝업 -->
+	<div class="full-layer full-page order-detail-pop" id="order-detail" style="z-index: 9999;"> <!--2022-07-18 EZP-5424-->
+		<div class="pop-header">
+			<h2>주문상세보기</h2>
+			<button type="button" class="pop-close">닫기</button>
+		</div>
+		<div class="wrap">
+			<div class="contents">
+				<div class="order-detail">
+					<div class="title flex">
+						<div class="left">
+							<em class="blue">신규</em>
+							<span class="secession">[중지]</span>핫핑
+							<!-- 2022-12-21 EZP-7760 날짜 표시 형식 / 에서 변경 -->
+							<span class="date">주문일시 2022.04.03 10:00:00</span>
+							<span class="txt-green">[미송 옵션변경 생성 주문]</span>
+						</div>
+						<div class="state">발주대기<span>발주예정</span></div>
+					</div>
+					<div class="list">
+						<div class="result">상품내역 <strong>N개</strong></div>
+						<ul>
+							<li>
+								<h4><span class="secession">[사용안함]</span><strong>[레인보우]</strong>기본라운드 티셔츠</h4><!--2022-07-18 EZP-5424-->
+								<div class="cont">
+									<div class="left">
+										<span>2,500</span>
+										<span>RED/L</span>
+										<em>품절시처리 환불</em>
+									</div>
+									<div class="state">주문<strong>100 개</strong></div>
+								</div>
+								<div class="memo">구매자메모가 표시됩니다~~</div>
+							</li>
+							<li>
+								<h4><strong>[가게명]</strong>기본라운드 티셔츠</h4><!--2022-07-18 EZP-5424-->
+								<div class="cont">
+									<div class="left">
+										<span>2,500</span>
+										<span>RED/L</span>
+										<div class="exOption">
+											<button>기존옵션</button>
+											<span class="layer">BLUE/M<em>(2002040300008640)</em></span>
+										</div>
+										<em>품절시처리 환불</em>
+									</div>
+									<div class="state">주문<strong>100 개</strong></div>
+								</div>
+								<div class="memo">구매자메모가 표시됩니다~~</div>
+							</li>
+							<li>
+								<h4><strong>[가게명]</strong>상품명이 길 경우 두 줄로 표시됩니다. 상품명이 길 경우 두 줄로 표 시됩니다.상품명이 길 경우 두 줄로 표시됩니다.</h4><!--2022-07-18 EZP-5424-->
+								<div class="cont">
+									<div class="left">
+										<span>2,500</span>
+										<span>RED/L</span>
+										<em>품절시처리 환불</em>
+									</div>
+									<div class="state">주문<strong>100 개</strong></div>
+								</div>
+								<div class="memo">구매자메모가 표시됩니다~~</div>
+							</li>
+							<li>
+								<h4><span class="bdr-flag-red">미매칭</span><strong>[가게명]</strong>기본라운드 티셔츠</h4><!--2022-07-18 EZP-5424-->
+								<div class="cont">
+									<div class="left">
+										<span>2,500</span>
+										<span>옵션명이 길어지는 경우에도 이렇게 이렇게 이렇게 두줄로 표시됩니다.~~</span>
+										<em>품절시처리 환불</em>
+									</div>
+									<div class="state">주문<strong>100 개</strong></div>
+								</div>
+								<div class="memo">구매자메모가 표시됩니다~~</div>
+							</li>
+						</ul>
+						<div class="paging" style="margin-bottom: 45px;"> <!--2022-07-18 EZP-5424-->
+							<a href="#" class="prev">이전</a>
+							<div class="num_list">
+								<a href="#" class="active">1</a>
+								<a href="#" class="">2</a>
+								<a href="#" class="">3</a>
+								<a href="#" class="">4</a>
+								<a href="#" class="">5</a>
+							</div>
+							<a href="#" class="next">다음</a>
+						</div>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+		<div class="btns">
+			<button type="button" class="submit pop-close">닫기</button>
+		</div>
+	</div>
+
+	<!-- 2022-12-06 EZP-7448 : 하단 버튼 추가 시작 -->
+	<div class="renew-fixed">
+		<div class="btn-wrap">
+			<span class="home">
+				<a href="./" title="홈">
+					<svg class="svg-icon"><use xlink:href="#icon-home"></use></svg>
+				</a>
+			</span>
+			<span class="memo"><!-- 2021-08-18 EZP-3403 -->
+				<a href="./memo.html" title="메모">
+					<svg class="svg-icon"><use xlink:href="#icon-letter"></use></svg>
+					<em class="new">
+						<!-- 2022-12-19 EZP-7448, EZP-7627 : New icon 변경 -->
+						<!-- <img src="./img/icon-new.png" alt="icon-new"> -->
+						N
+					</em>
+				</a>
+			</span>
+			<span class="notice">
+				<a href="./notice.html" title="알림">
+					<svg class="svg-icon"><use xlink:href="#icon-bell"></use></svg> 
+					<em class="new">
+						<!-- 2022-12-19 EZP-7448, EZP-7627 : New icon 변경 -->
+						<!-- <img src="./img/icon-new.png" alt="icon-new"> -->
+						N
+					</em>
+				</a>
+			</span>
+		</div>
+	</div><!-- 2022-12-06 EZP-7448 : 하단 버튼 추가 끝 -->
+
+	<!-- ui check -->
+	<script type="text/javascript" src="./jquery-3.5.1.min.js"></script>
+	<script src="./ui.js"></script>
+	<script type="text/javascript" src="./jquery-ui.min.js"></script>
+	<script>
+		$(function () {
+			// 2022 08 09 수정 / 2022-08-24 EZP-6341
+			$('.add-order-pop .add-order-list li').click(function () {
+				$(this).toggleClass('selected');
+			})
+			$('.search-item.period-filter a').click(function () {
+				$('.search-item.period-filter a').removeClass('on');
+				$(this).addClass('on');
+			})
+			$(document).on('focusin', '.filter-pop .keyword-search input', function () {
+				$('.filter-pop .mall-list').addClass('on');
+			})
+			// 2021-06-23 EZP-1765
+			$('.filter-pop').on('click', function (event) {
+				if ($(event.target).parents('.search-form').length != 0) {
+
+					if ($(event.target).hasClass('mall-list') || $(event.target).parent().hasClass('keyword-search')) {
+						$('.filter-pop .mall-list').addClass('on');
+					} else {
+						$('.filter-pop .mall-list').removeClass('on');
+					}
+				} else {
+					$('.filter-pop .mall-list').removeClass('on');
+				}
+			})
+			// 2021-06-18 EZP-1765
+			$(document).on('click', '.filter-pop .mall-list li a', function () {
+				// 2021-10-06 EZP-4258
+				$('.filter-pop .mall-select-list').append('<a href="#">' + $(this).html() + '</a>');
+			})
+
+			$(document).on('click', '.mall-select-list a', function () {
+				$(this).remove();
+			})
+			$(".datepicker").datepicker({
+				showMonthAfterYear: true,
+				dateFormat: "yy.mm.dd", // 텍스트 필드에 입력되는 날짜 형식.
+				dayNamesMin: ['SUN', 'MON', 'TUE', 'WED', 'THE', 'FRI', 'SAT'],
+				monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+				monthNames: ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"],
+				firstDay: 1,
+				// 2020-12-21 EZP-1917
+				minDate: 0,
+				beforeShow: function () {
+					$('#modal').show();
+				},
+				onClose: function () {
+					$('#modal').hide();
+				},
+				onSelect: function () {
+					var $input = $(this);
+					var idx = $input.index();
+					var isRange = $input.hasClass('range');
+					var $input = $input.parent().children('.datepicker');
+					var dateValue = $.map($input, function (el) {
+						return el.value
+					});
+
+					if (isRange && dateValue[0] > dateValue[1]) {
+						if (idx == 0) {
+							$input.eq(1).val(dateValue[0])
+						} else {
+							$input.eq(0).val(dateValue[1])
+						}
+					}
+				}
+			});
+
+			$('.btn-group-tab button').click(function () {
+				$(this).parent().find('button').removeClass('active');
+				$(this).addClass('active');
+			})
+
+			// 2021-02-23 EZP-1903 시작
+			$('.ui-tab li a').click(function () {
+				var idx = $(this).parent().index();
+				$(this).parents('.tab-nav').find('li').removeClass('active');
+				$(this).parent().addClass('active');
+				$(this).parents('.ui-tab').find('.tab-cont').hide();
+				$(this).parents('.ui-tab').find('.tab-cont').eq(idx).show();
+			})
+			// 2021-03-30 EZP-1903
+			$('.ex-ui-tab .tab-nav li a').click(function () {
+				$(this).parents('.tab-nav').find('li').removeClass('active');
+				$(this).parent().addClass('active');
+				var idx = $(this).parent().index();
+				$('.ex-ui-tab .tab-cont').hide();
+				$('.ex-ui-tab .tab-cont').eq(idx).show();
+			})
+
+			// 2021-06-18 EZP-1765
+			$('.tab-wrap .nav li a').click(function () {
+				var idx = $(this).parent().index();
+				$('.tab-wrap .nav li').removeClass('active');
+				$(this).parents('.contents').find('.tab-cont').removeClass('active');
+				$(this).parent().addClass('active');
+				$(this).parents('.contents').find('.tab-cont').eq(idx).addClass('active');
+
+				// 2021-07-30 EZP-3659
+				var sSearchType = $(this).parent().data('search_type');
+				if (sSearchType == 'R') {
+					if ($('#labelReserve').length < 1) {
+						var sHtml = '<span class="checkbox" id="labelReserve"><input type="checkbox" id="a8" value="reserve" checked="checked" class="btnChkGroup"><label for="a8">미송</label></span>';
+						$('.tab-wrap .status').append(sHtml);
+					}
+				} else {
+					$('#labelReserve').remove();
+				}
+				$('.status-wrap').scrollLeft(0); // x-scroll 초기화
+
+
+				// 2022-08-04 EZP-6341 추가발주예약 버튼
+				if ($('.tab-wrap .nav li[data-search_type=N]').hasClass('active') === true) {
+					// $('.submit.point').prop("disabled", true);
+					// $('.submit.point').addClass("disabled");
+					$('.submit.point.line').css("display", "none"); //2022-08-24 EZP-6341
+
+				} else {
+					// $('.submit.point').prop("disabled", false);
+					// $('.submit.point').removeClass("disabled")
+					$('.submit.point.line').css("display", "block"); //2022-08-24 EZP-6341
+				}
+
+			});
+
+			// 2021-07-30 EZP-3659
+			/**
+			 * 폼의 전체 체크 버튼
+			 */
+			$('.btnAllChk').click(function () {
+				var aInput = $(this).closest('div').find('input');
+				$(aInput).prop('checked', $(this).prop('checked'));
+			});
+			/**
+			 * 폼의 체크 버튼 상태에 따라 전체 체크 버튼 활성/비활성
+			 */
+			$('.status').on('change', '.btnChkGroup', function (e) {
+				var oChkContainer = $(this).closest('.status');
+
+				if ($(this).prop('checked') === false) {
+					// 체크박스가 한개라도 체크해제면 전체 버튼은 체크 해제
+					oChkContainer.find('.btnAllChk').prop('checked', false);
+					oChkContainer.find('.btnAllChk').closest('label').removeClass('eSelected');
+				} else if (oChkContainer.find('.btnChkGroup').length === oChkContainer.find('.btnChkGroup:checked').length) {
+					// 전체 버튼을 제외한 체크 박스 숫자와 체크된 체크 박스 숫자가 같으면 전체 버튼 체크
+					oChkContainer.find('.btnAllChk').prop('checked', true);
+					oChkContainer.find('.btnAllChk').closest('label').addClass('eSelected');
+				}
+			});
+		})
+	</script>
+
+	<!-- 퍼블 화면 확인용, 실제 사용하지 않는 부분 -->
+	<script>
+		$('#alert-test01').find('.ok').click(function () {
+			$('#alert-test01').removeClass('on');
+			$('#mall-order-deadline').removeClass('on');
+			if ($('.full-layer.on').length === 0 && $('.alert-layer.on').length === 0) {
+				$('body').removeClass('fixed');
+			}
+		});
+		$('#mall-order-deadline').find('.cancel').off('click');
+		$('#mall-order-deadline').find('.cancel').click(function () {
+			$('#alert-test01').addClass('on');
+		});
+	</script>
+	<!-- // 퍼블 화면 확인용, 실제 사용하지 않는 부분 -->
+
+</body>
+
+</html>

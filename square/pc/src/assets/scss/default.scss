@@ -1,0 +1,4371 @@
+@charset "UTF-8";
+/*!! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
+/*!* 1. Set default font family to sans-serif. 2. Prevent iOS and IE text size adjust after device orientation change, without disabling user zoom. */
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900');
+@import url('https://fonts.googleapis.com/css?family=Titillium+Web:400,600,700');
+
+html {
+  font-family: sans-serif;
+
+  /*! 1 */
+  -ms-text-size-adjust: 100%;
+
+  /*! 2 */
+  -webkit-text-size-adjust: 100%;
+
+  /*! 2 */
+}
+
+/*!* Remove default margin. */
+
+body {
+  margin: 0;
+}
+
+/*! HTML5 display definitions ========================================================================== */
+/*!* Correct `block` display not defined for any HTML5 element in IE 8/9. Correct `block` display not defined for `details` or `summary` in IE 10/11 and Firefox. Correct `block` display not defined for `main` in IE 11. */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section,
+summary {
+  display: block;
+}
+
+/*!* 1. Correct `inline-block` display not defined in IE 8/9. 2. Normalize vertical alignment of `progress` in Chrome, Firefox, and Opera. */
+
+audio,
+canvas,
+progress,
+video {
+  display: inline-block;
+
+  /*! 1 */
+  vertical-align: baseline;
+
+  /*! 2 */
+}
+
+/*!* Prevent modern browsers from displaying `audio` without controls. Remove excess height in iOS 5 devices. */
+
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+/*!* Address `[hidden]` styling not present in IE 8/9/10. Hide the `template` element in IE 8/9/10/11, Safari, and Firefox < 22. */
+
+[hidden],
+template {
+  display: none;
+}
+
+/*! Links ========================================================================== */
+/*!* Remove the gray background color from active links in IE 10. */
+
+a {
+  background-color: transparent;
+
+  &:active,
+  &:hover {
+    /*!* Improve readability of focused elements when they are also in an active/hover state. */
+    outline: 0;
+  }
+}
+
+/*! Text-level semantics ========================================================================== */
+/*!* Address styling not present in IE 8/9/10/11, Safari, and Chrome. */
+
+abbr[title] {
+  border-bottom: 1px dotted;
+}
+
+/*!* Address style set to `700er` in Firefox 4+, Safari, and Chrome. */
+
+b,
+strong {
+  font-weight: 700;
+}
+
+/*!* Address styling not present in Safari and Chrome. */
+
+dfn {
+  font-style: italic;
+}
+
+/*!* Address variable `h1` font-size and margin within `section` and `article` contexts in Firefox 4+, Safari, and Chrome. */
+
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+/*!* Address styling not present in IE 8/9. */
+
+mark {
+  color: #000000;
+  background: #ffff00;
+}
+
+/*!* Address inconsistent and variable font size in all browsers. */
+
+small {
+  font-size: 80%;
+}
+
+/*!* Prevent `sub` and `sup` affecting `line-height` in all browsers. */
+
+sub {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+  top: -0.5em;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+/*! Embedded content ========================================================================== */
+/*!* Remove border when inside `a` element in IE 8/9/10. */
+
+img {
+  border: 0;
+}
+
+/*!* Correct overflow not hidden in IE 9/10/11. */
+
+svg:not(:root) {
+  overflow: hidden;
+}
+
+/*! Grouping content ========================================================================== */
+/*!* Address margin not present in IE 8/9 and Safari. */
+
+figure {
+  margin: 1em 40px;
+}
+
+/*!* Address differences between Firefox and other browsers. */
+
+hr {
+  box-sizing: content-box;
+  height: 0;
+}
+
+/*!* Contain overflow in all browsers. */
+
+pre {
+  overflow: auto;
+}
+
+/*!* Address odd `em`-unit font size rendering in all browsers. */
+
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+/*! Forms ========================================================================== */
+/*!* Known limitation: by default, Chrome and Safari on OS X allow very limited styling of `select`, unless a `border` property is set. */
+/*!* 1. Correct color not being inherited. Known issue: affects color of disabled elements. 2. Correct font properties not being inherited. 3. Address margins set differently in Firefox 4+, Safari, and Chrome. */
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font: inherit;
+
+  /*! 2 */
+  margin: 0;
+
+  /*! 3 */
+  color: inherit;
+
+  /*! 1 */
+}
+
+/*!* Address `overflow` set to `hidden` in IE 8/9/10/11. */
+
+button {
+  overflow: visible;
+  text-transform: none;
+}
+
+/*!* Address inconsistent `text-transform` inheritance for `button` and `select`. All other form control elements do not inherit `text-transform` values. Correct `button` style inheritance in Firefox, IE 8/9/10/11, and Opera. Correct `select` style inheritance in Firefox. */
+
+select {
+  text-transform: none;
+}
+
+/*!* 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio` and `video` controls. 2. Correct inability to style clickable `input` types in iOS. 3. Improve usability and consistency of cursor style between image-type `input` and others. */
+
+button,
+html input[type='button'] {
+  cursor: pointer;
+
+  /*! 3 */
+  -webkit-appearance: button;
+
+  /*! 2 */
+}
+
+input {
+
+  &[type='reset'],
+  &[type='submit'] {
+    cursor: pointer;
+
+    /*! 3 */
+    -webkit-appearance: button;
+
+    /*! 2 */
+  }
+}
+
+/*!* Re-set default cursor for disabled elements. */
+
+button[disabled],
+html input[disabled] {
+  cursor: default;
+}
+
+/*!* Remove inner padding and border in Firefox 4+. */
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+/*!* Address Firefox 4+ setting `line-height` on `input` using `!important` in the UA stylesheet. */
+input {
+  &::-moz-focus-inner {
+    padding: 0;
+    border: 0;
+  }
+
+  line-height: normal;
+
+  &[type='checkbox'],
+  &[type='radio'] {
+    /*!* It's recommended that you don't attempt to style these elements. Firefox's implementation doesn't respect box-sizing, padding, or width. 1. Address box sizing set to `content-box` in IE 8/9/10. 2. Remove excess padding in IE 8/9/10. */
+    box-sizing: border-box;
+
+    /*! 1 */
+    padding: 0;
+
+    /*! 2 */
+  }
+
+  &[type='number'] {
+
+    &::-webkit-inner-spin-button,
+    &::-webkit-outer-spin-button {
+      /*!* Fix the cursor style for Chrome's increment/decrement buttons. For certain `font-size` values of the `input`, it causes the cursor style of the decrement button to change from `default` to `text`. */
+      height: auto;
+    }
+  }
+
+  &[type='search'] {
+    /*!* 1. Address `appearance` set to `searchfield` in Safari and Chrome. 2. Address `box-sizing` set to `border-box` in Safari and Chrome. */
+    box-sizing: content-box;
+
+    /*! 2 */
+    -webkit-appearance: textfield;
+
+    /*! 1 */
+
+    &::-webkit-search-cancel-button,
+    &::-webkit-search-decoration {
+      /*!* Remove inner padding and search cancel button in Safari and Chrome on OS X. Safari (but not Chrome) clips the cancel button when the search input has padding (and `textfield` appearance). */
+      -webkit-appearance: none;
+    }
+  }
+}
+
+/*!* Define consistent border, margin, and padding. */
+
+fieldset {
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
+  border: 1px solid #c0c0c0;
+}
+
+/*!* 1. Correct `color` not being inherited in IE 8/9/10/11. 2. Remove padding so people aren't caught out if they zero out fieldsets. */
+
+legend {
+  padding: 0;
+
+  /*! 2 */
+  border: 0;
+
+  /*! 1 */
+}
+
+/*!* Remove default vertical scrollbar in IE 8/9/10/11. */
+
+textarea {
+  overflow: auto;
+}
+
+/*!* Don't inherit the `font-weight` (applied by a rule above). NOTE: the default cannot safely be changed in Chrome and Safari on OS X. */
+
+optgroup {
+  font-weight: 700;
+}
+
+/*! Tables ========================================================================== */
+/*!* Remove most spacing between table cells. */
+
+table {
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+td,
+th {
+  padding: 0;
+}
+
+* {
+  font-style: normal;
+  outline: none;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  word-break: break-all !important;
+}
+
+html {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  padding-top: 138px;
+
+  /*! 2022-10-13 EZP-5318 폰트 변경 */
+  font-family: 'NanumBarunGothic', 'Roboto';
+  font-weight: 400;
+  min-width: 1550px;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  text-decoration: none;
+  color: #666666;
+}
+
+address,
+em {
+  font-style: normal;
+}
+
+hr {
+  display: none;
+}
+
+form {
+  margin: 0;
+}
+
+/*! table */
+
+table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: separate;
+}
+
+th,
+td {
+  word-break: break-all;
+  background-clip: padding-box;
+}
+
+th.posr,
+td.posr {
+  position: relative;
+}
+
+caption {
+  display: inline-block;
+  overflow: hidden;
+  width: 0px;
+  height: 0;
+  text-indent: -9999px;
+}
+
+fieldset {
+  border: none;
+}
+
+/*!  form */
+
+input {
+
+  &[type='radio'],
+  &[type='checkbox'] {
+    padding: 0;
+  }
+
+  &[type='text']::-ms-clear,
+  &[type='password']::-ms-clear {
+    display: none;
+  }
+
+  &[type='number'] {
+    &::-ms-clear {
+      display: none;
+    }
+
+    &::-webkit-inner-spin-button,
+    &::-webkit-outer-spin-button {
+      margin: 0;
+      -webkit-appearance: none;
+    }
+  }
+}
+
+button {
+  font-weight: normal;
+  width: auto;
+  padding: 0;
+  border: 0;
+  background: none;
+}
+
+textarea {
+  resize: none;
+}
+
+a,
+img,
+input,
+button,
+select,
+textarea {
+  vertical-align: middle;
+}
+
+a,
+button {
+  display: inline-block;
+  text-align: center;
+}
+
+a {
+
+  &:focus,
+  &:active,
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+button {
+
+  &:focus,
+  &:active,
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+ul,
+ol,
+dl {
+  margin: 0;
+  padding: 0;
+}
+
+li,
+dl {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+p {
+  margin: 0;
+}
+
+strong,
+b {
+  font-weight: normal;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'NanumBarunGothic', 'Roboto';
+
+  /*! 2022-10-13 EZP-5318 font 재연결 */
+  font-weight: normal;
+  margin: 0;
+}
+
+.tal {
+  text-align: left !important;
+}
+
+.tar {
+  text-align: right !important;
+}
+
+/*! 2022-10-31 EZP-6245 tar center case 추가 */
+.re-tar {
+  text-align: center !important;
+}
+
+.tac {
+  text-align: center !important;
+}
+
+.fll {
+  float: left !important;
+}
+
+.fln {
+  float: none !important;
+}
+
+.flr {
+  float: right !important;
+}
+
+.vat {
+  vertical-align: top;
+}
+
+.vam {
+  vertical-align: middle;
+}
+
+.vabl {
+  vertical-align: baseline;
+}
+
+.p0 {
+  padding: 0 !important;
+}
+
+.p5 {
+  padding: 5px !important;
+}
+
+.p10 {
+  padding: 10px !important;
+}
+
+.p15 {
+  padding: 15px !important;
+}
+
+.p20 {
+  padding: 20px !important;
+}
+
+.p25 {
+  padding: 25px !important;
+}
+
+.p30 {
+  padding: 30px !important;
+}
+
+.p35 {
+  padding: 35px !important;
+}
+
+.p40 {
+  padding: 40px !important;
+}
+
+.p45 {
+  padding: 45px !important;
+}
+
+.p50 {
+  padding: 50px !important;
+}
+
+.p55 {
+  padding: 55px !important;
+}
+
+.p60 {
+  padding: 60px !important;
+}
+
+.pt0 {
+  padding-top: 0 !important;
+}
+
+.pt5 {
+  padding-top: 5px !important;
+}
+
+.pt10 {
+  padding-top: 10px !important;
+}
+
+.pt15 {
+  padding-top: 15px !important;
+}
+
+.pt20 {
+  padding-top: 20px !important;
+}
+
+.pt25 {
+  padding-top: 25px !important;
+}
+
+.pt30 {
+  padding-top: 30px !important;
+}
+
+.pt35 {
+  padding-top: 35px !important;
+}
+
+.pt40 {
+  padding-top: 40px !important;
+}
+
+.pt45 {
+  padding-top: 45px !important;
+}
+
+.pt50 {
+  padding-top: 50px !important;
+}
+
+.pt55 {
+  padding-top: 55px !important;
+}
+
+.pt60 {
+  padding-top: 60px !important;
+}
+
+.pr0 {
+  padding-right: 0 !important;
+}
+
+.pr5 {
+  padding-right: 5px !important;
+}
+
+.pr10 {
+  padding-right: 10px !important;
+}
+
+.pr15 {
+  padding-right: 15px !important;
+}
+
+.pr20 {
+  padding-right: 20px !important;
+}
+
+.pr25 {
+  padding-right: 25px !important;
+}
+
+.pr30 {
+  padding-right: 30px !important;
+}
+
+.pr35 {
+  padding-right: 35px !important;
+}
+
+.pr40 {
+  padding-right: 40px !important;
+}
+
+.pr45 {
+  padding-right: 45px !important;
+}
+
+.pr50 {
+  padding-right: 50px !important;
+}
+
+.pr55 {
+  padding-right: 55px !important;
+}
+
+.pr60 {
+  padding-right: 60px !important;
+}
+
+.pr100 {
+  padding-right: 100px !important;
+}
+
+.pb0 {
+  padding-bottom: 0 !important;
+}
+
+.pb5 {
+  padding-bottom: 5px !important;
+}
+
+.pb10 {
+  padding-bottom: 10px !important;
+}
+
+.pb15 {
+  padding-bottom: 15px !important;
+}
+
+.pb20 {
+  padding-bottom: 20px !important;
+}
+
+.pb25 {
+  padding-bottom: 25px !important;
+}
+
+.pb30 {
+  padding-bottom: 30px !important;
+}
+
+.pb35 {
+  padding-bottom: 35px !important;
+}
+
+.pb40 {
+  padding-bottom: 40px !important;
+}
+
+.pb45 {
+  padding-bottom: 45px !important;
+}
+
+.pb50 {
+  padding-bottom: 50px !important;
+}
+
+.pb55 {
+  padding-bottom: 55px !important;
+}
+
+.pb60 {
+  padding-bottom: 60px !important;
+}
+
+.pl0 {
+  padding-left: 0 !important;
+}
+
+.pl5 {
+  padding-left: 5px !important;
+}
+
+.pl10 {
+  padding-left: 10px !important;
+}
+
+.pl15 {
+  padding-left: 15px !important;
+}
+
+.pl20 {
+  padding-left: 20px !important;
+}
+
+.pl25 {
+  padding-left: 25px !important;
+}
+
+.pl30 {
+  padding-left: 30px !important;
+}
+
+.pl35 {
+  padding-left: 35px !important;
+}
+
+.pl40 {
+  padding-left: 40px !important;
+}
+
+.pl45 {
+  padding-left: 45px !important;
+}
+
+.pl50 {
+  padding-left: 50px !important;
+}
+
+.pl55 {
+  padding-left: 55px !important;
+}
+
+.pl60 {
+  padding-left: 60px !important;
+}
+
+.m0 {
+  margin: 0 !important;
+}
+
+.m5 {
+  margin: 5px !important;
+}
+
+.m10 {
+  margin: 10px !important;
+}
+
+.m15 {
+  margin: 15px !important;
+}
+
+.m20 {
+  margin: 20px !important;
+}
+
+.m25 {
+  margin: 25px !important;
+}
+
+.m30 {
+  margin: 30px !important;
+}
+
+.m35 {
+  margin: 35px !important;
+}
+
+.m40 {
+  margin: 40px !important;
+}
+
+.m45 {
+  margin: 45px !important;
+}
+
+.m50 {
+  margin: 50px !important;
+}
+
+.m55 {
+  margin: 55px !important;
+}
+
+.m60 {
+  margin: 60px !important;
+}
+
+.mt0 {
+  margin-top: 0 !important;
+}
+
+.mt5 {
+  margin-top: 5px !important;
+}
+
+.mt10 {
+  margin-top: 10px !important;
+}
+
+.mt15 {
+  margin-top: 15px !important;
+}
+
+.mt20 {
+  margin-top: 20px !important;
+}
+
+.mt25 {
+  margin-top: 25px !important;
+}
+
+.mt30 {
+  margin-top: 30px !important;
+}
+
+.mt35 {
+  margin-top: 35px !important;
+}
+
+.mt40 {
+  margin-top: 40px !important;
+}
+
+.mt45 {
+  margin-top: 45px !important;
+}
+
+.mt50 {
+  margin-top: 50px !important;
+}
+
+.mt55 {
+  margin-top: 55px !important;
+}
+
+.mt60 {
+  margin-top: 60px !important;
+}
+
+.mr0 {
+  margin-right: 0 !important;
+}
+
+.mr5 {
+  margin-right: 5px !important;
+}
+
+.mr10 {
+  margin-right: 10px !important;
+}
+
+.mr15 {
+  margin-right: 15px !important;
+}
+
+.mr20 {
+  margin-right: 20px !important;
+}
+
+.mr25 {
+  margin-right: 25px !important;
+}
+
+.mr30 {
+  margin-right: 30px !important;
+}
+
+.mr35 {
+  margin-right: 35px !important;
+}
+
+.mr40 {
+  margin-right: 40px !important;
+}
+
+.mr45 {
+  margin-right: 45px !important;
+}
+
+.mr50 {
+  margin-right: 50px !important;
+}
+
+.mr55 {
+  margin-right: 55px !important;
+}
+
+.mr60 {
+  margin-right: 60px !important;
+}
+
+.mb0 {
+  margin-bottom: 0 !important;
+}
+
+.mb5 {
+  margin-bottom: 5px !important;
+}
+
+.mb10 {
+  margin-bottom: 10px !important;
+}
+
+.mb15 {
+  margin-bottom: 15px !important;
+}
+
+.mb20 {
+  margin-bottom: 20px !important;
+}
+
+.mb25 {
+  margin-bottom: 25px !important;
+}
+
+.mb30 {
+  margin-bottom: 30px !important;
+}
+
+.mb35 {
+  margin-bottom: 35px !important;
+}
+
+.mb40 {
+  margin-bottom: 40px !important;
+}
+
+.mb45 {
+  margin-bottom: 45px !important;
+}
+
+.mb50 {
+  margin-bottom: 50px !important;
+}
+
+.mb55 {
+  margin-bottom: 55px !important;
+}
+
+.mb60 {
+  margin-bottom: 60px !important;
+}
+
+.mb100 {
+  margin-bottom: 100px !important;
+}
+
+.ml0 {
+  margin-left: 0 !important;
+}
+
+.ml5 {
+  margin-left: 5px !important;
+}
+
+.ml10 {
+  margin-left: 10px !important;
+}
+
+.ml15 {
+  margin-left: 15px !important;
+}
+
+.ml20 {
+  margin-left: 20px !important;
+}
+
+.ml25 {
+  margin-left: 25px !important;
+}
+
+.ml30 {
+  margin-left: 30px !important;
+}
+
+.ml35 {
+  margin-left: 35px !important;
+}
+
+.ml40 {
+  margin-left: 40px !important;
+}
+
+.ml45 {
+  margin-left: 45px !important;
+}
+
+.ml50 {
+  margin-left: 50px !important;
+}
+
+.ml55 {
+  margin-left: 55px !important;
+}
+
+.ml60 {
+  margin-left: 60px !important;
+}
+
+.wa {
+  width: auto !important;
+}
+
+/*! 2022-10-11 EZP-5318 폰트 url 재연결 */
+@font-face {
+  font-family: 'NanumBarunGothic';
+  font-style: normal;
+  font-weight: 400;
+  src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot');
+  src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot?#iefix') format("embedded-opentype"), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.woff') format("woff"), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.ttf') format("truetype");
+}
+
+@font-face {
+  font-family: 'NanumBarunGothic';
+  font-style: normal;
+  font-weight: 700;
+  src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebBold.eot');
+  src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebBold.eot?#iefix') format("embedded-opentype"), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebBold.woff') format("woff"), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebBold.ttf') format("truetype");
+}
+
+@font-face {
+  font-family: 'NanumBarunGothic';
+  font-style: normal;
+  font-weight: 300;
+  src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.eot');
+  src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.eot?#iefix') format("embedded-opentype"), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.woff') format("woff"), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.ttf') format("truetype");
+}
+
+a.btn,
+button.btn,
+input.btn,
+span.btn {
+  font-size: 18px;
+  line-height: 54px;
+  min-width: 180px;
+  height: 56px;
+  margin: 0 4px;
+  padding: 0 32px;
+  color: #ffffff;
+  border: 1px solid #666666;
+  background-color: #666666;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+}
+
+a.btn:hover,
+button.btn:hover,
+input.btn:hover,
+span.btn:hover {
+  border-color: #303033;
+  background-color: #303033;
+}
+
+a.btn:disabled,
+button.btn:disabled,
+input.btn:disabled,
+span.btn:disabled {
+  border-color: #999999;
+  background-color: #999999;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+a.btn.point,
+button.btn.point,
+input.btn.point,
+span.btn.point {
+  border-color: #36c25d;
+  background-color: #36c25d;
+}
+
+a.btn.point:hover,
+button.btn.point:hover,
+input.btn.point:hover,
+span.btn.point:hover {
+  border-color: #268741;
+  background-color: #268741;
+}
+
+a.btn.point:disabled,
+button.btn.point:disabled,
+input.btn.point:disabled,
+span.btn.point:disabled {
+  border-color: #7cd796;
+  background-color: #7cd796;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+button.btn.point.disabled:disabled {
+  border-color: transparent;
+  background-color: #999999;
+}
+
+a.btn.line,
+button.btn.line,
+input.btn.line,
+span.btn.line {
+  background-color: #ffffff;
+  border-color: #666666;
+  color: #303033;
+}
+
+a.btn.line:hover,
+button.btn.line:hover,
+input.btn.line:hover,
+span.btn.line:hover {
+  color: #ffffff;
+  background-color: #303033;
+  border-color: #303033;
+}
+
+a.btn.line:disabled,
+button.btn.line:disabled,
+input.btn.line:disabled,
+span.btn.line:disabled {
+  border-color: #999999;
+  background-color: #999999;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+/*! 2022-08-18 EZP-6724 */
+
+a.btn.line.green,
+button.btn.line.green,
+input.btn.line.green,
+span.btn.line.green {
+  color: #36c25d;
+  background-color: #ffffff;
+  border-color: #36c25d;
+}
+
+a.btn.line.white,
+button.btn.line.white,
+input.btn.line.white,
+span.btn.line.white {
+  border-color: #ffffff;
+  background: none;
+  color: #ffffff;
+}
+
+a.btn.line.white:hover,
+button.btn.line.white:hover,
+input.btn.line.white:hover,
+span.btn.line.white:hover {
+  background-color: #ffffff;
+  border-color: #000000;
+}
+
+a.btn.line.white:disabled,
+button.btn.line.white:disabled,
+input.btn.line.white:disabled,
+span.btn.line.white:disabled {
+  border-color: #ffffff;
+  background: none;
+  color: #ffffff;
+  opacity: 0.4;
+}
+
+a.btn.medium,
+button.btn.medium,
+input.btn.medium,
+span.btn.medium {
+  height: 48px;
+  line-height: 46px;
+  font-size: 16px;
+}
+
+a.btn.small,
+button.btn.small,
+input.btn.small,
+span.btn.small {
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  padding: 0 24px;
+  min-width: 0;
+}
+
+/*! 2020-05-04  */
+/*! 2020-12-28 EZP-1765 */
+
+button.btn.state {
+  height: 30px;
+  line-height: 30px;
+  font-size: 14px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  text-align: center;
+  width: auto;
+  padding: 0 10px;
+  min-width: 0;
+  border: 1px solid #cccccc;
+  color: #666666;
+  background: #ffffff;
+
+  &:disabled {
+    border-color: #eaeaea;
+    color: #cccccc;
+  }
+}
+
+a.btn.smaller,
+button.btn.smaller,
+input.btn.smaller,
+span.btn.smaller {
+  height: 36px;
+  line-height: 34px;
+  font-size: 14px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  padding: 0 24px;
+  min-width: 0;
+}
+
+a.w100p,
+button.w100p,
+input.w100p,
+span.w100p {
+  width: 100% !important;
+  margin: 0;
+}
+
+.pagination {
+  font-size: 0;
+  text-align: center;
+
+  a {
+    font-family: 'Titillium Web';
+    font-weight: 400;
+    font-size: 14px;
+    letter-spacing: 0;
+    line-height: 12px;
+    display: inline-block;
+    overflow: hidden;
+    margin: 0 14px;
+    text-align: center;
+    color: #666666;
+
+    &.active {
+      color: #36c25d;
+      font-weight: 600;
+    }
+
+    &.first,
+    &.prev,
+    &.next,
+    &.last {
+      margin: 0;
+      height: 12px;
+      text-indent: -9999px;
+      overflow: hidden;
+      background: url('../img/square/spr-form.png') 0 0 no-repeat;
+    }
+
+    &.first {
+      width: 14px;
+      background-position: -52px -24px;
+      margin-right: 19px;
+
+      &.none {
+        background-position: -10px -24px;
+      }
+    }
+
+    &.prev {
+      width: 7px;
+      margin-right: 14px;
+      background-position: -66px -24px;
+
+      &.none {
+        background-position: -24px -24px;
+      }
+    }
+
+    &.next {
+      width: 7px;
+      margin-left: 14px;
+      background-position: -73px -24px;
+
+      &.none {
+        background-position: -31px -24px;
+      }
+    }
+
+    &.last {
+      width: 14px;
+      margin-left: 19px;
+      background-position: -80px -24px;
+
+      &.none {
+        background-position: -38px -24px;
+      }
+    }
+  }
+}
+
+/*! easypick square */
+
+body {
+  padding: 0;
+}
+
+input {
+
+  &[type='text'],
+  &[type='password'],
+  &[type='number'] {
+    font-size: 14px;
+    line-height: 38px;
+    width: 100%;
+    height: 40px;
+    padding-left: 15px;
+    vertical-align: middle;
+    color: #666666;
+    border: 1px solid #d6d6d6;
+  }
+
+  &[type='text']:disabled,
+  &[type='password']:disabled,
+  &[type='number']:disabled {
+    border: 1px solid #d6d6d6;
+    background-color: #f9f9f9;
+  }
+
+  &[type='text']:read-only,
+  &[type='password']:read-only,
+  &[type='number']:read-only,
+  &[type='text'][readonly='readonly'],
+  &[type='password'][readonly='readonly'],
+  &[type='number'][readonly='readonly'] {
+    border: 1px solid #d6d6d6;
+  }
+
+  &[type='text'].w100p,
+  &[type='password'].w100p,
+  &[type='number'].w100p {
+    display: block;
+    width: 100%;
+  }
+
+  &[type='text']::-ms-clear,
+  &[type='password']::-ms-clear,
+  &[type='number']::-ms-clear {
+    display: none;
+  }
+
+  &[type='text']:focus,
+  &[type='password']:focus,
+  &[type='number']:focus {
+    border-color: #666666;
+  }
+
+  &[type='text'].error,
+  &[type='password'].error,
+  &[type='number'].error {
+    color: #ff4800;
+    border-color: #ff4800;
+  }
+
+  &::-ms-input-placeholder,
+  &::-webkit-input-placeholder,
+  &::-moz-placeholder {
+    color: #999999;
+  }
+
+  &[type='text']::-ms-clear,
+  &[type='password']::-ms-reveal,
+  &[type='number']::-ms-clear {
+    display: none;
+  }
+}
+
+.checkbox,
+.radio {
+  line-height: 16px;
+  position: relative;
+  display: inline-block;
+  height: 16px;
+  padding-left: 24px;
+  vertical-align: baseline;
+}
+
+.checkbox input,
+.radio input {
+  z-index: 1;
+  display: block;
+  width: 16px;
+  height: 16px;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.checkbox label,
+.radio label {
+  line-height: 16px;
+  display: inline-block;
+  vertical-align: middle;
+  color: #666666;
+}
+
+.checkbox label:before,
+.radio label:before {
+  width: 16px;
+  height: 16px;
+  display: block;
+  content: '';
+  background: url('https://square.easypick.co.kr/img/square/spr-form.png') 0 0 no-repeat;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.checkbox {
+  input {
+    &:checked+label:before {
+      background-position: -16px 0;
+    }
+
+    &:disabled+label:before {
+      /*! 2022-11-08 EZP-6245 디자인 변경 
+        background-position: -32px 0;
+        */
+    }
+  }
+
+  &.big {
+    line-height: 24px;
+    height: 24px;
+    padding-left: 38px;
+
+    label {
+      font-size: 16px;
+
+      &:before {
+        width: 24px;
+        height: 24px;
+        background-position: -96px 0;
+      }
+    }
+
+    input {
+      &:checked+label:before {
+        background-position: -120px 0;
+      }
+
+      &:disabled+label:before {
+        background-position: -144px 0;
+      }
+    }
+  }
+}
+
+.radio {
+  label:before {
+    background-position: -48px 0;
+  }
+
+  input {
+    &:checked+label:before {
+      background-position: -64px 0;
+    }
+
+    &:disabled+label:before {
+      background-position: -80px 0;
+    }
+  }
+}
+
+/*! select */
+
+.ui-select {
+  font-size: 10px;
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  width: 200px;
+  vertical-align: top;
+
+  &.active {
+    z-index: 2;
+
+    > {
+      ul {
+        display: block;
+        max-height: 165px;
+      }
+
+      button {
+        border-color: #666666;
+
+        &:before {
+          transform: rotate(180deg);
+        }
+      }
+    }
+  }
+
+  > {
+    button {
+      font-size: 14px;
+      line-height: 38px;
+      overflow: hidden;
+      width: 100%;
+      height: 40px;
+      padding: 0 34px 0 18px;
+      text-align: left;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      color: #999999;
+      border: 1px solid #d6d6d6;
+      background: #ffffff;
+
+      &:before {
+        width: 9px;
+        height: 5px;
+        margin-top: -2.5px;
+        transform: rotate(0deg);
+        background: url('../img/square/bg-select.png') 0 0 no-repeat;
+        display: block;
+        content: '';
+        position: absolute;
+        top: 50%;
+        right: 12px;
+      }
+    }
+
+    ul {
+      position: absolute;
+      top: 39px;
+      left: 0;
+      display: none;
+      overflow-y: auto;
+      box-sizing: border-box;
+      width: 100%;
+      border-top: none;
+      border-right: 1px solid #666666;
+      border-bottom: 1px solid #666666;
+      border-left: 1px solid #666666;
+      background-color: #ffffff;
+
+      &.above {
+        border-top-width: 0;
+
+        >li {
+          border-bottom: 0;
+        }
+      }
+
+      >li {
+        font-size: 14px;
+        line-height: 40px;
+        height: 41px;
+        padding: 0 16px;
+        cursor: default;
+        text-align: left;
+        color: #666666;
+        width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+
+        &:first-child {
+          border-color: #d6d6d6;
+        }
+
+        &:hover {
+          /*! 2020-08-25 EZP-933 */
+          background-color: #d7d7d7;
+        }
+      }
+    }
+  }
+
+  &.disabled {
+    &:before {
+      position: absolute;
+      overflow: hidden;
+      clip: rect(1px, 1px, 1px, 1px);
+      width: 1px;
+      height: 1px;
+      content: '비 활성화된 항목입니다';
+    }
+
+    >button {
+      color: #444444;
+      background-color: #cccccc;
+      /*! 2022-12-14 EZP-7627 cursor 처리 */
+      cursor: inherit;
+    }
+  }
+}
+
+header {
+  width: 100%;
+  min-width: 1550px;
+  background-color: #36c25d;
+
+  .inner {
+    position: relative;
+    width: 1550px;
+    margin: 0 auto;
+
+    h1 {
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      img {
+        display: block;
+      }
+    }
+
+    .util {
+      font-size: 0;
+      position: absolute;
+      top: 0;
+      right: 0;
+
+      strong,
+      button {
+        font-size: 12px;
+        line-height: 74px;
+        display: inline-block;
+        vertical-align: middle;
+        color: #ffffff;
+      }
+
+      strong {
+        position: relative;
+        margin-right: 14px;
+        padding-right: 15px;
+
+        &:before {
+          width: 1px;
+          height: 10px;
+          margin-top: -5px;
+          opacity: 0.3;
+          background-color: #ffffff;
+          display: block;
+          content: '';
+          position: absolute;
+          top: 50%;
+          right: 0;
+        }
+      }
+    }
+  }
+}
+
+#gnb {
+  font-size: 0;
+  width: 100%;
+  text-align: center;
+
+  li {
+    display: inline-block;
+    height: 74px;
+    margin: 0 27px;
+
+    a {
+      font-size: 18px;
+      line-height: 70px;
+      display: block;
+      height: 74px;
+      color: #ffffff;
+      border-bottom: 4px solid #36c25d;
+
+      &.active,
+      &:hover {
+        border-bottom-color: #ffffff;
+      }
+    }
+  }
+}
+
+#login {
+  background-color: #f5f5f5;
+
+  header {
+    border-top: 6px solid #36c25d;
+  }
+
+  .login-wrap {
+    display: table;
+    width: 412px;
+    height: calc(100% - 66px);
+    margin: 0 auto;
+
+    .inner {
+      display: table-cell;
+      vertical-align: middle;
+
+      input {
+        display: block;
+        width: 100%;
+        width: 350px;
+        margin: 0 auto 14px;
+        margin-bottom: 14px;
+        &::placeholder {
+          /*! 2022-12-14 EZP-7627 폰트 컬러 수정 */
+          color: #999;
+        }
+      }
+
+      .checkbox {
+        display: block;
+        width: 350px;
+        margin: 0 auto;
+
+        label {
+          font-size: 14px;
+        }
+      }
+
+      h1 img {
+        display: block;
+        margin: 0 auto 30px;
+      }
+
+      .login {
+        display: block;
+        width: 350px;
+        margin: 24px auto 37px;
+      }
+
+      p {
+        font-size: 13px;
+        line-height: 20px;
+        text-align: center;
+        color: #ff4800;
+      }
+    }
+  }
+
+  footer {
+    margin-top: 0;
+    background-color: #f5f5f5;
+  }
+}
+
+.search-wrap {
+  width: 100%;
+  min-width: 1550px;
+  margin-bottom: 60px;
+  background-color: #f9f9f9;
+
+  .select_ul {
+    margin-top: 43px;
+  }
+
+  .select_search {
+    position: relative;
+    display: none;
+  }
+
+  .active .select_search {
+    position: absolute;
+    z-index: 5;
+    top: 40px;
+    left: 0;
+    display: block;
+    width: 100%;
+    border-top: 1px solid #d6d6d6;
+    border-right: 1px solid #666666;
+    border-bottom: 1px solid #d6d6d6;
+    border-left: 1px solid #666666;
+
+    input {
+      padding-right: 40px;
+      border: 0;
+      background: #f9f9f9;
+    }
+  }
+
+  .select_search .search-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40px;
+    height: 100%;
+    text-indent: -9999px;
+    background: url('../img/square/search_ico.png') center no-repeat;
+  }
+
+  .inbound-wrap>div:nth-child(2) {
+    margin-top: 20px;
+  }
+
+  .inner {
+    font-size: 0;
+    position: relative;
+    width: 1550px;
+    margin: 0 auto;
+    padding: 20px 0;
+
+    .inbound-wrap {
+      position: absolute;
+      top: 27px;
+      right: 0;
+
+      strong {
+        font-size: 14px;
+        line-height: 14px;
+        position: relative;
+        display: inline-block;
+        margin-right: -8px;
+        padding-right: 13px;
+        vertical-align: middle;
+        color: #666666;
+
+        &:before {
+          width: 1px;
+          height: 12px;
+          margin-top: -6px;
+          background-color: #d6d6d6;
+          display: block;
+          content: '';
+          position: absolute;
+          top: 50%;
+          right: 0;
+        }
+      }
+
+      .checkbox {
+        margin-left: 20px;
+      }
+
+      label {
+        font-size: 14px;
+        color: #666666;
+      }
+    }
+
+    .search-item {
+      font-size: 0;
+      display: inline-block;
+      vertical-align: middle;
+
+      .ui-select {
+        li {
+
+          &:focus,
+          &.active {
+            /*! 2020-08-25 EZP-933 시작 */
+            background: #d7d7d7;
+          }
+        }
+
+        &.ex {
+          z-index: 3;
+          /*! 2020-08-25 EZP-933 종료 */
+        }
+      }
+
+      strong {
+        font-size: 14px;
+        line-height: 40px;
+        display: inline-block;
+        margin-right: 20px;
+        vertical-align: middle;
+        color: #666666;
+      }
+
+      &.date-wrap {
+        display: block;
+        margin-bottom: 10px;
+
+        > {
+          button {
+            &.prev {
+              display: inline-block;
+              overflow: hidden;
+              width: 39px;
+              height: 40px;
+              text-indent: -9999px;
+              background: url('../img/square/spr-square.png') 0 0 no-repeat;
+            }
+
+            &.next {
+              display: inline-block;
+              overflow: hidden;
+              width: 39px;
+              height: 40px;
+              text-indent: -9999px;
+              background: url('../img/square/spr-square.png') 0 0 no-repeat;
+              margin-right: 16px;
+              background-position: -39px 0;
+            }
+          }
+
+          span {
+            font-size: 13px;
+            line-height: 40px;
+            display: inline-block;
+            width: 18px;
+            height: 40px;
+            text-align: center;
+            vertical-align: middle;
+            color: #666666;
+          }
+        }
+
+        .datepicker-wrap {
+          height: 40px;
+          border: 1px solid #d6d6d6;
+          background-color: #ffffff;
+
+          input {
+            line-height: 38px;
+            height: 38px;
+          }
+        }
+
+        .term-wrap {
+          font-size: 0;
+          display: inline-block;
+
+          button {
+            font-size: 13px;
+            line-height: 28px;
+            width: 54px;
+            height: 30px;
+            margin: 0 4px;
+            text-align: center;
+            color: #666666;
+            border: 1px solid #d6d6d6;
+            background-color: #ffffff;
+            -webkit-border-radius: 2px;
+            -moz-border-radius: 2px;
+            border-radius: 2px;
+
+            &.active {
+              color: #333333;
+              border-color: #303033;
+            }
+          }
+        }
+      }
+
+      .input-search {
+        display: inline-block;
+        border: 1px solid #d6d6d6;
+
+        input {
+          width: 180px;
+          border: none;
+          &::placeholder {
+            /*! 2022-12-14 EZP-7627 폰트컬러 변경 */ 
+            color: #999999;
+          }
+        }
+
+        button {
+          overflow: hidden;
+          width: 38px;
+          height: 38px;
+          text-indent: -9999px;
+          background: url('../img/square/spr-square.png') -325px 0 no-repeat;
+        }
+      }
+    }
+
+    button {
+      &.filter-search {
+        margin: 0 0 0 8px;
+      }
+
+      &.filter-reset {
+        font-size: 13px;
+        font-weight: 700;
+        color: #333333;
+        position: relative;
+        height: 40px;
+        line-height: 40px;
+        padding-left: 19px;
+        margin-left: 20px;
+
+        &:before {
+          display: block;
+          content: '';
+          width: 12px;
+          height: 12px;
+          background: url('../img/square/icon-reset.png') 0 0 no-repeat;
+          position: absolute;
+          top: 50%;
+          left: 0;
+          margin-top: -7px;
+        }
+      }
+    }
+  }
+}
+
+/*! 2022-10-31 EZP-6245 추가페이지 픽업예정목록 주문분류 css 시작 */
+.result-table {
+	.empty-wrap {
+		td {
+      /*! 2022-11-28 EZP-6245 height 조정 (기존 : 800) */
+			height: 400px;
+			border-top: 1px solid #b5b5b5;
+			padding-left: 0px !important;
+			font-size: 14px;
+			font-weight: 400;
+			color: #666666;
+		}
+	}
+}
+
+.search-with-order {
+	margin-bottom: 20px !important;
+	.divInline {
+		margin-right: 20px;
+		& > strong {
+			position: relative;
+			margin-right: 12px;
+			padding-right: 12px;
+			&::after {
+				content: '';
+				position: absolute;
+				top: 50%;
+				right: 0;
+				width: 1px;
+				height: 12px;
+				background-color: #d6d6d6;
+				transform: translateY(-50%);
+			}
+		}
+	}
+	.checkbox {
+		label {
+			font-size: 14px;
+			padding-right: 18px;
+		}
+	}
+}
+/*! 2022-10-31 EZP-6245 추가페이지 픽업예정목록 주문분류 css 끝 */
+
+
+.date-tab {
+  font-size: 0;
+  width: 1550px;
+  margin: 0 auto;
+  margin-bottom: 60px;
+  border-bottom: 1px solid #666666;
+
+  a {
+    line-height: 48px;
+    display: inline-block;
+    width: 14.28571%;
+    height: 50px;
+    text-align: center;
+    color: #999999;
+    border: 1px solid #d6d6d6;
+    border-right: none;
+    border-bottom: none;
+    font-family: 'Titillium Web';
+    font-weight: 400;
+    font-size: 18px;
+    letter-spacing: 0;
+
+    &:last-child {
+      border-right: 1px solid #d6d6d6;
+    }
+
+    &.active {
+      color: #ffffff;
+      border-color: #666666;
+      background-color: #666666;
+    }
+  }
+}
+
+/*! 2021-06-04 EZP-2903 시작*/
+
+.search-result-wrap {
+  width: 1550px;
+  margin: 0 auto 18px;
+
+  .result {
+    font-size: 0;
+    float: left;
+    padding-top: 9px;
+    vertical-align: bottom;
+    margin-bottom: 15px;
+
+    li {
+      position: relative;
+      display: inline-block;
+      margin-right: 20px;
+      padding-right: 21px;
+
+      &:last-child:before {
+        display: none;
+      }
+
+      &:before {
+        width: 1px;
+        height: 12px;
+        margin-top: -6px;
+        background-color: #d6d6d6;
+        display: block;
+        content: '';
+        position: absolute;
+        top: 50%;
+        right: 0;
+      }
+
+      span,
+      strong,
+      em {
+        font-size: 14px;
+        display: inline-block;
+        vertical-align: middle;
+      }
+
+      span {
+        color: #666666;
+        margin-right: 10px;
+      }
+
+      strong {
+        color: #333333;
+        font-family: 'Titillium Web';
+        font-weight: 400;
+        font-size: 18px;
+        letter-spacing: 0;
+      }
+
+      em {
+        color: #333333;
+      }
+    }
+  }
+
+  .btn-wrap {
+    font-size: 0;
+    float: right;
+    margin-bottom: 15px;
+  }
+}
+
+/*! 2021-06-04 EZP-2903 종료 */
+
+.small-amount {
+  font-size: 0;
+  display: inline-block;
+
+  button {
+    overflow: hidden;
+    width: 28px;
+    height: 28px;
+    text-indent: -9999px;
+    background: url('../img/square/spr-square.png') -202px 0 no-repeat;
+
+    &.plus {
+      background-position: -230px 0;
+    }
+  }
+
+  input {
+    line-height: 26px;
+    width: 48px;
+    height: 28px;
+    padding: 0;
+    text-align: center;
+    border-color: #dddddd;
+    border-right: none;
+    border-left: none;
+
+    &:focus {
+      border-color: #dddddd;
+    }
+  }
+}
+
+.result-table {
+  width: 1550px;
+  margin: 0 auto;
+
+  table {
+    border-bottom: 1px solid #b5b5b5;
+  }
+
+  tr {
+    &:last-child td {
+      border-bottom: none;
+    }
+
+    th {
+      font-size: 14px;
+      line-height: 64px;
+      height: 66px;
+      text-align: center;
+      color: #333333;
+      border-top: 2px solid #666666;
+
+      &:first-child {
+        padding-left: 30px;
+        text-align: left;
+      }
+
+      .checkbox {
+        padding-left: 37px;
+      }
+    }
+
+    td {
+      line-height: 20px;
+      position: relative;
+      padding: 0;
+      text-align: center;
+      color: #666666;
+      border-bottom: 1px solid #e2e2e2;
+      border-left: 1px solid #e2e2e2;
+      font-size: 14px;
+      height: 48px;
+
+      &:first-child {
+        padding-left: 30px;
+        text-align: left;
+        border-left: none;
+
+        &.tac {
+          /*! 2020-09-14 EZ-1130 시작 */
+          padding-left: 0;
+          /*! 2020-09-14 EZ-1130 종료 */
+        }
+      }
+
+      &:nth-child(3) {
+        &.detail {
+          /*! 2021-06-04 EZP-2903 */
+          /*! 2021-06-15 EZP-2903 */
+          padding: 0 20px;
+          text-align: left;
+        }
+
+        /*!2022-03-07 EZP-5185 해당 문구 운영에 반영되어 있는것 추가하고, padding 삭제 처리*/
+        /*! padding: 0 20px; */
+        text-align: left;
+      }
+
+      &.tar {
+        padding-right: 30px;
+        color: #191919;
+        font-family: 'Titillium Web';
+        font-weight: 400;
+        font-size: 16px;
+        letter-spacing: 0;
+      }
+
+      &.option {
+        color: #333333;
+        text-align: left;
+        padding: 10px 20px;
+
+        span {
+          position: relative;
+          display: inline-block;
+          margin-left: 11px;
+          padding-left: 12px;
+
+          &:before {
+            width: 1px;
+            height: 12px;
+            margin-top: -6px;
+            background-color: #d6d6d6;
+            display: block;
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+          }
+        }
+      }
+
+      .memo {
+        display: inline-block;
+        position: relative;
+        width: 31px;
+        height: 32px;
+        text-indent: -9999px;
+        background: url('../img/square/spr-square.png') -78px 0 no-repeat;
+
+        &.uncle {
+          background-position: -109px 0;
+        }
+
+        &.customer {
+          +.write-memo {
+            top: 65px;
+            right: 8px;
+          }
+
+          &:after {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 0;
+            right: -5px;
+            width: 18px;
+            height: 20px;
+            background: url('../img/square/spr-square.png') -363px 0 no-repeat;
+          }
+        }
+
+        &.both {
+          background-position: -109px 0;
+
+          +.write-memo {
+            top: 65px;
+            right: 8px;
+          }
+
+          &:after {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 0;
+            right: -5px;
+            width: 18px;
+            height: 20px;
+            background: url('../img/square/spr-square.png') -363px 0 no-repeat;
+          }
+        }
+
+        &.active+.write-memo {
+          display: block;
+        }
+
+        +.write-memo {
+          z-index: 1;
+          display: none;
+          width: 300px;
+          padding: 22px 20px 14px;
+          text-align: left;
+          border: 1px solid #dddddd;
+          background-color: #ffffff;
+          -webkit-box-shadow: 1px 1px 1px 0 rgba(0, 0, 0, 0.1);
+          -moz-box-shadow: 1px 1px 1px 0 rgba(0, 0, 0, 0.1);
+          box-shadow: 1px 1px 1px 0 rgba(0, 0, 0, 0.1);
+          position: absolute;
+          top: 63px;
+          right: 3px;
+          -webkit-border-radius: 5px;
+          -moz-border-radius: 5px;
+          border-radius: 5px;
+
+          &:before {
+            width: 12px;
+            height: 7px;
+            display: block;
+            content: '';
+            background: url('../img/square/spr-square.png') -313px 0 no-repeat;
+            position: absolute;
+            top: -7px;
+            right: 25px;
+          }
+
+          .head {
+            font-size: 13px;
+            font-weight: 700;
+            line-height: 100%;
+            padding-bottom: 10px;
+            color: #333333;
+          }
+
+          .body {
+            margin-bottom: 14px;
+          }
+
+          textarea {
+            font-size: 13px;
+            width: 100%;
+            height: 100px;
+            padding: 16px;
+            color: #666666;
+            border: none;
+            background-color: #f9f9f9;
+          }
+
+          .btn-group {
+            text-align: center;
+          }
+        }
+      }
+
+      .datepicker-wrap {
+        border-color: #dddddd;
+        -webkit-border-radius: 2px;
+        -moz-border-radius: 2px;
+        border-radius: 2px;
+
+        input {
+          line-height: 26px;
+          width: 95px;
+          height: 26px;
+          padding: 0;
+          text-align: center;
+          color: #666666;
+          font-family: 'Titillium Web';
+          font-weight: 400;
+          font-size: 15px;
+          letter-spacing: 0;
+        }
+      }
+
+      &.detail {
+        /*! 2022-11-09 EZP-6245 이름 center -> left 로 정렬 */
+        text-align: left;
+        padding: 5px 20px;
+        strong {
+          display: table-cell;
+          vertical-align: middle;
+        }
+
+        i {
+          margin-right: 10px;
+
+          &.type1.pink {
+            /*! 2020-07-31 EZP-779 */
+            background: #f18cbe;
+          }
+
+          &.line2 {
+            line-height: 14px;
+            padding-top: 5px;
+          }
+        }
+
+        span {
+          display: table-cell;
+          vertical-align: middle;
+        }
+      }
+
+      &.re-tar {
+        /*! 2022-10-31 EZP-6245 re-tar padding영역 조정 */
+        padding: 10px 20px; 
+      }
+    }
+
+    &.opener td {
+      height: 65px;
+      padding-right: 30px;
+      border-top: 1px solid #b5b5b5;
+      border-bottom: none;
+      background-color: #d7d7d7;
+
+      .checkbox {
+        label {
+          color: #666666;
+
+          em {
+            color: #333333;
+            &.secession {
+              /*! 2022-12-27 EZP-7627 수정 추가 */
+              color: #ff4800;
+            }
+          }
+        }
+
+        +strong {
+          position: relative;
+          display: inline-block;
+          margin-left: 18px;
+          padding-left: 22px;
+          color: #333333;
+
+          &:before {
+            width: 1px;
+            height: 12px;
+            margin-top: -6px;
+            background-color: #d6d6d6;
+            display: block;
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+          }
+
+          em {
+            color: #666666;
+          }
+        }
+      }
+
+      .btn-group {
+        position: absolute;
+        /*! 2022-12-08 EZP-7708 top 높이에따라 달라져서 수정
+        top: 18px; */
+        right: 30px;
+        /*! 2022-12-08 EZP-7708 top 높이에따라 달라져서 수정 시작 */
+        top: 50%;
+        transform: translateY(-50%);
+        /*! 2022-12-08 EZP-7708 top 높이에따라 달라져서 수정 끝 */
+
+        .btn-small {
+          font-size: 14px;
+          line-height: 30px;
+          display: inline-block;
+          min-width: 0;
+          height: 30px;
+          margin-right: 17px;
+          padding: 0 12px;
+          color: #ffffff;
+          border-radius: 15px;
+          background: #8accbb;
+
+          &:before {
+            content: '픽업완료';
+          }
+
+          &.cancel {
+            color: #8accbb;
+            border: 1px solid #8accbb;
+            background: none;
+
+            &:before {
+              content: '픽업취소';
+            }
+          }
+        }
+
+        .manager {
+          display: inline-block;
+          color: #8accbb;
+          border-bottom: 1px solid #a3d9d4;
+        }
+
+        .btn-opener {
+          display: inline-block;
+          overflow: hidden;
+          width: 15px;
+          height: 9px;
+          margin-left: 30px;
+          text-indent: -9999px;
+          background: url('../img/square/spr-square.png') -258px -9px no-repeat;
+
+          &.active {
+            background-position: -258px 0;
+          }
+        }
+      }
+
+      .text-group {
+        /* 2022-12-20 EZP-7760 text-align 추가 */
+        text-align: left;
+      }
+    }
+
+    &.green td {
+      background-color: #f1fbf4;
+    }
+
+    &.last-tr {
+      td {
+        /*! 2022-10-31 EZP-6245 픽업예정목록 마지막 tr border-bottom 제거 */
+        border-bottom: none;
+      }
+    }
+  }
+
+  &.manage tr {
+    th {
+      border-bottom: 1px solid #b5b5b5;
+    }
+
+    td {
+      /*! 2022-09-26 EZP-6359 padding 수정 */
+      padding: 5px 0;
+      text-align: center;
+
+      &.bdn {
+        border-left: none;
+      }
+    }
+
+    &:last-child td {
+      border-bottom-color: #b5b5b5;
+    }
+  }
+
+  tbody {
+    tr {
+      &:not(.trOpener) {
+        td {
+          &:not(.detail) {
+            /*! 2022-10-28 EZP-6245 상품명 td를 제외한 나머지 td는 가운데정렬 */
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+}
+
+/*!.result-table tr td.detail i.type1 { font-size: 12px; line-height: 36px; display: inline-block; width: 36px; height: 36px; text-align: center; vertical-align: middle; color: #ffffff; border-radius: 36px; background: #36c25d; }*/
+/*!.result-table tr td.detail i.type2 { font-size: 12px; line-height: 36px; display: inline-block; width: 36px; height: 36px; text-align: center; vertical-align: middle; color: #ffffff; border-radius: 36px; background: #666666; }*/
+
+.datepicker-wrap {
+  font-size: 0;
+  display: inline-block;
+  vertical-align: middle;
+  border: 1px solid #666666;
+
+  input,
+  img {
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  input {
+    font-size: 14px;
+    width: 358px;
+    color: #666666;
+    border: none;
+  }
+}
+
+.ui-datepicker {
+  padding-bottom: 20px;
+  display: none;
+  width: 346px;
+  margin: 12px 0;
+  margin-left: -1px;
+  border: 1px solid #666666;
+  background-color: #ffffff;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+
+.ui-datepicker-header {
+  line-height: 28px;
+  position: relative;
+  height: 28px;
+  margin-top: 24px;
+  margin-bottom: 12px;
+  text-align: center;
+
+  .ui-datepicker-prev,
+  .ui-datepicker-next {
+    position: absolute;
+    top: 0;
+    overflow: hidden;
+    width: 28px;
+    height: 28px;
+    text-indent: -9999px;
+    background: url('../img/square/spr-form.png') -38px -36px no-repeat;
+  }
+
+  .ui-datepicker-prev {
+    left: 68px;
+    background-position: -38px -36px;
+  }
+
+  .ui-datepicker-next {
+    right: 68px;
+    background-position: -66px -36px;
+  }
+}
+
+.ui-datepicker-title {
+  font-family: 'Titillium Web';
+  font-weight: 600;
+  font-size: 20px;
+  letter-spacing: 0;
+}
+
+.ui-datepicker-year:after {
+  display: inline-block;
+  content: '.';
+}
+
+.ui-datepicker-calendar {
+  padding: 0 32px;
+
+  tr {
+    th {
+      height: 40px;
+      color: #333333;
+      font-family: 'Titillium Web';
+      font-weight: 600;
+      font-size: 13px;
+      letter-spacing: 0;
+    }
+
+    td {
+      font-size: 14px;
+      height: 40px;
+      text-align: center;
+      vertical-align: middle;
+
+      a {
+        line-height: 32px;
+        display: inline-block;
+        width: 32px;
+        height: 32px;
+        color: #999999;
+        font-family: 'Titillium Web';
+        font-weight: 400;
+        font-size: 14px;
+        letter-spacing: 0;
+
+        &:hover {
+          color: #ffffff;
+          border-radius: 50%;
+          background-color: #36c25d;
+        }
+      }
+
+      &.ui-state-disabled span {
+        /*! 2021-04-27 EZP-2856 */
+        color: #cccccc;
+      }
+
+      &.ui-datepicker-current-day a {
+        color: #ffffff;
+        border-radius: 50%;
+        background-color: #36c25d;
+      }
+    }
+  }
+}
+
+.ui-datepicker-buttonpane {
+  display: none;
+  height: 72px;
+  padding-top: 16px;
+  text-align: center;
+  background-color: #f9f9f9;
+
+  button {
+    width: 80px;
+    height: 40px;
+    text-align: center;
+    color: #ffffff;
+    background-color: #666666;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+
+    &.ui-datepicker-current {
+      display: none;
+    }
+  }
+}
+
+/*! EZP-5419 */
+.ui-popup {
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  display: none;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  white-space: nowrap;
+  background-color: rgba(0, 0, 0, 0.4);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  &.on {
+    display: block;
+  }
+
+  &:before {
+    display: inline-block;
+    height: 100%;
+    content: '';
+    vertical-align: middle;
+  }
+
+  .content {
+    position: relative;
+
+    /*!overflow:hidden;*/
+    display: inline-block;
+    text-align: left;
+    vertical-align: middle;
+    white-space: initial;
+    background-color: #ffffff;
+    /*! EZP-5419 */
+    -webkit-user-select: text !important;
+    -moz-user-select: text !important;
+    -ms-user-select: text !important;
+    user-select: text !important;
+  }
+
+  .body {
+    overflow-x: hidden;
+    overflow-y: auto;
+    box-sizing: border-box;
+    padding: 60px 30px 40px;
+    word-break: break-all;
+    border: 1px solid #b5b5b5;
+    border-top: 4px solid #36c25d;
+    -webkit-overflow-scrolling: touch;
+
+    h3 {
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 100%;
+      margin-bottom: 30px;
+      text-align: center;
+      color: #333333;
+    }
+  }
+
+  .content>.btn_close {
+    position: absolute;
+    top: 22px;
+    right: 20px;
+    width: 20px;
+    height: 20px;
+
+    span {
+      position: relative;
+      display: inline-block;
+      width: 2px;
+      height: 20px;
+      padding: 0;
+      transform: rotate(45deg);
+      text-indent: -9999px;
+      color: transparent;
+      border-radius: 5px;
+      background: #000000;
+
+      &:before {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        display: block;
+        width: 20px;
+        height: 2px;
+        content: '';
+        transform: translate(-50%, -50%);
+        border-radius: 5px;
+        background: #000000;
+      }
+    }
+  }
+
+  .toss {
+    margin-bottom: 40px;
+    padding: 20px 30px;
+    font-size: 14px;
+    background-color: #f9f9f9;
+
+    p,
+    span {
+      /*! 2021-10-14 EZP-4344 */
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 100%;
+      color: #333333;
+    }
+
+    p {
+      margin-bottom: 10px;
+    }
+
+    .ui-select {
+      width: 180px;
+    }
+
+    span {
+      line-height: 40px;
+    }
+  }
+
+  .manager .table-wrap,
+  .order .table-wrap {
+    max-height: 200px;
+    overflow: hidden;
+    overflow-y: auto;
+  }
+
+  .manager table th,
+  .order table th {
+    font-size: 15px;
+    height: 40px;
+    text-align: center;
+    color: #333333;
+    border-top: 2px solid #666666;
+    border-bottom: 1px solid #b5b5b5;
+  }
+
+  .manager table tr:last-child td,
+  .order table tr:last-child td {
+    border-bottom-color: #b5b5b5;
+  }
+
+  .manager table tr td {
+    font-size: 15px;
+    height: 40px;
+    text-align: center;
+    color: #666666;
+    border-bottom: 1px solid #e2e2e2;
+  }
+
+  .order {
+    table tr td {
+      font-size: 15px;
+      height: 40px;
+      text-align: center;
+      color: #666666;
+      border-bottom: 1px solid #e2e2e2;
+    }
+
+    p {
+      color: #333333;
+      font-size: 16px;
+      text-align: center;
+      line-height: 1;
+    }
+  }
+
+  .manager {
+    margin-bottom: 40px;
+
+    table {
+      th {
+        font-size: 14px;
+        height: 43px;
+        text-align: center;
+        color: #333333;
+        border-top: 2px solid #666666;
+        border-bottom: 1px solid #b5b5b5;
+      }
+
+      tr {
+        &:last-child td {
+          border-bottom-color: #b5b5b5;
+        }
+
+        td {
+          font-size: 14px;
+          height: 41px;
+          text-align: center;
+          color: #666666;
+          border-bottom: 1px solid #e2e2e2;
+
+          &:first-child {
+            font-family: 'Titillium Web';
+            font-weight: 400;
+            font-size: 15px;
+            letter-spacing: 0;
+          }
+        }
+      }
+    }
+  }
+
+  .alert {
+    margin-bottom: 25px;
+
+    p {
+      font-size: 16px;
+      line-height: 26px;
+      text-align: center;
+      color: #333333;
+    }
+  }
+
+  .btn-wrap {
+    text-align: center;
+
+    &.btns1 .btn {
+      /*! 2022-09-30 EZP-6359 */
+      width: 230px;
+    }
+
+    &.btns2 .btn {
+      /*! 2022-09-30 EZP-6359 */
+      width: 100px;
+      min-width: 0;
+    }
+
+    .btn {
+      /*! 2022-09-30 EZP-6359 */
+      min-width: 0;
+      width: 100px;
+    }
+  }
+
+  .table-scroll {
+    /*! 2021-07-20 EZP-3449 */
+    overflow-y: auto;
+    max-height: 400px;
+  }
+}
+
+footer {
+  font-family: 'Titillium Web';
+  font-size: 14px;
+  line-height: 60px;
+  margin-top: 100px;
+  text-align: center;
+  color: #666666;
+  background: #f9f9f9;
+}
+
+.ui-popup .order p {
+  line-height: 1.5;
+}
+
+#all-order-deadline,
+#mall-order-deadline {
+  &.ui-popup {
+    .body {
+      padding: 60px 15px 40px;
+    }
+
+    .order {
+      p {
+        line-height: 1.5;
+        font-size: 14px;
+
+        span {
+          display: inline-block;
+          color: #fc6547;
+        }
+      }
+    }
+
+    .password-box {
+      text-align: center;
+      margin-top: 20px;
+
+      input {
+        width: 250px;
+        height: 40px;
+        border: 1px solid #d6d6d6;
+        color: #999999;
+      }
+    }
+  }
+}
+
+.ui-popup .order p.scroll-cont {
+  max-height: 144px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/*! 2020-12-28 EZP-1765 */
+
+.matching-pop {
+  .cont {
+    overflow: hidden;
+
+    .left {
+      float: left;
+      width: 495px;
+      height: 464px;
+      overflow-y: scroll;
+
+      table {
+        border-top: 2px solid #666666;
+
+        tr.complete td {
+          background: #f5fcf7;
+        }
+
+        th {
+          color: #333333;
+          font-size: 14px;
+          line-height: 40px;
+          text-align: center;
+          font-weight: normal;
+          border-bottom: 1px solid #b5b5b5;
+        }
+
+        td {
+          text-align: center;
+          padding: 15px 0 18px;
+          border-bottom: 1px solid #e2e2e2;
+          color: #666666;
+          font-size: 14px;
+
+          strong {
+            color: #333333;
+            font-size: 14px;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+          }
+
+          span {
+            color: #666666;
+            display: block;
+            font-size: 14px;
+          }
+
+          button {
+            border: 1px solid #d6d6d6;
+            background: #f8f8f8;
+            color: #333333;
+            font-size: 12px;
+            height: 24px;
+            padding: 0 12px;
+            border-radius: 12px;
+            margin-top: 10px;
+
+            &.complete {
+              border: none;
+              background: #36c25d;
+              color: #ffffff;
+            }
+          }
+        }
+      }
+    }
+
+    .right {
+      float: right;
+      width: 420px;
+      height: 464px;
+      background: #f9f9f9;
+      padding: 25px 30px 0 30px;
+
+      h4 {
+        font-size: 18px;
+        color: #333333;
+        text-align: center;
+        margin-bottom: 25px;
+      }
+
+      .search-item {
+        font-size: 0;
+        display: flex;
+        vertical-align: middle;
+        width: 100%;
+        padding-right: 86px;
+        position: relative;
+
+        .ui-select {
+          /*! 2021-01-06 EZP-1765 */
+          width: 96px;
+
+          li:focus {
+            background: #d7d7d7;
+          }
+
+          &.ex {
+            z-index: 3;
+          }
+        }
+      }
+
+      .input-search {
+        display: inline-block;
+        border: 1px solid #d6d6d6;
+        width: 100%;
+
+        input {
+          border: none;
+        }
+
+        button {
+          overflow: hidden;
+          width: 38px;
+          height: 38px;
+          text-indent: -9999px;
+          background: url('../img/square/spr-square.png') -325px 0 no-repeat;
+          margin: 0;
+        }
+      }
+
+      .filter-search {
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin: 0;
+      }
+
+      .search-list {
+        margin-top: 30px;
+        overflow-y: scroll;
+        height: 319px;
+        padding-bottom: 25px;
+        margin-right: -30px;
+        padding-right: 10px;
+
+        li {
+          padding: 25px 0;
+          border-bottom: 1px solid #e2e2e2;
+          position: relative;
+          padding-right: 58px;
+
+          &:first-child {
+            border-top: 1px solid #e2e2e2;
+          }
+
+          strong {
+            font-size: 14px;
+            color: #333333;
+            font-weight: bold;
+          }
+
+          p {
+            margin-top: 7px;
+            font-size: 14px;
+            color: #666666;
+          }
+
+          button {
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            right: 0;
+            margin-top: -15px;
+          }
+        }
+      }
+    }
+
+    .info {
+      /*! 2021-06-17 EZP-1765 시작 */
+      display: flex;
+      justify-content: space-between;
+      width: 495px;
+      margin-bottom: 10px;
+      align-items: center;
+
+      span.result {
+        font-size: 16px;
+        color: #333333;
+
+        em {
+          color: #ff4800;
+          margin-left: 5px;
+        }
+      }
+    }
+  }
+
+  button.xsmall {
+    height: 30px;
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+    line-height: 30px;
+    min-width: 74px;
+  }
+
+  .cont .info span button {
+    border: 1px solid #cccccc;
+    color: #666666;
+    background: #ffffff;
+
+    &.active {
+      border-color: #36c25d;
+      background-color: #36c25d;
+      color: #ffffff;
+    }
+  }
+}
+
+
+
+/*! 2021-06-17 EZP-1765 종료 */
+.search-wrap .inner .divCustomCheckBox {
+  &.ex {
+    height: auto;
+    margin-bottom: 0;
+  }
+
+  .radio {
+    margin-left: 20px;
+  }
+}
+
+.search-result-wrap span.chargeCount strong em {
+  color: #ff4800;
+}
+
+/*! 2021-08-06 EZP-3726 */
+
+.search-wrap .inner .search-item.period-filter a {
+  min-width: 54px;
+  color: #666666;
+  font-size: 13px;
+  padding: 0 13px;
+  line-height: 30px;
+  border: 1px solid #d6d6d6;
+  border-radius: 2px;
+  background: #ffffff;
+  margin-left: 8px;
+
+  &:first-child {
+    margin-left: 0;
+  }
+
+  &.on {
+    color: #333333;
+    border: 1px solid #303033;
+  }
+}
+
+.result-table.order {
+  table {
+    border-collapse: collapse;
+  }
+
+  tr th {
+    border-bottom: 1px solid #b5b5b5;
+    line-height: 20px;
+
+    &.small_th {
+      height: 32px;
+    }
+  }
+
+  thead tr {
+    &:nth-child(1) th.small_th {
+      border-left: 1px solid #f0f0f0;
+      border-right: 1px solid #f0f0f0;
+    }
+
+    &:nth-child(2) th {
+      border-top: 0;
+
+      &:nth-child(5),
+      &:nth-child(1) {
+        /*! 2021-06-30 EZP-1903 */
+        border-left: 1px solid #f0f0f0;
+      }
+
+      &:nth-child(8) {
+        border-right: 1px solid #f0f0f0;
+      }
+    }
+  }
+
+  tr {
+
+    th:first-child,
+    td:first-child {
+      padding-left: 0;
+      text-align: center;
+    }
+  }
+
+  td {
+    padding: 18px 10px;
+
+    &:nth-child(2) {
+      text-align: center;
+
+      em {
+        /*! 2022-07-05 EZP-5424 */
+        text-decoration: underline;
+        cursor: pointer;
+      }
+    }
+
+    span {
+      font-size: 12px;
+    }
+
+    a {
+      text-decoration: underline;
+    }
+
+    em.txt-red {
+      color: #ff4800;
+      /*! 2022-12-22 EZP-7627 밑줄 제거 */
+      text-decoration: none;
+      cursor: default;
+    }
+
+    button.xsmall {
+      height: 30px;
+      font-size: 14px;
+      /*! 2021-06-18 EZP-1765 */
+      line-height: 30px;
+      min-width: auto;
+      width: 80px;
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  .top-info {
+    line-height: 64px;
+    border-top: 1px solid #b5b5b5;
+    padding: 0 30px;
+    position: relative;
+    background: #f2f2f2;
+    color: #333333;
+    font-weight: bold;
+    font-size: 14px;
+
+    span {
+      /*! 2021-06-30 EZP-1903 */
+      position: absolute;
+      top: 50%;
+      right: 30px;
+      font-weight: normal;
+      font-size: 14px;
+      line-height: 20px;
+      display: flex;
+      align-items: center;
+      transform: translateY(-50%);
+
+      a {
+        color: #666666;
+        font-size: 14px;
+        line-height: 30px;
+        height: 30px;
+        border: 1px solid #cccccc;
+        width: 125px;
+        padding-right: 12px;
+        text-align: right;
+        background: #ffffff url('../img/square/left-arrow.png') 10px 50% no-repeat;
+        margin-left: 20px;
+      }
+    }
+  }
+}
+
+.search-result-wrap.ex {
+  position: relative;
+
+  .chargeCount {
+    position: relative;
+  }
+}
+
+.add-order-list-pop {
+  .checkbox {
+    padding-left: 16px;
+  }
+
+  .order {
+    >p {
+      color: #ff4800;
+      font-size: 16px;
+      text-align: center;
+      margin: -15px 0 30px;
+    }
+
+    .scroll {
+      height: calc(100vh - 430px);
+      overflow-y: auto;
+    }
+
+    table {
+      th {
+        height: 50px;
+      }
+
+      tr td {
+        /*! 2022-07-05 */
+        height: 50px;
+
+        span.type-label {
+          padding: 0 4px;
+          line-height: 24px;
+          font-size: 12px;
+          color: #ffffff;
+          display: inline-block;
+          border-radius: 2px;
+
+          &.blue {
+            background: #33a7e3;
+          }
+
+          &.green {
+            background: #23c35f;
+          }
+
+          &.black {
+            background: #666666;
+          }
+
+          &.pink {
+            /*! 2021-07-30 EZP-3659 */
+            background: #f18cbe;
+          }
+
+          &.purple {
+            background: #9a95ee;
+          }
+
+          &.sandy {
+            background: #eeaa62;
+          }
+        }
+      }
+    }
+  }
+}
+
+.mall-search-pop {
+  .body {
+    overflow: inherit;
+  }
+
+  .txt-cont>p {
+    margin: -15px 0 30px;
+    color: #666666;
+    font-size: 16px;
+    text-align: center;
+    line-height: 24px;
+  }
+
+  .search-box {
+    background: #f9f9f9;
+    padding: 30px;
+
+    .input-search {
+      display: flex;
+      position: relative;
+      margin-bottom: 15px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #e2e2e2;
+
+      input {
+        width: 100%;
+      }
+
+      .search-list {
+        /*! 2021-07-30 EZP-3659 */
+        display: none;
+        position: absolute;
+        top: 39px;
+        left: 0;
+        width: 100%;
+        border: 1px solid #666666;
+        z-index: 1;
+        background: #ffffff;
+        max-height: 172px;
+        overflow-y: auto;
+
+        &.on {
+          display: block;
+        }
+
+        li {
+          display: flex;
+          height: 34px;
+          line-height: 34px;
+          padding: 0 15px;
+          font-size: 14px;
+          color: #666666;
+          cursor: pointer;
+
+          &:hover {
+            /*! 2022-1-24 EZP-4997 */
+            background: #d7d7d7;
+          }
+        }
+
+        em {
+          flex-shrink: 0;
+        }
+
+        .name {
+          /*! 2022-1-24 EZP-4997 */
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+      }
+    }
+  }
+
+  .select-list {
+    /*! 2022-1-24 EZP-4997 */
+    white-space: normal;
+
+    button {
+      /*! 2022-1-24 EZP-4997 */
+      color: #666666;
+      font-size: 12px;
+      padding: 0 24px 0 12px;
+      margin: 5px 5px 0 0;
+      line-height: 24px;
+      background: #e0f9e7;
+      border-radius: 12px;
+      position: relative;
+
+      &:after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        margin-top: -3px;
+        right: 10px;
+        width: 6px;
+        height: 6px;
+        background: url('../img/square/search-icon-del.png') no-repeat;
+      }
+    }
+  }
+}
+
+/*! 2021-01-05 EZP-2066 */
+
+.result-table tr.opener td .text-group .checkbox {
+  height: auto;
+
+  label {
+    /*! 2021-07-19 EZP-3405 */
+    max-width: 940px;
+  }
+}
+
+
+
+/*! 2021-02-23 EZP-1903 */
+
+.search-box .radio-box {
+  text-align: center;
+  margin-bottom: 20px;
+
+  .radio:first-child {
+    margin-right: 10px;
+  }
+}
+
+/*! 2021-04-06 EZP-1902 */
+
+.ico-delivery {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  border-radius: 5px;
+  text-align: center;
+  line-height: 24px;
+  font-size: 12px;
+  color: #ffa200;
+  background: #fff4d9;
+  vertical-align: 2px;
+  margin-right: 5px;
+
+  &.blue {
+    color: #3e45ff;
+    background: #e1e6ff;
+  }
+}
+
+.change-pop table {
+  th {
+    font-size: 14px;
+    color: #333333;
+    font-weight: normal;
+    text-align: center;
+    height: 48px;
+  }
+
+  td {
+    padding: 12px 10px;
+
+    .datepicker-wrap {
+      border: 1px solid #d6d6d6;
+    }
+
+    .txt-red {
+      color: #ff4800;
+    }
+  }
+
+  tr.bg-gray {
+    background: #f9f9f9;
+  }
+}
+
+/*! 2021-06-04 EZP-2903 */
+
+.search-result-wrap .btn-wrap {
+  >button {
+    line-height: 36px;
+  }
+
+  .all-in {
+    >button {
+      line-height: 36px;
+
+      &:hover {
+        color: #36c25d;
+        border: 1px solid #36c25d;
+        background: #ffffff;
+      }
+    }
+
+    display: inline-block;
+    position: relative;
+    vertical-align: top;
+
+    &.on>button {
+      color: #36c25d;
+      border: 1px solid #36c25d;
+      background: #ffffff;
+    }
+  }
+}
+
+/*! .layer-select-list{position:absolute; top:0; left:0;} */
+
+.layer-select-list {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: -15px;
+  background-color: #ffffff;
+  border-radius: 4px;
+  box-shadow: 0 4px 12px 0 rgba(15, 15, 25, 0.4);
+  margin-top: 4px;
+  overflow: hidden;
+  width: 100%;
+  white-space: nowrap;
+  z-index: 5;
+}
+
+.search-result-wrap .btn-wrap .all-in.on .layer-select-list {
+  display: block;
+}
+
+.layer-select-list {
+  button {
+    font-size: 13px;
+  }
+
+  ul {
+    padding: 0 8px;
+  }
+
+  li {
+    button {
+      line-height: 42px;
+      width: 100%;
+    }
+
+    +li {
+      border-top: 1px solid #e6e6e6;
+    }
+  }
+}
+
+.layer-all-in {
+  width: auto;
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+    padding: 0;
+    width: 180px;
+  }
+
+  li {
+    flex: 1;
+    min-width: calc(50% - 1px);
+
+    +li {
+      border: 0;
+    }
+
+    &:nth-child(n + 3) {
+      border-top: 1px solid #ebebeb;
+    }
+
+    &:nth-child(odd) {
+      border-right: 1px solid #ebebeb;
+    }
+
+    button {
+      color: #191919;
+      line-height: 48px;
+    }
+
+    &.selected button {
+      background-color: #888888;
+      color: #ffffff;
+    }
+  }
+
+  .apply {
+    display: block;
+    background-color: #36c25d;
+    color: #ffffff;
+    height: 48px;
+    width: 100%;
+  }
+}
+
+.pop-full-stock .txt-cont p {
+  text-align: center;
+  font-size: 16px;
+  color: #333333;
+
+  &.notice {
+    text-align: center;
+    font-size: 14px;
+    color: #666666;
+    margin-top: 15px;
+  }
+}
+
+/*! 2021-06-16 EZP-3118 */
+/*! 2021-10-06 EZP-4258 */
+
+.secession {
+  color: #ff4800;
+}
+
+.secession-bold {
+  font-weight: bold;
+  color: #ff4800;
+}
+
+.badge-reserve {
+  font-size: 12px;
+  color: #ffffff;
+  display: inline-block;
+  line-height: 24px;
+  padding: 0 7px;
+  background: #ff4800;
+  margin-left: 7px;
+  border-radius: 2px;
+  vertical-align: bottom;
+}
+
+/*! 2021-06-18 EZP-1765 */
+
+.tab-nav {
+  font-size: 0;
+  position: relative;
+  width: 100%;
+  height: 50px;
+
+  &:before {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    content: '';
+    background: #666666;
+  }
+
+  li {
+    position: relative;
+    display: inline-block;
+    box-sizing: border-box;
+    width: 250px;
+    height: 50px;
+    margin-left: -1px;
+    text-align: center;
+    vertical-align: top;
+    color: #999999;
+    border: 1px solid #d6d6d6;
+    border-bottom: 2px solid #666666;
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    &.active {
+      z-index: 1;
+      border: 0;
+      background: #ffffff;
+
+      a {
+        color: #333333;
+        border: 2px solid #666666;
+        border-bottom: 0;
+      }
+    }
+
+    a {
+      font-size: 16px;
+      line-height: 30px;
+      display: block;
+      box-sizing: border-box;
+      height: 50px;
+      padding: 10px;
+      color: #999999;
+    }
+  }
+}
+
+.add-order-list-pop {
+  &.ui-popup.ui-popup .order table th {
+    border-top: 1px solid #e2e2e2;
+  }
+
+  .order .sort-item {
+    padding: 14px 0;
+    background: #f9f9f9;
+    border-top: 1px solid #e2e2e2;
+
+    span:first-child {
+      color: #333333;
+      font-size: 14px;
+      padding: 0 15px;
+      position: relative;
+
+      &:before {
+        content: '';
+        position: absolute;
+        right: -5px;
+        top: 2px;
+        width: 1px;
+        height: 12px;
+        background: #d6d6d6;
+      }
+    }
+
+    .checkbox {
+      margin-left: 25px;
+      padding-left: 25px;
+    }
+  }
+}
+
+.mall-search-pop .search-box .input-search .search-list li.finish {
+  background: #d7d7d7;
+  pointer-events: none;
+}
+
+.txt-red {
+  color: #ff4800;
+}
+
+.txt-green {
+  color: #50C258;
+}
+
+.search-result-wrap {
+  &.bottom {
+    overflow: hidden;
+    position: relative;
+
+    .btn-wrap {
+      margin-bottom: 0;
+    }
+  }
+
+  &.mb span.chargeCount {
+    position: relative;
+  }
+}
+
+.result-table.order th {
+  &.bdr_none {
+    border-right: 0 !important;
+  }
+
+  &.bdl {
+    border-left: 1px solid #f0f0f0;
+  }
+}
+
+/*! 2021-12-15 EZP-4620 */
+
+.txt-red {
+  color: #ff4800 !important;
+}
+
+.txt-line {
+  text-decoration: line-through !important;
+}
+
+/*! 2022-07-04 EZP-5424 시작 */
+
+.add-order-list-pop.ui-popup.ui-popup .order table td .ui-popup-open {
+  cursor: pointer;
+  text-decoration: underline;
+
+  em {
+    text-decoration: underline;
+    text-decoration-color: white;
+  }
+}
+
+.ui-popup {
+  &.order-detail-pop .order {
+    h4 {
+      font-weight: 600;
+      margin-bottom: 10px;
+
+      span {
+        font-weight: 400;
+
+        &.label-ready {
+          background-color: #ff0000;
+          color: #ffffff;
+          border-radius: 3px;
+          padding: 2px 3px;
+          margin-left: 3px;
+          font-size: 14px;
+        }
+      }
+    }
+
+    table {
+
+      th,
+      td {
+        border-top: 0px !important;
+        border-bottom: 1px solid #e2e2e2;
+        text-align: left;
+        padding: 0 15px;
+        font-size: 14px;
+      }
+    }
+  }
+
+  .order table tr:first-child {
+
+    th,
+    td {
+      border-top: 1px solid #e2e2e2 !important;
+    }
+  }
+
+  &.order-detail-pop .order {
+    table {
+      tr:last-child td {
+        border-color: #e2e2e2;
+      }
+
+      th {
+        background-color: #f9f9f9;
+
+        span {
+          display: block;
+          font-size: 12px;
+          margin-top: 2px;
+          color: #888888;
+        }
+      }
+
+      td {
+        &.name span {
+          color: #888888;
+          margin-left: 5px;
+        }
+
+        &.check {
+          position: relative;
+
+          &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 0;
+            border: 5px solid #fa3737;
+            border-right-color: transparent;
+            border-bottom-color: transparent;
+          }
+        }
+      }
+
+      .refund {
+        color: #ff4800;
+      }
+
+      .ready {
+        color: #23c35f;
+      }
+
+      .date {
+        font-size: 11px;
+        color: #666666;
+        display: block;
+        margin-top: 3px;
+      }
+
+      i {
+        font-size: 11px;
+        line-height: 20px;
+        display: inline-block;
+        min-width: 31px;
+        height: 20px;
+        padding: 0 3px;
+        text-align: center;
+        vertical-align: 1px;
+        border-radius: 2px;
+
+        &.mismatch {
+          color: #ff4800;
+          border: 1px solid #ff4800;
+          margin-right: 4px;
+        }
+
+        &.cancel {
+          color: #ffffff;
+          background-color: #ff0000;
+          border: 1px solid #ff0000;
+          display: block;
+          max-width: 48px;
+          margin: auto;
+          margin-bottom: 3px;
+        }
+      }
+
+      .line {
+        text-decoration: line-through;
+      }
+    }
+
+    .scroll table {
+      th {
+        text-align: center;
+        padding: 0;
+      }
+
+      td {
+        text-align: center;
+        padding: 0;
+
+        .exOption {
+          color: #999999;
+          display: block;
+          font-size: 10px;
+          margin-top: 3px;
+        }
+      }
+    }
+
+    table {
+      tr td.alignCenter {
+        display: flex;
+        align-items: center;
+
+        em {
+          color: #23c35f;
+        }
+      }
+
+      .tip-wrap {
+        /*! 2022-07-25 EZP-5433 가게명 툴팁 시작*/
+        position: relative;
+        display: inline-block;
+
+        &:hover .tip {
+          display: block;
+        }
+
+        .tip {
+          display: none;
+          position: absolute;
+          width: max-content;
+          border: 1px solid;
+          background-color: #ffffff;
+          text-align: left;
+          padding: 10px;
+          font-size: 12px;
+          line-height: 19px;
+          left: 0;
+          top: 20px;
+          z-index: 999;
+
+          strong {
+            display: block;
+            font-weight: 600;
+          }
+        }
+      }
+    }
+  }
+}
+
+/*! 2022-07-25 EZP-5433 가게명 툴팁 종료*/
+
+/*! 2022-09-28 EZP-5424 margin-right 제거 
+  .ui-popup.order-detail-pop .order table tr td span.type-label {
+      margin-right: 5px;
+  }
+  */
+
+/*! 2022-07-04 EZP-5424 종료 */
+
+/*! 2022-07-09 EZP-5433 시작 */
+.window-pop-wrap {
+  overflow: hidden;
+
+  .ui-popup:first-child {
+    background-color: #ffffff;
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    .content {
+      overflow-y: auto;
+      height: 100vh;
+      vertical-align: inherit;
+    }
+
+    .body {
+      border: 0;
+      padding-bottom: 0;
+    }
+
+    .txt-cont {
+      height: calc(100vh - 188px);
+    }
+
+    .btn_wrap {
+      background-color: #ffffff;
+      z-index: 1;
+      position: absolute;
+      width: 100%;
+      left: 0;
+      bottom: 40px;
+      padding-top: 40px;
+    }
+  }
+}
+
+/*! 2022-07-09 EZP-5433 종료 */
+
+.hover-box {
+  /*! 2022-11-28 EZP-6245 tooltip영역 재 설정 */
+	display: block;
+	width: 100%;
+  /*! 2022-11-28 EZP-6245 tooltip영역 재 설정 */
+	position: relative;
+	display: block;
+	width: 100%;
+	.info-box {
+    /*! 2022-11-28 EZP-6245 tooltip영역 재 설정 */
+		display: none;
+		border-radius: 3px;
+		padding: 5px;
+		position: absolute;
+		z-index: 9999;
+		background-color: #fffdff;
+		border: 1px solid #686868;
+		line-height: 1.5;
+		max-width: 400px;
+		span {
+      /*! 2022-11-28 EZP-6245 tooltip영역 재 설정 */
+			display: block;
+			overflow-wrap: break-word;
+			text-align: left;
+			width: 100%;
+		}
+	}
+	&:hover {
+		.info-box {
+      /*! 2022-11-28 EZP-6245 tooltip영역 재 설정 */
+			display: flex;
+			align-items: center;
+			justify-content: flex-start;
+		}
+	}
+}
+
+
+

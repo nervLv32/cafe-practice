@@ -1,0 +1,125 @@
+<div class="modal-pop modal-reorder modal-reorder-case1" id="modal-reorder-case1">
+    <div class="modal-dialog">
+        <div class="modal-inner w480">
+            <section class="modal-head">
+                <div class="modal-head-inner">
+                    <h1>재주문</h1>
+                    <a href="#" class="btn-manual" target="_blank" title="매뉴얼">매뉴얼</a>
+                </div>
+            </section>
+            <div class="modal-body">
+                <div class="reorder-content-wrap">
+                    <p>재주문을 원하는 유형을 선택해주세요.</p>
+                    <div class="reorder-radio-wrap">
+                        <div class="form-inline">
+                            <div class="form-control">
+                                <label>
+                                    <input type="radio" name="radio1" checked="" data-value="상품주문">
+                                    <span>상품주문</span>
+                                </label>
+                            </div>
+                            <div class="form-control">
+                                <label>
+                                    <input type="radio" name="radio1" data-value="미송주문">
+                                    <span>미송주문</span>
+                                </label>
+                            </div>
+                            <div class="form-control">
+                                <label>
+                                    <input type="radio" name="radio1" data-value="셈플주문">
+                                    <span>샘플주문</span>
+                                </label>
+                            </div>
+                            <div class="form-control">
+                                <label>
+                                    <input type="radio" name="radio1" data-value="제작주문">
+                                    <span>제작주문</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="reorder-caption-wrap">
+                        <p>
+                            재주문은 원상품의 유형과 관계없이 <b class="bold-text">상품주문</b>으로 등록됩니다.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="modal-footer-btn">
+                    <button type="button" name="button" class="btn btn-lg btn-point">확인</button>	
+                    <button type="button" name="button" class="btn btn-lg btn-darkgray page-close">취소</button>
+                </div>
+            </div>
+            <a href="javascript:void(0);" class="page-close"></a>
+        </div>
+    </div>
+    <div class="dim"></div>
+</div>
+
+<div class="modal-pop modal-reorder modal-reorder-case2" id="modal-reorder-case2">
+    <div class="modal-dialog">
+        <div class="modal-inner w480">
+            <section class="modal-head">
+                <div class="modal-head-inner">
+                    <h1>재주문</h1>
+                    <a href="#" class="btn-manual" target="_blank" title="매뉴얼">매뉴얼</a>
+                </div>
+            </section>
+            <div class="modal-body">
+                <div class="reorder-content-wrap">
+                    <p>재주문을 원하는 유형을 선택해주세요.</p>
+                    <div class="reorder-radio-wrap">
+                        <div class="form-inline">
+                            <div class="form-control">
+                                <label>
+                                    <input type="radio" name="radio2" checked="">
+                                    <span>상품주문</span>
+                                </label>
+                            </div>
+                            <div class="form-control">
+                                <label>
+                                    <input type="radio" name="radio2">
+                                    <span>샘플주문</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="reorder-caption-wrap">
+                        <p>
+                            재주문은 원상품의 유형과 관계없이 <b class="primary-color">상품주문</b>으로 등록됩니다.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="modal-footer-btn">
+                    <button type="button" name="button" class="btn btn-lg btn-point">확인</button>	
+                    <button type="button" name="button" class="btn btn-lg btn-darkgray page-close">취소</button>
+                </div>
+            </div>
+            <a href="javascript:void(0);" class="page-close"></a>
+        </div>
+    </div>
+    <div class="dim"></div>
+</div>
+
+<script>
+
+    // 재주문 팝업
+    const reorderModalOne = document.querySelector(".modal-reorder-case1")
+    const reorderModalOneElems = document.querySelectorAll(".modal-reorder-case1 .reorder-radio-wrap .form-control input[type='radio']")
+    const reorderModalOneText = document.querySelector(".modal-reorder-case1 .reorder-caption-wrap .bold-text")
+
+    if (reorderModalOne) {
+
+        for (i = 0; i < reorderModalOneElems.length; i++) {
+            reorderModalOneElems[i].addEventListener('click', function () {
+                reorderModalOneText.innerText = this.getAttribute('data-value')
+            })
+        }
+        
+
+    }
+
+</script>

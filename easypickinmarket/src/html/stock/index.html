@@ -1,0 +1,1307 @@
+{% extends "../_templates/layout.njk" %}
+{% block content %}
+
+<div class="wrapper" id="wrap">
+  <!-- container -->
+  <div class="container" id="container">
+    <!-- content -->
+    <div class="content" id="content">
+      <div class="content-head">
+        <div class="page-title">
+          <h3 class="h3-tit">오늘입고상품</h3>
+          <a href="#" class="btn-manual" target="_blank" title="매뉴얼">매뉴얼</a>
+          <div class="form-box">
+            <form onsubmit="return submitHandler();">
+              <fieldset>
+                <legend class="skip">통합검색</legend>
+                <label for="total-search" class="skip">검색어 입력</label>
+                <input type="search" name="total-search" id="total-search" title="검색어 입력" class="text"
+                  placeholder="상품을 검색해보세요.">
+                <input type="submit" value="검색" class="submit">
+              </fieldset>
+            </form>
+          </div>
+        </div>
+        <div class="cont-info-right">
+          <ul class="breadcrumb">
+            <li>공급</li>
+            <li>입고상품검수</li>
+            <li class="now" title="오늘입고상품">오늘입고상품</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="folder">
+        <form name="" id="">
+          <input type="hidden" name="" value="">
+          <div class="tborder-box">
+            <div class="tbl-top-search">
+              <div class="table-row">
+                <table class="tbl-top">
+                  <colgroup>
+                    <col style="width:120px;">
+                    <col style="width:45%">
+                    <col style="width:25px;">
+                    <col style="width:120px;">
+                    <col style="width:40%">
+                  </colgroup>
+                  <tbody>
+                    <tr class="rowFix rowFold">
+                      <th>기간</th>
+                      <td>
+                        <div class="form-inline">
+                          <div class="sel-date-type">
+                            <button type="button" class="label-date active">1개월</button>
+                            <ul class="sel-date-list">
+                              <li class="label-date">오늘</li>
+                              <li class="label-date">3일</li>
+                              <li class="label-date">7일</li>
+                              <li class="label-date active">1개월</li>
+                              <li class="label-date">3개월</li>
+                              <li class="label-date">6개월</li>
+                              <li class="label-date">1년</li>
+                              <li class="label-date">선택</li>
+                            </ul>
+                          </div>
+                          <div class="calendar-box">
+                            <div class="form-inline">
+                              <div class="form-control">
+                                <input type="text" class="cal-input" value="2019-04-01" data-range="cal01">
+                              </div>
+                              <div class="wave-txt">~</div>
+                              <div class="form-control">
+                                <input type="text" class="cal-input" value="2019-04-01" data-range="cal01">
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                      <td></td>
+                      <!-- 2022-12-05 EZP-6415 검색유형 EC상품등록 추가 시작 -->
+                      <!-- 2023-02-06 EZP-6415 검색유형 EC상품등록 제거
+                      <th>EC상품등록</th>
+                      <td>
+                        <div class="form-inline">
+                          <div class="form-control">
+                            <label>
+                              <input type="checkbox" class="custom-control-input" checked="checked">
+                              <span>전체</span>
+                            </label>
+                          </div>
+                          <div class="form-control">
+                            <label>
+                              <input type="checkbox">
+                              <span>등록상품</span>
+                            </label>
+                          </div>
+                          <div class="form-control">
+                            <label>
+                              <input type="checkbox">
+                              <span>미등록 상품</span>
+                            </label>
+                          </div>
+                        </div>
+                      </td>
+                      <td></td>
+                      -->
+                      <!-- 2022-12-05 EZP-6415 검색유형 EC상품등록 추가 끝 -->
+                      <!-- 2022-12-09 EZP-6415 검색영역이 제일뒤로 가게 변경
+                        <th>검색</th>
+                      <td>
+                        <div class="form-inline">
+                          <select name="" id="" class="default-select w120">
+                            <option value="">전체</option>
+                            <option value="">주문번호</option>
+                            <option value="">거래처명</option>
+                            <option value="">거래처명(주문)</option>
+                            <option value="">상품명</option>
+                            <option value="">쇼핑몰상품명</option>
+                            <option value="">쇼핑몰상품코드</option>
+                          </select>
+                          <div class="form-control searchValue">
+                            <input type="text" class="search-input-w2" name="" id="" value="" placeholder="">
+                          </div>
+                        </div>
+                      </td>
+                      <td></td> -->
+                    </tr>
+                    <tr class="rowFold">
+                      <th>주문구분</th>
+                      <td>
+                        <div class="form-inline">
+                          <div class="form-control">
+                            <label>
+                              <input type="checkbox" class="custom-control-input" checked="checked">
+                              <span>전체</span>
+                            </label>
+                          </div>
+                          <div class="form-control">
+                            <label>
+                              <input type="checkbox">
+                              <span>바로주문</span>
+                            </label>
+                          </div>
+                          <div class="form-control">
+                            <label>
+                              <input type="checkbox">
+                              <span>일반주문</span>
+                            </label>
+                          </div>
+                          <div class="form-control">
+                            <label>
+                              <input type="checkbox" class="custom-control-input">
+                              <span>추가입고</span>
+                            </label>
+                          </div>
+                        </div>
+                      </td>
+                      <td></td>
+                      <th>상품보기</th>
+                      <td>
+                        <div class="form-inline">
+                          <div class="form-control">
+                            <label>
+                              <input type="checkbox" class="custom-control-input" checked="checked">
+                              <span>전체</span>
+                            </label>
+                          </div>
+                          <div class="form-control">
+                            <label>
+                              <input type="checkbox">
+                              <span>입고상품</span>
+                            </label>
+                          </div>
+                          <div class="form-control">
+                            <label>
+                              <input type="checkbox">
+                              <span>미입고상품</span>
+                            </label>
+                          </div>
+                        </div>
+                      </td>
+                      <td></td>
+                    </tr>
+                    <tr class="rowFold">
+                      <th>유형</th>
+                      <td>
+                        <div class="form-inline form-oneline-wrap">
+                          <div class="form-control">
+                            <label>
+                              <input type="checkbox" class="custom-control-input" checked="checked">
+                              <span>전체</span>
+                            </label>
+                          </div>
+                          <div class="form-control">
+                            <label>
+                              <input type="checkbox">
+                              <span>신규</span>
+                            </label>
+                          </div>
+                          <div class="form-control">
+                            <label>
+                              <input type="checkbox">
+                              <span>미송</span>
+                            </label>
+                          </div>
+                          <div class="form-control">
+                            <label>
+                              <input type="checkbox" class="custom-control-input">
+                              <span>불량</span>
+                            </label>
+                          </div>
+                          <div class="form-control">
+                            <label>
+                              <input type="checkbox" class="custom-control-input">
+                              <span>샘플</span>
+                            </label>
+                          </div>
+                          <div class="form-control">
+                            <label>
+                              <input type="checkbox" class="custom-control-input">
+                              <span>유료샘플</span>
+                            </label>
+                          </div>
+                          <div class="form-control">
+                            <label>
+                              <input type="checkbox" class="custom-control-input">
+                              <span>샘플결제</span>
+                            </label>
+                          </div>
+                          <div class="form-control">
+                            <label>
+                              <input type="checkbox" class="custom-control-input">
+                              <span>샘플반납</span>
+                            </label>
+                          </div>
+                          <div class="form-control">
+                            <label>
+                              <input type="checkbox" class="custom-control-input">
+                              <span>제작신규</span>
+                            </label>
+                          </div>
+                          <div class="form-control">
+                            <label>
+                              <input type="checkbox" class="custom-control-input">
+                              <span>제작미송</span>
+                            </label>
+                          </div>
+                        </div>
+                      </td>
+                      <td></td>
+                      <!-- 2022-12-09 EZP-6415 검색영역이 제일뒤로 가게 변경 -->
+                        <th>검색</th>
+                      <td>
+                        <div class="form-inline">
+                          <select name="" id="" class="default-select w120">
+                            <option value="">전체</option>
+                            <option value="">주문번호</option>
+                            <option value="">거래처명</option>
+                            <option value="">거래처명(주문)</option>
+                            <option value="">상품명</option>
+                            <option value="">쇼핑몰상품명</option>
+                            <option value="">쇼핑몰상품코드</option>
+                          </select>
+                          <div class="form-control searchValue">
+                            <input type="text" class="search-input-w2" name="" id="" value="" placeholder="">
+                          </div>
+                        </div>
+                      </td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="top-btn-search">
+                <button type="button" name="button" class="btn btn-lg btn-point">검색</button>
+                <div class="search-btns">
+                  <a href="#" class="serchsortbtn">
+                    <button type="button" class="btn btn-lg btn-sub-primary sarchsortbtn">검색관리</button>
+                    <div class="top-search-sort">
+                      <button type="button" class="reset"><i class="ico ico-reset"></i>초기화</button>
+                      <div class="top-search-depth">
+                        <button type="button" class="add-search-save"><i class="ico ico-plus-blue"></i>검색조건 저장</button>
+                        <ul class="add-search-element">
+                          <li class="dflex">
+                            <div class="form-control">
+                              <input type="text" value="저장1" readonly="readonly">
+                            </div>
+                            <div class="s-search-btns">
+                              <button type="button" class="btn btn-write">쓰기</button>
+                              <button type="button" class="btn btn-del">삭제</button>
+                            </div>
+                          </li>
+                          <li class="dflex">
+                            <div class="form-control">
+                              <input type="text" value="저장2" readonly="readonly">
+                            </div>
+                            <div class="s-search-btns">
+                              <button type="button" class="btn btn-write">쓰기</button>
+                              <button type="button" class="btn btn-del">삭제</button>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <div class="mSearchEngine m-t-10 expand">
+        <div class="tborder-box">
+          <div class="tbl-top-search">
+            <div class="table-row">
+              <table class="tbl-top easy-pick-tbl-top">
+                <colgroup>
+                  <col style="width:25%;">
+                  <col style="width:25%;">
+                  <col style="width:25%;">
+                  <col style="width:25%;">
+                </colgroup>
+                <tbody>
+                  <tr class="rowFix rowFold">
+                    <td>
+                      <div class="tbl-title-wrap">
+                        <h4>총 입고품목</h4>
+                        <span class="total">5개</span>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="tbl-title-wrap p-l-12">
+                        <h4>총 발주수량</h4>
+                        <span class="total">41개</span>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="tbl-title-wrap p-l-12">
+                        <h4>총 입고수량</h4>
+                        <span class="total">13개</span>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="tbl-title-wrap p-l-12">
+                        <h4>총 입고상품 금액</h4>
+                        <span class="total">145,000원</span>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="rowFold">
+                    <td>
+                      <ul>
+                        <li class="m-r-20">
+                          <span>신규주문</span>
+                          <span>4 개</span>
+                        </li>
+                        <li>
+                          <span>미송주문</span>
+                          <span>0 개</span>
+                        </li>
+                      </ul>
+                      <ul>
+                        <li class="m-r-20">
+                          <span>제작신규</span>
+                          <span>4 개</span>
+                        </li>
+                        <li>
+                          <span>제작미송</span>
+                          <span>0 개</span>
+                        </li>
+                      </ul>
+                      <ul>
+                        <li class="m-r-20">
+                          <span>샘플주문</span>
+                          <span>4 개</span>
+                        </li>
+                        <li>
+                          <span>샘플반납</span>
+                          <span>0 개</span>
+                        </li>
+                      </ul>
+                      <ul>
+                        <li class="m-r-20">
+                          <span>유료샘플</span>
+                          <span>4 개</span>
+                        </li>
+                        <li>
+                          <span>샘플결제</span>
+                          <span>0 개</span>
+                        </li>
+                      </ul>
+                      <ul>
+                        <li class="m-r-20">
+                          <span>불량접수</span>
+                          <span>4 개</span>
+                        </li>
+                        <li>
+                          <span></span>
+                          <span></span>
+                        </li>
+                      </ul>
+                    </td>
+                    <td class=" p-l-12">
+                      <ul>
+                        <li class="m-r-20">
+                          <span>신규주문</span>
+                          <span>4 개</span>
+                        </li>
+                        <li>
+                          <span>미송주문</span>
+                          <span>0 개</span>
+                        </li>
+                      </ul>
+                      <ul>
+                        <li class="m-r-20">
+                          <span>제작신규</span>
+                          <span>4 개</span>
+                        </li>
+                        <li>
+                          <span>제작미송</span>
+                          <span>0 개</span>
+                        </li>
+                      </ul>
+                      <ul>
+                        <li class="m-r-20">
+                          <span>유료샘플</span>
+                          <span>4 개</span>
+                        </li>
+                        <li>
+                          <span>샘플결제</span>
+                          <span>0 개</span>
+                        </li>
+                      </ul>
+                      <ul>
+                        <li class="m-r-20">
+                          <span>불량접수</span>
+                          <span>4 개</span>
+                        </li>
+                        <li>
+                          <span></span>
+                          <span></span>
+                        </li>
+                      </ul>
+                    </td>
+                    <td class=" p-l-12">
+                      <ul>
+                        <li class="m-r-20">
+                          <span>신규주문</span>
+                          <!-- 2022 08 11 단위 추가 -->
+                          <div class="hover-box">
+                            <span class="hover-btn tool-tip-hover-txt">999,999+ 개</span>
+                            <div class="info-box">
+                              <span class="count">999,999,999 개</span>
+                            </div>
+                          </div>
+                        </li>
+                        <li>
+                          <span>미송주문</span>
+                          <span>0 개</span>
+                        </li>
+                      </ul>
+                      <ul>
+                        <li class="m-r-20">
+                          <span>제작신규</span>
+                          <span>4 개</span>
+                        </li>
+                        <li>
+                          <span>제작미송</span>
+                          <span>0 개</span>
+                        </li>
+                      </ul>
+                      <ul>
+                        <li class="m-r-20">
+                          <span>유료샘플</span>
+                          <span>4 개</span>
+                        </li>
+                        <li>
+                          <span>샘플결제</span>
+                          <span>0 개</span>
+                        </li>
+                      </ul>
+                      <ul>
+                        <li class="m-r-20">
+                          <span>불량접수</span>
+                          <span>4 개</span>
+                        </li>
+                        <li>
+                          <span></span>
+                          <span></span>
+                        </li>
+                      </ul>
+                    </td>
+                    <td class=" p-l-12">
+                      <ul>
+                        <li class="m-r-20">
+                          <span>신규주문</span>
+                          <!-- 2022 08 11 단위 추가 -->
+                          <div class="hover-box">
+                            <span class="hover-btn tool-tip-hover-txt">999,999,999+ 원</span>
+                            <div class="info-box">
+                              <span class="count">999,999,999,999,999,999 원</span>
+                            </div>
+                          </div>
+                        </li>
+                        <li>
+                          <span>미송주문</span>
+                          <span>0 원</span>
+                        </li>
+                      </ul>
+                      <ul>
+                        <li class="m-r-20">
+                          <span>제작신규</span>
+                          <span>99,999 원</span>
+                        </li>
+                        <li>
+                          <span>제작미송</span>
+                          <span>30,000 원</span>
+                        </li>
+                      </ul>
+                      <ul>
+                        <li class="m-r-20">
+                          <span>유료샘플</span>
+                          <span>99,999 원</span>
+                        </li>
+                        <li>
+                          <span>샘플결제</span>
+                          <span>99,999 원</span>
+                        </li>
+                      </ul>
+                      <ul>
+                        <li class="m-r-20">
+                          <span>불량접수</span>
+                          <span>30,000 원</span>
+                        </li>
+                        <li>
+                          <span></span>
+                          <span></span>
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <button type="button" class="btn-open eExpand eFoldedTop"></button>
+        </div>
+      </div>
+
+      <div class="gridTableArea">
+        <div class="table-top-info">
+          <div class="top-txt-inline">
+            <span class="txt-inline">검색결과 <strong>1,000</strong>건
+          </div>
+          <div class="sort-sel-area">
+            <select id="list_limit" class="default-select">
+              <option value="20" selected="selected">20개씩 보기</option>
+              <option value="30">30개씩 보기</option>
+              <option value="50">50개씩 보기</option>
+              <option value="100">100개씩 보기</option>
+              <option value="200">200개씩 보기</option>
+              <!-- 2023-02-17 EZP-7830 보기 옵션 추가 시작 -->
+              <option value="300">300개씩 보기</option>
+              <option value="500">500개씩 보기</option>
+              <!-- 2023-02-17 EZP-7830 보기 옵션 추가 끝 -->
+            </select>
+          </div>
+        </div>
+        <div class="tround-box">
+          <div class="tbl-round ">
+            <div class="tbl-info-area">
+              <div class="btns-multi f-left">
+                <!-- 2023-01-05 EZP-6948 버튼색상 디자인시안과 달라 btn-outline-gray -> btn-outline-gray2로 변경 -->
+                <button type="button" name="button" class="btn btn-sm btn-outline-gray2"
+                  onclick="targetModalPopup('modal-stock-change-date')">입고일변경</button>
+                <!-- 2022-12-09 EZP-6415 버튼제거
+                  <button type="button" name="button" class="btn btn-sm btn-outline-blue"
+                  onclick="targetModalPopup('modal-stock-ecregis')">쇼핑몰상품등록</button> -->
+              </div>
+              <div class="f-right">
+                <div class="dflex">
+                  <div class="btns-multi dflex">
+                    <!-- 2022 08 11 button 태그 > span 태그 -->
+                    <!-- 2022 08 22 tooltip absolute -->
+                    <!-- 202 08 23 tooltip 제어 구조 수정 -->
+                    <div class="tool-tip-btnbox">
+                      <span class="btn btn-sm btn-primary m-l-5 tooltip-btn2">
+                        <span class="btn-text-wrapper m-r-3">추가입고등록</span>
+                      </span>
+                      <div class="tool-tip-wrap tool-gray tooltip-case1">
+                        <a href="javascript:void(0)" class="tool-tip">툴팁</a>
+                        <div class="tool-tip-area renewal-tool-tip-area md left3">
+                          <section class="tool-tip-title">
+                            <h1>추가입고?</h1>
+                            <div class="tool-tip-inner">
+                              <h2 class="dot second-line">이지픽에서 주문하지 않았으나 입고된 건이 있으신가요?<br />
+                                '추가입고'기능은 지나간 추가 입고건을 등록하는 기능입니다.</h2>
+                              <p class="desc-text m-l-5 m-t-7 second-line">
+                                [유의사항]<br>
+                                - 검수대기 중인 가게에 등록 가능합니다.<br>
+                                (최종 검수 완료된 입고일에는 추가입고 등록이 불가합니다.)<br>
+                                - '샘플결제' 품목만 존재하는 입고일에는 추가입고 불가합니다.
+                                <br>
+                              </p>
+                            </div>
+                          </section>
+                          <button type="button" class="tool-tip-close">닫기</button>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- 2023-01-05 EZP-6948 입고예정일 쇼핑몰 연동 버튼 추가 -->
+                    <a href="./today-store-link.html" class="btn btn-sm btn-outline-gray2"
+                      >입고예정일 쇼핑몰 연동</a>
+                    <!-- 2023-01-05 EZP-6948 버튼색상 디자인시안과 달라 btn-outline-gray -> btn-outline-gray2로 변경 -->
+                    <button type="button" name="button" class="btn btn-sm btn-outline-gray2"
+                      onclick="targetModalPopup('direct-order-modal-case05')"><i
+                        class="ico ico-excel"></i>엑셀다운로드</button>
+                    <!-- 2023-01-05 EZP-6948 버튼색상 디자인시안과 달라 btn-outline-gray -> btn-outline-gray2로 변경 -->
+                    <button type="button" name="button" class="btn btn-ico btn-outline-gray2"
+                      onclick="window.open('../popup/popup-case08.html','엑셀항목설정','width=1120,height=800,location=no,status=no,scrollbars=yes');"><i
+                        class="ico ico-sort"></i>설정</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- 그리드 테이블-->
+            <div class="mGridTable td-height-60 tbl-height01">
+              <table id="eMultiTable" class="eChkColor">
+                <thead>
+                  <tr>
+                    <th scope="col" style="width:50px;" class="resizable">
+                      <div class="form-control check-one">
+                        <label>
+                          <input type="checkbox">
+                          <span>체크</span>
+                        </label>
+                      </div>
+                    </th>
+                    <th scope="col" style="width:91px;" class="resizable">
+                      주문구분
+                    </th>
+                    <th scope="col" style="width:74px;" class="resizable">
+                      유형
+                    </th>
+                    <th scope="col" style="width:73px;" class="resizable">
+                      입고일
+                    </th>
+                    <th scope="col" style="width:161px;" class="resizable">
+                      주문번호
+                    </th>
+                    <th scope="col" style="width:232px;" class="resizable">
+                      상품명
+                    </th>
+                    <th scope="col" style="width:122px;" class="resizable">
+                      옵션
+                    </th>
+                    <th scope="col" style="width:103px;" class="resizable">
+                      판매가
+                    </th>
+                    <th scope="col" style="width:88px;" class="resizable">
+                      발주수량
+                    </th>
+                    <th scope="col" style="width:88px;" class="resizable">
+                      입고수량
+                    </th>
+                    <th scope="col" style="width:88px;" class="resizable">
+                      입고금액
+                    </th>
+                    <th scope="col" style="width:108px;" class="resizable">
+                      품절처리방식
+                    </th>
+                    <th scope="col" style="width:193px;" class="resizable">
+                      상품상태/입고예정일
+                    </th>
+                    <th scope="col" style="width:78px;" class="resizable">
+                      메모
+                    </th>
+                    <th scope="col" style="width:130px;">
+                      <!-- 2022-12-05 EZP-6415 워딩변경 (기존: 마켓등록) -->
+                      EC상품등록
+                    </th>
+                  </tr>
+                </thead>
+                <!-- 
+                                  2022 08 02 상단 4 개 상품명 들어가는부분에 4가지 케이스 추가하였습니다.
+                                  각 td 상단부분에 case n 으로 주석걸어놓았습니다.
+                                -->
+                <tbody>
+                  {% for list in stock %}
+                  {% if list.tr %}
+                  <tr class="tr-caption">
+                    <td class="force-visible" colspan="15">
+                      <div class="easy-pick-catpion-wrap">
+                        <div class="caption-left">
+                          <span class="fw500">{{ list.tr.title }}</span>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  {% endif %}
+                  <tr>
+                    <td>
+                      <div class="form-control check-one">
+                        <label>
+                          <input type="checkbox">
+                          <span>체크</span>
+                        </label>
+                      </div>
+                    </td>
+                    <td>
+                      {% if list.type === "추가입고" %}
+                      <span class="ftpointcolor1">{{list.type}}</span>
+                      {% else %}
+                      <span>{{list.type}}</span>
+                      {% endif %}
+                    </td>
+                    <td>
+                      {% if list.case === "제작신규" %}
+                      <div class="easy-pick-case">
+                        <span class="new-produce no-br">
+                          제작신규
+                        </span>
+                      </div>
+                      {% elseif list.case === "미송" %}
+                      <div class="easy-pick-case">
+                        <span class="undeliver">
+                          {{list.case}}
+                        </span>
+                      </div>
+                      <!-- 2022-10-12 EZP-5896 재확인 case 시작 -->
+                      {% elseif list.case === "재확인" %}
+                      <div class="easy-pick-case reorder-ico">
+                        <span class="undeliver">
+                          미송
+                        </span>
+                      </div>
+                      <!-- 2022-10-12 EZP-5896 재확인 case 끝 -->
+                      {% elseif list.case === "신규" %}
+                      <div class="easy-pick-case">
+                        <span class="new">
+                          {{list.case}}
+                        </span>
+                      </div>
+                      {% elseif list.case === "불량" %}
+                      <div class="easy-pick-case">
+                        <span class="failure">
+                          {{list.case}}
+                        </span>
+                      </div>
+                      {% else %}
+                      <div class="easy-pick-case">
+                        <span class="sample">
+                          {{list.case}}
+                        </span>
+                      </div>
+                      {% endif %}
+                    </td>
+                    <td>
+                      {% if list.refund === "환불" %}
+                      <span class="ftpointcolor1">{{list.date}}</span>
+                      {% else %}
+                      {{list.date}}
+                      {% endif %}
+                    </td>
+                    <td>
+                      <a href="#">
+                        <span class="txt-link">
+                          {{list.ordernum}}
+                        </span>
+                      </a>
+                    </td>
+                    <td class="overflow-unset">
+                      <!-- case 1 -->
+                      {% if list.namelink === "deco link" %}
+                      <a href="#">
+                        <span class="txt-link deco-link">
+                          모스크체크BL모스크체크BL모스크체크BL모스크체크BL모스크체크BL
+                        </span>
+                      </a>
+                      <!-- case 2 -->
+                      {% elseif list.namelink === "no deco no link" %}
+                      <span class="txt-link no-deco-no-link">
+                        모스크체크BL모스크체크BL모스크체크BL모스크체크BL모스크체크BL
+                      </span>
+                      <!-- case 3 -->
+                      {% elseif list.namelink === "option deco link" %}
+                      <a href="#">
+                        <span class="txt-link deco-link">모스크체크BL</span><br>
+                        <span class="txt-link deco-link">[쇼핑몰상품명]쇼핑몰상품명1</span><br>
+                        <span class="txt-link deco-link">[쇼핑몰상품코드]쇼핑몰상품코드</span>
+                      </a>
+                      <!-- case 4 -->
+                      {% elseif list.namelink === "option no deco no link" %}
+                      <span class="txt-link no-deco-no-link">모스크체크BL</span><br>
+                      <span class="txt-link no-deco-no-link">[쇼핑몰상품명]쇼핑몰상품명1</span><br>
+                      <span class="txt-link no-deco-no-link">[쇼핑몰상품코드]쇼핑몰상품코드</span>
+                      {% else %}
+                      <a href="#">
+                        <span class="txt-link">
+                          {{list.name}}
+                        </span>
+                      </a>
+                      {% endif %}
+                    </td>
+                    <!-- 2022 08 29 tooltip 추가 -->
+                    <td class="overflow-unset">
+                      <div class="hover-box re-opction-hover-box">
+                        <a href="javascript: void(0);" class="re-opction-tooltip hover-btn">
+                          <span>
+                            {{list.option}}
+                          </span>
+                        </a>
+                        <div class="info-box">
+                          <span class="shop-name">
+                            {{list.option}}
+                          </span>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="tar">
+                      <!-- 2022-10-12 EZP-5896 재확인 case  시작 -->
+                      {% if list.case === "재확인" %}
+                      <span class="ftpointcolor1">{{list.price1}}</span>
+                      {% else %}
+                      {{list.price1}}
+                      {% endif %}
+                      <!-- 2022-10-12 EZP-5896 재확인 case 끝  -->
+                    </td>
+                    <td>{{list.cnt1}}</td>
+                    <td>
+                      <!-- 2022-10-12 EZP-5896 재확인 case  시작 -->
+                      {% if list.case === "재확인" %}
+                      <span class="ftpointcolor1">{{list.cnt2}}</span>
+                      {% else %}
+                      {{list.cnt2}}
+                      {% endif %}
+                      <!-- 2022-10-12 EZP-5896 재확인 case 끝  -->
+                    </td>
+                    <td class="tar">
+                      {{list.price}}
+                    </td>
+                    <td>
+                      {% if list.refund === "환불" %}
+                      <span class="easy-pick-text add-order">{{list.refund}}</span>
+                      {% elseif list.refundAcc === "옵션변경" %}
+                      <span class="easy-pick-text gray1 line">{{list.refund}}</span><br/>
+                      <span class="add-order text-purple">{{list.refundAcc}}</span>
+                      {% else %}
+                      {{list.refund}}
+                      {% endif %}
+                    </td>
+                    <td>
+                      {% if list.productState !== "" %}
+                      <span>{{list.productState}}</span><br>
+                      <span class="duedate">{{list.dueDate}}</span>
+                      {% else %}
+                      -
+                      {% endif %}
+                    </td>
+                    <td>
+                      {% if list.memoBtn === "on" %}
+                      <button type="button" onclick="targetModalPopup('modal-orderMemo-popup')">
+                        <i class="ico-easy-pick ico-memo-on"></i>
+                      </button>
+                      {% else %}
+                      <!-- 2022 08 26 a링크 수정 -->
+                        <i class="ico-easy-pick ico-memo-off"></i>
+                      {% endif %}
+                    </td>
+                    <td>
+                      <!-- 2022-12-05 EZP-6415 버튼 변경
+                      <button type="button" class="btn btn-sm btn-primary"
+                        onclick="targetModalPopup('modal-add-shopping-goods')">
+                        쇼핑몰상품등록
+                      </button>
+                       -->
+                       <!-- 2022-12-05 EZP-6415 버튼 변경 시작 -->
+                       {% if list.ecProduct === "on" %}
+                       <button type="button" class="btn btn-sm btn-outline-blue product"
+                      onclick="targetModalPopup('re-modal-add-shopping-goods')">
+                      상품등록
+                    </button>
+                      {% else %}
+                      <!-- 2022 08 26 a링크 수정 -->
+                      <button type="button" class="btn btn-sm btn-outline-gray product"
+                      onclick="targetModalPopup('re-modal-add-shopping-goods')">
+                      상품등록
+                    </button>
+                      {% endif %}
+                       <!-- 2022-12-05 EZP-6415 버튼 변경 끝 -->
+                    </td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <!-- //그리드 테이블-->
+        </div>
+        {% include("../_templates/default/pagination.njk") %}
+      </div>
+
+      <!-- 데이터 없을시 -->
+      <div class="gridTableArea">
+        <div class="table-top-info">
+          <div class="top-txt-inline">
+            <span class="txt-inline">검색결과 <strong>1,000</strong>건
+          </div>
+          <div class="sort-sel-area">
+            <select id="list_limit" class="default-select">
+              <option value="20" selected="selected">20개씩 보기</option>
+              <option value="30">30개씩 보기</option>
+              <option value="50">50개씩 보기</option>
+              <option value="100">100개씩 보기</option>
+              <option value="200">200개씩 보기</option>
+              <!-- 2023-02-17 EZP-7830 보기 옵션 추가 시작 -->
+              <option value="300">300개씩 보기</option>
+              <option value="500">500개씩 보기</option>
+              <!-- 2023-02-17 EZP-7830 보기 옵션 추가 끝 -->
+            </select>
+          </div>
+        </div>
+        <div class="tround-box">
+          <div class="tbl-round ">
+            <div class="tbl-info-area">
+              <div class="btns-multi f-left">
+                <button type="button" name="button" class="btn btn-sm btn-outline-gray"
+                  onclick="targetModalPopup('modal-stock-change-date')">입고일변경</button>
+                <!-- 2022-12-09 EZP-6415 버튼제거
+                  <button type="button" name="button" class="btn btn-sm btn-outline-blue"
+                  onclick="targetModalPopup('modal-stock-ecregis')">쇼핑몰상품등록</button> -->
+              </div>
+              <div class="f-right">
+                <div class="dflex">
+                  <div class="btns-multi">
+                    <button type="button" class="btn btn-sm btn-primary m-l-5">
+                      <span class="btn-text-wrapper m-r-3">추가입고등록</span>
+
+                      <div class="tool-tip-wrap tool-gray">
+                        <a href="javascript:void(0)" class="tool-tip">툴팁</a>
+                        <div class="tool-tip-area md left3">
+                          <section class="tool-tip-title">
+                            <h1>추가입고?</h1>
+                            <div class="tool-tip-inner">
+                              <h2 class="dot">이지픽에서 주문하지 않았으나 입고된 건이 있으신가요?<br />
+                                '추가입고'기능은 지나간 추가 입고건을 등록하는 기능입니다.</h2>
+                              <p class="desc-text m-l-5 m-t-7">
+                                [유의사항]<br>
+                                - 검수대기 중인 가게에 등록 가능합니다.<br>
+                                (최종 검수 완료된 입고일에는 추가입고 등록이 불가합니다.)<br>
+                                - '샘플결제' 품목만 존재하는 입고일에는 추가입고 불가합니다.
+                                <br>
+                              </p>
+                            </div>
+                          </section>
+                          <!-- <button type="button" class="tool-tip-close">닫기</button> -->
+                        </div>
+                      </div>
+                    </button>
+
+                    <button type="button" name="button" class="btn btn-sm btn-outline-gray"
+                      onclick="targetModalPopup('direct-order-modal-case05')"><i
+                        class="ico ico-excel"></i>엑셀다운로드</button>
+                    <button type="button" name="button" class="btn btn-ico btn-outline-gray"
+                      onclick="window.open('../popup/popup-case08.html','엑셀항목설정','width=1120,height=800,location=no,status=no,scrollbars=yes');"><i
+                        class="ico ico-sort"></i>설정</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- 그리드 테이블-->
+            <div class="mGridTable td-height-60 tbl-height01">
+              <table id="eMultiTable1" class="eChkColor">
+                <thead>
+                  <tr>
+                    <th scope="col" style="width:50px;" class="resizable">
+                      <div class="form-control check-one">
+                        <label>
+                          <input type="checkbox">
+                          <span>체크</span>
+                        </label>
+                      </div>
+                    </th>
+                    <th scope="col" style="width:91px;" class="resizable">
+                      주문구분
+                    </th>
+                    <th scope="col" style="width:74px;" class="resizable">
+                      유형
+                    </th>
+                    <th scope="col" style="width:73px;" class="resizable">
+                      입고일
+                    </th>
+                    <th scope="col" style="width:161px;" class="resizable">
+                      주문번호
+                    </th>
+                    <th scope="col" style="width:232px;" class="resizable">
+                      상품명
+                    </th>
+                    <th scope="col" style="width:122px;" class="resizable">
+                      옵션
+                    </th>
+                    <th scope="col" style="width:103px;" class="resizable">
+                      판매가
+                    </th>
+                    <th scope="col" style="width:88px;" class="resizable">
+                      발주수량
+                    </th>
+                    <th scope="col" style="width:88px;" class="resizable">
+                      입고수량
+                    </th>
+                    <th scope="col" style="width:88px;" class="resizable">
+                      입고금액
+                    </th>
+                    <th scope="col" style="width:108px;" class="resizable">
+                      품절처리방식
+                    </th>
+                    <th scope="col" style="width:193px;" class="resizable">
+                      상품상태/입고예정일
+                    </th>
+                    <th scope="col" style="width:78px;" class="resizable">
+                      메모
+                    </th>
+                    <th scope="col" style="width:130px;">
+                      <!-- 2022-12-05 EZP-6415 워딩변경 (기존: 마켓등록) -->
+                      EC상품등록
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="tr-empty">
+                    <td>
+                      <div class="txt">
+                        <i><img src="../assets/images/guide-ico.png" alt="guide-icon"></i>
+                        <span>검색 결과가 없습니다.</span>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <!-- //그리드 테이블-->
+        </div>
+        {% include("../_templates/default/pagination.njk") %}
+      </div>
+
+    </div>
+    <!-- //content -->
+  </div>
+  <!-- container -->
+</div>
+
+<script>
+  $(document).ready(function () {
+    $('#eMultiTable').fixResize({
+      colResize: true,
+      resizeVer: 'flex'
+    });
+
+    // 데이터 없을시 새로운 테이블
+    $('#eMultiTable1').fixResize({
+      colResize: true,
+      resizeVer: 'flex'
+    });
+
+    // 검색결과 없을때 tr 높이 조절
+    const emptyTh = $('.tr-empty').parents('table').find('thead tr th').length;
+    const emptyMt = $('.tr-empty').parents('table').css('margin-top').replace('-', '');
+    const emptyMg = emptyMt.replace('px', '');
+    $('.tr-empty td').attr('colspan', emptyTh);
+    $('.tr-empty').parents('table').css('height', `calc(100% + ${emptyMg}px)`);
+
+    // 쇼핑몰 상품등록 버튼 - 하나의 상품으로 등록시 출력되는 팝업창
+    $('#modal-stock-ecregis .save-btn').click(function () {
+      if ($('#modal-stock-ecregis .add-radio-wrap #type-2').is(':checked') == true) {
+        $('#modal-stock-ecregis').removeClass('active');
+        $('#modal-add-shopping-goods').addClass('active')
+      }
+    })
+
+
+    //2022-12-15 EZP-6415 전부 제거후 다시작성
+    // 상품상세 상품등록 모달
+    // $('#product-category .deps2 .open-2deps').hide();
+    // $('#product-category>.deps2>i').click(function () {
+    //   $(this).parent('li').toggleClass('active');
+    //   if ($(this).parent('li').hasClass('active') == true) {
+    //     $(this).parent('li').find('.open-2deps').show();
+    //   } else {
+    //     $(this).parent('li').find('.open-2deps').hide();
+    //   }
+    // })
+
+    // const cate1 = $('#product-category .cate1 > .icon-cate-text');
+    // const cate2 = $('#product-category .cate2 > .icon-cate-text');
+    // const myCate = $('#my-category');
+    // cate1.click(function () {
+    //   const val1 = $(this).find('input').val();
+    //   const dep1 = $(this).parent('li');
+    //   const dataCode1 = dep1.attr('id');
+    //   if (dep1.hasClass('on') == false) {
+    //     myCate.append(
+    //       `<li class="mycate" data-code="${dataCode1}"><span>${val1}</span><button type="button" name="button" class="btn btn-del">삭제</button></li>`
+    //     );
+    //   }
+    //   dep1.addClass('on');
+    //   $('#my-category li button').click(function () {
+    //     const dep2 = $(this).parent('li');
+    //     const dataCode2 = dep2.attr('data-code');
+    //     $('#' + dataCode2).removeClass('on');
+    //     dep2.remove();
+    //   })
+    // })
+    // cate2.click(function () {
+    //   const val1 = $(this).find('input').val();
+    //   const val2 = $(this).parents('.deps').find('input').val();
+    //   const dep1 = $(this).parent('li');
+    //   const dataCode1 = dep1.attr('id');
+    //   if (dep1.hasClass('on') == false) {
+    //     myCate.append(
+    //       `<li class="mycate" data-code="${dataCode1}"><span>${val2}<i></i>${val1}</span><button type="button" name="button" class="btn btn-del">삭제</button></li>`
+    //     );
+    //   }
+    //   dep1.addClass('on');
+    //   $('#my-category li button').click(function () {
+    //     const dep2 = $(this).parent('li');
+    //     const dataCode2 = dep2.attr('data-code');
+    //     $('#' + dataCode2).removeClass('on');
+    //     dep2.remove();
+    //   })
+    // })
+
+    // // 상품등록 모달 옵션 x 버튼
+    // $(".modal-add-shopping-goods .option-wrap ul li .close-btn").click(function () {
+    //   $(this).parent().remove();
+    // })
+
+    // // 상품등록 모달 인풋 숨겨놓기
+    // $(".modal-add-shopping-goods .ex-input-box").hide();
+    // $(".modal-add-shopping-goods .easy-pick-popup-info table td").click(function (e) {
+    //   const $clickTarget = $(e.target);
+    //   if (!$clickTarget.hasClass('option')) {
+    //     $(this).find('.ex-input-box').show();
+    //   }
+    // })
+
+    // 2022-12-15 EZP-6415 상품등록 관련 script 재수정 시작
+    $('#product-category .deps2 .open-2deps').hide();
+      $('#product-category .deps2 .open-3deps').hide();
+      $('#product-category .deps2 .open-4deps').hide();
+      $('#product-category>.deps2>i').click(function () {
+        $(this).parent('li').toggleClass('active');
+        if ($(this).parent('li').hasClass('active') == true) {
+        $(this).parent('li').find('.open-2deps').show();
+        } else {
+        $(this).parent('li').find('.open-2deps').hide();
+        }
+      })
+      $('#product-category .open-2deps > .cate2 >i').click(function () {
+        $(this).parent('li').toggleClass('active');
+        if ($(this).parent('li').hasClass('active') == true) {
+        $(this).parent('li').find('.open-3deps').show();
+        } else {
+        $(this).parent('li').find('.open-3deps').hide();
+        }
+      })
+      $('#product-category .open-3deps > .cate3 >i').click(function () {
+        $(this).parent('li').toggleClass('active');
+        if ($(this).parent('li').hasClass('active') == true) {
+        $(this).parent('li').find('.open-4deps').show();
+        } else {
+        $(this).parent('li').find('.open-4deps').hide();
+        }
+      })
+
+      const cate1 = $('#product-category .cate1 > .icon-cate-text');
+      const cate2 = $('#product-category .cate2 > .icon-cate-text');
+      const cate3 = $('#product-category .cate3 > .icon-cate-text');
+      const cate4 = $('#product-category .cate4 > .icon-cate-text');
+
+      const myCate = $('#my-category');
+      cate1.click(function () {
+        const val1 = $(this).find('input').val();
+        const dep1 = $(this).parent('li');
+        const dataCode1 = dep1.attr('id');
+        if (dep1.hasClass('on') == false) {
+        myCate.append(
+          `<li class="mycate" data-code="${dataCode1}"><span>${val1}</span><button type="button" name="button" class="btn btn-del">삭제</button></li>`
+          );
+        }
+        dep1.addClass('on');
+        $('#my-category li button').click(function () {
+        const dep2 = $(this).parent('li');
+        const dataCode2 = dep2.attr('data-code');
+        $('#' + dataCode2).removeClass('on');
+        dep2.remove();
+        })
+      })
+      cate2.click(function () {
+        const val1 = $(this).find('input').val();
+        const val2 = $(this).parents('.deps').find('input').val();
+        const dep1 = $(this).parent('li');
+        const dataCode1 = dep1.attr('id');
+        if (dep1.hasClass('on') == false) {
+        myCate.append(
+          `<li class="mycate" data-code="${dataCode1}"><span>${val2}<i>&gt;</i>${val1}</span><button type="button" name="button" class="btn btn-del">삭제</button></li>`
+          );
+        }
+        dep1.addClass('on');
+        $('#my-category li button').click(function () {
+        const dep2 = $(this).parent('li');
+        const dataCode2 = dep2.attr('data-code');
+        $('#' + dataCode2).removeClass('on');
+        dep2.remove();
+        })
+      })
+      cate3.click(function () {
+        const val1 = $(this).find('input').val();
+        const val2 = $(this).parents('.cate2').find('input').val();
+        const val3 = $(this).parents('.deps').find('input').val();
+        const dep1 = $(this).parent('li');
+        const dataCode1 = dep1.attr('id');
+        if (dep1.hasClass('on') == false) {
+          myCate.append(
+          `<li class="mycate" data-code="${dataCode1}"><span>${val3}<i>&gt;</i>${val2}<i>&gt;</i>${val1}</span><button type="button" name="button" class="btn btn-del">삭제</button></li>`
+          );
+        }
+        dep1.addClass('on');
+        $('#my-category li button').click(function () {
+        const dep2 = $(this).parent('li');
+        const dataCode2 = dep2.attr('data-code');
+        $('#' + dataCode2).removeClass('on');
+        dep2.remove();
+        })
+      })
+      cate4.click(function () {
+        const val1 = $(this).find('input').val();
+        const val2 = $(this).parents('.cate3').find('input').val();
+        const val3 = $(this).parents('.cate2').find('input').val();
+        const val4 = $(this).parents('.deps').find('input').val();
+        const dep1 = $(this).parent('li');
+        const dataCode1 = dep1.attr('id');
+        if (dep1.hasClass('on') == false) {
+        myCate.append(
+          `<li class="mycate" data-code="${dataCode1}"><span>${val4}<i>&gt;</i>${val3}<i>&gt;</i>${val2}<i>&gt;</i>${val1}</span><button type="button" name="button" class="btn btn-del">삭제</button></li>`
+          );
+        }
+        dep1.addClass('on');
+        $('#my-category li button').click(function () {
+        const dep2 = $(this).parent('li');
+        const dataCode2 = dep2.attr('data-code');
+        $('#' + dataCode2).removeClass('on');
+        dep2.remove();
+        })
+      })
+
+      //2022-12-12 EZP-6415 쇼핑몰 상품등록 버튼
+      $('.product-registraion .option-box li.option').click(function(){
+          $(this).toggleClass('on');
+      })
+
+      //2022-12-14 EZP-6415 상품 모달 인풋 숨겨놓기
+      $('.product-registraion.ui-popup .tbl-register-row td.option .option-box ul .ex-input-box').hide();
+      $('.product-registraion.ui-popup .tbl-register-row td.option .option-box').click(function(e){
+          if(!$(e.target).parent().hasClass('option')){
+              $(this).find('.ex-input-box').show();
+          }
+      })
+
+      //2022-12-12 EZP-6415 쇼핑몰 상품등록 버튼
+      $('.re-shopping-goods .option-box li.option').click(function(){
+          $(this).toggleClass('on');
+      })
+
+
+      // 상품등록 모달 옵션 x 버튼
+      $(".re-shopping-goods .option-wrap ul li .close-btn").click(function () {
+        $(this).parent().remove();
+      })
+
+      // 2022-12-15 EZP-6415 기존 상품등록모달 제거 후 새로 작성 (상품등록 모달 인풋 숨겨놓기)
+      $(".re-shopping-goods .modal-body .txt-cont .easypick-popup-info dl dd .tbl-register-row tbody tr td.option>div .option-box ul .ex-input-box").hide();
+      $(".re-shopping-goods .modal-body .txt-cont .easypick-popup-info dl dd .tbl-register-row tbody tr td.option>div .option-box").click(function (e) {
+        if(!$(e.target).parent().hasClass('option')){
+          $(this).find('.ex-input-box').show();
+        }
+      })
+    });
+    // 2022-12-15 EZP-6415 상품등록 관련 script 재수정 끝
+</script>
+
+<!-- 메모 작성 -->
+{% include("./modals/memo/modal-memo.njk") %}
+
+<!-- 엑셀다운로드 -->
+{% include("./modals/direct-order/direct-order-modal-case05.njk") %}
+
+<!-- 상품등록 modal -->
+{% include("./modals/shop/modal-add-shopping-goods.njk") %}
+
+<!-- EC 상품등록 -->
+{% include("./modals/stock-today/modal-stock-ecregis.njk") %}
+
+{% include("./modals/stock-today/modal-stock-change-date.njk") %}
+
+{% endblock %}

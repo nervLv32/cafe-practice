@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<meta name="format-detection" content="telephone=no">
+	<title>이지픽스퀘어</title>
+	<link rel="stylesheet" type="text/css" href="./css/mobile/jquery-ui.min.css">
+	<link href="css/mobile/style.css" rel="stylesheet">
+</head>
+
+<body>
+	<div class="eps-container">
+		<!-- 2020-08-19 EZP-992  -->
+		<header>
+			<span class="back"><a href="#" title="이전"><svg class="svg-icon"><use xlink:href="#icon-arrow-hor1"></use></svg></a></span>
+			<h1><span>발주상세</span></h1>
+		</header>
+
+		<!-- 2022-09-30 EZP-5318 ui 전체 변경 시작 -->
+		<main class="order-management-detail">
+			<div class="sticky-top-wrap">
+				<div class="detail-info-top">
+					<!-- 2022-09-30 EZP-5318 구조변경
+					<strong>[추가발주] 2020-12-04 21:55:38 </strong>
+					<span>
+						발주서생성(낮) : 방앗간관리자 (bakan)<br>
+						발주서생성(밤) : 운영자 (bakan2)
+					</span>
+					-->
+					<div class="inner-top">
+						<strong>정기발주</strong>
+						<p>발주마감 2020-12-04 22:56:47</p>
+					</div>
+					<ul class="inner-bottom">
+						<li>
+							<em class="day-ico afternoon-ico tit-day-ico">낮시장</em>
+							<p>2020-12-04 22:56:47 발주완료 <span>(강진수 : jskabg)</span></p>
+						</li>
+						<li>
+							<em class="day-ico night-ico tit-day-ico">밤시장</em>
+							<p>2020-12-04 22:56:47 발주완료 <span>(방앗간관리자 : jskabg)</span></p>
+						</li>
+					</ul>
+				</div>
+				<p class="result">
+					검색결과 <em>37</em>건
+					<a href="#" class="ico-filter pop-open" data-open="#popup">필터</a>
+				</p>
+			</div>
+			<div class="detail-list">
+				<ul>
+					<li>
+						<!-- 2022-09-30 EZP-5318 구조 변경
+						<div class="pos_rel">
+							<strong><span class="pop-open" data-open="#order-detail-list">도매처명 짧은 경우</span> <em class="red">[D]</em> <span class="type-label mismatch">미매칭</span></strong>
+							<span>
+								APM 1층 1열 1호<br>
+								(010-1234-1234)
+							</span>
+							<div class="flag-wrap">
+								<span class="bdr-flag-blue">발송성공</span>
+								<span class="bdr-flag-green">요청성공</span>
+							</div>
+						</div>
+						<div>
+							<span>발주</span>
+							<em class="txt-red">9,999 개</em>
+							<span>입고</span>
+							<em>999 개</em>
+							<p class="total">입고 <em>73,999</em> 원</p>
+						</div>
+						-->
+						<div class="inner-top">
+							<strong><em class="day-ico afternoon-ico">낮</em><span>언니네양장점</span></strong>
+							<p>APM플레이스 7층 1호 (010-1111-2222)</p>
+						</div>
+						<div class="inner-bottom">
+							<ul>
+								<li>
+									<span>발주</span>
+									<em>9,000 개</em>
+								</li>
+								<li>
+									<span>입고</span>
+									<p>999 개</p>
+								</li>
+							</ul>
+							<div class="flag-wrap">
+								<span class="bdr-flag-black">요청대기</span>
+							</div>
+						</div>
+					</li>
+					<li>
+						<!-- 2022-10-12 EZP-5318 구조 변경
+						<div class="pos_rel">
+							<strong><span class="pop-open" data-open="#order-detail-list">도매처명 긴 경우 도매처명 긴 경우도매처명 긴 경우</span> <em class="blue">[N]</em></strong>
+							<span>
+								APM 1층 1열 1호<br>
+								(010-1234-1234)
+							</span>
+							<div class="flag-wrap">
+								<span class="bdr-flag-red">발송실패</span>
+								<span class="bdr-flag-green">요청성공</span>
+							</div>
+						</div>
+						<div>
+							<span>발주</span>
+							<em>9,999 개</em>
+							<span>입고</span>
+							<em>999 개</em>
+							<p class="total">입고 <em>73,999</em> 원</p>
+						</div>
+						-->
+						<!-- //가게명 + 미매칭 label 추가된 case -->
+						<div class="inner-top">
+							<strong><em class="day-ico night-ico">밤</em><span><em>플래닛</em><em class="bdr-flag-bg-red">미매칭</em></span></strong>
+							<p>디오트 2층 1열 158호 (010-1111-2222)</p>
+						</div>
+						<div class="inner-bottom">
+							<ul>
+								<li>
+									<span>발주</span>
+									<em>50 개</em>
+								</li>
+								<li>
+									<span>입고</span>
+									<p>925 개 <span>(350,000원)</span></p>
+								</li>
+							</ul>
+							<div class="flag-wrap">
+								<span class="bdr-flag-green">요청성공</span>
+								<span class="bdr-flag-green">발송성공</span>
+							</div>
+						</div>
+					</li>
+					<li>
+						<!-- 2022-10-12 EZP-5318 구조 변경
+						<div class="pos_rel">
+							<strong><span class="pop-open" data-open="#order-detail-list">도매처명 긴 경우 도매처명 긴 경우도매처명 긴 경우</span> <em class="red">[D]</em></strong>
+							<span>
+								APM 1층 1열 1호<br>
+								(010-1234-1234)
+							</span>
+							<div class="flag-wrap">
+								<span class="bdr-flag-black">요청대기</span>
+							</div>
+						</div>
+						<div>
+							<span>발주</span>
+							<em>9,999 개</em>
+							<span>입고</span>
+							<em>999 개</em>
+							<p class="total">입고 <em>73,999</em> 원</p>
+						</div>
+						-->
+						<!-- //가게명 + new label이 붙는 case -->
+						<div class="inner-top">
+							<strong><em class="day-ico afternoon-ico">낮</em><span><em>가게정보 긴 경우 영역 내에서 줄바꿈 처리하여 표시</em> <em class="blue">[N]</em></span></strong>
+							<p>디오트 2층 1열 158호 (010-1111-2222)</p>
+						</div>
+						<div class="inner-bottom">
+							<ul>
+								<li>
+									<span>발주</span>
+									<em>999,999,999 개</em>
+								</li>
+								<li>
+									<span>입고</span>
+									<p>999,999,999 개 <span>(999,999,999,999원)</span></p>
+								</li>
+							</ul>
+							<div class="flag-wrap">
+								<span class="bdr-flag-green">요청성공</span>
+								<span class="bdr-flag-red">발송실패</span>
+							</div>
+						</div>
+					</li>
+					<li>
+						<!-- 2022-10-12 EZP-5318 구조 변경
+						<div class="pos_rel">
+							<strong><span class="pop-open" data-open="#order-detail-list">도매처명 긴 경우 도매처명 긴 경우도매처명 긴 경우</span> <em class="blue">[N]</em></strong>
+							<span>
+								APM 1층 1열 1호<br>
+								(010-1234-1234)
+							</span>
+							<div class="flag-wrap">
+								<span class="bdr-flag-blue">발송성공</span>
+								<span class="bdr-flag-green">요청성공</span>
+							</div>
+						</div>
+						<div>
+							<span>발주</span>
+							<em>9,999 개</em>
+							<span>입고</span>
+							<em>999 개</em>
+							<p class="total">입고 <em>73,999</em> 원</p>
+						</div>
+						-->
+						<div class="inner-top">
+							<strong><em class="day-ico night-ico">밤</em><span><em>플라잉바비</em></span></strong>
+							<p>디오트 2층 1열 158호 (010-1111-2222)</p>
+						</div>
+						<div class="inner-bottom">
+							<ul>
+								<li>
+									<span>발주</span>
+									<p><em class="through">9,999</em><em>9,000 개</em></p>
+								</li>
+								<li>
+									<span>입고</span>
+									<p>35 개 <span>(350,000원)</span></p>
+								</li>
+							</ul>
+							<div class="flag-wrap">
+								<span class="bdr-flag-red">요청실패</span>
+							</div>
+						</div>
+					</li>
+					<!-- 2022-10-12 EZP-5318 case 추가 시작 -->
+					<li>
+						<!-- //가게명 + 탈퇴 label 추가된 case -->
+						<div class="inner-top">
+							<strong><em class="day-ico night-ico">밤</em><span><em class="red">[탈퇴]</em><em>도매처명</em></span></strong>
+							<p>디오트 2층 1열 158호 (010-1111-2222)</p>
+						</div>
+						<div class="inner-bottom">
+							<ul>
+								<li>
+									<span>발주</span>
+									<em>999,999,999 개</em>
+								</li>
+								<li>
+									<span>입고</span>
+									<p>999,999,999 개 <span>(900,000원)</span></p>
+								</li>
+							</ul>
+							<div class="flag-wrap">
+								<span class="bdr-flag-black">요청안함</span>
+							</div>
+						</div>
+					</li>
+					<li>
+						<!-- //가게명 + 사용안함 label 추가된 case -->
+						<div class="inner-top">
+							<strong><em class="day-ico night-ico">밤</em><span><em class="red">[사용안함]</em><em>도매처명</em></span></strong>
+							<p>디오트 2층 1열 158호 (010-1111-2222)</p>
+						</div>
+						<div class="inner-bottom">
+							<ul>
+								<li>
+									<span>발주</span>
+									<em>999,999,999 개</em>
+								</li>
+								<li>
+									<span>입고</span>
+									<p>999,999,999 개 <span>(900,000원)</span></p>
+								</li>
+							</ul>
+							<div class="flag-wrap">
+								<span class="bdr-flag-green">요청성공</span>
+								<span class="bdr-flag-green">발송성공</span>
+							</div>
+						</div>
+					</li>
+				</ul>
+				<div class="paging">
+					<a href="#" class="prev">이전</a>
+					<div class="num_list">
+						<a href="#" class="active">1</a>
+						<a href="#" class="">2</a>
+						<a href="#" class="">3</a>
+						<a href="#" class="">4</a>
+						<a href="#" class="">5</a>
+					</div>
+					<a href="#" class="next">다음</a>
+				</div>
+
+				<!-- 2021-07-28 EZP-3559 -->
+				<div class="no-data">검색 결과가 없습니다.</div>
+			</div>
+			<!-- 2022-12-06 EZP-7448 : 추가 시작 -->
+			<div class="floating-menu renew-f">
+				<div class="top"><a href="#" title="위로">TOP</a></div>
+			</div><!-- 2022-12-06 EZP-7448 : 추가 끝 -->
+		</main>
+		<!-- 2022-09-30 EZP-5318 ui 전체 변경 끝 -->
+
+		<div class="alert-layer ex" id="alert-memo">
+			<!-- display class "on" -->
+			<div class="content">
+				<p>품목을 선택해주세요.</p>
+				<p>발주마감 품목은 처리 불가합니다.</p>
+				<p>일괄 적용 완료되었습니다.</p>
+				<div class="btns">
+					<button type="button" class="ok">확인</button>
+				</div>
+			</div>
+		</div>
+		<!-- 2020-06-01 EZP-739 종료 -->
+
+
+		<!-- 2020-05-04 시작 -->
+		<div class="alert-layer ex">
+			<!-- display class "on" -->
+			<div class="content">
+				<p>최소수량을 입력해주세요.</p>
+				<!-- <p>적용 완료되었습니다.</p> -->
+				<div class="btns">
+					<button type="button" class="ok">확인</button>
+				</div>
+			</div>
+		</div>
+		<!-- 2020-05-04 종료 -->
+
+
+		<div class="full-layer full-page common-pop filter-pop" id="popup">
+			<div class="pop-header">
+				<button type="button" class="reset">초기화</button>
+				<h2>검색필터</h2>
+				<button type="button" class="pop-close">닫기</button>
+			</div>
+			<div class="wrap">
+				<!-- 2020-12-02 EZP-1647 시작 -->
+				<div class="contents">
+					<strong class="title">가게명</strong>
+					<div class="search-form">
+						<div class="keyword-search">
+							<input type="text" placeholder="가게전체">
+						</div>
+						<ul class="mall-list">
+							<li><a href="#">핫핑1</a></li>
+							<li><a href="#">핫핑2</a></li>
+							<li><a href="#">핫핑3</a></li>
+							<li><a href="#">핫핑4</a></li>
+							<li><a href="#">핫핑5</a></li>
+							<li><a href="#">핫핑6</a></li>
+							<li><a href="#">핫핑7</a></li>
+						</ul>
+						<div class="mall-select-list">
+							<a href="#">헤이지니2</a>
+							<a href="#">헤이지니2</a>
+							<a href="#">헤이지니2</a>
+						</div>
+					</div>
+					<strong class="title mt30">마켓유형</strong>
+					<div class="btn-group-tab">
+						<button type="button" class="active">전체</button>
+						<button type="button">낮시장</button>
+						<button type="button">밤시장</button>
+					</div>
+					<strong class="title mt30">발주서전송요청</strong>
+					<div class="btn-group-tab">
+						<button type="button">전체</button>
+						<button type="button">요청대기</button>
+						<button type="button" class="active">요청성공</button>
+						<button type="button">요청실패</button>
+						<button type="button">요청안함</button>
+					</div>
+					<strong class="title mt30">발송결과</strong>
+					<div class="btn-group-tab">
+						<button type="button" class="active">전체</button>
+						<button type="button">발송성공</button>
+						<button type="button">발송실패</button>
+					</div>
+
+				</div>
+			</div>
+			<div class="btns">
+				<button type="button" class="submit">검색하기</button>
+			</div>
+		</div>
+
+		<div class="full-layer full-page filter-pop" id="popup1">
+			<div class="pop-header">
+				<button type="button" class="reset" title="초기화">
+					<svg class="svg-icon">
+						<use xlink:href="#icon-refresh"></use>
+					</svg>
+				</button>
+				<h2>쇼핑몰별 발주마감</h2>
+				<button type="button" class="pop-close">닫기</button>
+			</div>
+			<div class="wrap">
+				<!-- 2020-12-02 EZP-1647 시작 -->
+				<div class="contents">
+					<div class="step-wrap step1">
+						<strong class="step-title">쇼핑몰명</strong>
+						<div class="search-form">
+							<div class="keyword-search">
+								<input type="text" placeholder="도매처 또는 주소를 입력하세요."><button type="button">검색</button>
+							</div>
+							<ul class="mall-list">
+								<li><a href="#">핫핑1</a></li>
+								<li><a href="#">핫핑2</a></li>
+								<li><a href="#">핫핑3</a></li>
+								<li><a href="#">핫핑4</a></li>
+								<li><a href="#">핫핑5</a></li>
+								<li><a href="#">핫핑6</a></li>
+								<li><a href="#">핫핑7</a></li>
+							</ul>
+							<div class="mall-select-list">
+								<a href="#">헤이지니2</a>
+								<a href="#">헤이지니2</a>
+								<a href="#">헤이지니2</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="btns">
+				<button type="button" class="submit">발주마감</button>
+			</div>
+		</div>
+	</div>
+
+	<div id="modal"></div>
+
+	<!-- 2022-07-05 EZP-5424 발주상세내역 팝업 -->
+	<div class="full-layer full-page order-detail-pop" id="order-detail-list" style="z-index: 9999;"> <!--2022-07-18 EZP-5424-->
+		<div class="pop-header">
+			<h2>발주상세내역</h2>
+			<button type="button" class="pop-close">닫기</button>
+		</div>
+		<div class="wrap">
+			<div class="contents">
+				<div class="order-detail">
+					<div class="title">
+						<div class="left">
+							<span class="secession">[사용안함]</span><span class="secession">[탈퇴]</span>언니네양장점
+							<span class="location"><svg class="svg-icon"><use xlink:href="#icon-home2"></use></svg>APM플레이스 7층 13호</span>
+						</div>
+					</div>
+					<div class="total">
+						<span><strong>총 발주수량</strong>800개 (취소0개)</span>
+						<span><strong>총 발주금액</strong>1,000,000원 (취소0원)</span>
+					</div>
+					<div class="list">
+						<div class="result">발주상품내역 <strong>N개</strong></div>
+						<ul>
+							<li>
+								<h4><em class="blue">신규</em><strong>[달트]</strong>기본라운드 티셔츠</h4><!--2022-07-18 EZP-5424-->
+								<div class="cont">
+									<div class="left">
+										<span>2,500</span>
+										<span>RED/L</span>
+										<em>품절시처리 환불</em>
+									</div>
+									<div class="state">발주<strong><em class="num">100</em>개</strong></div>
+								</div>
+								<div class="memo">구매자메모가 표시됩니다~~</div>
+							</li>
+							<li class="check">
+								<h4><em class="green">미송</em><strong>[가게명]</strong>기본라운드 티셔츠</h4><!--2022-07-18 EZP-5424-->
+								<div class="cont">
+									<div class="left">
+										<span>2,500</span>
+										<span>RED/L</span>
+										<em>품절시처리 환불</em>
+									</div>
+									<div class="state">발주<strong><em class="num">100</em>개</strong><span>[첫] 12/5</span></div>
+								</div>
+								<div class="memo">구매자메모가 표시됩니다~~</div>
+							</li>
+							<li>
+								<h4><em class="purple">샘플</em><strong>[가게명]</strong>상품명이 길 경우 두 줄로 표시됩니다. 상품명이 길 경우 두 줄로 표 시됩니다.상품명이 길 경우 두 줄로 표시됩니다.<!--2022-07-18 EZP-5424-->
+								</h4>
+								<div class="cont">
+									<div class="left">
+										<span>2,500</span>
+										<span>RED/L</span>
+										<em>품절시처리 환불</em>
+									</div>
+									<div class="state">발주<strong><span class="bdr-flag-red">주문취소</span><em class="num line">100</em>개</strong></div>
+								</div>
+								<div class="memo">구매자메모가 표시됩니다~~</div>
+							</li>
+							<li>
+								<h4><em class="pink">제작신규</em><strong>[가게명]</strong>기본라운드 티셔츠</h4><!--2022-07-18 EZP-5424-->
+								<div class="cont">
+									<div class="left">
+										<span>2,500</span>
+										<span>옵션명이 길어지는 경우에도 이렇게 이렇게 이렇게 두줄로 표시됩니다.~~</span>
+										<em>품절시처리 환불</em>
+									</div>
+									<div class="state">발주<strong><em class="num">100</em>개</strong></div>
+								</div>
+								<div class="memo">구매자메모가 표시됩니다~~</div>
+							</li>
+						</ul>
+						<div class="paging" style="margin-bottom: 45px;"> <!--2022-07-18 EZP-5424-->
+							<a href="#" class="prev">이전</a>
+							<div class="num_list">
+								<a href="#" class="active">1</a>
+								<a href="#" class="">2</a>
+								<a href="#" class="">3</a>
+								<a href="#" class="">4</a>
+								<a href="#" class="">5</a>
+							</div>
+							<a href="#" class="next">다음</a>
+						</div>
+					</div>
+				</div>
+	
+			</div>
+		</div>
+		<div class="btns">
+			<button type="button" class="submit pop-close">닫기</button>
+		</div>
+	</div>
+
+	<!-- 2022-12-14 EZP-7627 : 추가 시작 -->
+	<div class="renew-fixed">
+		<div class="btn-wrap">
+			<span class="home">
+				<a href="./" title="홈">
+					<svg class="svg-icon"><use xlink:href="#icon-home"></use></svg>
+				</a>
+			</span>
+			<span class="memo">
+				<a href="./memo.html" title="메모">
+					<svg class="svg-icon"><use xlink:href="#icon-letter"></use></svg>
+					<em class="new">
+						<!-- 2022-12-19 EZP-7448, EZP-7627 : New icon 변경 -->
+						<!-- <img src="./img/icon-new.png" alt="icon-new"> -->
+						N
+					</em>
+				</a>
+			</span>
+			<span class="notice">
+				<a href="./notice.html" title="알림">
+					<svg class="svg-icon"><use xlink:href="#icon-bell"></use></svg> 
+					<em class="new">
+						<!-- 2022-12-19 EZP-7448, EZP-7627 : New icon 변경 -->
+						<!-- <img src="./img/icon-new.png" alt="icon-new"> -->
+						N
+					</em>
+				</a>
+			</span>
+		</div>
+	</div><!-- 2022-12-14 EZP-7627 : 추가 끝 -->
+
+	<!-- ui check -->
+	<script type="text/javascript" src="./jquery-3.5.1.min.js"></script>
+	<script src="./ui.js"></script>
+	<script type="text/javascript" src="./jquery-ui.min.js"></script>
+	<script>
+		$(function() {
+			$('.search-item.period-filter a').click(function() {
+				$('.search-item.period-filter a').removeClass('on');
+				$(this).addClass('on');
+			})
+			$(document).on('focusin', '.filter-pop .keyword-search input', function() {
+				$('.filter-pop .mall-list').addClass('on');
+			})
+			$(document).on('focusout', '.filter-pop .keyword-search input', function() {
+				setTimeout(function() {
+					$('.filter-pop .mall-list').removeClass('on');
+				}, 100)
+			})
+			$(document).on('click', '.filter-pop .mall-list li', function() {
+				var li_txt = $(this).text();
+				$('.filter-pop .mall-select-list').append('<a href="#">' + li_txt + '</a>')
+			})
+
+			$(document).on('click', '.mall-select-list a', function() {
+				$(this).remove();
+			})
+			$(".datepicker").datepicker({
+				showMonthAfterYear: true,
+				dateFormat: "yy.mm.dd", // 텍스트 필드에 입력되는 날짜 형식.
+				dayNamesMin: ['SUN', 'MON', 'TUE', 'WED', 'THE', 'FRI', 'SAT'],
+				monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+				monthNames: ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"],
+				firstDay: 1,
+				// 2020-12-21 EZP-1917
+				minDate: 0,
+				beforeShow: function() {
+					$('#modal').show();
+				},
+				onClose: function() {
+					$('#modal').hide();
+				},
+				onSelect: function() {
+					var $input = $(this);
+					var idx = $input.index();
+					var isRange = $input.hasClass('range');
+					var $input = $input.parent().children('.datepicker');
+					var dateValue = $.map($input, function(el) {
+						return el.value
+					});
+
+					if (isRange && dateValue[0] > dateValue[1]) {
+						if (idx == 0) {
+							$input.eq(1).val(dateValue[0])
+						} else {
+							$input.eq(0).val(dateValue[1])
+						}
+					}
+				}
+			});
+
+			$('.btn-group-tab button').click(function() {
+				$(this).parent().find('button').removeClass('active');
+				$(this).addClass('active');
+			})
+		})
+	</script>
+</body>
+
+</html>

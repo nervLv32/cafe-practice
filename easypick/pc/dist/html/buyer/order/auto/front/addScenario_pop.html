@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="shortcut icon" type="image/x-icon" href="https://easypick.co.kr/img/favicon/ezp.ico">
+	<link rel="stylesheet" type="text/css" href="../../../../../css/default.css">
+	<link rel="stylesheet" type="text/css" href="../../../../../css/month.picker.css">
+	<title>이지픽</title>
+</head>
+
+<body class="window-pop-wrap">
+	<div class="add-scenario-pop">
+		<div id="container">
+			<div class="order-list-wrap popup complete">
+				<div class="list-right">
+					<div class="table-wrap">
+						<p class="tit">시나리오 추가</p>
+						<table class="th-ver">
+							<colgroup>
+								<col width="160px">
+								<col width="*">
+							</colgroup>
+							<tbody>
+								<tr class="layout-first-row">
+									<th>시나리오명</th>
+									<td><input type="text" placeholder="시나리오명을 입력해주세요." class="autoframe-input"></td>
+								</tr>
+								<tr>
+									<th>SET선택</th>
+									<td>
+										<div class="autoframe-wrap">
+											<input type="text" placeholder="SET를 선택해주세요." class="autoframe-input set-input">
+											<ul class="autoframe">
+												<li class="no-result">검색결과가 없습니다.</li><!--2022-06-20 EZP-4381-->
+												<li>재고없는 상품 삭제</li>
+												<li>비싼 상품 삭제</li>
+												<li>발주수량 업데이트
+												<li>재고없는 상품 삭제</li>
+												<li>비싼 상품 삭제</li>
+												<li>발주수량 업데이트</li>
+												<li>재고없는 상품 삭제</li>
+												<li>비싼 상품 삭제</li>
+												<li>발주수량 업데이트</li>
+											</ul>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<th colspan="2">
+										<div class="order-table-control">
+											<div class="title">선택한SET</div>
+											<div class="control-box">
+												<span class="control-box-title">SET 순위 조정</span>
+												<button type="button" class="btn-order-up">올리기</button>
+												<button type="button" class="btn-order-down">내리기</button>
+											</div>
+										</div>
+									</th>
+								</tr>
+								<tr>
+									<td colspan="2" style="padding:0;">
+										<div class="table-wrap order-list">
+											<div class="order-table">
+												<table class="th-hor">
+													<colgroup>
+														<col width="100px;">
+														<col>
+														<col width="130px;">
+													</colgroup>
+													<thead>
+														<tr>
+															<th>우선순위</th>
+															<th>선택한 SET</th>
+															<th>설정</th>
+														</tr>
+													</thead>
+													<tbody>
+														<tr class="order-row">
+															<td>1</td>
+															<td>발주 불필요상품 삭제</td>
+															<td><button type="button" class="btn-delete ui-popup-open" data-target="#alert-pop1">삭제</button></td>
+														</tr>
+														<tr class="order-row">
+															<td>2</td>
+															<td>기존상품 발주</td>
+															<td><button type="button" class="btn-delete ui-popup-open" data-target="#alert-pop1">삭제</button></td>
+														</tr>
+														<tr class="order-row">
+															<td>3</td>
+															<td>신상품 가중치 발주</td>
+															<td><button type="button" class="btn-delete ui-popup-open" data-target="#alert-pop1">삭제</button></td>
+														</tr>
+														<tr class="order-row">
+															<td>4</td>
+															<td>발주 불필요상품 삭제</td>
+															<td><button type="button" class="btn-delete ui-popup-open" data-target="#alert-pop1">삭제</button></td>
+														</tr>
+														<tr class="order-row">
+															<td>5</td>
+															<td>기존상품 발주</td>
+															<td><button type="button" class="btn-delete ui-popup-open" data-target="#alert-pop1">삭제</button></td>
+														</tr>
+														<tr>
+															<td colspan="3" class="noData">
+																선택한 SET가 없습니다.
+															</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<th>
+										대상품목선택
+										<div class="tip-wrap">
+											<a href="javascript:;" class="btn-tip"></a>
+											<div class="tip tip-top" style="width:555px;">
+												<span class="txt sort">
+													- 자동주문 등록 품목 : 자동주문 등록 페이지에서 등록된 품목을 대상으로 시나리오를 실행합니다.
+												</span>
+												<span class="txt sort">
+													- 자동불러오기 품목 : 자동으로 불러온 품목을 대상으로 시나리오를 실행합니다.
+												</span>
+											</div>
+										</div>
+									</th>
+									<td>
+										<div class="radio-box-wrap">
+											<span class="radio">
+												<input type="radio" name="radio1" id="radio1-1" checked="checked">
+												<label for="radio1-1">자동주문 등록 품목</label>
+											</span>
+											<span class="radio">
+												<input type="radio" name="radio1" id="radio1-2">
+												<label for="radio1-2">자동불러오기 품목</label>
+											</span>
+											<div class="ui-select" data-target_id="" data-toggle="#toggle-radio1-2" style="display:none;">
+												<button type="button" data-target_id="" data-value="">선택해주세요.</button>
+												<ul>
+													<li data-key="" class="active">금일배송, 마이너스 재고 포함</li>
+													<li data-key="">type2번 저장</li>
+													<li data-key="">type2번 저장</li>
+													<li data-key="">type2번 저장</li>
+													<li data-key="">type2번 저장</li>
+													<li data-key="">type2번 저장</li>
+													<li data-key="">type2번 저장</li>
+												</ul>
+											</div>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<th>
+										자동주문 설정
+										<div class="tip-wrap">
+											<a href="javascript:;" class="btn-tip"></a>
+											<div class="tip tip-top" style="width:555px;">
+												<span class="title">- 시나리오 실행만 하기</span><br>
+												<span class="txt">
+													설정해둔 옵션대로 시나리오가 실행된 후, 자동주문 페이지 품목리스트에 결과를 반영합니다.<br>
+													품목리스트를 확인 후 주문을 진행하거나 편집할 수 있습니다.
+												</span><br>
+												<br>
+												<span class="title">- 자동 주문하기</span><br>
+												<span class="txt">
+													시나리오 예약 설정 화면에서 예약해둔 요일과 시간에 자동으로 주문이 진행됩니다.
+												</span><br>
+												<br>
+												<span class="txt">
+													※ 자동주문 시, 잘못된 설정으로 인한 문제는 당사에서 책임지지 않습니다.<br>
+													※ 설정한 자동주문 최대 금액을 초과할 경우 주문이 진행되지 않습니다.
+												</span>
+											</div>
+										</div>
+									</th>
+									<td>
+										<div class="radio-box-wrap">
+											<span class="radio">
+												<input type="radio" name="radio2" id="radio2-1" checked="checked">
+												<label for="radio2-1">시나리오 실행만 하기</label>
+											</span>
+											<span class="radio">
+												<input type="radio" name="radio2" id="radio2-2">
+												<label for="radio2-2">자동 주문하기</label>
+											</span>
+											<div class="input-max" data-toggle="#toggle-radio2-2" style="display:none;">
+												(자동주문 최대 금액 설정: <span class="input-wrap"><input type="text"></span> )
+											</div>
+										</div>
+									</td>
+								</tr>
+								<!-- 20220516 EZP-4381 -->
+								<tr data-toggle="#toggle-radio2-2" style="display:none;">
+									<th>전표자동전송
+										<div class="tip-wrap">
+											<a href="javascript:;" class="btn-tip"></a>
+											<div class="tip tip-top" style="width:555px;">
+												<span class="txt">
+													-전송안함 : 전송안함 선택 시 주문현황 상세페이지에서 엑셀 양식을 수동으로 다운로드 받거나<br> 재고 플러스로 전송할 수 있습니다.
+												</span>
+												<span class="txt">
+													-전송 : 전송함 선택 시 주문완료 시점에서 재고플러스로 전표가 자동으로 전송됩니다.
+												</span>
+											</div>
+										</div>
+									</th>
+									<td>
+										<div class="radio-box-wrap">
+											<span class="radio">
+												<input type="radio" name="radio3" id="radio3-1" checked="checked">
+												<label for="radio3-1">전송안함</label>
+											</span>
+											<span class="radio">
+												<input type="radio" name="radio3" id="radio3-2">
+												<label for="radio3-2">전송함</label>
+											</span>
+										</div>
+									</td>
+								</tr>
+								<!--// 20220516 EZP-4381 -->
+							</tbody>
+						</table>
+					</div>
+
+				</div>
+			</div>
+			<div id="footer">
+				<button type="button" class="btn small line">닫기</button>
+				<button type="button" class="btn small">저장</button>
+			</div>
+		</div>
+	</div>
+
+	<div id="alert-pop1" class="ui-popup">
+		<div class="content" style="min-width:412px; max-width: 700px;" tabindex="-1">
+			<div class="body">
+				<div class="txt-cont">
+					<p>
+						삭제 하시겠습니까?
+					</p>
+				</div>
+				<div class="btn_wrap mt40 tac">
+					<button type="button" class="btn medium btn_close" style="width:150px;">취소</button>
+					<button type="button" class="btn point medium btn_close" style="width:150px;">확인</button>
+				</div>
+			</div>
+			<button type="button" class="btn_close">
+				<div><span>닫기</span></div>
+			</button>
+		</div>
+	</div>
+
+	<script src="../../../../../js/jquery.min.js"></script><!--jquery default-->
+	<script src="../../../../../js/jquery-ui.min.js"></script>
+	<script src="../../../../../js/swiper-ie9.min.js"></script>
+	<script src="../../../../../js/default.input.js"></script> <!-- 2022-10-04 -->
+	<script src="../../../../../js/addclear.min.js"></script>
+	<script src="../../../../../js/common.front.js"></script>
+	<script src="../../../../../js/ui.js"></script>
+	<!-- <script src="../../../../../js/pub.js"></script> -->
+	<script src="../../../../../js/jquery.scrollbar.min.js"></script>
+
+	<script>
+		$(function(){
+      $('.autoframe-wrap').on('click', function() {
+        // console.log($(this).find('.autoframe'))
+        $(this).find('.autoframe').toggleClass('on')
+      })
+      $('.autoframe li').on('click', function(){
+        let selectText = $(this).text();
+        $('.autoframe-input.set-input').attr('value', selectText)
+      })
+			// 선택한 SET 활성화
+			$('.order-table').on('click', '.order-row', function(){
+				$(this).addClass('on').siblings().removeClass('on');
+			});
+			// 이벤트 전파 방지
+			$('.order-table').on('click', '.btn-delete', function(e) {
+				e.stopPropagation();
+			});
+		});
+	</script>
+
+	<!-- 퍼블 화면 확인용 -->
+	<script>
+		$(function() {
+
+
+			// 대상품목선택
+			$('[name="radio1"]').on('change', function () {
+				var _value = $(this).attr('id');
+				switch (_value) {
+					case 'radio1-1':
+						$('[data-toggle="#toggle-radio1-2"]').hide();
+						break;
+					case 'radio1-2':
+						$('[data-toggle="#toggle-radio1-2"]').show();
+						break;
+				}
+			});
+
+			// 자동주문 설정
+			$('[name="radio2"]').on('change', function () {
+				var _value = $(this).attr('id');
+				switch (_value) {
+					case 'radio2-1':
+						$('[data-toggle="#toggle-radio2-2"]').hide(); // 전표처리 숨김
+						$('[data-toggle="#toggle-radio3-2"]').hide(); // 전표처리방식 숨김
+						break;
+					case 'radio2-2':
+						$('[data-toggle="#toggle-radio2-2"]').show(); // 전표처리 노출
+						if ($('#radio3-2').prop('checked')) {
+							$('[data-toggle="#toggle-radio3-2"]').show(); // 전표처리방식 노출
+						}
+						break;
+				}
+			});
+
+			// 전표처리
+			$('[name="radio3"]').on('change', function () {
+				var _value = $(this).attr('id');
+				switch (_value) {
+					case 'radio3-1':
+						$('[data-toggle="#toggle-radio3-2"]').hide(); // 전표처리방식 숨김
+						break;
+					case 'radio3-2':
+						$('[data-toggle="#toggle-radio3-2"]').show(); // 전표처리방식 노출
+						break;
+				}
+			});
+
+			// 옵션적용 유형 선택
+			$('[name="radio3"]').on('change', function () {
+				$('.radio-box-group').removeClass('on').find('input[type="text"]').prop('disabled', true);
+				$(this).closest('.radio-box-group').addClass('on').find('input[type="text"]').prop('disabled', false);
+			});
+		});
+	</script>
+</body>
+
+</html>

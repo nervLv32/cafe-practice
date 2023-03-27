@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="shortcut icon" type="image/x-icon" href="/img/favicon/ezp.ico">
+
+	<link rel="stylesheet" type="text/css" href="../css/pc/default.css">
+
+	<script type="text/javascript" src="../js/pc/jquery-3.5.1.min.js"></script>
+	<script type="text/javascript" src="../js/pc/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="../js/pc/swiper-bundle.min.js"></script>
+	<script type="text/javascript" src="../js/pc/common_front.js"></script>
+	<script type="text/javascript" src="../js/pc/ui.js"></script>
+	<script type="text/javascript" src="../js/pc/pub.js"></script>
+
+	<title>전체 발주예정목록 상세</title>
+</head>
+<body>
+	<!-- 2022-10-26 EZP-6245 발주예정목록 상세 (전체) 신규페이지 -->
+    <header></header>
+
+	<div id="container" class="active">
+		<aside></aside>
+
+		<section class="order-manage">
+			<h2>발주예정목록</h2>
+
+			<div class="detail-wrap pt20">
+				<h3>전체 발주예정목록 상세</h3>
+				<div class="detail-box">
+					<!-- 2022-11-24 EZP-6245 head 제거
+						<div class="head">
+						<h4>
+							전체발주예정목록
+						</h4>
+					</div> -->
+
+					<div class="body item4">
+						<div class="item">
+							<span>총 발주금액</span>
+							<p>
+								<strong class="f-pop">1,020,000</strong>
+								<em>원</em>
+							</p>
+						</div>
+						<div class="item">
+							<span>총 발주수량</span>
+							<p>
+								<strong class="f-pop">38</strong>
+								<em>개</em>
+							</p>
+						</div>
+						<div class="item">
+							<span>총 쇼핑몰 수</span>
+							<p>
+								<strong class="f-pop">8</strong>
+								<em>개</em>
+							</p>
+						</div>
+						<div class="item">
+							<span>총 매입잔액</span>
+							<p>
+								<strong class="f-pop">530,000</strong>
+								<em>원</em>
+							</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="btn-wrap center mb60">
+					<a href="./order-expected-list.html" class="btn gray">목록으로</a>
+				</div>
+
+				<h3>발주예정품목</h3>
+				<div class="subject-list">
+					<div class="num-wrap">
+						<p>총 <em class="f-pop">22</em>건</p>
+						<div class="right">
+							<button type="button" name="button" class="btn-download"><i></i><span>엑셀다운로드</span></button>
+							<div class="ui-select ml10">
+								<button type="button">전체보기</button>
+								<ul>
+									<li class="active">전체보기</li>
+									<li>신규</li>
+									<li>미송</li>
+									<li>불량</li>
+									<li>샘플요청</li>
+									<li>유료샘플</li>
+									<li>샘플반납</li>
+									<li>제작신규</li>
+								</ul>
+							</div>
+						</div>
+						
+					</div>
+
+					<div class="table-wrap re-table-wrap">
+						<table class="long">
+							<colgroup>
+								<col width="100px">
+								<col width="*">
+								<col width="250px">
+								<col width="100px">
+								<col width="100px">
+								<col width="135px">
+							</colgroup>
+							<thead>
+								<tr>
+									<th>번호</th>
+									<th>상품명</th>
+									<th>옵션</th>
+									<th>판매가</th>
+									<th>발주수량</th>
+									<th>상세내역</th>
+								</tr>
+							</thead>
+							<tbody>
+								<!-- 2022-11-24 EZP-6245 nodata case 추가 시작 -->
+								<tr>
+									<td colspan="6" class="no-data">
+										<p>선택하신 유형의 품목 리스트가 없습니다.</p>
+									</td>
+								</tr>
+								<!-- 2022-11-24 EZP-6245 nodata case 추가 끝 -->
+								<tr>
+									<td>999</td>
+									<td class="tal prd-name">
+										<span class="badge color-04">신규</span>
+										<strong>
+											<a href="#" class="underline"><span>폭스퍼 숏 구스다운 <em class="f-pop">NP0XM607</em></span></a>
+											<span class="prd-name-tooltip">리버시블 헤비 보아 깅엄체크 플리스 자켓 , 스트링코듀로이도트ops(LC-9814)</span>
+										</strong>
+									</td>
+									<td>블루 / <span class="f-pop">FREE</span></td>
+									<td class="f-pop">257,100</td>
+									<td class="f-pop">999</td>
+									<td><button type="button" class="btn small ui-popup-call more-btn fw-400" data-target="#detail-popup">상세보기</button></td>
+								</tr>
+								<tr>
+									<td>999</td>
+									<td class="tal prd-name">
+										<span class="badge color-07">제작신규</span>
+										<em class="add-order txt-blk">[무배]</em>
+										<strong>
+											<span>파스텔컬러 베이직 라운드니트 </span>
+											<button type="button" name="button" class="ui-popup-call" data-target="#alert3"><i class="icon-img"></i></button> 
+											<span class="prd-name-tooltip">리버시블 헤비 보아 깅엄체크 플리스 자켓 , 스트링코듀로이도트ops(LC-9814)</span>
+										</strong>
+									</td>
+									<td>소라 / <span class="f-pop">M</span></td>
+									<td class="f-pop">257,100</td>
+									<td class="f-pop">5</td>
+									<td><button type="button" class="btn small ui-popup-call more-btn fw-400" data-target="#detail-popup">상세보기</button></td>
+								</tr>
+								<tr>
+									<td>999</td>
+									<td class="tal prd-name">
+										<span class="badge color-01">미송</span>
+										<span class="badge reconfirm">재</span>
+										<strong>
+											<span>타프 지그 패턴 브이넥 배색 니트 조끼</span>
+											<span class="prd-name-tooltip">리버시블 헤비 보아 깅엄체크 플리스 자켓 , 스트링코듀로이도트ops(LC-9814)</span>
+										</strong>
+									</td>
+									<td>라임 / <span class="f-pop">FREE</span></td>
+									<td class="f-pop">257,100</td>
+									<td class="f-pop">15</td>
+									<td><button type="button" class="btn small ui-popup-call more-btn fw-400" data-target="#detail-popup">상세보기</button></td>
+								</tr>
+								<tr>
+									<td>999</td>
+									<td class="tal prd-name">
+										<span class="badge color-01">미송</span>
+										<strong>
+											<span>기모,면 레터링 패치 스트링 언발 밴딩 조거팬츠 <em class="f-pop">3color</em></span>
+											<span class="prd-name-tooltip">리버시블 헤비 보아 깅엄체크 플리스 자켓 , 스트링코듀로이도트ops(LC-9814)</span>
+										</strong>
+									</td>
+									<td>옵션명 공백포함하여 최대 30자까지 들어갑니다.</td>
+									<td class="f-pop">257,100</td>
+									<td class="f-pop">999</td>
+									<td><button type="button" class="btn small ui-popup-call more-btn fw-400" data-target="#detail-popup">상세보기</button></td>
+								</tr>
+								<tr>
+									<td>999</td>
+									<td class="tal prd-name">
+										<span class="badge color-01">제작미송</span>
+										<strong>
+											<span>베뉴 부드러운 도톰 융기모 밴딩 트레이닝 조거 팬츠 와이드 일자 팬츠</span>
+											<span class="prd-name-tooltip">리버시블 헤비 보아 깅엄체크 플리스 자켓 , 스트링코듀로이도트ops(LC-9814)</span>
+										</strong>
+									</td>
+									<td>블루 / <span class="f-pop">FREE</span></td>
+									<td class="f-pop">257,100</td>
+									<td class="f-pop">999</td>
+									<td><button type="button" class="btn small ui-popup-call more-btn fw-400" data-target="#detail-popup">상세보기</button></td>
+								</tr>
+								<tr>
+									<td>999</td>
+									<td class="tal prd-name">
+										<span class="badge color-02">불량</span>
+										<strong>
+											<span>초록 잎사귀 부클 플라워 브이넥 니트 조끼</span>
+											<span class="prd-name-tooltip">리버시블 헤비 보아 깅엄체크 플리스 자켓 , 스트링코듀로이도트ops(LC-9814)</span>
+										</strong>
+									</td>
+									<td>아이보리 / <span class="f-pop">FREE</span></td>
+									<td class="f-pop">257,100</td>
+									<td class="f-pop">999</td>
+									<td><button type="button" class="btn small ui-popup-call more-btn fw-400" data-target="#detail-popup">상세보기</button></td>
+								</tr>
+								<tr>
+									<td>999</td>
+									<td class="tal prd-name">
+										<span class="badge color-03">샘플반납</span>
+										<em class="add-order txt-blk">[국내생산]</em>
+										<strong>
+											<span>쫀쫀탄력 스타킹 타이즈 안감기모 니삭스 양말</span>
+											<span class="prd-name-tooltip">리버시블 헤비 보아 깅엄체크 플리스 자켓 , 스트링코듀로이도트ops(LC-9814)</span>
+										</strong>
+									</td>
+									<td>와인 / <span class="f-pop">FREE</span></td>
+									<td class="f-pop">257,100</td>
+									<td class="f-pop">999</td>
+									<td><button type="button" class="btn small ui-popup-call more-btn fw-400" data-target="#detail-pop">상세보기</button></td>
+								</tr>
+								<tr>
+									<td>999</td>
+									<td class="tal prd-name">
+										<span class="badge color-05">샘플요청</span>
+										<strong>
+											<span>겨울 웰론 파스텔 후드 벨트 롱 패딩 665 퍼 탈부착</span>
+											<span class="prd-name-tooltip">리버시블 헤비 보아 깅엄체크 플리스 자켓 , 스트링코듀로이도트ops(LC-9814)</span>
+										</strong>
+									</td>
+									<td>-</td>
+									<td class="f-pop">257,100</td>
+									<td class="f-pop">999</td>
+									<td><button type="button" class="btn small ui-popup-call more-btn fw-400" data-target="#detail-popup">상세보기</button></td>
+								</tr>
+								<tr>
+									<td>999</td>
+									<td class="tal prd-name">
+										<span class="badge color-05">유료샘플</span>
+										<strong>
+											<span>피엔 다이아 배색 라운드 컬러 니트 가디건 <em class="f-pop">2color</em></span>
+											<span class="prd-name-tooltip">리버시블 헤비 보아 깅엄체크 플리스 자켓 , 스트링코듀로이도트ops(LC-9814)</span>
+										</strong>
+									</td>
+									<td>다크네이비 / <span class="f-pop">FREE</span></td>
+									<td class="f-pop">257,100</td>
+									<td class="f-pop">999</td>
+									<td><button type="button" class="btn small ui-popup-call more-btn fw-400" data-target="#detail-popup">상세보기</button></td>
+								</tr>
+								<tr>
+									<td>999</td>
+									<td class="tal prd-name">
+										<span class="badge color-01">미송</span>
+										<strong>
+											<span>페이크 밍크퍼 무스탕 체크코트</span>
+											<span class="prd-name-tooltip">리버시블 헤비 보아 깅엄체크 플리스 자켓 , 스트링코듀로이도트ops(LC-9814)</span>
+										</strong>
+									</td>
+									<td>블랙 / <span class="f-pop">FREE</span></td>
+									<td class="f-pop">257,100</td>
+									<td class="f-pop">999</td>
+									<td><button type="button" class="btn small ui-popup-call more-btn fw-400" data-target="#detail-popup">상세보기</button></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+
+	<!-- 쇼핑몰 발주상세 popup -->
+	<div class="ui-popup expected-detail-pop" id="detail-popup">
+		<div class="content">
+			<button type="button" class="btn-close">닫기</button>
+			<div class="header">
+				<!-- 2022-11-28 EZP-6245 title 워딩변경 -->
+				<p>쇼핑몰 발주예정목록 상세</p>
+			</div>
+			<div class="body">
+				<!-- s: 링크 없는 case -->
+				<div class="title">
+					<p class="ex">
+						<span class="badge color-04">신규</span>
+						<strong>페이크 밍크퍼 무스탕 체크코트</strong>
+					</p>
+					<span><em class="f-pop">257,100</em>원</span>
+					<div class="option">블루 / <em class="f-pop">FREE</em></div>
+				</div>
+				<!-- e: 링크 없는 case -->
+
+				<!-- s: 링크 있는 case -->
+				<div class="title">
+					<p class="ex">
+						<span class="badge color-04">신규</span>
+						<a href="#" class="popup-title-link">페이크 밍크퍼 무스탕 체크코트</a>
+					</p>
+					<span><em class="f-pop">257,100</em>원</span>
+					<div class="option">블루 / <em class="f-pop">FREE</em></div>
+				</div>
+				<!-- e: 링크 있는 case -->
+
+
+				<!-- <div class="list-header">
+					<table>
+						<colgroup>
+							<col width="">
+							<col width="110px">
+							<!- 2022-11-28 EZP-6245 출고수량 제거
+								<col width="110px"> ->
+							<col width="110px">
+						</colgroup>
+						<thead>
+							<tr>
+								<!- 2022-11-28 EZP-6245 쇼핑몰명 th .tal 제거 ->
+								<th class="fw-400">쇼핑몰명</th>
+								<th class="fw-400">발주수량</th>
+								<!- 2022-11-28 EZP-6245 출고수량 제거
+									<th class="fw-400">출고수량</th> ->
+								<th class="fw-400">상세내역</th>
+							</tr>
+						</thead>
+					</table>
+				</div> -->
+
+				<div class="list-body">
+					<table>
+						<colgroup>
+							<col width="">
+							<col width="110px">
+							<!-- 2022-11-28 EZP-6245 출고수량 제거
+								<col width="110px"> -->
+							<col width="110px">
+						</colgroup>
+						<thead>
+							<tr>
+								<!-- 2022-11-28 EZP-6245 쇼핑몰명 th .tal 제거 -->
+								<th class="fw-400">쇼핑몰명</th>
+								<th class="fw-400">발주수량</th>
+								<!-- 2022-11-28 EZP-6245 출고수량 제거
+									<th class="fw-400">출고수량</th> -->
+								<th class="fw-400">상세내역</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td class="tal">소녀레시피</td>
+								<td><em class="f-pop line">25</em>개<span class="txt-red small">주문취소</span></td>
+								<!-- 2022-11-28 EZP-6245 출고수량 제거
+									<td><em class="f-pop">999</em>개</td> -->
+								<td>
+									<a href="#" class="btn small more-btn fw-400">상세보기</a>
+								</td>
+							</tr>
+							<tr>
+								<td class="tal">엔비룩</td>
+								<td><em class="f-pop">999</em>개</td>
+								<!-- 2022-11-28 EZP-6245 출고수량 제거
+									<td><em class="f-pop">999</em>개</td> -->
+								<td>
+									<a href="#" class="btn small more-btn fw-400">상세보기</a>
+								</td>
+							</tr>
+							<tr>
+								<td class="tal">쪼이쇼룸</td>
+								<td><em class="f-pop">245</em>개</td>
+								<!-- 2022-11-28 EZP-6245 출고수량 제거
+									<td><em class="f-pop">187</em>개</td> -->
+								<td>
+									<a href="#" class="btn small more-btn fw-400">상세보기</a>
+								</td>
+							</tr>
+							<tr>
+								<td class="tal">바이정수</td>
+								<td><em class="f-pop">74</em>개</td>
+								<!-- 2022-11-28 EZP-6245 출고수량 제거
+									<td><em class="f-pop">25</em>개</td> -->
+								<td>
+									<a href="#" class="btn small more-btn fw-400">상세보기</a>
+								</td>
+							</tr>
+							<tr>
+								<td class="tal">악녀일기</td>
+								<td><em class="f-pop">854</em>개</td>
+								<!-- 2022-11-28 EZP-6245 출고수량 제거
+									<td><em class="f-pop">800</em>개</td> -->
+								<td>
+									<a href="#" class="btn small more-btn fw-400">상세보기</a>
+								</td>
+							</tr>
+							<tr>
+								<td class="tal">코코네진</td>
+								<td><em class="f-pop">999</em>개</td>
+								<!-- 2022-11-28 EZP-6245 출고수량 제거
+									<td><em class="f-pop">999</em>개</td> -->
+								<td>
+									<a href="#" class="btn small more-btn fw-400">상세보기</a>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="btn-wrap">
+				<button type="button" name="button" class="btn-close">확인</button>
+			</div>
+		</div>
+	</div>
+	<!-- //쇼핑몰 발주상세 popup-->
+
+	<!-- 이미지아이콘 popup -->
+	<div class="ui-popup alert" id="alert3">
+		<div class="content">
+			<!-- <button type="button" class="btn-close">닫기</button> -->
+			<div class="body">
+				<p>현재 페이지에서 해당 사이트를<br>연결하려고 하지만<br>신뢰할 수 있는 사이트인지 확인 할 수 없습니다.<br>연결하시겠습니까?</p>
+			</div>
+			<div class="btn-wrap btn2">
+				<button type="button" name="button" class="gray btn-close">취소</button>
+				<button type="button" name="button">확인</button>
+			</div>
+		</div>
+	</div>
+	<!-- //이미지아이콘 popup -->
+
+	<footer></footer>
+
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+			// include
+			$('header').load('include/header.html');
+			$('footer').load('include/footer.html');
+			$('aside').load('include/aside.html');
+
+			$('.notice .notice-open').on('click', function(){
+				$('.notice').toggleClass('active');
+			});
+
+			$('.select-btn-wrap button').on('click', function(){
+				$('.select-btn-wrap button').removeClass('active');
+				$(this).addClass('active');
+			});
+
+			$('input[name=radio01]').on('click', function() {
+				if ($('#direct').prop('checked')) {
+					$('#condition-popup .input-wrap').addClass('active');
+				} else {
+					$('#condition-popup .input-wrap').removeClass('active');
+				}
+			});
+
+			$('.release-wrap .btn-opener').on('click', function(){
+				$('.release-wrap .select-wrap').toggleClass('active');
+			});
+			// $('.release-wrap .select-wrap .btn-apply').on('click', function(){
+			// 	$('.release-wrap .select-wrap').removeClass('active');
+			// });
+
+			$( ".calendar-only" ).datepicker({
+				dateFormat: "yy-mm-dd",
+				showMonthAfterYear : true,
+				monthNames: ['1','2','3','4','5','6','7','8','9','10','11','12'],
+				dayNamesMin: ['SUN','MON','TUE','WED','THE','FRI','SAT'],
+				onSelect: function() {
+					$('.btn-wrap').find('button').removeClass('active');
+					$(this).parent().addClass('active');
+				},
+			});
+		});
+	</script>
+
+</body>
+</html>

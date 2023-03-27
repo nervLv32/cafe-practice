@@ -1,0 +1,163 @@
+{% extends "../_templates/layout.njk" %}
+{% block content %}
+
+<div class="wrapper" id="wrap">
+    <div class="content" id="content">
+        <div class="content-head">
+            <div class="page-title">
+                <h3 class="h3-tit">간편해외배송처리</h3>
+                <a href="#" class="btn-manual" target="_blank" title="매뉴얼">매뉴얼</a>
+            </div>
+            <div class="cont-info-right">
+                <ul class="breadcrumb">
+                    <li>주문</li>
+                    <li>주문관리</li>
+                    <li class="now" title="현재 페이지">간편해외배송처리</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 간편해외배송처리 Start -->
+        <div class="overseas-shipping-wrap case5">
+
+            <!-- 처리현황 상단 바 Start -->
+            <div class="processing-status">
+                <div class="txt">오늘의 처리현황</div>
+                <div class="info">
+                    선택된 주문수: <span class="quantity">15</span>건
+                </div>
+            </div><!-- 처리현황 상단 바 End -->
+
+            <!-- 상단 텝 박스 Start -->
+            <div class="tab-box-type01">
+                <ul>
+                    <li class="active">
+                        <a href="javascript: void(0);">
+                            <div class="box">
+                                <dl>
+                                    <dt class="title">
+                                        <span class="num">1</span>
+                                        국내 물류지별 송장출력
+                                    </dt>
+                                    <dd class="text">국내 물류지를 선택하여 송장출력을 할 수 있어요</dd>
+                                </dl>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript: void(0);">
+                            <div class="box hover-wrap">
+                                <dl>
+                                    <dt class="title">
+                                        <span class="num">2</span>
+                                        국내 물류지로 보내기
+                                    </dt>
+                                    <dd class="text">국내 물류지를 선택하여 배송처리 할 수 있어요</dd>
+                                </dl>
+                                <div class="hover-box top16">
+                                    국내 물류지로 보내기 위해 송장출력을 먼저 진행해주세요
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div><!-- 상단 텝 박스 End -->
+
+            <!-- 물류지-wrap Start -->
+            <div class="logistics-wrap tab-arrow-none">
+                <div class="title-type01 title-ico01">
+                    <h3>처리할 물류지를 선택해주세요.</h3>
+                </div>
+                <div class="tap-box-type02 logistics-tab">
+                    <ul>
+                        <li class="fastbox-btn active">
+                            <a href="javascript: void(0);">
+                                <div class="title">
+                                    패스트박스
+                                    <span>별도 국내 물류지가 없는 직접배송 해외주문</span>
+                                </div>
+                                <div class="count">2</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript: void(0);">
+                                <div class="title">쇼피</div>
+                                <div class="count">40</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript: void(0);">
+                                <div class="title">큐텐</div>
+                                <div class="count">0</div>
+                            </a>
+                        </li>
+                        <li class="disable">
+                            <a href="javascript: void(0);">
+                                <div class="title">라자다</div>
+                                <div class="count">0</div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <label class="agree-box">
+                    <input type="checkbox" class="check-type01">
+                    <span>패스트박스, 쇼피, 라자를 구분하여 송장 출력하기</span>
+                </label>
+                <div class="btn-wrap">
+                    <a href="javascript: void(0);" class="btn-type01 print-invoice1">송장 출력하기</a>
+                </div>
+
+            </div><!-- 물류지-wrap End -->
+
+        </div><!-- 간편해외배송처리 End -->
+
+    </div>
+</div>
+
+<div class="popup-wrap-type01 active">
+    <div class="popup-box pd60">
+        <button class="close-btn"></button>
+        <dl>
+            <dt><img src="../assets/images/overseas-shipping/guide-icon2.png" alt="안내 아이콘"></dt>
+            <dd>국내 물류지별 송장출력 진행 안내</dd>
+        </dl>
+        <p>국내 물류지로 보내기 위해 송장출력을 먼저 진행해주세요</p>
+    </div>
+    <div class="popup-bg"></div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        // 물류지 텝박스 active
+        $('.logistics-tab ul li').click(function () {
+            if ($(this).hasClass('disable') != true) {
+                $(this).toggleClass('active');
+            }
+        })
+
+        // 팝업박스 active시 body scroll none
+        if ($('.popup-wrap-type01').hasClass('active') == true) {
+            $('body').css({
+                'overflow-y': 'hidden',
+                'height': '100%'
+            })
+        } else {
+            $('body').css({
+                'overflow-y': 'unset',
+                'height': 'auto'
+            })
+        }
+
+        // 팝업박스 닫기
+        $('.popup-wrap-type01 .close-btn, .popup-wrap-type01 .popup-bg').click(function () {
+            $(this).parents('.popup-wrap-type01').removeClass('active');
+            $('body').css({
+                'overflow-y': 'unset',
+                'height': 'auto'
+            })
+        })
+    })
+</script>
+
+{% endblock %}

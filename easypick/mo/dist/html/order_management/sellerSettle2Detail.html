@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="format-detection" content="telephone=no">
+	<meta content="lK0RWxdehsio/icXlDgOD1/0XccqggRiBvNtJOsCkmw=" name="csrf-token">
+	<meta content="T" name="login-required">
+	<link rel="shortcut icon" type="image/x-icon" href="https://easypick.co.kr/img/favicon/ezp.ico">
+
+	<link rel="stylesheet" href="../../css/mobile/swiper.css">
+	<link rel="stylesheet" href="../../css/mobile/default.css">
+	<script src="../../js/lib/jquery-3.5.1.min.js" type="text/javascript"></script>
+	<script src="../../js/lib/jquery-ui.min.js" type="text/javascript"></script>
+	<script src="../../js/lib/swiper.js" type="text/javascript"></script>
+	<script src="../../js/ui/common_front.js" type="text/javascript"></script>
+	<script src="../../js/ui/ui.js" type="text/javascript"></script>
+	<script src="../../js/ui/pub.js" type="text/javascript"></script>
+
+	<title>이지픽 mobile > 거래처 정산내역 상세</title>
+</head>
+
+<body>
+	<!-- header// -->
+    <!-- 2022-09-20 EZP-4282 거래처 정산내역 상세 추가 시작 -->
+	<header class="sub">
+		<h1>거래처 정산내역 상세</h1>
+		<button type="button" name="button" class="btn-back">뒤로</button>
+	</header>
+	<!-- //header -->
+
+	<!-- fnb// -->
+	<nav>
+		<button type="button" name="button" class="btn-top">TOP</button>
+		<ul>
+			<li class="home"><a href="#" class="active"><i class="icon"><img src="../../img/mobile/icons/icon-home.svg" alt="홈"></i></a></li>
+			<li class="category"><a href="#"><i class="icon"><img src="../../img/mobile/icons/icon-category.svg" alt="카테고리"></i></a></li>
+			<li class="search"><a href="#"><i class="icon"><img src="../../img/mobile/icons/icon-search.svg" alt="통합검색"></i></a></li>
+			<li class="pick"><a href="#"><i class="icon"><img src="../../img/mobile/icons/icon-pick.svg" alt="MYPICK"></i></a></li>
+			<li class="my"><a href="#"><i class="icon"><img src="../../img/mobile/icons/icon-my.svg" alt="MYPAGE"></i></a></li>
+		</ul>
+	</nav>
+	<!-- //fnb -->
+
+	<!--container// -->
+	<div id="container" class="sub-content deal-wrap pb125">
+		<div class="fullpop-settlement-list ex settlement-details-wrap">
+
+			<!-- store 정보 (top) -->
+			<div class="settle-detail-top">
+				<div>
+					<div class="count-box">
+						<p class="title date">
+							입고일
+							<span>2020-08-22 ~ 2020-10-22</span>
+						</p>
+					</div>
+				</div>
+				<div class="store-box">
+					<span class="name">나인플로어</span>
+					<p class="address-box">디오트 3층 F-8호 010-1234-5678</p>
+				</div>
+				<div class="price-box">
+					<span>정산금액 합계</span>
+					<p><span>330,000</span>원</p>
+				</div>
+				<div class="price-box small">
+					<span>공급가액 합계</span>
+					<p><span>300,000</span>원</p>
+				</div>
+			</div>
+			<!-- //store 정보 (top) -->
+
+			<ul class="ui-tree">
+				<li>
+					<div class="top">
+                        <div class="day-txt-line">
+                            <a href="javascript:void(0);" class="text-underline ui-popup-call" data-target="#prd-detail-info">2020-09-25</a>
+                        </div>
+						<button type="button" class="btn-toggle"></button>
+						<p class="calculate">
+							<span>정산금액(ⓐ+ⓑ+ⓒ-ⓓ-ⓔ+ⓕ)</span>
+							<span class="price">110,000<em>원</em></span>
+						</p>
+						<p class="supply">
+							<span class="txt-gray">공급가기준</span>
+							<span class="txt-gray price">100,000<em>원</em></span>
+						</p>
+					</div>
+					<div class="sub">
+						<div class="inner-box">
+							<ul>
+                                <li class="calculate">
+                                    <a href="javascript:void(0);" class="text-underline ui-popup-call" data-target="#prd-detail-info">ⓐ신규입고</span></a>  
+                                    <a href="javascript:void(0);" class="ui-popup-call" data-target="#pop_settle_01"><span>300,000<em>원</em></span></a>                          
+                                </li>
+                                <li class="calculate">
+                                    <a href="javascript:void(0);" class="text-underline ui-popup-call" data-target="#prd-detail-info">ⓑ신규미송</span></a>
+                                    <a href="javascript:void(0);" class="ui-popup-call" data-target="#pop_settle_02"><span>100,000<em>원</em></span></a>
+                                </li>
+                                <li class="calculate">
+                                    <a href="javascript:void(0);" class="text-underline ui-popup-call" data-target="#prd-detail-info">ⓒ샘플입고</span></a>
+                                    <a href="javascript:void(0);" class="ui-popup-call" data-target="#pop_settle_03"><span>0<em>원</em></span></a>                    
+                                </li>
+                                <li class="calculate">
+                                    <a href="javascript:void(0);" class="text-underline ui-popup-call" data-target="#prd-detail-info">ⓓ반품</span></a>
+                                    <a href="javascript:void(0);" class="ui-popup-call" data-target="#pop_settle_04"><span>0<em>원</em></span></a>                          
+                                </li>
+                                <li class="calculate">
+                                    <a href="javascript:void(0);" class="ui-popup-call" data-target="#prd-detail-info">ⓔ매입환불</span></a>
+                                    <a href="javascript:void(0);" class="ui-popup-call" data-target="#pop_settle_05"><span>5,000<em>원</em></span></a>                            
+                                </li>
+                                <li class="calculate">
+                                    <a href="javascript:void(0);" class="ui-popup-call" data-target="#prd-detail-info">ⓕ조정금액</span></a>
+                                    <a href="javascript:void(0);" class="ui-popup-call" data-target="#pop_settle_06"><span>0<em>원</em></span></a>                           
+                                </li>
+                                <li class="calculate">
+                                    <a href="javascript:void(0);" class="text-underline ui-popup-call" data-target="#prd-detail-info">신규주문</span></a>
+                                    <a href="javascript:void(0);" class="ui-popup-call" data-target="#pop_settle_07"><span>400,000<em>원</em></span></a>
+                                </li>
+                            </ul>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="top">
+                        <div class="day-txt-line">
+                            <a href="javascript:void(0);" class="text-underline ui-popup-call" data-target="#prd-detail-info">2020-09-25</a>
+                        </div>
+						<button type="button" class="btn-toggle"></button>
+						<p class="calculate">
+							<span>정산금액(ⓐ+ⓑ+ⓒ-ⓓ-ⓔ+ⓕ)</span>
+							<span class="price">891,000<em>원</em></span>
+						</p>
+						<p class="supply">
+							<span class="txt-gray">공급가기준</span>
+							<span class="txt-gray price">770,000<em>원</em></span>
+						</p>
+					</div>
+					<div class="sub">
+						<div class="inner-box">
+							<ul>
+                                <li class="calculate">
+                                    <a href="javascript:void(0);" class="text-underline ui-popup-call" data-target="#prd-detail-info">ⓐ신규입고</span></a>  
+                                    <a href="javascript:void(0);" class="ui-popup-call" data-target="#pop_settle_01"><span>300,000<em>원</em></span></a>                          
+                                </li>
+                                <li class="calculate">
+                                    <a href="javascript:void(0);" class="text-underline ui-popup-call" data-target="#prd-detail-info">ⓑ신규미송</span></a>
+                                    <a href="javascript:void(0);" class="ui-popup-call" data-target="#pop_settle_02"><span>100,000<em>원</em></span></a>
+                                </li>
+                                <li class="calculate">
+                                    <a href="javascript:void(0);" class="text-underline ui-popup-call" data-target="#prd-detail-info">ⓒ샘플입고</span></a>
+                                    <a href="javascript:void(0);" class="ui-popup-call" data-target="#pop_settle_03"><span>0<em>원</em></span></a>                    
+                                </li>
+                                <li class="calculate">
+                                    <a href="javascript:void(0);" class="text-underline ui-popup-call" data-target="#prd-detail-info">ⓓ반품</span></a>
+                                    <a href="javascript:void(0);" class="ui-popup-call" data-target="#pop_settle_04"><span>0<em>원</em></span></a>                          
+                                </li>
+                                <li class="calculate">
+                                    <a href="javascript:void(0);" class="ui-popup-call" data-target="#prd-detail-info">ⓔ매입환불</span></a>
+                                    <a href="javascript:void(0);" class="ui-popup-call" data-target="#pop_settle_05"><span>5,000<em>원</em></span></a>                            
+                                </li>
+                                <li class="calculate">
+                                    <a href="javascript:void(0);" class="ui-popup-call" data-target="#prd-detail-info">ⓕ조정금액</span></a>
+                                    <a href="javascript:void(0);" class="ui-popup-call" data-target="#pop_settle_06"><span>0<em>원</em></span></a>                           
+                                </li>
+                                <li class="calculate">
+                                    <a href="javascript:void(0);" class="text-underline ui-popup-call" data-target="#prd-detail-info">신규주문</span></a>
+                                    <a href="javascript:void(0);" class="ui-popup-call" data-target="#pop_settle_07"><span>400,000<em>원</em></span></a>
+                                </li>
+                            </ul>
+						</div>
+					</div>
+				</li>
+                <li>
+					<div class="top">
+                        <div class="day-txt-line">
+                            <a href="javascript:void(0);" class="text-underline ui-popup-call" data-target="#prd-detail-info">2020-09-25</a>
+                        </div>
+						<button type="button" class="btn-toggle"></button>
+						<p class="calculate">
+							<span>정산금액</span>
+							<span class="price">-330<em>원</em></span>
+						</p>
+						<p class="supply">
+							<span class="txt-gray">공급가기준</span>
+							<span class="txt-gray price">0<em>원</em></span>
+						</p>
+					</div>
+					<div class="sub">
+						<div class="inner-box">
+                            <ul>
+                                <li>
+                                    *정산금액 = 합계 -33,330원 + 매입금적립금액 반영 33,000원 <span>(상품금액30,000 + 부가세 3,000)</span>
+                                </li>
+                                <li class="calculate">
+                                    <span>반품</span>    
+                                    <a href="javascript:void(0);"><span>33,330<em>원</em></span></a>  
+                                </li>
+                            </ul>
+						</div>
+					</div>
+				</li>
+			</ul>
+
+			<!-- store 정보 (top) -->
+			<div class="settle-detail-top">
+				<div>
+					<div class="count-box">
+						<p class="title date">
+							입고일
+							<span>2020-08-22 ~ 2020-10-22</span>
+						</p>
+					</div>
+				</div>
+				<div class="store-box">
+					<span class="name">나인플로어</span>
+					<p class="address-box">디오트 3층 F-8호 010-1234-5678</p>
+				</div>
+				<div class="price-box">
+					<span>정산금액 합계</span>
+					<p class="txt-red"><span class="txt-red">330,000</span>원</p>
+				</div>
+				<div class="price-box small">
+					<span>공급가액 합계</span>
+					<p class="txt-red"><span class="txt-red">300,000</span>원</p>
+				</div>
+			</div>
+			<!-- //store 정보 (top) -->
+
+			<ul class="ui-tree">
+				<li>
+					<div class="top">
+                        <div class="day-txt-line">
+                            <a href="javascript:void(0);" class="text-underline ui-popup-call" data-target="#prd-detail-info">2020-09-25</a>
+                        </div>
+						<button type="button" class="btn-toggle"></button>
+						<p class="calculate">
+							<span>정산금액(ⓐ+ⓑ+ⓒ-ⓓ-ⓔ+ⓕ)</span>
+							<span class="price txt-red">110,000<em class="txt-red">원</em></span>
+						</p>
+						<p class="supply">
+							<span class="txt-gray">공급가기준</span>
+							<span class="txt-gray price txt-red">100,000<em class="txt-red">원</em></span>
+						</p>
+					</div>
+					<div class="sub">
+						<div class="inner-box">
+							<ul>
+                                <li class="calculate">
+                                    <a href="javascript:void(0);" class="text-underline ui-popup-call" data-target="#prd-detail-info">ⓐ신규입고</span></a>  
+                                    <a href="javascript:void(0);" class="ui-popup-call" data-target="#pop_settle_01"><span>300,000<em>원</em></span></a>                          
+                                </li>
+                                <li class="calculate">
+                                    <a href="javascript:void(0);" class="text-underline ui-popup-call" data-target="#prd-detail-info">ⓑ신규미송</span></a>
+                                    <a href="javascript:void(0);" class="ui-popup-call" data-target="#pop_settle_02"><span>100,000<em>원</em></span></a>
+                                </li>
+                                <li class="calculate">
+                                    <a href="javascript:void(0);" class="text-underline ui-popup-call" data-target="#prd-detail-info">ⓒ샘플입고</span></a>
+                                    <a href="javascript:void(0);" class="ui-popup-call" data-target="#pop_settle_03"><span>0<em>원</em></span></a>                    
+                                </li>
+                                <li class="calculate">
+                                    <a href="javascript:void(0);" class="text-underline ui-popup-call" data-target="#prd-detail-info">ⓓ반품</span></a>
+                                    <a href="javascript:void(0);" class="ui-popup-call" data-target="#pop_settle_04"><span>0<em>원</em></span></a>                          
+                                </li>
+                                <li class="calculate">
+                                    <a href="javascript:void(0);" class="ui-popup-call" data-target="#prd-detail-info">ⓔ매입환불</span></a>
+                                    <a href="javascript:void(0);" class="ui-popup-call" data-target="#pop_settle_05"><span>5,000<em>원</em></span></a>                            
+                                </li>
+                                <li class="calculate">
+                                    <a href="javascript:void(0);" class="ui-popup-call" data-target="#prd-detail-info">ⓕ조정금액</span></a>
+                                    <a href="javascript:void(0);" class="ui-popup-call" data-target="#pop_settle_06"><span class="txt-red">0<em class="txt-red">원</em></span></a>                           
+                                </li>
+                                <li class="calculate">
+                                    <a href="javascript:void(0);" class="text-underline ui-popup-call" data-target="#prd-detail-info">신규주문</span></a>
+                                    <a href="javascript:void(0);" class="ui-popup-call" data-target="#pop_settle_07"><span>400,000<em>원</em></span></a>
+                                </li>
+                            </ul>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="top">
+                        <div class="day-txt-line">
+                            <a href="javascript:void(0);" class="text-underline ui-popup-call" data-target="#prd-detail-info">2020-09-25</a>
+                        </div>
+						<button type="button" class="btn-toggle"></button>
+						<p class="calculate">
+							<span>정산금액(ⓐ+ⓑ+ⓒ-ⓓ-ⓔ+ⓕ)</span>
+							<span class="price txt-red">891,000<em class="txt-red">원</em></span>
+						</p>
+						<p class="supply">
+							<span class="txt-gray">공급가기준</span>
+							<span class="txt-gray price txt-red">770,000<em class="txt-red">원</em></span>
+						</p>
+					</div>
+					<div class="sub">
+						<div class="inner-box">
+							<ul>
+                                <li class="calculate">
+                                    <a href="javascript:void(0);" class="text-underline ui-popup-call" data-target="#prd-detail-info">ⓐ신규입고</span></a>  
+                                    <a href="javascript:void(0);" class="ui-popup-call" data-target="#pop_settle_01"><span>300,000<em>원</em></span></a>                          
+                                </li>
+                                <li class="calculate">
+                                    <a href="javascript:void(0);" class="text-underline ui-popup-call" data-target="#prd-detail-info">ⓑ신규미송</span></a>
+                                    <a href="javascript:void(0);" class="ui-popup-call" data-target="#pop_settle_02"><span>100,000<em>원</em></span></a>
+                                </li>
+                                <li class="calculate">
+                                    <a href="javascript:void(0);" class="text-underline ui-popup-call" data-target="#prd-detail-info">ⓒ샘플입고</span></a>
+                                    <a href="javascript:void(0);" class="ui-popup-call" data-target="#pop_settle_03"><span>0<em>원</em></span></a>                    
+                                </li>
+                                <li class="calculate">
+                                    <a href="javascript:void(0);" class="text-underline ui-popup-call" data-target="#prd-detail-info">ⓓ반품</span></a>
+                                    <a href="javascript:void(0);" class="ui-popup-call" data-target="#pop_settle_04"><span>0<em>원</em></span></a>                          
+                                </li>
+                                <li class="calculate">
+                                    <a href="javascript:void(0);" class="ui-popup-call" data-target="#prd-detail-info">ⓔ매입환불</span></a>
+                                    <a href="javascript:void(0);" class="ui-popup-call" data-target="#pop_settle_05"><span>5,000<em>원</em></span></a>                            
+                                </li>
+                                <li class="calculate">
+                                    <a href="javascript:void(0);" class="ui-popup-call" data-target="#prd-detail-info">ⓕ조정금액</span></a>
+                                    <a href="javascript:void(0);" class="ui-popup-call" data-target="#pop_settle_06"><span class="txt-red">0<em class="txt-red">원</em></span></a>                           
+                                </li>
+                                <li class="calculate">
+                                    <a href="javascript:void(0);" class="text-underline ui-popup-call" data-target="#prd-detail-info">신규주문</span></a>
+                                    <a href="javascript:void(0);" class="ui-popup-call" data-target="#pop_settle_07"><span>400,000<em>원</em></span></a>
+                                </li>
+                            </ul>
+						</div>
+					</div>
+				</li>
+			</ul>
+
+            <div class="paging-box">
+                <!-- paging -->
+                <div class="pagination black">
+                    <button type="button" name="button" class="first">처음</button>
+                    <button type="button" name="button" class="prev">이전</button>
+                    <div class="group">
+                        <a href="#">1</a>
+                        <a href="#" class="active">2</a>
+                        <a href="#">3</a>
+                        <a href="#">4</a>
+                        <a href="#">5</a>
+                    </div>
+                    <button type="button" name="button" class="next on">다음</button>  <!-- //활성화 시 .on 추가 -->
+                    <button type="button" name="button" class="last on">마지막</button>  <!-- //활성화 시 .on 추가 -->
+                </div>
+                <!-- //paging -->
+            </div>
+		</div>
+	</div>
+
+    <!-- 거래처별 보기-->
+	<div class="ui-popup fullpop prd-detail-info" id="prd-detail-info">
+		<div class="content">
+			<div class="header">
+				<h1>상세품목정보</h1>
+				<button type="button" class="btn-close">닫기</button>
+			</div>
+			<div class="body p0">
+				<div class="inner">
+					<div class="order-list-wrap pb40">
+						<div class="order-title-box">
+							<p class="tit">피카소 (신규주문) 총<span class="txt-red">23</span>건</p>
+						</div>
+						<!-- 2022-11-10 EZP-7369 nodata case 추가 시작 -->
+						<div class="order-list-box nodata">
+							<p><i><img src="../../img/mobile/common/icon-nodata.svg"></i>표시할 품목이 없습니다.</p>
+						</div>
+						<!-- 2022-11-10 EZP-7369 nodata case 추가 끝 -->
+						<div class="order-list-box">
+							<div class="item">
+								<div class="detail-accord">
+									<div class="order-summary">
+										<div class="prd-info">
+											<p class="state blue">신규</p>
+											<p class="txt-round">재</p><!-- 2022-02-15 EZP-5105 -->
+											<p class="title type2"><a href="#none" class="ui-popup-call tit-place" data-target="#pop_place_info">메바 (meva)]</a>울 헤링본 체크자켓</p>
+										</div>
+										<ul class="gray">
+											<li><span>36,600</span>원</li>
+											<li class="option">브라운, M</li>
+											<!--EZP-5301 -->
+											<li>수량 <span class="underline txt-red ui-popup-call" data-target="#pop_cnt">20</span></li><!--//EZP-5301 -->
+											
+
+
+											<li>합계 <span>50,000,050,000</span>원</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+							<div class="item">
+								<div class="detail-accord">
+									<div class="order-summary">
+										<div class="prd-info">
+											<p class="state gray">불량</p>
+											<p class="title type2"><a href="#none" class="ui-popup-call tit-place" data-target="#pop_place_info">메바 (meva)]</a>울 헤링본 체크자켓</p>
+										</div>
+										<ul class="gray">
+											<li><span>36,600</span>원</li>
+											<li class="option">브라운, M</li>
+											<li>수량 <span>20</span></li>
+											<li>합계 <span>50,000,050,000</span>원</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+							<div class="item">
+								<div class="detail-accord">
+									<div class="order-summary">
+										<div class="prd-info">
+											<p class="state purple">샘플주문</p>
+											<p class="title type2"><a href="#none" class="ui-popup-call tit-place" data-target="#pop_place_info">메바 (meva)]</a>울 헤링본 체크자켓</p>
+										</div>
+										<ul class="gray">
+											<li><span>36,600</span>원</li>
+											<li class="option">브라운, M</li>
+											<li>수량 <span>20</span></li>
+											<li>합계 <span>50,000,050,000</span>원</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+							<div class="item">
+								<div class="detail-accord">
+									<div class="order-summary">
+										<div class="prd-info">
+											<p class="state yellow">샘플반납</p>
+											<p class="txt-round">재</p>
+											<p class="title type2"><a href="#none" class="ui-popup-call tit-place" data-target="#pop_place_info">메바메바메바메바메바메바 (meva)]</a>울 헤링본 체크자켓울 헤링본 체크자켓울 헤링본 체크자켓울 헤링본 체크자켓</p>
+										</div>
+										<ul class="gray">
+											<li><span>36,600</span>원</li>
+											<li class="option">브라운, M</li>
+											<li>수량 <span>20</span></li>
+											<li>합계 <span>50,000,050,000</span>원</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+							<div class="item">
+								<div class="detail-accord">
+									<div class="order-summary">
+										<div class="prd-info">
+											<p class="state pink">제작신규</p>
+											<p class="title type2"><a href="#none" class="ui-popup-call tit-place" data-target="#pop_place_info">메바 (meva)]</a>울 헤링본 체크자켓</p>
+										</div>
+										<ul class="gray">
+											<li><span>36,600</span>원</li>
+											<li class="option">브라운, M</li>
+											<li>수량 <span>20</span></li>
+											<li>합계 <span>50,000,050,000</span>원</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+							<div class="item">
+								<div class="detail-accord">
+									<div class="order-summary">
+										<div class="prd-info">
+											<p class="state green">제작미송</p>
+											<p class="title type2"><a href="#none" class="ui-popup-call tit-place" data-target="#pop_place_info">메바 (meva)]</a>울 헤링본 체크자켓</p>
+										</div>
+										<ul class="gray">
+											<li><span>36,600</span>원</li>
+											<li class="option">브라운, M</li>
+											<li>수량 <span>20</span></li>
+											<li>합계 <span>50,000,050,000</span>원</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+							<div class="item">
+								<div class="detail-accord">
+									<div class="order-summary">
+										<div class="prd-info">
+											<p class="state green">미송</p>
+											<p class="title type2"><a href="#none" class="ui-popup-call tit-place" data-target="#pop_place_info">메바 (meva)]</a>울 헤링본 체크자켓</p>
+										</div>
+										<ul class="gray">
+											<li><span>36,600</span>원</li>
+											<li class="option">브라운, M</li>
+											<li>수량 <span>20</span></li>
+											<li>합계 <span>50,000,050,000</span>원</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+							<div class="item">
+								<div class="detail-accord">
+									<div class="order-summary">
+										<div class="prd-info">
+											<p class="state yellow">반납</p><!-- 2022-01-19 EZP-4759 -->
+											<p class="title type2"><a href="#none" class="ui-popup-call tit-place" data-target="#pop_place_info">메바 (meva)]</a>울 헤링본 체크자켓</p>
+										</div>
+										<ul class="gray">
+											<li><span>36,600</span>원</li>
+											<li class="option">브라운, M</li>
+											<li>수량 <span>20</span></li>
+											<li>합계 <span>50,000,050,000</span>원</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+							<div class="item">
+								<div class="detail-accord">
+									<div class="order-summary">
+										<div class="prd-info">
+											<p class="state purple">샘플</p><!-- 2022-01-19 EZP-4759 -->
+											<p class="title type2"><a href="#none" class="ui-popup-call tit-place" data-target="#pop_place_info">메바 (meva)]</a>울 헤링본 체크자켓</p>
+										</div>
+										<ul class="gray">
+											<li><span>36,600</span>원</li>
+											<li class="option">브라운, M</li>
+											<li>수량 <span>20</span></li>
+											<li>합계 <span>50,000,050,000</span>원</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+							<!-- 2022-11-08 EZP-7358 item 1개 더 추가 시작 -->
+							<div class="item">
+								<div class="detail-accord">
+									<div class="order-summary">
+										<div class="prd-info">
+											<p class="state purple">샘플</p><!-- 2022-01-19 EZP-4759 -->
+											<p class="title type2"><a href="#none" class="ui-popup-call tit-place" data-target="#pop_place_info">메바 (meva)]</a>울 헤링본 체크자켓</p>
+										</div>
+										<ul class="gray">
+											<li><span>36,600</span>원</li>
+											<li class="option">브라운, M</li>
+											<li>수량 <span>20</span></li>
+											<li>합계 <span>50,000,050,000</span>원</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+							<!-- 2022-11-08 EZP-7358 item 1개 더 추가 끝 -->
+						</div>
+						<!-- 2022-11-08 EZP-7358 페이지네이션 추가 시작 -->
+						<!-- paging -->
+						<div class="pagination black mt20 mb60">
+							<button type="button" name="button" class="first">처음</button>
+							<button type="button" name="button" class="prev">이전</button>
+							<div class="group">
+								<a href="#">1</a>
+								<a href="#" class="active">2</a>
+								<a href="#">3</a>
+								<a href="#">4</a>
+								<a href="#">5</a>
+							</div>
+							<button type="button" name="button" class="next on">다음</button>  <!-- //활성화 시 .on 추가 -->
+							<button type="button" name="button" class="last on">마지막</button>  <!-- //활성화 시 .on 추가 -->
+						</div>
+						<!-- //paging -->
+						<!-- 2022-11-08 EZP-7358 페이지네이션 추가 끝 -->
+					</div>
+				</div>
+				<div class="btn-wrap fixed">
+					<button type="button" name="button" class="btn fill btn-close large">닫기</button>
+				</div>
+			</div>
+
+			
+
+
+		</div>
+	</div>
+	<!-- 거래처별 보기 -->
+
+    <!--EZP-4282 -->
+	<!-- 신규입고 case -->
+	<div class="ui-popup alert total-price-popup" id="pop_settle_01">
+		<div class="content">
+            <h1>신규입고 정산금액</h1>
+			<div class="body">
+				<div class="inner pop-memo-box memo-detail-case">
+					<p style="text-align:center; ">"신규 또는 제작신규,제작미송" 유형 품목의<br/> (판매가x입고수량) 총합 </p>
+                    <div class="gray-box">
+                        <dl class="total-box">
+                            <dt>합계</dt>
+                            <dd>330,000<em>원</em></dd>
+                        </dl>
+                        <dl>
+                            <dt>공급가액</dt>
+                            <dd>300,000<em>원</em></dd>
+                        </dl>
+                        <dl>
+                            <dt>부가세</dt>
+                            <dd>30,000<em>원</em></dd>
+                        </dl>
+                    </div>
+				</div>
+				<div class="btn-wrap">
+					<button type="button" name="button" class="btn fill btn-close">확인</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--//신규입고 case -->
+
+    <!-- 신규미송 case -->
+	<div class="ui-popup alert total-price-popup" id="pop_settle_02">
+		<div class="content">
+            <h1>신규미송 정산금액</h1>
+			<div class="body">
+				<div class="inner pop-memo-box memo-detail-case">
+					<p style="text-align:center; ">
+                        "신규" 유형 품목 중 품절처리방식이<br/>
+                        "미송 또는 옵션변경"인 품목의<br/>
+                        (판매가x잔여수량) 총합
+                    </p>
+                    <div class="gray-box">
+                        <dl class="total-box">
+                            <!-- 2022-11-04 EZP-4282 워딩변경 -->
+                            <dt>합계금액 (공급가액+부가세)</dt>
+                            <dd>330,000<em>원</em></dd>
+                        </dl>
+                        <dl>
+                            <dt>공급가액</dt>
+                            <dd>300,000<em>원</em></dd>
+                        </dl>
+                        <dl>
+                            <dt>부가세</dt>
+                            <dd>30,000<em>원</em></dd>
+                        </dl>
+                    </div>
+				</div>
+				<div class="btn-wrap">
+					<button type="button" name="button" class="btn fill btn-close">확인</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--//신규미송 case -->
+
+    <!-- 샘플입고 case -->
+	<div class="ui-popup alert total-price-popup" id="pop_settle_03">
+		<div class="content">
+            <h1>샘플입고 정산금액</h1>
+			<div class="body">
+				<div class="inner pop-memo-box memo-detail-case">
+					<p style="text-align:center; ">
+                        "유료샘플, 샘플결제" 유형 품목의<br/>
+                        (판매가x입고수량) 총합
+                    </p>
+                    <div class="gray-box">
+                        <dl class="total-box">
+                            <!-- 2022-11-04 EZP-4282 워딩변경 -->
+                            <dt>합계금액 (공급가액+부가세)</dt>
+                            <dd>330,000<em>원</em></dd>
+                        </dl>
+                        <dl>
+                            <dt>공급가액</dt>
+                            <dd>300,000<em>원</em></dd>
+                        </dl>
+                        <dl>
+                            <dt>부가세</dt>
+                            <dd>30,000<em>원</em></dd>
+                        </dl>
+                    </div>
+				</div>
+				<div class="btn-wrap">
+					<button type="button" name="button" class="btn fill btn-close">확인</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--//샘플입고 case -->
+
+    <!-- 반품 case -->
+	<div class="ui-popup alert total-price-popup" id="pop_settle_04">
+		<div class="content">
+            <h1>반품 정산금액</h1>
+			<div class="body">
+				<div class="inner pop-memo-box memo-detail-case">
+					<p style="text-align:center; ">
+						<!-- 2023-03-16 EZP-8883 유료샘플 워딩제거 -->
+                        "불량,미송" 유형 품목 중<br/>
+                        품절처리방식이 "환불"인 품목의<br/>
+                        (판매가x잔여수량) 총합<br/>
+                        +<br/>
+                        "신규,불량,미송" 유형 품목 중<br/>
+                        품절처리방식이 "수동환불"인 품목의<br/>
+                        (판매가x환불수량) 총합
+                    </p>
+                    <div class="gray-box">
+                        <dl class="total-box">
+                            <!-- 2022-11-04 EZP-4282 워딩변경 -->
+                            <dt>합계금액 (공급가액+부가세)</dt>
+                            <dd>330,000<em>원</em></dd>
+                        </dl>
+                        <dl>
+                            <dt>공급가액</dt>
+                            <dd>300,000<em>원</em></dd>
+                        </dl>
+                        <dl>
+                            <dt>부가세</dt>
+                            <dd>30,000<em>원</em></dd>
+                        </dl>
+                    </div>
+				</div>
+				<div class="btn-wrap">
+					<button type="button" name="button" class="btn fill btn-close">확인</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--//반품 case -->
+
+    <!-- 매입환불 case -->
+	<div class="ui-popup alert total-price-popup" id="pop_settle_05">
+		<div class="content">
+            <h1>매입환불 정산금액</h1>
+			<div class="body">
+				<div class="inner pop-memo-box memo-detail-case">
+					<p style="text-align:center; ">
+                        매입내역에 누적된 매입잔액 중 도매처별로<br/>
+                        환불처리가 가능한 금액 합계
+                    </p>
+                    <div class="gray-box">
+                        <dl class="total-box">
+                            <!-- 2022-11-04 EZP-4282 워딩변경 -->
+                            <dt>합계금액 (공급가액+부가세)</dt>
+                            <dd>330,000<em>원</em></dd>
+                        </dl>
+                        <dl>
+                            <dt>공급가액</dt>
+                            <dd>300,000<em>원</em></dd>
+                        </dl>
+                        <dl>
+                            <dt>부가세</dt>
+                            <dd>30,000<em>원</em></dd>
+                        </dl>
+                    </div>
+				</div>
+				<div class="btn-wrap">
+					<button type="button" name="button" class="btn fill btn-close">확인</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--//매입환불 case -->
+
+    <!-- 조정금액 case -->
+	<div class="ui-popup alert total-price-popup" id="pop_settle_06">
+		<div class="content">
+            <h1>조정금액</h1>
+			<div class="body">
+				<div class="inner pop-memo-box memo-detail-case">
+                    <div class="gray-box">
+                        <dl class="total-box">
+                            <dt>합계</dt>
+                            <dd>330,000<em>원</em></dd>
+                        </dl>
+                        <dl>
+                            <dt>공급가액</dt>
+                            <dd>300,000<em>원</em></dd>
+                        </dl>
+                        <dl>
+                            <dt>부가세</dt>
+                            <dd>30,000<em>원</em></dd>
+                        </dl>
+                    </div>
+				</div>
+				<div class="btn-wrap">
+					<button type="button" name="button" class="btn fill btn-close">확인</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--//조정금액 case -->
+
+    <!-- 신규주문 case -->
+	<div class="ui-popup alert total-price-popup" id="pop_settle_07">
+		<div class="content">
+            <h1>신규주문 정산금액</h1>
+			<div class="body">
+				<div class="inner pop-memo-box memo-detail-case">
+                    <p style="text-align:center; ">
+                        "신규,유료샘플,샘플결제"유형<br/>
+                        품목의 (판매가x발주수량) 총합
+                    </p>
+                    <div class="gray-box">
+                        <dl class="total-box">
+                            <!-- 2022-11-04 EZP-4282 워딩변경 -->
+                            <dt>합계금액 (공급가액+부가세)</dt>
+                            <dd>330,000<em>원</em></dd>
+                        </dl>
+                        <dl>
+                            <dt>공급가액</dt>
+                            <dd>300,000<em>원</em></dd>
+                        </dl>
+                        <dl>
+                            <dt>부가세</dt>
+                            <dd>30,000<em>원</em></dd>
+                        </dl>
+                    </div>
+				</div>
+				<div class="btn-wrap">
+					<button type="button" name="button" class="btn fill btn-close">확인</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--//신규주문 case -->
+
+	<!--//EZP-4282 -->
+	
+	<script type="text/javascript">
+		$(document).ready(function() {
+
+			//정산월 버튼 활성화 21-01-26
+			$(".fullpop-settlement-top .month button").on('click', function() {
+				$(".fullpop-settlement-top .month li").removeClass('on');
+				$(this).parent().addClass('on');
+			});
+
+			//정산금액 최소 높이 값 설정 2021-02-17 추가
+			$(".order-summary .remain-box").each(function() {
+				var minSize = $(this).outerHeight();
+				$(this).parent().css('min-height', minSize + 25);
+			});
+
+		});
+	</script>
+</body>
+
+</html>

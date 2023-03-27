@@ -1,0 +1,481 @@
+{% extends "../_templates/layout.njk" %}
+{% block content %}
+<!-- 2022-12-27 EZP-6818 샘플제안관리 신규페이지 추가 -->
+<div id="wrap">
+
+    <div class="content-head">
+        <div class="page-title">
+            <h3 class="h3-tit">마이픽관리</h3>
+            <a href="#" class="btn-manual" target="_blank" title="매뉴얼">매뉴얼</a>
+            <div class="form-box">
+                <form onsubmit="return submitHandler();">
+                    <fieldset>
+                        <legend class="skip">통합검색</legend>
+                        <label for="total-search" class="skip">검색어 입력</label>
+                        <input type="search" name="total-search" id="total-search" title="검색어 입력" class="text"
+                            placeholder="상품을 검색해보세요.">
+                        <input type="submit" value="검색" class="submit">
+                    </fieldset>
+                </form>
+            </div>
+            <a href="" class="direct-cart-btn" target="_blank" title="장바구니 바로가기">장바구니 바로가기</a>
+        </div>
+
+        <div class="cont-info-right green-caption">
+            <ul class="breadcrumb">
+                <li>공급</li>
+                <li>이지픽사입하기</li>
+                <li class="now" title="현재 페이지">마이픽관리</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 2023-02-03 EZP-6818 .sample 추가 -->
+    <section class="mypick-setting-section sample">
+
+        <div class="mypick-toptab-wrap">
+            <ul class="tab mypick-icon-tab">
+                <li data-tab="conttab1" class="active">
+                    <a href="javascript: void(0);" class="tab-home">
+                        <i></i>
+                        <div class="text-box">
+                            <h6>픽샵</h6>
+                            <p>123</p>
+                        </div>
+                    </a>
+                </li>
+                <li data-tab="conttab2">
+                    <a href="javascript: void(0);" class="tab-heart">
+                        <i></i>
+                        <div class="text-box">
+                            <h6>픽템</h6>
+                            <p>456</p>
+                        </div>
+                    </a>
+                </li>
+                <li data-tab="conttab3">
+                    <a href="javascript: void(0);" class="tab-timer">
+                        <i></i>
+                        <div class="text-box">
+                            <h6>최근 본 상품</h6>
+                            <p>7,890</p>
+                        </div>
+                    </a>
+                </li>
+                <li data-tab="conttab4">
+                    <a href="javascript: void(0);" class="tab-package">
+                        <i></i>
+                        <div class="text-box">
+                            <h6>내 판매 상품</h6>
+                            <p>1,357</p>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+            <ul class="mypick-btn-wrap">
+                <li class="green-btn">
+                    <a href="#">
+                        <span>이지톡 문의하기</span>
+                        <!-- 2023-02-14 EZP-6415 아이콘 제거
+                          <i><img src="../assets/images/share-icon-green.png" alt="share icon"></i> -->
+                    </a>
+                </li>
+                <!-- 2022-11-30 EZP-6818 샘플제안관리 추가 -->
+                <!-- li에 on이 붙었을 경우 미열람 제안서 있음 -->
+                <li class="purple-btn on">
+                    <a href="./sample-list.html">
+                        <span>샘플 제안 관리</span>
+                        <!-- <i><img src="../assets/images/share-icon-purple.png" alt="share icon"></i> -->
+                    </a>
+                </li>
+                <!-- 2022-11-30 EZP-6415 디자인시안에는 입고매칭이 없어 제거
+                    <li class="blue-btn">
+                    <a href="#">
+                        <span>입고 상품 매칭</span>
+                        <i><img src="../assets/images/share-icon-blue.png" alt="share icon"></i>
+                    </a>
+                </li> -->
+                <!-- 2022-11-30 EZP-6415 EC상품 매칭 관리 추가 -->
+                <li class="blue-btn">
+                    <a href="#">
+                        <span>EC 상품 매칭 관리</span>
+                        <!-- 2023-02-14 EZP-6415 아이콘 제거
+                          <i><img src="../assets/images/share-icon-blue.png" alt="share icon"></i> -->
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!-- 2023-02-03 EZP-6818 sub-tit 추가 -->
+        <div class="sub-tit">샘플제안관리</div>
+        <div class="notice-wrap p-t-10 p-b-10">
+            <div>
+              <i class="ico-notice">
+                <span class="txt-hide">공지아이콘</span>
+              </i>
+              샘플제안 진행 안내
+              <br />
+              <div class="easy-pick-text m-t-5">
+                 <ul>
+                    <li>- 거래처에서 제안하는 샘플 상품 리스트 확인이 가능합니다.</li>
+                    <li>- 열람상태로 제안서 열람 여부를 확인할 수 있습니다.</li>
+                    <li>- 샘플 미지원 상품도 제안받을 수 있으며 '무료샘플'로 주문이 가능합니다.(단,제안서 상세페이지에서 확인 후 가능)</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="mSearchEngine folder">
+            <form name="" id="">
+              <input type="hidden" name="" value="">
+              <div class="tborder-box">
+                <div class="tbl-top-search">
+                  <div class="table-row">
+                    <table class="tbl-top">
+                      <colgroup>
+                        <col style="width:120px;">
+                        <col style="width:auto">
+                        <col style="width:120px;">
+                        <col style="width:auto">
+                      </colgroup>
+                      <tbody>
+                        <tr class="rowFix rowFold">
+                          <th>기간</th>
+                          <td>
+                            <div class="form-inline">
+                              <div class="sel-date-type">
+                                <button type="button" class="label-date active">1개월</button>
+                                <ul class="sel-date-list">
+                                  <li class="label-date">오늘</li>
+                                  <li class="label-date">3일</li>
+                                  <li class="label-date">7일</li>
+                                  <li class="label-date active">1개월</li>
+                                  <li class="label-date">3개월</li>
+                                  <li class="label-date">6개월</li>
+                                  <li class="label-date">1년</li>
+                                  <li class="label-date">선택</li>
+                                </ul>
+                              </div>
+                              <div class="calendar-box">
+                                <div class="form-inline">
+                                  <div class="form-control">
+                                    <input type="text" class="cal-input" value="2019-04-01" data-range="cal01">
+                                  </div>
+                                  <div class="wave-txt">~</div>
+                                  <div class="form-control">
+                                    <input type="text" class="cal-input" value="2019-04-01" data-range="cal01">
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </td>
+                          <th>검색</th>
+                          <td>
+                            <div class="form-inline">
+                              <select name="" id="" class="default-select w120">
+                                <option value="">전체</option>
+                                <option value="">제안서명</option>
+                                <option value="">거래처명</option>
+                                <option value="">상품명</option>
+                              </select>
+                              <div class="form-control searchValue">
+                                <input type="text" class="search-input-w2" name="" id="" value="" placeholder="">
+                              </div>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr class="rowFix rowFold">
+                            <th>열람상태</th>
+                            <td>
+                              <div class="form-inline form-oneline-wrap">
+                                <div class="form-control">
+                                  <label>
+                                    <input type="checkbox" class="custom-control-input" checked="checked">
+                                    <span>전체</span>
+                                  </label>
+                                </div>
+                                <div class="form-control">
+                                  <label>
+                                    <input type="checkbox">
+                                    <span>열람</span>
+                                  </label>
+                                </div>
+                                <div class="form-control">
+                                  <label>
+                                    <input type="checkbox">
+                                    <span>미열람</span>
+                                  </label>
+                                </div>
+                              </div>
+                            </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="top-btn-search">
+                    <button type="button" name="button" class="btn btn-lg btn-point">검색</button>
+                    <button type="button" class="btn btn-lg sarchsortbtn reset m-t-5">초기화</button>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="gridTableArea">
+            <div class="table-top-info">
+                <div class="top-txt-inline">
+                    <span class="txt-inline">검색결과 <strong>1,000</strong>건
+                      <span class="txt-inline">
+                        (열람 <strong><span class="txt-link-blue">1,000</span></strong>개
+                      </span>
+                      <span class="txt-inline">
+                        미열람 <strong><span class="txt-link-blue">2,500,000</span></strong>개)
+                      </span>
+                  </div>
+              <div class="sort-sel-area">
+                <select id="list_limit" class="default-select">
+                  <option value="20" selected="selected">20개씩 보기</option>
+                  <option value="30">30개씩 보기</option>
+                  <option value="50">50개씩 보기</option>
+                  <option value="100">100개씩 보기</option>
+                  <option value="200">200개씩 보기</option> <!-- 2023-03-12 EZP-8726 200개씩 보기 리스트 주석 누락으로 추가 -->
+                </select>
+              </div>
+            </div>
+            <div class="tround-box">
+              <div class="tbl-round ">
+                <!-- <div class="tbl-info-area">
+                  <div class="f-right">
+                    <div class="btns-multi">
+                        <button type="button" name="button" class="btn btn-ico btn-outline-gray m-l-5"
+                        onclick="window.open('../popup/popup-case08.html','엑셀항목설정','width=1120,height=800,location=no,status=no,scrollbars=yes');"><i
+                          class="ico ico-sort"></i>설정</button>
+                    </div>
+                  </div>
+                </div> -->
+                <!-- 그리드 테이블-->
+                <!-- 2023-03-17 EZP-8723 class .tbl-height02 .h-box-up .tbl-type07 .grid-resize 추가 -->
+                <div class="mGridTable yscroll tbl-height03">
+                    <table class="eChkColor" id="eMultiTable">
+                        <caption>샘플</caption>
+                        <thead>
+                            <tr>
+                                <th scope="col" style="width: 70px;" class="resizable">No</th>
+                                <th scope="col" style="width: 240px;" class="resizable">거래처명</th>
+                                <th scope="col" style="width: 630px;" class="resizable">제안서명</th>
+                                <th scope="col" style="width: 240px;" class="resizable">샘플제안 상품수</th>
+                                <th scope="col" style="width: 240px;" class="resizable">열람상태</th>
+                                <th scope="col" style="width: 240px;">제안일</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>7</td>
+                                <td class="overflow-unset">
+                                    <div class="hover-box">
+                                        <a href="javascript: void(0);" class="hover-btn">
+                                            <span>딥플리</span>
+                                        </a>
+                                        <div class="info-box">
+                                          <span class="shop-name">마켓명 #층 ##열 ##호</span><br>
+                                          <span class="tel">(010-1234-1235)</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td><a href="#" class="txt-link">제안서명이 길면 말줄임표시로 합니다 제안서명이 길면 말줄임말로 표시합니다. 제안서명이 길면 말줄임표시로 합니다 제안서명이 길면 말줄임말로 표시합니다 제안서명이 길면 말줄임표시로 합니다 제안서명이 길면 말줄임말로 표시합니다.</a></td>
+                                <td>10</td>
+                                <td class="ftpointcolor1">미열람</td>
+                                <td>2022-11-05</td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td class="overflow-unset">
+                                    <div class="hover-box">
+                                        <a href="javascript: void(0);" class="hover-btn">
+                                            <span>리프레쉬</span>
+                                        </a>
+                                        <div class="info-box">
+                                          <span class="shop-name">마켓명 #층 ##열 ##호</span><br>
+                                          <span class="tel">(010-1234-1235)</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td><a href="#" class="txt-link">제안서명이 길면 말줄임표시로 합니다 제안서명이 길면 말줄임말로 표시합니다. 제안서명이 길면 말줄임표시로 합니다 제안서명이 길면 말줄임말로 표시합니다 제안서명이 길면 말줄임표시로 합니다 제안서명이 길면 말줄임말로 표시합니다.</a></td>
+                                <td>10</td>
+                                <td class="ftpointcolor1">미열람</td>
+                                <td>2022-11-05</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td class="overflow-unset">
+                                    <div class="hover-box">
+                                        <a href="javascript: void(0);" class="hover-btn">
+                                            <span>바운더리</span>
+                                        </a>
+                                        <div class="info-box">
+                                          <span class="shop-name">마켓명 #층 ##열 ##호</span><br>
+                                          <span class="tel">(010-1234-1235)</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td><a href="#" class="txt-link">제안서명</a></td>
+                                <td>1</td>
+                                <td>열람</td>
+                                <td>2022-11-05</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td class="overflow-unset">
+                                    <div class="hover-box">
+                                        <a href="javascript: void(0);" class="hover-btn">
+                                            <span>미니미니</span>
+                                        </a>
+                                        <div class="info-box">
+                                          <span class="shop-name">마켓명 #층 ##열 ##호</span><br>
+                                          <span class="tel">(010-1234-1235)</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td><a href="#" class="txt-link">제안서명</a></td>
+                                <td>10</td>
+                                <td>열람</td>
+                                <td>2022-11-05</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td class="overflow-unset">
+                                    <div class="hover-box">
+                                        <a href="javascript: void(0);" class="hover-btn">
+                                            <span>브론즈베리</span>
+                                        </a>
+                                        <div class="info-box">
+                                          <span class="shop-name">마켓명 #층 ##열 ##호마켓명 #층 ##열 ##호마켓명 #층 ##열 ##호마켓명 #층 ##열 ##호마켓명 #층 ##열 ##호마켓명 #층 ##열 ##호마켓명 #층 ##열 ##호마켓명 #층 ##열 ##호마켓명 #층 ##열 ##호</span><br>
+                                          <span class="tel">(010-1234-1235)</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td><a href="#" class="txt-link">제안서명</a></td>
+                                <td>10</td>
+                                <td>열람</td>
+                                <td>2022-11-05</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td class="overflow-unset">
+                                    <div class="hover-box">
+                                        <a href="javascript: void(0);" class="hover-btn">
+                                            <span>브론즈베리</span>
+                                        </a>
+                                        <div class="info-box">
+                                          <span class="shop-name">마켓명 #층 ##열 ##호</span><br>
+                                          <span class="tel">(010-1234-1235)</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td><a href="#" class="txt-link">제안서명</a></td>
+                                <td>5</td>
+                                <td>열람</td>
+                                <td>2022-11-05</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td class="overflow-unset">
+                                    <div class="hover-box">
+                                        <a href="javascript: void(0);" class="hover-btn">
+                                            <span>브론즈베리</span>
+                                        </a>
+                                        <div class="info-box">
+                                          <span class="shop-name">마켓명 #층 ##열 ##호</span><br>
+                                          <span class="tel">(010-1234-1235)</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td><a href="#" class="txt-link">제안서명</a></td>
+                                <td>1</td>
+                                <td>열람</td>
+                                <td>2022-11-05</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+              </div>
+              <!-- //그리드 테이블-->  
+            </div>
+            {% include("../_templates/default/pagination.njk") %}
+        </div>
+
+             <!-- 업로드품목 없는 case -->
+             <div class="gridTableArea">
+                <div class="tround-box">
+                    <div class="tbl-round">
+                        <!-- <div class="tbl-info-area">
+                        <div class="f-right">
+                            <div class="btns-multi">
+                                <button type="button" name="button" class="btn btn-ico btn-outline-gray m-l-5"
+                                onclick="window.open('../popup/popup-case08.html','엑셀항목설정','width=1120,height=800,location=no,status=no,scrollbars=yes');"><i
+                                  class="ico ico-sort"></i>설정</button>
+                            </div>
+                        </div>
+                        </div> -->
+                        <!-- 그리드 테이블-->
+                        <!-- 2023-03-17 EZP-8723 class .tbl-height02 .h-box-up .tbl-type07 .grid-resize 추가 -->
+                        <div class="mGridTable yscroll tbl-height03">
+                            <table id="eMultiTable1" class="eChkColor">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" style="width: 70px;" class="resizable">No</th>
+                                        <th scope="col" style="width: 240px;" class="resizable">거래처명</th>
+                                        <th scope="col" style="width: 630px;" class="resizable">제안서명</th>
+                                        <th scope="col" style="width: 240px;" class="resizable">샘플제안 상품수</th>
+                                        <th scope="col" style="width: 240px;" class="resizable">열람상태</th>
+                                        <th scope="col" style="width: 240px;">제안일</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                <tr class="tr-empty" no-resize="">
+                                    <td>
+                                        <div class="txt">
+                                            <i><img src="../assets/images/guide-ico.png" alt="guide-icon"></i>
+                                            <span>검색결과가 없습니다.</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- //그리드 테이블-->
+                </div>
+            {% include("../_templates/default/pagination.njk") %}
+            </div>
+            <!-- //업로드품목 없는 case -->
+        </div>
+    </section>
+
+</div>
+
+<!-- 픽템 > 마켓 선택 >  멀티 셀렉트 -->
+<script src="../../js/ui/cp/jquery-migrate.js" type="text/javascript"></script>
+<script src="../../js/ui/cp/multi_select.js" type="text/javascript"></script>
+
+<script>
+    $(document).ready(function () {
+    $('#eMultiTable').fixResize({
+      colResize: true,
+      resizeVer: 'flex'
+    });
+    // 데이터 없을시 새로운 테이블
+    $('#eMultiTable1').fixResize({
+      colResize: true,
+      resizeVer: 'flex'
+    });
+
+    // 2022-11-29 EZP-7409 (개발에서 기존소스를 같이 쓸 경우 오류가 있어 변경해준내용 그대로 작성) 시작
+    const emptyTh = $('.tr-empty[no-resize=""]').parents('table').find('thead tr th').length;
+    const emptyMt = $('.tr-empty[no-resize=""]').parents('table').css('margin-top').replace('-', '');
+    const emptyMg = emptyMt.replace('px', '');
+    $('.tr-empty[no-resize=""] td').attr('colspan', emptyTh);
+    $('.tr-empty[no-resize=""]').parents('table').css('height', `calc(100% + ${emptyMg}px)`);
+    // 2022-11-17 EZP-7409 (개발에서 기존소스를 같이 쓸 경우 오류가 있어 변경해준내용 그대로 작성) 끝
+    
+  });
+</script>
+
+{% endblock %}

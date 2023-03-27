@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="utf-8">
+  <!--EZP-5398-->
+	<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width, viewport-fit=cover">
+  <link rel="stylesheet" type="text/css" href="../css/mobile/swiper-bundle.min.css">
+  <link rel="stylesheet" type="text/css" href="../css/mobile/jquery-ui.min.css">
+  <link rel="stylesheet" type="text/css" href="../css/mobile/default.import.css">
+  <link rel="stylesheet" type="text/css" href="../css/mobile/ui.css">
+  <link rel="stylesheet" type="text/css" href="../css/mobile/style.css">
+
+  <script type="text/javascript" src="../js/mobile/jquery-3.5.1.min.js"></script>
+  <script type="text/javascript" src="../js/mobile/jquery-ui.min.js"></script>
+  <script type="text/javascript" src="../js/mobile/swiper-bundle.min.js"></script>
+  <script type="text/javascript" src="../js/mobile/common_front.js"></script>
+  <script type="text/javascript" src="../js/mobile/ui.js"></script>
+</head>
+
+<body>
+  <!-- 팝업@ 출고 -->
+  <div class="ui-popup full popup_order_wearing active" id="popup_order_wearing">
+    <div class="content">
+      <div class="header">
+        <button type="button" class="btn-close"></button>
+        <strong>출고</strong>
+        <!-- 20.07.28 등록버튼 삭제 -->
+      </div>
+      <div class="body">
+        <div class="amount-wrap">
+          <div class="badge-wrap">
+            <i class="color-04">신규</i>
+            <!-- 케이스@ 재
+              <i class="reconfirm">재</i>
+            -->
+            <!-- 2021-04-16 EZP-2796 -->
+            <strong class="name underline">멜로우 블라우스</strong>
+            <!-- <strong class="name">멜로우 블라우스</strong> -->
+          </div>
+          <p class="options">
+            <span>b0011234</span>
+            <span>베이지 멜로우 bl</span>
+            <em>Beige(베이지)-모델착용컬러 / S</em>
+          </p>
+          <div class="amount clear">
+            <p class="num">
+              <span>수량</span>
+              <em class="txt-line">13</em><!-- 2021-12-15 EZP-4620 -->
+            </p>
+            <!-- 케이스@ 수량수정
+              <p class="num modify">
+                  <span>수량</span>
+                  <em>13</em>
+                  <strong>19</strong>
+              </p>
+            -->
+            <div class="ui-amount">
+              <button type="button" class="refresh">리셋</button>
+              <button type="button" class="minus">감소</button>
+              <input type="tel" value="0">
+              <button type="button" class="plus">증가</button>
+            </div>
+          </div>
+        </div>
+        <!-- 2022-12-13 EZP-7273 check-wrap에 .state추가 -->
+        <div class="check-wrap state">
+          <p class="head"><strong class="tit">상품상태</strong></p>
+          <!-- 20.07.30 수정 -->
+          <div class="input-label">
+            <label><input type="checkbox" checked><span>품절</span></label>
+            <label><input type="checkbox" disabled><span>색상품절</span></label><!-- 2021-11-02 EZP-3980 -->
+            <label><input type="checkbox"><span>사이즈품절</span></label>
+            <label><input type="checkbox" data-check-target="#minimum"><span>낱장불가</span></label>
+          </div>
+
+          <!-- 케이스@ 낱장불가 선택시 -->
+          <div id="minimum" class="check-more none">
+            <p class="head"><strong class="tit">최소수량</strong></p>
+            <!-- 20.07.31 수정-->
+            <div class="input-label none-style rad-30" data-check-value>
+              <label><input type="text" value="30" /></label>
+              <label><input type="radio" name="r1_1" value="10"><span>최소10개</span></label>
+              <label><input type="radio" name="r1_1" value="20"><span>최소20개</span></label>
+              <label><input type="radio" name="r1_1" value="30" checked><span>최소30개</span></label>
+            </div>
+            <!-- //20.07.31 수정-->
+          </div>
+          <!-- //케이스@ 낱장불가 선택시 -->
+          <!-- //20.07.30 수정 -->
+
+          <!-- 케이스@ 선택불가
+                    <div class="input-label disabled">
+                        <label><input type="checkbox" checked><span>품절</span></label>
+                        <label><input type="checkbox"><span>색상품절</span></label>
+                        <label><input type="checkbox"><span>사이즈품절</span></label>
+                        <label><input type="checkbox" data-check-target="#minimum"><span>낱장불가</span></label>
+                    </div>
+                    -->
+        </div>
+        <div class="check-wrap">
+          <!-- 2021-09-13 EZP-3479 -->
+          <p class="head between">
+            <strong class="tit">품절 시 처리방식</strong>
+            <span class="info-note">미송잡아주세요</span>
+          </p>
+          <div class="input-label">
+            <label><input type="radio" name="r2" checked><span>미송</span></label>
+            <label><input type="radio" name="r2" disabled><span>오늘차감</span></label><!-- 2021-11-02 EZP-3980 -->
+            <label><input type="radio" name="r2"><span>추후차감</span></label>
+          </div>
+          <!-- 케이스@ 선택불가
+                    <div class="input-label disabled">
+                        <label><input type="radio" name="r2" checked><span>미송</span></label>
+                        <label><input type="radio" name="r2"><span>오늘차감</span></label>
+                        <label><input type="radio" name="r2"><span>추후차감</span></label>
+                    </div>
+                    -->
+
+          <!-- 케이스@ 메시지 (폐기, 옵션변경) -->
+                    <div class="input-label">
+                        <div class="message">미송(9999), 오늘차감(9999), 추후차감(9999), 폐기(9999)</div><!-- 2021-11-02 EZP-3980 -->
+                        <label><input type="radio" name="r2" checked><span>미송</span></label>
+                        <label><input type="radio" name="r2"><span>오늘차감</span></label>
+                        <label><input type="radio" name="r2"><span>추후차감</span></label>
+                    </div>
+        </div>
+        <div class="check-wrap date-wearing">
+          <!-- 20.07.31 수정 -->
+          <p class="head between">
+            <strong class="tit">출고예정일</strong>
+            <em>이전 출고예정일 : 06/11(목)</em>
+          </p>
+          <!-- //20.07.31 수정 -->
+          <div class="input-label">
+            <label><input type="radio" name="r3" checked><span>06/10(수)</span></label>
+            <label><input type="radio" name="r3"><span>06/11(목)</span></label>
+            <label><input type="radio" name="r3"><span>06/12(금)</span></label>
+            <!-- 2022-12-12 EZP-7273 출고예정일 옵션 추가 시작 -->
+            <label><input type="radio" name="r3"><span>06/15(월)</span></label>
+            <label><input type="radio" name="r3"><span>06/16(화)</span></label>
+            <label><input type="radio" name="r3"><span>06/17(수)</span></label>
+            <label><input type="radio" name="r3"><span>06/18(목)</span></label>
+            <label><input type="radio" name="r3"><span>06/19(금)</span></label>
+            <label><input type="radio" name="r3"><span>06/21(월)</span></label>
+            <!-- 2022-12-12 EZP-7273 출고예정일 옵션 추가 끝 -->
+            <label><input type="radio" name="r3"><span>다음주중</span></label>
+            <label><input type="radio" name="r3"><span>미정</span></label>
+            <label><input type="radio" name="r3"><span>선택안함</span></label>
+          </div>
+
+          <!-- 케이스@ 선택불가
+                    <div class="input-label disabled">
+                        <label><input type="radio" name="r3" checked><span>06/10(수)</span></label>
+                        <label><input type="radio" name="r3"><span>06/11(목)</span></label>
+                        <label><input type="radio" name="r3"><span>06/12(금)</span></label>
+                        <label><input type="radio" name="r3"><span>06/13(토)</span></label>
+                        <label><input type="radio" name="r3"><span>06/14(일)</span></label>
+                        <label><input type="radio" name="r3"><span>다음주중</span></label>
+                        <label><input type="radio" name="r3"><span>미정</span></label>
+                        <label><input type="radio" name="r3"><span>선택안함</span></label>
+                    </div>
+                    -->
+        </div>
+        <div class="request-memo">
+          <p class="head"><strong class="tit">고객요청메모</strong></p>
+          <p class="text">자수로고는 원단 특성상 정확한 모양으로 찍히기에 어려움이 있어 조금씩 다를 수 있습니다. 상세 컷 확인 부탁드립니다.</p>
+        </div>
+        <div class="input-memo">
+          <!-- 2022-09-26 EZP-5867 워딩변경 -->
+          <p class="head"><strong class="tit">출고메모</strong></p>
+          <textarea rows="5"></textarea>
+        </div>
+
+
+      </div>
+      <div class="btn-footer">
+        <button type="button" class="case-01" data-popup-close>취소</button>
+        <button type="button" class="case-02" data-popup-close>완료</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 팝업@ 출고 케이스@ 선택불가
+    <div class="ui-popup full popup_order_wearing active disabled" id="popup_order_wearing">
+        <div class="content">
+            <div class="header">
+                <button type="button" class="btn-close"></button>
+                <strong>출고</strong>
+                <a href="#" class="btn-link">등록</a>
+            </div>
+            <div class="body">
+                <div class="amount-wrap">
+                    <div class="badge-wrap">
+                        <i class="color-04">신규</i>
+                        <strong class="name">멜로우 블라우스</strong>
+                    </div>
+                    <p class="options">
+                        <span>b0011234</span>
+                        <span>베이지 멜로우 bl</span>
+                        <em>Beige(베이지)-모델착용컬러 / S</em>
+                    </p>
+                    <div class="amount clear">
+                        <p class="num">
+                            <span>수량</span>
+                            <em>13</em>
+                        </p>
+                        <div class="ui-amount">
+                            <button type="button" class="refresh">리셋</button>
+                            <button type="button" class="minus">감소</button>
+                            <input type="tel" value="0">
+                            <button type="button" class="plus">증가</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="check-wrap">
+                    <p class="head"><strong class="tit">상품상태</strong></p>
+                    <div class="input-label">
+                        <label><input type="radio" name="r1" checked><span>품절</span></label>
+                        <label><input type="radio" name="r1"><span>색상품절</span></label>
+                        <label><input type="radio" name="r1"><span>사이즈품절</span></label>
+                        <label><input type="radio" name="r1"><span>낱장불가</span></label>
+                    </div>
+                </div>
+                <div class="check-wrap">
+                    <p class="head"><strong class="tit">품절 시 처리방식</strong></p>
+                    <div class="input-label">
+                        <label><input type="radio" name="r2" checked><span>미송</span></label>
+                        <label><input type="radio" name="r2"><span>오늘차감</span></label>
+                        <label><input type="radio" name="r2"><span>추후차감</span></label>
+                    </div>
+                </div>
+                <div class="check-wrap date-wearing">
+                    <p class="head"><strong class="tit">입고예정일</strong></p>
+                    <div class="input-label">
+                        <label><input type="radio" name="r3" checked><span>06/10(수)</span></label>
+                        <label><input type="radio" name="r3"><span>06/11(목)</span></label>
+                        <label><input type="radio" name="r3"><span>06/12(금)</span></label>
+                        <label><input type="radio" name="r3"><span>06/13(토)</span></label>
+                        <label><input type="radio" name="r3"><span>06/14(일)</span></label>
+                        <label><input type="radio" name="r3"><span>다음주중</span></label>
+                        <label><input type="radio" name="r3"><span>미정</span></label>
+                        <label><input type="radio" name="r3"><span>선택안함</span></label>
+                    </div>
+                </div>
+                <div class="request-memo">
+                    <p class="head"><strong class="tit">고객요청메모</strong></p>
+                    <p class="text">자수로고는 원단 특성상 정확한 모양으로 찍히기에 어려움이 있어 조금씩 다를 수 있습니다. 상세 컷 확인 부탁드립니다.</p>
+                </div>
+                <div class="input-memo">
+                    <p class="head"><strong class="tit">메모입력</strong></p>
+                    <textarea rows="5"></textarea>
+                </div>
+
+
+            </div>
+            <div class="btn-footer">
+                <button type="button" class="case-02" data-popup-close>닫기</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

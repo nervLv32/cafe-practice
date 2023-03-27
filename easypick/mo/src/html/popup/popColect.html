@@ -1,0 +1,1618 @@
+<!-- 사입삼촌정보// -->
+<div class="ui-popup alert" id="pop_uncle_info">
+	<div class="content">
+		<div class="header">
+			<h1>사입삼촌정보</h1>
+		</div>
+		<div class="body">
+			<div class="inner pop_uncle-box">
+				<ul>
+					<li><span>이름</span>홍길동</li>
+					<li><span>연락처</span>010-1234-1234</li>
+					<li><span>이메일</span>uncle@naver.com</li>
+					<li><span>주문서</span>
+						<span>전송완료(2022-04-25 09:00)<br> <!-- case 1 -->
+							<span>전송대기<br> <!-- case 2 -->
+								<span class="txt-red">전송실패<br> <!-- case 3 -->
+									<button type="button" name="button" class="btn-order-copy">주문서 URL복사</button></span>
+					</li>
+				</ul>
+			</div>
+			<div class="btn-wrap pop-btn-wrap">
+				<button type="button" name="button" class="btn fill btn-closel">확인</button>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- //사입삼촌정보 -->
+
+<!-- 메모 popup -->
+<div class="ui-popup alert" id="pop_memo">
+	<div class="content">
+		<div class="header">
+			<h1>주문/결제 메모</h1>
+		</div>
+		<div class="body">
+			<div class="inner pop-memo-box">
+				<dl>
+					<dt>배송메시지</dt>
+					<dd>배송 빨리 해주세요. 급건입니다.</dd>
+				</dl>
+				<dl>
+					<dt>사입삼촌 요청 메모</dt>
+					<dd>삼촌~ 도매처에 부탁한거 확인해주세요.</dd>
+				</dl>
+			</div>
+			<div class="btn-wrap">
+				<button type="button" name="button" class="btn fill btn-close">확인</button>
+			</div>
+		</div>
+	</div>
+</div>
+<!--//메모 popup -->
+
+<!-- 가게정보 popup -->
+<div class="ui-popup alert" id="pop_place_info">
+	<div class="content">
+		<div class="header">
+			<h1>가게정보</h1>
+		</div>
+		<div class="body">
+			<div class="inner pop-place-info">
+				<div class="detail-info-box">
+					<dl>
+						<dt>가게명</dt>
+						<dd>여기는 가게 이름 20자 반영한 경우</dd>
+					</dl>
+					<dl>
+						<dt>주소</dt>
+						<dd>디오트이지만 최대 글씨 20자 적용 A동
+							10층 5열 123호</dd>
+					</dl>
+					<dl>
+						<dt>연락처</dt>
+						<dd>010-1234-5678</dd>
+					</dl>
+				</div>
+
+			</div>
+			<div class="btn-wrap">
+				<button type="button" name="button" class="btn fill btn-close">닫기</button>
+			</div>
+		</div>
+	</div>
+</div>
+<!--//가게정보 popup -->
+
+<!-- 가게별 금액확인(3col) @셀픽주문결제/주문완료 -->
+<div class="ui-popup full scroll" id="pop_shop_price">
+	<div class="content wide">
+		<div class="header">
+			<h1>가게별 금액확인</h1><!--2022-07-24 EZP-5433 워딩변경-->
+			<button type="button" class="btn-close block" style="display: block !important;">닫기</button>
+		</div>
+		<div class="body">
+			<!--container// -->
+			<div id="container" class="">
+				<section class="contact-shop-info">
+					<div class="text-box left">
+						<ul class="dot-list">
+							<li>셀픽 주문은 가게에 직접 상품금액 + 부가세를 입금해 주세요.</li>
+							<li>가게 별 주문한 상품의 금액을 확인할 수 있습니다.</li>
+							<li>
+								<strong>[금액안내]</strong>
+								<p>- 주문상품금액 : 주문한 상품의 총 금액 (판매가*주문수량 합계)</p>
+								<p>- 주문결제금액 : 주문한 상품의 결제 금액 <span class="txt-gray2">(주문금액과 동일)</span></p>
+							</li>
+						</ul>
+					</div>
+					<div class="input-wrap">
+						<span class="checkbox">
+							<input type="checkbox" name="" id="chk-vat">
+							<label for="chk-vat">상품금액, 부가세 같이 확인하기</label>
+						</span>
+						<div class="btn-filter">
+							<button type="button" name="button" class="icon ui-popup-call"
+								data-target="#pop-shop-filter">필터</button>
+						</div>
+					</div>
+
+					<div class="table-wrap">
+						<table>
+							<colgroup>
+								<col width="50px"><!--2022-08-02 EZP-5433-->
+								<col width="40%">
+								<col width="25%">
+								<col width="25%">
+							</colgroup>
+							<tbody>
+								<tr>
+									<th>no</th>
+									<th>가게명</th>
+									<th>주문상품금액</th>
+									<th>주문결제금액</th>
+								</tr>
+								<tr>
+									<td>1</td>
+									<td><span class="name ui-popup-call" data-target="#pop_shop_info">진짜피카소</span></td>
+									<td class="price">550,000원<span class="vat">(500,000 + 50,000)</span></td>
+									<td class="price">550,000원<span class="vat">(500,000 + 50,000)</span></td>
+								</tr>
+								<tr>
+									<td>2</td>
+									<td><span class="name ui-popup-call" data-target="#pop_shop_info">구샵</span></td>
+									<td class="price">1,100,000원<span class="vat">(1,100,000 + 110,000)</span></td>
+									<td class="price">1,100,000원<span class="vat">(1,100,000 + 110,000)</span></td>
+								</tr>
+								<tr>
+									<td>3</td>
+									<td><span class="name ui-popup-call" data-target="#pop_shop_info">가게명</span></td>
+									<td class="price">550,000원<span class="vat">(500,000 + 50,000)</span></td>
+									<td class="price">550,000원<span class="vat">(500,000 + 50,000)</span></td>
+								</tr>
+								<tr>
+									<td>4</td>
+									<td><span class="name ui-popup-call" data-target="#pop_shop_info">가게명</span></td>
+									<td class="price">1,100,000원<span class="vat">(1,100,000 + 110,000)</span></td>
+									<td class="price">1,100,000원<span class="vat">(1,100,000 + 110,000)</span></td>
+								</tr>
+								<tr>
+									<td>5</td>
+									<td><span class="name ui-popup-call" data-target="#pop_shop_info">가게명</span></td>
+									<td class="price">550,000원<span class="vat">(500,000 + 50,000)</span></td>
+									<td class="price">550,000원<span class="vat">(500,000 + 50,000)</span></td>
+								</tr>
+								<tr>
+									<td>6</td>
+									<td><span class="name ui-popup-call" data-target="#pop_shop_info">가게명</span></td>
+									<td class="price">1,100,000원<span class="vat">(1,100,000 + 110,000)</span></td>
+									<td class="price">1,100,000원<span class="vat">(1,100,000 + 110,000)</span></td>
+								</tr>
+								<tr>
+									<td>7</td>
+									<td><span class="name ui-popup-call" data-target="#pop_shop_info">가게명</span></td>
+									<td class="price">550,000원<span class="vat">(500,000 + 50,000)</span></td>
+									<td class="price">550,000원<span class="vat">(500,000 + 50,000)</span></td>
+								</tr>
+								<tr>
+									<td>8</td>
+									<td><span class="name ui-popup-call" data-target="#pop_shop_info">가게명</span></td>
+									<td class="price">1,100,000원<span class="vat">(1,100,000 + 110,000)</span></td>
+									<td class="price">1,100,000원<span class="vat">(1,100,000 + 110,000)</span></td>
+								</tr>
+								<tr>
+									<td>9</td>
+									<td><span class="name ui-popup-call" data-target="#pop_shop_info">가게명</span></td>
+									<td class="price">550,000원<span class="vat">(500,000 + 50,000)</span></td>
+									<td class="price">550,000원<span class="vat">(500,000 + 50,000)</span></td>
+								</tr>
+								<tr>
+									<td>10</td>
+									<td><span class="name ui-popup-call" data-target="#pop_shop_info">가게명</span></td>
+									<td class="price">1,100,000원<span class="vat">(1,100,000 + 110,000)</span></td>
+									<td class="price">1,100,000원<span class="vat">(1,100,000 + 110,000)</span></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<!--@결과없음 2022-06-16 EZP-5433-->
+					<div class="table-wrap">
+						<table>
+							<colgroup>
+								<col width="50px"><!--2022-08-02 EZP-5433-->
+								<col width="30%">
+								<col width="20%">
+								<col width="20%">
+								<col width="20%">
+							</colgroup>
+							<tbody>
+								<tr>
+									<th>no</th>
+									<th>가게명</th>
+									<th>주문상품금액</th>
+									<th>주문상품금액</th>
+									<th>입고금액</th>
+								</tr>
+								<tr>
+									<td colspan="5">
+										<div class="no-data">
+											<p>
+												<i class="icon"></i>
+												일치하는 리스트가 없습니다.
+											</p>
+										</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<!--셀픽주문결제/주문완료 2022-06-16 EZP-5433-->
+				</section>
+
+				<!-- <div class="btn-wrap pop-btn-wrap" style="margin:20px 10px 0">
+					<button type="button" name="button" class="btn btn-close">취소</button>
+					<button type="button" name="button" class="btn fill btn-close ui-popup-call"
+						data-target="#popup_alert1">확인</button>
+				</div> -->
+			</div>
+
+		</div>
+	</div>
+</div>
+<!--//가게별 금액확인-->
+
+<!-- 가게별 금액확인(4col) @셀픽주문현황 -->
+<div class="ui-popup full scroll" id="pop_shop_price_2">
+	<div class="content wide">
+		<div class="header">
+			<h1>가게별 금액확인</h1><!--2022-07-24 EZP-5433 워딩변경-->
+			<button type="button" class="btn-close block" style="display: block !important;">닫기</button>
+		</div>
+		<div class="body">
+			<!--container// -->
+			<div id="container" class="">
+				<section class="contact-shop-info">
+					<!--@2.셀픽주문현황 2022-06-16 EZP-5433-->
+					<div class="text-box left">
+						<ul class="dot-list">
+							<li>셀픽 주문은 가게에 직접 상품금액 + 부가세를 입금해 주세요.</li>
+							<li>가게 별 실제 입금이 필요한 금액을 확인할 수 있습니다.</li><!-- 2022-07-22 EZP-5433 워딩변경-->
+							<li>
+								<strong>[금액안내]</strong>
+								<p>- 주문상품금액 : 주문한 상품의 총 금액 (판매가*주문수량 합계)</p>
+								<p>- 주문결제금액 : 주문한 상품의 결제 금액 <span class="txt-gray2">(주문금액과 동일)</span></p>
+								<p>- 입고금액 : 입고된 상품의 총 금액</p>
+								<p class="txt-red">*불량, 미송, 무료샘플, 샘플반납 품목은 실제 결제하는 금액이 아니므로, 주문결제금액 및 입고금액이 0원으로
+									표시됩니다.(주문상품금액에는 상픔금액 표시됨)</p>
+							</li>
+						</ul>
+					</div>
+					<div class="input-wrap">
+						<span class="checkbox">
+							<input type="checkbox" name="" id="chk-vat">
+							<label for="chk-vat">상품금액, 부가세 같이 확인하기</label>
+						</span>
+						<div class="btn-filter">
+							<button type="button" name="button" class="icon ui-popup-call"
+								data-target="#pop-shop-filter">필터</button>
+						</div>
+					</div>
+					<!--@2.셀픽주문현황 2022-06-16 EZP-5433-->
+					<div class="table-wrap">
+						<table>
+							<colgroup>
+								<col width="50px"><!--2022-08-02 EZP-5433-->
+								<col width="30%">
+								<col width="20%">
+								<col width="20%">
+								<col width="20%">
+							</colgroup>
+							<tbody>
+								<tr>
+									<th>no</th>
+									<th>가게명</th>
+									<th>주문상품금액</th>
+									<th>주문상품금액</th>
+									<th>입고금액</th>
+								</tr>
+								<tr>
+									<td>1</td>
+									<td><span class="name ui-popup-call" data-target="#pop_shop_info">진짜피카소</span></td>
+									<td class="price">550,000원<span class="vat">(500,000 + 50,000)</span></td>
+									<td class="price">550,000원<span class="vat">(500,000 + 50,000)</span></td>
+									<td class="price bg-green">550,000원<span class="vat">(500,000 + 50,000)</span></td>
+								</tr>
+								<tr>
+									<td>2</td>
+									<td><span class="name ui-popup-call" data-target="#pop_shop_info">구샵</span></td>
+									<td class="price">1,100,000원<span class="vat">(1,100,000 + 110,000)</span></td>
+									<td class="price">1,100,000원<span class="vat">(1,100,000 + 110,000)</span></td>
+									<td class="price bg-green">1,100,000원<span class="vat">(1,100,000 + 110,000)</span>
+									</td>
+								</tr>
+								<tr>
+									<td>3</td>
+									<td><span class="name ui-popup-call" data-target="#pop_shop_info">가게명</span></td>
+									<td class="price">550,000원<span class="vat">(500,000 + 50,000)</span></td>
+									<td class="price">550,000원<span class="vat">(500,000 + 50,000)</span></td>
+									<td class="price bg-green">550,000원<span class="vat">(500,000 + 50,000)</span></td>
+								</tr>
+								<tr>
+									<td>4</td>
+									<td><span class="name ui-popup-call" data-target="#pop_shop_info">가게명</span></td>
+									<td class="price">1,100,000원<span class="vat">(1,100,000 + 110,000)</span></td>
+									<td class="price">1,100,000원<span class="vat">(1,100,000 + 110,000)</span></td>
+									<td class="price bg-green">1,100,000원<span class="vat">(1,100,000 + 110,000)</span>
+									</td>
+								</tr>
+								<tr>
+									<td>5</td>
+									<td><span class="name ui-popup-call" data-target="#pop_shop_info">가게명</span></td>
+									<td class="price">550,000원<span class="vat">(500,000 + 50,000)</span></td>
+									<td class="price">550,000원<span class="vat">(500,000 + 50,000)</span></td>
+									<td class="price bg-green">550,000원<span class="vat">(500,000 + 50,000)</span></td>
+								</tr>
+								<tr>
+									<td>6</td>
+									<td><span class="name ui-popup-call" data-target="#pop_shop_info">가게명</span></td>
+									<td class="price">1,100,000원<span class="vat">(1,100,000 + 110,000)</span></td>
+									<td class="price">1,100,000원<span class="vat">(1,100,000 + 110,000)</span></td>
+									<td class="price bg-green">1,100,000원<span class="vat">(1,100,000 + 110,000)</span>
+									</td>
+								</tr>
+								<tr>
+									<td>7</td>
+									<td><span class="name ui-popup-call" data-target="#pop_shop_info">가게명</span></td>
+									<td class="price">550,000원<span class="vat">(500,000 + 50,000)</span></td>
+									<td class="price">550,000원<span class="vat">(500,000 + 50,000)</span></td>
+									<td class="price bg-green">550,000원<span class="vat">(500,000 + 50,000)</span></td>
+								</tr>
+								<tr>
+									<td>8</td>
+									<td><span class="name ui-popup-call" data-target="#pop_shop_info">가게명</span></td>
+									<td class="price">1,100,000원<span class="vat">(1,100,000 + 110,000)</span></td>
+									<td class="price">1,100,000원<span class="vat">(1,100,000 + 110,000)</span></td>
+									<td class="price bg-green">1,100,000원<span class="vat">(1,100,000 + 110,000)</span>
+									</td>
+								</tr>
+								<tr>
+									<td>9</td>
+									<td><span class="name ui-popup-call" data-target="#pop_shop_info">가게명</span></td>
+									<td class="price">550,000원<span class="vat">(500,000 + 50,000)</span></td>
+									<td class="price">550,000원<span class="vat">(500,000 + 50,000)</span></td>
+									<td class="price bg-green">550,000원<span class="vat">(500,000 + 50,000)</span></td>
+								</tr>
+								<tr>
+									<td>10</td>
+									<td><span class="name ui-popup-call" data-target="#pop_shop_info">가게명</span></td>
+									<td class="price">1,100,000원<span class="vat">(1,100,000 + 110,000)</span></td>
+									<td class="price">1,100,000원<span class="vat">(1,100,000 + 110,000)</span></td>
+									<td class="price bg-green">1,100,000원<span class="vat">(1,100,000 + 110,000)</span>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<!--@3.결과없음 2022-06-16 EZP-5433-->
+					<div class="table-wrap">
+						<table>
+							<colgroup>
+								<col width="10%">
+								<col width="30%">
+								<col width="20%">
+								<col width="20%">
+								<col width="20%">
+							</colgroup>
+							<tbody>
+								<tr>
+									<th>no</th>
+									<th>가게명</th>
+									<th>주문상품금액</th>
+									<th>주문상품금액</th>
+									<th>입고금액</th>
+								</tr>
+								<tr>
+									<td colspan="5">
+										<div class="no-data">
+											<p>
+												<i class="icon"></i>
+												일치하는 리스트가 없습니다.
+											</p>
+										</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<!--셀픽주문결제/주문완료 2022-06-16 EZP-5433-->
+				</section>
+
+				<!-- <div class="btn-wrap pop-btn-wrap" style="margin:20px 10px 0">
+					<button type="button" name="button" class="btn btn-close">취소</button>
+					<button type="button" name="button" class="btn fill btn-close ui-popup-call"
+						data-target="#popup_alert1">확인</button>
+				</div> -->
+			</div>
+
+		</div>
+	</div>
+</div>
+<!--//가게별 금액확인-->
+
+<!-- 가게별 금액확인 내 필터 팝업 //-->
+<div class="ui-popup updown filter pop-order-filter type2" id="pop-shop-filter">
+	<div class="content">
+		<div class="header">
+			<h1>필터</h1>
+			<div class="btn-wrap">
+				<button type="button" name="button" class="btn-reset">초기화</button>
+				<button type="button" name="button" class="btn btn-close">적용</button>
+			</div>
+		</div>
+		<div class="body">
+			<div class="pop-filter-cont">
+				<p class="title">가게명</p>
+				<div class="input-wrap col">
+					<div class="divide">
+						<!--21-02-10 수정 -->
+						<div class="input search">
+							<input type="text" id="input2" name="" value="" placeholder="가게명을를 입력해주세요.">
+							<button type="button" name="button"><i class="icon">삭제</i></button>
+							<i class="icon"></i>
+							<p>안보임</p>
+						</div>
+						<!--// 21-02-10 수정 -->
+						<!-- 21-01-26 -->
+						<!-- <button type="button" name="button" class="btn large black btn-close">검색</button> -->
+						<!-- 21-01-26 -->
+						<!--// 21-02-10 수정 / 검색 삭제 -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+<!--// 가게별 금액확인 내 필터 팝업 -->
+
+	<!--가게별 정보 팝업-->
+	<div class="ui-popup alert" id="pop_shop_info">
+		<div class="content">
+			<div class="body">
+				<div class="inner cont-shop-info">
+					<ul class="dot-list">
+						<li><span>가게명</span>피카소</li>
+						<li><span>주소</span>디오트4층A열1호</li>
+						<li><span>연락처</span>010-1234-5678</li>
+					</ul>
+				</div>
+				<div class="btn-wrap">
+					<button type="button" name="button" class="btn btn-close">취소</button>
+					<button type="button" name="button" class="btn fill btn-close ui-popup-call"
+						data-target="#popup_alert2">확인</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--// 가게별 정보 팝업 -->
+
+<!-- 품목취소 적립금 있을시 (테스트 예시)  popup -->
+<div class="ui-popup alert" id="pop_order_cancel">
+	<div class="content">
+		<div class="header">
+			<h1>품목 취소</h1>
+		</div>
+		<div class="body">
+			<div class="inner">
+				<p class="tac">선택한 품목을 취소하시겠습니까?</p>
+				<p class="black12">(추가입고 등록은 '검수대기'중인 입고일에<br> '바로주문'상품이 있는 경우 가능합니다.)</p>
+			</div>
+			<div class="btn-wrap pop-btn-wrap ">
+				<button type="button" name="button" class="btn btn-close">닫기</button>
+				<button type="button" name="button" class="btn fill btn-close ui-popup-call"
+					data-target="#pop_order_cancel2">품목 취소</button>
+			</div>
+		</div>
+	</div>
+</div>
+<!--//품목취소 popup -->
+
+<!-- 재주문 -->
+<div class="ui-popup pop-receipt-wrap" id="pop-reOrder_4op">
+	<div class="content">
+		<div class="header pb0">
+			<h1>재주문</h1>
+		</div>
+		<div class="body">
+			<div class="inner">
+				<div class="pop-inner-box">
+					<!--strong class="txt-q">"타이다이 골덴 와이드 밴딩 신상품"을 재주문하시겠습니까?</strong-->
+					<p class="tal mt10 center txt-small">원하는 주문유형을 선택하세요.<br />재주문은 원상품의 유형과 관계없이<br>선택한 주문유형으로 등록됩니다.</p>
+					<div class="btn-wrap select btn-round">
+						<button type="button" name="button" class="active blue">상품주문</button>
+						<button type="button" name="button" class="purple">샘플주문</button>
+						<!--button type="button" name="button" class="yellow">샘플반납</button-->
+						<button type="button" name="button" class="green">미송주문</button>
+						<button type="button" name="button" class="pink">제작주문</button>
+					</div>
+					<!--div class="text-box">
+							선택완료 버튼을 클릭하시면, <br />바로주문 페이지로 이동합니다.
+						</div-->
+				</div>
+			</div>
+			<div class="btn-wrap pop-btn-wrap">
+				<button type="button" name="button" class="btn btn-close">취소</button>
+				<button type="button" name="button" class="btn fill btn-closel">확인</button>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- //재주문 -->
+
+
+<!-- 재주문 -->
+<div class="ui-popup pop-receipt-wrap" id="pop-reOrder_2op">
+	<div class="content">
+		<div class="header pb0">
+			<h1>재주문</h1>
+		</div>
+		<div class="body">
+			<div class="inner">
+				<div class="pop-inner-box">
+					<!--strong class="txt-q">"타이다이 골덴 와이드 밴딩 신상품"을 재주문하시겠습니까?</strong-->
+					<p class="tal mt10 center txt-small">원하는 주문유형을 선택하세요.<br />재주문은 원상품의 유형과 관계없이<br>선택한 주문유형으로 등록됩니다.</p>
+					<div class="btn-wrap select btn-round">
+						<button type="button" name="button" class="active blue">상품주문</button>
+						<button type="button" name="button" class="purple">샘플주문</button>
+						<!--button type="button" name="button" class="yellow">샘플반납</button>
+							<button type="button" name="button" class="green">미송주문</button>
+							<button-- type="button" name="button" class="pink">제작주문</button-->
+					</div>
+					<!--div class="text-box">
+							선택완료 버튼을 클릭하시면, <br />바로주문 페이지로 이동합니다.
+						</div-->
+				</div>
+			</div>
+			<div class="btn-wrap pop-btn-wrap">
+				<button type="button" name="button" class="btn btn-close">취소</button>
+				<button type="button" name="button" class="btn fill btn-closel">확인</button>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- //재주문 -->
+
+
+<!-- 불량접수 -->
+<div class="ui-popup pop-receipt-wrap" id="pop_defects">
+	<div class="content">
+		<div class="header">
+			<h1>불량접수</h1>
+		</div>
+		<div class="body">
+			<div class="inner">
+				<div class="pop-inner-box">
+					<p class="tal">입고상품이 불량인 경우<br />불량 입고된 상품 수량과 메모를 작성해 주세요.</p>
+					<p class="tal">확인 후 불량상품을 '교환' 해 드리도록하겠습니다.</p><!-- 2021-02-25 수정 / 워딩수정 -->
+					<div class="receipt-box">
+						<div class="input-wrap">
+							<p class="title">거래처명</p>
+							<div class="divide value">
+								<p>청평화</p>
+							</div>
+						</div>
+						<div class="input-wrap">
+							<p class="title">상품명</p>
+							<div class="divide value">
+								<p>앨리스무스탕</p>
+							</div>
+						</div>
+						<div class="input-wrap">
+							<p class="title">옵션</p>
+							<div class="divide value">
+								<p>아이보리/-</p>
+							</div>
+						</div>
+						<div class="input-wrap">
+							<p class="title">입고수량</p>
+							<div class="divide value">
+								<p>10개</p>
+							</div>
+						</div>
+						<div class="input-wrap count">
+							<p class="title">불량수량</p>
+							<div class="input small with-text">
+								<input type="text" name="" value="" placeholder="수량">
+								<span>개</span>
+							</div>
+						</div>
+						<div class="input-wrap">
+							<p class="title">메모입력</p>
+							<textarea name="name" rows="8" cols="80" placeholder="메모를 입력해주세요."></textarea>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="btn-wrap pop-btn-wrap">
+				<button type="button" name="button" class="btn btn-close">취소</button>
+				<button type="button" name="button" class="btn fill btn-closel">입력완료</button>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- //불량접수 -->
+
+<!-- 문의 하기 20220314 EZP-2194 -->
+<div class="ui-popup full" id="pop_contactSeller">
+	<div class="content wide">
+		<div class="header">
+			<h1>문의하기</h1>
+			<button type="button" class="btn-close">닫기</button>
+		</div>
+		<div class="body">
+			<!--container// -->
+			<div id="container" class="">
+				<section class="contact-seller">
+					<div class="forms">
+						<div class="input-wrap">
+							<p class="title">주문번호</p>
+							<div class="input disabled">
+								<input type="text" placeholder="금액을 입력해주세요." value="2021071300005554" disabled>
+							</div>
+						</div>
+						<div class="input-wrap">
+							<p class="title required">가게 선택</p>
+							<!--20220311 EZP-2194 -->
+							<div class="input search">
+								<input type="text" placeholder="거래처명을 입력해주세요." name="search_text" class="search-input"
+									autocomplete="off" required>
+								<button type="button" name="button"><i class="icon">삭제</i></button>
+								<ul class="list">
+									<!-- 20220311 EZP-2914 -->
+									<li class="no-data">검색결과가 없습니다.</li>
+									<li><a href="#">거래처명1거래처명1거래처명1거래처명1거래처명1거래처명1거래처명1</a></li>
+									<li><a href="#">거래처명2</a></li>
+									<li><a href="#">거래처명3</a></li>
+									<li><a href="#">거래처명4</a></li>
+
+								</ul>
+							</div>
+						</div>
+
+						<div class="input-wrap">
+							<p class="title required">상품 선택</p>
+							<!--20220311 EZP-2194 -->
+							<div class="row">
+								<span class="radio">
+									<input type="radio" name="aaa" id="aa" checked>
+									<label for="aa">선택함</label>
+								</span>
+								<span class="radio">
+									<input type="radio" name="aaa" id="ab">
+									<label for="ab">선택안함</label>
+								</span>
+							</div>
+						</div>
+						<div class="input-wrap">
+							<p class="title required">문의 상품 선택</p><!-- 20220311 EZP-2194 -->
+							<div class="row">
+								<div class="product-list">
+									<div class="item">
+										<span class="radio">
+											<input type="radio" name="bbb" id="ba" checked>
+											<label for="ba"></label>
+										</span>
+										<div class="summary">
+											<p class="title">울 헤링본 체크자켓</p>
+											<ul class="gray">
+												<li><span>36,600</span>원</li>
+												<li class="option">크림베이지, S</li>
+											</ul>
+											<ul class="light-gray">
+												<li>주문 <span>50</span>개</li>
+												<li>입고 <span>10</span>개</li>
+											</ul>
+										</div>
+									</div>
+									<div class="item">
+										<span class="radio">
+											<input type="radio" name="bbb" id="ba">
+											<label for="ba"></label>
+										</span>
+										<div class="summary">
+											<p class="title">울 헤링본 체크자켓</p>
+											<ul class="gray">
+												<li><span>36,600</span>원</li>
+												<li class="option">크림베이지, S</li>
+											</ul>
+											<ul class="light-gray">
+												<li>주문 <span>50</span>개</li>
+												<li>입고 <span>10</span>개</li>
+											</ul>
+										</div>
+									</div>
+									<div class="item">
+										<span class="radio">
+											<input type="radio" name="bbb" id="bb">
+											<label for="bb"></label>
+										</span>
+										<div class="summary">
+											<p class="title">울 헤링본 체크자켓울 헤링본 체크자켓울 헤링본 체크자켓울 헤링본 체크자켓</p>
+											<ul class="gray">
+												<li><span>999,999,999,600</span>원</li>
+												<li class="option">크림베이지크림베이지크림베이지크림베이지, S</li>
+											</ul>
+											<ul class="light-gray">
+												<li>주문 <span>50</span>개</li>
+												<li>입고 <span>10</span>개</li>
+											</ul>
+										</div>
+									</div>
+									<div class="no-data">
+										<p><i class="icon"></i>가게를 선택해주세요.</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="input-wrap">
+							<p class="title required">내용</p>
+							<textarea name="name" rows="8" cols="80"
+								placeholder="내용을 입력해주세요.&#13;&#10;비밀번호를 포함한 이용자의 개인정보가 유출되지 않도록 유의 부탁드립니다."></textarea>
+						</div>
+					</div>
+					<ul class="dot-list">
+						<li>주문한 가게로 문의를 등록할 수 있습니다.</li>
+						<li>문의 등록 시 이지톡(채팅방)으로 문의 내용이 등록되며, 답변은 이지톡에서 확인 가능합니다.</li>
+					</ul>
+				</section>
+
+				<div class="btn-wrap pop-btn-wrap" style="margin:0 10px 20px 10px;">
+					<button type="button" name="button" class="btn btn-close">취소</button>
+					<button type="button" name="button" class="btn fill btn-close ui-popup-call"
+						data-target="#popup_alert1">확인</button>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>
+<!--//문의하기-->
+
+<!--//문의하기 팝업 내부 팝업-->
+<div class="ui-popup alert" id="popup_alert1">
+	<div class="content">
+		<div class="body">
+			<div class="inner pop-buyer-memo">
+				<p class="tac">문의글을 등록하시겠습니까?</p>
+			</div>
+			<div class="btn-wrap">
+				<button type="button" name="button" class="btn btn-close">취소</button>
+				<button type="button" name="button" class="btn fill btn-close ui-popup-call"
+					data-target="#popup_alert2">확인</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<!--문의하기(미매칭시) 팝업-->
+<div class="ui-popup alert" id="pop_nonContactSeller">
+	<div class="content">
+		<div class="body">
+			<div class="inner pop-buyer-memo">
+				<p class="tac">주문 시 입력하신 가게 정보를 확인 중에 있습니다.<br>관리자 확인 후 이용하실 수 있습니다.</p>
+			</div>
+			<div class="btn-wrap">
+				<button type="button" name="button" class="btn btn-close">취소</button>
+				<button type="button" name="button" class="btn fill btn-close ui-popup-call"
+					data-target="#popup_alert2">확인</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- 품목 popup -->
+<div class="ui-popup pop-memo alert" id="pop_prd_memo">
+	<div class="content">
+		<div class="header">
+			<h1>메모</h1>
+		</div>
+		<div class="body">
+			<div class="inner pop-memo-box">
+				<dl>
+					<dt>구매자 메모</dt>
+					<dd>사장님~ 컬러 레드가 없으면 비슷한 색상으로 주세요. 꼭이요</dd>
+				</dl>
+				<dl>
+					<dt>입고 메모</dt>
+					<dd>입고지연</dd>
+				</dl>
+			</div>
+			<div class="btn-wrap">
+				<button type="button" name="button" class="btn fill btn-close">확인</button>
+			</div>
+		</div>
+	</div>
+</div>
+<!--//품목 popup -->
+
+
+<!--거래완료 팝업-->
+<div class="ui-popup alert" id="pop_order-finish">
+	<div class="content">
+		<div class="header">
+			<h1>거래완료</h1>
+		</div>
+		<div class="body">
+			<div class="inner pop-buyer-memo">
+				<p class="tac">거래완료 처리하시겠습니까?</p>
+				<p class="txt-small txt-red center">*거래완료 처리시 이전 상태로 되돌릴 수 없습니다.</p>
+			</div>
+			<div class="btn-wrap">
+				<button type="button" name="button" class="btn btn-close">취소</button>
+				<button type="button" name="button" class="btn fill btn-close ui-popup-call"
+					data-target="#popup_alert2">확인</button>
+			</div>
+		</div>
+	</div>
+</div>
+<!--//거래완료 팝업-->
+
+
+<!-- 2022-06-16 EZP-5433 주문타입 팝업 // -->
+<div class="ui-popup order-type-pop" id="order-type-pop">
+	<div class="content">
+		<div class="header">
+			<h1>주문타입 안내</h1>
+			<button type="button" class="btn-close">닫기</button>
+		</div>
+		<div class="body">
+			<div class="item-wrap">
+				<div class="item sellpick">
+					<h3>셀픽주문<span>*수수료 무료</span></h3>
+					<div class="pop-wrap">
+						<div class="icon-area">
+							<p>이지픽 서비스를 이용하여<br>
+								주문 후 가게와<br>
+								직접 거래하는<br>
+								셀프픽업 주문방식</p>
+						</div>
+						<ul class="txt-cont">
+							<li>
+								<h4>거래방식</h4>
+								<p>가게와 직거래 방식</p>
+							</li>
+							<li>
+								<h4>결제</h4>
+								<p>직접결제</p>
+							</li>
+							<li>
+								<h4>상품픽업</h4>
+								<p>직접수령 또는 <br>
+									계약맺고 있는 <br>
+									사입삼촌수령</p>
+							</li>
+							<li>
+								<h4>특징</h4>
+								<p>주문 후 입고, <br>
+									미송/환불/불량관리, <br>
+									정산 등<br>
+									전반적인 관리 <br>
+									쇼핑몰 부담</p>
+							</li>
+							<li>
+								<p class="red">주문완료 시 가게와 <br>
+									사입삼촌에게 주문 내용이 <br>
+									전달됩니다.</p>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="item easypick">
+					<h3>이지픽주문<span>*수수료 무료</span></h3>
+					<div class="pop-wrap">
+						<div class="icon-area">
+							<p>주문만 하면 사입부터<br>
+								정산까지<br>
+								이지픽 서비스에서<br>
+								대행해드리는 주문방식</p>
+						</div>
+						<ul class="txt-cont">
+							<li>
+								<h4>거래방식</h4>
+								<p>이지픽 사입팀 대행</p>
+							</li>
+							<li>
+								<h4>결제</h4>
+								<p>무통장입금</p>
+								<p class="gray">*선결제 쇼핑몰의 경우<br>
+									적립금 사용이 가능합니다.</p>
+							</li>
+							<li>
+								<h4>상품픽업</h4>
+								<p>이지픽사입팀이 <br>
+									상품 수령 후 발송</p>
+							</li>
+							<li>
+								<h4>특징</h4>
+								<p>상품입고, <br>
+									미송/환불/불량관리,<br>
+									정산, 세금계산서 등 <br>
+									모든 관리 가능</p>
+							</li>
+							<li>
+								<p class="red">주문서는 저녁9-10시 경 <br>
+									가게에 전송되어 <br>
+									픽업이 진행됩니다.</p>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="btn-wrap">
+			<button type="button" name="button" class="btn fill btn-close ui-popup-call">확인</button>
+		</div>
+	</div>
+</div>
+<!-- // 2022-06-16 EZP-5433 주문타입 팝업 -->
+
+<!-- 품목추가 팝업 -->
+<div class="ui-popup pop-add-item" id="pop-add-item">
+	<div class="content">
+		<div class="header">
+			<h1>품목추가</h1>
+			<!--<h1>동일품목추가</h1>-->
+			<!--<h1>품목 정보 수정</h1>-->
+			<button type="button" class="btn-close">닫기</button>
+		</div>
+		<div class="body">
+			<div class="inner">
+				<div class="add-list">
+					<!--item-->
+					<div class="item">
+						<!--input list-->
+						<div class="input-list-box">
+							<div class="input-wrap">
+								<label for="input1" class="title essential"><span>결제여부 <em>필수입력</em></span></label>
+								<!--필수항목일때 essential-->
+								<div class="divide f-start">
+									<em class="is-pay-label">결제 </em>
+									<div class="switch ml5">
+										<input type="checkbox" name="" id="switch2" checked>
+										<label for="switch2">체크</label>
+									</div>
+								</div>
+							</div>
+							<div class="input-wrap">
+								<label for="input1" class="title essential"><span>거래처명 <em>필수입력</em></span></label>
+								<!--필수항목일때 essential-->
+								<div class="divide caller">
+									<div class="input search">
+										<input type="text" id="input4" name="" value="" placeholder="거래처명을 입력해주세요."
+											required>
+										<button type="button" name="button"><i class="icon">삭제</i></button>
+										<i class="icon"></i>
+										<p>안보임</p>
+									</div>
+									<ul class="auto-box" style="display:none">
+										<li>
+											<a href="#">제이엘리스 가게 이름이 20자인 경우 (디오트 이지만 최대 글씨 20자 적용 최대 글씨 10자인동 최대 글씨
+												10자인층 최대 글씨 10자인열 최대 글씨 10자인호, 010-2857-7718)</a>
+										</li>
+										<li><a href="#">커먼제이 (청평화 2층 나열 41호, 010-6395-7528)</a></li>
+										<li><a href="#">제이밍 (신발상가 C동 3층 가열 21호, 010-9689-1772)</a></li>
+										<li><a href="#">디자인바이제이에스 (디오트 2층 E열 16호, 010-3830-8390)</a></li>
+										<li><a href="#">제이에스메모리즈 (APM플레이스 1층 31호, 010-0000-0000)</a></li>
+									</ul>
+								</div>
+							</div>
+							<div class="input-wrap">
+								<label for="input1" class="title essential"><span>거래처 주소 <em>필수입력</em></span></label>
+								<div class="divide caller">
+									<div class="input search">
+										<input type="text" id="input2" name="" value="" placeholder="거래처 주소를 입력해주세요."
+											required>
+										<button type="button" name="button"><i class="icon">삭제</i></button>
+										<i class="icon"></i>
+										<p>안보임</p>
+									</div>
+									<ul class="auto-box" style="display:none">
+										<li>
+											<a href="#">제이엘리스 가게 이름이 20자인 경우 (디오트 이지만 최대 글씨 20자 적용 최대 글씨 10자인동 최대 글씨
+												10자인층 최대 글씨 10자인열 최대 글씨 10자인호, 010-2857-7718)</a>
+										</li>
+										<li><a href="#">커먼제이 (청평화 2층 나열 41호, 010-6395-7528)</a></li>
+										<li><a href="#">제이밍 (신발상가 C동 3층 가열 21호, 010-9689-1772)</a></li>
+										<li><a href="#">디자인바이제이에스 (디오트 2층 E열 16호, 010-3830-8390)</a></li>
+										<li><a href="#">제이에스메모리즈 (APM플레이스 1층 31호, 010-0000-0000)</a></li>
+									</ul>
+								</div>
+							</div>
+							<div class="input-wrap">
+								<label for="input1" class="title"><span>거래처 연락처</span></label>
+								<div class="divide caller">
+									<div class="input search">
+										<input type="text" id="input3" name="" value="" placeholder="거래처 연락처를 입력해주세요."
+											required>
+										<button type="button" name="button"><i class="icon">삭제</i></button>
+										<i class="icon"></i>
+										<p>안보임</p>
+									</div>
+									<ul class="auto-box" style="display:none">
+										<li>
+											<a href="#">제이엘리스 가게 이름이 20자인 경우 (디오트 이지만 최대 글씨 20자 적용 최대 글씨 10자인동 최대 글씨
+												10자인층 최대 글씨 10자인열 최대 글씨 10자인호, 010-2857-7718)</a>
+										</li>
+										<li><a href="#">커먼제이 (청평화 2층 나열 41호, 010-6395-7528)</a></li>
+										<li><a href="#">제이밍 (신발상가 C동 3층 가열 21호, 010-9689-1772)</a></li>
+										<li><a href="#">디자인바이제이에스 (디오트 2층 E열 16호, 010-3830-8390)</a></li>
+										<li><a href="#">제이에스메모리즈 (APM플레이스 1층 31호, 010-0000-0000)</a></li>
+									</ul>
+								</div>
+							</div>
+							<div class="input-wrap">
+								<label for="input1" class="title essential"><span>상품명 <em>필수입력</em></span></label>
+								<div class="divide caller">
+									<div class="input check search">
+										<!-- warning class "check" -->
+										<input type="text" id="input4" name="" value="" placeholder="상품명을 입력해주세요."
+											required>
+										<button type="button" name="button"><i class="icon">삭제</i></button>
+										<i class="icon"></i>
+										<p>안보임</p>
+									</div>
+									<ul class="auto-box" style="display:none">
+										<li><a href="#">코코통바지 / 블랙 / FREE / 999,999,999원</a></li>
+										<li><a href="#">코코통바지 / 블랙 / FREE / 999,999,999원</a></li>
+										<li><a href="#">코코통바지 / 블랙 / FREE / 999,999,999원</a></li>
+										<li><a href="#">코코통바지 / 블랙 / FREE / 999,999,999원</a></li>
+										<li><a href="#">코코통바지 / 블랙 / FREE / 999,999,999원</a></li>
+										<li><a href="#">코코통바지 / 블랙 / FREE / 999,999,999원</a></li>
+									</ul>
+								</div>
+							</div>
+							<div class="input-wrap">
+								<label for="input1" class="title"><span>색상</span><span>사이즈</span></label>
+								<div class="divide">
+									<div class="input search">
+										<input type="text" id="input1" name="" value="" placeholder="색상" required>
+										<button type="button" name="button"><i class="icon">삭제</i></button>
+										<i class="icon"></i>
+										<p>안보임</p>
+									</div>
+									<div class="input search">
+										<input type="text" name="" value="" placeholder="사이즈" required>
+										<button type="button" name="button"><i class="icon">삭제</i></button>
+										<i class="icon"></i>
+										<p>안보임</p>
+									</div>
+								</div>
+							</div>
+							<div class="input-wrap">
+								<div class="title essential">
+									<span>단가 <em class="asteric bracket ">*</em></span>
+									<span>수량 <em class="asteric bracket " style="padding-left:3px;">*</em></span>
+								</div>
+								<div class="divide">
+									<div class="input search">
+										<input type="text" id="input1" name="" value="" placeholder="단가" required>
+										<button type="button" name="button"><i class="icon">삭제</i></button>
+										<i class="icon"></i>
+										<p>안보임</p>
+									</div>
+									<div class="input search">
+										<input type="text" name="" value="" placeholder="수량" required>
+										<button type="button" name="button"><i class="icon">삭제</i></button>
+										<i class="icon"></i>
+										<p>안보임</p>
+									</div>
+								</div>
+							</div>
+							<!-- div class="input-wrap">
+									<label for="input1" class="title essential"><span>품절처리방식 <em>필수입력</em></span></label>
+									<div class="divide f-start">
+										<!-- 미송 -->
+							<!-- 2021-09-27 EZP-4246 -->
+							<!--div class="btn-wrap select">
+											<button type="button" name="button" class="active">미송</button>
+											<button type="button" name="button">환불</button>
+										</div>
+									</div>
+								</div>
+								<div class="input-wrap">
+									<label for="input1" class="title essential"><span>품절처리방식 <em>필수입력</em></span></label>
+									<div class="divide f-start">
+										<div class="btn-wrap select">
+											<button type="button" name="button" class="active">미송</button><!-- 2021-12-13 EZP-4749 case 확인 -->
+							<!-- <button type="button" name="button">환불</button> -->
+							<!--/div>
+									</div>
+								</div-->
+							<div class="input-wrap">
+								<label for="input1" class="title"><span>메모</span></label>
+								<div class="divide">
+									<div class="input search">
+										<input type="text" id="input3" name="" value="" placeholder="메모를 입력해주세요."
+											required>
+										<button type="button" name="button"><i class="icon">삭제</i></button>
+										<i class="icon"></i>
+										<p>안보임</p>
+									</div>
+								</div>
+							</div>
+							<div class="input-wrap">
+								<label for="input1" class="title"><span>쇼핑몰상품명</span></label>
+								<div class="divide">
+									<div class="input search">
+										<input type="text" id="input3" name="" value="" placeholder="쇼핑몰상품명을 입력해주세요."
+											required>
+										<button type="button" name="button"><i class="icon">삭제</i></button>
+										<i class="icon"></i>
+										<p>안보임</p>
+									</div>
+								</div>
+							</div>
+							<div class="input-wrap">
+								<label for="input1" class="title"><span>쇼핑몰상품코드</span></label>
+								<div class="divide">
+									<div class="input search">
+										<input type="text" id="input3" name="" value="" placeholder="쇼핑몰상품코드를 입력해주세요."
+											required>
+										<button type="button" name="button"><i class="icon">삭제</i></button>
+										<i class="icon"></i>
+										<p>안보임</p>
+									</div>
+								</div>
+							</div>
+							<div class="input-wrap">
+								<label for="input1" class="title"><span>이미지URL</span></label>
+								<div class="divide">
+									<div class="input search">
+										<input type="text" id="input3" name="" value="" placeholder="이미지URL을 입력해주세요."
+											required>
+										<button type="button" name="button"><i class="icon">삭제</i></button>
+										<i class="icon"></i>
+										<p>안보임</p>
+									</div>
+								</div>
+							</div>
+							<div class="input-wrap">
+								<label for="input1" class="title"><span>기타정보1</span></label>
+								<div class="divide">
+									<div class="input search">
+										<input type="text" id="input3" name="" value="" placeholder="기타정보1을 입력해주세요."
+											required>
+										<button type="button" name="button"><i class="icon">삭제</i></button>
+										<i class="icon"></i>
+										<p>안보임</p>
+									</div>
+								</div>
+							</div>
+							<div class="input-wrap">
+								<label for="input1" class="title"><span>기타정보2</span></label>
+								<div class="divide">
+									<div class="input search">
+										<input type="text" id="input3" name="" value="" placeholder="기타정보2를 입력해주세요."
+											required>
+										<button type="button" name="button"><i class="icon">삭제</i></button>
+										<i class="icon"></i>
+										<p>안보임</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="btn-wrap">
+				<button type="button" name="button" class="btn btn-close">취소</button>
+				<button type="button" name="button" class="btn fill ui-popup-call"
+					data-target="#order-alert3">확인</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- 품목추가 팝업 @바로주문 -->
+<div class="ui-popup pop-add-item" id="pop-direct-add-item">
+	<div class="content">
+		<div class="header">
+			<h1>품목추가</h1>
+			<!--<h1>동일품목추가</h1>-->
+			<!--<h1>품목 정보 수정</h1>-->
+			<button type="button" class="btn-close">닫기</button>
+		</div>
+		<div class="body">
+			<div class="inner">
+				<div class="add-list">
+					<!--item-->
+					<div class="item">
+						<!--input list-->
+						<div class="input-list-box">
+							<!-- 2022-06-22 EZP-5433 -->
+							<!-- <div class="input-wrap">
+								<label for="input1" class="title essential"><span>결제여부 <em>필수입력</em></span></label> -->
+								<!--필수항목일때 essential-->
+								<!-- <div class="divide f-start">
+									<em class="is-pay-label">결제 </em>
+									<div class="switch ml5">
+										<input type="checkbox" name="" id="switch2" checked>
+										<label for="switch2">체크</label>
+									</div>
+								</div>
+							</div> -->
+							<!-- <div class="input-wrap">
+								<label for="input1" class="title essential"><span>결제여부 <em>필수입력</em></span></label> -->
+								<!--필수항목일때 essential-->
+								<!-- <div class="divide f-start">
+									결제
+								</div>
+							</div> -->
+
+							<div class="input-wrap">
+								<label for="input1" class="title essential"><span>거래처명 <em>필수입력</em></span></label>
+								<!--필수항목일때 essential-->
+								<div class="divide caller">
+									<div class="input search">
+										<input type="text" id="input4" name="" value="" placeholder="거래처명을 입력해주세요."
+											required>
+										<button type="button" name="button"><i class="icon">삭제</i></button>
+										<i class="icon"></i>
+										<p>안보임</p>
+									</div>
+									<ul class="auto-box" style="display:none">
+										<li>
+											<a href="#">제이엘리스 가게 이름이 20자인 경우 (디오트 이지만 최대 글씨 20자 적용 최대 글씨 10자인동 최대 글씨
+												10자인층 최대 글씨 10자인열 최대 글씨 10자인호, 010-2857-7718)</a>
+										</li>
+										<li><a href="#">커먼제이 (청평화 2층 나열 41호, 010-6395-7528)</a></li>
+										<li><a href="#">제이밍 (신발상가 C동 3층 가열 21호, 010-9689-1772)</a></li>
+										<li><a href="#">디자인바이제이에스 (디오트 2층 E열 16호, 010-3830-8390)</a></li>
+										<li><a href="#">제이에스메모리즈 (APM플레이스 1층 31호, 010-0000-0000)</a></li>
+									</ul>
+								</div>
+							</div>
+							<div class="input-wrap">
+								<label for="input1" class="title essential"><span>거래처 주소 <em>필수입력</em></span></label>
+								<div class="divide caller">
+									<div class="input search">
+										<input type="text" id="input2" name="" value="" placeholder="거래처 주소를 입력해주세요."
+											required>
+										<button type="button" name="button"><i class="icon">삭제</i></button>
+										<i class="icon"></i>
+										<p>안보임</p>
+									</div>
+									<ul class="auto-box" style="display:none">
+										<li>
+											<a href="#">제이엘리스 가게 이름이 20자인 경우 (디오트 이지만 최대 글씨 20자 적용 최대 글씨 10자인동 최대 글씨
+												10자인층 최대 글씨 10자인열 최대 글씨 10자인호, 010-2857-7718)</a>
+										</li>
+										<li><a href="#">커먼제이 (청평화 2층 나열 41호, 010-6395-7528)</a></li>
+										<li><a href="#">제이밍 (신발상가 C동 3층 가열 21호, 010-9689-1772)</a></li>
+										<li><a href="#">디자인바이제이에스 (디오트 2층 E열 16호, 010-3830-8390)</a></li>
+										<li><a href="#">제이에스메모리즈 (APM플레이스 1층 31호, 010-0000-0000)</a></li>
+									</ul>
+								</div>
+							</div>
+							<div class="input-wrap">
+								<label for="input1" class="title"><span>거래처 연락처</span></label>
+								<div class="divide caller">
+									<div class="input search">
+										<input type="text" id="input3" name="" value="" placeholder="거래처 연락처를 입력해주세요."
+											required>
+										<button type="button" name="button"><i class="icon">삭제</i></button>
+										<i class="icon"></i>
+										<p>안보임</p>
+									</div>
+									<ul class="auto-box" style="display:none">
+										<li>
+											<a href="#">제이엘리스 가게 이름이 20자인 경우 (디오트 이지만 최대 글씨 20자 적용 최대 글씨 10자인동 최대 글씨
+												10자인층 최대 글씨 10자인열 최대 글씨 10자인호, 010-2857-7718)</a>
+										</li>
+										<li><a href="#">커먼제이 (청평화 2층 나열 41호, 010-6395-7528)</a></li>
+										<li><a href="#">제이밍 (신발상가 C동 3층 가열 21호, 010-9689-1772)</a></li>
+										<li><a href="#">디자인바이제이에스 (디오트 2층 E열 16호, 010-3830-8390)</a></li>
+										<li><a href="#">제이에스메모리즈 (APM플레이스 1층 31호, 010-0000-0000)</a></li>
+									</ul>
+								</div>
+							</div>
+							<div class="input-wrap">
+								<label for="input1" class="title essential"><span>상품명 <em>필수입력</em></span></label>
+								<div class="divide caller">
+									<div class="input check search">
+										<!-- warning class "check" -->
+										<input type="text" id="input4" name="" value="" placeholder="상품명을 입력해주세요."
+											required>
+										<button type="button" name="button"><i class="icon">삭제</i></button>
+										<i class="icon"></i>
+										<p>안보임</p>
+									</div>
+									<ul class="auto-box" style="display:none">
+										<li><a href="#">코코통바지 / 블랙 / FREE / 999,999,999원</a></li>
+										<li><a href="#">코코통바지 / 블랙 / FREE / 999,999,999원</a></li>
+										<li><a href="#">코코통바지 / 블랙 / FREE / 999,999,999원</a></li>
+										<li><a href="#">코코통바지 / 블랙 / FREE / 999,999,999원</a></li>
+										<li><a href="#">코코통바지 / 블랙 / FREE / 999,999,999원</a></li>
+										<li><a href="#">코코통바지 / 블랙 / FREE / 999,999,999원</a></li>
+									</ul>
+								</div>
+							</div>
+							<div class="input-wrap">
+								<label for="input1" class="title"><span>색상</span><span>사이즈</span></label>
+								<div class="divide">
+									<div class="input search">
+										<input type="text" id="input1" name="" value="" placeholder="색상" required>
+										<button type="button" name="button"><i class="icon">삭제</i></button>
+										<i class="icon"></i>
+										<p>안보임</p>
+									</div>
+									<div class="input search">
+										<input type="text" name="" value="" placeholder="사이즈" required>
+										<button type="button" name="button"><i class="icon">삭제</i></button>
+										<i class="icon"></i>
+										<p>안보임</p>
+									</div>
+								</div>
+							</div>
+							<div class="input-wrap">
+								<label for="input1" class="title essential"><span>단가 <em>필수입력</em></span><span>수량
+										<em>필수입력</em></span></label>
+
+								<div class="divide">
+									<div class="input search">
+										<input type="text" id="input1" name="" value="" placeholder="단가" required>
+										<button type="button" name="button"><i class="icon">삭제</i></button>
+										<i class="icon"></i>
+										<p>안보임</p>
+									</div>
+									<div class="input search">
+										<input type="text" name="" value="" placeholder="수량" required>
+										<button type="button" name="button"><i class="icon">삭제</i></button>
+										<i class="icon"></i>
+										<p>안보임</p>
+									</div>
+								</div>
+							</div>
+							<div class="input-wrap">
+								<label for="input1" class="title essential"><span>품절처리방식 <em>필수입력</em></span></label>
+								<div class="divide f-start">
+									<!-- 미송 -->
+									<!-- 2021-09-27 EZP-4246 -->
+									<div class="btn-wrap select">
+										<button type="button" name="button" class="active">미송</button>
+										<button type="button" name="button">환불</button>
+									</div>
+								</div>
+							</div>
+							<div class="input-wrap">
+								<label for="input1" class="title essential"><span>품절처리방식 <em>필수입력</em></span></label>
+								<div class="divide f-start">
+									<div class="btn-wrap select">
+										<button type="button" name="button" class="active">미송</button>
+										<!-- 2021-12-13 EZP-4749 case 확인 -->
+										<!-- <button type="button" name="button">환불</button> -->
+									</div>
+								</div>
+							</div>
+							<div class="input-wrap">
+								<label for="input1" class="title"><span>메모</span></label>
+								<div class="divide">
+									<div class="input search">
+										<input type="text" id="input3" name="" value="" placeholder="메모를 입력해주세요."
+											required>
+										<button type="button" name="button"><i class="icon">삭제</i></button>
+										<i class="icon"></i>
+										<p>안보임</p>
+									</div>
+								</div>
+							</div>
+							<div class="input-wrap">
+								<label for="input1" class="title"><span>쇼핑몰상품명</span></label>
+								<div class="divide">
+									<div class="input search">
+										<input type="text" id="input3" name="" value="" placeholder="쇼핑몰상품명을 입력해주세요."
+											required>
+										<button type="button" name="button"><i class="icon">삭제</i></button>
+										<i class="icon"></i>
+										<p>안보임</p>
+									</div>
+								</div>
+							</div>
+							<div class="input-wrap">
+								<label for="input1" class="title"><span>쇼핑몰상품코드</span></label>
+								<div class="divide">
+									<div class="input search">
+										<input type="text" id="input3" name="" value="" placeholder="쇼핑몰상품코드를 입력해주세요."
+											required>
+										<button type="button" name="button"><i class="icon">삭제</i></button>
+										<i class="icon"></i>
+										<p>안보임</p>
+									</div>
+								</div>
+							</div>
+							<div class="input-wrap">
+								<label for="input1" class="title"><span>이미지URL</span></label>
+								<div class="divide">
+									<div class="input search">
+										<input type="text" id="input3" name="" value="" placeholder="이미지URL을 입력해주세요."
+											required>
+										<button type="button" name="button"><i class="icon">삭제</i></button>
+										<i class="icon"></i>
+										<p>안보임</p>
+									</div>
+								</div>
+							</div>
+							<div class="input-wrap">
+								<label for="input1" class="title"><span>기타정보1</span></label>
+								<div class="divide">
+									<div class="input search">
+										<input type="text" id="input3" name="" value="" placeholder="기타정보1을 입력해주세요."
+											required>
+										<button type="button" name="button"><i class="icon">삭제</i></button>
+										<i class="icon"></i>
+										<p>안보임</p>
+									</div>
+								</div>
+							</div>
+							<div class="input-wrap">
+								<label for="input1" class="title"><span>기타정보2</span></label>
+								<div class="divide">
+									<div class="input search">
+										<input type="text" id="input3" name="" value="" placeholder="기타정보2를 입력해주세요."
+											required>
+										<button type="button" name="button"><i class="icon">삭제</i></button>
+										<i class="icon"></i>
+										<p>안보임</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="btn-wrap">
+				<button type="button" name="button" class="btn btn-close">취소</button>
+				<button type="button" name="button" class="btn fill ui-popup-call"
+					data-target="#order-alert3">확인</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="ui-popup" id="order-alert2">
+	<div class="content">
+		<div class="header">
+			<button type="button" class="btn-close">닫기</button>
+		</div>
+		<div class="body">
+			<div class="inner">
+				<p class="tac">주문을 진행하시겠습니까?</p>
+				<span class="small-txt mt10">*이지픽에서 관리되고 있지 않은 가게의<br> 경우(가게 정보 직접입력),<br> 가게에 주문내역이 전달되지 않을 수
+					있습니다.</span>
+			</div>
+			<div class="btn-wrap pop-btn-wrap">
+				<button type="button" name="button" class="btn btn-close">취소</button>
+				<button type="button" name="button" class="btn fill btn-close">주문하기</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="ui-popup" id="order-alert2-1">
+	<div class="content">
+		<div class="header">
+			<button type="button" class="btn-close">닫기</button>
+		</div>
+		<div class="body">
+			<div class="inner">
+				<p class="tac">주문을 진행하시겠습니까?</p>
+			</div>
+			<div class="btn-wrap pop-btn-wrap">
+				<button type="button" name="button" class="btn btn-close">취소</button>
+				<button type="button" name="button" class="btn fill btn-close">주문하기</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="ui-popup" id="order-alert3">
+	<div class="content">
+		<div class="body">
+			<div class="inner">
+				<p class="tac">품목 정보를 등록하시겠습니까?</p>
+			</div>
+			<div class="btn-wrap pop-btn-wrap">
+				<button type="button" name="button" class="btn btn-close">취소</button>
+				<button type="button" name="button" class="btn fill btn-close">주문하기</button>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- 2021-09-07 -->
+
+<!-- 품목추가 popup -->
+<!-- 2021-04-13 EZP-2649 -->
+<div class="ui-popup shop dim-evt" id="order-pop1">
+	<div class="content">
+		<div class="header">
+			<!--h1>품목추가</h1-->
+			<button type="button" class="btn-close">닫기</button>
+		</div>
+		<div class="body">
+			<div class="inner">
+				<p class="tac">
+					한 주문 당 품목은 최대 2000건 까지<br><!-- 2021-09-07 EZP-3902 -->
+					입력 가능합니다.</p>
+			</div>
+			<div class="btn-wrap">
+				<button type="button" name="button" class="btn fill btn-close">확인</button>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- //품목추가 popup -->
+
+<!-- 21-01-28 상품 주문하기 alret popup -->
+<div class="ui-popup shop" id="order-alert">
+	<div class="content">
+		<div class="header">
+			<button type="button" class="btn-close">닫기</button>
+		</div>
+		<div class="body">
+			<div class="inner">
+				<p class="tac">추가입고 등록을 진행하시겠습니까?</p>
+			</div>
+			<div class="btn-wrap pop-btn-wrap">
+				<button type="button" name="button" class="btn btn-close">취소</button>
+				<button type="button" name="button" class="btn fill btn-close">등록하기</button>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- //21-01-28 상품 주문하기 alret popup -->
+
+<!-- 필수항목 2022-06-16 EZP-5433 alret popup -->
+<div class="ui-popup shop" id="order-alert-input">
+	<div class="content">
+		<div class="header">
+			<button type="button" class="btn-close">닫기</button>
+		</div>
+		<div class="body">
+			<div class="inner">
+				<p class="tac">필수항목을 모두 입력해주세요.</p>
+			</div>
+			<div class="btn-wrap pop-btn-wrap">
+				<button type="button" name="button" class="btn btn-close">취소</button>
+				<button type="button" name="button" class="btn fill btn-close">등록하기</button>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- //필수항목 2022-06-16 EZP-5433 alret popup -->
+
+<!-- 추가입고 등록 불가  -->
+<div class="ui-popup addorder-pop" id="addorder-pop">
+	<div class="content">
+		<div class="header">
+			<h1>추가입고 등록 불가</h1>
+			<button type="button" class="btn-close">닫기</button>
+		</div>
+		<div class="body">
+			<p style="text-align:center;">
+				<strong>05/23 입고일</strong>에 <strong class="txt-red">검수완료</strong>된 거래처가 포함되어 있습니다.<br>
+				해당 거래처에는 추가입고 등록이 불가능하오니<br>
+				제외하고 다시 등록해주세요.
+			</p>
+			<h2>05/23 입고일 검수완료 거래처</h2>
+			<ul class="dot-list">
+				<li>플래닛 (퀸즈스퀘어 3층 49호)</li>
+				<li>보네르(Bonheur) (디오트2층 F열 23호)</li>
+				<li>아도러블 (DDP(유어스) 2층 93호)</li>
+				<li>플래닛 (퀸즈스퀘어 3층 49호)</li>
+				<li>보네르(Bonheur) (디오트2층 F열 23호)</li>
+				<li>아도러블 (DDP(유어스) 2층 93호)</li>
+			</ul>
+			<div class="btn-wrap ">
+				<!-- 21-01-02 -->
+				<button type="button" name="button" class="btn fill btn-close">확인</button>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+	<script type="text/javascript">
+		$(document).ready(function () {
+			//가게별금액확인 팝업관련
+			$(".contact-shop-info .checkbox").click(function () {
+				$(".contact-shop-info .checkbox input").is(":checked") == true ? $(".price .vat").css("display", "block") : $(".price .vat").css("display", "none");
+			});
+
+			// 선택버튼
+			$('.btn-wrap.select button').on('click', function () {
+				$(this).siblings('button').removeClass('active');
+				$(this).addClass('active');
+			});
+		});
+	</script>

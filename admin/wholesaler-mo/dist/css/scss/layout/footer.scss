@@ -1,0 +1,99 @@
+@charset 'utf-8';
+footer {
+	background-color: #f4f4f4;
+	margin-top: 100px;
+	.inner {
+		width: 1276px;
+		height: 359px;
+		//overflow: hidden;
+		margin: 0 auto;
+	}
+	.info {
+		float: left;
+		padding-top: 40px;
+		h1 {
+			@include ff_tt(18px, 700);
+			color: #392e2e;
+			line-height: 100%;
+			margin-bottom: 17px;
+		}
+		p {
+			font-size: 12px;
+			line-height: 26px;
+			color: #888;
+			em {
+				@include ff_tt(14px, 600);
+				color: #888;
+			}
+			span {
+				display: inline-block;
+				position: relative;
+				padding-right: 11px;
+				margin-right: 10px;
+				&:before {
+					@include ct;
+					width: 1px;
+					height: 10px;
+					background-color: #ddd;
+					@include posa_tr(7px);
+				}
+				&.copyright{
+					display:block;
+					margin:22px 0 0 0;
+					padding:0;
+					@include ff_tt(12px, 400);
+					&:before {
+						display: none;
+					}
+				}
+			}
+			a {
+				display: inline-block;
+				font-size: 12px;
+				color: #666;
+				width: 107px;
+				border: 1px solid #d6d6d6;
+				height: 26px;
+				line-height: 24px;
+				text-align: center;
+				border-radius: 2px;
+				background-color: #fff;
+				margin-left: 9px;
+			}
+		}
+		.phonenumber {
+			@include ff_tt(18px, 700);
+			color: #888;
+			line-height: 100%;
+			margin-top: 44px;
+			margin-bottom: 17px;
+		}
+	}
+	.link {
+		float: right;
+		padding-top: 50px;
+		a {
+			font-size: 12px;
+			line-height: 30px;
+			color: #888;
+			text-align: left;
+			position: relative;
+			&.personal{
+				color:#333;
+			}
+			&:hover {
+				font-weight: 700;
+				color: #666;
+				&:before {
+					@include ct;
+					width: 4px;
+					height: 4px;
+					background-color: #36c25d;
+					@include bdrs(50%);
+					@include posa_tr(8px, -9px);
+					z-index:9;
+				}
+			}
+		}
+	}
+}

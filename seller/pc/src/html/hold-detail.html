@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="shortcut icon" type="image/x-icon" href="/img/favicon/ezp.ico">
+
+	<link rel="stylesheet" type="text/css" href="../css/pc/default.css">
+	<link rel="stylesheet" type="text/css" href="../css/pc/jquery.mCustomScrollbar.css">
+
+	<script type="text/javascript" src="../js/pc/jquery-3.5.1.min.js"></script>
+	<script type="text/javascript" src="../js/pc/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="../js/pc/swiper-bundle.min.js"></script>
+	<script type="text/javascript" src="../js/pc/common_front.js"></script>
+	<script type="text/javascript" src="../js/pc/ui.js"></script>
+	<script type="text/javascript" src="../js/pc/pub.js"></script>
+
+	<title>정산관리</title>
+</head>
+<body>
+    <header></header>
+
+	<div id="container" class="active">
+		<aside></aside>
+
+		<section class="order-manage account-wrap">
+			<h2>매입현황</h2>
+
+			<div class="search-box">
+				<table>
+					<colgroup>
+						<col width="80px">
+						<col width="*">
+						<col width="80px">
+						<col width="*">
+					</colgroup>
+					<tbody>
+						<tr>
+							<th>기간조회</th>
+							<td colspan="3">
+								<div class="datepicker-wrap">
+									<div class="check-wrap">
+										<!-- 2021-02-04 수정// -->
+										<span class="curation-check"><input type="radio" name="cc00" id="cc01"><label for="cc01">오늘</label></span>
+										<span class="curation-check"><input type="radio" name="cc00" id="cc02"><label for="cc02">1주일</label></span>
+										<span class="curation-check"><input type="radio" name="cc00" id="cc03" checked="checked"><label for="cc03">1개월</label></span>
+										<span class="curation-check"><input type="radio" name="cc00" id="cc04"><label for="cc04">3개월</label></span>
+										<span class="curation-check"><input type="radio" name="cc00" id="cc05"><label for="cc05">6개월</label></span>
+										<!-- //2021-02-04 수정 -->
+									</div>
+									<!-- 2021-04-28 EZP-2883 EZP-2854 -->
+									<div class="calendar-wrap disabled">
+										<a href="javascript:;" class="arrow-left"></a>
+										<div class="datepicker">
+											<button type="button" name="button" class="calendar-box" onclick="$('.calendar-only2').datepicker('show');">
+												<input type="text" class="calendar-only2" title="시작일" value="2020-09-21" readonly>
+												<span class="icon-calendar">calendar</span>
+											</button>
+											<em>-</em>
+											<button type="button" name="button" class="calendar-box" onclick="$('.calendar-only3').datepicker('show');">
+												<input type="text" class="calendar-only3" title="시작일" value="2020-09-21" readonly>
+												<span class="icon-calendar">calendar</span>
+											</button>
+										</div>
+										<a href="javascript:;" class="arrow-right"></a>
+									</div>
+								</div>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<div class="btn-box">
+					<button type="button" name="button" class="btn point">검색</button>
+				</div>
+			</div>
+
+			<div class="detail-wrap">
+				<div class="detail-box">
+					<div class="head">
+						<h4><em class="secession">[탈퇴]</em>소녀레시피</h4><!-- 2021-10-06 EZP-4258-->
+					</div>
+
+					<div class="body">
+						<div class="item">
+							<span>총 적립금액</span>
+							<p>
+								<strong>99,500,000</strong>
+								<em>원</em>
+							</p>
+						</div>
+						<div class="item">
+							<span>총 환불금액</span>
+							<p>
+								<strong>99,500,000</strong>
+								<em>원</em>
+							</p>
+						</div>
+						<div class="item">
+							<span>매입금액 합계</span>
+							<p>
+								<strong class="color-gr">99,500,000</strong>
+								<em>원</em>
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="btn-wrap center mb60">
+					<a href="#" class="btn gray">목록으로</a>
+				</div>
+				<h3>매입상세내역</h3>
+				<div class="subject-list">
+					<div class="num-wrap">
+						<p>총 <em>999</em>건</p>
+						<div class="right">
+							<button type="button" name="button" class="btn-download"><i></i><span>엑셀다운로드</span></button>
+							<div class="ui-select">
+								<button type="button">100개씩 보기</button>
+								<ul>
+									<li>10개씩 보기</li>
+									<li>20개씩 보기</li>
+									<li>30개씩 보기</li>
+									<li>50개씩 보기</li>
+									<li class="active">100개씩 보기</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+
+					<div class="table-wrap">
+						<table>
+							<colgroup>
+								<col width="80px">
+								<col width="120px">
+								<col width="*">
+								<col width="200px">
+								<col width="120px">
+								<col width="120px">
+								<col width="120px">
+							</colgroup>
+							<thead>
+								<tr>
+									<th>번호</th>
+									<th>발생일</th>
+									<th>상품명</th>
+									<th>옵션명</th>
+									<th>적립금액</th>
+									<th>환불금액</th>
+									<th>잔액</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td class="ft-en">3865</td>
+									<td class="ft-en">2020-11-01</td>
+									<td class="tal">베이직&데일리룩 : 페미니크</td>
+									<td>블루 / FREE</td>
+									<td class="ft-en">+ 999,000,000</td>
+									<td class="ft-en ft-red"><strong>- 999,000,000</strong></td>
+									<td class="ft-en ft-bk"><strong>1,000,000</strong></td>
+								<tr>
+								<tr>
+									<td class="ft-en">3865</td>
+									<td class="ft-en">2020-11-01</td>
+									<td class="tal"><em class="ft-red">[관리자입력]</em> 관리자환불입니다.</td><!-- 2021-02-26 수정 / 관리자 입력 일 경우 -->
+									<td>블루 / FREE</td>
+									<td class="ft-en">+ 999,000,000</td>
+									<td class="ft-en ft-red"><strong>- 999,000,000</strong></td>
+									<td class="ft-en ft-bk"><strong>1,000,000</strong></td>
+								<tr>
+									<td class="ft-en">3865</td>
+									<td class="ft-en">2020-11-01</td>
+									<td class="tal">베이직&데일리룩 : 페미니크</td>
+									<td>블루 / FREE</td>
+									<td class="ft-en">+ 999,000,000</td>
+									<td class="ft-en ft-red"><strong>- 999,000,000</strong></td>
+									<td class="ft-en ft-bk"><strong>1,000,000</strong></td>
+								<tr>
+							</tbody>
+						</table>
+						<!--pagintaion-->
+						<div class="pagination">
+							<a href="#" class="first"></a>
+							<a href="#" class="prev"></a>
+							<a href="#">92</a>
+							<a href="#">93</a>
+							<a href="#">94</a>
+							<a href="#">95</a>
+							<a href="#">96</a>
+							<a href="#">97</a>
+							<a href="#">98</a>
+							<a href="#">99</a>
+							<a href="#" class="active">100</a>
+							<a href="#">101</a>
+							<a href="#" class="next"></a>
+							<a href="#" class="last"></a>
+						</div>
+						<!--// pagintaion-->
+					</div>
+				</div>
+			</div>
+		</section>
+
+	</div>
+	<footer></footer>
+
+	<script type="text/javascript" src="../js/pc/jquery.mCustomScrollbar.min.js"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+			// include
+			$('header').load('include/header.html');
+			$('footer').load('include/footer.html');
+			$('aside').load('include/aside.html');
+
+			//datepicker
+			$( ".calendar-only2, .calendar-only3" ).datepicker({
+				dateFormat: "yy-mm-dd",
+				showMonthAfterYear : true,
+				monthNames: ['1','2','3','4','5','6','7','8','9','10','11','12'],
+				dayNamesMin: ['SUN','MON','TUE','WED','THE','FRI','SAT'],
+				onSelect: function() {
+					$('.btn-wrap').find('button').removeClass('active');
+					$(this).parent().addClass('active');
+				},
+				beforeShow: function(input, inst) { // 2022-1-17 EZP-4812
+					var $calendar = inst.dpDiv;
+					var position = $('.calendar-only2').offset().top + $('.calendar-only2').outerHeight();
+					setTimeout(function(){
+						$calendar.css({
+							top: position,
+						});
+					}, 1);
+				},
+			});
+		});
+	</script>
+</body>
+</html>

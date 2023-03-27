@@ -1,0 +1,93 @@
+<div class="top">
+	<button type="button" name="button" class="dashboard-open">
+		<span class="order">ORDER</span>
+		<span class="history">HISTORY</span>
+	</button>
+	<button type="button" name="button" class="btn-top">top</button>
+	<button type="button" name="button" class="dashboard-close">닫기</button>
+</div>
+<div class="bottom">
+	<div class="order">
+		<h3>주문 현황</h3>
+		<table>
+			<colgroup>
+				<col width="50%">
+				<col width="">
+			</colgroup>
+			<tbody>
+				<tr>
+					<th>오늘주문</th>
+					<th>오늘 입고</th>
+				</tr>
+				<!--2021-01-15 수정 / 건수에 a 링크 추가-->
+				<tr>
+					<td><a href="#"><span>0</span> 건</a></td>
+					<td><a href="#"><span>4</span> 건</a></td>
+				</tr>
+				<tr>
+					<th class="pt25">검수 대기</th>
+					<th class="pt25">정산 요청</th>
+				</tr>
+				<tr>
+					<td><a href="#"><span>30</span> 건</a></td>
+					<td><a href="#"><span>260</span> 건</a></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="history">
+		<!--2021-01-13 수정 / 타이틀 추가 -->
+		<h3><a href="#">최근 본 상품</a></h3>
+		<!--2021-01-13 수정 / 데이터 없을 경우-->
+		<div class="no-data" style="display:none">
+			<i class="product"></i>
+			<p>최근 본 상품이 없습니다.</p>
+		</div>
+		<!--//2021-01-13 수정 / 데이터 없을 경우-->
+		<!--2021-01-13 수정 / list 추가 -->
+		<!--20201-01-15 수정 / 리스트 soldout 추가-->
+		<div class="list">
+			<a href="#" data-product_no="" class="soldout">
+				<img src="https://s3.ap-northeast-2.amazonaws.com/bakan/devsdkwms1001/productMain/2020/12/28/f91e18894a96f039908f710fa6466875" alt="">
+			</a>
+			<a href="#" data-product_no="" class="">
+				<img src="https://s3.ap-northeast-2.amazonaws.com/bakan/devsdkwms1001/productMain/2020/12/28/f91e18894a96f039908f710fa6466875" alt="">
+			</a>
+			<a href="#" data-product_no="" class="">
+				<img src="https://s3.ap-northeast-2.amazonaws.com/bakan/devsdkwms1001/productMain/2020/12/28/f91e18894a96f039908f710fa6466875" alt="">
+			</a>
+			<a href="#" data-product_no="" class="">
+				<img src="https://s3.ap-northeast-2.amazonaws.com/bakan/devsdkwms1001/productMain/2020/12/28/f91e18894a96f039908f710fa6466875" alt="">
+			</a>
+			<a href="#" data-product_no="" class="">
+				<img src="https://s3.ap-northeast-2.amazonaws.com/bakan/devsdkwms1001/productMain/2020/12/28/f91e18894a96f039908f710fa6466875" alt="">
+			</a>
+		</div>
+	</div>
+</div>
+
+<!-- 대시보드 스크립트 -->
+<script type="text/javascript">
+	$('.dashboard-open').on('click', function(){
+		$('#dashboard').removeClass('active');
+		$('#dashboard').addClass('active');
+	});
+	$('.dashboard-close').on('click', function(){
+		$('#dashboard').removeClass('active');
+	});
+	$('#dashboard .btn-top').on('click', function(){
+		$('html, body').animate({scrollTop: '0'}, 300);
+	});
+	var lastScrollTop = 0;
+	$(window).scroll(function(event){
+	   var st = $(this).scrollTop();
+	   if (st > lastScrollTop){
+	       // downscroll code
+		   $('#dashboard').css('bottom', '-290px');
+	   } else {
+		   $('#dashboard').css('bottom', '-230px');
+	      // upscroll code
+	   }
+	   lastScrollTop = st;
+	});
+</script>

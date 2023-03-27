@@ -1,0 +1,1402 @@
+{% extends "../_templates/layout.njk" %}
+{% block content %}
+<!-- 2022 08 01 .img-wrap 추가 -->
+<div class="wrapper img-wrap" id="wrap">
+    <div class="content" id="content">
+        <div class="content-head">
+            <div class="page-title">
+                <h3 class="h3-tit">장바구니</h3>
+                <a href="#" class="btn-manual" target="_blank" title="매뉴얼">매뉴얼</a>
+                <div class="form-box">
+                    <form onsubmit="return submitHandler();">
+                        <fieldset>
+                            <legend class="skip">통합검색</legend>
+                            <label for="total-search" class="skip">검색어 입력</label>
+                            <input type="search" name="total-search" id="total-search" title="검색어 입력" class="text"
+                                placeholder="상품을 검색해보세요.">
+                            <input type="submit" value="검색" class="submit">
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+            <div class="cont-info-right">
+                <ul class="breadcrumb">
+                    <li>공급</li>
+                    <li class="now" title="현재 페이지">장바구니</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 상단탭메뉴 -->
+        <div class="basket-guide-info">
+            <div class="guide">
+                <span>이지픽주문과 셀픽주문의 차이점이 궁금하신가요?</span>
+                <!-- 2022 08 16 class 수정 -->
+                <a href="javascript: void(0);" class="question-mark" onclick="targetModalPopup('modal-order-type')">툴팁</a>
+            </div>
+            <div class="txt-box cart-type01">
+                <ul class="btn-wrap">
+                    <li class="on"><a href="javascript:void(0);">셀픽주문</a></li>
+                    <li><a href="./basket-easy.html">이지픽주문</a></li>
+                </ul>
+                <p>셀픽주문으로 진행하실 장바구니 입니다.</p>
+            </div>
+        </div>
+
+        <!-- 탭메뉴 -->
+        <div class="tab-top-round">
+            <ul class="tab-rounds tab">
+                <li data-tab="conttab1" class="active">
+                    <a href="javascript: void(0);"><span>장바구니</span></a>
+                </li>
+                <li data-tab="conttab2">
+                    <a href="javascript: void(0);">불량 장바구니</a>
+                </li>
+                <li data-tab="conttab3">
+                    <a href="javascript: void(0);">샘플 장바구니</a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- 장바구니 -->
+        <div class="tab-content tabCont tableType01" id="conttab1">
+            <div class="gridTableArea posr">
+                <div class="table-top-info">
+                    <div class="top-txt-inline">
+                        <span class="txt-inline">총 <strong>1,000</strong>건
+                    </div>
+                </div>
+                <div class="tround-box">
+                    <div class="tbl-round">
+                        <div class="tbl-info-area">
+                            <div class="btns-multi f-left">
+                                <button type="button" name="button" class="btn btn-sm btn-primary">선택상품 삭제</button>
+                            </div>
+                        </div>
+                        <!-- 그리드 테이블-->
+                        <table class="tbl-list-view pdtype">
+                            <colgroup>
+                                <col style="width: 50px;">
+                                <col style="width: auto;">
+                                <col style="width: 200px;">
+                                <col style="width: 200px">
+                                <col style="width: 200px">
+                                <col style="width: 100px">
+                                <col style="width: 90px;">
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th>
+                                        <div class="form-control check-one">
+                                            <label>
+                                                <input type="checkbox" >
+                                                <span>체크</span>
+                                            </label>
+                                        </div>
+                                    </th>
+                                    <th>상품정보</th>
+                                    <th>옵션</th>
+                                    <th>주문수량</th>
+                                    <th>판매가 합계</th>
+                                    <th>메모</th>
+                                    <th>삭제</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="form-control check-one">
+                                            <label>
+                                                <input type="checkbox" >
+                                                <span>체크</span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="product-info">
+                                            <!-- 2022 08 22 a태그 링크 추가 -->
+                                            <div class="figure">
+                                                <a href="../sub/goods-detail.html" style="background: url('../assets/images/cart-product-img.png') no-repeat 50% 50% / cover;"></a>
+                                            </div>
+                                            <div class="info">
+                                                <div class="shop-name">
+                                                    <a href="javascript: void(0);">[디오트] 라이트워터</a>
+                                                </div>
+                                                <div class="product-name">
+                                                    <a href="javascript: void(0);">빈티지 캔버스 스니커즈</a>
+                                                </div>
+                                                <div class="price">29,000원</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <span class="product-option">화이트/FREE</span>
+                                    </td>
+                                    <td>
+                                        <div class="def-number-input">
+                                            <button type="button" class="minus"></button>
+                                            <input class="quantity" name="quantity" value="1" type="tel">
+                                            <button type="button" class="plus"></button>
+                                        </div>
+                                        <span class="fnsize11 ftcolor2 mt5">최소주문수량 1개</span>
+                                    </td>
+                                    <td>
+                                        <strong class="product-price">30,000원</strong>
+                                    </td>
+                                    <td>
+                                        <button type="button" onclick="targetModalPopup('modal-memo-popup')">
+                                            <i class="ico-easy-pick ico-memo-on"></i>
+                                        </button>
+                                    </td>
+                                    <td><button type="button" name="button" class="btn btn-del btn-outline-gray">삭제</button></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="form-control check-one">
+                                            <label>
+                                                <input type="checkbox" >
+                                                <span>체크</span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="product-info">
+                                            <div class="figure">
+                                                <a href="../sub/goods-detail.html" style="background: url('../assets/images/cart-product-img.png') no-repeat 50% 50% / cover;"></a>
+                                            </div>
+                                            <div class="info">
+                                                <div class="shop-name">
+                                                    <a href="javascript: void(0);">[디오트] 라이트워터</a>
+                                                </div>
+                                                <div class="product-name">
+                                                    <a href="javascript: void(0);">빈티지 캔버스 스니커즈</a>
+                                                </div>
+                                                <div class="price">29,000원</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <span class="product-option">화이트/FREE</span>
+                                    </td>
+                                    <td>
+                                        <div class="def-number-input">
+                                            <button type="button" class="minus"></button>
+                                            <input class="quantity" name="quantity" value="1" type="tel">
+                                            <button type="button" class="plus"></button>
+                                        </div>
+                                        <span class="fnsize11 ftcolor2 mt5">최소주문수량 1개</span>
+                                    </td>
+                                    <td>
+                                        <strong class="product-price">30,000원</strong>
+                                    </td>
+                                    <td>
+                                        <button type="button" onclick="targetModalPopup('modal-memo-popup')">
+                                            <i class="ico-easy-pick ico-memo-off"></i>
+                                        </button>
+                                    </td>
+                                    <td><button type="button" name="button" class="btn btn-del btn-outline-gray">삭제</button></td>
+                                </tr>
+                                <!-- 2022-12-08 EZP-7618 tr에 buy-impossible 추가 -->
+                                <tr class="buy-impossible">
+                                    <td>
+                                        <div class="form-control check-one">
+                                            <!-- 2022-12-08 EZP-7618 cursor 막기위해 .c-none-pointer 추가 / disabled처리 -->
+                                            <label class="c-none-pointer">
+                                                <input type="checkbox" disabled>
+                                                <span>체크</span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="product-info">
+                                            <div class="figure">
+                                                <a href="../sub/goods-detail.html" style="background: url('../assets/images/cart-product-img.png') no-repeat 50% 50% / cover;"></a>
+                                            </div>
+                                            <div class="info">
+                                                <div class="shop-name">
+                                                    <a href="javascript: void(0);">[디오트] 라이트워터</a>
+                                                </div>
+                                                <div class="product-name">
+                                                    <a href="javascript: void(0);">빈티지 캔버스 스니커즈</a>
+                                                </div>
+                                                <div class="price">29,000원</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <span class="product-option">화이트/FREE</span>
+                                    </td>
+                                    <td>
+                                        <div class="def-number-input">
+                                            <!-- 2022-12-08 EZP-7618 cursor 막기위해 .c-none-pointer 추가 / disabled처리 -->
+                                            <button type="button" class="minus c-none-pointer" disabled></button>
+                                            <input class="quantity" name="quantity" value="1" type="tel" disabled>
+                                            <button type="button" class="plus c-none-pointer" disabled></button>
+                                        </div>
+                                        <span class="fnsize11 ftcolor2 mt5">최소주문수량 1개</span>
+                                    </td>
+                                    <td>
+                                        <strong class="product-price">30,000원</strong>
+                                    </td>
+                                    <td>
+                                        <button type="button" class="c-pointer" onclick="targetModalPopup('modal-memo-popup')">
+                                            <!-- 2022-12-08 EZP-7618 cursor pointer로 변경 class 추가 -->
+                                            <i class="ico-easy-pick ico-memo-off c-pointer"></i>
+                                        </button>
+                                    </td>
+                                    <td><button type="button" name="button" class="btn btn-del btn-outline-gray">삭제</button></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="form-control check-one">
+                                            <label>
+                                                <input type="checkbox" >
+                                                <span>체크</span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="product-info">
+                                            <div class="figure">
+                                                <a href="../sub/goods-detail.html" style="background: url('../assets/images/cart-product-img.png') no-repeat 50% 50% / cover;"></a>
+                                            </div>
+                                            <div class="info">
+                                                <div class="shop-name">
+                                                    <a href="javascript: void(0);">[디오트] 라이트워터</a>
+                                                </div>
+                                                <div class="product-name">
+                                                    <a href="javascript: void(0);">빈티지 캔버스 스니커즈</a>
+                                                </div>
+                                                <div class="price">29,000원</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <span class="product-option">화이트/FREE</span>
+                                    </td>
+                                    <td>
+                                        <div class="def-number-input">
+                                            <button type="button" class="minus"></button>
+                                            <input class="quantity" name="quantity" value="1" type="tel">
+                                            <button type="button" class="plus"></button>
+                                        </div>
+                                        <span class="fnsize11 ftcolor2 mt5">최소주문수량 1개</span>
+                                    </td>
+                                    <td>
+                                        <strong class="product-price">30,000원</strong>
+                                    </td>
+                                    <td>
+                                        <button type="button" onclick="targetModalPopup('modal-memo-popup')">
+                                            <i class="ico-easy-pick ico-memo-off"></i>
+                                        </button>
+                                    </td>
+                                    <td><button type="button" name="button" class="btn btn-del btn-outline-gray">삭제</button></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="form-control check-one">
+                                            <label>
+                                                <input type="checkbox" >
+                                                <span>체크</span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="product-info">
+                                            <div class="figure">
+                                                <a href="../sub/goods-detail.html" style="background: url('../assets/images/cart-product-img.png') no-repeat 50% 50% / cover;"></a>
+                                            </div>
+                                            <div class="info">
+                                                <div class="shop-name">
+                                                    <a href="javascript: void(0);">[디오트] 라이트워터</a>
+                                                </div>
+                                                <div class="product-name">
+                                                    <a href="javascript: void(0);">빈티지 캔버스 스니커즈</a>
+                                                </div>
+                                                <div class="price">29,000원</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <span class="product-option">화이트/FREE</span>
+                                    </td>
+                                    <td>
+                                        <div class="def-number-input">
+                                            <button type="button" class="minus"></button>
+                                            <input class="quantity" name="quantity" value="1" type="tel">
+                                            <button type="button" class="plus"></button>
+                                        </div>
+                                        <span class="fnsize11 ftcolor2 mt5">최소주문수량 1개</span>
+                                    </td>
+                                    <td>
+                                        <strong class="product-price">30,000원</strong>
+                                    </td>
+                                    <td>
+                                        <button type="button" onclick="targetModalPopup('modal-memo-popup')">
+                                            <i class="ico-easy-pick ico-memo-off"></i>
+                                        </button>
+                                    </td>
+                                    <td><button type="button" name="button" class="btn btn-del btn-outline-gray">삭제</button></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="form-control check-one">
+                                            <label>
+                                                <input type="checkbox" >
+                                                <span>체크</span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="product-info">
+                                            <div class="figure">
+                                                <a href="../sub/goods-detail.html" style="background: url('../assets/images/cart-product-img.png') no-repeat 50% 50% / cover;"></a>
+                                            </div>
+                                            <div class="info">
+                                                <div class="shop-name">
+                                                    <a href="javascript: void(0);">[디오트] 라이트워터</a>
+                                                </div>
+                                                <div class="product-name">
+                                                    <a href="javascript: void(0);">빈티지 캔버스 스니커즈</a>
+                                                </div>
+                                                <div class="price">29,000원</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <span class="product-option">화이트/FREE</span>
+                                    </td>
+                                    <td>
+                                        <div class="def-number-input">
+                                            <button type="button" class="minus"></button>
+                                            <input class="quantity" name="quantity" value="1" type="tel">
+                                            <button type="button" class="plus"></button>
+                                        </div>
+                                        <span class="fnsize11 ftcolor2 mt5">최소주문수량 1개</span>
+                                    </td>
+                                    <td>
+                                        <strong class="product-price">30,000원</strong>
+                                    </td>
+                                    <td>
+                                        <button type="button" onclick="targetModalPopup('modal-memo-popup')">
+                                            <i class="ico-easy-pick ico-memo-off"></i>
+                                        </button>
+                                    </td>
+                                    <td><button type="button" name="button" class="btn btn-del btn-outline-gray">삭제</button></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="form-control check-one">
+                                            <label>
+                                                <input type="checkbox" >
+                                                <span>체크</span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="product-info">
+                                            <div class="figure">
+                                                <a href="../sub/goods-detail.html" style="background: url('../assets/images/cart-product-img.png') no-repeat 50% 50% / cover;"></a>
+                                            </div>
+                                            <div class="info">
+                                                <div class="shop-name">
+                                                    <a href="javascript: void(0);">[디오트] 라이트워터</a>
+                                                </div>
+                                                <div class="product-name">
+                                                    <a href="javascript: void(0);">빈티지 캔버스 스니커즈</a>
+                                                </div>
+                                                <div class="price">29,000원</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <span class="product-option">화이트/FREE</span>
+                                    </td>
+                                    <td>
+                                        <div class="def-number-input">
+                                            <button type="button" class="minus"></button>
+                                            <input class="quantity" name="quantity" value="1" type="tel">
+                                            <button type="button" class="plus"></button>
+                                        </div>
+                                        <span class="fnsize11 ftcolor2 mt5">최소주문수량 1개</span>
+                                    </td>
+                                    <td>
+                                        <strong class="product-price">30,000원</strong>
+                                    </td>
+                                    <td>
+                                        <button type="button" onclick="targetModalPopup('modal-memo-popup')">
+                                            <i class="ico-easy-pick ico-memo-off"></i>
+                                        </button>
+                                    </td>
+                                    <td><button type="button" name="button" class="btn btn-del btn-outline-gray">삭제</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <!-- //그리드 테이블-->
+                    </div>
+                </div>
+                <div class="product-price-box">
+                    <div class="price">
+                        <span>
+                            판매가 합계 <strong>460,000원</strong>
+                        </span>
+                        <span>
+                            부가가치세 <strong>46,000원</strong>
+                        </span>
+                        <span>
+                            배송비 <strong>0원</strong>
+                        </span>
+                    </div>
+                    <div class="total-price">
+                        <span>
+                            총합계금액 <b><strong>57,200</strong>원</b>
+                        </span>
+                    </div>
+                </div>
+                <div class="btn-submit-wrap">
+                    <a href="javascript:void(0);" class="btn btn-lg btn-sub-primary">선택상품 주문</a>
+                    <a href="javascript:void(0);" class="btn btn-lg btn-point">전체상품 주문</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 불량 장바구니 -->
+        <div class="tab-content tabCont hidden tableType01" id="conttab2">
+            <div class="gridTableArea posr">
+                <div class="table-top-info">
+                    <div class="top-txt-inline">
+                        <span class="txt-inline">총 <strong>1,000</strong>건
+                    </div>
+                </div>
+                <div class="tround-box">
+                    <div class="tbl-round">
+                        <div class="tbl-info-area">
+                            <div class="btns-multi f-left">
+                                <button type="button" name="button" class="btn btn-sm btn-primary">선택상품 삭제</button>
+                            </div>
+                        </div>
+                        <!-- 그리드 테이블-->
+                        <table class="tbl-list-view pdtype">
+                            <colgroup>
+                                <col style="width: 50px;">
+                                <col style="width: auto;">
+                                <col style="width: 200px;">
+                                <col style="width: 200px">
+                                <col style="width: 200px">
+                                <col style="width: 100px">
+                                <col style="width: 90px;">
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th>
+                                        <div class="form-control check-one">
+                                            <label>
+                                                <input type="checkbox" >
+                                                <span>체크</span>
+                                            </label>
+                                        </div>
+                                    </th>
+                                    <th>상품정보</th>
+                                    <th>옵션</th>
+                                    <th>불량수량</th>
+                                    <th>판매가 합계</th>
+                                    <th>메모</th>
+                                    <th>삭제</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="form-control check-one">
+                                            <label>
+                                                <input type="checkbox" >
+                                                <span>체크</span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="product-info">
+                                            <div class="figure">
+                                                <a href="../sub/goods-detail.html" style="background: url('../assets/images/cart-product-img.png') no-repeat 50% 50% / cover;"></a>
+                                            </div>
+                                            <div class="info">
+                                                <div class="shop-name">
+                                                    <a href="javascript: void(0);">[디오트] 라이트워터</a>
+                                                </div>
+                                                <div class="product-name">
+                                                    <a href="javascript: void(0);">빈티지 캔버스 스니커즈</a>
+                                                </div>
+                                                <div class="price">29,000원</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <span class="product-option">화이트/FREE</span>
+                                    </td>
+                                    <td>
+                                        <div class="def-number-input">
+                                            <button type="button" class="minus"></button>
+                                            <input class="quantity" name="quantity" value="1" type="tel">
+                                            <button type="button" class="plus"></button>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <strong class="product-price">30,000원</strong>
+                                    </td>
+                                    <td>
+                                        <button type="button" onclick="targetModalPopup('modal-memo-popup')">
+                                            <i class="ico-easy-pick ico-memo-on"></i>
+                                        </button>
+                                    </td>
+                                    <td><button type="button" name="button" class="btn btn-del btn-outline-gray">삭제</button></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="form-control check-one">
+                                            <label>
+                                                <input type="checkbox" >
+                                                <span>체크</span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="product-info">
+                                            <div class="figure">
+                                                <a href="../sub/goods-detail.html" style="background: url('../assets/images/cart-product-img.png') no-repeat 50% 50% / cover;"></a>
+                                            </div>
+                                            <div class="info">
+                                                <div class="shop-name">
+                                                    <a href="javascript: void(0);">[디오트] 라이트워터</a>
+                                                </div>
+                                                <div class="product-name">
+                                                    <a href="javascript: void(0);">빈티지 캔버스 스니커즈</a>
+                                                </div>
+                                                <div class="price">29,000원</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <span class="product-option">화이트/FREE</span>
+                                    </td>
+                                    <td>
+                                        <div class="def-number-input">
+                                            <button type="button" class="minus"></button>
+                                            <input class="quantity" name="quantity" value="1" type="tel">
+                                            <button type="button" class="plus"></button>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <strong class="product-price">30,000원</strong>
+                                    </td>
+                                    <td>
+                                        <button type="button" onclick="targetModalPopup('modal-memo-popup')">
+                                            <i class="ico-easy-pick ico-memo-off"></i>
+                                        </button>
+                                    </td>
+                                    <td><button type="button" name="button" class="btn btn-del btn-outline-gray">삭제</button></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="form-control check-one">
+                                            <label>
+                                                <input type="checkbox" >
+                                                <span>체크</span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="product-info">
+                                            <div class="figure">
+                                                <a href="../sub/goods-detail.html" style="background: url('../assets/images/cart-product-img.png') no-repeat 50% 50% / cover;"></a>
+                                            </div>
+                                            <div class="info">
+                                                <div class="shop-name">
+                                                    <a href="javascript: void(0);">[디오트] 라이트워터</a>
+                                                </div>
+                                                <div class="product-name">
+                                                    <a href="javascript: void(0);">빈티지 캔버스 스니커즈</a>
+                                                </div>
+                                                <div class="price">29,000원</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <span class="product-option">화이트/FREE</span>
+                                    </td>
+                                    <td>
+                                        <div class="def-number-input">
+                                            <button type="button" class="minus"></button>
+                                            <input class="quantity" name="quantity" value="1" type="tel">
+                                            <button type="button" class="plus"></button>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <strong class="product-price">30,000원</strong>
+                                    </td>
+                                    <td>
+                                        <button type="button" onclick="targetModalPopup('modal-memo-popup')">
+                                            <i class="ico-easy-pick ico-memo-off"></i>
+                                        </button>
+                                    </td>
+                                    <td><button type="button" name="button" class="btn btn-del btn-outline-gray">삭제</button></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="form-control check-one">
+                                            <label>
+                                                <input type="checkbox" >
+                                                <span>체크</span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="product-info">
+                                            <div class="figure">
+                                                <a href="../sub/goods-detail.html" style="background: url('../assets/images/cart-product-img.png') no-repeat 50% 50% / cover;"></a>
+                                            </div>
+                                            <div class="info">
+                                                <div class="shop-name">
+                                                    <a href="javascript: void(0);">[디오트] 라이트워터</a>
+                                                </div>
+                                                <div class="product-name">
+                                                    <a href="javascript: void(0);">빈티지 캔버스 스니커즈</a>
+                                                </div>
+                                                <div class="price">29,000원</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <span class="product-option">화이트/FREE</span>
+                                    </td>
+                                    <td>
+                                        <div class="def-number-input">
+                                            <button type="button" class="minus"></button>
+                                            <input class="quantity" name="quantity" value="1" type="tel">
+                                            <button type="button" class="plus"></button>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <strong class="product-price">30,000원</strong>
+                                    </td>
+                                    <td>
+                                        <button type="button" onclick="targetModalPopup('modal-memo-popup')">
+                                            <i class="ico-easy-pick ico-memo-off"></i>
+                                        </button>
+                                    </td>
+                                    <td><button type="button" name="button" class="btn btn-del btn-outline-gray">삭제</button></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="form-control check-one">
+                                            <label>
+                                                <input type="checkbox" >
+                                                <span>체크</span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="product-info">
+                                            <div class="figure">
+                                                <a href="../sub/goods-detail.html" style="background: url('../assets/images/cart-product-img.png') no-repeat 50% 50% / cover;"></a>
+                                            </div>
+                                            <div class="info">
+                                                <div class="shop-name">
+                                                    <a href="javascript: void(0);">[디오트] 라이트워터</a>
+                                                </div>
+                                                <div class="product-name">
+                                                    <a href="javascript: void(0);">빈티지 캔버스 스니커즈</a>
+                                                </div>
+                                                <div class="price">29,000원</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <span class="product-option">화이트/FREE</span>
+                                    </td>
+                                    <td>
+                                        <div class="def-number-input">
+                                            <button type="button" class="minus"></button>
+                                            <input class="quantity" name="quantity" value="1" type="tel">
+                                            <button type="button" class="plus"></button>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <strong class="product-price">30,000원</strong>
+                                    </td>
+                                    <td>
+                                        <button type="button" onclick="targetModalPopup('modal-memo-popup')">
+                                            <i class="ico-easy-pick ico-memo-off"></i>
+                                        </button>
+                                    </td>
+                                    <td><button type="button" name="button" class="btn btn-del btn-outline-gray">삭제</button></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="form-control check-one">
+                                            <label>
+                                                <input type="checkbox" >
+                                                <span>체크</span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="product-info">
+                                            <div class="figure">
+                                                <a href="../sub/goods-detail.html" style="background: url('../assets/images/cart-product-img.png') no-repeat 50% 50% / cover;"></a>
+                                            </div>
+                                            <div class="info">
+                                                <div class="shop-name">
+                                                    <a href="javascript: void(0);">[디오트] 라이트워터</a>
+                                                </div>
+                                                <div class="product-name">
+                                                    <a href="javascript: void(0);">빈티지 캔버스 스니커즈</a>
+                                                </div>
+                                                <div class="price">29,000원</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <span class="product-option">화이트/FREE</span>
+                                    </td>
+                                    <td>
+                                        <div class="def-number-input">
+                                            <button type="button" class="minus"></button>
+                                            <input class="quantity" name="quantity" value="1" type="tel">
+                                            <button type="button" class="plus"></button>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <strong class="product-price">30,000원</strong>
+                                    </td>
+                                    <td>
+                                        <button type="button" onclick="targetModalPopup('modal-memo-popup')">
+                                            <i class="ico-easy-pick ico-memo-off"></i>
+                                        </button>
+                                    </td>
+                                    <td><button type="button" name="button" class="btn btn-del btn-outline-gray">삭제</button></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="form-control check-one">
+                                            <label>
+                                                <input type="checkbox" >
+                                                <span>체크</span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="product-info">
+                                            <div class="figure">
+                                                <a href="../sub/goods-detail.html" style="background: url('../assets/images/cart-product-img.png') no-repeat 50% 50% / cover;"></a>
+                                            </div>
+                                            <div class="info">
+                                                <div class="shop-name">
+                                                    <a href="javascript: void(0);">[디오트] 라이트워터</a>
+                                                </div>
+                                                <div class="product-name">
+                                                    <a href="javascript: void(0);">빈티지 캔버스 스니커즈</a>
+                                                </div>
+                                                <div class="price">29,000원</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <span class="product-option">화이트/FREE</span>
+                                    </td>
+                                    <td>
+                                        <div class="def-number-input">
+                                            <button type="button" class="minus"></button>
+                                            <input class="quantity" name="quantity" value="1" type="tel">
+                                            <button type="button" class="plus"></button>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <strong class="product-price">30,000원</strong>
+                                    </td>
+                                    <td>
+                                        <button type="button" onclick="targetModalPopup('modal-memo-popup')">
+                                            <i class="ico-easy-pick ico-memo-off"></i>
+                                        </button>
+                                    </td>
+                                    <td><button type="button" name="button" class="btn btn-del btn-outline-gray">삭제</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <!-- //그리드 테이블-->
+                    </div>
+                </div>
+                <div class="product-price-box">
+                    <div class="price">
+                        <span>
+                            판매가 합계 <strong>460,000원</strong>
+                        </span>
+                        <span>
+                            부가가치세 <strong>46,000원</strong>
+                        </span>
+                        <span>
+                            배송비 <strong>0원</strong>
+                        </span>
+                    </div>
+                    <div class="total-price">
+                        <span>
+                            총합계금액 <b><strong>57,200</strong>원</b>
+                        </span>
+                    </div>
+                </div>
+                <div class="btn-submit-wrap">
+                    <a href="javascript:void(0);" class="btn btn-lg btn-sub-primary">선택상품 주문</a>
+                    <a href="javascript:void(0);" class="btn btn-lg btn-point">전체상품 주문</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 샘플장바구니 -->
+        <div class="tab-content tabCont hidden tableType01" id="conttab3">
+            <div class="gridTableArea posr">
+                <div class="table-top-info">
+                    <div class="top-txt-inline">
+                        <span class="txt-inline">총 <strong>1,000</strong>건
+                    </div>
+                </div>
+                <div class="tround-box">
+                    <div class="tbl-round">
+                        <div class="tbl-info-area">
+                            <div class="btns-multi f-left">
+                                <button type="button" name="button" class="btn btn-sm btn-primary">선택상품 삭제</button>
+                            </div>
+                        </div>
+                        <!-- 그리드 테이블-->
+                        <table class="tbl-list-view pdtype">
+                            <colgroup>
+                                <col style="width: 50px;">
+                                <col style="width: auto;">
+                                <col style="width: 150px;">
+                                <col style="width: 150px;">
+                                <col style="width: 90px;">
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th>
+                                        <div class="form-control check-one">
+                                            <label>
+                                                <input type="checkbox" >
+                                                <span>체크</span>
+                                            </label>
+                                        </div>
+                                    </th>
+                                    <th>상품정보</th>
+                                    <th>옵션</th>
+                                    <th>메모</th>
+                                    <th>삭제</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="form-control check-one">
+                                            <label>
+                                                <input type="checkbox" >
+                                                <span>체크</span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="product-info">
+                                            <div class="figure">
+                                                <a href="../sub/goods-detail.html" style="background: url('../assets/images/cart-product-img.png') no-repeat 50% 50% / cover;"></a>
+                                            </div>
+                                            <div class="info">
+                                                <div class="shop-name">
+                                                    <a href="javascript: void(0);">[디오트] 라이트워터</a>
+                                                </div>
+                                                <div class="product-name">
+                                                    <a href="javascript: void(0);">빈티지 캔버스 스니커즈</a>
+                                                </div>
+                                                <div class="price">29,000원</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <span class="product-option">화이트/FREE</span>
+                                    </td>
+                                    <td>
+                                        <button type="button" onclick="targetModalPopup('modal-memo-popup')">
+                                            <i class="ico-easy-pick ico-memo-on"></i>
+                                        </button>
+                                    </td>
+                                    <td><button type="button" name="button" class="btn btn-del btn-outline-gray">삭제</button></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="form-control check-one">
+                                            <label>
+                                                <input type="checkbox" >
+                                                <span>체크</span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="product-info">
+                                            <div class="figure">
+                                                <a href="../sub/goods-detail.html" style="background: url('../assets/images/cart-product-img.png') no-repeat 50% 50% / cover;"></a>
+                                            </div>
+                                            <div class="info">
+                                                <div class="shop-name">
+                                                    <a href="javascript: void(0);">[디오트] 라이트워터</a>
+                                                </div>
+                                                <div class="product-name">
+                                                    <a href="javascript: void(0);">빈티지 캔버스 스니커즈</a>
+                                                </div>
+                                                <div class="price">29,000원</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <span class="product-option">화이트/FREE</span>
+                                    </td>
+                                    <td>
+                                        <button type="button" onclick="targetModalPopup('modal-memo-popup')">
+                                            <i class="ico-easy-pick ico-memo-off"></i>
+                                        </button>
+                                    </td>
+                                    <td><button type="button" name="button" class="btn btn-del btn-outline-gray">삭제</button></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="form-control check-one">
+                                            <label>
+                                                <input type="checkbox" >
+                                                <span>체크</span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="product-info">
+                                            <div class="figure">
+                                                <a href="../sub/goods-detail.html" style="background: url('../assets/images/cart-product-img.png') no-repeat 50% 50% / cover;"></a>
+                                            </div>
+                                            <div class="info">
+                                                <div class="shop-name">
+                                                    <a href="javascript: void(0);">[디오트] 라이트워터</a>
+                                                </div>
+                                                <div class="product-name">
+                                                    <a href="javascript: void(0);">빈티지 캔버스 스니커즈</a>
+                                                </div>
+                                                <div class="price">29,000원</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <span class="product-option">화이트/FREE</span>
+                                    </td>
+                                    <td>
+                                        <button type="button" onclick="targetModalPopup('modal-memo-popup')">
+                                            <i class="ico-easy-pick ico-memo-off"></i>
+                                        </button>
+                                    </td>
+                                    <td><button type="button" name="button" class="btn btn-del btn-outline-gray">삭제</button></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="form-control check-one">
+                                            <label>
+                                                <input type="checkbox" >
+                                                <span>체크</span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="product-info">
+                                            <div class="figure">
+                                                <a href="../sub/goods-detail.html" style="background: url('../assets/images/cart-product-img.png') no-repeat 50% 50% / cover;"></a>
+                                            </div>
+                                            <div class="info">
+                                                <div class="shop-name">
+                                                    <a href="javascript: void(0);">[디오트] 라이트워터</a>
+                                                </div>
+                                                <div class="product-name">
+                                                    <a href="javascript: void(0);">빈티지 캔버스 스니커즈</a>
+                                                </div>
+                                                <div class="price">29,000원</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <span class="product-option">화이트/FREE</span>
+                                    </td>
+                                    <td>
+                                        <button type="button" onclick="targetModalPopup('modal-memo-popup')">
+                                            <i class="ico-easy-pick ico-memo-off"></i>
+                                        </button>
+                                    </td>
+                                    <td><button type="button" name="button" class="btn btn-del btn-outline-gray">삭제</button></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="form-control check-one">
+                                            <label>
+                                                <input type="checkbox" >
+                                                <span>체크</span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="product-info">
+                                            <div class="figure">
+                                                <a href="../sub/goods-detail.html" style="background: url('../assets/images/cart-product-img.png') no-repeat 50% 50% / cover;"></a>
+                                            </div>
+                                            <div class="info">
+                                                <div class="shop-name">
+                                                    <a href="javascript: void(0);">[디오트] 라이트워터</a>
+                                                </div>
+                                                <div class="product-name">
+                                                    <a href="javascript: void(0);">빈티지 캔버스 스니커즈</a>
+                                                </div>
+                                                <div class="price">29,000원</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <span class="product-option">화이트/FREE</span>
+                                    </td>
+                                    <td>
+                                        <button type="button" onclick="targetModalPopup('modal-memo-popup')">
+                                            <i class="ico-easy-pick ico-memo-off"></i>
+                                        </button>
+                                    </td>
+                                    <td><button type="button" name="button" class="btn btn-del btn-outline-gray">삭제</button></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="form-control check-one">
+                                            <label>
+                                                <input type="checkbox" >
+                                                <span>체크</span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="product-info">
+                                            <div class="figure">
+                                                <a href="../sub/goods-detail.html" style="background: url('../assets/images/cart-product-img.png') no-repeat 50% 50% / cover;"></a>
+                                            </div>
+                                            <div class="info">
+                                                <div class="shop-name">
+                                                    <a href="javascript: void(0);">[디오트] 라이트워터</a>
+                                                </div>
+                                                <div class="product-name">
+                                                    <a href="javascript: void(0);">빈티지 캔버스 스니커즈</a>
+                                                </div>
+                                                <div class="price">29,000원</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <span class="product-option">화이트/FREE</span>
+                                    </td>
+                                    <td>
+                                        <button type="button" onclick="targetModalPopup('modal-memo-popup')">
+                                            <i class="ico-easy-pick ico-memo-off"></i>
+                                        </button>
+                                    </td>
+                                    <td><button type="button" name="button" class="btn btn-del btn-outline-gray">삭제</button></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="form-control check-one">
+                                            <label>
+                                                <input type="checkbox" >
+                                                <span>체크</span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="product-info">
+                                            <div class="figure">
+                                                <a href="../sub/goods-detail.html" style="background: url('../assets/images/cart-product-img.png') no-repeat 50% 50% / cover;"></a>
+                                            </div>
+                                            <div class="info">
+                                                <div class="shop-name">
+                                                    <a href="javascript: void(0);">[디오트] 라이트워터</a>
+                                                </div>
+                                                <div class="product-name">
+                                                    <a href="javascript: void(0);">빈티지 캔버스 스니커즈</a>
+                                                </div>
+                                                <div class="price">29,000원</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <span class="product-option">화이트/FREE</span>
+                                    </td>
+                                    <td>
+                                        <button type="button" onclick="targetModalPopup('modal-memo-popup')">
+                                            <i class="ico-easy-pick ico-memo-off"></i>
+                                        </button>
+                                    </td>
+                                    <td><button type="button" name="button" class="btn btn-del btn-outline-gray">삭제</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <!-- //그리드 테이블-->
+                    </div>
+                </div>
+                <div class="btn-submit-wrap">
+                    <a href="javascript:void(0);" class="btn btn-lg btn-sub-primary">선택상품 주문</a>
+                    <a href="javascript:void(0);" class="btn btn-lg btn-point">전체상품 주문</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- prd slide -->
+        <div class="prid6-slide-wrap">
+            <div class="slide-title-box">
+                <dl>
+                    <dt>이지픽의 다양한 상품</dt>
+                    <dd>
+                        <a href="#">
+                            <span>더보기</span>
+                            <i><img src="../assets/images/icons/detail-slide-arrow.png" alt="slide viewmore arrow"></i>
+                        </a>
+                    </dd>
+                </dl>
+                <div class="prd-slide-arrow">
+                    <span class="prd-slide-prev">
+                        <i><img src="../assets/images/icons/prd-slide-prev.png" alt="prd slide arrow"></i>
+                    </span>
+                    <span class="prd-slide-next">
+                        <i><img src="../assets/images/icons/prd-slide-next.png" alt="prd slide arrow"></i>
+                    </span>
+                </div>
+            </div>
+            <ul id="prd7-slide" class="prd7-slide">
+                <li>
+                    <ul class="prd-grid-wrap prd-grid7-wrap">
+                        <li>
+                            <div>
+                              <div class="img-box sold-out">
+                                <a href="#" style="background-image : url('../assets/images/goods-images/goods-img23.png');"></a>
+                                <div class="like-btn active"></div>
+                              </div>
+                              <div class="text-box">
+                                <a href="#" class="prd-cate">[디오트] 라이트워터</a>
+                                <a href="#" class="prd-name">빈티지 캔버스 스니커즈 뮬</a>
+                                <b class="prd-price">29,000</b>
+                              </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                              <div class="img-box">
+                                <a href="https://www.naver.com" style="background-image : url('../assets/images/goods-images/goods-img-horizon.png');"></a>
+                                <div class="like-btn active"></div>
+                              </div>
+                              <div class="text-box">
+                                <a href="https://www.daum.net" class="prd-cate">[디오트] 라이트워터</a>
+                                <a href="https://www.google.co.kr" class="prd-name">빈티지 캔버스 스니커즈 뮬</a>
+                                <b class="prd-price">29,000</b>
+                              </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                              <!-- 2023-01-03 EZP-6829 soldout + sample case 추가 -->
+                              <div class="img-box sold-out sample">
+                                <a href="#" style="background-image : url('../assets/images/goods-images/goods-img02.png');"></a>
+                                <div class="like-btn"></div>
+                              </div>
+                              <div class="text-box">
+                                <a href="#" class="prd-cate">[디오트] 라이트워터</a>
+                                <a href="#" class="prd-name">빈티지 캔버스 스니커즈 뮬</a>
+                                <b class="prd-price">29,000</b>
+                              </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                              <!-- 2023-01-03 EZP-6829 sample case 추가 -->
+                              <div class="img-box sample">
+                                <a href="#" style="background-image : url('../assets/images/goods-images/goods-img28.png');"></a>
+                                <div class="like-btn"></div>
+                              </div>
+                              <div class="text-box">
+                                <a href="#" class="prd-cate">[디오트] 라이트워터</a>
+                                <a href="#" class="prd-name">빈티지 캔버스 스니커즈 뮬</a>
+                                <b class="prd-price">29,000</b>
+                              </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                              <div class="img-box">
+                                <a href="#" style="background-image : url('../assets/images/goods-images/goods-img24.png');"></a>
+                                <div class="like-btn"></div>
+                              </div>
+                              <div class="text-box">
+                                <a href="#" class="prd-cate">[디오트] 라이트워터</a>
+                                <a href="#" class="prd-name">빈티지 캔버스 스니커즈 뮬</a>
+                                <b class="prd-price">29,000</b>
+                              </div>
+                            </div>
+                        </li>
+                        <li>
+                          <div>
+                            <div class="img-box">
+                              <a href="#" style="background-image : url('../assets/images/goods-images/goods-img14.png');"></a>
+                              <div class="like-btn active"></div>
+                            </div>
+                            <div class="text-box">
+                              <a href="#" class="prd-cate">[디오트] 라이트워터</a>
+                              <a href="#" class="prd-name">빈티지 캔버스 스니커즈 뮬</a>
+                              <b class="prd-price">29,000</b>
+                            </div>
+                          </div>
+                      </li>
+                        <li>
+                            <div>
+                              <div class="img-box">
+                                <a href="#" style="background-image : url('../assets/images/goods-images/goods-img25.png');"></a>
+                                <div class="like-btn"></div>
+                              </div>
+                              <div class="text-box">
+                                <a href="#" class="prd-cate">[디오트] 라이트워터</a>
+                                <a href="#" class="prd-name">빈티지 캔버스 스니커즈 뮬</a>
+                                <b class="prd-price">29,000</b>
+                              </div>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <ul class="prd-grid-wrap prd-grid7-wrap">
+                        <li>
+                            <div>
+                              <div class="img-box">
+                                <a href="#" style="background-image : url('../assets/images/goods-images/goods-img11.png');"></a>
+                                <div class="like-btn active"></div>
+                              </div>
+                              <div class="text-box">
+                                <a href="#" class="prd-cate">[디오트] 라이트워터</a>
+                                <a href="#" class="prd-name">빈티지 캔버스 스니커즈 뮬</a>
+                                <b class="prd-price">29,000</b>
+                              </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                              <div class="img-box">
+                                <a href="#" style="background-image : url('../assets/images/goods-images/goods-img14.png');"></a>
+                                <div class="like-btn"></div>
+                              </div>
+                              <div class="text-box">
+                                <a href="#" class="prd-cate">[디오트] 라이트워터</a>
+                                <a href="#" class="prd-name">빈티지 캔버스 스니커즈 뮬</a>
+                                <b class="prd-price">29,000</b>
+                              </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                              <div class="img-box sold-out">
+                                <a href="#" style="background-image : url('../assets/images/goods-images/goods-img17.png');"></a>
+                                <div class="like-btn active"></div>
+                              </div>
+                              <div class="text-box">
+                                <a href="#" class="prd-cate">[디오트] 라이트워터</a>
+                                <a href="#" class="prd-name">빈티지 캔버스 스니커즈 뮬</a>
+                                <b class="prd-price">29,000</b>
+                              </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                              <div class="img-box">
+                                <a href="#" style="background-image : url('../assets/images/goods-images/goods-img18.png');"></a>
+                                <div class="like-btn"></div>
+                              </div>
+                              <div class="text-box">
+                                <a href="#" class="prd-cate">[디오트] 라이트워터</a>
+                                <a href="#" class="prd-name">빈티지 캔버스 스니커즈 뮬</a>
+                                <b class="prd-price">29,000</b>
+                              </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                              <div class="img-box">
+                                <a href="#" style="background-image : url('../assets/images/goods-images/goods-img03.png');"></a>
+                                <div class="like-btn"></div>
+                              </div>
+                              <div class="text-box">
+                                <a href="#" class="prd-cate">[디오트] 라이트워터</a>
+                                <a href="#" class="prd-name">빈티지 캔버스 스니커즈 뮬</a>
+                                <b class="prd-price">29,000</b>
+                              </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                              <div class="img-box">
+                                <a href="#" style="background-image : url('../assets/images/goods-images/goods-img08.png');"></a>
+                                <div class="like-btn active"></div>
+                              </div>
+                              <div class="text-box">
+                                <a href="#" class="prd-cate">[디오트] 라이트워터</a>
+                                <a href="#" class="prd-name">빈티지 캔버스 스니커즈 뮬</a>
+                                <b class="prd-price">29,000</b>
+                              </div>
+                            </div>
+                        </li>
+                        <li>
+                          <div>
+                            <div class="img-box">
+                              <a href="#" style="background-image : url('../assets/images/goods-images/goods-img28.png');"></a>
+                              <div class="like-btn active"></div>
+                            </div>
+                            <div class="text-box">
+                              <a href="#" class="prd-cate">[디오트] 라이트워터</a>
+                              <a href="#" class="prd-name">빈티지 캔버스 스니커즈 뮬</a>
+                              <b class="prd-price">29,000</b>
+                            </div>
+                          </div>
+                      </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</div>
+<!-- //content -->
+
+
+<script>
+    $(document).ready(function(){
+
+        $('#prd7-slide').slick({
+        infinite: true,
+        slidesToShow : 1,
+        slidesToScroll : 1,
+        speed : 1000,
+        arrows : true,
+        dots : false,
+        autoplay : false,
+        autoplaySpeed : 3000,
+        pauseOnHover : false,
+        fade : false,
+        vertical : false,
+        prevArrow: $(".prd-slide-prev"),
+        nextArrow: $(".prd-slide-next"),
+        draggable : true,
+
+        });
+
+    })
+</script>
+
+
+{% include("./modals/memo/modal-memo.njk") %}
+{% include("./modals/shop/modal-order-type.njk") %}
+
+
+{% endblock %}

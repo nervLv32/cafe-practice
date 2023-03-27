@@ -1,0 +1,1081 @@
+{% extends "../_templates/layout.njk" %}
+{% block content %}
+
+<div class="wrapper" id="wrap">
+    <div class="content" id="content">
+        <div class="content-head">
+            <div class="page-title">
+                <h3 class="h3-tit">정산내역</h3>
+                <a href="#" class="btn-manual" target="_blank" title="매뉴얼">매뉴얼</a>
+                <div class="form-box">
+                    <form onsubmit="return submitHandler();">
+                        <fieldset>
+                            <legend class="skip">통합검색</legend>
+                            <label for="total-search" class="skip">검색어 입력</label>
+                            <input type="search" name="total-search" id="total-search" title="검색어 입력" class="text"
+                                placeholder="상품을 검색해보세요.">
+                            <input type="submit" value="검색" class="submit">
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+            <div class="cont-info-right">
+                <ul class="breadcrumb">
+                    <li>공급</li>
+                    <li>정산관리</li>
+                    <li class="now" title="현재 페이지">정산내역</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="tab-top-round">
+            <ul class="tab-rounds tab">
+                <li>
+                    <a href="./account-list.html"><span>정산내역</span></a>
+                </li>
+                <li class="active">
+                    <a href="./cor-account-list.html">거래처정산내역</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="notice-wrap renewal">
+            <p class="ico-notice fnsize13">입고일별, 거래처별 정산내역을 확인 할 수 있습니다.</p>
+        </div>
+
+        <div class="mSearchEngine folder">
+            <div class="tborder-box">
+                <div class="tbl-top-search">
+                    <div class="table-row">
+                        <table class="tbl-top">
+                            <colgroup>
+                                <col style="width:120px;">
+                                <col style="width:42%;">
+                                <col style="width:25px;">
+                                <col style="width:120px;">
+                                <col style="width:42%">
+                            </colgroup>
+                            <tbody>
+                                <tr class="rowFix rowFold">
+                                    <th>기간</th>
+                                    <td>
+                                        <div class="form-inline">
+                                            <div class="sel-date-type ml0">
+                                                <button type="button" class="label-date active">1개월</button>
+                                                <ul class="sel-date-list">
+                                                    <li class="label-date">오늘</li>
+                                                    <li class="label-date">3일</li>
+                                                    <li class="label-date">7일</li>
+                                                    <li class="label-date active">1개월</li>
+                                                    <li class="label-date">3개월</li>
+                                                    <li class="label-date">6개월</li>
+                                                    <li class="label-date">1년</li>
+                                                    <li class="label-date">선택</li>
+                                                </ul>
+                                            </div>
+                                            <div class="calendar-box time">
+                                                <div class="form-inline">
+                                                    <div class="form-control">
+                                                        <input type="text" class="cal-input" data-range="cal02"
+                                                            value="2022-03-13">
+                                                    </div>
+                                                    <div class="wave-txt">~</div>
+                                                    <div class="form-control">
+                                                        <input type="text" class="cal-input" data-range="cal02"
+                                                            value="2022-04-12">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td></td>
+                                    <th>검색</th>
+                                    <td>
+                                        <div class="form-inline">
+                                            <div class="select-control">
+                                                <button type="button" class="btn-sel">전체</button>
+                                                <ul class="sel-panel">
+                                                    <li>전체</li>
+                                                    <li>거래처명</li>
+                                                    <li>주소</li>
+                                                </ul>
+                                            </div>
+                                            <div class="form-control ml4">
+                                                <input type="text" class="search-input-w1">
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="top-btn-search">
+                        <button type="button" name="button" class="btn btn-lg btn-point">검색</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-top-round mt40 border-none">
+            <ul class="tab-rounds tab mb0 justify-content-start">
+                <li data-tab="conttab1" class="active">
+                    <a href="javascript: void(0);"><span>입고일별 보기</span></a>
+                </li>
+                <li data-tab="conttab2">
+                    <a href="javascript: void(0);">거래처별 보기</a>
+                </li>
+            </ul>
+            <!-- 2023-03-13 EZP-8838 txt 추가 -->
+            <p class="txt-info">※ 목록에서 '거래처명' 또는 '각 일자별 금액'을 클릭하시면 상세 내역을 볼 수 있습니다.</p>
+        </div>
+
+        <!-- 입고일별 보기 -->
+        <div class="tab-content tabCont" id="conttab1">
+            <div class="gridTableArea">
+                <div class="table-top-info">
+                    <div class="top-txt-inline">
+                        <!-- 2022 08 16 검색결과-> 거래처수로 텍스트 변경 -->
+                        <span class="txt-inline">거래처수 <strong><span class="txt-link-blue">1,000</span></strong>개</span>
+                        <span class="txt-inline">총 공급가액 <strong><span
+                                    class="txt-link-blue">200,000</span></strong>원</span>
+                        <span class="txt-inline">총 부가세 <strong><span
+                                    class="txt-link-blue">200,000</span></strong>원</span>
+                        <span class="txt-inline">총 정산금액 <strong><span
+                                    class="txt-link-blue">200,000</span></strong>원</span>
+                    </div>
+
+                    <div class="sort-sel-area">
+                        <select id="list_limit" class="default-select">
+                            <option value="20" selected="selected">20개씩 보기</option>
+                            <option value="30">30개씩 보기</option>
+                            <option value="50">50개씩 보기</option>
+                            <option value="100">100개씩 보기</option>
+                            <!-- 2023-02-17 EZP-7830 보기 옵션 추가 시작 -->
+                            <option value="200">200개씩 보기</option>
+                            <option value="300">300개씩 보기</option>
+                            <option value="500">500개씩 보기</option>
+                            <!-- 2023-02-17 EZP-7830 보기 옵션 추가 끝 -->
+                        </select>
+                    </div>
+                </div>
+                <div class="tround-box">
+                    <div class="tbl-round">
+                        <div class="tbl-info-area">
+                            <div class="btns-multi f-right">
+                                <button type="button" name="button" class="btn btn-sm btn-outline-gray">
+                                    <i class="ico ico-excel"></i>
+                                    엑셀다운로드
+                                </button>
+                                <button type="button" name="button" class="btn btn-ico btn-outline-gray">
+                                    <i class="ico ico-sort"></i>
+                                    설정
+                                </button>
+                            </div>
+                        </div>
+                        <!--그리드테이블-->
+                        <div class="mGridTable grid-resize tbl-height01 tbl-type07">
+                            <table class="eChkColor" id="eMultiTable1">
+                                <caption>거래처정산내역-입고일별리스트</caption>
+                                <thead>
+                                    <tr>
+                                        <th scope="col" style="width: 189px;" class="resizable">정산월</th>
+                                        <th scope="col" style="width: 189px;" class="resizable">입고일</th>
+                                        <th scope="col" style="width: 364px;" class="resizable">거래처명</th>
+                                        <th scope="col" style="width: 364px;" class="resizable">주소</th>
+                                        <th scope="col" style="width: 189px;" class="resizable">공급가액</th>
+                                        <th scope="col" style="width: 189px;" class="resizable">부가세</th>
+                                        <th scope="col" style="width: 188px;">정산금액</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>2022-04</td>
+                                        <td>2022-04-05</td>
+                                        <!-- 2022 08 16 info-box 추가 -->
+                                        <td class="overflow-unset">
+                                            <div class="hover-box">
+                                                <a href="javascript: void(0);" class="hover-btn">나이스</a>
+                                                <div class="info-box">
+                                                    <span class="shop-name">마켓명 #층 ##열 ##호</span><br>
+                                                    <span class="tel">(010-1234-1235)</span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>디오트 3층 B열 22호</td>
+                                        <td class="text-ar">230,000원</td>
+                                        <td class="text-ar">23,000원</td>
+                                        <td class="text-ar">253,000원</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2022-04</td>
+                                        <td>2022-04-05</td>
+                                        <td class="overflow-unset">
+                                            <div class="hover-box">
+                                                <a href="javascript: void(0);" class="hover-btn">미니미니</a>
+                                                <div class="info-box">
+                                                    <span class="shop-name">마켓명 #층 ##열 ##호</span><br>
+                                                    <span class="tel">(010-1234-1235)</span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>디오트 3층 B열 22호</td>
+                                        <td class="text-ar">230,000원</td>
+                                        <td class="text-ar">23,000원</td>
+                                        <td class="text-ar">122,100원</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2022-04</td>
+                                        <td>2022-04-05</td>
+                                        <td class="overflow-unset">
+                                            <div class="hover-box">
+                                                <a href="javascript: void(0);" class="hover-btn">미니미니</a>
+                                                <div class="info-box">
+                                                    <span class="shop-name">마켓명 #층 ##열 ##호</span><br>
+                                                    <span class="tel">(010-1234-1235)</span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>디오트 3층 B열 22호</td>
+                                        <td class="text-ar">230,000원</td>
+                                        <td class="text-ar">23,000원</td>
+                                        <td class="text-ar">88,000원</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2022-04</td>
+                                        <td>2022-04-05</td>
+                                        <td class="overflow-unset">
+                                            <div class="hover-box">
+                                                <a href="javascript: void(0);" class="hover-btn">딥플리</a>
+                                                <div class="info-box">
+                                                    <span class="shop-name">마켓명 #층 ##열 ##호</span><br>
+                                                    <span class="tel">(010-1234-1235)</span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>디오트 3층 B열 22호</td>
+                                        <td class="text-ar">230,000원</td>
+                                        <td class="text-ar">23,000원</td>
+                                        <td class="text-ar">220,000원</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2022-04</td>
+                                        <td>2022-04-05</td>
+                                        <td class="overflow-unset">
+                                            <div class="hover-box">
+                                                <a href="javascript: void(0);" class="hover-btn">리프레쉬</a>
+                                                <div class="info-box">
+                                                    <span class="shop-name">마켓명 #층 ##열 ##호</span><br>
+                                                    <span class="tel">(010-1234-1235)</span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>디오트 3층 B열 22호</td>
+                                        <td class="text-ar">230,000원</td>
+                                        <td class="text-ar">23,000원</td>
+                                        <td class="text-ar">220,000원</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2022-04</td>
+                                        <td>2022-04-05</td>
+                                        <td class="overflow-unset">
+                                            <div class="hover-box">
+                                                <a href="javascript: void(0);" class="hover-btn">리프레쉬</a>
+                                                <div class="info-box">
+                                                    <span class="shop-name">마켓명 #층 ##열 ##호</span><br>
+                                                    <span class="tel">(010-1234-1235)</span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>디오트 3층 B열 22호</td>
+                                        <td class="text-ar">230,000원</td>
+                                        <td class="text-ar">23,000원</td>
+                                        <td class="text-ar">220,000원</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2022-04</td>
+                                        <td>2022-04-05</td>
+                                        <td class="overflow-unset">
+                                            <div class="hover-box">
+                                                <a href="javascript: void(0);" class="hover-btn">리프레쉬</a>
+                                                <div class="info-box">
+                                                    <span class="shop-name">마켓명 #층 ##열 ##호</span><br>
+                                                    <span class="tel">(010-1234-1235)</span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>디오트 3층 B열 22호</td>
+                                        <td class="text-ar">230,000원</td>
+                                        <td class="text-ar">23,000원</td>
+                                        <td class="text-ar">220,000원</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!--//그리드테이블-->
+                    </div>
+                </div>
+                {% include("../_templates/default/pagination.njk") %}
+            </div>
+
+            <!-- 데이터없을시 -->
+            <div class="gridTableArea">
+                <div class="table-top-info">
+                    <div class="top-txt-inline">
+                        <span class="txt-inline">거래처수 <strong><span class="txt-link-blue">1,000</span></strong>개</span>
+                        <span class="txt-inline">총 공급가액 <strong><span
+                                    class="txt-link-blue">200,000</span></strong>원</span>
+                        <span class="txt-inline">총 부가세 <strong><span
+                                    class="txt-link-blue">200,000</span></strong>원</span>
+                        <span class="txt-inline">총 정산금액 <strong><span
+                                    class="txt-link-blue">200,000</span></strong>원</span>
+                    </div>
+
+                    <div class="sort-sel-area">
+                        <select id="list_limit" class="default-select">
+                            <option value="20" selected="selected">20개씩 보기</option>
+                            <option value="30">30개씩 보기</option>
+                            <option value="50">50개씩 보기</option>
+                            <option value="100">100개씩 보기</option>
+                            <!-- 2023-02-17 EZP-7830 보기 옵션 추가 시작 -->
+                            <option value="200">200개씩 보기</option>
+                            <option value="300">300개씩 보기</option>
+                            <option value="500">500개씩 보기</option>
+                            <!-- 2023-02-17 EZP-7830 보기 옵션 추가 끝 -->
+                        </select>
+                    </div>
+                </div>
+                <div class="tround-box">
+                    <div class="tbl-round">
+                        <div class="tbl-info-area">
+                            <div class="btns-multi f-right">
+                                <button type="button" name="button" class="btn btn-sm btn-outline-gray">
+                                    <i class="ico ico-excel"></i>
+                                    엑셀다운로드
+                                </button>
+                                <button type="button" name="button" class="btn btn-ico btn-outline-gray">
+                                    <i class="ico ico-sort"></i>
+                                    설정
+                                </button>
+                            </div>
+                        </div>
+                        <!--그리드테이블-->
+                        <div class="mGridTable grid-resize tbl-height01">
+                            <table class="eChkColor" id="eMultiTable3">
+                                <caption>거래처정산내역-입고일별리스트</caption>
+                                <thead>
+                                    <tr>
+                                        <th scope="col" style="width: 189px;" class="resizable">정산일</th>
+                                        <th scope="col" style="width: 189px;" class="resizable">입고일</th>
+                                        <th scope="col" style="width: 364px;" class="resizable">거래처명</th>
+                                        <th scope="col" style="width: 364px;" class="resizable">주소</th>
+                                        <th scope="col" style="width: 189px;" class="resizable">공급가액</th>
+                                        <th scope="col" style="width: 189px;" class="resizable">부가세</th>
+                                        <th scope="col" style="width: 188px;">정산금액</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="tr-empty">
+                                        <td>
+                                            <div class="txt">
+                                                <i><img src="../assets/images/guide-ico.png" alt="guide-icon"></i>
+                                                <span>검색 결과가 없습니다.</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!--//그리드테이블-->
+                    </div>
+                </div>
+                {% include("../_templates/default/pagination.njk") %}
+            </div>
+
+        </div>
+
+        <div class="tab-content tabCont hidden" id="conttab2">
+            <div class="gridTableArea">
+                <div class="table-top-info">
+                    <div class="top-txt-inline">
+                        <span class="txt-inline">거래처수 <strong><span class="txt-link-blue">1,000</span></strong>개</span>
+                        <span class="txt-inline">총 공급가액 <strong><span
+                                    class="txt-link-blue">200,000</span></strong>원</span>
+                        <span class="txt-inline">총 부가세 <strong><span
+                                    class="txt-link-blue">200,000</span></strong>원</span>
+                        <span class="txt-inline">총 정산금액 <strong><span
+                                    class="txt-link-blue">200,000</span></strong>원</span>
+                    </div>
+
+                    <div class="sort-sel-area">
+                        <select id="list_limit" class="default-select">
+                            <option value="20" selected="selected">20개씩 보기</option>
+                            <option value="30">30개씩 보기</option>
+                            <option value="50">50개씩 보기</option>
+                            <option value="100">100개씩 보기</option>
+                            <!-- 2023-02-17 EZP-7830 보기 옵션 추가 시작 -->
+                            <option value="200">200개씩 보기</option>
+                            <option value="300">300개씩 보기</option>
+                            <option value="500">500개씩 보기</option>
+                            <!-- 2023-02-17 EZP-7830 보기 옵션 추가 끝 -->
+                        </select>
+                    </div>
+                </div>
+                <div class="tround-box">
+                    <div class="tbl-round">
+                        <div class="tbl-info-area">
+                            <div class="f-left">
+                                <select class="default-select">
+                                    <option value="01" selected="selected">2022-01</option>
+                                    <option value="02">2022-02</option>
+                                    <option value="03">2022-03</option>
+                                    <option value="04">2022-04</option>
+                                    <option value="05">2022-05</option>
+                                    <option value="06">2022-06</option>
+                                    <option value="07">2022-07</option>
+                                    <option value="08">2022-08</option>
+                                    <option value="09">2022-09</option>
+                                    <option value="10">2022-10</option>
+                                    <option value="11">2022-11</option>
+                                    <option value="12">2022-12</option>
+                                </select>
+                            </div>
+                            <div class="btns-multi f-right">
+                                <button type="button" name="button" class="btn btn-sm btn-outline-gray">
+                                    <i class="ico ico-excel"></i>
+                                    전체다운로드
+                                </button>
+                                <button type="button" name="button" class="btn btn-sm btn-outline-gray">
+                                    <i class="ico ico-excel"></i>
+                                    엑셀다운로드
+                                </button>
+                                <button type="button" name="button" class="btn btn-ico btn-outline-gray">
+                                    <i class="ico ico-sort"></i>
+                                    설정
+                                </button>
+                            </div>
+                        </div>
+                        <!--그리드테이블-->
+                        <div class="mGridTable grid-resize tbl-height01">
+                            <table class="eChkColor" id="eMultiTable">
+                                <caption>거래처정산내역-거래처별리스트</caption>
+                                <thead>
+                                    <tr>
+                                        <th scope="col" style="width: 203px;" class="resizable">거래처명</th>
+                                        <th scope="col" style="width: 122px;" class="resizable">금액</th>
+                                        <th scope="col" style="width: 122px;" class="resizable">합계</th>
+                                        <th scope="col" style="width: 122px;" class="resizable">2022-04-01</th>
+                                        <th scope="col" style="width: 122px;" class="resizable">2022-04-03</th>
+                                        <th scope="col" style="width: 122px;" class="resizable">2022-04-04</th>
+                                        <th scope="col" style="width: 122px;" class="resizable">2022-04-05</th>
+                                        <th scope="col" style="width: 122px;" class="resizable">2022-04-06</th>
+                                        <th scope="col" style="width: 122px;" class="resizable">2022-04-07</th>
+                                        <th scope="col" style="width: 122px;" class="resizable">2022-04-08</th>
+                                        <th scope="col" style="width: 122px;" class="resizable">2022-04-10</th>
+                                        <th scope="col" style="width: 102px;" class="resizable">...</th>
+                                        <th scope="col" style="width: 147px;">2022-04-30</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="cor-account-list-case02">
+                                    <tr>
+                                        <!-- 22.08.16 툴팁영역 수정 -->
+                                        <td rowspan="2" class="overflow-unset">
+                                            <div class="hover-box">
+                                                <a href="javascript: void(0);" class="hover-btn pointer"
+                                                    onclick="window.open('../popup/popup-case06.html','거래처별 총 정산상세내역','width=1120,height=800,location=no,status=no,scrollbars=yes');">O'
+                                                    rora (오로라)</a>
+                                                <div class="info-box">
+                                                    <span class="shop-name">마켓명 #층 ##열 ##호</span><br />
+                                                    <span class="tel">(010-1234-1235)</span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>공급가액</td>
+                                        <td>
+                                            <strong>0원</strong>
+                                        </td>
+                                        <td>
+                                            <a href="javascript: void(0);"
+                                                onclick="window.open('../popup/popup-case07.html','입고일별 총 정산상세내역','width=1120,height=800,location=no,status=no,scrollbars=yes');">0원</a>
+                                        </td>
+                                        <td>-</td>
+                                        <td>
+                                            <a href="javascript: void(0);"
+                                                onclick="window.open('../popup/popup-case07.html','입고일별 총 정산상세내역','width=1120,height=800,location=no,status=no,scrollbars=yes');">0원</a>
+                                        </td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>...</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>정산금액</td>
+                                        <td>
+                                            <strong>0원</strong>
+                                        </td>
+                                        <td class="overflow-unset">
+                                            <a href="javascript: void(0)"
+                                                onclick="window.open('../popup/popup-case07.html','입고일별 총 정산상세내역','width=1120,height=800,location=no,status=no,scrollbars=yes');">0원</a>
+                                        </td>
+                                        <td>-</td>
+                                        <td>
+                                            <a href="javascript: void(0)"
+                                                onclick="window.open('../popup/popup-case07.html','입고일별 총 정산상세내역','width=1120,height=800,location=no,status=no,scrollbars=yes');">0원</a>
+                                        </td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>...</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td rowspan="2" class="overflow-unset">
+                                            <div class="hover-box">
+                                                <a href="javascript: void(0);" class="hover-btn pointer"
+                                                    onclick="window.open('../popup/popup-case06.html','거래처별 총 정산상세내역','width=1120,height=800,location=no,status=no,scrollbars=yes');">곰투</a>
+                                                <div class="info-box">
+                                                    <span class="shop-name">마켓명 #층 ##열 ##호</span><br>
+                                                    <span class="tel">(010-1234-1235)</span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <!-- 2022 08 18 가격단위 추가 -->
+                                        <td>공급가액</td>
+                                        <td>
+                                            <strong>48,000원</strong>
+                                        </td>
+                                        <td>
+                                            <a href="javascript: void(0);"
+                                                onclick="window.open('../popup/popup-case07.html','입고일별 총 정산상세내역','width=1120,height=800,location=no,status=no,scrollbars=yes');">48,000원</a>
+                                        </td>
+                                        <td>
+                                            <a href="javascript: void(0);"
+                                                onclick="window.open('../popup/popup-case07.html','입고일별 총 정산상세내역','width=1120,height=800,location=no,status=no,scrollbars=yes');">0원</a>
+                                        </td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>
+                                            <a href="javascript: void(0);"
+                                                onclick="window.open('../popup/popup-case07.html','입고일별 총 정산상세내역','width=1120,height=800,location=no,status=no,scrollbars=yes');">0원</a>
+                                        </td>
+                                        <td>...</td>
+                                        <td>
+                                            <a href="javascript: void(0);"
+                                                onclick="window.open('../popup/popup-case07.html','입고일별 총 정산상세내역','width=1120,height=800,location=no,status=no,scrollbars=yes');">0원</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>정산금액</td>
+                                        <td>
+                                            <strong>52,000원</strong>
+                                        </td>
+                                        <td>
+                                            <a href="javascript: void(0)">52,800원</a>
+                                        </td>
+                                        <td>
+                                            <a href="javascript: void(0)"
+                                                onclick="window.open('../popup/popup-case07.html','입고일별 총 정산상세내역','width=1120,height=800,location=no,status=no,scrollbars=yes');">0원</a>
+                                        </td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>
+                                            <a href="javascript: void(0);"
+                                                onclick="window.open('../popup/popup-case07.html','입고일별 총 정산상세내역','width=1120,height=800,location=no,status=no,scrollbars=yes');">0원</a>
+                                        </td>
+                                        <td>...</td>
+                                        <td>
+                                            <a href="javascript: void(0);"
+                                                onclick="window.open('../popup/popup-case07.html','입고일별 총 정산상세내역','width=1120,height=800,location=no,status=no,scrollbars=yes');">0원</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td rowspan="2" class="overflow-unset">
+                                            <div class="hover-box">
+                                                <a href="javascript: void(0);" class="hover-btn pointer"
+                                                    onclick="window.open('../popup/popup-case06.html','거래처별 총 정산상세내역','width=1120,height=800,location=no,status=no,scrollbars=yes');">나이스</a>
+                                                <div class="info-box">
+                                                    <span class="shop-name">마켓명 #층 ##열 ##호</span><br>
+                                                    <span class="tel">(010-1234-1235)</span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>공급가액</td>
+                                        <td>
+                                            <strong>26,000원</strong>
+                                        </td>
+                                        <td>
+                                            <a href="javascript: void(0);"
+                                                onclick="window.open('../popup/popup-case07.html','입고일별 총 정산상세내역','width=1120,height=800,location=no,status=no,scrollbars=yes');">0원</a>
+                                        </td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>
+                                            <a href="javascript: void(0);"
+                                                onclick="window.open('../popup/popup-case07.html','입고일별 총 정산상세내역','width=1120,height=800,location=no,status=no,scrollbars=yes');">26,000원</a>
+                                        </td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>...</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>정산금액</td>
+                                        <td>
+                                            <strong>28,600원</strong>
+                                        </td>
+                                        <td>
+                                            <a href="javascript: void(0)"
+                                                onclick="window.open('../popup/popup-case07.html','입고일별 총 정산상세내역','width=1120,height=800,location=no,status=no,scrollbars=yes');">0원</a>
+                                        </td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>
+                                            <a href="javascript: void(0);"
+                                                onclick="window.open('../popup/popup-case07.html','입고일별 총 정산상세내역','width=1120,height=800,location=no,status=no,scrollbars=yes');">28,600원</a>
+                                        </td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>...</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td rowspan="2" class="overflow-unset">
+                                            <div class="hover-box">
+                                                <a href="javascript: void(0);" class="hover-btn pointer"
+                                                    onclick="window.open('../popup/popup-case06.html','거래처별 총 정산상세내역','width=1120,height=800,location=no,status=no,scrollbars=yes');">나인투</a>
+                                                <div class="info-box">
+                                                    <span class="shop-name">마켓명 #층 ##열 ##호</span><br>
+                                                    <span class="tel">(010-1234-1235)</span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>공급가액</td>
+                                        <td>
+                                            <strong>450,000원</strong>
+                                        </td>
+                                        <td>-</td>
+                                        <td>
+                                            <a href="javascript: void(0);"
+                                                onclick="window.open('../popup/popup-case07.html','입고일별 총 정산상세내역','width=1120,height=800,location=no,status=no,scrollbars=yes');">0원</a>
+                                        </td>
+                                        <td>
+                                            <a href="javascript: void(0);"
+                                                onclick="window.open('../popup/popup-case07.html','입고일별 총 정산상세내역','width=1120,height=800,location=no,status=no,scrollbars=yes');">0원</a>
+                                        </td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>
+                                            <a href="javascript: void(0);"
+                                                onclick="window.open('../popup/popup-case07.html','입고일별 총 정산상세내역','width=1120,height=800,location=no,status=no,scrollbars=yes');">50,000원</a>
+                                        </td>
+                                        <td>
+                                            <a href="javascript: void(0);"
+                                                onclick="window.open('../popup/popup-case07.html','입고일별 총 정산상세내역','width=1120,height=800,location=no,status=no,scrollbars=yes');">200,000원</a>
+                                        </td>
+                                        <td>
+                                            <a href="javascript: void(0);">200,000원</a>
+                                        </td>
+                                        <td>...</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>정산금액</td>
+                                        <td>
+                                            <strong>495,000원</strong>
+                                        </td>
+                                        <td>-</td>
+                                        <td>
+                                            <a href="javascript: void(0);"
+                                                onclick="window.open('../popup/popup-case07.html','입고일별 총 정산상세내역','width=1120,height=800,location=no,status=no,scrollbars=yes');">0원</a>
+                                        </td>
+                                        <td>
+                                            <a href="javascript: void(0);"
+                                                onclick="window.open('../popup/popup-case07.html','입고일별 총 정산상세내역','width=1120,height=800,location=no,status=no,scrollbars=yes');">0원</a>
+                                        </td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>
+                                            <a href="javascript: void(0);"
+                                                onclick="window.open('../popup/popup-case07.html','입고일별 총 정산상세내역','width=1120,height=800,location=no,status=no,scrollbars=yes');">55,000원</a>
+                                        </td>
+                                        <td>
+                                            <a href="javascript: void(0);"
+                                                onclick="window.open('../popup/popup-case07.html','입고일별 총 정산상세내역','width=1120,height=800,location=no,status=no,scrollbars=yes');">200,000원</a>
+                                        </td>
+                                        <td>
+                                            <a href="javascript: void(0);"
+                                                onclick="window.open('../popup/popup-case07.html','입고일별 총 정산상세내역','width=1120,height=800,location=no,status=no,scrollbars=yes');">200,000원</a>
+                                        </td>
+                                        <td>...</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td rowspan="2" class="overflow-unset">
+                                            <div class="hover-box">
+                                                <a href="javascript: void(0);" class="hover-btn pointer"
+                                                    onclick="window.open('../popup/popup-case06.html','거래처별 총 정산상세내역','width=1120,height=800,location=no,status=no,scrollbars=yes');">네온하지</a>
+                                                <div class="info-box">
+                                                    <span class="shop-name">마켓명 #층 ##열 ##호</span><br>
+                                                    <span class="tel">(010-1234-1235)</span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>공급가액</td>
+                                        <td>
+                                            <strong>51,000원</strong>
+                                        </td>
+                                        <td>
+                                            <a href="javascript: void(0);"
+                                                onclick="window.open('../popup/popup-case07.html','입고일별 총 정산상세내역','width=1120,height=800,location=no,status=no,scrollbars=yes');">0원</a>
+                                        </td>
+                                        <td>
+                                            <a href="javascript: void(0);"
+                                                onclick="window.open('../popup/popup-case07.html','입고일별 총 정산상세내역','width=1120,height=800,location=no,status=no,scrollbars=yes');">51,000원</a>
+                                        </td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>
+                                            <a href="javascript: void(0);"
+                                                onclick="window.open('../popup/popup-case07.html','입고일별 총 정산상세내역','width=1120,height=800,location=no,status=no,scrollbars=yes');">0원</a>
+                                        </td>
+                                        <td>
+                                            <a href="javascript: void(0);"
+                                                onclick="window.open('../popup/popup-case07.html','입고일별 총 정산상세내역','width=1120,height=800,location=no,status=no,scrollbars=yes');">0원</a>
+                                        </td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>...</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>정산금액</td>
+                                        <td>
+                                            <strong>56,100원</strong>
+                                        </td>
+                                        <td>
+                                            <a href="javascript: void(0);"
+                                                onclick="window.open('../popup/popup-case07.html','입고일별 총 정산상세내역','width=1120,height=800,location=no,status=no,scrollbars=yes');">0원</a>
+                                        </td>
+                                        <td>
+                                            <a href="javascript: void(0);"
+                                                onclick="window.open('../popup/popup-case07.html','입고일별 총 정산상세내역','width=1120,height=800,location=no,status=no,scrollbars=yes');">0원</a>
+                                        </td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>
+                                            <a href="javascript: void(0);"
+                                                onclick="window.open('../popup/popup-case07.html','입고일별 총 정산상세내역','width=1120,height=800,location=no,status=no,scrollbars=yes');">0원</a>
+                                        </td>
+                                        <td>
+                                            <a href="javascript: void(0);"
+                                                onclick="window.open('../popup/popup-case07.html','입고일별 총 정산상세내역','width=1120,height=800,location=no,status=no,scrollbars=yes');">0원</a>
+                                        </td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>...</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td rowspan="2" class="overflow-unset">
+                                            <div class="hover-box"> <a href="javascript: void(0);" class="hover-btn pointer"
+                                                    onclick="window.open('../popup/popup-case06.html','거래처별 총 정산상세내역','width=1120,height=800,location=no,status=no,scrollbars=yes');">딥</a>
+                                                <div class="info-box">
+                                                    <span class="shop-name">마켓명 #층 ##열 ##호</span><br>
+                                                    <span class="tel">(010-1234-1235)</span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>공급가액</td>
+                                        <td>
+                                            <strong>30,000원</strong>
+                                        </td>
+                                        <td>
+                                            <a href="javascript: void(0);"
+                                                onclick="window.open('../popup/popup-case07.html','입고일별 총 정산상세내역','width=1120,height=800,location=no,status=no,scrollbars=yes');">0원</a>
+                                        </td>
+                                        <td>-</td>
+                                        <td>
+                                            <a href="javascript: void(0);"
+                                                onclick="window.open('../popup/popup-case07.html','입고일별 총 정산상세내역','width=1120,height=800,location=no,status=no,scrollbars=yes');">30,000원</a>
+                                        </td>
+                                        <td>
+                                            <a href="javascript: void(0);"
+                                                onclick="window.open('../popup/popup-case07.html','입고일별 총 정산상세내역','width=1120,height=800,location=no,status=no,scrollbars=yes');">0원</a>
+                                        </td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>...</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>정산금액</td>
+                                        <td>
+                                            <strong>33,000원</strong>
+                                        </td>
+                                        <td>
+                                            <a href="javascript: void(0);"
+                                                onclick="window.open('../popup/popup-case07.html','입고일별 총 정산상세내역','width=1120,height=800,location=no,status=no,scrollbars=yes');">0원</a>
+                                        </td>
+                                        <td>-</td>
+                                        <td>
+                                            <a href="javascript: void(0);"
+                                                onclick="window.open('../popup/popup-case07.html','입고일별 총 정산상세내역','width=1120,height=800,location=no,status=no,scrollbars=yes');">30,000원</a>
+                                        </td>
+                                        <td>
+                                            <a href="javascript: void(0);"
+                                                onclick="window.open('../popup/popup-case07.html','입고일별 총 정산상세내역','width=1120,height=800,location=no,status=no,scrollbars=yes');">0원</a>
+                                        </td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>...</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td rowspan="2" class="overflow-unset">
+                                            <div class="hover-box">
+                                                <a href="javascript: void(0);" class="hover-btn pointer"
+                                                    onclick="window.open('../popup/popup-case06.html','거래처별 총 정산상세내역','width=1120,height=800,location=no,status=no,scrollbars=yes');">라이크모어</a>
+                                                <div class="info-box">
+                                                    <span class="shop-name">마켓명 #층 ##열 ##호</span><br>
+                                                    <span class="tel">(010-1234-1235)</span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>공급가액</td>
+                                        <td>
+                                            <strong>109,000원</strong>
+                                        </td>
+                                        <td>
+                                            <a href="javascript: void(0);"
+                                                onclick="window.open('../popup/popup-case07.html','입고일별 총 정산상세내역','width=1120,height=800,location=no,status=no,scrollbars=yes');">50,000원</a>
+                                        </td>
+                                        <td>
+                                            <a href="javascript: void(0);"
+                                                onclick="window.open('../popup/popup-case07.html','입고일별 총 정산상세내역','width=1120,height=800,location=no,status=no,scrollbars=yes');">0원</a>
+                                        </td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>
+                                            <a href="javascript: void(0);"
+                                                onclick="window.open('../popup/popup-case07.html','입고일별 총 정산상세내역','width=1120,height=800,location=no,status=no,scrollbars=yes');">0원</a>
+                                        </td>
+                                        <td>
+                                            <a href="javascript: void(0);"
+                                                onclick="window.open('../popup/popup-case07.html','입고일별 총 정산상세내역','width=1120,height=800,location=no,status=no,scrollbars=yes');">0원</a>
+                                        </td>
+                                        <td>-</td>
+                                        <td>
+                                            <a href="javascript: void(0);"
+                                                onclick="window.open('../popup/popup-case07.html','입고일별 총 정산상세내역','width=1120,height=800,location=no,status=no,scrollbars=yes');">0원</a>
+                                        </td>
+                                        <td>...</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>정산금액</td>
+                                        <td>
+                                            <strong>119,000원</strong>
+                                        </td>
+                                        <td>
+                                            <a href="javascript: void(0);"
+                                                onclick="window.open('../popup/popup-case07.html','입고일별 총 정산상세내역','width=1120,height=800,location=no,status=no,scrollbars=yes');">55,000원</a>
+                                        </td>
+                                        <td>
+                                            <a href="javascript: void(0);"
+                                                onclick="window.open('../popup/popup-case07.html','입고일별 총 정산상세내역','width=1120,height=800,location=no,status=no,scrollbars=yes');">0원</a>
+                                        </td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>
+                                            <a href="javascript: void(0);"
+                                                onclick="window.open('../popup/popup-case07.html','입고일별 총 정산상세내역','width=1120,height=800,location=no,status=no,scrollbars=yes');">0원</a>
+                                        </td>
+                                        <td>
+                                            <a href="javascript: void(0);"
+                                                onclick="window.open('../popup/popup-case07.html','입고일별 총 정산상세내역','width=1120,height=800,location=no,status=no,scrollbars=yes');">0원</a>
+                                        </td>
+                                        <td>-</td>
+                                        <td>
+                                            <a href="javascript: void(0);"
+                                                onclick="window.open('../popup/popup-case07.html','입고일별 총 정산상세내역','width=1120,height=800,location=no,status=no,scrollbars=yes');">0원</a>
+                                        </td>
+                                        <td>...</td>
+                                        <td>-</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!--//그리드테이블-->
+                    </div>
+                </div>
+                {% include("../_templates/default/pagination.njk") %}
+            </div>
+
+            <!-- 데이터없을시 -->
+            <div class="gridTableArea">
+                <div class="table-top-info">
+                    <div class="top-txt-inline">
+                        <span class="txt-inline">검색결과 <strong><span class="txt-link-blue">1,000</span></strong>건</span>
+                        <span class="txt-inline">총 공급가액 <strong><span
+                                    class="txt-link-blue">200,000</span></strong>원</span>
+                        <span class="txt-inline">총 부가세 <strong><span
+                                    class="txt-link-blue">200,000</span></strong>원</span>
+                        <span class="txt-inline">총 정산금액 <strong><span
+                                    class="txt-link-blue">200,000</span></strong>원</span>
+                    </div>
+
+                    <div class="sort-sel-area">
+                        <select id="list_limit" class="default-select">
+                            <option value="20" selected="selected">20개씩 보기</option>
+                            <option value="30">30개씩 보기</option>
+                            <option value="50">50개씩 보기</option>
+                            <option value="100">100개씩 보기</option>
+                            <!-- 2023-02-17 EZP-7830 보기 옵션 추가 시작 -->
+                            <option value="200">200개씩 보기</option>
+                            <option value="300">300개씩 보기</option>
+                            <option value="500">500개씩 보기</option>
+                            <!-- 2023-02-17 EZP-7830 보기 옵션 추가 끝 -->
+                        </select>
+                    </div>
+                </div>
+                <div class="tround-box">
+                    <div class="tbl-round">
+                        <div class="tbl-info-area">
+                            <div class="f-left">
+                                <select class="default-select">
+                                    <option value="01" selected="selected">2022-01</option>
+                                    <option value="02">2022-02</option>
+                                    <option value="03">2022-03</option>
+                                    <option value="04">2022-04</option>
+                                    <option value="05">2022-05</option>
+                                    <option value="06">2022-06</option>
+                                    <option value="07">2022-07</option>
+                                    <option value="08">2022-08</option>
+                                    <option value="09">2022-09</option>
+                                    <option value="10">2022-10</option>
+                                    <option value="11">2022-11</option>
+                                    <option value="12">2022-12</option>
+                                </select>
+                            </div>
+                            <div class="btns-multi f-right">
+                                <button type="button" name="button" class="btn btn-sm btn-outline-gray">
+                                    <i class="ico ico-excel"></i>
+                                    전체다운로드
+                                </button>
+                                <button type="button" name="button" class="btn btn-sm btn-outline-gray">
+                                    <i class="ico ico-excel"></i>
+                                    엑셀다운로드
+                                </button>
+                                <button type="button" name="button" class="btn btn-ico btn-outline-gray">
+                                    <i class="ico ico-sort"></i>
+                                    설정
+                                </button>
+                            </div>
+                        </div>
+                        <!--그리드테이블-->
+                        <div class="mGridTable grid-resize tbl-height01">
+                            <table class="eChkColor" id="eMultiTable4">
+                                <caption>거래처정산내역-거래처별리스트</caption>
+                                <thead>
+                                    <tr>
+                                        <th scope="col" style="width: 203px;" class="resizable">거래처명</th>
+                                        <th scope="col" style="width: 122px;" class="resizable">금액</th>
+                                        <th scope="col" style="width: 122px;" class="resizable">합계</th>
+                                        <th scope="col" style="width: 122px;" class="resizable">2022-04-01</th>
+                                        <th scope="col" style="width: 122px;" class="resizable">2022-04-03</th>
+                                        <th scope="col" style="width: 122px;" class="resizable">2022-04-04</th>
+                                        <th scope="col" style="width: 122px;" class="resizable">2022-04-05</th>
+                                        <th scope="col" style="width: 122px;" class="resizable">2022-04-06</th>
+                                        <th scope="col" style="width: 122px;" class="resizable">2022-04-07</th>
+                                        <th scope="col" style="width: 122px;" class="resizable">2022-04-08</th>
+                                        <th scope="col" style="width: 122px;" class="resizable">2022-04-10</th>
+                                        <th scope="col" style="width: 102px;" class="resizable">...</th>
+                                        <th scope="col" style="width: 147px;">2022-04-30</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="cor-account-list-case02">
+                                    <tr class="tr-empty">
+                                        <td>
+                                            <div class="txt">
+                                                <i><img src="../assets/images/guide-ico.png" alt="guide-icon"></i>
+                                                <span>검색 결과가 없습니다.</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!--//그리드테이블-->
+                    </div>
+                </div>
+                {% include("../_templates/default/pagination.njk") %}
+            </div>
+
+        </div>
+
+
+
+    </div>
+</div>
+
+
+<script>
+    $(document).ready(function () {
+        $('#eMultiTable').fixResize({
+            colResize: true,
+            resizeVer: 'flex'
+        });
+        $('#eMultiTable1').fixResize({
+            colResize: true,
+            resizeVer: 'flex'
+        });
+
+        // 데이터 없을시 새로운 테이블
+        $('#eMultiTable3').fixResize({
+            colResize: true,
+            resizeVer: 'flex'
+        });
+
+        // 데이터 없을시 새로운 테이블
+        $('#eMultiTable4').fixResize({
+            colResize: true,
+            resizeVer: 'flex'
+        });
+
+        // 검색결과 없을때 tr 높이 조절
+        const emptyTh = $('.tr-empty').parents('table').find('thead tr th').length;
+        const emptyMt = $('.tr-empty').parents('table').css('margin-top').replace('-', '');
+        const emptyMg = emptyMt.replace('px', '');
+        $('.tr-empty td').attr('colspan', emptyTh);
+        $('.tr-empty').parents('table').css('height', `calc(100% + ${emptyMg}px)`);
+
+        // 거래처별보기 클릭시 옆에 txt 보임
+        $('.tab-top-round .tab-rounds li').click(function(){
+            if(!$('.tab-top-round .tab-rounds li[data-tab="conttab2"]').hasClass('active') === true){
+                $('.tab-rounds + .txt-info').css('display','block')
+            } else {
+                $('.tab-rounds + .txt-info').css('display','none')
+            }
+        })
+    });
+</script>
+
+{% endblock %}

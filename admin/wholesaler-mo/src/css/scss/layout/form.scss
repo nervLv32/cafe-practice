@@ -1,0 +1,688 @@
+@charset 'utf-8';
+/* firefox input number reset*/
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance:textfield;
+}
+.add-clear-span {
+	position: relative;
+
+	display: inline-block;
+
+	vertical-align: middle;
+	a {
+		top: 50% !important;
+
+		display: block;
+		overflow: hidden;
+
+		width: 10px;
+		height: 10px;
+		margin-top: -5px;
+
+		text-indent: -9999px;
+
+		@include bg-spr-form(0, -24px);
+	}
+	&.active {
+		input {
+			&[type=text],
+			&[type=password],
+			&[type=number] {
+				border-color: #666;
+			}
+		}
+	}
+}
+input {
+	&[type=text],
+	&[type=password],
+	&[type=number] {
+		font-size: 14px;
+		line-height: 38px;
+
+		width: 100%;
+		height: 40px;
+		padding-left: 15px;
+
+		vertical-align: middle;
+
+		color: #666;
+		border: 1px solid #d6d6d6;
+		&:disabled {
+			border: 1px solid #d6d6d6;
+			background-color: #f9f9f9;
+		}
+		&:read-only {
+			border: 1px solid #d6d6d6;
+		}
+		&[readonly='readonly'] {
+			border: 1px solid #d6d6d6;
+		}
+		&.w100p {
+			display: block;
+
+			width: 100%;
+		}
+		&::-ms-clear {
+			display: none;
+		}
+		&:focus {
+			border-color: #666;
+		}
+		&.error {
+			color: #ff4800;
+			border-color: #ff4800;
+		}
+	}
+	&:-ms-input-placeholder {
+		color: #999;
+	}
+	&::-webkit-input-placeholder {
+		color: #999;
+	}
+	&::-moz-placeholder {
+		color: #999;
+	}
+
+	&::placeholder {
+		opacity: 1;
+		color: #999;
+	}
+}
+input[type=text]:-ms-clear {
+	display: none;
+}
+input[type=password]::-ms-reveal {
+	display: none;
+}
+input[type=number]:-ms-clear {
+	display: none;
+}
+.error-message {
+	font-size: 12px;
+	line-height: 100%;
+
+	margin-top: 10px;
+
+	color: #ff4800;
+}
+
+.checkbox,
+.radio {
+	line-height: 16px;
+
+	position: relative;
+
+	display: inline-block;
+
+	height: 16px;
+	padding-left: 24px;
+
+	vertical-align: baseline;
+	input {
+		z-index: 1;
+
+		display: block;
+
+		width: 16px;
+		height: 16px;
+
+		opacity: 0;
+
+		@include posa_tl;
+	}
+	label {
+		line-height: 16px;
+
+		display: inline-block;
+
+		vertical-align: middle;
+
+		color: #666;
+		&:before {
+			width: 16px;
+			height: 16px;
+
+			@include ct;
+			@include bg-spr-form();
+			@include posa_tl;
+		}
+	}
+}
+.checkbox {
+	input:checked+ label {
+		&:before {
+			background-position: -16px 0;
+		}
+	}
+	input:disabled+ label {
+		&:before {
+			background-position: -32px 0;
+		}
+	}
+	&.big {
+		line-height: 24px;
+
+		height: 24px;
+		padding-left: 38px;
+		label {
+			font-size: 16px;
+			&:before {
+				width: 24px;
+				height: 24px;
+
+				background-position: -96px 0;
+			}
+		}
+		input:checked+ label {
+			&:before {
+				background-position: -120px 0;
+			}
+		}
+		input:disabled+ label {
+			&:before {
+				background-position: -144px 0;
+			}
+		}
+	}
+}
+.radio {
+	label {
+		&:before {
+			background-position: -48px 0;
+		}
+	}
+	input:checked+ label {
+		&:before {
+			background-position: -64px 0;
+		}
+	}
+	input:disabled+ label {
+		&:before {
+			background-position: -80px 0;
+		}
+	}
+}
+
+/* select */
+.ui-select {
+	font-size: 10px;
+
+	position: relative;
+	z-index: 1;
+
+	display: inline-block;
+
+	width: 200px;
+
+	vertical-align: top;
+	&.active {
+		z-index: 2;
+		> ul {
+			display: block;
+		}
+		> button {
+			border-color: #666;
+			&:before {
+				transform: rotate(180deg);
+			}
+		}
+	}
+	> button {
+		font-size: 14px;
+		line-height: 38px;
+
+		overflow: hidden;
+
+		width: 100%;
+		height: 40px;
+		padding: 0 34px 0 18px;
+
+		text-align: left;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+
+		color: #999;
+		border: 1px solid #d6d6d6;
+		background: #fff;
+		&:before {
+			width: 9px;
+			height: 5px;
+			margin-top: -2.5px;
+
+			transform: rotate(0deg);
+
+			background: url('../img/common/bg-select.png') 0 0 no-repeat;
+
+			@include ct;
+			@include posa_tr(50%, 12px);
+		}
+	}
+	> ul {
+		position: absolute;
+		top: 39px;
+		left: 0;
+
+		display: none;
+		overflow-y: auto;
+
+		box-sizing: border-box;
+		width: 100%;
+		max-height: 205px;
+
+		border-top: none;
+		border-right: 1px solid #666;
+		border-bottom: 1px solid #666;
+		border-left: 1px solid #666;
+		background-color: #fff;
+		&.above {
+			// top: auto;
+			// bottom: 100%;
+			border-top-width: 0;
+			> li {
+				border-bottom: 0;
+			}
+		}
+		> li {
+			font-size: 14px;
+			line-height: 40px;
+
+			height: 41px;
+			padding-left: 16px;
+
+			cursor: default;
+			text-align: left;
+
+			color: #666;
+			//border-top: 1px solid #e2e2e2;
+			&:first-child {
+				border-color: #d6d6d6;
+			}
+			&:hover {
+				color: #333;
+			}
+		}
+	}
+	&.disabled {
+		&:before {
+			position: absolute;
+
+			overflow: hidden;
+			clip: rect(1px, 1px, 1px, 1px);
+
+			width: 1px;
+			height: 1px;
+
+			content: '비 활성화된 항목입니다';
+		}
+		> button {
+			color: #444;
+			background-color: #ccc;
+		}
+	}
+}
+
+textarea {
+	padding: 12px 20px;
+
+	border: 1px solid #ccc;
+	&:-ms-input-placeholder {
+		color: #aaa;
+	}
+	&::-webkit-input-placeholder {
+		color: #aaa;
+	}
+	&::-moz-placeholder {
+		color: #aaa;
+	}
+}
+
+.table {
+	position: relative;
+	table {
+		border:  {
+			top: 1px solid #000;
+			bottom: 1px solid #bdbdbd;
+		}
+		&.price_table {
+			margin: 20px 0;
+
+			border-top: 1px solid #bdbdbd;
+			border-bottom: 0;
+			th {
+				font-size: 13px;
+				font-weight: 500;
+
+				padding: 0;
+
+				text-align: center;
+
+				color: #333;
+				border-right: 1px solid #d8d8d8;
+				&:last-child {
+					border-right: 0;
+				}
+			}
+			td {
+				font-size: 13px;
+
+				padding: 0;
+
+				text-align: center;
+
+				color: #666;
+				border-right: 1px solid #d8d8d8;
+				border-bottom: 1px solid #d8d8d8 !important;
+				&:last-child {
+					border-right: 0;
+				}
+				&.dot {
+					font-weight: 500;
+
+					height: 35px;
+
+					color: #333;
+					border-bottom: 1px dotted #d8d8d8 !important;;
+				}
+				&.cost {
+					vertical-align: top;
+				}
+				div {
+					padding: 15px 20px;
+
+					text-align: left;
+					span {
+						display: inline-block;
+						float: right;
+					}
+				}
+			}
+		}
+		th,
+		td {
+			font-size: 14px;
+			font-weight: normal;
+
+			height: 50px;
+			padding: 10px 0 10px 30px;
+
+			text-align: left;
+			vertical-align: middle;
+			word-break: keep-all;
+
+			border-bottom: 1px solid #d8d8d8;
+		}
+		tr {
+			&:last-child {
+				th,
+				td {
+					border-bottom: none;
+				}
+			}
+		}
+		th {
+			color: #333;
+			background-color: #f8f8f8;
+			&.bdbn {
+				border-bottom: none;
+			}
+			&> span {
+				color: #e50011;
+			}
+		}
+		td {
+			color: #666;
+			&.color_new {
+				font-size: 13px;
+
+				color: #333;
+			}
+		}
+	}
+	&.prd_detail {
+		td {
+			color: #333;
+		}
+	}
+	&.popup {
+		th,
+		td {
+			font-size: 13px;
+			line-height: 18px;
+
+			height: 40px;
+			padding: 10px;
+
+			text-align: center;
+		}
+	}
+}
+
+.amount {
+	position: relative;
+
+	width: 118px;
+	height: 30px;
+	padding: 0 30px;
+
+	background-color: #f8f8f8;
+	input[type=number],input[type=text] {
+		font-family: $rt, $ng;
+		font-size: 18px;
+		line-height: 28px;
+
+		width: 100%;
+		height: 30px;
+		padding: 0;
+
+		text-align: center;
+
+		color: #666;
+		border-top: 1px solid #ccc;
+		border-right: none;
+		border-bottom: 1px solid #ccc;
+		border-left: none;
+		background-color: #fff;
+	}
+	button {
+		position: absolute;
+		top: 0;
+
+		display: block;
+		overflow: hidden;
+
+		width: 30px;
+		height: 30px;
+
+		text-indent: -9999px;
+
+		border: 1px solid #ccc;
+		&:before {
+			@include ct;
+			//width: 12px;
+			//height: 12px;
+			// @include bg_spr_common();
+			@include posa_tl(50%, 50%);
+			//margin: -6px 0 0 -6px;
+		}
+		&.minus {
+			left: 0;
+			&:before {
+				// background-position: -200px -200px;
+			}
+		}
+		&.plus {
+			right: 0;
+			&:before {
+				// background-position: -250px -200px;
+			}
+		}
+	}
+}
+
+.datepicker-wrap {
+	font-size: 0;
+
+	position: relative;
+
+	display: inline-block;
+
+	border: 1px solid #d6d6d6;
+	input,
+	img {
+		display: inline-block;
+
+		vertical-align: top;
+	}
+	img {
+		@include posa_tr;
+	}
+	input {
+		line-height: 38px;
+
+		width: 100% !important;
+		height: 38px;
+
+		color: #666;
+		border: none !important;
+
+		@include ff_tt(14px,400);
+	}
+}
+.ui-datepicker {
+	display: none;
+
+	width: 346px;
+	margin: 12px 0;
+	margin-left: -1px;
+	padding-bottom: 20px;
+
+	border: 1px solid #666;
+	background-color: #fff;
+
+	@include bdrs(3px);
+	&-header {
+		line-height: 28px;
+
+		position: relative;
+
+		height: 28px;
+		margin-top: 24px;
+		margin-bottom: 12px;
+
+		text-align: center;
+		.ui-datepicker-prev,
+		.ui-datepicker-next {
+			position: absolute;
+			top: 0;
+
+			overflow: hidden;
+
+			width: 28px;
+			height: 28px;
+
+			text-indent: -9999px;
+
+			@include bg-spr-form(-38px, -36px);
+		}
+		.ui-datepicker-prev {
+			left: 68px;
+
+			background-position: -38px -36px;
+		}
+		.ui-datepicker-next {
+			right: 68px;
+
+			background-position: -66px -36px;
+		}
+	}
+	&-title {
+		@include ff_tt(20px, 600);
+	}
+	&-year {
+		&:after {
+			display: inline-block;
+
+			content: '.';
+		}
+	}
+	&-calendar {
+		padding: 0 32px;
+		tr {
+			th {
+				height: 40px;
+
+				color: #333;
+
+				@include ff_tt(13px, 600);
+			}
+			td {
+				font-size: 14px;
+
+				height: 40px;
+
+				text-align: center;
+				vertical-align: middle;
+				a {
+					line-height: 32px;
+
+					display: inline-block;
+
+					width: 32px;
+					height: 32px;
+
+					color: #999;
+
+					@include ff_tt(14px, 400);
+					&.ui-state-hover {
+						color: #fff;
+						border-radius: 50%;
+						background-color: #36c25d;
+					}
+				}
+				/*&.ui-datepicker-today {
+					a {
+						background-color: #36c25d;
+						color: #fff;
+						border-radius: 50%;
+					}
+				}*/
+				&.ui-datepicker-current-day {
+					a {
+						color: #fff;
+						border-radius: 50%;
+						background-color: #36c25d;
+					}
+				}
+			}
+		}
+	}
+	&-buttonpane {
+		height: 72px;
+		padding-top: 16px;
+
+		text-align: center;
+
+		background-color: #f9f9f9;
+		button {
+			width: 80px;
+			height: 40px;
+
+			text-align: center;
+
+			color: #fff;
+			background-color: #666;
+
+			@include bdrs(2px);
+			&.ui-datepicker-current {
+				display: none;
+			}
+		}
+	}
+}

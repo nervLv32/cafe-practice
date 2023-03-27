@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="utf-8">
+  <!--EZP-5398-->
+	<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width, viewport-fit=cover">
+  <link rel="stylesheet" type="text/css" href="../css/mobile/swiper-bundle.min.css">
+  <link rel="stylesheet" type="text/css" href="../css/mobile/jquery-ui.min.css">
+  <link rel="stylesheet" type="text/css" href="../css/mobile/default.import.css">
+  <link rel="stylesheet" type="text/css" href="../css/mobile/ui.css">
+  <link rel="stylesheet" type="text/css" href="../css/mobile/style.css">
+
+  <script type="text/javascript" src="../js/mobile/jquery-3.5.1.min.js"></script>
+  <script type="text/javascript" src="../js/mobile/jquery-ui.min.js"></script>
+  <script type="text/javascript" src="../js/mobile/swiper-bundle.min.js"></script>
+  <script type="text/javascript" src="../js/mobile/common_front.js"></script>
+  <script type="text/javascript" src="../js/mobile/ui.js"></script>
+</head>
+
+<body>
+  <!-- 2022-10-14 EZP-5609 body > banner + #wrap > header로 변경 -->
+  
+  <div id="wrap" class="member_info_management layout">
+    <!-- 2022-10-14 EZP-5609 header위치변경 (body안에서 #wrap안으로) -->
+    <header>
+      <div class="back">
+        <a href="#">뒤로가기</a>
+      </div>
+      <div class="title">
+        <span class="title-inner">
+          회원정보관리
+        </span>
+      </div>
+      <!-- 20.07.28 util 삭제 -->
+    </header>
+    <section class="content">
+      <div class="shop-wrap clear">제인모리스
+        <strong class="require">가게정보수정 승인대기</strong> <!-- 케이스@ 승인대기 -->
+      </div>
+      <div class="personal-wrap">
+        <p class="head"><strong>개인정보변경</strong></p>
+        <dl>
+          <dt>아이디(이메일)</dt>
+          <dd class="form_id select-email">
+            <input type="text" value="easypick" />
+            <select>
+              <option>@네이버</option>
+              <option>직접입력</option>
+            </select>
+            <input type="text" class="etc none" placeholder="직접입력" />
+          </dd>
+          <dt>이름</dt>
+          <dd class="form_name"><input type="text" value="김재인" /></dd>
+          <dt>비밀번호 변경</dt>
+          <dd class="form_password">
+            <input type="password" placeholder="영문, 숫자, 특수문자 중 2가지 이상 조합, 6~16자" />
+            <!-- 20.07.31 케이스@ 메시지
+                        <p class="true">사용 가능한 비밀번호입니다.</p>
+                        <p class="false">영문, 숫자, 특수문자 중 2가지 이상 조합으로 6~16자 입력해주세요.</p>
+                        -->
+            <input type="password" placeholder="비밀번호 확인" />
+            <!-- 20.07.31 케이스@ 메시지
+                        <p class="true">비밀번호가 일치합니다.</p>
+                        <p class="false">영문, 숫자, 특수문자 중 2가지 이상 조합으로 6~16자 입력해주세요.</p>
+                        -->
+          </dd>
+        </dl>
+      </div>
+      <div class="shop-info-wrap">
+        <p class="head"><strong>가게정보변경</strong></p>
+        <dl>
+          <dt>가게명 변경<span class="require">관리자 승인이 필요합니다.</span></dt>
+          <!-- 2021-05-20 EZP-2992 //disabled -->
+          <dd class=""><input type="text" value="제인모리스" />
+            <p class="comment">변경요청 : Jane Morris</p> <!-- 케이스@ 변경요청 텍스트 -->
+          </dd>
+          <dt>가게주소 변경<span class="require">관리자 승인이 필요합니다.</span></dt>
+          <!-- 2021-05-20 EZP-2992 -->
+          <dd class="form_location ex disabled">
+            <button type="button" class="mem" data-popup-target="#mallsearch-pop">마켓 선택</button>
+            <select>
+              <option>2층</option>
+            </select>
+            <!-- 2020-08-25 EZP-1146  -->
+            <span class="ex">
+                <input type="text" placeholder="열 입력" title="열 입력">
+                <em>열</em>
+                <input type="text" placeholder="호 입력" title="호 입력">
+                <em>호</em>
+            </span>
+            <p class="comment">* 변경요청 : 디오트 3층 A 10</p> <!-- @케이스 변경요청 텍스트 -->
+          </dd>
+          <dt>세금계산서 요청방식 변경</dt>
+          <dd class="radio-group">
+            <label><input type="radio" name="tax_bill" checked><span>온라인</span></label>
+            <label><input type="radio" name="tax_bill"><span>오프라인</span></label>
+          </dd>
+          <dt>휴대폰번호</dt>
+          <!-- 2021-05-11 EZP-2831 -->
+          <dd class="form_phone phone-wrap">
+            <dl>
+              <dt>알림톡 전용 (최소 1개 ~ 최대 5개까지 등록 가능)</dt>
+              <dd class="item-wrap">
+                <div class="item">
+                  <div>
+                    <span class="radiocss">
+                      <input type="radio" name="radio1" id="radio1" checked>
+                      <label for="radio1">대표지정</label>
+                    </span>
+                    <div class="btn-wrap">
+                      <button type="button" name="button" class="btn-add">추가</button>
+                    </div>
+                  </div>
+                  <span>
+                    <select class="select" id="userphone" title="통신사 선택">
+                      <option>010</option>
+                    </select>
+                    <input type="text" placeholder="" title="휴대폰 두번째 네자리 입력">
+                    <input type="text" placeholder="" title="휴대폰 마지막 네자리 입력">
+                  </span>
+                </div>
+              </dd>
+              <dt>세금계산서 전용</dt>
+              <dd>
+                <select>
+                  <option>010</option>
+                </select>
+                <input type="tel" value="1234" /><input type="tel" value="5678" />
+              </dd>
+            </dl>
+          </dd>
+        </dl>
+      </div>
+      <div class="agree-wrap">
+        <p class="head"><strong>SMS 및 이메일 수신 동의 설정</strong></p>
+        <ul class="check-area">
+          <li>
+            <label class="checkbox">
+              <input type="checkbox" />
+              <span>SMS 수신 동의</span>
+            </label>
+          </li>
+          <li>
+            <label class="checkbox">
+              <input type="checkbox" />
+              <span>이메일 수신 동의</span>
+            </label>
+          </li>
+        </ul>
+      </div>
+      <div class="btn-wrap">
+        <p class="head"><strong>회원탈퇴</strong></p>
+        <div class="btn-group-a rad-05">
+          <a href="#" class="case-01">회원탈퇴</a>
+        </div>
+      </div>
+    </section>
+    <div class="btn-group-a bottom h-60">
+      <a href="#" class="case-01">이전</a>
+      <a href="#" class="case-02">저장</a>
+    </div>
+    <!-- 2020-01-12 EZP-1500 종료 -->
+  </div>
+
+  <!-- 팝업@ 메시지 -->
+  <div class="ui-popup message" id="popup_message_01">
+    <div class="content">
+      <div class="body">입력하신 정보가 저장되지 않았습니다.<br>이 페이지를 벗어나시겠습니까?</div>
+      <div class="btn-group">
+        <button type="button" class="case-01" data-popup-close>취소</button>
+        <button type="button" class="case-02" data-popup-close>확인</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 팝업@ 메시지 -->
+  <div class="ui-popup message" id="popup_message_02">
+    <div class="content">
+      <div class="body">정보를 수정하시겠습니까?</div>
+      <div class="btn-group">
+        <button type="button" class="case-01" data-popup-close>취소</button>
+        <button type="button" class="case-02" data-popup-close>확인</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 팝업@ 메시지 -->
+  <div class="ui-popup message" id="popup_message_03">
+    <div class="content">
+      <div class="body">
+        가게정보 수정요청이 완료되었습니다.<br>
+        관리자 승인 시 수정내용이 반영됩니다.<br>
+        <span class="emphasis">수정요청 후 1~3영업일 이내에<br>
+          가게정보 검수 절차가 완료될 예정입니다.</span>
+      </div>
+      <div class="btn-group">
+        <button type="button" class="case-02" data-popup-close>확인</button>
+      </div>
+    </div>
+  </div>
+  <!-- 2021-05-20 EZP-2992 -->
+  <div class="ui-popup full mallsearch-pop" id="mallsearch-pop">
+    <div class="content">
+      <div class="header">
+        <button type="button" class="btn-close">팝업닫기</button>
+        <strong>마켓 선택</strong>
+      </div>
+      <div class="body">
+        <div>
+          <div class="input-search">
+            <input type="text" placeholder="검색" class="icon_search">
+            <button type="button">검색</button>
+          </div>
+          <ul>
+            <!-- 2021-03-30 EZP-2040 -->
+            <li><button type="button" class="active">쇼핑몰 전체</button></li>
+            <li><button type="button">드노리타</button></li>
+            <li><button type="button">달트</button></li>
+            <li><button type="button">메이크라이트</button></li>
+            <li><button type="button">쪼이쇼룸</button></li>
+            <li><button type="button">쇼핑몰 전체</button></li>
+            <li><button type="button">드노리타</button></li>
+            <li><button type="button">달트</button></li>
+            <li><button type="button">메이크라이트</button></li>
+            <li><button type="button">쪼이쇼룸</button></li>
+            <li><button type="button">쇼핑몰 전체</button></li>
+            <li><button type="button">드노리타</button></li>
+            <li><button type="button">달트</button></li>
+            <li><button type="button">메이크라이트</button></li>
+            <li><button type="button">쪼이쇼룸</button></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+  // 2021-05-11 EZP-2831
+  var clone_item ='<div class="item"><div><span class="radiocss"><input type="radio" name="radio1" id="radio1"><label for="radio1">대표지정</label></span><div class="btn-wrap"><button type="button" name="button" class="btn-add">추가</button><button type="button" name="button" class="btn-del txt-red">삭제</button></div></div><span><select class="select" id="userphone" title="통신사 선택"><option>010</option></select><input type="text" placeholder="" title="휴대폰 두번째 네자리 입력"><input type="text" placeholder="" title="휴대폰 마지막 네자리 입력"></span></div>';
+  $(document).on('click','dd .item .btn-add', function(){
+
+    if( $('dd .item').length >= 5) return false;
+    $(this).parents('.item').after(clone_item);
+    $(this).parent().hide();
+    if( $('dd .item').length == 5) {
+      $(this).parents('.item').next().find('.btn-add').remove();
+    }
+  })
+  $(document).on('click','dd .item .btn-del', function(){
+    $(this).parents('.item').prev('.item').addClass('asd').find('.btn-wrap').show();
+    $(this).parents('.item').remove();
+  })
+  </script>
+
+</body>
+
+</html>

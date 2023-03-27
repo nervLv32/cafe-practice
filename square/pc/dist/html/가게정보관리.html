@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="ko" class="js">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="format-detection" content="telephone=no">
+  <meta content="Wo9FVUnGRn0npADZRLPPfsiBwQJJvSN+VZFoRy++QfE=" name="csrf-token">
+  <link rel="shortcut icon" type="image/x-icon" href="/img/favicon/ezp.ico">
+  <title>easypick-square</title>
+
+  <link rel="stylesheet" type="text/css" href="../css/default.css">
+  <link rel="stylesheet" type="text/css" href="../css/default.custom.css">
+
+</head>
+
+<body>
+  <!-- header// -->
+  <header>
+    <div class="inner">
+      <h1>
+        <a href="/order/front/list">
+          <img src="https://square.easypick.co.kr/img/square/logo.png" alt="이지픽스퀘어">
+        </a>
+      </h1>
+      <!-- 2022-10-28 EZP-6245 픽업예정목록 추가 및 전체 경로 변경 시작 -->
+			<div id="gnb">
+				<ul>
+					<li>
+						<a href="../html/all.html" class="">주문픽업</a>
+					</li>
+					<li>
+						<a href="../html/미매칭픽업.html" class="">미매칭픽업</a>
+					</li>
+					<li>
+						<a href="../html/발주관리.html" class="">발주관리</a>
+					</li>
+					<li>
+						<a href="../html/가게정보관리.html" class="active">가게정보관리</a>
+					</li>
+					<li>
+						<a id="btnMenuPickup" href="#">픽업순서설정</a>
+					</li>
+					<!-- <li>
+						<a href="/order/front/list" class="">내담당픽업관리</a>
+					</li> -->
+					<li>
+						<a href="../html/pickUp-expected-list.html">픽업예정목록</a>
+					</li>
+				</ul>
+			</div>
+			<!-- 2022-10-28 EZP-6245 픽업예정목록 추가 및 전체 경로 변경 끝 -->
+      <div class="util">
+        <strong>사입삼촌01 님</strong>
+        <button type="button" name="button" onclick="javascript:location.href='/sign/front/out';">로그아웃
+        </button>
+      </div>
+    </div>
+  </header>
+  <!-- //header -->
+
+  <!--container// -->
+  <div id="container">
+    <form id="frmSesUncleManageSearch" name="frmSesUncleMangeSearch" action="/charge/front/list" method="get" class="mSearchEngine gHidden">
+      <input type="hidden" name="session_no" value="50">
+      <div class="search-wrap divDisableButton">
+        <div class="inner">
+          <div class="mb10">
+            <div class="search-item mr30">
+              <strong>마켓</strong>
+              <div id="divMarket" class="ui-select">
+                <input name="market_no" type="hidden" value="">
+                <button type="button">전체</button>
+                <div class="select_search">
+                  <input type="text" placeholder="마켓 검색">
+                  <button class="search-btn">검색</button>
+                </div>
+                <ul class="select_ul">
+                  <li data-value="">전체</li>
+                  <li data-value="78">"스카이"</li>
+                  <li data-value="84">"승인관리</li>
+                  <li data-value="76">"테스트</li>
+                  <li data-value="70">'오오'\''</li>
+                  <li data-value="80">23123</li>
+                  <li data-value="69">3213213'</li>
+                  <li data-value="87">5</li>
+                  <li data-value="72">931테스트\'"</li>
+                  <li data-value="74"><b>성주마켓</b></li>
+                  <li data-value="66">aaaaaaaa\'</li>
+                  <li data-value="40">APM</li>
+                  <li data-value="36">APM럭스</li>
+                  <li data-value="46">APM플레이스</li>
+                  <li data-value="65">CH마켓</li>
+                  <li data-value="48">DDP(유어스)</li>
+                  <li data-value="82">dsfsdfsd</li>
+                  <li data-value="34">DWP</li>
+                  <li data-value="83">s</li>
+                  <li data-value="81">sdfsdfsd</li>
+                  <li data-value="71">tttt</li>
+                  <li data-value="85">ㄴㄴㄴ</li>
+                  <li data-value="88">ㄹㄹ</li>
+                  <li data-value="73">ㅇ</li>
+                  <li data-value="52">골든타워</li>
+                  <li data-value="77">김혜정test</li>
+                  <li data-value="30">남평화</li>
+                  <li data-value="32">누죤</li>
+                  <li data-value="55">동문상가</li>
+                  <li data-value="19">동평화</li>
+                  <li data-value="16">디오트</li>
+                  <li data-value="31">디자이너클럽</li>
+                  <li data-value="49">맥스타일</li>
+                  <li data-value="51">벨포스트</li>
+                  <li data-value="43">스튜디오W</li>
+                  <li data-value="57">신발상가 A동</li>
+                  <li data-value="58">신발상가 B동</li>
+                  <li data-value="59">신발상가 C동</li>
+                  <li data-value="60">신발상가 D동</li>
+                  <li data-value="37">신평화</li>
+                  <li data-value="63">신평화옆건물?</li>
+                  <li data-value="89">요일이삼사오육칠팔구십 일이삼사오육칠팔</li>
+                  <li data-value="64">우일프라자</li>
+                  <li data-value="79">이재연마켓가장긴마켓이름으로등록</li>
+                  <li data-value="90">일이삼사오육칠팔 구 십_나냐! 테스트</li>
+                  <li data-value="53">자바11</li>
+                  <li data-value="44">제일평화</li>
+                  <li data-value="54">주문취소</li>
+                  <li data-value="56">청계상가</li>
+                  <li data-value="17">청평화</li>
+                  <li data-value="39">퀸즈스퀘어(광희)</li>
+                  <li data-value="67">테스트마켓 \'"</li>
+                  <li data-value="18">테크노</li>
+                  <li data-value="62">통일상가</li>
+                  <li data-value="41">팀204</li>
+                  <li data-value="38">평화시장</li>
+                  <li data-value="1">프로모션</li>
+                  <li data-value="75">해인마켓</li>
+                  <li data-value="61">형진빌딩</li>
+                  <li data-value="45">혜양엘리시움</li>
+                  <li data-value="91">황정열 마켓켓켓</li>
+                  <li data-value="68">황정열_테스트</li>
+                </ul>
+              </div>
+            </div>
+            <div class="search-item mr30 divAddr">
+              <strong>동</strong> <input name="dong_no" type="hidden" value="">
+              <div id="divDong" class="ui-select" style="width: 120px;">
+                <button type="button">
+                  전체
+                </button>
+                <div class="select_search">
+                  <input type="text" placeholder="동 검색">
+                  <button class="search-btn">검색</button>
+                </div>
+                <ul class="select_ul">
+                  <li data-key="">전체</li>
+                </ul>
+              </div>
+            </div>
+            <div class="search-item mr30 divAddr">
+              <strong>층</strong> <input name="floor_no" type="hidden" value="">
+              <div id="divFloor" class="ui-select" style="width: 120px;">
+                <button type="button">
+                  전체
+                </button>
+                <div class="select_search">
+                  <input type="text" placeholder="층 검색">
+                  <button class="search-btn">검색</button>
+                </div>
+                <ul class="select_ul">
+                  <li data-key="">전체</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div class="search-item">
+              <strong>검색</strong>
+              <!-- 2022-09-30 EZP-6359 width: 160에서 수정 -->
+              <div class="ui-select mr5" style="width:180px;">
+                <input type="hidden" name="search_key" id="selSearchKey" value="">
+                <!-- 2022-09-30 EZP-6359 width: 160에서 수정 -->
+                <div class="ui-select" data-target_id="#selSearchKey" id="sel_selSearchKey" style="width:180px;">
+                  <button type="button" id="btn_selSearchKey" data-value="">가게+(주소)</button><!-- 2021-08-09 EZP-3825 -->
+                  <ul>
+                    <li data-key="" class="active">가게+(주소)</li><!-- 2021-08-09 EZP-3825 -->
+                    <li data-key="seller_name">가게</li><!-- 2021-08-09 EZP-3825 -->
+                    <li data-key="seller_addr">주소</li>
+                    <!-- 2022-09-26 EZP-6359 워딩수정 & li 추가 -->
+                    <li data-key="seller_cell">알림톡수신대표번호</li>
+                    <li data-key="seller_tax_bill">세금계산서요청번호</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="input-search">
+                <input type="text" class="fText height-adjust" placeholder="검색어를 입력해 주세요." name="search_value" id="search_value" style="width:230px;" value="가게">
+              </div>
+            </div>
+            <!-- 2021-02-23 EZP-1903 삭제 -->
+            <button type="submit" name="button" class="btn small filter-search">검색</button>
+            <!-- 2021-02-23 EZP-1903 -->
+            <!-- <a href="/charge/front/list">
+              <button id="btnReset" type="button" name="button" class="filter-reset"></button>
+            </a> -->
+            <button id="btnReset" type="button" name="button" class="filter-reset"></button>
+          </div>
+        </div>
+      </div>
+    </form>
+    <!-- 2021-06-18 EZP-1765 -->
+    <div class="search-result-wrap mb">
+      <span class="chargeCount">검색결과 <strong>45 건</strong></span>
+      <!-- 2021-02-23 EZP-1903 -->
+      <!-- <span class="chargeAlert fcr">※ 변경된 담당자는 다음 발주서 생성시부터 반영됩니다.</span>
+      <div class="btn-wrap">
+        <button id="btnChargeChange" type="button" name="button" class="btn smaller">▶ 담당자 변경</button>
+      </div> -->
+    </div>
+
+    <div class="result-table manage" style="margin-bottom: 20px;">
+      <!-- 2021-06-18 EZP-1765 시작 -->
+      <table>
+        <colgroup>
+          <!-- 2022-09-26 EZP-6359 col 넓이 수정 시작 -->
+          <col width="5%">
+          <col width="5%">
+          <col width="10%">
+          <col width="15%">
+          <col width="*">
+          <col width="15%">
+          <col width="15%"> <!-- 2022-09-26 EZP-6359 세금계산서요청번호 -->
+          <col width="15%"> <!-- 2022-09-26 EZP-6359 최종변경일 -->
+          <!-- 2022-09-26 EZP-6359 col 넓이 수정 끝 -->
+        </colgroup>
+        <thead>
+          <tr>
+            <th class="tac pl15"><span class="checkbox"><input type="checkbox" name="" class="check-all">
+                <label></label></span></th>
+            <th>번호</th>
+            <th>가게</th><!-- 2021-08-09 EZP-3825 -->
+            <th>마켓</th>
+            <th>주소</th>
+            <!-- 2022-09-26 EZP-6359 워딩수정 & th 추가 -->
+            <th>알림톡수신대표번호</th>
+            <th>세금계산서요청번호</th>
+            <th>최종변경일</th>
+          </tr>
+        </thead>
+        <tbody class="center">
+          <tr>
+            <td class="tac">
+              <span class="checkbox"><input type="checkbox" name="seller_no" class="rowChk" value="4918" data-requester="0">
+                <label for="4918"></label></span></td>
+            <td>45</td>
+            <td><a href="#" class="ui-popup-open" data-target="#sellerModify" data-seller_no="4918">APM</a></td>
+            <td><a href="#" class="ui-popup-open" data-target="#sellerModify" data-seller_no="4918">125펄슨</a></td>
+            <td><a href="#" class="ui-popup-open" data-target="#sellerModify" data-seller_no="4918"> 1층 1열 1호</a></td>
+            <td><a href="#" class="ui-popup-open" data-target="#sellerModify" data-seller_no="4918">010-3214-3214</a></td>
+            <!-- 2022-09-26 td 추가 시작 -->
+            <td><a href="#" class="ui-popup-open" data-target="#sellerModify" data-seller_no="4918">010-4321-3333</a></td>
+            <td><span class="txt-red">변경요청</span><br/>2020-03-26 15:37:01</td>
+            <!-- 2022-09-26 td 추가 끝 -->
+          </tr>
+          <tr>
+            <td class="tac">
+              <span class="checkbox"><input type="checkbox" name="seller_no" class="rowChk" value="4560" data-requester="0">
+                <label for="4560"></label></span></td>
+            <td>44</td>
+            <td><a href="#" class="ui-popup-open" data-target="#sellerModify" data-seller_no="4918">APM</a></td>
+            <td><a href="#" class="ui-popup-open" data-target="#sellerModify" data-seller_no="4918">125펄슨</a></td>
+            <td><a href="#" class="ui-popup-open" data-target="#sellerModify" data-seller_no="4560"> 1층 9호</a></td>
+            <td><a href="#" class="ui-popup-open" data-target="#sellerModify" data-seller_no="4560">010-3242-4324</a></td>
+            <!-- 2022-09-26 td 추가 시작 -->
+            <td><a href="#" class="ui-popup-open" data-target="#sellerModify" data-seller_no="4918">010-0000-1776</a></td>
+            <td><span class="txt-green">승인</span><br/>2020-03-26 15:37:01</td>
+            <!-- 2022-09-26 td 추가 끝 -->
+          </tr>
+          <tr>
+            <td class="tac">
+              <span class="checkbox"><input type="checkbox" name="seller_no" class="rowChk" value="4580" data-requester="0">
+                <label for="4580"></label></span></td>
+            <td>43</td>
+            <td><a href="#" class="ui-popup-open" data-target="#sellerModify" data-seller_no="4918">APM</a></td>
+            <td><a href="#" class="ui-popup-open" data-target="#sellerModify" data-seller_no="4918">125펄슨</a></td>
+            <td><a href="#" class="ui-popup-open" data-target="#sellerModify" data-seller_no="4580"> 1층</a></td>
+            <td><a href="#" class="ui-popup-open" data-target="#sellerModify" data-seller_no="4580">010-1111-2222</a></td>
+            <!-- 2022-09-26 td 추가 시작 -->
+            <td><a href="#" class="ui-popup-open" data-target="#sellerModify" data-seller_no="4918">010-1111-6789</a></td>
+            <td><span class="txt-red">변경요청</span><br/>2021-03-26 15:37:01</td>
+            <!-- 2022-09-26 td 추가 끝 -->
+          </tr>
+          <tr>
+            <td class="tac">
+              <span class="checkbox"><input type="checkbox" name="seller_no" class="rowChk" value="4049" data-requester="74">
+                <label for="4049"></label></span></td>
+            <td>42</td>
+            <td><a href="#" class="ui-popup-open" data-target="#sellerModify" data-seller_no="4918">APM</a></td>
+            <td><a href="#" class="ui-popup-open" data-target="#sellerModify" data-seller_no="4918">125펄슨</a></td>
+            <td><a href="#" class="ui-popup-open" data-target="#sellerModify" data-seller_no="4049"> 1층 1열 1호</a></td>
+            <td><a href="#" class="ui-popup-open" data-target="#sellerModify" data-seller_no="4049">010-255-1111</a></td>
+            <!-- 2022-09-26 td 추가 시작 -->
+            <td><a href="#" class="ui-popup-open" data-target="#sellerModify" data-seller_no="4049">010-4321-3333</a></td>
+            <td>2020-03-26 15:37:01</td>
+            <!-- 2022-09-26 td 추가 끝 -->
+          </tr>
+          <tr>
+            <td class="tac">
+              <span class="checkbox"><input type="checkbox" name="seller_no" class="rowChk" value="4363" data-requester="51">
+                <label for="4363"></label></span></td>
+            <td>41</td>
+            <td><a href="#" class="ui-popup-open" data-target="#sellerModify" data-seller_no="4918">APM</a></td>
+            <td><a href="#" class="ui-popup-open" data-target="#sellerModify" data-seller_no="4918">125펄슨</a></td>
+            <td><a href="#" class="ui-popup-open" data-target="#sellerModify" data-seller_no="4363"> 1층</a></td>
+            <td><a href="#" class="ui-popup-open" data-target="#sellerModify" data-seller_no="4363">010-1234-1234</a></td>
+            <!-- 2022-09-26 td 추가 시작 -->
+            <td><a href="#" class="ui-popup-open" data-target="#sellerModify" data-seller_no="4363">010-4545-3333</a></td>
+            <td><span>반려</span><br/>2020-03-26 15:37:01</td>
+            <!-- 2022-09-26 td 추가 끝 -->
+          </tr>
+          <tr>
+            <td class="tac">
+              <span class="checkbox"><input type="checkbox" name="seller_no" class="rowChk" value="4561" data-requester="0">
+                <label for="4561"></label></span></td>
+            <td>40</td>
+            <td><a href="#" class="ui-popup-open" data-target="#sellerModify" data-seller_no="4918">APM</a></td>
+            <td><a href="#" class="ui-popup-open" data-target="#sellerModify" data-seller_no="4918">125펄슨</a></td>
+            <td><a href="#" class="ui-popup-open" data-target="#sellerModify" data-seller_no="4561"> 1층</a></td>
+            <td><a href="#" class="ui-popup-open" data-target="#sellerModify" data-seller_no="4561">010-2344-4324</a></td>
+            <!-- 2022-09-26 td 추가 시작 -->
+            <td><a href="#" class="ui-popup-open" data-target="#sellerModify" data-seller_no="4049">010-4321-3333</a></td>
+            <td><span>취소</span><br/>2022-03-26 15:37:01</td>
+            <!-- 2022-09-26 td 추가 끝 -->
+          </tr>
+          <tr>
+            <td class="tac">
+              <span class="checkbox"><input type="checkbox" name="seller_no" class="rowChk" value="4360" data-requester="0">
+                <label for="4360"></label></span></td>
+            <td>39</td>
+            <td><a href="#" class="ui-popup-open" data-target="#sellerModify" data-seller_no="4918">APM</a></td>
+            <td><a href="#" class="ui-popup-open" data-target="#sellerModify" data-seller_no="4918">125펄슨</a></td>
+            <td><a href="#" class="ui-popup-open" data-target="#sellerModify" data-seller_no="4360"> <b>육<b>층 2열 3호</b></b></a></td>
+            <td><a href="#" class="ui-popup-open" data-target="#sellerModify" data-seller_no="4360">010-2521-1687</a></td>
+            <!-- 2022-09-26 td 추가 시작 -->
+            <td><a href="#" class="ui-popup-open" data-target="#sellerModify" data-seller_no="4918">010-2222-3323</a></td>
+            <td>2020-03-26 15:37:01</td>
+            <!-- 2022-09-26 td 추가 끝 -->
+          </tr>
+
+        </tbody>
+      </table>
+      <!-- 2021-06-18 EZP-1765 종료 -->
+    </div>
+    <div class="pagination">
+      <a href="#none;" class="first none">처음</a><a href="#none;" class="prev none">이전</a><a href="#none;" class="active">1</a>
+      <a href="#none" class="next none">다음</a><a href="#none" class="last none">다음</a></div>
+  </div>
+  <p class="alert"></p>
+  <div id="layerChange" class="ui-popup-open" data-target="#change" hidden=""></div>
+  <div id="change" class="ui-popup">
+    <div class="content" style="width:412px;" tabindex="-1">
+      <div class="body">
+        <h3>담당자 변경</h3>
+        <div class="toss">
+          <input type="hidden" name="uncle_no" id="hidUncleNo" value="111">
+          <div class="ui-select" data-scroll="3" data-target_id="#hidUncleNo" id="sel_hidUncleNo">
+            <button type="button" id="btn_hidUncleNo" data-value="">bakan</button>
+            <ul style="height: 123px; overflow: auto;">
+              <li data-key="111" class="active">bakan</li>
+              <li data-key="94">bakan3</li>
+              <li data-key="115">bakan4_name</li>
+              <li data-key="137">가나다라마바사</li>
+              <li data-key="87">노현우</li>
+              <li data-key="123">메뉴테스트용</li>
+              <li data-key="62">문경민</li>
+              <li data-key="68">박상욱</li>
+              <li data-key="63">박성철</li>
+              <li data-key="60">박수인</li>
+              <li data-key="138">번호테스트</li>
+              <li data-key="50">사입삼촌01</li>
+              <li data-key="51">사입삼촌02</li>
+              <li data-key="89">삼촌#김성주</li>
+              <li data-key="59">여인기</li>
+              <li data-key="84">유지운영</li>
+              <li data-key="74">육성규</li>
+              <li data-key="64">이용우</li>
+              <li data-key="58">이태호</li>
+              <li data-key="83">임승철</li>
+              <li data-key="107">장승훈</li>
+              <li data-key="86">전상민</li>
+              <li data-key="82">지석준</li>
+              <li data-key="61">최용조</li>
+              <li data-key="56">최현태</li>
+              <li data-key="126">혜정-기획디자이너</li>
+              <li data-key="121">혜정-사입삼촌</li>
+              <li data-key="130">혜정-생산관리</li>
+              <li data-key="57">홍재영</li>
+              <li data-key="113">황정열_테스트용</li>
+            </ul>
+          </div>
+          <span>로 담당자를</span>
+          <p class="mb0 mt15">변경합니다.</p>
+        </div>
+        <div class="btn-wrap btns2">
+          <button type="button" class="btn medium btn_close">취소</button>
+          <button type="button" class="btn point medium" id="btnUncleModified">확인</button>
+        </div>
+      </div>
+      <button type="button" class="btn_close"><span>닫기</span></button>
+    </div>
+  </div>
+  
+  <!-- 가게정보 변경 시작 -->
+  <div id="layerSellerModify" class="ui-popup-open" data-target="#sellerModify" hidden=""></div>
+  <div id="sellerModify" class="ui-popup">
+    <div class="content" style="width:800px;" tabindex="-1">
+      <div class="body">
+        <h3>가게정보변경</h3>
+        <div class="toss divDisableButton" style="margin-bottom: 10px;">
+          <form id="frmSellerModify" name="frmSellerModify" action="/order/action/changeRequestRegistered" method="get">
+            <input type="hidden" name="seller_no"> <input type="hidden" name="shop_name_ori">
+            <div class="divSellerModifyRow">
+              <div class="row-tit">가게</div><!-- 2021-10-14 EZP-4344 :: span -> div 변경 / class 추가 -->
+              <div class="row-cont"><!-- 2021-10-14 EZP-4344 :: span -> div 변경 / class 추가 -->
+                <input type="text" id="txtSellerName" style="width: 230px;" disabled="">
+              </div>
+            </div>
+            <div class="divSellerModifyRow">
+              <div class="row-tit">마켓</div><!-- 2021-10-14 EZP-4344 :: span -> div 변경 / class 추가 -->
+              <div class="row-cont"><!-- 2021-10-14 EZP-4344 :: span -> div 변경 / class 추가 -->
+                <div class="ui-select" style="width: 230px;">
+                  <button type="button" id="selMarket" data-check="requested_market_no" disabled=""></button>
+                </div>
+                <div style="margin-top:5px;"><!-- 2021-10-14 EZP-4344 -->
+                  <input type="hidden" name="requested_market_no" id="RequestedMarket" value="">
+                  <div class="ui-select" data-scroll="4" data-target_id="#RequestedMarket" id="sel_RequestedMarket" style="width:230px;">
+                    <button type="button" id="btn_RequestedMarket" data-value=""></button>
+                    <ul style="height: 164px; overflow: auto;">
+                      <li data-key="78">"스카이"</li>
+                      <li data-key="84">"승인관리</li>
+                      <li data-key="76">"테스트</li>
+                      <li data-key="70">'오오'\''</li>
+                      <li data-key="80">23123</li>
+                      <li data-key="69">3213213'</li>
+                      <li data-key="87">5</li>
+                      <li data-key="72">931테스트\'"</li>
+                      <li data-key="74"><b>성주마켓</b></li>
+                      <li data-key="66">aaaaaaaa\'</li>
+                      <li data-key="40">APM</li>
+                      <li data-key="36">APM럭스</li>
+                      <li data-key="46">APM플레이스</li>
+                      <li data-key="65">CH마켓</li>
+                      <li data-key="48">DDP(유어스)</li>
+                      <li data-key="82">dsfsdfsd</li>
+                      <li data-key="34">DWP</li>
+                      <li data-key="83">s</li>
+                      <li data-key="81">sdfsdfsd</li>
+                      <li data-key="71">tttt</li>
+                      <li data-key="85">ㄴㄴㄴ</li>
+                      <li data-key="88">ㄹㄹ</li>
+                      <li data-key="73">ㅇ</li>
+                      <li data-key="52">골든타워</li>
+                      <li data-key="77">김혜정test</li>
+                      <li data-key="30">남평화</li>
+                      <li data-key="32">누죤</li>
+                      <li data-key="55">동문상가</li>
+                      <li data-key="19">동평화</li>
+                      <li data-key="16">디오트</li>
+                      <li data-key="31">디자이너클럽</li>
+                      <li data-key="49">맥스타일</li>
+                      <li data-key="51">벨포스트</li>
+                      <li data-key="43">스튜디오W</li>
+                      <li data-key="57">신발상가 A동</li>
+                      <li data-key="58">신발상가 B동</li>
+                      <li data-key="59">신발상가 C동</li>
+                      <li data-key="60">신발상가 D동</li>
+                      <li data-key="37">신평화</li>
+                      <li data-key="63">신평화옆건물?</li>
+                      <li data-key="89">요일이삼사오육칠팔구십 일이삼사오육칠팔</li>
+                      <li data-key="64">우일프라자</li>
+                      <li data-key="79">이재연마켓가장긴마켓이름으로등록</li>
+                      <li data-key="90">일이삼사오육칠팔 구 십_나냐! 테스트</li>
+                      <li data-key="53">자바11</li>
+                      <li data-key="44">제일평화</li>
+                      <li data-key="54">주문취소</li>
+                      <li data-key="56">청계상가</li>
+                      <li data-key="17">청평화</li>
+                      <li data-key="39">퀸즈스퀘어(광희)</li>
+                      <li data-key="67">테스트마켓 \'"</li>
+                      <li data-key="18">테크노</li>
+                      <li data-key="62">통일상가</li>
+                      <li data-key="41">팀204</li>
+                      <li data-key="38">평화시장</li>
+                      <li data-key="1">프로모션</li>
+                      <li data-key="75">해인마켓</li>
+                      <li data-key="61">형진빌딩</li>
+                      <li data-key="45">혜양엘리시움</li>
+                      <li data-key="91">황정열 마켓켓켓</li>
+                      <li data-key="68">황정열_테스트</li>
+                    </ul>
+                  </div>
+                  로 변경합니다.
+                </div>
+              </div>
+            </div>
+            <div class="divSellerModifyRow divAddr">
+              <div class="row-tit">주소</div><!-- 2021-10-14 EZP-4344 :: span -> div 변경 / class 추가 -->
+              <div class="row-cont"><!-- 2021-10-14 EZP-4344 :: span -> div 변경 / class 추가 -->
+                <div>
+                  <div class="ui-select" style="width: 80px;">
+                    <button type="button" style="width: 80px;" id="selMarketDong" data-check="market_dong_no" disabled=""></button>
+                  </div>
+                  동
+                  <div class="ui-select" style="width: 100px; margin-left: 10px;">
+                    <button type="button" style="width: 100px;" id="selMarketFloor" data-check="market_floor_no" disabled=""></button>
+                  </div>
+                  층 <input type="text" id="txtMarketLine" data-check="market_line" disabled=""> 열
+                  <input type="text" id="txtMarketHo" data-check="market_ho" disabled=""> 호
+                </div>
+                <div style="margin-top:5px;"><!-- 2021-10-14 EZP-4344 -->
+                  <!-- 2021-10-29 EZP-4344 div 복구 -->
+                  <div class="ui-select-wrap">
+                    <input type="hidden" name="market_dong_no" id="RequestedMarketDong" value="">
+                    <div class="ui-select" data-scroll="5" data-target_id="#RequestedMarketDong" id="sel_RequestedMarketDong" style="width:80px;;">
+                      <button type="button" id="btn_RequestedMarketDong" data-value=""></button>
+                      <ul>
+                        <li data-key="101">101</li>
+                        <li data-key="102">102</li>
+                        <li data-key="103">103</li>
+                      </ul>
+                    </div>
+                  동
+                  </div>
+                  <!-- 2021-10-29 EZP-4344 div 복구 -->
+                  <div class="ui-select-wrap">
+                    <input type="hidden" name="market_floor_no" id="RequestedMarketFloor" value="">
+                    <div class="ui-select" data-scroll="5" data-target_id="#RequestedMarketFloor" id="sel_RequestedMarketFloor" style="width:100px; margin-left: 10px;;">
+                      <button type="button" id="btn_RequestedMarketFloor" data-value=""></button>
+                      <ul>
+                        <li data-key="1">1</li>
+                        <li data-key="2">2</li>
+                        <li data-key="3">3</li>
+                      </ul>
+                    </div>
+                  층
+                  </div>
+                  <input type="text" id="txtRequestedMarketLine" name="market_line"> 열
+                  <input type="text" id="txtRequestedMarketHo" name="market_ho"> 호로 변경합니다.
+                </div>
+              </div>
+            </div>
+            <div class="divSellerModifyRow">
+              <div class="row-tit">알림톡수신<br>대표번호</div><!-- 2021-10-14 EZP-4344 :: span -> div 변경 / class 추가 -->
+              <div class="row-cont"><!-- 2021-10-14 EZP-4344 :: span -> div 변경 / class 추가 -->
+                <div>
+                  <div class="ui-select" style="width: 90px;">
+                    <button type="button" style="width: 90px;" id="selSellerCell1" data-check="seller_cell_1" disabled=""></button>
+                  </div>
+                  - <input type="text" id="txtSellerCell2" data-check="seller_cell_2" disabled=""> -
+                  <input type="text" id="txtSellerCell3" data-check="seller_cell_3" disabled="">
+                </div>
+                <div style="margin-top:5px;"><!-- 2021-10-14 EZP-4344 -->
+                  <input type="hidden" name="seller_cell_1" id="RequestedSellerCell1" value="">
+                  <div class="ui-select" data-scroll="3" data-target_id="#RequestedSellerCell1" id="sel_RequestedSellerCell1" style="width:90px;;">
+                    <button type="button" id="btn_RequestedSellerCell1" data-value=""></button>
+                    <ul style="height: 123px; overflow: auto;">
+                      <li data-key="010">010</li>
+                      <li data-key="011">011</li>
+                      <li data-key="016">016</li>
+                      <li data-key="017">017</li>
+                      <li data-key="018">018</li>
+                      <li data-key="019">019</li>
+                    </ul>
+                  </div>
+                  -
+                  <input type="text" class="fNumber" id="txtRequestedSellerCell2" name="seller_cell_2" maxlength="4">
+                  -
+                  <input type="text" class="fNumber" id="txtRequestedSellerCell3" name="seller_cell_3" maxlength="4">
+                  로 변경합니다.
+                </div>
+                <!-- 2022-09-26 EZP-6459 -->
+                <div class="notice-wrap">
+                  <p class="title">그 외 번호 전체</p>
+                  <p class="tel-list"><span>010-1234-5678</span>, <span>010-1357-5678</span></p>
+                </div>
+              </div>
+            </div>
+
+            <!-- 세금계산서 요청 번호 -->
+            <!-- 2022-09-26 EZP-6359 시작 -->
+            <div class="divSellerModifyRow">
+              <div class="row-tit">세금계산서<br>요청 번호</div>
+              <div class="row-cont">
+                <div>
+                  <div class="ui-select" style="width: 90px;">
+                    <button type="button" style="width: 90px;" id="taxbillCall1" data-check="tax_bill_Call1" disabled=""></button>
+                  </div>
+                  - <input type="text" id="taxbillCall2" data-check="tax_bill_Call2" disabled=""> -
+                  <input type="text" id="taxbillCall3" data-check="tax_bill_Call3" disabled="">
+                </div>
+                <div style="margin-top:5px;">
+                  <input type="hidden" name="tax_bill_Call1" id="RetaxbillCall1" value="">
+                  <div class="ui-select" data-scroll="3" data-target_id="#RetaxbillCall1" id="sel_RetaxbillCall1" style="width:90px;;">
+                    <button type="button" id="btn_RequestedSellerCell2" data-value=""></button>
+                    <ul style="height: 123px; overflow: auto;">
+                      <li data-key="010">010</li>
+                      <li data-key="011">011</li>
+                      <li data-key="016">016</li>
+                      <li data-key="017">017</li>
+                      <li data-key="018">018</li>
+                      <li data-key="019">019</li>
+                    </ul>
+                  </div>
+                  -
+                  <input type="text" class="fNumber" id="txtRetaxbillCall2" name="tax_bill_Call2" maxlength="4">
+                  -
+                  <input type="text" class="fNumber" id="txtRetaxbillCall3" name="tax_bill_Call3" maxlength="4">
+                  로 변경합니다.
+                </div>
+                <div class="checkbox">
+                    <input type="checkbox" class="rowChk" name="same_tel">
+                    <label></label>
+                    <span>알림톡 대표번호와 동일</span>
+                </div>
+              </div>
+            </div>
+            <!-- 2022-09-26 EZP-6359 끝 -->
+          </form>
+        </div>
+        <div class="divWarningMsg fcr">
+          ※ 변경된 가게 정보는 관리자 승인 완료 시 반영됩니다. <br> ※ 변경된 담당삼촌은 다음 발주서 생성시부터 반영됩니다.
+        </div>
+        <div class="btn-wrap btns2">
+          <button type="button" class="btn medium btn_close btnEditable">취소</button>
+          <button type="button" class="btn point medium btnEditable ui-popup-open" id="btnSellerModified" data-target="#layerConfirm">변경</button>
+          <!-- 2022-09-26 EZP-6359 삭제
+          <button type="button" class="btn medium btn_close btnUnEditable">확인</button>
+          -->
+        </div>
+      </div>
+      <button type="button" class="btn_close"><span>닫기</span></button>
+    </div>
+  </div>
+  <!--//container -->
+
+  <!-- Alert Layer -->
+  <div id="layerAlertOpen" class="ui-popup-open" data-target="#layerAlert" hidden=""></div>
+  <div id="layerAlert" class="ui-popup">
+    <div class="content" style="min-width:412px; max-width: 700px;" tabindex="-1">
+      <div class="body">
+        <div class="txt-cont">
+          <div class="txt-cont result order">
+            <h3 id="commLayerTitle"></h3>
+            <div class="confirm">
+              <p id="commLayerContents" class="scroll-cont"></p>
+            </div>
+          </div>
+        </div>
+        <div class="btn_wrap mt40 tac">
+          <span class="commLayerConfirm">
+            <button type="button" class="btn point medium ui-popup-open" style="width:150px;" data-target="#reConfirmCase">확인</button>
+          </span>
+        </div>
+      </div>
+      <button type="button" class="btn_close">
+        <div class="commLayerConfirm"><span>닫기</span></div>
+      </button>
+    </div>
+  </div>
+
+  <!-- 2022-09-27 EZP-6359 시작 -->
+  <!-- Confirm Layer -->
+  <div id="layerConfirmOpen" class="ui-popup-open" data-target="#layerConfirm" hidden=""></div>
+  <div id="layerConfirm" class="ui-popup">
+    <div class="content" style="min-width:412px; max-width: 700px;" tabindex="-1">
+      <div class="body">
+        <div class="txt-cont">
+          <div class="txt-cont result order">
+            <h3 id="commLayerTitle"></h3>
+            <div class="confirm">
+              <p id="commLayerContents" class="scroll-cont">변경하시겠습니까?</p>
+            </div>
+          </div>
+        </div>
+        <div class="btn-wrap mt40 btns2">
+          <span class="commLayerCancel">
+            <button type="button" class="btn medium btn_close">취소</button>
+          </span> <span id="commLayerConfirm">
+            <button class="btn point medium ui-popup-open" data-target="#reConfirmCase">확인</button>
+          </span>
+        </div>
+      </div>
+      <button type="button" class="btn_close">
+        <div class="commLayerCancel"><span>닫기</span></div>
+      </button>
+    </div>
+  </div>
+
+  <div id="reConfirmCase" class="ui-popup">
+    <div class="content" style="min-width:412px; max-width: 700px;" tabindex="-1">
+      <div class="body">
+        <div class="txt-cont">
+          <div class="txt-cont result order">
+            <div class="confirm">
+              <!-- case1. 정상(변경완료) -->
+              <p id="commLayerContents" class="scroll-cont">정상적으로 처리되었습니다.</p><br/>
+
+              <!-- case2. 변경된 항목 없음 -->
+              <p id="commLayerContents" class="scroll-cont">동일한 정보로 변경할 수 없습니다.</p><br/>
+
+              <!-- case3. 가게명 미입력 -->
+              <p id="commLayerContents" class="scroll-cont">가게명 항목은 필수 입력값입니다.</p><br/>
+
+              <!-- case4. '사용함'상태의 동일한 가게가 있는 경우 -->
+              <p id="commLayerContents" class="scroll-cont">동일한 가게정보가 존재합니다.<br/>다시 확인해 주세요.</p><br/>
+
+              <!-- case5. 가게명+주소와 동일한 매칭 키워드가 타 가게에 등록되어 있는 경우 -->
+              <p id="commLayerContents" class="scroll-cont">가게명, 주소가 [$가게명] 가게의 매칭키워드로<br/>등록되어 있습니다.<br/>확인해주세요.</p><br/>
+
+              <!-- case6. 주소의 '층' 항목 미선택 -->
+              <p id="commLayerContents" class="scroll-cont">주소를 입력해주세요.</p><br/>
+
+              <!-- case7. 알림톡수신 대표번호 미입력 또는 사양 오류 -->
+              <p id="commLayerContents" class="scroll-cont">알림톡 수신 대표번호를 다시 확인해주세요.</p><br/>
+
+              <!-- case8. 세금계산서 요청번호 미입력 또는 사양 오류 -->
+              <p id="commLayerContents" class="scroll-cont">세금계산서 요청 번호를 다시 확인해주세요.</p>
+
+            </div>
+          </div>
+        </div>
+        <div class="btn-wrap mt40 btns1">
+            <button class="btn point medium btn_close">확인</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 2022-09-27 EZP-6359 끝 -->
+
+  <!-- footer// -->
+  <footer>
+    Copyright ⓒ 2019 EasyPickSquare. All Rights Reserved.
+  </footer><!-- //footer -->
+
+  <script type="text/javascript" src="../js/ui/lib/jquery-1.11.1.min.js"></script>
+  <script type="text/javascript" src="../js/ui/lib/jquery-ui.min.js"></script>
+  <!-- 2022-11-01 EZP-6245 추가해서 tr.opner 작동함 -->
+  <script type="text/javascript" src="./script.js"></script>
+  <script type="text/javascript" src="../js/ui/common_front.js"></script>
+  <script type="text/javascript" src="../js/ui/ui.js"></script>
+  <script type="text/javascript" src="../js/ui/pub.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function(){
+      // LocalStorage.set("csrf-token", "Wo9FVUnGRn0npADZRLPPfsiBwQJJvSN+VZFoRy++QfE=", "uncle");
+      $('#btn_selSearchKey').click(function() {
+        $(this).data('value', $('#selSearchKey').val());
+      });
+      $('#sel_selSearchKey li').click(function() {
+        var sPrevValue = $('#btn_selSearchKey').data('value');
+        var sThisValue = $(this).data('key');
+        let sTarget = $(this).closest('.ui-select').data('target_id');
+        $(sTarget).val(sThisValue);
+        if (sPrevValue != sThisValue) {
+          $(sTarget).trigger('change');
+        }
+      });
+      $('#btn_hidUncleNo').click(function() {
+        $(this).data('value', $('#hidUncleNo').val());
+      });
+      $('#sel_hidUncleNo li').click(function() {
+        var sPrevValue = $('#btn_hidUncleNo').data('value');
+        var sThisValue = $(this).data('key');
+        let sTarget = $(this).closest('.ui-select').data('target_id');
+        $(sTarget).val(sThisValue);
+        if (sPrevValue != sThisValue) {
+          $(sTarget).trigger('change');
+        }
+      });
+      $('#btn_RequestedMarket').click(function() {
+        $(this).data('value', $('#RequestedMarket').val());
+      });
+      $('#sel_RequestedMarket li').click(function() {
+        var sPrevValue = $('#btn_RequestedMarket').data('value');
+        var sThisValue = $(this).data('key');
+        let sTarget = $(this).closest('.ui-select').data('target_id');
+        $(sTarget).val(sThisValue);
+        if (sPrevValue != sThisValue) {
+          $(sTarget).trigger('change');
+        }
+      });
+      $('#btn_RequestedMarketDong').click(function() {
+        $(this).data('value', $('#RequestedMarketDong').val());
+      });
+      $('#sel_RequestedMarketDong li').click(function() {
+        var sPrevValue = $('#btn_RequestedMarketDong').data('value');
+        var sThisValue = $(this).data('key');
+        let sTarget = $(this).closest('.ui-select').data('target_id');
+        $(sTarget).val(sThisValue);
+        if (sPrevValue != sThisValue) {
+          $(sTarget).trigger('change');
+        }
+      });
+      $('#btn_RequestedMarketFloor').click(function() {
+        $(this).data('value', $('#RequestedMarketFloor').val());
+      });
+      $('#sel_RequestedMarketFloor li').click(function() {
+        var sPrevValue = $('#btn_RequestedMarketFloor').data('value');
+        var sThisValue = $(this).data('key');
+        let sTarget = $(this).closest('.ui-select').data('target_id');
+        $(sTarget).val(sThisValue);
+        if (sPrevValue != sThisValue) {
+          $(sTarget).trigger('change');
+        }
+      });
+      $('#btn_RequestedSellerCell1').click(function() {
+        $(this).data('value', $('#RequestedSellerCell1').val());
+      });
+      $('#sel_RequestedSellerCell1 li').click(function() {
+        var sPrevValue = $('#btn_RequestedSellerCell1').data('value');
+        var sThisValue = $(this).data('key');
+        let sTarget = $(this).closest('.ui-select').data('target_id');
+        $(sTarget).val(sThisValue);
+        if (sPrevValue != sThisValue) {
+          $(sTarget).trigger('change');
+        }
+      });
+      $('#btn_RequestedChargeUncle').click(function() {
+        $(this).data('value', $('#RequestedChargeUncle').val());
+      });
+      $('#sel_RequestedChargeUncle li').click(function() {
+        var sPrevValue = $('#btn_RequestedChargeUncle').data('value');
+        var sThisValue = $(this).data('key');
+        let sTarget = $(this).closest('.ui-select').data('target_id');
+        $(sTarget).val(sThisValue);
+        if (sPrevValue != sThisValue) {
+          $(sTarget).trigger('change');
+        }
+      });
+
+  });
+  </script>
+
+  <style>
+    .select_ul .active {
+      background: #f9f9f9;
+    }
+  </style>
+  <div class="ui-load" style="display:none">
+    <img src="/img/square/loading.svg">
+  </div>
+</body>
+
+</html>

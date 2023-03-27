@@ -1,0 +1,1364 @@
+<!DOCTYPE html>
+<html lang="ko" class="js">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="format-detection" content="telephone=no">
+	<meta content="7GTEAaj9OHm/B6t8WELAc+6jTv9Fwyjj4nGViJpKFoc=" name="csrf-token">
+	<meta content="T" name="login-required">
+	<link rel="shortcut icon" type="image/x-icon" href="/img/favicon/ezp.ico">
+
+	<link rel="stylesheet" type="text/css" href="../../css/default.css">
+	<link rel="stylesheet" type="text/css" href="../../css/month.picker.css">
+
+	<title>이지픽</title>
+</head>
+
+<body>
+
+	<!-- header// -->
+	<!-- 21-02-23 수정 / 클래스 추가-->
+	<header class="min-wid"></header>
+	<!-- //header -->
+
+	<!--container// -->
+	<!-- 2022-11-24 EZP-6415 주문매칭관리 신규페이지 추가 -->
+	<div id="container" class="mypage_wrap matching-wrap">
+		<h2>마이페이지</h2>
+		<div class="mypage-top-box">
+			<div class="left">
+				<span class="shop-delivery">택배송</span>
+				<!-- <span class="shop-delivery blue">직배송</span> -->
+				<span class="id">쇼핑몰명 최대 15자까지노출</span>
+				<em></em>
+				<div class="link-wrap">
+					<!-- 2023-02-13 EZP-6415 카페24 계정연동 추가 시작 -->
+					<!-- 연동이 완료시 class="on" 붙여주시면됩니다. -->
+					<a href="javascript: void(0);" class="txt-btn on ui-popup-open" data-target="#cafe24-unlink-alert1">카페24 계정 연동</a>
+					<!-- 2023-02-13 EZP-6415 카페24 계정연동 추가 끝 -->
+					<a href="#" class="mb5">회원 정보 관리</a>
+					<a href="#">큐레이션 정보 관리</a>
+				</div>
+			</div>
+			<div class="right">
+				<ul>
+					<li>
+						<span>픽샵</span>
+						<em><a href="#">22</a></em>
+					</li>
+					<li>
+						<span>픽템</span>
+						<em><a href="#">5</a></em>
+					</li>
+					<li>
+						<span>최근 본 상품</span>
+						<em><a href="#">153</a></em>
+					</li>
+					<li>
+						<span>내 판매 상품</span>
+						<em><a href="#">3456</a></em>
+					</li>
+					<!-- 2022-11-23 EZP-6818 매칭정보/ 주문매칭 / 샘플제안관리 추가 시작-->
+					<li class="border-none">
+						<!-- 샘플 제안 관리에 class on으로 내역 있음 / 없음 조정가능 -->
+						<a href="#" class="sample on">샘플 제안 관리</a>
+						<a href="#" class="matching gray">매칭정보관리</a>
+						<a href="#" class="order_matching gray">주문매칭관리</a>
+					</li>
+					<!-- 2022-11-23 EZP-6415 매칭정보/ 주문매칭 / 샘플제안관리 추가 끝-->
+				</ul>
+			</div>
+		</div>
+
+		<div class="table-wrap mb20">
+			<div class="title mb15">
+				<h3>주문매칭관리</h3>
+			</div>
+			<form id="" name="" action="">
+				<input type="hidden" id="order_no" name="order_no" value="">
+				<input type="hidden" id="limit" name="limit" value="200">
+				<table class="th-ver searchForm">
+					<colgroup>
+						<col width="140px">
+						<col width="*">
+					</colgroup>
+					<tbody>
+						<tr>
+							<th>기간조회</th>
+							<td>
+								<input type="hidden" name="date_type" id="selDateType" value="inspect_date">
+								<div class="ui-select" data-target_id="#selPeriodType">
+									<button type="button" data-target_id="#selPeriodType" data-value="">주문일</button>
+									<ul>
+										<li data-key="order_ts" class="active">주문일</li>
+										<li data-key="canceled_ts">매칭완료일</li>
+									</ul>
+								</div>
+								<ul class="period-filter">
+									<input type="hidden" name="period" value="365">
+									<li class=""><a href="javascript:;" data-period="0">오늘</a></li>
+									<li class=""><a href="javascript:;" data-period="7">1주일</a></li>
+									<li class=""><a href="javascript:;" data-period="30">1개월</a></li>
+									<li class=""><a href="javascript:;" data-period="90">3개월</a></li>
+									<li class=""><a href="javascript:;" data-period="180">6개월</a></li>
+									<li class="on"><a href="javascript:;" data-period="365">1년</a></li>
+								</ul>
+								<div class="single_button">
+									<a href="javascript:;" class="btn small line arrow" name="arrow_prev" data-arrow="-1">&lt;</a>
+								</div>
+								<div class="picker-wrap">
+									<div class="datepicker-wrap">
+										<img class="ui-datepicker-trigger" src="https://easypick.co.kr/img/common/calendar.png" alt="Select date" title="Select date">
+										<!-- 2023-01-04 EZP-7919 class hasDatepicker 제거후 from 추가-->
+										<input type="text" id="start_date" name="start_date" class="not-addclear datepicker from"
+											style="width: 98px;" value="2020-02-10" readonly="">
+									</div>
+									<span>~</span>
+									<div class="datepicker-wrap">
+										<img class="ui-datepicker-trigger" src="https://easypick.co.kr/img/common/calendar.png" alt="Select date" title="Select date">
+										<!-- 2023-01-04 EZP-7919 class hasDatepicker 제거후 to 추가-->
+										<input type="text" id="end_date" name="end_date" class="not-addclear datepicker to"
+											style="width: 98px;" value="2020-03-11" readonly="">
+									</div>
+								</div>
+								<div class="single_button">
+									<a href="javascript:;" class="btn small line arrow" name="arrow_next" data-arrow="1">&gt;</a>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<th>매칭상태</th>
+							<td>
+								<div class="check-box-wrap">
+									<span class="checkbox chkall">
+										<input type="checkbox" name="" id="chk-all" value="10" checked="checked">
+										<label for="chk-all">전체</label>
+									</span>
+									<span class="checkbox">
+										<input type="checkbox" name="" id="" value="10" checked="checked">
+										<label for="custom_type_new10">미매칭</label>
+									</span>
+									<span class="checkbox">
+										<input type="checkbox" name="" id="" value="20" checked="checked">
+										<label for="custom_type_new10">매칭완료</label>
+									</span>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<th>유형</th>
+							<td>
+								<div class="check-box-wrap">
+									<span class="checkbox chkall">
+										<input type="checkbox" name="" id="chk-all" value="10" checked="checked">
+										<label for="chk-all">전체</label>
+									</span>
+									<span class="checkbox">
+										<input type="checkbox" name="" id="10" value="10" checked="checked"><label for="10">신규</label>
+									</span>
+									<span class="checkbox">
+										<input type="checkbox" name="" id="20" value="20" checked="checked"><label for="20">미송</label>
+									</span>
+									<span class="checkbox">
+										<input type="checkbox" name="" id="30" value="30" checked="checked"><label for="30">불량</label>
+									</span>
+									<span class="checkbox">
+										<input type="checkbox" name="" id="40" value="40" checked="checked"><label for="40">샘픔</label>
+									</span>
+									<!-- 2023-02-14 EZP-6415 항목 제거
+									<span class="checkbox">
+										<input type="checkbox" name="" id="50" value="50" checked="checked"><label for="50">샘플반납</label>
+									</span> -->
+									<span class="checkbox">
+										<input type="checkbox" name="" id="60" value="60" checked="checked"><label for="60">유료샘플</label>
+									</span>
+									<span class="checkbox">
+										<input type="checkbox" name="" id="70" value="70" checked="checked"><label for="70">제작신규</label>
+									</span>
+									<!-- 2023-02-14 EZP-6415 항목 제거
+									<span class="checkbox">
+										<input type="checkbox" name="" id="80" value="80" checked="checked"><label for="80">제작미송</label>
+									</span> -->
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<th>검색</th>
+							<td>
+								<div class="list-searchBox">
+									<input type="hidden" name="search_key" id="search_key" value="">
+									<div class="ui-select" data-target_id="#search_key">
+										<button type="button" data-target_id="#search_key" data-value="">전체</button>
+										<ul>
+											<li data-key="" class="active">전체</li>
+											<li data-key="order_no">주문번호</li>
+											<li data-key="seller_name">거래처명</li>
+											<li data-key="easypick_product_name">이지픽품목코드</li>
+											<li data-key="easypick_product_name">이지픽상품명</li>
+											<li data-key="ec_product_code">EC품목코드</li>
+											<li data-key="ec_product_name_code">EC상품명</li>
+										</ul>
+									</div>
+									<div style="display:inline; position:relative;" class="add-clear-span">
+										<input type="text" title="기본 입력란" name="search_value" value="" style="padding-right: 20px;"><a href="#clear"
+											style="display: none; color: rgb(204, 204, 204); text-decoration: none; overflow: hidden; position: absolute; right: 12px; top: 1px; line-height: 1;">✖</a></div>
+									<button type="submit" class="btn small eSearch">조회하기</button>
+								</div>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</form>
+		</div>
+		<ul class="list-top-sub mb40">
+			<li>
+				미매칭<span><em>19,998,000</em>개</span>
+			</li>
+			<li>
+				매칭완료<span><em>4,999,500</em>개</span>
+			</li>
+			<li>
+				총 주문 건 수<span><em>99,999,990</em>개</span>
+			</li>
+		</ul>
+
+		<div class="table-wrap order-list matching mb0">
+			<div class="tit wrap ex mb15">
+				<!-- 2023-02-14 EZP-6415 일괄매칭 버튼위치 변경, .ml0 추가 -->
+				<button type="button" class="btn small ml0 line matching-btn ui-popup-open" href="#" data-target="#matching-alert1">
+					일괄매칭
+				</button>
+					<input type="hidden" name="limit" id="hidRowCount" value="10">
+					<div class="ui-select" data-target_id="#hidRowCount">
+						<button type="button" data-target_id="#hidRowCount" data-value="">200개씩 보기</button>
+						<ul>
+							<li data-key="10" class="active">10개씩 보기</li>
+							<li data-key="30">30개씩 보기</li>
+							<li data-key="50">50개씩 보기</li>
+							<li data-key="100">100개씩 보기</li>
+							<li data-key="200">200개씩 보기</li>
+							<li data-key="300">300개씩 보기</li>
+						</ul>
+					</div>
+					<!-- 2023-02-14 EZP-6415 일괄매칭 버튼위치 변경
+						<button type="button" class="btn small line matching-btn ui-popup-open" href="#" data-target="#matching-alert1">
+						일괄매칭
+					</button> -->
+			</div>
+
+
+			<table class="th-hor order-list matchingProduct mb40" >
+				<colgroup>
+					<col class="th-chk" width="50px"><!-- 체크박스-->
+					<col width="80px"><!-- 매칭상태-->
+					<col width="110px"><!-- 이지픽상품정보-이지픽품목코드 -->
+					<col width="50"><!-- 이지픽상품정보-주문구분 --> <!-- 2023-02-01 EZP-6415 주문구분 추가 -->
+					<col width="45px"><!-- 이지픽상품정보-유형 -->
+					<col width="140px"><!-- 이지픽상품정보-주문일시 -->
+					<col width="160px"><!-- 이지픽상품정보-거래처명 -->
+					<col width="200px"><!-- 이지픽상품정보-상품명 -->
+					<col width="100px"><!-- 이지픽상품정보-옵션 -->
+					<col width="100px"><!-- EC상품정보-EC품목코드 -->
+					<col width="200px"><!-- EC상품정보-상품명 -->
+					<col width="100px"><!-- EC상품정보-옵션 -->
+					<col width="70px"><!--관리-->
+				</colgroup>
+				<thead>
+					<tr>
+						<th class="th-chk" rowspan="2">
+							<span class="checkbox" style="padding-left: 16px"><input type="checkbox" class="allChk" id="allChk" /><label for="allChk"></label></span>
+						</th>
+						<th rowspan="2">매칭상태</th>
+						<!-- 2023-02-01 EZP-6415 colspan 6 -> 7로 변경 -->
+						<th colspan="7" class="small-th green">
+							이지픽 상품정보
+						</th>
+						<th colspan="3" class="small-th blue">
+							EC 상품정보
+						</th>
+						<th rowspan="2">관리</th>
+					</tr>
+					<tr>
+						<th class="small-th green">품목코드</th> <!-- 2023-02-07 EZP-6415 워딩변경 -->
+						<th class="small-th green">유형</th>
+						<th class="small-th green">주문구분</th> <!-- 2023-02-01 EZP-6415 주문구분 유형 추가 -->
+						<th class="small-th green">주문번호<br/><span>(주문일시)</span></th>
+						<th class="small-th green">거래처명</th>
+						<th class="small-th green">상품명</th>
+						<th class="small-th green">옵션</th>
+						<th class="small-th blue">EC품목코드</th>
+						<th class="small-th blue">EC상품명</th> <!-- 2023-02-07 EZP-6415 워딩변경 -->
+						<th class="small-th blue">옵션</th>
+					</tr>
+				</thead>
+				<tbody class="eListArea">
+					<!-- nodata case -->
+					<tr>
+						<td colspan="12">
+							<div class="noData">
+								<span class="noimg"></span>
+								<p>등록된 건이 없습니다.</p>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td class="th-chk">
+							<span class="checkbox" style="padding-left: 16px">
+								<input type="checkbox" class="rowChk" value="235569" data-order_item_no="235569" data-ss_item_no="287659" data-product_name="레이온긴팔T" data-is_first="T" data-spec_item_type="10" /><label></label>
+							</span>
+						</td>
+						<td class="txt-red">미매칭</td>
+						<td>P0000000000</td>
+						<td>일반<br/>주문</td> <!-- 2023-02-01 EZP-6415 주문구분 유형 추가 -->
+						<td><span class="btn-type blue">신규</td>
+						<td class="Enfont">2020030600003904<br><span class="f-small">(2020-03-06 10:21:20)</span></td>
+						<td><p class="prd">진짜피카소(디오트 A동 1층 1호)진짜피카소(디오트 A동 1층 1호)진짜피카소(디오트 A동 1층 1호)진짜피카소(디오트 A동 1층 1호)</p></td>
+						<td>
+							<!-- 2023-03-18 개발팀요청 eProductName -> n-ellipsis로 변경 -->
+							<p class="prd ex n-ellipsis">
+								<a href="#" class="underline">터틀넥 스트랩 울 코트터틀넥 스트랩 울 코트터틀넥 스트랩 울 코트터틀넥 스트랩 울 코트터틀넥 스트랩 울 코트</a>
+							</p>
+						</td>
+						<td class="option" title="네이비 FREE">네이비네이비네이비네이비네이비<br/><span class="color">S</span></td>
+						<td>-</td>
+						<td>-</td>
+						<td>-</td>
+						<td>
+							<button type="button" class="btn-order eInDetail">매칭</button>
+						</td>
+					</tr>
+					<tr>
+						<td class="th-chk">
+							<span class="checkbox" style="padding-left: 16px">
+								<input type="checkbox" class="rowChk" value="235569" data-order_item_no="235569" data-ss_item_no="287659" data-product_name="레이온긴팔T" data-is_first="T" data-spec_item_type="10" /><label></label>
+							</span>
+						</td>
+						<td class="txt-red">미매칭</td>
+						<td>-</td>
+						<td>바로<br/>주문</td> <!-- 2023-02-01 EZP-6415 주문구분 유형 추가 -->
+						<td><span class="btn-type green">미송</td>
+						<td class="Enfont">2020030600003904<br><span class="f-small">(2020-03-06 10:21:20)</span></td>
+						<td><p class="prd">진짜피카소(디오트 A동 1층 1호)</p></td>
+						<td>
+							<!-- 2023-03-18 개발팀요청 eProductName -> n-ellipsis로 변경 -->
+							<p class="prd ex n-ellipsis">
+								<a href="#">기모 크롭 맨투맨</a>
+							</p>
+						</td>
+						<td class="option" title="네이비 FREE">네이비<br/><span class="color">S</span></td>
+						<td>-</td>
+						<td>-</td>
+						<td>-</td>
+						<td>
+							<button type="button" class="btn-order eInDetail">매칭</button>
+						</td>
+					</tr>
+					<tr>
+						<td class="th-chk">
+							<span class="checkbox" style="padding-left: 16px">
+								<input type="checkbox" class="rowChk" value="235569" data-order_item_no="235569" data-ss_item_no="287659" data-product_name="레이온긴팔T" data-is_first="T" data-spec_item_type="10" /><label></label>
+							</span>
+						</td>
+						<td class="txt-red">미매칭</td>
+						<!-- 2023-02-01 EZP-6415 품목코드 링크제거 및 동일품목모아보기 -> 코드번호 표시로 변경 -->
+						<td>P0000000000</td>
+						<td>일반<br/>주문</td> <!-- 2023-02-01 EZP-6415 주문구분 유형 추가 -->
+						<td><span class="btn-type blue">신규</td>
+						<td class="Enfont">2020030600003904<br><span class="f-small">(2020-03-06 10:21:20)</span></td>
+						<td><p class="prd">진짜피카소(디오트 A동 1층 1호)</p></td>
+						<td>
+							<!-- 2023-03-18 개발팀요청 eProductName -> n-ellipsis로 변경 -->
+							<p class="prd ex n-ellipsis">
+								<a href="#" class="underline">기본 롱 T 원피스</a>
+							</p>
+						</td>
+						<td class="option" title="네이비 FREE">네이비<br/><span class="color">S</span></td>
+						<td>-</td>
+						<td>-</td>
+						<td>-</td>
+						<td>
+							<button type="button" class="btn-order eInDetail">매칭</button>
+						</td>
+					</tr>
+					<tr>
+						<td class="th-chk">
+							<span class="checkbox" style="padding-left: 16px">
+								<input type="checkbox" class="rowChk" value="235569" data-order_item_no="235569" data-ss_item_no="287659" data-product_name="레이온긴팔T" data-is_first="T" data-spec_item_type="10" /><label></label>
+							</span>
+						</td>
+						<td class="txt-red">미매칭</td>
+						<!-- 2023-02-01 EZP-6415 품목코드 링크제거 및 동일품목모아보기 -> 코드번호 표시로 변경 -->
+						<td>P0000000000</td>
+						<td>바로<br/>주문</td> <!-- 2023-02-01 EZP-6415 주문구분 유형 추가 -->
+						<td><span class="btn-type blue">신규</td>
+						<td class="Enfont">2020030600003904<br><span class="f-small">(2020-03-06 10:21:20)</span></td>
+						<td><p class="prd">진짜피카소(디오트 A동 1층 1호)</p></td>
+						<td>
+							<!-- 2023-03-18 개발팀요청 eProductName -> n-ellipsis로 변경 -->
+							<p class="prd ex n-ellipsis">
+								<a href="#">터틀넥 스트랩 울 코트</a>
+							</p>
+						</td>
+						<td class="option" title="네이비 FREE">네이비<br/><span class="color">S</span></td>
+						<td>-</td>
+						<td>-</td>
+						<td>-</td>
+						<td>
+							<button type="button" class="btn-order eInDetail">매칭</button>
+						</td>
+					</tr>
+					<tr>
+						<td class="th-chk">
+							<span class="checkbox" style="padding-left: 16px">
+								<input type="checkbox" class="rowChk" value="235569" data-order_item_no="235569" data-ss_item_no="287659" data-product_name="레이온긴팔T" data-is_first="T" data-spec_item_type="10" /><label></label>
+							</span>
+						</td>
+						<td>매칭완료<br/><span>2022-10-10<br/><em>16:02:00</em></span></td>
+						<!-- 2023-02-01 EZP-6415 품목코드 링크제거 및 동일품목모아보기 -> 코드번호 표시로 변경 -->
+						<td>P0000000000</td>
+						<td>바로<br/>주문</td> <!-- 2023-02-01 EZP-6415 주문구분 유형 추가 -->
+						<td><span class="btn-type blue">신규</td>
+						<td class="Enfont">2020030600003904<br><span class="f-small">(2020-03-06 10:21:20)</span></td>
+						<td><p class="prd">진짜피카소(디오트 A동 1층 1호)</p></td>
+						<td>
+							<!-- 2023-03-18 개발팀요청 eProductName -> n-ellipsis로 변경 -->
+							<p class="prd ex n-ellipsis">
+								<a href="#">터틀넥 스트랩 울 코트</a>
+							</p>
+						</td>
+						<td class="option" title="네이비 FREE">네이비<br/><span class="color">S</span></td>
+						<td>P000000J00D</td>
+						<td>베이직 맥시 원피스(벨트set)</td>
+						<td class="option" title="네이비 FREE">네이비<br/><span class="color">S</span></td>
+						<td>
+							<button type="button" class="btn-order eInDetail">매칭</button>
+						</td>
+					</tr>
+					<tr>
+						<td class="th-chk">
+							<span class="checkbox" style="padding-left: 16px">
+								<input type="checkbox" class="rowChk" value="235569" data-order_item_no="235569" data-ss_item_no="287659" data-product_name="레이온긴팔T" data-is_first="T" data-spec_item_type="10" /><label></label>
+							</span>
+						</td>
+						<td class="txt-red">미매칭</td>
+						<!-- 2023-02-01 EZP-6415 품목코드 링크제거 및 동일품목모아보기 -> 코드번호 표시로 변경 -->
+						<td>P0000000000</td>
+						<td>바로<br/>주문</td> <!-- 2023-02-01 EZP-6415 주문구분 유형 추가 -->
+						<td><span class="btn-type blue">신규</td>
+						<td class="Enfont">2020030600003904<br><span class="f-small">(2020-03-06 10:21:20)</span></td>
+						<td><p class="prd">진짜피카소(디오트 A동 1층 1호)</p></td>
+						<td>
+							<!-- 2023-03-18 개발팀요청 eProductName -> n-ellipsis로 변경 -->
+							<p class="prd ex n-ellipsis">
+								<a href="#">기모 크롭 맨투맨</a>
+							</p>
+						</td>
+						<td class="option" title="네이비 FREE">네이비<br/><span class="color">S</span></td>
+						<td>-</td>
+						<td>-</td>
+						<td>-</td>
+						<td>
+							<button type="button" class="btn-order eInDetail">매칭</button>
+						</td>
+					</tr>
+					<tr>
+						<td class="th-chk">
+							<span class="checkbox" style="padding-left: 16px">
+								<input type="checkbox" class="rowChk" value="235569" data-order_item_no="235569" data-ss_item_no="287659" data-product_name="레이온긴팔T" data-is_first="T" data-spec_item_type="10" /><label></label>
+							</span>
+						</td>
+						<td class="txt-red">미매칭</td>
+						<!-- 2023-02-01 EZP-6415 품목코드 링크제거 및 동일품목모아보기 -> 코드번호 표시로 변경 -->
+						<td>P0000000000</td>
+						<td>바로<br/>주문</td> <!-- 2023-02-01 EZP-6415 주문구분 유형 추가 -->
+						<td><span class="btn-type faulty">불량</td>
+						<td class="Enfont">2020030600003904<br><span class="f-small">(2020-03-06 10:21:20)</span></td>
+						<td><p class="prd">진짜피카소(디오트 A동 1층 1호)</p></td>
+						<td>
+							<!-- 2023-03-18 개발팀요청 eProductName -> n-ellipsis로 변경 -->
+							<p class="prd ex n-ellipsis">
+								<a href="#">터틀넥 스트랩 울 코트</a>
+							</p>
+						</td>
+						<td class="option" title="네이비 FREE">네이비<br/><span class="color">S</span></td>
+						<td>-</td>
+						<td>-</td>
+						<td>-</td>
+						<td>
+							<button type="button" class="btn-order eInDetail">매칭</button>
+						</td>
+					</tr>
+					<tr>
+						<td class="th-chk">
+							<span class="checkbox" style="padding-left: 16px">
+								<input type="checkbox" class="rowChk" value="235569" data-order_item_no="235569" data-ss_item_no="287659" data-product_name="레이온긴팔T" data-is_first="T" data-spec_item_type="10" /><label></label>
+							</span>
+						</td>
+						<td>매칭완료<br/><span>2022-10-10<br/><em>16:02:00</em></span></td>
+						<!-- 2023-02-01 EZP-6415 품목코드 링크제거 및 동일품목모아보기 -> 코드번호 표시로 변경 -->
+						<td>P0000000000</td>
+						<td>바로<br/>주문</td> <!-- 2023-02-01 EZP-6415 주문구분 유형 추가 -->
+						<td><span class="btn-type green">미송</td>
+						<td class="Enfont">2020030600003904<br><span class="f-small">(2020-03-06 10:21:20)</span></td>
+						<td><p class="prd">진짜피카소(디오트 A동 1층 1호)</p></td>
+						<td>
+							<!-- 2023-03-18 개발팀요청 eProductName -> n-ellipsis로 변경 -->
+							<p class="prd ex n-ellipsis">
+								<a href="#">터틀넥 스트랩 울 코트</a>
+							</p>
+						</td>
+						<td class="option" title="네이비 FREE">네이비<br/><span class="color">S</span></td>
+						<td>P000000J00D</td>
+						<td>베이직 맥시 원피스(벨트set)</td>
+						<td class="option" title="네이비 FREE">네이비<br/><span class="color">S</span></td>
+						<td>
+							<button type="button" class="btn-order eInDetail">매칭</button>
+						</td>
+					</tr>
+					<tr>
+						<td class="th-chk">
+							<span class="checkbox" style="padding-left: 16px">
+								<input type="checkbox" class="rowChk" value="235569" data-order_item_no="235569" data-ss_item_no="287659" data-product_name="레이온긴팔T" data-is_first="T" data-spec_item_type="10" /><label></label>
+							</span>
+						</td>
+						<td>매칭완료<br/><span>2022-10-10<br/><em>16:02:00</em></span></td>
+						<!-- 2023-02-01 EZP-6415 품목코드 링크제거 및 동일품목모아보기 -> 코드번호 표시로 변경 -->
+						<td>P0000000000</td>
+						<td>일반<br/>주문</td> <!-- 2023-02-01 EZP-6415 주문구분 유형 추가 -->
+						<td><span class="btn-type blue">신규</td>
+						<td class="Enfont">2020030600003904<br><span class="f-small">(2020-03-06 10:21:20)</span></td>
+						<td><p class="prd">진짜피카소(디오트 A동 1층 1호)</p></td>
+						<td>
+							<!-- 2023-03-18 개발팀요청 eProductName -> n-ellipsis로 변경 -->
+							<p class="prd ex n-ellipsis">
+								<a href="#" class="underline">상품명 긴 경울 줄내림하여<br/> 최대3줄까지 표시하며 최대<br/> 글자수까지 모두 표기 가능함</a>
+							</p>
+						</td>
+						<td class="option" title="네이비 FREE">네이비<br/><span class="color">S</span></td>
+						<td>P000000J00D</td>
+						<td>베이직 맥시 원피스(벨트set)</td>
+						<td class="option" title="네이비 FREE">네이비네이비네이비네이비네이비네이비<br/><span class="color">S</span></td>
+						<td>
+							<button type="button" class="btn-order eInDetail">매칭</button>
+						</td>
+					</tr>
+					<tr>
+						<td class="th-chk">
+							<span class="checkbox" style="padding-left: 16px">
+								<input type="checkbox" class="rowChk" value="235569" data-order_item_no="235569" data-ss_item_no="287659" data-product_name="레이온긴팔T" data-is_first="T" data-spec_item_type="10" /><label></label>
+							</span>
+						</td>
+						<td>매칭완료<br/><span>2022-10-10<br/><em>16:02:00</em></span></td>
+						<!-- 2023-02-01 EZP-6415 품목코드 링크제거 및 동일품목모아보기 -> 코드번호 표시로 변경 -->
+						<td>P0000000000</td>
+						<td>바로<br/>주문</td> <!-- 2023-02-01 EZP-6415 주문구분 유형 추가 -->
+						<td><span class="btn-type blue">신규</td>
+						<td class="Enfont">2020030600003904<br><span class="f-small">(2020-03-06 10:21:20)</span></td>
+						<td><p class="prd">진짜피카소(디오트 A동 1층 1호)</p></td>
+						<td>
+							<!-- 2023-03-18 개발팀요청 eProductName -> n-ellipsis로 변경 -->
+							<p class="prd ex n-ellipsis">
+								<a href="#">터틀넥 스트랩 울 코트</a>
+							</p>
+						</td>
+						<td class="option" title="네이비 FREE">네이비<br/><span class="color">S</span></td>
+						<td>P000000J00D</td>
+						<td>베이직 맥시 원피스(벨트set)</td>
+						<td class="option" title="네이비 FREE">네이비<br/><span class="color">S</span></td>
+						<td>
+							<button type="button" class="btn-order eInDetail">매칭</button>
+						</td>
+					</tr>
+					<tr>
+						<td class="th-chk">
+							<span class="checkbox" style="padding-left: 16px">
+								<input type="checkbox" class="rowChk" value="235569" data-order_item_no="235569" data-ss_item_no="287659" data-product_name="레이온긴팔T" data-is_first="T" data-spec_item_type="10" /><label></label>
+							</span>
+						</td>
+						<td>매칭완료<br/><span>2022-10-10<br/><em>16:02:00</em></span></td>
+						<!-- 2023-02-01 EZP-6415 품목코드 링크제거 및 동일품목모아보기 -> 코드번호 표시로 변경 -->
+						<td>P0000000000</td>
+						<td>바로<br/>주문</td> <!-- 2023-02-01 EZP-6415 주문구분 유형 추가 -->
+						<td><span class="btn-type green">미송</td>
+						<td class="Enfont">2020030600003904<br><span class="f-small">(2020-03-06 10:21:20)</span></td>
+						<td><p class="prd">진짜피카소(디오트 A동 1층 1호)</p></td>
+						<td>
+							<!-- 2023-03-18 개발팀요청 eProductName -> n-ellipsis로 변경 -->
+							<p class="prd ex n-ellipsis">
+								<a href="#">터틀넥 스트랩 울 코트</a>
+							</p>
+						</td>
+						<td class="option" title="네이비 FREE">네이비<br/><span class="color">S</span></td>
+						<td>P000000J00D</td>
+						<td>베이직 맥시 원피스(벨트set)</td>
+						<td class="option" title="네이비 FREE">네이비<br/><span class="color">S</span></td>
+						<td>
+							<button type="button" class="btn-order eInDetail">매칭</button>
+						</td>
+					</tr>
+					<tr>
+						<td class="th-chk">
+							<span class="checkbox" style="padding-left: 16px">
+								<input type="checkbox" class="rowChk" value="235569" data-order_item_no="235569" data-ss_item_no="287659" data-product_name="레이온긴팔T" data-is_first="T" data-spec_item_type="10" /><label></label>
+							</span>
+						</td>
+						<td>매칭완료<br/><span>2022-10-10<br/><em>16:02:00</em></span></td>
+						<td>P0000000000</td>
+						<td>바로<br/>주문</td> <!-- 2023-02-01 EZP-6415 주문구분 유형 추가 -->
+						<td><span class="btn-type blue">신규</td>
+						<td class="Enfont">2020030600003904<br><span class="f-small">(2020-03-06 10:21:20)</span></td>
+						<td><p class="prd">진짜피카소(디오트 A동 1층 1호)</p></td>
+						<td>
+							<!-- 2023-03-18 개발팀요청 eProductName -> n-ellipsis로 변경 -->
+							<p class="prd ex n-ellipsis">
+								<a href="#">터틀넥 스트랩 울 코트</a>
+							</p>
+						</td>
+						<td class="option" title="네이비 FREE">네이비<br/><span class="color">S</span></td>
+						<td>P000000J00D</td>
+						<td>베이직 맥시 원피스(벨트set)</td>
+						<td class="option" title="네이비 FREE">네이비<br/><span class="color">S</span></td>
+						<td>
+							<button type="button" class="btn-order eInDetail">매칭</button>
+						</td>
+					</tr>
+					<tr>
+						<td class="th-chk">
+							<span class="checkbox" style="padding-left: 16px">
+								<input type="checkbox" class="rowChk" value="235569" data-order_item_no="235569" data-ss_item_no="287659" data-product_name="레이온긴팔T" data-is_first="T" data-spec_item_type="10" /><label></label>
+							</span>
+						</td>
+						<td>매칭완료<br/><span>2022-10-10<br/><em>16:02:00</em></span></td>
+						<td>P0000000000</td>
+						<td>바로<br/>주문</td> <!-- 2023-02-01 EZP-6415 주문구분 유형 추가 -->
+						<td><span class="btn-type blue">신규</td>
+						<td class="Enfont">2020030600003904<br><span class="f-small">(2020-03-06 10:21:20)</span></td>
+						<td><p class="prd">진짜피카소(디오트 A동 1층 1호)</p></td>
+						<td>
+							<!-- 2023-03-18 개발팀요청 eProductName -> n-ellipsis로 변경 -->
+							<p class="prd ex n-ellipsis">
+								<a href="#">터틀넥 스트랩 울 코트</a>
+							</p>
+						</td>
+						<td class="option" title="네이비 FREE">네이비<br/><span class="color">S</span></td>
+						<td>P000000J00D</td>
+						<td>베이직 맥시 원피스(벨트set)</td>
+						<td class="option" title="네이비 FREE">네이비<br/><span class="color">S</span></td>
+						<td>
+							<button type="button" class="btn-order eInDetail">매칭</button>
+						</td>
+					</tr>
+					<tr>
+						<td class="th-chk">
+							<span class="checkbox" style="padding-left: 16px">
+								<input type="checkbox" class="rowChk" value="235569" data-order_item_no="235569" data-ss_item_no="287659" data-product_name="레이온긴팔T" data-is_first="T" data-spec_item_type="10" /><label></label>
+							</span>
+						</td>
+						<td>매칭완료<br/><span>2022-10-10<br/><em>16:02:00</em></span></td>
+						<td>P0000000000</td>
+						<td>바로<br/>주문</td> <!-- 2023-02-01 EZP-6415 주문구분 유형 추가 -->
+						<td><span class="btn-type purple">샘플</td>
+						<td class="Enfont">2020030600003904<br><span class="f-small">(2020-03-06 10:21:20)</span></td>
+						<td><p class="prd">진짜피카소(디오트 A동 1층 1호)</p></td>
+						<td>
+							<!-- 2023-03-18 개발팀요청 eProductName -> n-ellipsis로 변경 -->
+							<p class="prd ex n-ellipsis">
+								<a href="#">터틀넥 스트랩 울 코트</a>
+							</p>
+						</td>
+						<td class="option" title="네이비 FREE">네이비<br/><span class="color">S</span></td>
+						<td>P000000J00D</td>
+						<td>베이직 맥시 원피스(벨트set)</td>
+						<td class="option" title="네이비 FREE">네이비<br/><span class="color">S</span></td>
+						<td>
+							<button type="button" class="btn-order eInDetail">매칭</button>
+						</td>
+					</tr>
+					<tr>
+						<td class="th-chk">
+							<span class="checkbox" style="padding-left: 16px">
+								<input type="checkbox" class="rowChk" value="235569" data-order_item_no="235569" data-ss_item_no="287659" data-product_name="레이온긴팔T" data-is_first="T" data-spec_item_type="10" /><label></label>
+							</span>
+						</td>
+						<td>매칭완료<br/><span>2022-10-10<br/><em>16:02:00</em></span></td>
+						<td>P0000000000</td>
+						<td>바로<br/>주문</td> <!-- 2023-02-01 EZP-6415 주문구분 유형 추가 -->
+						<td><span class="btn-type purple">샘플</td>
+						<td class="Enfont">2020030600003904<br><span class="f-small">(2020-03-06 10:21:20)</span></td>
+						<td><p class="prd">진짜피카소(디오트 A동 1층 1호)</p></td>
+						<td>
+							<!-- 2023-03-18 개발팀요청 eProductName -> n-ellipsis로 변경 -->
+							<p class="prd ex n-ellipsis">
+								<a href="#">터틀넥 스트랩 울 코트</a>
+							</p>
+						</td>
+						<td class="option" title="네이비 FREE">네이비<br/><span class="color">S</span></td>
+						<td>P000000J00D</td>
+						<td>베이직 맥시 원피스(벨트set)</td>
+						<td class="option" title="네이비 FREE">네이비<br/><span class="color">S</span></td>
+						<td>
+							<button type="button" class="btn-order eInDetail">매칭</button>
+						</td>
+					</tr>
+					<tr>
+						<td class="th-chk">
+							<span class="checkbox" style="padding-left: 16px">
+								<input type="checkbox" class="rowChk" value="235569" data-order_item_no="235569" data-ss_item_no="287659" data-product_name="레이온긴팔T" data-is_first="T" data-spec_item_type="10" /><label></label>
+							</span>
+						</td>
+						<td>매칭완료<br/><span>2022-10-10<br/><em>16:02:00</em></span></td>
+						<td>P0000000000</td>
+						<td>바로<br/>주문</td> <!-- 2023-02-01 EZP-6415 주문구분 유형 추가 -->
+						<td><span class="btn-type pink line2">제작<br/>신규</td>
+						<td class="Enfont">2020030600003904<br><span class="f-small">(2020-03-06 10:21:20)</span></td>
+						<td><p class="prd">진짜피카소(디오트 A동 1층 1호)</p></td>
+						<td>
+							<!-- 2023-03-18 개발팀요청 eProductName -> n-ellipsis로 변경 -->
+							<p class="prd ex n-ellipsis">
+								<a href="#">터틀넥 스트랩 울 코트</a>
+							</p>
+						</td>
+						<td class="option" title="네이비 FREE">네이비<br/><span class="color">S</span></td>
+						<td>P000000J00D</td>
+						<td>베이직 맥시 원피스(벨트set)</td>
+						<td class="option" title="네이비 FREE">네이비<br/><span class="color">S</span></td>
+						<td>
+							<button type="button" class="btn-order eInDetail">매칭</button>
+						</td>
+					</tr>
+					<!-- 2023-02-17 EZP-8343 이지픽 > EC상품 3열 한번에 있는 case 추가 시작 -->
+					<tr>
+						<td class="th-chk" rowspan="3">
+							<span class="checkbox" style="padding-left: 16px">
+								<input type="checkbox" class="rowChk" value="235569" data-order_item_no="235569" data-ss_item_no="287659" data-product_name="레이온긴팔T" data-is_first="T" data-spec_item_type="10" /><label></label>
+							</span>
+						</td>
+						<td rowspan="3">매칭완료<br/><span>2022-10-10<br/><em>16:02:00</em></span></td>
+						<td rowspan="3">P0000000000</td>
+						<td rowspan="3">일반<br/>주문</td> 
+						<td rowspan="3"><span class="btn-type blue">신규</td>
+						<td rowspan="3" class="Enfont">2020030600003904<br><span class="f-small">(2020-03-06 10:21:20)</span></td>
+						<td rowspan="3"><p class="prd">진짜피카소(디오트 A동 1층 1호)</p></td>
+						<td rowspan="3">
+							<!-- 2023-03-18 개발팀요청 eProductName -> n-ellipsis로 변경 -->
+							<p class="prd ex n-ellipsis">
+								<a href="#" class="underline">터틀넥 스트랩 울 코트</a>
+							</p>
+						</td>
+						<td class="option" title="네이비 FREE" rowspan="3">네이비<br/><span class="color">S</span></td>
+						<td>P000000J00D</td>
+						<td>베이직 맥시 원피스(벨트set)</td>
+						<td class="option" title="네이비 FREE">네이비<br/><span class="color">S</span></td>
+						<td rowspan="3">
+							<button type="button" class="btn-order eInDetail">매칭</button>
+						</td>
+					</tr>
+					<tr>
+						<td>P000000J00D</td>
+						<td>베이직 맥시 원피스(벨트set)</td>
+						<td class="option" title="네이비 FREE">네이비<br/><span class="color">S</span></td>
+					</tr>
+					<tr>
+						<td>P000000J00D</td>
+						<td>베이직 맥시 원피스(벨트set)</td>
+						<td class="option" title="네이비 FREE">네이비<br/><span class="color">S</span></td>
+					</tr>
+					<!-- 2023-02-17 EZP-8343 이지픽 > EC상품 3열 한번에 있는 case 추가 끝 -->
+				</tbody>
+			</table>
+			<!-- 2021-06-22 EZP-3002 종료 -->
+			<div class="pagination"><a href="#none;" class="first none" style="cursor:unset;">처음</a><a href="#none;" class="prev none" style="cursor:unset;">이전</a><a href="#none;" class="active">1</a> <a
+					href="/buyer/order/front/sampleList?page=2&amp;shop_name=%EB%94%9C%EB%9D%BC%EC%9E%87%EB%AC%B8&amp;user_type=B&amp;user_ip=211.110.58.242&amp;buyer_no=991&amp;order_method=20&amp;period_type=order_ts&amp;order=order_ts&amp;sort=descend&amp;period=30&amp;start_date=2020-02-10&amp;end_date=2020-03-11&amp;limit=10">2</a>
+				<a
+					href="/buyer/order/front/sampleList?page=3&amp;shop_name=%EB%94%9C%EB%9D%BC%EC%9E%87%EB%AC%B8&amp;user_type=B&amp;user_ip=211.110.58.242&amp;buyer_no=991&amp;order_method=20&amp;period_type=order_ts&amp;order=order_ts&amp;sort=descend&amp;period=30&amp;start_date=2020-02-10&amp;end_date=2020-03-11&amp;limit=10">3</a>
+				<a href="#none" class="next none" style="cursor:unset;">다음</a><a
+					href="/buyer/order/front/sampleList?page=3&amp;shop_name=%EB%94%9C%EB%9D%BC%EC%9E%87%EB%AC%B8&amp;user_type=B&amp;user_ip=211.110.58.242&amp;buyer_no=991&amp;order_method=20&amp;period_type=order_ts&amp;order=order_ts&amp;sort=descend&amp;period=30&amp;start_date=2020-02-10&amp;end_date=2020-03-11&amp;limit=10"
+					class="last">다음</a>
+			</div>
+		</div>
+		
+	</div>
+	<!--//container -->
+
+	<div id="matching-alert1" class="ui-popup alert">
+		<!-- 항목 미선택시 -->
+		<div class="content" style="min-width:400px; max-width: 700px;" tabindex="-1">
+			<div class="body">
+				<div class="txt-cont">
+					<p>
+						매칭할 항목을 선택해주세요.
+					</p>
+				</div>
+				<div class="btn_wrap mt30 tac">
+					<button type="button" class="btn point medium btn_close" style="width:150px;">확인</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- 2022-11-23 EZP-6415 카페24 상품등록시 alert case -->
+	<div id="product-registraion-popup" class="ui-popup alert product-registraion">
+		<div class="content" style="min-width:412px; max-width: 900px;" tabindex="-1">
+			<div class="header"><h3>내 쇼핑몰 상품으로 등록</h3></div>
+			<div class="body reconfirm">
+				<div class="txt-cont pb30">
+					<ul>
+						<li>이지픽 상품을 카페24 쇼핑몰(자사몰) 상품으로 등록할 수 있습니다.</li>
+						<!-- 2023-02-06 EZP-6415 txt-link 추가 -->
+						<li>등록된 상품은 <a href="javascript: void(0);" class="txt-link">EC Admin>상품관리>상품 목록</a>에서 확인할 수 있습니다.</li>
+						<!-- 2023-01-17 EZP-6415 워딩 추가 -->
+						<li>등록된 상품의 진열 및 판매 상태는 '진열안함', '판매안함'으로 기본 설정되어 있으며, EC에서 수정할 수 있습니다.</li>
+					</ul>
+					<div class="easypick-popup-info">
+						<dl>
+							<dt>상품 기본 정보</dt>
+							<dd>
+								<table class="tbl-register-row">
+									<colgroup>
+										<col style="width: 150px;">
+										<col style="width: auto;">
+									</colgroup>
+									<tbody>
+										<tr>
+											<th><span class="essential">상품명</span></th>
+											<td>
+												<div class="form-control">
+													<input type="text" placeholder="상품명 입력" value="기본 T 롱 원피스">
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<!-- 2023-02-23 EZP-8513 워딩변경 및, 툴팁추가 -->
+											<th>
+												<span class="essential">판매가(공급가)</span>
+												<div class="tip-wrap">
+													<a href="javascript: void(0);" class="btn-tip"></a>
+													<div class="tip" style="width: 315px;">
+														<span class="tit">판매가(공급가)</span>
+														<span class="txt sort" style="text-indent: -6px;">- EC 상품 판매가,공급가로 등록되는 금액입니다.</span>
+													</div>
+												</div>
+											</th>
+											<td>
+												<div class="form-control calc-input">
+													<input type="text"placeholder="판매가 입력" value="99,000,000">원
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<th>
+												<span class="essential">상품분류</span>
+												<div class="tip-wrap">
+													<a href="javascript: void(0);" class="btn-tip"></a>
+													<div class="tip" style="width: 280px;">
+														<span class="tit">상품분류</span>
+														<span class="txt sort" style="text-indent: -6px;">- 상품분류를 지정하지 않을 경우<br/>
+														'(대분류)이지픽상품'으로 자동 설정됩니다.</span>
+													</div>
+												</div>
+											</th>
+											<td>
+												<div class="category-box">
+													<div class="icon-cate-box">
+														<ul id="product-category">
+															<li class="not-selected" id="c01">
+																<i></i>
+																<div class="icon-cate-text">
+																	<input type="text" value="(대분류) 이지픽상품" class="not-addclear" readonly>
+																</div>
+															</li>
+															<li class="deps2 deps cate1" id="c02">
+																<i></i>
+																<div class="icon-cate-text">
+																	<input type="text" value="(대분류) 이지픽상품 이지픽상품" class="not-addclear" readonly>
+																</div>
+																<ul class="open-2deps">
+																	<!-- 2023-02-16 EZP-6415 class last 추가 -->
+																	<li class="deps cate2 last" id="c02-1">
+																		<i></i>
+																		<div class="icon-cate-text">
+																			<input type="text" value="(중분류) 이지픽상품" class="not-addclear" readonly>
+																		</div>
+																	</li>
+																	<!-- 2023-02-16 EZP-6415 class last 추가 -->
+																	<li class="deps cate2 last" id="c02-2">
+																		<i></i>
+																		<div class="icon-cate-text">
+																			<input type="text" value="(중분류) 이지픽상품" class="not-addclear" readonly>
+																		</div>
+																	</li>
+																</ul>
+															</li>
+															<li class="deps2 deps cate1" id="c03">
+																<i></i>
+																<div class="icon-cate-text">
+																	<input type="text" value="(대분류) 이지픽상품" class="not-addclear" readonly>
+																</div>
+																<ul class="open-2deps">
+																	<li class="cate2 deps" id="c03-1">
+																		<i></i>
+																		<div class="icon-cate-text">
+																			<input type="text" value="(중분류) 이지픽상품" class="not-addclear" readonly>
+																		</div>
+																		<ul class="open-3deps">
+																			<li class="cate3 deps" id="c03-1-1">
+																				<i></i>
+																				<div class="icon-cate-text">
+																					<input type="text" value="(소분류) 이지픽상품" class="not-addclear" readonly>
+																				</div>
+																				<ul class="open-4deps">
+																					<!-- 2023-02-16 EZP-6415 class last 추가 -->
+																					<li class="cate4 last" id="c03-1-2">
+																						<i></i>
+																						<div class="icon-cate-text">
+																							<input type="text" value="(상세분류) 이지픽상품" class="not-addclear" readonly>
+																						</div>
+																					</li>
+																				</ul>
+																			</li>
+																		</ul>
+																	</li>
+																	<!-- 2023-02-16 EZP-6415 class last 추가 -->
+																	<li class="deps cate2 last" id="c03-2">
+																		<i></i>
+																		<div class="icon-cate-text">
+																			<input type="text" value="(중분류) 이지픽상품" class="not-addclear" readonly>
+																		</div>
+																	</li>
+																</ul>
+															</li>
+															<!-- 2023-02-16 EZP-6415 class last 추가 -->
+															<li class="cate1 deps last" id="c04">
+																<i></i>
+																<div class="icon-cate-text">
+																	<input type="text" value="(대분류) 이지픽상품" class="not-addclear" readonly>
+																</div>
+															</li>
+															<!-- 2023-02-16 EZP-6415 class last 추가 -->
+															<li class="cate1 deps last" id="c05">
+																<i></i>
+																<div class="icon-cate-text">
+																	<input type="text" value="(대분류) 이지픽상품" class="not-addclear" readonly>
+																</div>
+															</li>
+														</ul>
+													</div>
+													<div class="text-cate-box">
+														<ul id="my-category"></ul>
+													</div>
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<th>
+												<span>상품옵션</span>
+												<div class="tip-wrap">
+													<a href="javascript: void(0);" class="btn-tip"></a>
+													<div class="tip" style="width: 320px;">
+														<span class="tit">상품옵션 표시</span>
+														<!-- 202301-04 EZP-6415 padding-bottom style 제거 -->
+														<span class="txt sort">- 상품의 모든 옵션이 표시됩니다.</span>
+														<!-- 2023-01-04 EZP-6415 상품옵션 수정 제거
+															<span class="tit">상품옵션 수정</span>
+														<span class="txt sort">- 버튼을 더블클릭하여 옵션명을 수정할 수 있습니다.</span> -->
+													</div>
+												</div>
+											</th>
+											<td class="option">
+												<div class="color">
+													<span>색상</span>
+													<div class="option-box">
+														<ul>
+															<li class="option on">
+																<button type="button">블랙</button>
+															</li>
+															<li class="option on">
+																<button type="button">브라운</button>
+															</li>
+															<li class="option">
+																<button type="button">아이보리</button>
+															</li>
+															<li class="option">
+																<button type="button">네이비</button>
+															</li>
+															<li class="option">
+																<button type="button">레드</button>
+															</li>
+															<li class="option active">
+																<button type="button">화이트</button>
+															</li>
+															<li class="option on">
+																<button type="button">화이트</button>
+															</li>
+															<li class="option">
+																<button type="button">머스타드</button>
+															</li>
+															<li class="option">
+																<button type="button">퍼플</button>
+															</li>
+															<li class="option">
+																<button type="button">그린</button>
+															</li>
+															<li class="ex-input-box">
+																<input type="text" placeholder="예시) 화이트" value="">
+															</li>
+															<!-- 2023-02-07 EZP-6415 선택가능 옵션없을시 -->
+															<li class="empty-option">선택 가능한 옵션이 없습니다.</li>
+														</ul>
+													</div>
+												</div>
+												<div class="size">
+													<span>사이즈</span>
+													<div class="option-box">
+														<ul>
+															<li class="option">
+																<button type="button">S</button>
+															</li>
+															<li class="option">
+																<button type="button">M</button>
+															</li>
+															<li class="option on">
+																<button type="button">L</button>
+															</li>
+															<li class="ex-input-box">
+																<input type="text" placeholder="예시) XL" value="">
+															</li>
+															<!-- 2023-02-07 EZP-6415 선택가능 옵션없을시 -->
+															<li class="empty-option">선택 가능한 옵션이 없습니다.</li>
+														</ul>
+													</div>
+												</div>
+												<!-- 2023-01-04 EZP-6415 텍스트 추가 -->
+												<p class="dot">버튼을 더블클릭하여 옵션명을 수정할 수 있습니다.</p>
+											</td>
+										</tr>
+										<tr>
+											<th class="top">거래처</th>
+											<td >
+												톰과 체리나무 (디오트 1동 2층 A열 345호)
+												<div class="account-info m-t-5">
+													<i><img src="../../../img/product/ico_Exclamation_mark.png"></i>
+													<span>거래처 정보가 EC 공급사로 등록됩니다.</span>
+												</div>
+											</td>
+										</tr>
+										<tr class="toggle-change1">
+											<th>제조국가
+												<span class="switch eIsRefundedSwitch">
+													<input type="checkbox" name="is_refunded" checked>
+													<div class="slider round">
+														<span class="on active"></span>
+														<span class="off"></span>
+													</div>
+												</span>
+											</th>
+											<td class="on-off">
+												대한민국
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</dd>
+						</dl>
+						<dl class="mt40 toggle-change2">
+							<dt>
+								<span>상품 상세 정보</span>
+								<span class="switch eIsRefundedSwitch">
+									<input type="checkbox" name="is_refunded" checked>
+									<div class="slider round">
+										<span class="on active"></span>
+										<span class="off"></span>
+									</div>
+								</span>
+							</dt>
+							<dd>
+								<table class="tbl-register-row product-detail">
+									<colgroup>
+										<col style="width: 150px;">
+										<col style="width: auto;">
+									</colgroup>
+									<tbody>
+										<tr>
+											<th>소재</th>
+											<td>
+												<ul class="dot">
+													<li><em class="mr5">겉감</em> : 면 32, 레이온 65%,스판덱스 3%</li>
+													<li><em class="mr5">안감</em> : 폴리에스테르 100%</li>
+												</ul>
+											</td>
+										</tr>
+										<tr>
+											<th>상품부가정보</th>
+											<td>
+												<ul class="dot">
+													<li><em class="mr5">계절감</em> : 여름</li>
+													<li><em class="mr5">착용감</em> : 루즈핏</li>
+													<li><em class="mr5">신축성</em> : 적당함</li>
+													<li><em class="mr5">두께감</em> : 얇음</li>
+													<li><em class="mr5">비침</em> : 조금비침</li>
+												</ul>
+											</td>
+										</tr>
+										<tr>
+											<th>상품특성</th>
+											<td>
+												<ul class="dot">
+													<li><em class="mr5">스타일</em> : 캐주얼,레트로</li>
+													<li><em class="mr5">패턴</em> : 도트</li>
+													<li><em class="mr5">디테일</em> : V넥,X스트랩,글리터,노카라,니트꽈배기</li>
+												</ul>
+											</td>
+										</tr>
+										<tr>
+											<th>세탁방법</th>
+											<td>
+												<ul class="img-txt">
+													<li><i><img src="../../../img/product/Washing01.svg"></i><p>약하게</p></li>
+													<li><i><img src="../../../img/product/Washing02.svg"></i><p>단독손세탁</p></li>
+													<li><i><img src="../../../img/product/Washing03.svg"></i><p>기계세탁가능</p></li>
+													<li><i><img src="../../../img/product/Washing04.svg"></i><p>비틀기금지</p></li>
+													<li><i><img src="../../../img/product/Washing05.svg"></i><p>표백금지</p></li>
+													<li><i><img src="../../../img/product/Washing06.svg"></i><p>그늘에건조</p></li>
+													<li><i><img src="../../../img/product/Washing07.svg"></i><p>중성세제</p></li>
+													<li><i><img src="../../../img/product/Washing08.svg"></i><p>드라이크리닝</p></li>
+													<li><i><img src="../../../img/product/Washing09.svg"></i><p>천대고다림질</p></li>
+													<li><i><img src="../../../img/product/Washing10.svg"></i><p>전용세제</p></li>
+												</ul>
+											</td>
+										</tr>
+										<tr>
+											<th>상세설명</th>
+											<td>
+												<ul>
+													<li>허리 힙 허벅지 밑위 밑단 총기장</li>
+													<li>S 32.5 41 23 28 24 99</li>
+													<li>M 34.5 43 24 29 25 100</li>
+													<li>L 36.5 45 25 30 26 101</li>
+												</ul>
+												<p>제작 가능합니다.<br/>
+												샘플요청 가능합니다 연락 해주세요.</p>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+								<!-- 2023-02-21 EZP-6415 등록된 정보 없을경우 추가 -->
+								<p class="empty">등록된 정보가 없습니다.</p>
+							</dd>
+					</div>
+				</div>
+				<div class="btn_wrap pt30 tac">
+					<button type="button" class="btn medium btn_close" style="width:150px;">취소</button>
+					<button type="button" class="btn point medium ui-popup-open" style="width:150px;" data-target="#product-comfirm-alert1">등록</button>
+				</div>
+			</div>
+			<button type="button" class="btn_close">
+				<div class="commLayerConfirm"><span>닫기</span></div>
+			</button>
+		</div>
+	</div>
+
+	<!-- cafe24 계정연동 alert -->
+	<div id="cafe24-unlink-alert1" class="ui-popup alert">
+		<!-- 1. 연동해제 가능할시 -->
+		<div class="content" style="min-width:412px; max-width: 700px;" tabindex="-1">
+		  <div class="body">
+			<div class="txt-cont">
+			  <p>
+				카페24와 연동하여 내 쇼핑몰에 상품등록하기 등<br/>
+				다양한 연동 기능을 이용해 보세요.
+			  </p>
+			  <p>
+				<strong class="mt0 mb0">연동된 카페24 계정</strong>
+				<em>ectezp001</em>
+			  </p>
+			</div>
+			<div class="btn_wrap mt30 tac">
+			  <button type="button" class="btn medium btn_close" style="width:150px;">취소</button>
+			  <button type="button" class="btn point medium btn_close ui-popup-open" style="width:150px;" data-target="#cafe24-unlink-alert2">연동해제</button>
+			</div>
+		  </div>
+		</div>
+
+		<!-- 2. 연동해제 불가할 시  -->
+		<div class="content" style="min-width:412px; max-width: 700px;" tabindex="-1">
+			<div class="body">
+			  <div class="txt-cont">
+				<p>
+				  카페24와 연동하여 내 쇼핑몰에 상품등록하기 등<br/>
+				  다양한 연동 기능을 이용해 보세요.
+				</p>
+				<p>
+				  <strong class="mt0 mb0">연동된 카페24 계정</strong>
+				  <em>ectezp001</em>
+				</p>
+			  </div>
+			  <div class="btn_wrap mt30 tac">
+				<button type="button" class="btn point medium btn_close" style="width:150px;">확인</button>
+			  </div>
+			</div>
+		  </div>
+	   </div>
+
+	<!-- cafe24 계정연동 > 연동해제 후 alert -->
+	<div id="cafe24-unlink-alert2" class="ui-popup alert">
+		<div class="content" style="min-width:412px; max-width: 700px;" tabindex="-1">
+		  <div class="body">
+			<div class="txt-cont">
+			  <p>
+				연동 해제 시 쇼핑몰 상품등록 기능을<br/>
+				사용하실 수 없습니다.<br/><br/>
+				연동 해제하시겠습니까?
+			  </p>
+			</div>
+			<div class="btn_wrap mt30 tac">
+			  <button type="button" class="btn medium btn_close" style="width:150px;">취소</button>
+			  <button type="button" class="btn point medium btn_close ui-popup-open" style="width:150px;" data-target="#cafe24-unlink-alert3">확인</button>
+			</div>
+		  </div>
+		</div>
+	   </div>
+
+	<!-- cafe24 계정연동 > 연동해제 > 확인 후 alert -->
+	<div id="cafe24-unlink-alert3" class="ui-popup alert">
+		<div class="content" style="min-width:412px; max-width: 700px;" tabindex="-1">
+		  <div class="body">
+			<div class="txt-cont">
+			  <p>
+				카페24 계정이 연동 해제되었습니다.
+			  </p>
+			</div>
+			<div class="btn_wrap mt30 tac">
+			  <button type="button" class="btn point medium btn_close" style="width:150px;">확인</button>
+			</div>
+		  </div>
+		</div>
+	   </div>
+
+	<!-- footer// -->
+	<footer></footer>
+	<!-- //footer -->
+
+	<!-- dashboard// -->
+	<div id="dashboard" class=""></div>
+	<!-- //dashboard -->
+
+	<!-- <script type="text/javascript"
+		src="https://www.easypick.co.kr/optimizer.php?filename=nZJNasQwDEb3g7c9h8iuPUR3vYB_lIwS23Jlm0zm9DW0XUwDk7hg8OY99H1CcOWAYPSiI4yiA64sCwhmrmIR5gw0vEY15xd4TlZK2i4wf1aU7ecb1NDeP-VLoEl0wb96wPyQbyRfUHYUOef3ZWohD56t9thjGOE1tyG5sOhpp-I9PToEnsxvj0oqUDzpaOesRy0dyvcYla2w96ZLzSsllAvhW4f0sSLGd307qVgOgaMahWM5gbdtHUOpmiMqXzkdMjRF2Jd4dgld12ZZEJJw4bIl7JCOgpu6obTkDm8N_QI&amp;type=js&amp;k=42369552916ca070ccd02e7522a8f1c585404f32&amp;t=1606970103">
+	</script> -->
+
+	<!-- 21-01-18 수정-->
+	<script src="../../js/jquery.min.js"></script><!--jquery default-->
+
+	<script src="../../js/jquery-ui.min.js"></script>
+	<script src="../../js/swiper-ie9.min.js"></script>
+	<script src="../../js/default.input.js"></script><!-- 2022-10-04 -->
+	<script src="../../js/addclear.min.js"></script>
+	<script src="../../js/common.front.js"></script>
+	<script src="../../js/ui.js"></script>
+	<script src="../../js/pub.js"></script>
+	<script src="../../js/jquery.scrollbar.min.js"></script>
+	<!-- //21-01-18 수정-->
+
+	<script type="text/javascript">
+		// LocalStorage.set("csrf-token", "hNus4rrnDIvZg4t7DBSBdnVatBWMZnmf9kdFuU1VIhM=", "ses");
+		$(document).ready(function(){
+			$('header').load('../include/header.html');
+			$('footer').load('../include/footer.html');
+			$('#dashboard').load('../include/dashboard.html');
+		});
+	</script>
+
+
+<script type="text/javascript">
+	// LocalStorage.set("csrf-token", "YgbpC/IvDz9IfyJ3vUQPZAL4m9Ydf8BysrVeW1+juDo=", "ses");
+	$(document).ready(function() {
+		$('body').on('click', '.period-filter a.eDateAll', function() {
+			$('input[name="is_all_selected"]').val($(this).data('is_all'));
+			if ($(this).data('is_all') == 'all') {
+				$('.datepicker-wrap input').attr('disabled', 'disabled');
+			} else if ($(this).data('is_all') == 'not_all') {
+				$('.datepicker-wrap input').attr('disabled', false);
+			}
+		});
+		var sIsAllSelected = $('.period-filter input[name="is_all_selected"]').val();
+		if (sIsAllSelected == 'all') {
+			$('.datepicker-wrap input').attr('disabled', 'disabled');
+		} else if (sIsAllSelected == 'not_all') {
+			$('.datepicker-wrap input').attr('disabled', false);
+		}
+		$('body').on('click', '.period-filter a', function(e) {
+			var iPeriod = parseInt($(this).data('period'));
+			if (isNaN(iPeriod) === false) {
+				var sToday = $.datepicker.formatDate('yy-mm-dd', new Date());
+				$('#end_date').val(sToday);
+				var sBaseDate = new Date($('#end_date').datepicker('getDate'));
+				var sStartDate = '';
+				var sYear = '' + sBaseDate.getFullYear();
+				var sMonth = '' + parseInt(sBaseDate.getMonth());
+				var sDay = '' + sBaseDate.getDate();
+				sStartDate = new Date(sYear, sMonth, sDay - iPeriod);
+				sStartDate = $.datepicker.formatDate('yy-mm-dd', sStartDate);
+				$('#start_date').datepicker('setDate', sStartDate);
+				var iPeriod = $(this).data('period');
+				$(this).closest('.period-filter').find('input[name="period"]').val(iPeriod);
+			}
+		});
+		$('#start_date, #end_date').change(function() {
+			if ($('#start_date').datepicker('getDate') > $('#end_date').datepicker('getDate')) {
+				$('#end_date').datepicker('setDate', $('#start_date').datepicker('getDate'));
+				SHOP.showLayerAlert({
+					sContents: '기간 설정이 잘못되었습니다.<br>선택하신 날짜를 다시 확인해주세요.'
+				});
+				return false;
+			}
+			$('.period-filter li').removeClass('on');
+			$('.period-filter input[name="period"]').val(-1);
+		});
+		$('.eDateArrow').click(function(e) {
+			var iPeriod = parseInt($(this).data('arrow'));
+			if (isNaN(iPeriod) === false) {
+				var sStartDate = '';
+				var sEndDate = '';
+				var sSdate = new Date($('#start_date').datepicker('getDate'));
+				var sYear = '' + sSdate.getFullYear();
+				var sMonth = '' + parseInt(sSdate.getMonth());
+				var sDay = parseInt(sSdate.getDate());
+				sStartDate = new Date(sYear, sMonth, '' + (sDay + iPeriod));
+				sStartDate = $.datepicker.formatDate('yy-mm-dd', sStartDate);
+				var sEdate = new Date($('#end_date').datepicker('getDate'));
+				sYear = '' + sEdate.getFullYear();
+				sMonth = '' + parseInt(sEdate.getMonth());
+				sDay = parseInt(sEdate.getDate());
+				sEndDate = new Date(sYear, sMonth, '' + (sDay + iPeriod));
+				sEndDate = $.datepicker.formatDate('yy-mm-dd', sEndDate);
+				$('#start_date').datepicker('setDate', sStartDate);
+				$('#end_date').datepicker('setDate', sEndDate);
+			}
+		});
+
+		//2022-11-30 EZP-6415 주문매칭 팝업 list 클릭시
+		$('.matching-popup .product-list .item > a').click(function(){
+			$(this).parent().toggleClass('on');
+		})
+
+		//2022-12-12 EZP-6415 쇼핑몰 상품등록 버튼
+		$('.product-registraion .option-box li.option').click(function(){
+        		$(this).toggleClass('on');
+    		})
+	});
+</script>
+
+
+
+<!-- 2023-01-04 EZP-7919 주석처리
+	<div id="ui-datepicker-div" class="ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all"></div>
+<div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+	<div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+</div> -->
+<div class="ui-load" style="display:none"><img src="https://easypick.co.kr/img/common/loading.svg"></div>
+</body>
+
+</html>

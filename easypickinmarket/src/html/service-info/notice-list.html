@@ -1,0 +1,261 @@
+{% extends "../_templates/layout.njk" %}
+{% block content %}
+<div class="section-left">
+    <div class="column-wrap">
+        <div id="wrap">
+            <div class="content-head">
+                <div class="page-title">
+                  <h3 class="h3-tit">공지사항</h3>
+                  <a href="#" class="btn-manual" target="_blank" title="매뉴얼">매뉴얼</a>
+                </div>
+            
+                <div class="cont-info-right">
+                  <ul class="breadcrumb">
+                    <li>공급</li>
+                    <li>서비스안내</li>
+                    <li class="now" title="현재 페이지">공지사항</li>
+                  </ul>
+                </div>
+            </div>
+
+            <div class="mSearchEngine folder">
+                <div class="tborder-box">
+                    <div class="tbl-top-search">
+                        <div class="table-row">
+                            <table class="tbl-top">
+                                <colgroup>
+                                    <col style="width:120px;">
+                                    <col style="width:42%;">
+                                    <col style="width:25px;">
+                                    <col style="width:120px;">
+                                    <col style="width:42%">
+                                </colgroup>
+                                <tbody>
+                                    <tr class="rowFix rowFold">
+                                        <th>기간</th>
+                                        <td>
+                                            <div class="form-inline">
+                                                <div class="sel-date-type ml0">
+                                                    <button type="button" class="label-date active">1개월</button>
+                                                    <ul class="sel-date-list">
+                                                        <li class="label-date">오늘</li>
+                                                        <li class="label-date">3일</li>
+                                                        <li class="label-date">7일</li>
+                                                        <li class="label-date active">1개월</li>
+                                                        <li class="label-date">3개월</li>
+                                                        <li class="label-date">6개월</li>
+                                                        <li class="label-date">1년</li>
+                                                        <li class="label-date">선택</li>
+                                                    </ul>
+                                                </div>
+                                                <div class="calendar-box time">
+                                                    <div class="form-inline">
+                                                        <div class="form-control">
+                                                            <input type="text" class="cal-input" data-range="cal02" value="2022-03-13">
+                                                        </div>
+                                                        <div class="wave-txt">~</div>
+                                                        <div class="form-control">
+                                                            <input type="text" class="cal-input" data-range="cal02" value="2022-04-12">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td></td>
+                                        <th>검색</th>
+                                        <td>
+                                            <div class="form-inline">
+                                                <div class="select-control">
+                                                    <button type="button" class="btn-sel">전체</button>
+                                                    <ul class="sel-panel">
+                                                        <li>전체</li>
+                                                        <li>제목</li>
+                                                        <li>내용</li>
+                                                    </ul>
+                                                </div>
+                                                <div class="form-control ml4">
+                                                    <input type="text" class="search-input-w1">
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="top-btn-search">
+                            <button type="button" name="button" class="btn btn-lg btn-point">검색</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gridTableArea">
+                <div class="table-top-info">
+                    <div class="top-txt-inline">
+                        <span class="txt-inline">검색결과 <strong><span class="txt-link-blue">1,000</span></strong>건</span>
+                    </div>
+                    <div class="sort-sel-area">
+                        <select id="list_limit" class="default-select">
+                          <option value="20" selected="selected">20개씩 보기</option>
+                          <option value="30">30개씩 보기</option>
+                          <option value="50">50개씩 보기</option>
+                          <option value="100">100개씩 보기</option>
+                          <option value="200">200개씩 보기</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="tround-box notice notice-renewal-wrap">
+                    <div class="tbl-round">
+                        <!-- 그리드 테이블-->
+                        <div class="mGridTable">
+                            <table id="eMultiTable" class="eChkColor">
+                                <thead>
+                                    <th scope="col" style="width:70px;">No</th>
+                                    <th scope="col" style="width:auto;">제목</th>
+                                    <th scope="col" style="width:200px;">등록일</th>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="notice-icon">
+                                            <i><img src="../assets/images/icons/notice-vol-ico.png" alt="notice icon"></i>
+                                        </td>
+                                        <td>
+                                            <div class="noti-tit">
+                                                <a href="#">
+                                                    <span class="txt-link">사이트 점검 안내</span>
+                                                </a>
+                                            </div>
+                                        </td>
+                                        <td>2021-11-22</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="notice-icon">
+                                            <i><img src="../assets/images/icons/notice-vol-ico.png" alt="notice icon"></i>
+                                        </td>
+                                        <td>
+                                            <div class="noti-tit">
+                                                <a href="#">
+                                                    <span class="txt-link">[공지] 이지픽 개인정보 처리방침 개정 공지</span>
+                                                </a>
+                                            </div>
+                                        </td>
+                                        <td>2021-11-22</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="notice-icon">
+                                            <i><img src="../assets/images/icons/notice-vol-ico.png" alt="notice icon"></i>
+                                        </td>
+                                        <td>
+                                            <div class="noti-tit">
+                                                <a href="#">
+                                                    <span class="txt-link">[오픈] 이지픽 모바일 버전 오픈!</span>
+                                                </a>
+                                            </div>
+                                        </td>
+                                        <td>2021-11-22</td>
+                                    </tr>
+                                    <tr>
+                                        <td>7</td>
+                                        <td>
+                                            <div class="noti-tit">
+                                                <a href="#">
+                                                    <span class="txt-link">공지사항입니다.</span>
+                                                </a>
+                                            </div>
+                                        </td>
+                                        <td>2021-11-22</td>
+                                    </tr>
+                                    <tr>
+                                        <td>6</td>
+                                        <td>
+                                            <div class="noti-tit">
+                                                <a href="#">
+                                                    <span class="txt-link">공지사항입니다.</span>
+                                                </a>
+                                            </div>
+                                        </td>
+                                        <td>2021-11-22</td>
+                                    </tr>
+                                    <tr>
+                                        <td>5</td>
+                                        <td>
+                                            <div class="noti-tit">
+                                                <a href="#">
+                                                    <span class="txt-link">공지사항입니다.</span>
+                                                </a>
+                                            </div>
+                                        </td>
+                                        <td>2021-11-22</td>
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+                                        <td>
+                                            <div class="noti-tit">
+                                                <a href="#">
+                                                    <span class="txt-link">공지사항입니다.</span>
+                                                </a>
+                                            </div>
+                                        </td>
+                                        <td>2021-11-22</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>
+                                            <div class="noti-tit">
+                                                <a href="#">
+                                                    <span class="txt-link">공지사항입니다.</span>
+                                                </a>
+                                            </div>
+                                        </td>
+                                        <td>2021-11-22</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>
+                                            <div class="noti-tit">
+                                                <a href="#">
+                                                    <span class="txt-link">공지사항입니다.</span>
+                                                </a>
+                                            </div>
+                                        </td>
+                                        <td>2021-11-22</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>
+                                            <div class="noti-tit">
+                                                <a href="#">
+                                                    <span class="txt-link">공지사항입니다.</span>
+                                                </a>
+                                            </div>
+                                        </td>
+                                        <td>2021-11-22</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pageination-wrap">
+                    <div class="pagination">
+                        <a href="#" class="first">처음</a>
+                        <a href="#" class="prev">이전</a>
+                        <a href="#" class="active none"><input type="text" value="1"></a>
+                        <span class="slash"></span>
+                        <span class="total-page">10</span>
+                        <a href="#" class="next">다음</a>
+                        <a href="#" class="last">마지막</a>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+    
+</div>
+
+{% endblock %}

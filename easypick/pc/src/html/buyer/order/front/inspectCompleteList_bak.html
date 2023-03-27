@@ -1,0 +1,3633 @@
+<!DOCTYPE html>
+<html lang="ko" data-livestyle-extension="available" class="js">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="format-detection" content="telephone=no">
+	<meta content="T" name="login-required">
+	<link rel="shortcut icon" type="image/x-icon" href="https://easypick.co.kr/img/favicon/ezp.ico">
+
+	<!-- css -->
+	<link rel="stylesheet" type="text/css" href="../../../../css/default.css">
+	<link rel="stylesheet" type="text/css" href="../../../../css/month.picker.css">
+
+	<title>이지픽</title>
+</head>
+
+<body>
+	<!-- header// -->
+	<header></header>
+	<!-- //header -->
+
+	<!--container// -->
+	<div id="container-full" class="min-wid">
+		<div class="order-top list">
+			<a href="/buyer/order/front/index">
+				<h2>주문관리</h2>
+			</a>
+		</div>
+		<div class="order-list-wrap">
+			<!--listLeft-->
+			<div class="list-left">
+				<!--
+    enter-box 컬러 옵션 클래스
+    bg-purple
+    bg-blue
+    bg-green
+    bg-yellow
+    bg-orange
+    bg-pink
+    개인일 경우 : shop-initial
+    기업일 경우 : company 클래스 추가
+    한글일 경우 : kor 클래스 추가
+    컬러 옵션 클래스
+        purple
+        blue
+        green
+        yellow
+        orange
+        pink
+    -->
+				<div class="enter-box bg-purple">
+					<span class="shop-initial company bgwhite purple kor"><em>제</em></span>
+					<p>제이씨어패럴(카페24)</p>
+					<a href="/buyer/order/bulk/front/index" class="btn-quick-order">바로주문</a>
+				</div>
+				<!-- 2020-06-25 EZP-797 시작 -->
+				<div class="enter-price">
+					<span>적립금</span>
+					<p><em>-835,157,386</em> 원</p>
+				</div>
+				<ul class="enter-menu">
+					<li>
+						<dl>
+							<dt><a href="/buyer/order/front/list">주문/입고 관리</a></dt>
+							<dd><a href="/buyer/order/front/list">주문 현황</a></dd>
+							<dd><a href="/buyer/order/front/sampleList">샘플 주문 현황</a></dd>
+							<dd><a href="/buyer/order/front/todayList">오늘 입고 상품</a></dd>
+							<dd ><a href="/buyer/order/front/inspectList">검수 대기 상품</a></dd>
+							<dd class="active"><a href="/buyer/order/front/inspectCompleteList">검수 완료 내역</a></dd>
+							<!-- 2020-07-06 EZP-759 -->
+							<dd><a href="/buyer/order/front/inspectRequestList">재확인 요청 현황</a></dd>
+						</dl>
+					</li>
+					<li>
+						<dl>
+							<dt><a href="/buyer/order/front/refundList">미송/매입/환불 관리</a></dt>
+							<dd><a href="/buyer/order/front/reserveList">미송 내역</a></dd>
+							<dd><a href="/buyer/settle/front/settleList">매입 내역</a></dd>
+							<dd><a href="/buyer/order/front/refundList">환불 내역</a></dd>
+							<!-- 2020-07-30 EZP-779 -->
+							<dd><a href="#">제작상품관리</a></dd>
+						</dl>
+					</li>
+					<li>
+						<dl>
+							<dt><a href="/buyer/bad/front/orderList">불량/샘플 관리</a></dt>
+							<dd><a href="/buyer/bad/front/orderList">불량 주문 내역</a></dd>
+							<dd><a href="/buyer/bad/front/productList">불량 상품 현황</a></dd>
+							<dd><a href="/buyer/bad/front/procList">불량 처리 내역</a></dd>
+						</dl>
+					</li>
+					<li>
+						<dl>
+							<dt><a href="#">정산 관리</a></dt>
+							<dd><a href="#">적립금 내역</a></dd>
+							<dd><a href="#">정산 내역</a></dd>
+							<dd><a href="#">거래처 정산 내역</a></dd>
+						</dl>
+					</li>
+				</ul>
+				<!-- 2020-06-25 EZP-797 종료 -->
+			</div>
+			<!--listLeft-->
+			<div class="list-right">
+				<!--listTop-->
+				<ul class="list-top">
+					<li>
+						<a href="/buyer/order/front/list?custom_pay_status[]=10">
+							<h3>결제요청</h3><!--2022-07-01 EZP-3528 워딩변경-->
+							<p style="width: 210px;"><em>0</em>건 주문<br>
+								<span style="margin-right: -5px; font-size: 13px;">(0개 품목 / 0개 수량 )</span>
+							</p>
+						</a>
+					</li>
+					<li>
+						<a href="/buyer/order/front/list?custom_pay_status[]=20">
+							<h3>결제완료</h3>
+							<p class="orange" style="width: 210px;"><em>10</em>건 주문<br>
+								<span style="margin-right: -5px; color: #666; font-size: 13px;">(13개 품목 / 17개 수량 )</span>
+							</p>
+						</a>
+					</li>
+					<li>
+						<a href="/buyer/order/front/todayList">
+							<h3>오늘입고상품<span>(2020-03-09)</span></h3>
+							<p style="width: 210px;"><em>1</em>개 품목<br>
+								<span style="margin-right: -5px; font-size: 13px;">(2개 수량)</span>
+							</p>
+						</a>
+					</li>
+					<li>
+						<a href="/buyer/order/front/inspectList">
+							<h3>검수대기상품</h3>
+							<p style="width: 210px;"><em>3</em>개 품목<br>
+								<span style="margin-right: -5px; font-size: 13px;">(4개 수량)</span>
+							</p>
+						</a>
+					</li>
+				</ul>
+
+				<!--listTop-->
+				<!-- 2022-07-01 EZP-3528 현재 사이트에 맞춤 -->
+				<!--listTop-->
+				<div class="table-wrap mb0">
+					<p class="tit">검수완료내역</p>
+					<form id="frmBuyerOrderReservelist" name="frmBuyerOrderReservelist" action="/buyer/order/front/reserveList">
+						<input type="hidden" name="order" id="order" value="order_ts">
+						<input type="hidden" name="sort" id="sort" value="descend">
+						<input type="hidden" id="limit" name="limit" value="10">
+						<input type="hidden" id="view_type" name="view_type" value="all">
+						<table class="th-ver searchForm">
+							<colgroup>
+								<col width="140px">
+								<col width="*">
+							</colgroup>
+							<tbody>
+								<tr>
+									<th>기간조회</th>
+									<td>
+										<input type="hidden" name="date_type" id="selDateType" value="order_ts">
+										<div class="ui-select" data-target_id="#selDateType">
+											<!--2022-07-01 EZP-3528 워딩변경 //-->
+											<button type="button" data-target_id="#selDateType" data-value="">검수완료일</button>
+											<ul>
+												<li data-key="order_ts" class="active">검수완료일</li>
+												<li data-key="completed_ts">입고일</li>
+											</ul>
+											<!--// 2022-07-01 EZP-3528 워딩변경-->
+										</div>
+										<ul class="period-filter">
+											<input type="hidden" name="period" value="30">
+											<li class=""><a href="javascript:;" data-period="0">오늘</a></li>
+											<li class=""><a href="javascript:;" data-period="7">1주일</a></li>
+											<li class="on"><a href="javascript:;" data-period="30">1개월</a></li>
+											<li class=""><a href="javascript:;" data-period="90">3개월</a></li>
+											<li class=""><a href="javascript:;" data-period="180">6개월</a></li>
+											<li class=""><a href="javascript:;" data-period="365">1년</a></li>
+										</ul>
+										<!-- 2021-04-05 EZP-2687 -->
+										<div class="single_button">
+											<a href="javascript:;" class="btn small line arrow" name="arrow_prev"
+												data-arrow="-1">&lt;</a>
+										</div>
+										<div class="picker-wrap">
+											<div class="datepicker-wrap">
+												<img class="ui-datepicker-trigger" src="https://easypick.co.kr/img/common/calendar.png"
+													alt="Select date" title="Select date"><input type="text" id="start_date"
+													name="start_date" class="not-addclear datepicker from" style="width: 98px;"
+													value="2020-02-10" readonly="">
+											</div>
+											<span>~</span>
+											<div class="datepicker-wrap">
+												<img class="ui-datepicker-trigger" src="https://easypick.co.kr/img/common/calendar.png"
+													alt="Select date" title="Select date"><input type="text" id="end_date"
+													name="end_date" class="not-addclear datepicker to" style="width: 98px;"
+													value="2020-03-11" readonly="">
+											</div>
+										</div>
+										<div class="single_button">
+											<a href="javascript:;" class="btn small line arrow" name="arrow_next"
+												data-arrow="1">&gt;</a>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<th>처리 상태</th>
+									<td>
+										<!-- 2020-04-14 전체선택 -->
+										<div class="check-box-wrap">
+											<span class="checkbox chkall">
+												<input type="checkbox" name="bad_status[]" id="chk-all" value="10" checked="checked">
+												<label for="chk-all">전체</label>
+											</span>
+											<span class="checkbox">
+												<input type="checkbox" name="reserve_status[]" id="reserve_status10" value="10"
+													checked="checked">
+												<label for="reserve_status10">진행중</label>
+											</span> <span class="checkbox">
+												<input type="checkbox" name="reserve_status[]" id="reserve_status20" value="20">
+												<label for="reserve_status20">검수완료</label>
+											</span>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<th>검색</th>
+									<td>
+										<div class="list-searchBox">
+											<input type="hidden" name="search_key" id="search_key" value="">
+											<div class="ui-select" data-target_id="#search_key">
+												<button type="button" data-target_id="#search_key" data-value="">전체</button>
+												<ul>
+													<li data-key="" class="active">전체</li>
+													<li data-key="order_no">주문번호</li>
+													<li data-key="seller_name">거래처명</li>
+													<li data-key="product_name">상품명</li>
+													<li data-key="customer_product_name">쇼핑몰상품명</li>
+													<li data-key="customer_product_code">쇼핑몰상품코드</li>
+												</ul>
+											</div>
+											<div style="display:inline; position:relative;" class="add-clear-span">
+												<input type="text"
+													title="기본 입력란" name="search_value" value="" style="padding-right: 20px;"><a
+													href="#clear"
+													style="display: none; color: rgb(204, 204, 204); text-decoration: none; overflow: hidden; position: absolute; right: 12px; top: 1px; line-height: 1;">✖</a>
+											</div>
+											<button type="submit" class="btn small eSearch">조회하기</button>
+										</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</form>
+				</div>
+				<ul class="list-top-sub">
+					<li>총 건수<span><em>49</em>개</span>
+					</li>
+					<li>총 품목수량<span><em>1,024</em>개</span></li>
+					<li>총 결제금액 합계<span><em>9,242,000</em>원</span></li>
+				</ul>
+
+				<div class="table-wrap order-list mb0">
+					<div class="tit wrap">
+						<div class="tit-right">
+							<span class="notice">
+								※ <em>2020-11-04 00 시</em>에 자동 검수완료 처리됩니다.
+							</span>
+						</div>
+					</div>
+					<!-- 2021-04-06 EZP-1902 시작 -->
+					<!-- 2022-06-27 EZP-3528 활성시 .green / 비활성시 disabled="disabled" 추가-->
+					<div class="tit wrap mt0 ex btn-size">
+						<!--span>※검수완료 미처리 시, <em>입고일로부터 7일째 되는 날 00시</em>에 자동 검수완료 처리됩니다.</span>-->
+						<div class="tit-left">
+							<button type="button" class="btn small line ui-popup-open eMultiRequestRefunded" data-target="#layer_multi_refund_request">품절처리변경</button>
+							<!-- 2020-07-31 EZP-779 -->
+							<!-- 2022-06-16 EZP-3528 드롭다운 버튼 //-->
+							<div class="excel-select reorder-select">
+							<button type="button" class="btn small line ui-popup-open eLayerReorder" data-target="#layer_reorder">재주문</button>
+							<ul>
+								<li>
+								<a href="#none" class="eExcelFormDown">바로 재주문</a>
+								</li>
+								<li>
+								<a href="#none" class="eExcelFormDown">일반 재주문</a>
+								</li>
+							</ul>
+							</div>                
+							<!--// 2022-06-16 EZP-3528 드롭다운 버튼 -->
+							<button type="button" class="btn small line ui-popup-open deliveryDateChange" data-target="#change-pop">입고일 변경</button><!--2022-06-16 EZP-3528 클래스추가-->
+							<button type="button" class="btn small line ui-popup-open eCancel" style="display: none;">취소</button><!--2022-06-16 EZP-3528 추가-->
+							<!-- 2021-04-06 EZP-1902 종료 -->
+						</div>
+						<!-- 2020-05-21 -->
+						<div class="tit-right">
+							<input type="hidden" name="limit" id="eRowLimit" value="200">
+							<div class="ui-select" data-target_id="#eRowLimit">
+								<button type="button" data-target_id="#eRowLimit" data-value="">200개씩 보기</button>
+								<ul>
+									<li data-key="10">10개씩 보기</li>
+									<li data-key="30">30개씩 보기</li>
+									<li data-key="50">50개씩 보기</li>
+									<li data-key="100">100개씩 보기</li>
+									<li data-key="200" class="active">200개씩 보기</li>
+									<li data-key="300">300개씩 보기</li>
+								</ul>
+							</div>
+							<button type="button" class="btn small line eExcelInspectRequest">재확인 요청 업로드</button>
+
+							<button type="button" class="btn small line" onclick="location.href='../bulk/front/addStock.html'">
+								추가입고 등록
+								<!-- 2021-06-15 EZP-3170 -->
+								<div class="tip-wrap">
+									<a href="javascript:;" class="btn-tip"></a>
+									<!-- 2021-06-24 EZP-2885 -->
+									<div class="tip-right" style="width:380px;">
+										<span class="title">추가입고?</span>
+										<br>
+										<!-- 2021-07-20 EZP-3449 -->
+										<!-- 2021-07-28 EZP-3538 -->
+										<span class="txt">
+											이지픽에서 주문하지 않았으나, 입고된 건이 있으신가요?<br>
+											‘추가입고’ 기능은 지나간 추가 입고 건을 등록하는 기능입니다.
+										</span>
+										<br>
+										<br>
+										<span class="title">[유의사항]</span>
+										<br>
+										<span class="txt sort"><!--EZP-3157-->
+											- 검수대기 중인 가게에 등록 가능합니다.<br>
+											(최종 검수완료된 입고일에는 추가입고 등록이 불가합니다.)
+											- '샘플결제'품목만 존재하는입고일에는 추가입고 불가합니다.
+										</span><!--//EZP-3157-->
+									</div>
+								</div>
+							</button>
+							<!-- 2021-06-24 EZP-2885 -->
+							<button type="button" class="btn small ui-popup-open eSettleConfirm btn-tip-wrap" data-target="#layer_settle_confirm" data-overflow="false" href="/buyer/order/action/settleDetail" data-bs_complete_no="">
+								검수완료
+								<div class="tip-wrap">
+									<span class="btn-tip type-white"></span>
+									<div class="tip-right" style="width:420px;">
+										<span class="title">검수완료 방법</span>
+										<!-- 2021-09-15 EZP-3873 입고일 관련 문구 삭제 -->
+										<span class="txt sort">
+											- 검수대기 품목 상단의 [검수완료] 버튼으로 <br>
+											입고일의 검수 품목을 가게별로 검수완료 할 수 있습니다.
+										</span>
+										<span class="title mt10">[유의사항]</span>
+										<span class="txt sort">
+											- 과거 입고일별로 순차적으로 검수완료 할 수 있습니다.
+										</span>
+										<span class="txt sort">
+											- 재확인 요청, 추가입고 승인 대기 중인 품목이 있는 가게는 검수완료가<br>
+											  불가합니다.
+										</span>
+										<span class="txt sort">
+											- 검수완료된 가게에는 추가입고 등록이 불가합니다.
+										</span>
+										<span class="txt sort">
+											-  입고일로부터 14일째 되는날 00시에 자동 검수완료 처리됩니다.<br>
+											  (자동검수완료 시, 추가입고와 재확인 승인 대기 건은 자동 취소 처리<br>
+											  됩니다. 거래처별보기에서 설정한 매입환불요청금액은 반영되지 않고<br>
+											  0원으로 자동검수 완료됩니다.)
+										</span>
+									</div>
+								</div>
+							</button>
+
+							<!-- 엑셀다운로드-->
+							<div class="excel-select">
+								<button type="button" name="button" class="btn">엑셀다운로드</button>
+								<ul>
+									<li>
+										<a href="#none" class="eExcelFormDown">기본양식</a>
+									</li>
+									<li>
+										<a href="#none" class="eExcelFormDown">재확인 요청 양식 재확인 요청 양식</a>
+									</li>
+								</ul>
+							</div>
+							<a href="#none" class="btn small eExcelFormModified">설정</a>
+						</div>
+					</div>
+
+					<!-- 검수대기/완료 리스트 -->
+					<!-- 2021-06-24 EZP-2885 시작 -->
+					<!-- 2021-12-07 EZP-4641 <div class="fix-header-wrap"> 추가 -->
+					<div class="fix-header-wrap">
+						<table class="th-hor">
+							<colgroup class="colgroup-large">
+								<col width="50px">
+								<col width="50px">
+								<col width="65px">
+								<col width="100px">
+								<col width="*">
+								<col width="*">
+								<col width="120px">
+								<col width="80px">
+								<col width="80px">
+								<col width="120px">
+								<col width="90px">
+								<col width="90px">
+								<col width="100px">
+								<col width="90px">
+							</colgroup>
+							<colgroup class="colgroup-small">
+								<col width="50px">
+								<col width="50px">
+								<col width="55px">
+								<col width="80px">
+								<col width="*">
+								<col width="100px">
+								<col width="100px">
+								<col width="70px">
+								<col width="70px">
+								<col width="100px">
+								<col width="80px">
+								<col width="90px">
+								<col width="90px">
+							</colgroup>
+							<!--// 21-02-24 수정, 21-03-04 수정-->
+							<thead>
+								<tr>
+									<th>
+										<span class="checkbox" style="padding-left: 16px;"><input type="checkbox" class="allChk" id="allChk"><label for="allChk"></label></span>
+									</th>
+									<th>주문<br>구분</th>
+									<th>유형</th>
+									<th>입고일<br><span>(주문번호)</span></th>
+									<th>상품명</th>
+									<th>옵션</th>
+									<th>판매가</th>
+									<th>발주<br>수량</th>
+									<th>입고<br>수량</th>
+									<th>입고<br>금액</th>
+									<th>잔여<br>수량</th>
+									<th>품절<br>처리방식</th>
+									<th>상품상태<br>입고예정일</th>
+									<th>관리</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td colspan="14" class="bg-darkgr company-info">
+										플래닛 <span>(퀸즈스퀘어 3층 49호, 010-1111-2222)</span>
+										<!-- <span class="date">2021-05-13 09:00:13 검수완료</span> -->
+									</td>
+								</tr>
+								<tr data-ss_item_no="278657" data-bs_complete_no="" class="bgc add-order">
+									<!-- 재확인 요청시 bgc 클레스 추가 2020-04-02 -->
+									<td> <span class="checkbox" style="padding-left: 16px;"> <input type="checkbox" class="rowChk" value="227704" data-order_item_no="227704" data-ss_item_no="278657" data-product_name="레이온긴팔T	" data-is_first="T"
+												data-spec_item_type="10"><label></label> </span> </td>
+									<td class="txt-red">추가<br>입고</td>
+									<td><span class="btn-type faulty again" style="">불량</span></td>
+									<td class="Enfont txt-black">
+										<span class="txt-black">03/03</span>
+										<br><span>(<a href="#" class="Enfont underline">20200730<br>00010428</a>)</span><!-- 2021-11-16 EZP-3866 -->
+									</td>
+									<!-- 2021-04-08 EZP-2689 -->
+									<td>
+										<!-- 2023-03-18 개발팀요청 eProductName -> n-ellipsis로 변경 -->
+										<p class="prd ex n-ellipsis">
+											기본 T 롱 원피스
+										</p>
+										<p style="font-size:12px; margin-top:1px; color:#848484;">
+											[쇼핑몰상품명] 찰랑롱OPS
+										</p>
+										<p style="font-size:12px; margin-top:1px; color:#848484;">
+											[쇼핑몰상품코드] OPS_L_123
+										</p>
+									</td>
+									<td class="option" title="핑크 / Free">핑크 <span class="color">Free</span></td>
+									<td>
+										<em class="price">999,999</em>원 <br>
+									</td>
+									<td class="Enfont">9999</td>
+									<td class="Enfont"><span>9999</span><br>
+									</td>
+									<td><em class="price">999,999</em>원</td>
+									<!-- 2020-05-08 잔여수량 시작 -->
+									<td class="Enfont">
+										40<br>
+										<button type="button" class="btn-order ui-popup-open black" data-target="#layer_change_options">옵션변경</button>
+									</td>
+									<!-- 2020-05-08 잔여수량 종료 -->
+									<td><span style="color:#ff4800;">환불</span></td>
+									<td>
+										<!-- 2020-05-26 시작 정렬 -->
+										<p class="prd-date">
+											<em title="사이즈품절, 낱장불가">품,색</em>
+											<span>-</span>
+										</p>
+										<!-- 2020-05-26 종료 정렬 -->
+									</td>
+									<td>
+										<span class="reconfirm">
+											재확인요청<br>
+											(입고정보)
+										</span>
+										<button type="button" href="/buyer/order/action/badDetail" class="btn-order ui-popup-open eLayerBad" data-target="#layer_bad_request" data-overflow="false" data-order_item_no="227704" data-ss_item_no="278657">불량접수</button>
+									</td>
+								</tr>
+								<tr data-ss_item_no="287659" data-bs_complete_no="">
+									<td> <span class="checkbox" style="padding-left: 16px;"> <input type="checkbox" class="rowChk" value="235569" data-order_item_no="235569" data-ss_item_no="287659" data-product_name="레이온긴팔T	" data-is_first="T"
+												data-spec_item_type="10"><label></label> </span> </td>
+									<td>바로<br>주문</td>
+									<td><span class="btn-type new" style="">신규</span></td>
+									<td class="Enfont txt-black">
+										<span class="txt-black">03/03</span>
+										<br><span>(<a href="#" class="Enfont underline">20200730<br>00010428</a>)</span>
+									</td>
+
+									<!-- 2021-05-10 EZP-2899 -->
+									<td>
+										<!-- 2021-06-15 EZP-2899 밑줄 제거시 underline 삭제 -->
+										<!-- 2023-03-18 개발팀요청 eProductName -> n-ellipsis로 변경 -->
+										<p class="prd ex n-ellipsis">
+											<a href="#" class="underline">기본 T 롱 원피스</a>
+											<!-- 2023-03-18 개발팀 요청으로 eProductImgUrl -> ico-img 로 변경 -->
+											<a href="javascript:;" class="ico-img" data-url="file:///C:/Users/7040_64bit/Desktop/KakaoTalk_20200115_111739154.jpg">
+												<img src="../../../../img/common/ico_image.png">
+											</a>
+										</p>
+									</td>
+									<td class="option" title="핑크 / Free">핑크 <span class="color">Free</span></td>
+									<td><em class="price">3,500</em>원 <br><button type="button" href="/buyer/order/action/inspectDetail" class="btn-order black ui-popup-open eLayerInspect" data-target="#layer_inspect_request" data-overflow="false"
+											data-order_item_no="235569" data-ss_item_no="287659" data-inspect_type="price">판매가변경</button></td>
+									<td class="Enfont">2</td>
+									<td class="Enfont">2<br><button type="button" href="/buyer/order/action/inspectDetail" class="btn-order ui-popup-open eLayerInspect black" data-target="#layer_inspect_request" data-overflow="false" data-order_item_no="235569"
+											data-ss_item_no="287659" data-inspect_type="qty">수량변경</button></td>
+									<td><em class="price">7,000</em>원</td>
+									<!-- 2020-05-08 잔여수량 시작 -->
+									<td class="Enfont">
+										<em class="Enfont green">40</em><br><!-- 2021-12-07 EZP-4641 -->
+										<div class="cnt-tooltip">
+											<div class="cnt-tooltip-view">
+												<div>
+													<strong>부분처리 상세</strong>
+													<table>
+														<thead>
+															<tr>
+																<th><span style="color:#36c25d;">미송</span></th>
+																<th><span style="color:#ff4800;">환불</span></th>
+																<th><span style="color:#f08cbe;">매입</span></th>
+																<th><span style="color:#999999;">폐기</span></th>
+															</tr>
+														</thead>
+														<tbody>
+															<tr>
+																<td><span>40<em>개</em></span></td>
+																<td><span>40<em>개</em></span></td>
+																<td><span>40<em>개</em></span></td>
+																<td class="empty">-</td>
+															</tr>
+														</tbody>
+													</table>
+													<p>
+														- 미송 : 다음 발주 시 미송 수량 만큼 발주됩니다.<br>
+														- 환불, 매입, 폐기 : 검수완료 시 처리됩니다.
+													</p>
+												</div>
+											</div>
+										</div>
+									</td>
+									<!-- 2020-05-08 잔여수량 종료 -->
+									<td>
+										<span class="state-cnt line">미송</span>
+										<span style="color:#9a96ee; display:inline-block; margin-top:6px;">옵션변경</span>
+									</td>
+									<td>
+										<!--2020-05-07-->
+										<p class="prd-date">
+											<em title="사이즈품절, 낱장불가">품,색,사,최소</em>
+											<span>2020-04-27</span>
+										</p>
+									</td>
+									<td>
+										<span class="reconfirm">
+											재확인요청<br>
+											(미송 옵션)
+										</span>
+										<button type="button" href="/buyer/order/action/badDetail" class="btn-order ui-popup-open eLayerBad" data-target="#layer_bad_request" data-overflow="false" data-order_item_no="235569" data-ss_item_no="287659">불량접수</button>
+									</td>
+								</tr>
+								<tr data-ss_item_no="292322" data-bs_complete_no="">
+									<td> <span class="checkbox" style="padding-left: 16px;"> <input type="checkbox" class="rowChk" value="237635" data-order_item_no="237635" data-ss_item_no="292322" data-product_name="레이온긴팔T	" data-is_first="T"
+												data-spec_item_type="10"><label></label> </span> </td>
+									<td>바로<br>주문</td>
+									<td><span class="btn-type new" style="">신규</span></td>
+									<td class="Enfont txt-black">
+										<span class="txt-black">03/03</span>
+										<br><span>(<a href="#" class="Enfont underline">20200730<br>00010428</a>)</span>
+									</td>
+									<td class="txt-gray">
+										레이온긴팔T
+									</td>
+									<td class="option" title="핑크 / Free">핑크 <span class="color">Free</span></td>
+									<td><em class="price">3,500</em>원 <br><button type="button" href="/buyer/order/action/inspectDetail" class="btn-order black ui-popup-open eLayerInspect" data-target="#layer_inspect_request" data-overflow="false"
+											data-order_item_no="237635" data-ss_item_no="292322" data-inspect_type="price">판매가변경</button></td>
+									<td class="Enfont">2</td>
+									<td class="Enfont">2<br><button type="button" href="/buyer/order/action/inspectDetail" class="btn-order ui-popup-open eLayerInspect black" data-target="#layer_inspect_request" data-overflow="false" data-order_item_no="237635"
+											data-ss_item_no="292322" data-inspect_type="qty">수량변경</button></td>
+									<td><em class="price">7,000</em>원</td>
+									<!-- 2020-05-08 잔여수량 시작 -->
+									<td class="Enfont">
+										40<br>
+										<div class="cnt-tooltip">
+											<div class="cnt-tooltip-view">
+												<div>
+													<strong>부분처리 상세</strong>
+													<table>
+														<thead>
+															<tr>
+																<th><span style="color:#36c25d;">미송</span></th>
+																<th><span style="color:#ff4800;">환불</span></th>
+																<th><span style="color:#f08cbe;">매입</span></th>
+																<th><span style="color:#999999;">폐기</span></th>
+															</tr>
+														</thead>
+														<tbody>
+															<tr>
+																<td><span>40<em>개</em></span></td>
+																<td><span>40<em>개</em></span></td>
+																<td><span>40<em>개</em></span></td>
+																<td class="empty">-</td>
+															</tr>
+														</tbody>
+													</table>
+													<p>
+														- 미송 : 다음 발주 시 미송 수량 만큼 발주됩니다.<br>
+														- 환불, 매입, 폐기 : 검수완료 시 처리됩니다.
+													</p>
+												</div>
+											</div>
+										</div>
+									</td>
+									<!-- 2020-05-08 잔여수량 종료 -->
+									<td>
+										<span style="color:#ff4800;">환불</span>
+										<br>
+										<button type="button" href="#none" class="btn-order eLayerRefundRequest ui-popup-open" data-target="#layer_inspect_request">변경요청</button>
+									</td>
+									<td>
+										<!--2020-05-07-->
+										<p class="prd-date">
+											<em title="사이즈품절, 낱장불가">품,색,사,최소</em>
+											<span>2020-04-27</span>
+										</p>
+									</td>
+									<td>
+										<!-- 2021-12-15 EZP-4440 -->
+										<button type="button" class="btn-order ui-popup-open eInDetail status" data-target="#layer_in_detail">현황확인</button><!-- 활성화 클래스 status -->
+										<button type="button" class="btn-order ui-popup-open eLayerBad" data-target="#layer_bad_request">불량접수</button>
+									</td>
+								</tr>
+						<!-- 20220317 EZP-1526 -->
+								<tr data-ss_item_no="292322" data-bs_complete_no="">
+									<td> <span class="checkbox" style="padding-left: 16px;"> <input type="checkbox" class="rowChk" value="237635" data-order_item_no="237635" data-ss_item_no="292322" data-product_name="레이온긴팔T	" data-is_first="T"
+												data-spec_item_type="10"><label></label> </span> </td>
+									<td>바로<br>주문</td>
+									<td><span class="btn-type purple" style="">샘플</span></td>
+									<td class="Enfont txt-black">
+										<span class="txt-black">03/03</span>
+										<br><span>(<a href="#" class="Enfont underline">20200730<br>00010428</a>)</span>
+									</td>
+									<td class="txt-gray">
+										레이온긴팔T
+									</td>
+									<td class="option" title="핑크 / Free">핑크 <span class="color">Free</span></td>
+									<td><em class="price">3,500</em>원 <br><button type="button" href="/buyer/order/action/inspectDetail" class="btn-order black ui-popup-open eLayerInspect" data-target="#layer_inspect_request" data-overflow="false"
+											data-order_item_no="237635" data-ss_item_no="292322" data-inspect_type="price">판매가변경</button></td>
+									<td class="Enfont">2</td>
+									<td class="Enfont">2<br><button type="button" href="/buyer/order/action/inspectDetail" class="btn-order ui-popup-open eLayerInspect black" data-target="#layer_inspect_request_sample" data-overflow="false" data-order_item_no="237635"
+											data-ss_item_no="292322" data-inspect_type="qty">수량변경</button></td>
+									<td><em class="price">7,000</em>원</td>
+									<!-- 2020-05-08 잔여수량 시작 -->
+									<td class="Enfont">
+										40<br>
+										<div class="cnt-tooltip">
+											<div class="cnt-tooltip-view">
+												<div>
+													<strong>부분처리 상세</strong>
+													<table>
+														<thead>
+															<tr>
+																<th><span style="color:#36c25d;">미송</span></th>
+																<th><span style="color:#ff4800;">환불</span></th>
+																<th><span style="color:#f08cbe;">매입</span></th>
+																<th><span style="color:#999999;">폐기</span></th>
+															</tr>
+														</thead>
+														<tbody>
+															<tr>
+																<td><span>40<em>개</em></span></td>
+																<td><span>40<em>개</em></span></td>
+																<td><span>40<em>개</em></span></td>
+																<td class="empty">-</td>
+															</tr>
+														</tbody>
+													</table>
+													<p>
+														- 미송 : 다음 발주 시 미송 수량 만큼 발주됩니다.<br>
+														- 환불, 매입, 폐기 : 검수완료 시 처리됩니다.
+													</p>
+												</div>
+											</div>
+										</div>
+									</td>
+									<!-- 2020-05-08 잔여수량 종료 -->
+									<td>
+										<span style="color:#ff4800;">환불</span>
+										<br>
+										<button type="button" href="#none" class="btn-order eLayerRefundRequest ui-popup-open" data-target="#layer_inspect_request">변경요청</button>
+									</td>
+									<td>
+										<!--2020-05-07-->
+										<p class="prd-date">
+											<em title="사이즈품절, 낱장불가">품,색,사,최소</em>
+											<span>2020-04-27</span>
+										</p>
+									</td>
+									<td>
+										<!-- 2021-12-15 EZP-4440 -->
+										<button type="button" class="btn-order ui-popup-open eInDetail status" data-target="#layer_in_detail">현황확인</button><!-- 활성화 클래스 status -->
+										<button type="button" class="btn-order ui-popup-open eLayerBad" data-target="#layer_bad_request">불량접수</button>
+									</td>
+								</tr>
+						<!--// 20220317 EZP-1526 -->
+								<tr>
+									<td colspan="14" class="bg-darkgr company-info">
+										플래닛 <span>(퀸즈스퀘어 3층 49호, 010-1111-2222)</span>
+										<!-- <span class="date">2021-05-13 09:00:13 검수완료</span> -->
+									</td>
+								</tr>
+								<tr data-ss_item_no="292322" data-bs_complete_no="">
+									<td> <span class="checkbox" style="padding-left: 16px;"> <input type="checkbox" class="rowChk" value="237635" data-order_item_no="237635" data-ss_item_no="292322" data-product_name="레이온긴팔T	" data-is_first="T"
+												data-spec_item_type="10"><label></label> </span> </td>
+									<td>바로<br>주문</td>
+									<td><span class="btn-type new" style="">신규</span></td>
+									<td class="Enfont txt-black">
+										<span class="txt-black">03/03</span>
+										<br><span>(<a href="#" class="Enfont underline">20200730<br>00010428</a>)</span>
+									</td>
+
+									<!-- 2021-03-10 -->
+									<td class="txt-gray">
+										레이온긴팔T
+									</td>
+									<td class="option" title="핑크 / Free">핑크 <span class="color">Free</span></td>
+									<td><em class="price">3,500</em>원 <br><button type="button" href="/buyer/order/action/inspectDetail" class="btn-order black ui-popup-open eLayerInspect" data-target="#layer_inspect_request" data-overflow="false"
+											data-order_item_no="237635" data-ss_item_no="292322" data-inspect_type="price">판매가변경</button></td>
+									<td class="Enfont">2</td>
+									<td class="Enfont">2<br><button type="button" href="/buyer/order/action/inspectDetail" class="btn-order ui-popup-open eLayerInspect black" data-target="#layer_inspect_request" data-overflow="false" data-order_item_no="237635"
+											data-ss_item_no="292322" data-inspect_type="qty">수량변경</button></td>
+									<td><em class="price">7,000</em>원</td>
+									<!-- 2020-05-08 잔여수량 시작 -->
+									<td class="Enfont">
+										40<br>
+										<div class="cnt-tooltip">
+											<div class="cnt-tooltip-view">
+												<div>
+													<strong>부분처리 상세</strong>
+													<table>
+														<thead>
+															<tr>
+																<th><span style="color:#36c25d;">미송</span></th>
+																<th><span style="color:#ff4800;">환불</span></th>
+																<th><span style="color:#f08cbe;">매입</span></th>
+																<th><span style="color:#999999;">폐기</span></th>
+															</tr>
+														</thead>
+														<tbody>
+															<tr>
+																<td><span>40<em>개</em></span></td>
+																<td><span>40<em>개</em></span></td>
+																<td><span>40<em>개</em></span></td>
+																<td class="empty">-</td>
+															</tr>
+														</tbody>
+													</table>
+													<p>
+														- 미송 : 다음 발주 시 미송 수량 만큼 발주됩니다.<br>
+														- 환불, 매입, 폐기 : 검수완료 시 처리됩니다.
+													</p>
+												</div>
+											</div>
+										</div>
+									</td>
+									<!-- 2020-05-08 잔여수량 종료 -->
+									<td>
+										부분처리
+										<br>
+										<button type="button" href="#none" class="btn-order eLayerRefundRequest ui-popup-open" data-target="#layer_inspect_request">변경요청</button>
+									</td>
+									<td>
+										<!--2020-05-07-->
+										<p class="prd-date">
+											<em title="사이즈품절, 낱장불가">품,색,사,최소</em>
+											<span>2020-04-27</span>
+										</p>
+									</td>
+									<td>
+										<button type="button" class="btn-order ui-popup-open eInDetail" data-target="#layer_in_detail">현황확인</button>
+										<button type="button" class="btn-order ui-popup-open eLayerBad" data-target="#layer_bad_request">불량접수</button>
+									</td>
+								</tr>
+								<tr data-ss_item_no="292322" data-bs_complete_no="">
+									<td> <span class="checkbox" style="padding-left: 16px;"> <input type="checkbox" class="rowChk" value="237635" data-order_item_no="237635" data-ss_item_no="292322" data-product_name="레이온긴팔T	" data-is_first="T"
+												data-spec_item_type="10"><label></label> </span> </td>
+									<td>바로<br>주문</td>
+									<td><span class="btn-type green" style="">미송</span></td>
+									<td class="Enfont txt-black">
+										<span class="txt-black">03/03</span>
+										<br><span>(<a href="#" class="Enfont underline">20200730<br>00010428</a>)</span>
+									</td>
+
+									<!-- 2021-03-10 -->
+									<td class="txt-gray">
+										레이온긴팔T
+									</td>
+									<td class="option" title="핑크 / Free">핑크 <span class="color">Free</span></td>
+									<td><em class="price">3,500</em>원 <br><button type="button" href="/buyer/order/action/inspectDetail" class="btn-order black ui-popup-open eLayerInspect" data-target="#layer_inspect_request" data-overflow="false"
+											data-order_item_no="237635" data-ss_item_no="292322" data-inspect_type="price">판매가변경</button></td>
+									<td class="Enfont">2</td>
+									<td class="Enfont">2<br><button type="button" href="/buyer/order/action/inspectDetail" class="btn-order ui-popup-open eLayerInspect black" data-target="#layer_inspect_request" data-overflow="false" data-order_item_no="237635"
+											data-ss_item_no="292322" data-inspect_type="qty">수량변경</button></td>
+									<td><em class="price">7,000</em>원</td>
+									<!-- 2020-05-08 잔여수량 시작 -->
+									<td class="Enfont">
+										40<br>
+										<div class="cnt-tooltip">
+											<div class="cnt-tooltip-view">
+												<div>
+													<strong>부분처리 상세</strong>
+													<table>
+														<thead>
+															<tr>
+																<th><span style="color:#36c25d;">미송</span></th>
+																<th><span style="color:#ff4800;">환불</span></th>
+																<th><span style="color:#f08cbe;">매입</span></th>
+																<th><span style="color:#999999;">폐기</span></th>
+															</tr>
+														</thead>
+														<tbody>
+															<tr>
+																<td><span>40<em>개</em></span></td>
+																<td><span>40<em>개</em></span></td>
+																<td><span>40<em>개</em></span></td>
+																<td class="empty">-</td>
+															</tr>
+														</tbody>
+													</table>
+													<p>
+														- 미송 : 다음 발주 시 미송 수량 만큼 발주됩니다.<br>
+														- 환불, 매입, 폐기 : 검수완료 시 처리됩니다.
+													</p>
+												</div>
+											</div>
+										</div>
+									</td>
+									<!-- 2020-05-08 잔여수량 종료 -->
+									<td>
+										<span style="color:#ff4800;">환불</span>
+										<br>
+										<button type="button" href="#none" class="btn-order eLayerRefundRequest ui-popup-open" data-target="#layer_inspect_request">변경요청</button>
+									</td>
+									<td>
+										<!--2020-05-07-->
+										<p class="prd-date">
+											<em title="사이즈품절, 낱장불가">품,색,사,최소</em>
+											<span>2020-04-27</span>
+										</p>
+									</td>
+									<td>
+										<button type="button" class="btn-order ui-popup-open eInDetail" data-target="#layer_in_detail">현황확인</button>
+										<button type="button" class="btn-order ui-popup-open eLayerBad" data-target="#layer_bad_request">불량접수</button>
+									</td>
+								</tr>
+
+								<!--EZP-3157-->
+								<tr data-ss_item_no="292322" data-bs_complete_no="">
+									<td> <span class="checkbox" style="padding-left: 16px;"> <input type="checkbox" class="rowChk" value="237635" data-order_item_no="237635" data-ss_item_no="292322" data-product_name="레이온긴팔T	" data-is_first="T"
+												data-spec_item_type="10"><label></label> </span> </td>
+									<td>바로<br>주문</td>
+									<td><span class="btn-type purple line2 " style="">유료<br/>샘플</span></td>
+									<td class="Enfont txt-black">
+										<span class="txt-black">03/03</span>
+										<br><span>(<a href="#" class="Enfont underline">20200730<br>00010428</a>)</span>
+									</td>
+
+									<!-- 2021-03-10 -->
+									<td class="txt-gray">
+										레이온긴팔T
+									</td>
+									<td class="option" title="핑크 / Free">핑크 <span class="color">Free</span></td>
+									<td><em class="price">3,500</em>원 <br><button type="button" href="/buyer/order/action/inspectDetail" class="btn-order black ui-popup-open eLayerInspect" data-target="#layer_inspect_request" data-overflow="false"
+											data-order_item_no="237635" data-ss_item_no="292322" data-inspect_type="price">판매가변경</button></td>
+									<td class="Enfont">2</td>
+									<td class="Enfont">2<br><button type="button" href="/buyer/order/action/inspectDetail" class="btn-order ui-popup-open eLayerInspect black" data-target="#layer_inspect_request" data-overflow="false" data-order_item_no="237635"
+											data-ss_item_no="292322" data-inspect_type="qty">수량변경</button></td>
+									<td><em class="price">7,000</em>원</td>
+									<!-- 2020-05-08 잔여수량 시작 -->
+									<td class="Enfont">
+										40<br>
+										<div class="cnt-tooltip">
+											<div class="cnt-tooltip-view">
+												<div>
+													<strong>부분처리 상세</strong>
+													<table>
+														<thead>
+															<tr>
+																<th><span style="color:#36c25d;">미송</span></th>
+																<th><span style="color:#ff4800;">환불</span></th>
+																<th><span style="color:#f08cbe;">매입</span></th>
+																<th><span style="color:#999999;">폐기</span></th>
+															</tr>
+														</thead>
+														<tbody>
+															<tr>
+																<td><span>40<em>개</em></span></td>
+																<td><span>40<em>개</em></span></td>
+																<td><span>40<em>개</em></span></td>
+																<td class="empty">-</td>
+															</tr>
+														</tbody>
+													</table>
+													<p>
+														- 미송 : 다음 발주 시 미송 수량 만큼 발주됩니다.<br>
+														- 환불, 매입, 폐기 : 검수완료 시 처리됩니다.
+													</p>
+												</div>
+											</div>
+										</div>
+									</td>
+									<!-- 2020-05-08 잔여수량 종료 -->
+									<td>
+										<span style="color:#ff4800;">환불</span>
+										<br>
+										<button type="button" href="#none" class="btn-order eLayerRefundRequest ui-popup-open" data-target="#layer_inspect_request">변경요청</button>
+									</td>
+									<td>
+										<!--2020-05-07-->
+										<p class="prd-date">
+											<em title="사이즈품절, 낱장불가">품,색,사,최소</em>
+											<span>2020-04-27</span>
+										</p>
+									</td>
+									<td>
+										<button type="button" class="btn-order ui-popup-open eInDetail" data-target="#layer_in_detail">현황확인</button>
+										<button type="button" class="btn-order ui-popup-open eLayerBad" data-target="#layer_bad_request">불량접수</button>
+									</td>
+								</tr>
+								<tr data-ss_item_no="292322" data-bs_complete_no="">
+									<td> <span class="checkbox" style="padding-left: 16px;"> <input type="checkbox" class="rowChk" value="237635" data-order_item_no="237635" data-ss_item_no="292322" data-product_name="레이온긴팔T	" data-is_first="T"
+												data-spec_item_type="10"><label></label> </span> </td>
+									<td>바로<br>주문</td>
+									<td><span class="btn-type margenta line2 " style="">샘플<br/>결제</span></td>
+									<td class="Enfont txt-black">
+										<span class="txt-black">03/03</span>
+										<br><span>(<a href="#" class="Enfont underline">20200730<br>00010428</a>)</span>
+									</td>
+
+									<!-- 2021-03-10 -->
+									<td class="txt-gray">
+										레이온긴팔T
+									</td>
+									<td class="option" title="핑크 / Free">핑크 <span class="color">Free</span></td>
+									<td><em class="price">3,500</em>원 <br><button type="button" href="/buyer/order/action/inspectDetail" class="btn-order black ui-popup-open eLayerInspect" data-target="#layer_inspect_request" data-overflow="false"
+											data-order_item_no="237635" data-ss_item_no="292322" data-inspect_type="price">판매가변경</button></td>
+									<td class="Enfont">2</td>
+									<td class="Enfont">2<br><button type="button" href="/buyer/order/action/inspectDetail" class="btn-order ui-popup-open eLayerInspect black" data-target="#layer_inspect_request" data-overflow="false" data-order_item_no="237635"
+											data-ss_item_no="292322" data-inspect_type="qty">수량변경</button></td>
+									<td><em class="price">7,000</em>원</td>
+									<!-- 2020-05-08 잔여수량 시작 -->
+									<td class="Enfont">
+										40<br>
+										<div class="cnt-tooltip">
+											<div class="cnt-tooltip-view">
+												<div>
+													<strong>부분처리 상세</strong>
+													<table>
+														<thead>
+															<tr>
+																<th><span style="color:#36c25d;">미송</span></th>
+																<th><span style="color:#ff4800;">환불</span></th>
+																<th><span style="color:#f08cbe;">매입</span></th>
+																<th><span style="color:#999999;">폐기</span></th>
+															</tr>
+														</thead>
+														<tbody>
+															<tr>
+																<td><span>40<em>개</em></span></td>
+																<td><span>40<em>개</em></span></td>
+																<td><span>40<em>개</em></span></td>
+																<td class="empty">-</td>
+															</tr>
+														</tbody>
+													</table>
+													<p>
+														- 미송 : 다음 발주 시 미송 수량 만큼 발주됩니다.<br>
+														- 환불, 매입, 폐기 : 검수완료 시 처리됩니다.
+													</p>
+												</div>
+											</div>
+										</div>
+									</td>
+									<!-- 2020-05-08 잔여수량 종료 -->
+									<td>
+										<span style="color:#ff4800;">환불</span>
+										<br>
+										<button type="button" href="#none" class="btn-order eLayerRefundRequest ui-popup-open" data-target="#layer_inspect_request">변경요청</button>
+									</td>
+									<td>
+										<!--2020-05-07-->
+										<p class="prd-date">
+											<em title="사이즈품절, 낱장불가">품,색,사,최소</em>
+											<span>2020-04-27</span>
+										</p>
+									</td>
+									<td>
+										<button type="button" class="btn-order ui-popup-open eInDetail" data-target="#layer_in_detail">현황확인</button>
+										<button type="button" class="btn-order ui-popup-open eLayerBad" data-target="#layer_bad_request">불량접수</button>
+									</td>
+								</tr>
+								<!--//EZP-3157-->
+
+							</tbody>
+						</table>
+					</div>
+
+					<!-- 2021-06-24 EZP-2885 종료 -->
+					<div class="pagination"><a href="#none;" class="first none" style="cursor:unset;">처음</a><a href="#none;" class="prev none" style="cursor:unset;">이전</a><a href="#none;" class="active">1</a> <a href="#none" class="next none"
+							style="cursor:unset;">다음</a><a href="#none" class="last none" style="cursor:unset;">다음</a></div>
+					<!-- 검수대기/완료 정산 금액 -->
+					<!-- 결제 상세 -->
+					<div class="tit wrap">
+						<em class="s-title">
+							정산예정금액 <i>(11/08 입고)</i>
+							<!--<a href="/buyer/order/front/inspectSellerList" class="eInspectSellerList">
+								<button type="button" class="btn-order btn small point" disabled>거래처별보기(매입환불 설정)</button>
+							</a>-->
+							<!-- 2022-02-14 EZP-5090 -->
+							<button type="button" class="btn x-small point fw-bold">거래처별보기(매입환불 설정)</button>
+							<button type="button" class="btn x-small point fw-bold" disabled>거래처별보기(매입환불 설정)</button>
+						</em>
+						<div class="tit-right txt">
+							<div>
+								<!-- 2020-05-21 ex클레스 추가 -->
+								<div class="tip-wrap ex">
+									<a href="javascript:;" class="btn-tip"></a>
+									<div class="tip-right" style="text-align:left;">
+										<span class="title">매입금 적립?</span>
+										<br>
+										<span class="txt">품절처리방식이 "매입"인 품목의<br>(판매가 x 미송수량) 총합<br>또는 거래처별 총결제금액이<br>0원 이하인 경우 매입금 적립</span><!-- 2021-09-29 EZP-4163 -->
+									</div>
+								</div>
+								매입금 적립 금액 : <em>1,130,000</em><i>원</i>
+							</div>
+						</div>
+					</div>
+					<!-- 2020-06-04 EZP-763 시작 -->
+					<table class="th-hor endDetail" style="margin-top:0px !important;">
+						<!--21-02-26 수정-->
+						<colgroup><!--EZP-3157-->
+							<col width="115px">
+							<col width="17%">
+							<col width="16%">
+							<col width="17%">
+							<col width="16%">
+							<col width="17%">
+							<col width="17%">
+						</colgroup><!--//EZP-3157-->
+						<!--// 21-02-26 수정-->
+						<!-- 2021-06-15 EZP-3170 -->
+						<thead>
+							<tr class="sub-th">
+								<th rowspan="2" class="first">구분</th>
+								<th rowspan="2">
+									<a href="#" class="underline">신규주문</a><!-- 2022-01-19 EZP-4759 -->
+									<div class="tip-wrap">
+										<a href="javascript:;" class="btn-tip"></a>
+										<div class="tip" style="width:280px;">
+											<span style="font-weight: bold;">신규주문금액?</span> <br><!--EZP-3157--><span>"신규"와 "유료샘플, 샘플결제" 유형 품목의 (판매가 x 발주수량) 총합</span> <!--//EZP-3157-->
+										</div>
+									</div>
+								</th>
+								<th class="total minus-case" colspan="5"><!-- 2021-09-29 EZP-4163 --><!-- class "minus-case" --><!--EZP-3157-->
+									총 결제 금액
+									<em class="Enfont green">-1,078,000</em>
+									<i>원</i>
+									<span class="f13">(공급가 기준 <em class="Enfont green">980,000</em><i>원</i>)</span>
+									<div class="minus-info"><!-- 2021-09-29 EZP-4163 -->
+										= 합계 <em>-33,330</em>원 + 매입금적립금액 반영 <em>33,300</em>원<span>(상품금액 <em>30,000</em>원 + 부가세 <em>30,000</em>원)</span>
+										<div class="tip-wrap">
+											<a href="javascript:;" class="btn-tip"></a>
+											<div class="tip-right" style="text-align:left;">
+												<span class="title">매입금 적립금액 반영?</span>
+												<span class="txt">거래처별 결제하실 금액이 0원 이하인 경우에<br>결제 금액을 매입금으로 적립해드립니다.</span>
+												<span>(매입금 적립 시에는 공급가액 기준으로 적립되지만,<br>실제 매입금 사용 시에 부가세가 자동으로 사용됩니다.<br>따라서 매입금 적립금액 반영 시에도 부가세 포함 금액으로 적용됩니다.)</span>
+											</div>
+										</div>
+									</div>
+								</th>
+							</tr>
+							<tr class="sub-th">
+								<th>
+									<a href="#" class="underline">신규입고</a><!-- 2022-01-19 EZP-4759 -->
+									<div class="tip-wrap">
+										<a href="javascript:;" class="btn-tip"></a>
+										<div class="tip" style="width:280px;">
+											<!-- 2020-07-28 EZP-779 -->
+											<span style="font-weight: bold;">신규입고금액?</span> <br><span>“신규 또는 제작신규, 제작미송” 유형 품목의<br>(판매가 x 입고수량) 총합</span>
+										</div>
+									</div>
+								</th>
+
+								<th class="icon-plus">
+									<!-- 2020-07-06 EZP-759 시작 -->
+									<a href="#" class="underline">신규미송</a>
+									<div class="tip-wrap">
+										<a href="javascript:;" class="btn-tip"></a>
+										<div class="tip" style="width:370px;">
+											<span style="font-weight: bold;">신규미송금액?</span><br> <span>
+												“신규” 유형 품목 중 품절처리방식이 “미송 또는 옵션변경”인</span><br>
+											<span>품목의 (판매가 x 발주수량) 총합</span>
+										</div>
+									</div>
+								</th>
+<!--EZP-3157-->
+								<th class="icon-plus">
+									<!-- 2020-07-06 EZP-759 시작 -->
+									<a href="#" class="underline">샘플입고</a>
+									<div class="tip-wrap">
+										<a href="javascript:;" class="btn-tip"></a>
+										<div class="tip" style="width:370px;">
+											<span style="font-weight: bold;">샘플입고금액?</span><br> <span>
+												“유료샘플, 샘플결제” 유형 품목의 (판매가 </span><br>
+											<span>품목의 (판매가 x 입고수량) 총합</span>
+										</div>
+									</div>
+								</th>
+<!--//EZP-3157-->
+								<th class="icon-minus">
+									<!-- 2020-06-25 EZP-800 -->
+									<a href="#" class="underline">반품</a>
+									<div class="tip-wrap">
+										<a href="javascript:;" class="btn-tip"></a>
+										<!--EZP-3157-->
+										<div class="tip">
+											<span style="font-weight: bold;">반품?</span><br>
+											<span>"불량" 유형 품목 중 품절처리방식이 "환불"인</span><br>
+											<span>품목의 (판매가 X 잔여수량) 총합</span><br>
+											<span>+</span><br>
+											<span>"미송" 유형 품목 중 품절처리방식이 "환불"인</span><br>
+											<span>품목의 (판매가 X 잔여수량) 총합</span><br>
+											<span>+</span><br>
+											<span>"유료샘플"유형 품목의 (판매가 X 잔여수량) 총합</span><br><!--//EZP-3157-->
+										</div>
+									</div>
+								</th>
+								<th class="icon-minus">
+									매입환불
+									<div class="tip-wrap">
+										<a href="javascript:;" class="btn-tip"></a>
+										<div class="tip-right" style="text-align:left;">
+											<span style="font-weight: bold;">매입환불?</span><br>
+											<span>매입내역에 누적된 매입잔액 중</span><br>
+											<span>도매처별로 환불처리가 가능한 금액 합계</span>
+										</div>
+									</div>
+								</th>
+							</tr>
+						</thead>
+						<thead>
+							<tr class="sub-th">
+								<th rowspan="2" class="first">구분</th>
+								<th rowspan="2">
+									<a href="#" class="underline">신규주문</a><!-- 2022-01-19 EZP-4759 -->
+									<div class="tip-wrap">
+										<a href="javascript:;" class="btn-tip"></a>
+										<div class="tip" style="width:280px;">
+											<span style="font-weight: bold;">신규주문금액?</span> <br><!--EZP-3157--><span>"신규"와 "유료샘플, 샘플결제" 유형 품목의 (판매가 x 발주수량) 총합</span> <!--//EZP-3157-->
+										</div>
+									</div>
+								</th>
+								<th class="total" colspan="5"><!--EZP-3157-->
+									총 결제 금액
+									<em class="Enfont green">1,078,000</em>
+									<i>원</i>
+									<!-- 2020-09-14 EZP-1264 시작 -->
+									<span class="f13">(공급가 기준 <em class="Enfont green">980,000</em><i>원</i>)</span>
+									<!-- 2020-09-14 EZP-1264 종료 -->
+								</th>
+							</tr>
+							<tr class="sub-th" style="height:55px">
+								<th>
+									<a href="#" class="underline">신규입고</a><!-- 2022-01-19 EZP-4759 -->
+									<div class="tip-wrap">
+										<a href="javascript:;" class="btn-tip"></a>
+										<div class="tip" style="width:280px;">
+											<!-- 2020-07-28 EZP-779 -->
+											<span style="font-weight: bold;">신규입고금액?</span> <br><span>“신규 또는 제작신규, 제작미송” 유형 품목의<br>(판매가 x 입고수량) 총합</span>
+										</div>
+									</div>
+								</th>
+								<th class="icon-plus">
+									<!-- 2020-07-06 EZP-759 시작 -->
+									<a href="#" class="underline">신규미송</a>
+									<div class="tip-wrap">
+										<a href="javascript:;" class="btn-tip"></a>
+										<div class="tip" style="width:370px;">
+											<span style="font-weight: bold;">신규미송금액?</span><br> <span>
+												“신규” 유형 품목 중 품절처리방식이 “미송 또는 옵션변경”인</span><br>
+											<span>품목의 (판매가 x 발주수량) 총합</span>
+										</div>
+									</div>
+								</th>
+								<!--EZP-3157-->
+								<th class="icon-plus">
+									<!-- 2020-07-06 EZP-759 시작 -->
+									<a href="#" class="underline">샘플입고</a>
+									<div class="tip-wrap">
+										<a href="javascript:;" class="btn-tip"></a>
+										<div class="tip" style="width:370px;">
+											<span style="font-weight: bold;">샘플입고금액?</span><br> <span>
+												“유료샘플, 샘플결제” 유형 품목의 (판매가 </span><br>
+											<span>품목의 (판매가 x 입고수량) 총합</span>
+										</div>
+									</div>
+								</th>
+<!--//EZP-3157-->
+								<th class="icon-minus">
+									<!-- 2020-06-25 EZP-800 -->
+									<a href="#" class="underline">반품</a>
+									<div class="tip-wrap">
+										<a href="javascript:;" class="btn-tip"></a>
+									<!--EZP-3157-->
+										<div class="tip">
+											<span style="font-weight: bold;">반품?</span><br>
+											<span>"불량" 유형 품목 중 품절처리방식이 "환불"인</span><br>
+											<span>품목의 (판매가 X 잔여수량) 총합</span><br>
+											<span>+</span><br>
+											<span>"미송" 유형 품목 중 품절처리방식이 "환불"인</span><br>
+											<span>품목의 (판매가 X 잔여수량) 총합</span><br>
+											<span>+</span><br>
+											<span>"유료샘플"유형 품목의 (판매가 X 잔여수량) 총합</span><br><!--//EZP-3157-->
+										</div>
+									</div>
+								</th>
+								<th class="icon-minus">
+									매입환불
+									<div class="tip-wrap">
+										<a href="javascript:;" class="btn-tip"></a>
+										<div class="tip-right" style="text-align:left;">
+											<span style="font-weight: bold;">매입환불?</span><br>
+											<span>매입내역에 누적된 매입잔액 중</span><br>
+											<span>도매처별로 환불처리가 가능한 금액 합계</span>
+										</div>
+									</div>
+								</th>
+							</tr>
+						</thead>
+						<!-- 2020-06-05 "sub-tit-sort" 추가 EZP-763  -->
+						<tbody class="sub-tit-sort">
+							<tr class="sub-tit eSumTr">
+								<td class="tac">상품금액</td>
+								<td class="tar">
+									<em class="price small">21,000</em>
+									<i>원</i>
+								</td>
+								<td class="tar">
+									<em class="price small">14,000</em>
+									<i>원</i>
+								</td>
+								<td class="tar">
+									<em class="price small">0</em>
+									<i>원</i>
+								</td>
+								<td class="tar">
+									<em class="price small">0</em>
+									<i>원</i>
+								</td>
+								<td class="tar">
+									<em class="price small">0</em>
+									<i>원</i>
+								</td><!--EZP-3157-->
+								<td class="tar">
+									<em class="price small">0</em>
+									<i>원</i>
+								</td><!--//EZP-3157-->
+
+							</tr>
+							<tr class="sub-tit eSumTr">
+								<td class="tac">부가세</td>
+								<td class="tar">
+									<em class="price small">2,100</em>
+									<i>원</i>
+								</td>
+								<td class="tar">
+									<em class="price small">1,400</em>
+									<i>원</i>
+								</td>
+								<td class="tar">
+									<em class="price small">0</em>
+									<i>원</i>
+								</td>
+								<td class="tar">
+									<em class="price small">0</em>
+									<i>원</i>
+								</td>
+								<td class="tar">
+									<em class="price small">0</em>
+									<i>원</i>
+								</td>
+								<td class="tar"><!--EZP-3157-->
+									<em class="price small">0</em>
+									<i>원</i>
+								</td><!--//EZP-3157-->
+							</tr>
+							<tr class="sub-tit eSumTr">
+								<td class="tac">
+									서비스 이용료
+								</td>
+								<td class="tar">
+									<em class="price small">0</em>
+									<i>원</i>
+								</td>
+								<td class="tar">
+									<em class="price small">0</em>
+									<i>원</i>
+								</td>
+								<td class="tar">
+									<em class="price small">0</em>
+									<i>원</i>
+								</td>
+								<td class="tar">
+									<em class="price small">0</em>
+									<i>원</i>
+								</td>
+								<td class="tar">
+									<em class="price small">0</em>
+									<i>원</i>
+								</td>
+								<td class="tar"><!--EZP-3157-->
+									<em class="price small">0</em>
+									<i>원</i>
+								</td><!--//EZP-3157-->
+							</tr>
+							<tr class="sub-tit eSumTr">
+								<td class="tac">배송료</td>
+								<td class="tar">
+									<em class="price small">0</em>
+									<i>원</i>
+								</td>
+								<td class="tar">
+									<em class="price small">0</em>
+									<i>원</i>
+								</td>
+								<td class="dataNone">-</td>
+								<td class="dataNone">-</td>
+								<td class="tar">
+									<em class="price small">0</em>
+									<i>원</i>
+								</td>
+								<td class="tar"><!--EZP-3157-->
+									<em class="price small">0</em>
+									<i>원</i>
+								</td><!--//EZP-3157-->
+							</tr>
+							<tr class="all-price eSumTr">
+								<td class="tac">합계</td>
+								<td class="tar">
+									<em class="price">23,100</em>
+									<i>원</i>
+								</td>
+								<td class="tar">
+									<em class="price">15,400</em>
+									<i>원</i>
+								</td>
+								<td class="tar">
+									<em class="price">0</em>
+									<i>원</i>
+								</td>
+								<td class="tar">
+									<em class="price">0</em>
+									<i>원</i>
+								</td>
+								<td class="tar">
+									<em class="price">0</em>
+									<i>원</i>
+								</td>
+								<!--EZP-3157-->
+								<td class="tar">
+									<em class="price">0</em>
+									<i>원</i>
+								</td>
+								<!--//EZP-3157-->
+							</tr>
+						</tbody>
+					</table>
+					<!-- 2020-06-04 EZP-763 종료 -->
+					<p class="notice"><!--EZP-3157-->
+						* 샘플 관련 주문과 '유료샘플','샘플결제' 중인 금액은 집계되지 않습니다<br>
+						* '재확인 요청'중인 건은요 청전 수량 및 금액으로 집계되며, ‘재확인 승인 완료’ 시변경된 정보가 적용됩니다.<br>
+						* ‘매입환불 금액’은 가장 오래된 입고일인 경우에 설정 가능합니다.
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- 2020-05-08 -->
+	<!-- 품절처리방식 변경 alert -->
+	<!-- <div id="layer_multi_refund_request" class="ui-popup">
+		<div class="content" style="min-width:412px; max-width: 700px;" tabindex="-1">
+			<div class="body">
+				<div class="txt-cont">
+					<div class="txt-cont result order">
+						<h3 id="commLayerTitle">품절처리방식 변경</h3>
+						<div class="confirm">
+							<p id="commLayerContents">
+								추가입고 항목은<br>품절처리방식 변경이 불가합니다.
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="btn_wrap mt40 tac">
+					<span class="commLayerConfirm"><button type="button" class="btn point medium btn_close" style="width:150px;">확인</button></span>
+				</div>
+			</div>
+			<button type="button" class="btn_close">
+				<div class="commLayerConfirm"><span>닫기</span></div>
+			</button>
+		</div>
+	</div> -->
+	<!-- 상품 재주문 alert -->
+	<!-- <div id="layer_multi_refund_request" class="ui-popup">
+		<div class="content" style="min-width:412px; max-width: 700px;" tabindex="-1">
+			<div class="body">
+				<div class="txt-cont">
+					<div class="txt-cont result order">
+						<h3 id="commLayerTitle">상품 재주문</h3>
+						<div class="confirm">
+							<p id="commLayerContents">상품을 선택해주세요</p>
+						</div>
+					</div>
+				</div>
+				<div class="btn_wrap mt40 tac">
+					<span class="commLayerConfirm"><button type="button" class="btn point medium btn_close" style="width:150px;">확인</button></span>
+				</div>
+			</div>
+			<button type="button" class="btn_close">
+				<div class="commLayerConfirm"><span>닫기</span></div>
+			</button>
+		</div>
+	</div> -->
+	<!-- 품절처리변경 레이어 -->
+	<div id="layer_multi_refund_request" class="ui-popup">
+		<div class="content" style="width:520px;" tabindex="-1">
+			<div class="header">
+				<h3>품절처리방식 변경 일괄 요청</h3>
+			</div>
+			<div class="body reconfirm pb0">
+				<div class="layer-multi-refund-request mt20">
+					<div class="method-type">
+						<span>선택된 품목들의 품절처리 방식을</span>
+						<div class="radio-box-wrap">
+							<span class="radio">
+								<input type="radio" name="request-radio" id="request-radio1" checked="checked">
+								<label for="request-radio1">미송</label>
+							</span>
+							<span class="radio">
+								<input type="radio" name="request-radio" id="request-radio2">
+								<label for="request-radio2">환불</label>
+							</span>
+							<span class="radio">
+								<input type="radio" name="request-radio" id="request-radio3" disabled>
+								<label for="request-radio3">매입</label>
+							</span>
+						</div>
+						<span>
+							로 변경 요청하시겠습니까?
+						</span>
+						<p>
+							<!-- 미송 -->
+							<em class="txt-red">미송</em>으로 변경이 완료되면 미입고 수량이<br>
+							다음 발주 시에 자동 발주 됩니다.<br>
+							처리내역은 "미송내역" 메뉴에서 확인 하실 수 있습니다.
+							<!-- 환불  -->
+							<!-- <em class="txt-red">환불</em>로 변경이 완료되면,
+							미입고 수량이 검수완료와 동시에  자동 환불 됩니다.
+							환불처리내역은 "환불내역" 메뉴에서 확인 하실 수 있습니다. -->
+							<!-- 매입 -->
+							<!-- <em class="txt-red">매입</em>으로 변경이 완료되면,
+							미입고 수량 금액만큼 매입처리가 됩니다.
+							매입처리내역은 검수완료 후 "매입내역" 메뉴에서 확인 하실 수 있습니다. -->
+						</p>
+					</div>
+					<div class="reason-cont">
+						<strong>변경 요청 사유</strong>
+						<textarea></textarea>
+						<p class="area-notice">※ 잔여수량을 분할 설정한 품목은,<br>
+							위에 선택한 품절처리방식으로 총 잔여수량이 일괄 변경됩니다.</p>
+					</div>
+					<p>[확인] 버튼을 클릭 하시면 관리자 확인 후 최종 완료됩니다.</p>
+				</div>
+			</div><!-- //body -->
+			<div class="btn_wrap mt40 mb40 tac">
+				<button type="button" class="btn medium btn_close" style="width:150px;">취소</button>
+				<button type="button" class="btn point medium btn_close" style="width:150px;">확인</button>
+			</div>
+			<button type="button" class="btn_close reconfirm eClose"><span>닫기</span></button>
+		</div>
+	</div>
+
+
+	<!-- 처리현황 레이어 -->
+	<!-- 2021-12-15 EZP-4440  -->
+	<div id="layer_in_detail" class="ui-popup yscroll-pop">
+		<div class="content" style="width:1300px;" tabindex="-1">
+			<div class="header">
+				<h3>처리 현황</h3>
+			</div>
+			<div class="body reconfirm mt55">
+				<div class="txt-cont enter">
+					<div class="table-wrap order-list mb0">
+						<table class="th-hor">
+							<colgroup>
+								<col style="width:100px">
+								<col style="width:100px">
+								<col style="width:105px">
+								<col style="width:60px">
+								<col style="width:60px">
+								<col style="width:60px">
+								<col style="width:60px">
+								<col style="width:60px">
+								<col style="width:60px">
+								<col style="width:60px">
+								<col style="width:60px">
+								<col style="width:80px">
+								<col>
+								<col>
+							</colgroup>
+							<thead>
+							<tr>
+								<th rowspan="2">처리일</th>
+								<th rowspan="2">발주일</th>
+								<th rowspan="2">구분</th>
+								<th colspan="8" class="small-th">수량</th>
+								<th rowspan="2">판매가</th>
+								<th rowspan="2">구매자 메모</th>
+								<th rowspan="2">입고 메모</th>
+							</tr>
+							<tr>
+								<th class="small-th">발주</th>
+								<th class="small-th">입고</th>
+								<th class="small-th">환불</th>
+								<th class="small-th">매입</th>
+								<th class="small-th">폐기</th>
+								<th class="small-th">옵션변경</th>
+								<th class="small-th">누적</th>
+								<th class="small-th">잔여</th>
+							</tr>
+							</thead>
+							<tbody id="tbodyReserveHistory">
+							<tr style="background-color: #edfff2">
+								<td><span class="Enfont">2019-04-07<br>19:20:11</span></td>
+								<td><span class="Enfont">2019-04-07</span></td>
+								<td><em>처리완료</em></td>
+								<td><span class="Enfont">15</span></td>
+								<td><a href="#none" class="underline"><span class="Enfont">252</span></a></td>
+								<td><span class="Enfont">0</span></td>
+								<td><span class="Enfont">0</span></td>
+								<td><span class="Enfont">0</span></td>
+								<td><span class="Enfont">-</span></td>
+								<td style="background:#e1f6e7;"><span class="Enfont">50</span>/<span class="Enfont">50</span></td>
+								<td><span class="Enfont">15</span></td>
+								<td><span class="Enfont">2,425,000</span></td>
+								<td><em>12/5 입고되는 것인지 확인 후 배송 요청</em></td>
+								<td><em>(2022-10-13)</em></td>
+							</tr>
+							<tr>
+								<td><span class="Enfont">2019-04-07<br>19:20:11</span></td>
+								<td><span class="Enfont">2019-04-07</span></td>
+								<td><em>입고<br>(04/06)</em></td>
+								<td><span class="Enfont">15</span></td>
+								<td><span class="Enfont">0</span></td>
+								<td><span class="Enfont">0</span></td>
+								<td><span class="Enfont">0</span></td>
+								<td><span class="Enfont">0</span></td>
+								<td><span class="Enfont">-</span></td>
+								<td style="background:#e1f6e7;"><span class="Enfont">0</span>/<span class="Enfont">15</span></td>
+								<td><span class="Enfont">15</span></td>
+								<td><span class="Enfont">5,000</span></td>
+								<td><em>-</em></td>
+								<td><em>취소 (환불 → 미송) 환불에 하이픈</em></td>
+							</tr>
+							<tr>
+								<td><span class="Enfont">2019-04-07<br>19:20:11</span></td>
+								<td><span class="Enfont">2019-04-07</span></td>
+								<td><em>옵션변경<br>요청</em></td>
+								<td><span class="Enfont">15</span></td>
+								<td><span class="Enfont">0</span></td>
+								<td><span class="Enfont">0</span></td>
+								<td><span class="Enfont">0</span></td>
+								<td><span class="Enfont">0</span></td>
+								<td><span class="Enfont">-</span></td>
+								<td style="background:#e1f6e7;"><span class="Enfont">0</span>/<span class="Enfont">15</span></td>
+								<td><span class="Enfont">15</span></td>
+								<td><span class="Enfont">5,000</span></td>
+								<td><em>요청 (미송 → 환불)</em></td>
+								<td><em>-</em></td>
+							</tr>
+							<tr>
+								<td><span class="Enfont">2019-04-07<br>19:20:11</span></td>
+								<td><span class="Enfont">2019-04-07</span></td>
+								<td><em>관리자폐기</em></td>
+								<td><span class="Enfont">15</span></td>
+								<td><span class="Enfont">0</span></td>
+								<td><span class="Enfont">0</span></td>
+								<td><span class="Enfont">0</span></td>
+								<td><span class="Enfont">0</span></td>
+								<td><span class="Enfont">-</span></td>
+								<td style="background:#e1f6e7;"><span class="Enfont">0</span>/<span class="Enfont">15</span></td>
+								<td><span class="Enfont">15</span></td>
+								<td><span class="Enfont">5,000</span></td>
+								<td><em>샘플은 무조건 환불</em></td>
+								<td><em>미송수량 다음주 입고 예정입니다.</em></td>
+							</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div><!-- //body -->
+			<!-- 2020-05-08 종료 -->
+			<div class="btn_wrap mt40 mb40 tac">
+				<button type="button" class="btn point medium btn_close" style="width:150px;">확인</button>
+			</div>
+			<button type="button" class="btn_close reconfirm eClose"><span>닫기</span></button>
+		</div>
+	</div>
+
+	<!-- 2020-07-06 EZP-759 시작 -->
+	<div id="layer_change_options" class="ui-popup change-option-wrap">
+		<div class="content" style="width:910px;" tabindex="-1">
+			<div class="header">
+				<h3>미송수량 옵션 변경</h3>
+			</div>
+			<div class="body reconfirm mt20">
+				<div class="inspect_request_wrap">
+					<p class="txt">
+						품절처리방식이 '미송'인 경우 <span class="fc-red">미송수량</span>의 옵션을 변경할 수 있습니다.<br>
+						'미송수량'을 확인하고, 변경할 옵션을 입력하세요. 관리자 승인 후, <span class="fc-red">변경된 옵션으로 새 주문이 생성</span>됩니다.<br>
+						<span>※ 기존 품목의 품절처리방식은 [옵션변경]으로 변경되며, 판매가 외 모든 재확인 요청이 불가하니 유의하세요.</span>
+					</p>
+					<h4 class="sub-title mt40">미송수량 옵션 변경</h4>
+					<ul class="list-top-sub proc-list">
+						<li>
+							<em>청평화</em>
+							<strong class="txt_line">린넨 원피스 제품명 길어지면 말줄임표기린넨 원피스 제품명 길어지면 말줄임표기</strong>
+						</li>
+						<li>
+							<p>
+								<span>입고수량</span>
+								<strong class="blk"><em>9,999</em>개</strong>
+							</p>
+						</li>
+						<li>
+							<p>
+								<span>발주수량</span>
+								<strong class="blk"><em>9,999</em>개</strong>
+							</p>
+						</li>
+						<li>
+							<p>
+								<span>미송수량</span>
+								<strong class="blk fc-red"><em>9,999</em>개</strong>
+							</p>
+						</li>
+					</ul>
+
+					<div class="inspect_request_table">
+						<h4 class="sub-title">
+							미송수량 옵션 변경
+							<span>※ 색상이나 사이즈 중 한가지 옵션은 반드시 입력해주세요.</span>
+						</h4>
+						<table class="change-option-table">
+							<colgroup>
+								<col width="33.3%">
+								<col width="33.3%">
+								<col width="*">
+							</colgroup>
+							<thead>
+								<tr>
+									<th></th>
+									<th>색상</th>
+									<th>사이즈</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>현재 옵션</td>
+									<td>아이보리</td>
+									<td>-</td>
+								</tr>
+								<tr>
+									<td>변경 옵션</td>
+									<td><input type="text"></td>
+									<td><input type="text"></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="bot-notice">
+						<p class="">
+							옵션 변경 후, [입고수량, 품절처리방식, 옵션] 변경이 불가하오니, 참고하시기 바랍니다.
+						</p>
+						<strong>옵션 변경 요청하시겠습니까?</strong>
+					</div>
+				</div>
+				<div class="btn_wrap mt40 tac">
+					<button type="button" class="btn medium btn_close" style="width:150px;">취소</button>
+					<button type="button" class="btn point medium eInspectRegistered" style="width:150px;">변경 요청</button>
+				</div>
+			</div><!-- //body -->
+			<button type="button" class="btn_close reconfirm"><span>닫기</span></button>
+		</div>
+	</div>
+	<!-- 2020-07-06 EZP-759 종료 -->
+
+	<!-- 재확인 요청 레이어 -->
+	<!-- 2020-05-08 -->
+	<div id="layer_inspect_request" class="ui-popup">
+		<div class="content" style="width:1012px;" tabindex="-1">
+			<div class="header">
+				<h3>재확인 요청</h3>
+			</div>
+			<div class="body reconfirm mt20">
+				<div class="inspect_request_wrap">
+					<!--21-03-02 수정 / br 추가-->
+					<p>입고상품의 수량과 판매가격이 최초 입력한 수량, 금액과 다르거나 다른 사유로 해당 상품의 재확인를 요청하시는 경우, <br>아래에 요청사유를 작성해 주세요.</p>
+					<!-- 2020-06-03 EZP-742 -->
+					<div class="inspect_request_table">
+						<strong>상품 정보</strong>
+						<table>
+							<colgroup>
+								<col width="16.5%">
+								<col width="16.5%">
+								<col width="16.5%">
+								<col width="16.5%">
+								<col width="16.5%">
+								<col width="*">
+							</colgroup>
+							<thead>
+								<tr>
+									<th>주문구분 및 유형</th>
+									<th>입고일</th>
+									<th>거래처명</th>
+									<th>상품명</th>
+									<th>옵션</th>
+									<th>발주 수량</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<!-- btn-blue, btn-green, btn-black, btn-purple, btn-yellow btn-pink-->
+									<td>바로주문<em class="btn-type btn-blue reconfirm">신규</em></td>
+									<td class="number">2020-11-23</td>
+									<td>청평화</td>
+									<td>기본 T 롱 원피스</td>
+									<td>아이보리 / S</td>
+									<td class="number">50</td>
+								</tr>
+								<tr>
+									<!-- btn-blue, btn-green, btn-black, btn-purple, btn-yellow btn-pink-->
+									<td>바로주문<em class="btn-type btn-blue">신규</em></td>
+									<td class="number">2020-11-23</td>
+									<td>청평화</td>
+									<td>기본 T 롱 원피스</td>
+									<td>아이보리 / S</td>
+									<td class="number">50</td>
+								</tr>
+								<!-- 2020-08-10 EZP-779 -->
+								<tr>
+									<!-- btn-blue, btn-green, btn-black, btn-purple, btn-yellow btn-pink-->
+									<td>바로주문<em class="btn-type btn-pink reconfirm">제작신규</em></td>
+									<td class="number">2020-11-23</td>
+									<td>청평화</td>
+									<td>기본 T 롱 원피스</td>
+									<td>아이보리 / S</td>
+									<td class="number">50</td>
+								</tr>
+								<tr>
+									<!-- btn-blue, btn-green, btn-black, btn-purple, btn-yellow btn-pink-->
+									<td>바로주문<em class="btn-type btn-green reconfirm">제작미송</em></td>
+									<td class="number">2020-11-23</td>
+									<td>청평화</td>
+									<td>기본 T 롱 원피스</td>
+									<td>아이보리 / S</td>
+									<td class="number">50</td>
+								</tr>
+								<!-- EZP-3157-->
+								<tr>
+									<!-- btn-blue, btn-green, btn-black, btn-purple, btn-yellow btn-pink-->
+									<td>바로주문<em class="btn-type purple  reconfirm">유료샘플 </em></td>
+									<td class="number">2020-11-23</td>
+									<td>청평화</td>
+									<td>기본 T 롱 원피스</td>
+									<td>아이보리 / S</td>
+									<td class="number">50</td>
+								</tr>
+								<tr>
+									<!-- btn-blue, btn-green, btn-black, btn-purple, btn-yellow btn-pink-->
+									<td>바로주문<em class="btn-type margenta reconfirm">샘플결제</em></td>
+									<td class="number">2020-11-23</td>
+									<td>청평화</td>
+									<td>기본 T 롱 원피스</td>
+									<td>아이보리 / S</td>
+									<td class="number">50</td>
+								</tr>
+								<!-- EZP-3157-->
+							</tbody>
+						</table>
+					</div>
+
+					<div class="inspect_request_table type">
+						<strong>재확인 요청</strong>
+						<div class="right">
+							<div class="tip-wrap">
+								<span class="btn-tip">재확인 요청 안내</span>
+								<div class="tip-right" style="width:600px;">
+									<span class="title">재확인 요청 안내</span>
+									<span class="txt sort">
+										- 재확인 요청 시 관리자 확인 후에 '재확인 완료' 처리되며, 재확인 요청 건이 있는 입고일은 검수완료가<br> 불가합니다.
+									</span>
+									<span class="txt sort">- 가장 마지막 발주 건인 경우 [입고수량]이 변경 가능합니다.</span>
+									<span class="txt sort">- 가장 첫 발주 건의 경우 [판매가]이 변경 가능합니다. (기존 변경 이력이 있거나, '일반주문'인 경우 불가)</span>
+									<span class="txt sort">- 가장 마지막 발주 건인 경우, 잔여수량이 1개 이상인 경우에 [품절처리방식]이 변경 가능합니다.</span>
+									<span class="txt sort">- [입고수량] 변경 내용을 입력하시면, '잔여 수량'이 업데이트됩니다.</span>
+									<span class="txt sort">- <em>기존에 [품절처리방식]을 '부분처리'한 경우</em>, [입고수량] 변경 시 <em>'부분처리 수량'을 재설정</em> 해주셔야
+										합니다.<br>
+										그러나 [입고수량]을 '잔여수량이 0개' 혹은 '초과입고' 되도록 변경 시, <em>'부분처리 수량'이 모두 '0개'로
+											자동 설정</em>됩니다.</span>
+									<!-- 2021-09-17 EZP-3545 -->
+									<span class="txt sort">- [품절처리방식] '부분처리' 설정 시 '총 잔여수량'과 '부분처리 수량 합계'를 동일하게 설정하셔야
+										재확인 <br>요청이 진행됩니다.</span>
+								</div>
+							</div>
+						</div>
+
+						<!-- 재확인요청 팝업_판매가만 남은경우 -->
+						<!-- <table>
+							<colgroup>
+								<col width="190">
+								<col width="380">
+								<col width="*">
+							</colgroup>
+							<thead>
+								<tr>
+									<th>요청 항목</th>
+									<th>기존</th>
+									<th>변경</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>판매가</td>
+									<td>12,000원</td>
+									<td>
+										<input type="text">원
+									</td>
+								</tr>
+								<tr>
+									<td>사유입력</td>
+									<td colspan="2">
+										<textarea></textarea>
+									</td>
+								</tr>
+							</tbody>
+						</table> -->
+
+
+						<!-- 재확인요청 팝업_부분처리 설정시/폐기수량있는경우 -->
+						<table>
+							<!-- 2021-09-17 EZP-3545 -->
+							<colgroup>
+								<col width="190">
+								<col width="300">
+								<col width="*">
+							</colgroup>
+							<thead>
+								<tr>
+									<th>요청 항목</th>
+									<th>기존</th>
+									<th>변경</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>입고수량</td>
+									<td>10개</td>
+									<td>
+										<input type="text">개
+									</td>
+								</tr>
+								<tr>
+									<td>판매가</td>
+									<td>12,000원</td>
+									<td>
+										<input type="text">원
+									</td>
+								</tr>
+								<tr>
+									<td class="valign-top">
+										품절처리방식
+										<div class="tip-wrap">
+											<span class="btn-tip"></span>
+											<div class="tip" style="width:500px;">
+												<span class="title">[품절처리방식 안내]</span>
+												<span class="txt sort42">
+													[미송] : 다음 발주 시에 자동 발주 됩니다. ( '미송내역' 메뉴에서 확인)
+												</span>
+												<span class="txt sort42">
+													[환불] : 검수완료와 동시에 자동 환불처리 됩니다. ('환불내역' 메뉴 확인)
+												</span>
+												<span class="txt sort42">
+													[매입] : 검수완료와 동시에 자동 매입처리 됩니다.<br>
+													(주문유형이 '불랑', '미송'인 경우 설정 가능, '매입내역' 메뉴에서 확인)
+												</span>
+												<span class="txt sort42">
+													[폐기] : 특정 사유로 폐기가 필요한 경우 신청된 수량만큼 즉시 폐기 처리됩니다.<br>
+													(검수완료 시 폐기처리)
+												</span>
+												<span class="txt sort42">
+													[부분처리] : 잔여수량을 부분 처리하고 싶은 경우, 총 잔여수량 내에서 설정 가능합니다.
+												</span>
+											</div>
+										</div>
+									</td>
+									<td colspan="2">
+										<!-- 2021-09-17 EZP-3545 -->
+										<div class="input-soldout">
+											<div class="status">
+												부분처리 미송(3), 환불(2), 매입(5), 폐기(1)
+												<p class="a"></p>
+												<p class="b"></p>
+											</div>
+											<div class="input-wrap">
+												<div class="radio-box-wrap">
+													<span class="radio">
+														<input type="radio" name="radio" id="radio1" value="미송">
+														<label for="radio1">미송</label>
+													</span>
+													<span class="radio">
+														<input type="radio" name="radio" id="radio2" value="환불">
+														<label for="radio2">환불</label>
+													</span>
+													<span class="radio">
+														<input type="radio" name="radio" id="radio3" value="매입" disabled>
+														<label for="radio3">매입</label>
+													</span>
+													<span class="radio">
+														<input type="radio" name="radio" id="radio5" value="폐기">
+														<label for="radio5">폐기</label>
+													</span>
+													<span class="radio">
+														<input type="radio" name="radio" id="radio4" value="부분처리">
+														<label for="radio4">부분처리</label>
+													</span>
+												</div>
+											</div>
+										</div>
+
+										<div class="residue-wrap">
+											<span>부분처리 잔여수량 설정</span>
+											<span class="residue-cnt">총 잔여수량 <em>40</em>개</span>
+											<table>
+												<tr class="first">
+													<td style="color:#36c25d">미송</td>
+													<td style="color:#ff4800">환불</td>
+													<td style="color:#f08cbe">미송</td>
+													<td style="color:#999999">폐기</td>
+												</tr>
+												<tr>
+													<td>
+														<em class="Enfont">10</em>개
+													</td>
+													<td>
+														<!-- 2020-06-03 EZP-742 -->
+														<input type="text" value="">개
+													</td>
+													<td>
+														<input type="text" value="1" class="error">개
+													</td>
+													<td class="empty">
+														-
+													</td>
+												</tr>
+											</table>
+											<p>※잔여수량을 부분 처리할 수 있습니다. 총 잔여수량 내에서 입력해주세요.</p>
+										</div>
+									</td>
+								</tr>
+
+								<tr>
+									<td>사유입력</td>
+									<td colspan="2">
+										<textarea></textarea>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<div class="btn_wrap mt40 tac">
+					<button type="button" class="btn medium btn_close" style="width:150px;">취소</button>
+					<button type="button" class="btn point medium eInspectRegistered" style="width:150px;" href="/buyer/order/action/inspected">재확인 요청</button>
+				</div>
+			</div><!-- //body -->
+			<button type="button" class="btn_close reconfirm"><span>닫기</span></button>
+		</div>
+	</div>
+	<!-- 2020-05-08 재확인요청 종료 -->
+
+<!-- 20220317 EZP-1526 -->
+	<!-- 샘플유형 재확인요청 팝업 레이어 -->
+	<div id="layer_inspect_request_sample" class="ui-popup">
+		<div class="content" style="width:1012px;" tabindex="-1">
+			<div class="header">
+				<h3>재확인 요청</h3>
+			</div>
+			<div class="body reconfirm mt20">
+				<div class="inspect_request_wrap">
+
+					<p>입고상품의 수량과 판매가격이 최초 입력한 수량, 금액과 다르거나 다른 사유로 해당 상품의 재확인를 요청하시는 경우, 아래에 요청사유를 작성해 주세요.</p>
+
+					<div class="inspect_request_table">
+						<strong>상품 정보</strong>
+						<table>
+							<colgroup>
+								<col width="16.5%">
+								<col width="16.5%">
+								<col width="16.5%">
+								<col width="16.5%">
+								<col width="16.5%">
+								<col width="*">
+							</colgroup>
+							<thead>
+								<tr>
+									<th>주문구분 및 유형</th>
+									<th>입고일</th>
+									<th>거래처명</th>
+									<th>상품명</th>
+									<th>옵션</th>
+									<th>발주 수량</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<!-- btn-blue, btn-green, btn-black, btn-purple, btn-yellow btn-pink-->
+									<td>일반주문<em class="btn-type btn-purple">샘플</em></td>
+									<td class="number">2020-11-23</td>
+									<td>청평화</td>
+									<td>기본 T 롱 원피스</td>
+									<td>아이보리 / S</td>
+									<td class="number">50</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+
+					<div class="inspect_request_table type">
+						<strong>재확인 요청</strong>
+						<div class="right">
+							<!--div class="tip-wrap">
+								<span class="btn-tip">재확인 요청 안내</span>
+								<div class="tip-right" style="width:600px;">
+									<span class="title">재확인 요청 안내</span>
+									<span class="txt sort">
+										- 재확인 요청 시 관리자 확인 후에 '재확인 완료' 처리되며, 재확인 요청 건이 있는 입고일은 검수완료가<br> 불가합니다.
+									</span>
+									<span class="txt sort">- 가장 마지막 발주 건인 경우 [입고수량]이 변경 가능합니다.</span>
+									<span class="txt sort">- 가장 첫 발주 건의 경우 [판매가]이 변경 가능합니다. (기존 변경 이력이 있거나, '일반주문'인 경우 불가)</span>
+									<span class="txt sort">- 가장 마지막 발주 건인 경우, 잔여수량이 1개 이상인 경우에 [품절처리방식]이 변경 가능합니다.</span>
+									<span class="txt sort">- [입고수량] 변경 내용을 입력하시면, '잔여 수량'이 업데이트됩니다.</span>
+									<span class="txt sort">- <em>기존에 [품절처리방식]을 '부분처리'한 경우</em>, [입고수량] 변경 시 <em>'부분처리 수량'을 재설정</em> 해주셔야
+										합니다.<br>
+										그러나 [입고수량]을 '잔여수량이 0개' 혹은 '초과입고' 되도록 변경 시, <em>'부분처리 수량'이 모두 '0개'로
+											자동 설정</em>됩니다.</span-->
+									<!-- 2021-09-17 EZP-3545 -->
+									<!--span class="txt sort">- [품절처리방식] '부분처리' 설정 시 '총 잔여수량'과 '부분처리 수량 합계'를 동일하게 설정하셔야
+										재확인 <br>요청이 진행됩니다.</span>
+								</div>
+							</div-->
+						</div>
+
+						<!-- 재확인요청 팝업_부분처리 설정시/폐기수량있는경우 -->
+						<table>
+							<!-- 2021-09-17 EZP-3545 -->
+							<colgroup>
+								<col width="190">
+								<col width="300">
+								<col width="*">
+							</colgroup>
+							<thead>
+								<tr>
+									<th>요청 항목</th>
+									<th>기존</th>
+									<th>변경</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>입고수량</td>
+									<td>10개</td>
+									<td>
+										<input type="text">개
+									</td>
+								</tr>
+								<tr>
+									<td>사유입력</td>
+									<td colspan="2">
+										<textarea></textarea>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<div class="btn_wrap mt40 tac">
+					<button type="button" class="btn medium btn_close" style="width:150px;">취소</button>
+					<button type="button" class="btn point medium eInspectRegistered" style="width:150px;" href="/buyer/order/action/inspected">재확인 요청</button>
+				</div>
+			</div><!-- //body -->
+			<button type="button" class="btn_close reconfirm"><span>닫기</span></button>
+		</div>
+	</div>
+	<!-- //샘플유형 재확인요청 팝업 레이어 -->
+<!-- 20220317 EZP-1526 -->
+
+
+
+	<!-- 불량접수 레이어 -->
+	<div id="layer_bad_request" class="ui-popup">
+		<div class="content" style="width:520px;" tabindex="-1">
+			<div class="header">
+				<h3>불량상품 등록하기</h3>
+			</div>
+			<div class="body reconfirm mt20">
+				<div class="txt-cont">
+					<div class="txt-cont reorder">
+						<!--2022-08-10 EZP-6342 문구수정-->
+						<p>입고상품이 불량인 경우 불량 입고된 상품 수량과 메모를 작성해 주시면,<br>
+							확인 후 불량상품을 '교환' 해 드리도록 하겠습니다.<br>
+							상품 품절로 인해 교환이 불가할 경우 상품의 판매 가격만큼 적립금으로 환불됩니다.</p>
+						<p class="line"></p>
+						<div class="table-wrap">
+							<form id="frmLayerBad" name="frmLayerBad">
+								<input type="hidden" name="order_item_no">
+								<input type="hidden" name="ss_item_no">
+								<table class="th-ver">
+									<colgroup>
+										<col width="18%">
+										<col width="*">
+									</colgroup>
+									<tbody>
+										<tr>
+											<th>거래처명</th>
+											<td class="eSellerName"></td>
+										</tr>
+										<tr>
+											<th>상품명</th>
+											<!-- 2023-03-18 개발팀요청 eProductName -> n-ellipsis로 변경 -->
+											<td class="n-ellipsis"></td>
+										</tr>
+										<tr>
+											<th>입고수량</th>
+											<td class="eQty">
+											</td>
+										</tr>
+										<tr>
+											<th>불량수량</th>
+											<td>
+												<div style="display:inline; position:relative;" class="add-clear-span"><input type="text" name="bad_qty" class="fNum" maxlength="4" style="width: 130px; padding-right: 20px;"><a href="#clear"
+														style="display: none; color: rgb(204, 204, 204); text-decoration: none; overflow: hidden; position: absolute; right: 12px; top: 1px; line-height: 1;">✖</a></div>
+											</td>
+										</tr>
+										<tr>
+											<th>메모입력</th>
+											<td>
+												<textarea name="bad_memo" style="width:248px; height:100px;">&nbsp;</textarea>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</form>
+						</div>
+					</div>
+				</div>
+				<div class="btn_wrap mt40 tac">
+					<button type="button" class="btn medium btn_close" style="width:150px;">취소</button>
+					<button type="button" class="btn point medium eBadRegistered" style="width:150px;" href="/buyer/order/bulk/action/registeredBad">확인</button>
+				</div>
+			</div><!-- //body -->
+			<button type="button" class="btn_close reconfirm"><span>닫기</span></button>
+		</div>
+	</div>
+
+	<!-- 2020-04-13 테이블 사이즈,정렬 스크롤 수정 시작 -->
+	<!-- 입고탭 2개 이상일떄 -->
+
+	<!-- 2020-05-21 시작 -->
+	<div id="confirm-type" class="ui-popup confirm-type">
+		<div class="content" style="width:1320px;" tabindex="-1">
+			<div class="header">
+				<h3>전체 검수완료</h3>
+			</div>
+			<div class="body reconfirm mt20" style="height: auto;">
+				<div class="step active">
+					<div class="txt">
+						<strong>Step1. 매입환불금액 입력</strong>
+						<p>
+							각 거래처 별 '매입환불요청 가능금액'을 확인하고 사용할 매입금을 '매입환불 요청금액'에 입력하세요.<br />
+							검수대기 입고일 중, 가장 과거 입고일의 결제금액부터 차례대로 차감됩니다.
+						</p>
+					</div>
+					<div class="order-list-wrap">
+						<div class="list-right">
+							<div class="table-wrap order-list mb0">
+								<!-- 2021-05-24 EZP-3022 -->
+								<div class="tit wrap mt45">
+									<em class="s-title">
+										검수대기 도매처 리스트 (13개)
+									</em>
+								</div>
+								<div class="scroll-table">
+									<table class="th-hor">
+										<colgroup>
+											<col width="160px">
+											<col width="160px">
+											<col width="160px">
+											<col width="160px">
+											<col width="160px">
+											<col width="257px">
+											<col width="160px">
+										</colgroup>
+										<thead>
+											<tr class="sub-th">
+												<th colspan="3">거래처 정보</th>
+												<th rowspan="2">
+													총결제금액 합계<br>
+													(11/07~11/08)
+												</th>
+												<th colspan="2">
+													매입환불 요청
+												</th>
+												<th rowspan="2">
+													최종 결제금액
+												</th>
+											</tr>
+											<tr class="sub-th">
+												<th>거래처명</th>
+												<th>주소</th>
+												<th>보유 매입금 잔액</th>
+												<th>가능 금액</th>
+												<th>요청 금액</th>
+											</tr>
+										</thead>
+										<!--2020-04-24 eListArea 클레스 추가-->
+										<tfoot class="eListArea">
+											<tr class="sub-tit eSumTr">
+												<td>가스나</td>
+												<td class="tal">
+													디오트<br> 2층 F열 3호
+												</td>
+												<td class="f-gray tar">
+													<em class="price small">13,000</em>
+													<i>원</i>
+												</td>
+												<td class="tar bg-gray">
+													<em class="price txt-bold">999,000</em>
+													<i>원</i>
+												</td>
+												<td class="tar">
+													<em class="price small">0</em>
+													<i>원</i>
+												</td>
+												<td class="switch-wrap tar" style="">
+													<span class="switch eIsRefundedSwitch">
+														<input type="checkbox" name="is_refunded" checked="checked">
+														<div class="slider round">
+															<span class="on active">ON</span>
+															<span class="off ">OFF</span>
+														</div>
+													</span>
+													<input type="text" name="max_refund_amount" class="not-addclear" value="22000" data-max_refund_amount="22000" data-seller_no="448">
+													<i>원</i>
+													<!--2020-04-24 버튼 추가-->
+													<!-- 2021-07-26 EZP-3576 on 메모 있을 때 -->
+													<button href="#" type="button" class="memo has-memo ui-popup-open eLayerOrderMemo" data-target="#layerOrderMemo" data-overflow="false" data-shipping_memo="" data-uncle_memo="">메모</button>
+												</td>
+												<td class="bg-gr tar pr15">
+													<em class="price eSettlePrice" data-settle_price="13000">13,000</em>
+													<i>원</i>
+												</td>
+											</tr>
+											<tr class="sub-tit eSumTr">
+												<td>가스나</td>
+												<td class="tal">
+													디오트<br> 2층 F열 3호
+												</td>
+												<td class="f-gray tar">
+													<em class="price small">13,000</em>
+													<i>원</i>
+												</td>
+												<td class="tar bg-gray">
+													<em class="price txt-bold">999,000</em>
+													<i>원</i>
+												</td>
+												<td class="tar">
+													<em class="price small">0</em>
+													<i>원</i>
+												</td>
+												<td class="switch-wrap tar" style="">
+													<span class="switch eIsRefundedSwitch">
+														<input type="checkbox" name="is_refunded" checked="checked">
+														<div class="slider round">
+															<span class="on active">ON</span>
+															<span class="off">OFF</span>
+														</div>
+													</span>
+													<input type="text" name="max_refund_amount" class="not-addclear" value="22000" data-max_refund_amount="22000" data-seller_no="448">
+													<i>원</i>
+													<!--2020-04-24 버튼 추가-->
+													<!-- 2021-07-26 EZP-3576 on 메모 없을 때 -->
+													<button href="#" type="button" class="memo ui-popup-open eLayerOrderMemo" data-target="#layerOrderMemo" data-overflow="false" data-shipping_memo="" data-uncle_memo="">메모</button>
+												</td>
+												<td class="bg-gr tar pr15">
+													<em class="price eSettlePrice" data-settle_price="13000">13,000</em>
+													<i>원</i>
+												</td>
+											</tr>
+											<tr class="sub-tit eSumTr">
+												<td>가스나</td>
+												<td class="tal">
+													디오트<br> 2층 F열 3호
+												</td>
+												<td class="f-gray tar">
+													<em class="price small">13,000</em>
+													<i>원</i>
+												</td>
+												<td class="tar bg-gray">
+													<em class="price txt-bold">999,000</em>
+													<i>원</i>
+												</td>
+												<td class="tar">
+													<em class="price small">0</em>
+													<i>원</i>
+												</td>
+												<td class="switch-wrap tar" style="">
+													<span class="switch eIsRefundedSwitch">
+														<input type="checkbox" name="is_refunded">
+														<div class="slider round">
+															<span class="on">ON</span>
+															<span class="off active">OFF</span>
+														</div>
+													</span>
+													<input type="text" name="max_refund_amount" class="not-addclear" value="0" data-max_refund_amount="22000" data-seller_no="448" disabled="disabled">
+													<i>원</i>
+													<!--2020-04-24 버튼 추가-->
+													<!-- 2021-07-26 EZP-3576 off 메모 있을 때 -->
+													<button href="#" type="button" class="memo ui-popup-open eLayerOrderMemo has-memo" data-target="#layerOrderMemo" data-overflow="false" data-shipping_memo="" data-uncle_memo="">메모</button>
+												</td>
+												<td class="bg-gr tar pr15">
+													<em class="price eSettlePrice" data-settle_price="13000">13,000</em>
+													<i>원</i>
+												</td>
+											</tr>
+											<tr class="sub-tit eSumTr">
+												<td>가스나</td>
+												<td class="tal">
+													디오트<br> 2층 F열 3호
+												</td>
+												<td class="f-gray tar">
+													<em class="price small">13,000</em>
+													<i>원</i>
+												</td>
+												<td class="tar bg-gray">
+													<em class="price txt-bold">999,000</em>
+													<i>원</i>
+												</td>
+												<td class="tar">
+													<em class="price small">0</em>
+													<i>원</i>
+												</td>
+												<td class="switch-wrap tar" style="">
+													<span class="switch eIsRefundedSwitch">
+														<input type="checkbox" name="is_refunded">
+														<div class="slider round">
+															<span class="on">ON</span>
+															<span class="off active">OFF</span>
+														</div>
+													</span>
+													<input type="text" name="max_refund_amount" class="not-addclear" value="0" data-max_refund_amount="22000" data-seller_no="448" disabled="disabled">
+													<i>원</i>
+													<!--2020-04-24 버튼 추가-->
+													<!-- 2021-07-26 EZP-3576 off 메모 없을 때 -->
+													<button href="#" type="button" class="memo ui-popup-open eLayerOrderMemo" data-target="#layerOrderMemo" data-overflow="false" data-shipping_memo="" data-uncle_memo="">메모</button>
+												</td>
+												<td class="bg-gr tar pr15">
+													<em class="price eSettlePrice" data-settle_price="13000">13,000</em>
+													<i>원</i>
+												</td>
+											</tr>
+										</tfoot>
+										<tbody>
+											<tr class="all-price eSumTr bgc">
+												<td colspan="3" class="tar">합 계</td>
+												<td class="tar">
+													<em class="price txt-bold">999,000</em>
+													<i>원</i>
+												</td>
+												<td class="tar">
+													<em class="price">105,000</em>
+													<i>원</i>
+												</td>
+												<td class="tar pr15">
+													<em class="price eSettleHoldRefund">24,000</em>
+													<i>원</i>
+												</td>
+												<td class="bg-darkgr tar pr15">
+													<em class="price eTotalSettle">-5,000</em>
+													<i>원</i>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+								<!-- 2020-04-13 테이블 수정 종료 -->
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="step">
+					<div class="txt">
+						<strong>Step2. 최종금액 확인 및 검수완료</strong>
+						<p>
+							매입환불 금액이 적용된 입고일 별 '정산 예정 금액'은 다음과 같습니다.<br>
+							[검수완료] 버튼을 클릭 하시면, 검수대기 품목이 모두 최종 입고 확정됩니다.
+						</p>
+					</div>
+					<div class="order-list-wrap">
+						<div class="list-right scroll-wrap">
+							<div class="table-wrap order-list mb0">
+								<div class="tit wrap mt0">
+									<em class="s-title">
+										11/07 (월) 입고 건 정산예정금액
+									</em>
+									<div class="tit-right txt">
+										<div>
+											매입금 적립 금액 : <em>1,130,000</em><i>원</i>
+										</div>
+									</div>
+								</div>
+								<!-- 2020-06-04 EZP-763 -->
+								<table class="th-hor endDetail" style="margin-top:0px !important;">
+									<colgroup>
+										<col width="*">
+										<col width="*">
+										<col width="*">
+										<col width="*">
+										<col width="*">
+										<col width="*">
+									</colgroup>
+									<thead>
+										<tr class="sub-th">
+											<th rowspan="2" class="first">구분</th>
+											<th rowspan="2">
+												신규주문
+											</th>
+											<th class="total" colspan="4">
+												총 결제 금액
+												<em class="Enfont green">1,078,000</em>
+												<i>원</i>
+											</th>
+										</tr>
+										<tr class="sub-th">
+											<th style="padding:0px 0px;">신규입고금액</th>
+											<th class="icon-plus" style="padding:0px 0px;">신규미송금액</th>
+											<th class="icon-minus" style="padding:0px 0px;">반품</th>
+											<th class="icon-minus" style="padding:0px 0px;">매입환불</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr class="sub-tit eSumTr">
+											<td class="tac">상품금액</td>
+											<td class="tar">
+												<em class="price">0</em>
+												<i>원</i>
+											</td>
+											<td class="tar">
+												<em class="price">0</em>
+												<i>원</i>
+											</td>
+											<td class="tar">
+												<em class="price">0</em>
+												<i>원</i>
+											</td>
+											<td class="tar">
+												<em class="price">0</em>
+												<i>원</i>
+											</td>
+											<td class="tar">
+												<em class="price">0</em>
+												<i>원</i>
+											</td>
+										</tr>
+										<tr class="sub-tit eSumTr">
+											<td class="tac">부가세</td>
+											<td class="tar">
+												<em class="price">0</em>
+												<i>원</i>
+											</td>
+											<td class="tar">
+												<em class="price">0</em>
+												<i>원</i>
+											</td>
+											<td class="tar">
+												<em class="price">0</em>
+												<i>원</i>
+											</td>
+											<td class="tar">
+												<em class="price">0</em>
+												<i>원</i>
+											</td>
+											<td class="tar">
+												<em class="price">0</em>
+												<i>원</i>
+											</td>
+										</tr>
+										<tr class="sub-tit eSumTr">
+											<td class="tac">
+												서비스이용료
+											</td>
+											<td class="tar">
+												<em class="price">0</em>
+												<i>원</i>
+											</td>
+											<td class="tar">
+												<em class="price">0</em>
+												<i>원</i>
+											</td>
+											<td class="tar">
+												<em class="price">0</em>
+												<i>원</i>
+											</td>
+											<td class="tar">
+												<em class="price">0</em>
+												<i>원</i>
+											</td>
+											<td class="tar">
+												<em class="price">0</em>
+												<i>원</i>
+											</td>
+										</tr>
+										<tr class="sub-tit eSumTr">
+											<td class="tac">배송료</td>
+											<td class="tar">
+												<em class="price">0</em>
+												<i>원</i>
+											</td>
+											<td class="tar">
+												<em class="price">0</em>
+												<i>원</i>
+											</td>
+											<td class="tar">
+												<em class="price">0</em>
+												<i>원</i>
+											</td>
+											<td class="tar">
+												<em class="price">0</em>
+												<i>원</i>
+											</td>
+											<td class="tar">
+												<em class="price">0</em>
+												<i>원</i>
+											</td>
+
+										</tr>
+										<tr class="all-price eSumTr">
+											<td class="tac">합계</td>
+											<td class="tar">
+												<em class="price">0</em>
+												<i>원</i>
+											</td>
+											<td class="tar">
+												<em class="price">0</em>
+												<i>원</i>
+
+											</td>
+											<td class="tar">
+												<em class="price">0</em>
+												<i>원</i>
+
+											</td>
+											<td class="tar">
+												<em class="price">0</em>
+												<i>원</i>
+
+											</td>
+											<td class="tar">
+												<em class="price">0</em>
+												<i>원</i>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+
+							<div class="table-wrap order-list mb0">
+								<div class="tit wrap">
+									<em class="s-title">
+										11/07 (월) 입고 건 정산예정금액
+									</em>
+									<div class="tit-right txt">
+										<div>
+											매입금 적립 금액 : <em>1,130,000</em><i>원</i>
+										</div>
+									</div>
+								</div>
+								<!-- 2020-06-04 EZP-763 시작 -->
+								<table class="th-hor endDetail" style="margin-top:0px !important;">
+									<colgroup>
+										<col width="*">
+										<col width="*">
+										<col width="*">
+										<col width="*">
+										<col width="*">
+										<col width="*">
+									</colgroup>
+									<thead>
+										<tr class="sub-th">
+											<th rowspan="2" class="first">구분</th>
+											<th rowspan="2">
+												신규주문
+											</th>
+											<th class="total" colspan="4">
+												총 결제 금액
+												<em class="Enfont green">1,078,000</em>
+												<i>원</i>
+											</th>
+										</tr>
+										<tr class="sub-th">
+											<th style="padding:0px 0px;">신규입고금액</th>
+											<th class="icon-plus" style="padding:0px 0px;">신규미송금액</th>
+											<th class="icon-minus" style="padding:0px 0px;">반품</th>
+											<th class="icon-minus" style="padding:0px 0px;">매입환불</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr class="sub-tit eSumTr">
+											<td class="tac">상품금액</td>
+											<td class="tar">
+												<em class="price">0</em>
+												<i>원</i>
+											</td>
+											<td class="tar">
+												<em class="price">0</em>
+												<i>원</i>
+											</td>
+											<td class="tar">
+												<em class="price">0</em>
+												<i>원</i>
+											</td>
+											<td class="tar">
+												<em class="price">0</em>
+												<i>원</i>
+											</td>
+											<td class="tar">
+												<em class="price">0</em>
+												<i>원</i>
+											</td>
+										</tr>
+										<tr class="sub-tit eSumTr">
+											<td class="tac">부가세</td>
+											<td class="tar">
+												<em class="price">0</em>
+												<i>원</i>
+											</td>
+											<td class="tar">
+												<em class="price">0</em>
+												<i>원</i>
+											</td>
+											<td class="tar">
+												<em class="price">0</em>
+												<i>원</i>
+											</td>
+											<td class="tar">
+												<em class="price">0</em>
+												<i>원</i>
+											</td>
+											<td class="tar">
+												<em class="price">0</em>
+												<i>원</i>
+											</td>
+										</tr>
+										<tr class="sub-tit eSumTr">
+											<td class="tac">
+												서비스이용료
+											</td>
+											<td class="tar">
+												<em class="price">0</em>
+												<i>원</i>
+											</td>
+											<td class="tar">
+												<em class="price">0</em>
+												<i>원</i>
+											</td>
+											<td class="tar">
+												<em class="price">0</em>
+												<i>원</i>
+											</td>
+											<td class="tar">
+												<em class="price">0</em>
+												<i>원</i>
+											</td>
+											<td class="tar">
+												<em class="price">0</em>
+												<i>원</i>
+											</td>
+										</tr>
+										<tr class="sub-tit eSumTr">
+											<td class="tac">배송료</td>
+											<td class="tar">
+												<em class="price">0</em>
+												<i>원</i>
+											</td>
+											<td class="tar">
+												<em class="price">0</em>
+												<i>원</i>
+											</td>
+											<td class="tar">
+												<em class="price">0</em>
+												<i>원</i>
+											</td>
+											<td class="tar">
+												<em class="price">0</em>
+												<i>원</i>
+											</td>
+											<td class="tar">
+												<em class="price">0</em>
+												<i>원</i>
+											</td>
+										</tr>
+										<tr class="all-price eSumTr">
+											<td class="tac">합계</td>
+											<td class="tar">
+												<em class="price">0</em>
+												<i>원</i>
+											</td>
+											<td class="tar">
+												<em class="price">0</em>
+												<i>원</i>
+
+											</td>
+											<td class="tar">
+												<em class="price">0</em>
+												<i>원</i>
+
+											</td>
+											<td class="tar">
+												<em class="price">0</em>
+												<i>원</i>
+
+											</td>
+											<td class="tar">
+												<em class="price">0</em>
+												<i>원</i>
+
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							<!-- 2020-06-04 EZP-763 시작 -->
+							<div class="table-wrap order-list mb0">
+								<div class="tit wrap">
+									<em class="s-title">
+										11/07 (월) 입고 건 정산예정금액
+									</em>
+									<div class="tit-right txt">
+										<div>
+											매입금 적립 금액 : <em>1,130,000</em><i>원</i>
+										</div>
+									</div>
+								</div>
+								<table class="th-hor endDetail" style="margin-top:0px !important;">
+									<colgroup>
+										<col width="*">
+										<col width="*">
+										<col width="*">
+										<col width="*">
+										<col width="*">
+										<col width="*">
+									</colgroup>
+									<thead>
+										<tr class="sub-th">
+											<th rowspan="2" class="first">구분</th>
+											<th rowspan="2">
+												신규주문
+											</th>
+											<th class="total" colspan="4">
+												총 결제 금액
+												<em class="Enfont green">1,078,000</em>
+												<i>원</i>
+											</th>
+										</tr>
+										<tr class="sub-th">
+											<th style="padding:0px 0px;">신규입고금액</th>
+											<th class="icon-plus" style="padding:0px 0px;">신규미송금액</th>
+											<th class="icon-minus" style="padding:0px 0px;">반품</th>
+											<th class="icon-minus" style="padding:0px 0px;">매입환불</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr class="sub-tit eSumTr">
+											<td class="tac">상품금액</td>
+											<td class="tar">
+												<em class="price">0</em>
+												<i>원</i>
+											</td>
+											<td class="tar">
+												<em class="price">0</em>
+												<i>원</i>
+											</td>
+											<td class="tar">
+												<em class="price">0</em>
+												<i>원</i>
+											</td>
+											<td class="tar">
+												<em class="price">0</em>
+												<i>원</i>
+											</td>
+											<td class="tar">
+												<em class="price">0</em>
+												<i>원</i>
+											</td>
+										</tr>
+										<tr class="sub-tit eSumTr">
+											<td class="tac">부가세</td>
+											<td class="tar">
+												<em class="price">0</em>
+												<i>원</i>
+											</td>
+											<td class="tar">
+												<em class="price">0</em>
+												<i>원</i>
+											</td>
+											<td class="tar">
+												<em class="price">0</em>
+												<i>원</i>
+											</td>
+											<td class="tar">
+												<em class="price">0</em>
+												<i>원</i>
+											</td>
+											<td class="tar">
+												<em class="price">0</em>
+												<i>원</i>
+											</td>
+										</tr>
+										<tr class="sub-tit eSumTr">
+											<td class="tac">
+												서비스이용료
+											</td>
+											<td class="tar">
+												<em class="price">0</em>
+												<i>원</i>
+											</td>
+											<td class="tar">
+												<em class="price">0</em>
+												<i>원</i>
+											</td>
+											<td class="tar">
+												<em class="price">0</em>
+												<i>원</i>
+											</td>
+											<td class="tar">
+												<em class="price">0</em>
+												<i>원</i>
+											</td>
+											<td class="tar">
+												<em class="price">0</em>
+												<i>원</i>
+											</td>
+										</tr>
+										<tr class="sub-tit eSumTr">
+											<td class="tac">배송료</td>
+											<td class="tar">
+												<em class="price">0</em>
+												<i>원</i>
+											</td>
+											<td class="tar">
+												<em class="price">0</em>
+												<i>원</i>
+											</td>
+											<td class="tar">
+												<em class="price">0</em>
+												<i>원</i>
+											</td>
+											<td class="tar">
+												<em class="price">0</em>
+												<i>원</i>
+											</td>
+											<td class="tar">
+												<em class="price">0</em>
+												<i>원</i>
+											</td>
+										</tr>
+										<tr class="all-price eSumTr">
+											<td class="tac">합계</td>
+											<td class="tar">
+												<em class="price">0</em>
+												<i>원</i>
+											</td>
+											<td class="tar">
+												<em class="price">0</em>
+												<i>원</i>
+
+											</td>
+											<td class="tar">
+												<em class="price">0</em>
+												<i>원</i>
+
+											</td>
+											<td class="tar">
+												<em class="price">0</em>
+												<i>원</i>
+
+											</td>
+											<td class="tar">
+												<em class="price">0</em>
+												<i>원</i>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+						<!-- 2020-04-13 텍스트 수정 -->
+						<p class="notice">
+							* 샘플 관련 주문 건은 집계되지 않습니다.
+						</p>
+					</div>
+				</div>
+
+			</div><!-- //body -->
+			<div class="btn_wrap mt40 tac">
+				<button type="button" class="btn medium btn_close" style="width:190px;">취소</button>
+				<button type="button" class="btn medium point arrow2 step-next" style="width:280px;">Step2 (최종금액 확인)</button>
+			</div>
+			<div class="btn_wrap mt40 tac" style="display:none;">
+				<button type="button" class="btn medium btn_close" style="width:190px;">취소</button>
+				<button type="button" class="btn medium line arrow step-prev" style="width:280px;">Step1 (매입금액 다시 입력)</button>
+				<button type="button" class="btn point medium" style="width:190px;">검수완료</button>
+			</div>
+			<button type="button" class="btn_close reconfirm"><span>닫기</span></button>
+		</div>
+	</div>
+	<!-- 2020-05-21 종료 -->
+
+	<!--2020-04-24 시작-->
+	<div id="layerOrderMemo" class="ui-popup">
+		<div class="content" style="width:520px;" tabindex="-1">
+			<div class="header">
+				<h3>매입환불 요청 메모</h3>
+			</div>
+			<div class="body reconfirm mt40">
+				<div class="txt-cont memo reorder">
+					<div class="table-wrap">
+						<form id="frmLayerBad" name="frmLayerBad">
+							<input type="hidden" name="order_item_no">
+							<input type="hidden" name="ss_item_no">
+							<table class="th-ver">
+								<colgroup>
+									<col width="30%">
+									<col width="*">
+								</colgroup>
+								<tbody>
+									<tr>
+										<th>관리자 메모</th>
+										<td class="tdShippingMemo">요청대로 매입환불 해드리겠습니다.</td>
+									</tr>
+									<tr>
+										<th>고객 메모</th>
+										<td class="tdUncleMemo">
+											<textarea></textarea>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</form>
+					</div>
+				</div>
+				<div class="btn_wrap mt40 tac">
+					<button type="button" class="btn medium btn_close" style="width:150px;">취소</button>
+					<button type="button" class="btn point medium btn_close" style="width:150px;">확인</button>
+				</div>
+			</div><!-- //body -->
+			<button type="button" class="btn_close reconfirm"><span>닫기</span></button>
+		</div>
+	</div>
+	<!--2020-04-24 종료-->
+
+	<!-- 검수완료(정산) 확인 레이어 -->
+	<!-- 2020-04-02 입고탭 하나일때 -->
+	<!-- 2021-06-24 EZP-2885  -->
+	<div id="layer_settle_confirm" class="ui-popup confirm-type inspection-pop">
+		<div class="content" style="width:900px; height:auto !important;" tabindex="-1">
+			<div class="header">
+				<h3>11/08(수) 입고일 검수완료</h3>
+			</div>
+			<div class="body reconfirm mt20">
+				<div class="txt-cont">
+					<div class="txt-cont reorder">
+						<p>
+							검수완료 시 가게별 예상 정산 금액은 다음과 같습니다.<br>
+							[검수완료] 버튼을 클릭 하시면, 선택한 가게의 검수대기 중인 품목이 최종 입고 확정됩니다.
+						</p>
+					</div>
+					<h4>가게별 정산 금액 (총 8 건)</h4>
+					<div class="table-wrap order-list">
+						<div class="scroll-table">
+							<table class="th-hor">
+								<colgroup>
+									<col width="30">
+									<col width="170px">
+									<col width="170px">
+									<col width="155px">
+									<col width="155px">
+									<col width="*">
+								</colgroup>
+								<thead>
+									<tr class="sub-th">
+										<th>
+											<span class="checkbox">
+												<input type="checkbox" class="allChk" id="">
+												<label for=""></label>
+											</span>
+										</th>
+										<th>입고 가게명</th>
+										<th>입고 품목 (수량)</th>
+										<th>총결제금액</th>
+										<th>매입금차감 (매입환불)</th>
+										<th>매입금적립</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr class="bg-darkgr">
+										<td colspan="2">
+											합계
+										</td>
+										<td>789건 (2,130개)</td>
+										<td>
+											<em class="price">999,999</em>원 <br>
+										</td>
+										<td>
+											<em class="price">999,999</em>원 <br>
+										</td>
+										<td>
+											<em class="price">999,999</em>원 <br>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<span class="checkbox">
+												<input type="checkbox" id="">
+												<label for=""></label>
+											</span>
+										</td>
+										<td>플래닛</td>
+										<td>789건 (2,130개)</td>
+										<td>
+											<em class="price">999,999</em>원 <br>
+										</td>
+										<td>
+											<em class="price">999,999</em>원 <br>
+										</td>
+										<td>
+											<em class="price">999,999</em>원 <br>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<span class="checkbox">
+												<input type="checkbox" id="">
+												<label for=""></label>
+											</span>
+										</td>
+										<td>플래닛</td>
+										<td>789건 (2,130개)</td>
+										<td>
+											<em class="price">999,999</em>원 <br>
+										</td>
+										<td>
+											<em class="price">999,999</em>원 <br>
+										</td>
+										<td>
+											<em class="price">999,999</em>원 <br>
+										</td>
+									</tr>
+									<tr class="error">
+										<td>
+											<span class="checkbox">
+												<input type="checkbox" id="" disabled>
+												<label for=""></label>
+											</span>
+										</td>
+										<td>플래닛</td>
+										<td colspan="4"><em class="txt-red">검수완료 불가 (관리자 승인대기 품목 존재)</em></td>
+									</tr>
+									<tr>
+										<td>
+											<span class="checkbox">
+												<input type="checkbox" id="">
+												<label for=""></label>
+											</span>
+										</td>
+										<td>플래닛</td>
+										<td>789건 (2,130개)</td>
+										<td>
+											<em class="price">999,999</em>원 <br>
+										</td>
+										<td>
+											<em class="price">999,999</em>원 <br>
+										</td>
+										<td>
+											<em class="price">999,999</em>원 <br>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<span class="checkbox">
+												<input type="checkbox" id="">
+												<label for=""></label>
+											</span>
+										</td>
+										<td>플래닛</td>
+										<td>789건 (2,130개)</td>
+										<td>
+											<em class="price">999,999</em>원 <br>
+										</td>
+										<td>
+											<em class="price">999,999</em>원 <br>
+										</td>
+										<td>
+											<em class="price">999,999</em>원 <br>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<span class="checkbox">
+												<input type="checkbox" id="">
+												<label for=""></label>
+											</span>
+										</td>
+										<td>플래닛</td>
+										<td>789건 (2,130개)</td>
+										<td>
+											<em class="price">999,999</em>원 <br>
+										</td>
+										<td>
+											<em class="price">999,999</em>원 <br>
+										</td>
+										<td>
+											<em class="price">999,999</em>원 <br>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<span class="checkbox">
+												<input type="checkbox" id="">
+												<label for=""></label>
+											</span>
+										</td>
+										<td>플래닛</td>
+										<td>789건 (2,130개)</td>
+										<td>
+											<em class="price">999,999</em>원 <br>
+										</td>
+										<td>
+											<em class="price">999,999</em>원 <br>
+										</td>
+										<td>
+											<em class="price">999,999</em>원 <br>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+				<p class="notice">
+						- 자세한 금액 정보는 [주문관리 > 검수대기상품], [주문관리 > 검수완료내역 > 상세] 메뉴의 하단 금액을 참고해주세요.<br>
+						- <em>검수완료</em> 처리된 <em>가게</em>에는, 해당 입고일에 <em>추가입고 등록이 불가능하오니,</em> 꼭 유의하시길 바랍니다.
+				</p>
+				<p class="txt">선택하신 가게를 검수완료 하시겠습니까?</p>
+				<div class="btn_wrap mt20 tac">
+					<button type="button" class="btn medium btn_close" style="width:190px;">취소</button>
+					<button type="button" class="btn point medium" style="width:190px;">검수완료</button>
+				</div>
+			</div><!-- //body -->
+			<button type="button" class="btn_close reconfirm"><span>닫기</span></button>
+		</div>
+	</div>
+
+	<!-- 샘플 재주문 확인 레이어 -->
+	<div id="layer_sample_request" class="ui-popup">
+		<div class="content" style="width:520px;" tabindex="-1">
+			<div class="header">
+				<h3>샘플 재주문</h3>
+			</div>
+			<div class="body reconfirm mt20">
+				<div class="txt-cont">
+					<div class="txt-cont reorder">
+						<p>'확인' 버튼을 누르시면 선택된 샘플 상품이 재주문됩니다.</p>
+						<p class="line"></p>
+						<div class="table-wrap">
+							<form id="frmLayerSample" name="frmLayerSample">
+								<input type="hidden" name="order_item_no">
+								<table class="th-ver">
+									<colgroup>
+										<col width="25%">
+										<col width="*">
+									</colgroup>
+									<tbody>
+										<tr>
+											<th>거래처명</th>
+											<td class="eSellerName"></td>
+										</tr>
+										<tr>
+											<th>상품명 (옵션)</th>
+											<!-- 2023-03-18 개발팀요청 eProductName -> n-ellipsis로 변경 -->
+											<td class="n-ellipsis"></td>
+										</tr>
+										<tr>
+											<th>수량</th>
+											<td class="eQty">
+											</td>
+										</tr>
+										<tr>
+											<th>유형</th>
+											<td>
+												<span class="checkbox no-before">
+													<input type="checkbox" class="oneCheck" name="spec_item_type[]" id="spec_item_type40" value="40" data-sample_name="샘플주문">
+													<label for="spec_item_type40">샘플주문</label>
+												</span>
+												<span class="checkbox no-before">
+													<input type="checkbox" class="oneCheck" name="spec_item_type[]" id="spec_item_type50" value="50" data-sample_name="샘플반납">
+													<label for="spec_item_type50">샘플반납</label>
+												</span>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</form>
+						</div>
+					</div>
+				</div>
+				<div class="btn_wrap mt40 tac">
+					<button type="button" class="btn medium btn_close" style="width:150px;">취소</button>
+					<button type="button" class="btn point medium eSampleReordered" style="width:150px;" href="/buyer/order/action/reordered">확인</button>
+				</div>
+			</div><!-- //body -->
+			<button type="button" class="btn_close reconfirm"><span>닫기</span></button>
+		</div>
+	</div>
+
+	<!-- 재주문 레이어 -->
+	<div id="btnLayerReorder" class="ui-popup-open" data-target="#layer_reorder" hidden=""></div>
+	<div id="layer_reorder" class="ui-popup">
+		<div class="content" style="width:512px;" tabindex="-1">
+			<input type="hidden" name="ss_item_no" value="">
+			<input type="hidden" name="is_refund_requested" value="">
+			<div class="body">
+				<div class="txt-cont">
+					<div class="txt-cont result order eRequestReserveArea">
+						<h3>재주문</h3>
+						<div class="confirm">
+							<p class="small">
+								<em class="red" style="font-weight: bold; font-size: 18px;" id="product_name"></em> 등
+								<em class="red" style="font-weight: bold; font-size: 22px;" id="order_qty"></em>개의 상품을 재주문하시겠습니까?
+							</p>
+							<p class="mt20">재주문을 원하는 유형을 선택해주세요.</p>
+							<p class="mt20">
+								<span class="checkbox">
+									<input type="checkbox" class="oneCheck" name="order_method_type[]" id="order_method_type_11" value="11" data-name="상품주문" data-color="#33a7e3">
+									<label for="order_method_type_11">상품주문</label>
+								</span>&nbsp;&nbsp;
+								<span class="checkbox">
+									<input type="checkbox" class="oneCheck" name="order_method_type[]" id="order_method_type_21" value="21" data-name="샘플주문" data-color="#9a95ee;">
+									<label for="order_method_type_21">샘플주문</label>
+								</span>&nbsp;&nbsp;
+								<span class="checkbox">
+									<input type="checkbox" class="oneCheck" name="order_method_type[]" id="order_method_type_22" value="22" data-name="샘플반납" data-color="#eeaa62">
+									<label for="order_method_type_22">샘플반납 </label>
+								</span>&nbsp;&nbsp;
+								<span class="checkbox">
+									<input type="checkbox" class="oneCheck" name="order_method_type[]" id="order_method_type_12" value="12" data-name="미송주문" data-color="#36c25d">
+									<label for="order_method_type_12">미송주문 </label>
+								</span>&nbsp;&nbsp;
+								<!-- 2020-07-31 EZP-779 -->
+								<span class="checkbox">
+									<input type="checkbox" class="oneCheck" name="order_method_type[]" id="order_method_type_012" data-color="#f18cbe">
+									<label for="order_method_type_012">제작상품</label>
+								</span>
+							</p>
+							<!-- 2020-07-31 EZP-779 텍스트 색상 #f18cbe; -->
+							<p class="mt20">
+								재주문은 원상품의 유형과 관계없이
+								<em style="font-weight: bold; font-size: 20px; color:#f18cbe;" id="order_method_type">제작상품</em>
+								으로 등록됩니다.
+							</p>
+							<p class="mt20">'확인' 버튼을 누르시면 재주문 등록 및</p>
+							<p class="small">바로 주문 페이지로 이동 됩니다.</p>
+						</div>
+					</div>
+				</div>
+				<div class="btn_wrap mt40 tac">
+					<button type="button" class="btn medium btn_close" style="width:150px;">취소</button>
+					<button type="button" class="btn point medium eReordered" style="width:150px;" href="/buyer/order/action/reordered">확인</button>
+				</div>
+			</div><!-- //body -->
+			<button type="button" class="btn_close"><span>닫기</span></button>
+		</div>
+	</div>
+
+	<!-- 품절처리방식 변경 레이어 -->
+	<!-- <div id="layer_multi_refund_request" class="ui-popup">
+		<input type="hidden" name="ss_item_no" value=""> <input type="hidden" name="is_refunded" value="">
+		<div class="content" style="width:512px;" tabindex="-1">
+			<div class="body">
+				<div class="txt-cont">
+					<div class="txt-cont result order">
+						<h3>품절처리방식 변경 요청</h3>
+						<p class="small">선택된 품목들의 품절처리 방식 선택</p>
+						<div class="confirm">
+							<span class="checkbox" id="spnRefundedF"> <input type="checkbox" class="oneCheck" name="is_refund_requested[]" id="refund_type_F" value="F"> <label for="refund_type_F" style="color: #36c25d;">미송</label></span>&nbsp;&nbsp;<span
+								class="checkbox" id="spnRefundedT"> <input type="checkbox" class="oneCheck" name="is_refund_requested[]" id="refund_type_T" value="T"> <label for="refund_type_T" style="color: #ff4800;">환불</label></span>&nbsp;&nbsp;<span
+								class="checkbox" id="spnRefundedH"> <input type="checkbox" class="oneCheck" name="is_refund_requested[]" id="refund_type_H" value="H"> <label for="refund_type_H" style="color: #F18CBE;">매입</label></span>&nbsp;&nbsp; </div>
+					</div>
+					<div class="txt-cont result order eMultiRequestAreaT" style="display:none;padding-top: 8px !important;">
+						<div class="confirm">
+							<p class="small">
+								<em style="font-weight: bold; color:#ff4800">환불</em>로 변경이 완료되면,
+							</p>
+							<p class="small">미입고 수량이 검수완료와 동시에 자동 환불 됩니다.</p>
+							<p class="mt20">환불처리내역은 "환불내역" 메뉴에서 확인 하실 수 있습니다.</p>
+							<p class="mt20">[확인] 버튼을 클릭 하시면 관리자 확인 후 최종 완료됩니다.</p>
+						</div>
+					</div>
+					<div class="txt-cont result order eMultiRequestAreaF" style="display:none;padding-top: 8px !important;">
+						<div class="confirm">
+							<p class="small">
+								<em style="font-weight: bold; color:#36c25d">미송</em>으로 변경이 완료되면,
+							</p>
+							<p class="small">미입고 수량이 다음 발주 시에 자동 발주 됩니다.</p>
+							<p class="mt20">처리내역은 "미송내역" 메뉴에서 확인 하실 수 있습니다.</p>
+							<p class="mt20">[확인] 버튼을 클릭 하시면 관리자 확인 후 최종 완료됩니다.</p>
+						</div>
+					</div>
+					<div class="txt-cont result order eMultiRequestAreaH" style="display:none;padding-top: 8px !important;">
+						<div class="confirm">
+							<p class="small">
+								<em style="font-weight: bold; color:#F18CBE">매입</em>으로 변경이 완료되면,
+							</p>
+							<p class="small">미입고 수량 금액만큼 매입처리가 됩니다.</p>
+							<p class="mt20">매입처리내역은 검수완료 후</p>
+							<p class="small">"매입내역" 메뉴에서 확인 하실 수 있습니다.</p>
+							<p class="mt20">[확인] 버튼을 클릭 하시면 관리자 확인 후 최종 완료됩니다.</p>
+						</div>
+					</div>
+				</div>
+				<div class="btn_wrap mt40 tac">
+					<button type="button" class="btn medium btn_close" style="width:150px;">취소</button>
+					<button type="button" class="btn point medium eRequestMultiRefunded" style="width:150px;" href="/buyer/order/action/refundRequested">확인</button>
+				</div>
+			</div>
+			<button type="button" class="btn_close"><span>닫기</span></button>
+		</div>
+	</div> -->
+
+	<!-- 2021-04-06 EZP-1902 -->
+	<div id="change-pop" class="ui-popup change-pop">
+		<div class="content" style="width:670px;" tabindex="-1">
+			<div class="header">
+				<h3>입고일 변경</h3>
+			</div>
+			<div class="body reconfirm mt20">
+				<div>
+					<ul class="dot-list">
+						<li>입고일 변경 저장 시 즉시 적용됩니다.</li>
+						<!-- 2021-07-28 EZP-3538 -->
+						<li>재확인요청 진행중인 품목은 제외 후 적용됩니다.</li>
+						<!-- 2021-09-15 EZP-3873 문구 삭제 -->
+					</ul>
+					<table>
+						<colgroup>
+							<col width="50%">
+							<col width="*">
+						</colgroup>
+						<tbody>
+							<tr>
+								<th colspan="2">입고일</th>
+							</tr>
+							<tr>
+								<td>
+									<div>
+										<span>기존</span>
+										<span class="date">2021-02-22</span>
+									</div>
+								</td>
+								<td>
+									<div>
+										<span class="txt-green">변경</span>
+										<div class="datepicker-wrap">
+											<input type="text" id="start_date" name="start_date" class="not-addclear datepicker" style="width: 98px;" value="2021-03-07" readonly>
+										</div>
+									</div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="btn_wrap mt40 tac">
+					<button type="button" class="btn medium btn_close" style="width:150px;">닫기</button>
+					<button type="button" class="btn point medium btn_close" style="width:150px;">저장</button>
+				</div>
+			</div><!-- //body -->
+			<button type="button" class="btn_close reconfirm"><span>닫기</span></button>
+		</div>
+	</div>
+
+	<!-- footer// -->
+	<footer></footer>
+	<!-- //footer -->
+
+	<!-- dashboard// -->
+	<div id="dashboard" class=""></div>
+	<!-- //dashboard -->
+<!-- <script type="text/javascript" src="../../../../js/script.js"></script> -->
+
+		<!-- 21-01-18 수정-->
+		<script src="../../../../js/jquery.min.js"></script><!--jquery default-->
+		<script src="../../../../js/jquery-ui.min.js"></script>
+		<script src="../../../../js/swiper-ie9.min.js"></script>
+		<script src="../../../../js/default.input.js"></script><!-- 2022-10-04 -->
+		<script src="../../../../js/addclear.min.js"></script>
+		<script src="../../../../js/freeze-table.js"></script><!-- 2021-12-07 EZP-4641 -->
+		<script src="../../../../js/common.front.js"></script>
+		<script src="../../../../js/ui.js"></script>
+		<script src="../../../../js/pub.js"></script>
+		<script src="../../../../js/jquery.scrollbar.min.js"></script>
+
+		<!-- //21-01-18 수정-->
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('header').load('../../../include/header.html');
+			$('footer').load('../../../include/footer.html');
+			$('#dashboard').load('../../../include/dashboard.html');
+		});
+	</script>
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+			//2020-04-06
+			$('.tab-nav li a').click(function() {
+				$('.tab-nav li').removeClass('active')
+				$(this).parent().addClass('active');
+			});
+
+			$('.step-next').click(function() {
+				$(this).parent().hide().next().show();
+				$(this).parents('.content').find('.step.active').removeClass('active').next('.step').addClass('active');
+				return false;
+			})
+			$('.step-prev').click(function() {
+				$(this).parent().hide().prev().show();
+				$(this).parents('.content').find('.step.active').removeClass('active').prev('.step').addClass('active');
+				return false;
+			})
+
+
+			$('body').on('click', '.period-filter a.eDateAll', function() {
+				$('input[name="is_all_selected"]').val($(this).data('is_all'));
+				if ($(this).data('is_all') == 'all') {
+					$('.datepicker-wrap input').attr('disabled', 'disabled');
+				} else if ($(this).data('is_all') == 'not_all') {
+					$('.datepicker-wrap input').attr('disabled', false);
+				}
+			});
+			var sIsAllSelected = $('.period-filter input[name="is_all_selected"]').val();
+			if (sIsAllSelected == 'all') {
+				$('.datepicker-wrap input').attr('disabled', 'disabled');
+			} else if (sIsAllSelected == 'not_all') {
+				$('.datepicker-wrap input').attr('disabled', false);
+			}
+			$('body').on('click', '.period-filter a', function(e) {
+				var iPeriod = parseInt($(this).data('period'));
+				if (isNaN(iPeriod) === false) {
+					var sToday = $.datepicker.formatDate('yy-mm-dd', new Date());
+					$('#end_date').val(sToday);
+					var sBaseDate = new Date($('#end_date').datepicker('getDate'));
+					var sStartDate = '';
+					var sYear = '' + sBaseDate.getFullYear();
+					var sMonth = '' + parseInt(sBaseDate.getMonth());
+					var sDay = '' + sBaseDate.getDate();
+					sStartDate = new Date(sYear, sMonth, sDay - iPeriod);
+					sStartDate = $.datepicker.formatDate('yy-mm-dd', sStartDate);
+					$('#start_date').datepicker('setDate', sStartDate);
+					var iPeriod = $(this).data('period');
+					$(this).closest('.period-filter').find('input[name="period"]').val(iPeriod);
+				}
+			});
+			$('#start_date, #end_date').change(function() {
+				if ($('#start_date').datepicker('getDate') > $('#end_date').datepicker('getDate')) {
+					$('#end_date').datepicker('setDate', $('#start_date').datepicker('getDate'));
+					SHOP.showLayerAlert({
+						sContents: '기간 설정이 잘못되었습니다.<br>선택하신 날짜를 다시 확인해주세요.'
+					});
+					return false;
+				}
+				$('.period-filter li').removeClass('on');
+				$('.period-filter input[name="period"]').val(-1);
+			});
+			$('.eDateArrow').click(function(e) {
+				var iPeriod = parseInt($(this).data('arrow'));
+				if (isNaN(iPeriod) === false) {
+					var sStartDate = '';
+					var sEndDate = '';
+					var sSdate = new Date($('#start_date').datepicker('getDate'));
+					var sYear = '' + sSdate.getFullYear();
+					var sMonth = '' + parseInt(sSdate.getMonth());
+					var sDay = parseInt(sSdate.getDate());
+					sStartDate = new Date(sYear, sMonth, '' + (sDay + iPeriod));
+					sStartDate = $.datepicker.formatDate('yy-mm-dd', sStartDate);
+					var sEdate = new Date($('#end_date').datepicker('getDate'));
+					sYear = '' + sEdate.getFullYear();
+					sMonth = '' + parseInt(sEdate.getMonth());
+					sDay = parseInt(sEdate.getDate());
+					sEndDate = new Date(sYear, sMonth, '' + (sDay + iPeriod));
+					sEndDate = $.datepicker.formatDate('yy-mm-dd', sEndDate);
+					$('#start_date').datepicker('setDate', sStartDate);
+					$('#end_date').datepicker('setDate', sEndDate);
+				}
+			});
+
+			setTimeout(function () { // setTimeout 은 실제로 사용하지 않습니다. 내부 구문만 사용. (퍼블 작업본에서 header 로드 시점때문에 사용중)
+
+				// 2021-12-07 EZP-4641
+				// 2022-1-21 EZP-5021
+				function fixHeader() {
+					const standardSize = 1460;
+					return function () {
+						if ($(this).width() >= standardSize) {
+							$('.fix-header-wrap').freezeTable({
+								fixedNavbar: 'header',
+								headWrapStyles: {
+									borderBottom: '1px solid #b5b5b5'
+								},
+								freezeColumn: false,
+								freezeColumnHead: false,
+								fastMode: true,
+							});
+						} else {
+							$('.fix-header-wrap').freezeTable({
+								headWrapStyles: {
+									borderBottom: '1px solid #b5b5b5'
+								},
+								freezeColumn: false,
+								freezeColumnHead: false,
+								fastMode: true,
+							});
+						}
+					}
+				}
+				const fixTbHeader = fixHeader();
+				fixTbHeader();
+				$(window).on('resize', function() {
+					fixTbHeader();
+				});
+
+			}, 1);
+
+			// 2022-06-30 EZP-3528 버튼관련
+			var leftBtn = $(".eMultiRequestRefunded, .eQuantityChange, .eLayerReorder, .deliveryDateChange");
+			$((leftBtn).children("em")).hide();
+			$(".fix-header-wrap .checkbox").hide();
+
+			$(leftBtn).click(function () {
+				$(this).children("em").show();
+
+				$(this).addClass("green");
+				$(leftBtn).not($(this)).removeClass("green");
+
+				$(this).prop("disabled", false);
+				$(leftBtn).not($(this)).prop("disabled", true);
+
+				$(".eCancel").css("display", "inline-block");
+			});
+
+			$(".eMultiRequestRefunded").click(function () {
+				$(".fix-header-wrap .checkbox").show();
+			});
+
+			$(".eCancel").click(function () {
+				$(leftBtn).removeClass("green");
+				$(leftBtn).prop('disabled', false);
+				$(".eCancel").css("display", "none");
+				$(leftBtn).children("em").hide();
+				$(".fix-header-wrap .checkbox").hide();
+			});
+		});
+	</script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,964 @@
+{% extends "../_templates/layout.njk" %}
+{% block content %}
+
+<div id="wrap">
+
+  <div class="content-head">
+    <div class="page-title">
+      <h3 class="h3-tit">전체상품보기</h3>
+      <a href="#" class="btn-manual" target="_blank" title="매뉴얼">매뉴얼</a>
+      <div class="form-box">
+        <form onsubmit="return submitHandler();">
+          <fieldset>
+            <legend class="skip">통합검색</legend>
+            <label for="total-search" class="skip">검색어 입력</label>
+            <input type="search" name="total-search" id="total-search" title="검색어 입력" class="text"
+              placeholder="상품을 검색해보세요.">
+            <input type="submit" value="검색" class="submit">
+          </fieldset>
+        </form>
+      </div>
+    </div>
+
+    <div class="cont-info-right">
+      <ul class="breadcrumb">
+        <li>공급</li>
+        <li>이지픽 사입하기</li>
+        <li class="now" title="현재 페이지">전체상품보기</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="top-cate-area">
+    <div class="cate-title-area">
+      <h6>카테고리</h6>
+      <ul class="tab tab-menu-wrap">
+        <li data-tab="cateTab1" class="active">
+          <a href="javascript:void(0)">여성</a>
+        </li>
+        <li data-tab="cateTab2">
+          <a href="javascript:void(0)">남성</a>
+        </li>
+      </ul>
+    </div>
+    <div class="cate-con-wrap tab-content tabCont" id="cateTab1">
+      <ul class="depth1-wrap">
+        <li class="active">
+          <a href="javascript:void(0)">전체</a>
+        </li>
+        <li>
+          <a href="javascript:void(0)">아우터</a>
+          <div class="depth2-wrap">
+            <ul>
+              <li class="active">
+                <a href="javascript:void(0)">전체</a>
+              </li>
+              <li>
+                <a href="javascript:void(0)">코트</a>
+              </li>
+              <li>
+                <a href="javascript:void(0)">데님</a>
+              </li>
+              <li>
+                <a href="javascript:void(0)">패딩</a>
+              </li>
+              <li>
+                <a href="javascript:void(0)">점퍼</a>
+              </li>
+              <li>
+                <a href="javascript:void(0)">가디건/베스트</a>
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <a href="javascript:void(0)">상의</a>
+          <div class="depth2-wrap">
+            <ul>
+              <li class="active">
+                <a href="javascript:void(0)">전체</a>
+              </li>
+              <li>
+                <a href="javascript:void(0)">코트</a>
+              </li>
+              <li>
+                <a href="javascript:void(0)">데님</a>
+              </li>
+              <li>
+                <a href="javascript:void(0)">패딩</a>
+              </li>
+              <li>
+                <a href="javascript:void(0)">점퍼</a>
+              </li>
+              <li>
+                <a href="javascript:void(0)">가디건/베스트</a>
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <a href="javascript:void(0)">블라우스/셔츠</a>
+        </li>
+        <li>
+          <a href="javascript:void(0)">원피스</a>
+        </li>
+        <li>
+          <a href="javascript:void(0)">니트</a>
+        </li>
+        <li>
+          <a href="javascript:void(0)">팬츠</a>
+        </li>
+        <li>
+          <a href="javascript:void(0)">스커트</a>
+        </li>
+        <li>
+          <a href="javascript:void(0)">세트</a>
+        </li>
+        <li>
+          <a href="javascript:void(0)">홈/언더웨어</a>
+        </li>
+        <li>
+          <a href="javascript:void(0)">신발</a>
+        </li>
+        <li>
+          <a href="javascript:void(0)">가방</a>
+        </li>
+        <li>
+          <a href="javascript:void(0)">잡화</a>
+        </li>
+      </ul>
+    </div>
+    <div class="cate-con-wrap tab-content tabCont hidden" id="cateTab2">
+      <ul class="depth1-wrap">
+        <li class="active">
+          <a href="javascript:void(0)">전체2</a>
+        </li>
+        <li>
+          <a href="javascript:void(0)">아우터</a>
+          <div class="depth2-wrap">
+            <ul>
+              <li class="active">
+                <a href="javascript:void(0)">전체</a>
+              </li>
+              <li>
+                <a href="javascript:void(0)">코트</a>
+              </li>
+              <li>
+                <a href="javascript:void(0)">데님</a>
+              </li>
+              <li>
+                <a href="javascript:void(0)">패딩</a>
+              </li>
+              <li>
+                <a href="javascript:void(0)">점퍼</a>
+              </li>
+              <li>
+                <a href="javascript:void(0)">가디건/베스트</a>
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <a href="javascript:void(0)">상의</a>
+          <div class="depth2-wrap">
+            <ul>
+              <li class="active">
+                <a href="javascript:void(0)">전체</a>
+              </li>
+              <li>
+                <a href="javascript:void(0)">코트</a>
+              </li>
+              <li>
+                <a href="javascript:void(0)">데님</a>
+              </li>
+              <li>
+                <a href="javascript:void(0)">패딩</a>
+              </li>
+              <li>
+                <a href="javascript:void(0)">점퍼</a>
+              </li>
+              <li>
+                <a href="javascript:void(0)">가디건/베스트</a>
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <a href="javascript:void(0)">블라우스/셔츠</a>
+        </li>
+        <li>
+          <a href="javascript:void(0)">원피스</a>
+        </li>
+        <li>
+          <a href="javascript:void(0)">니트</a>
+        </li>
+        <li>
+          <a href="javascript:void(0)">팬츠</a>
+        </li>
+        <li>
+          <a href="javascript:void(0)">스커트</a>
+        </li>
+        <li>
+          <a href="javascript:void(0)">세트</a>
+        </li>
+        <li>
+          <a href="javascript:void(0)">홈/언더웨어</a>
+        </li>
+        <li>
+          <a href="javascript:void(0)">신발</a>
+        </li>
+        <li>
+          <a href="javascript:void(0)">가방</a>
+        </li>
+        <li>
+          <a href="javascript:void(0)">잡화</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <section class="easypick-best-section">
+    <div class="section-title-wrap">
+      <div class="section-title">이지픽 베스트 상품</div>
+      <a href="javascript:void(0);" class="popup" onclick="targetModalPopup('goods-market-time')">
+        <span>동대문 각 마켓의 운영시간을 확인해 보세요!</span>
+        <i><img src="../assets/images/modal-newwindow-icon.png" alt="modal open icon"></i>
+      </a>
+    </div>
+    <div class="contents-wrap">
+      <ul class="prd-grid-wrap prd-grid7-wrap">
+        <li>
+          <div>
+            <div class="img-box">
+              <a href="#" style="background:url('../assets/images/goods-images/goods-img11.png')no-repeat 50% center / cover;"></a>
+              <div class="like-btn"></div>
+            </div>
+            <div class="text-box">
+              <a href="#" class="prd-cate">[디오트] 라이트워터</a>
+              <a href="#" class="prd-name">빈티지 캔버스 스니커즈 뮬</a>
+              <b class="prd-price">29,000</b>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div>
+            <div class="img-box">
+              <a href="#" style="background:url('../assets/images/goods-images/goods-img16.png')no-repeat 50% center / cover;"></a>
+              <div class="like-btn"></div>
+            </div>
+            <div class="text-box">
+              <a href="#" class="prd-cate">[디오트] 라이트워터</a>
+              <a href="#" class="prd-name">빈티지 캔버스 스니커즈 뮬</a>
+              <b class="prd-price">29,000</b>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div>
+            <div class="img-box sold-out">
+              <a href="#" style="background:url('../assets/images/goods-images/goods-img15.png')no-repeat 50% center / cover;"></a>
+              <div class="like-btn active"></div>
+            </div>
+            <div class="text-box">
+              <a href="#" class="prd-cate">[디오트] 라이트워터</a>
+              <a href="#" class="prd-name">빈티지 캔버스 스니커즈 뮬</a>
+              <b class="prd-price">29,000</b>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div>
+            <div class="img-box">
+              <a href="#" style="background:url('../assets/images/goods-images/goods-img21.png')no-repeat 50% center / cover;"></a>
+              <div class="like-btn"></div>
+            </div>
+            <div class="text-box">
+              <a href="#" class="prd-cate">[디오트] 라이트워터</a>
+              <a href="#" class="prd-name">빈티지 캔버스 스니커즈 뮬</a>
+              <b class="prd-price">29,000</b>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div>
+            <div class="img-box">
+              <a href="#" style="background:url('../assets/images/goods-images/goods-img05.png')no-repeat 50% center / cover;"></a>
+              <div class="like-btn"></div>
+            </div>
+            <div class="text-box">
+              <a href="#" class="prd-cate">[디오트] 라이트워터</a>
+              <a href="#" class="prd-name">빈티지 캔버스 스니커즈 뮬</a>
+              <b class="prd-price">29,000</b>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div>
+            <div class="img-box">
+              <a href="#" style="background:url('../assets/images/goods-images/goods-img01.png')no-repeat 50% center / cover;"></a>
+              <div class="like-btn active"></div>
+            </div>
+            <div class="text-box">
+              <a href="#" class="prd-cate">[디오트] 라이트워터</a>
+              <a href="#" class="prd-name">빈티지 캔버스 스니커즈 뮬</a>
+              <b class="prd-price">29,000</b>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div>
+            <div class="img-box">
+              <a href="#" style="background:url('../assets/images/goods-images/goods-img01.png')no-repeat 50% center / cover;"></a>
+              <div class="like-btn active"></div>
+            </div>
+            <div class="text-box">
+              <a href="#" class="prd-cate">[디오트] 라이트워터</a>
+              <a href="#" class="prd-name">빈티지 캔버스 스니커즈 뮬</a>
+              <b class="prd-price">29,000</b>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="search-goods-section">
+    <div class="top-ctrl-wrap">
+      <h6 class="goods-count-text">
+        검색결과<b class="primary-color">1,000</b>개
+      </h6>
+      <div class="goods-sort-wrap">
+        <div onclick="targetModalPopup('goods-filter-modal')">FILTER</div>
+        <div class="sort-box">
+          <p>
+            <span>높은가격순</span>
+            <i><img src="../assets/images/filter-down-arrow.png" alt="filter down arrow"></i>
+          </p>
+          <!-- 시안이 없어 틀만 잡아놓았습니다. -->
+          <ul class="sort-depth">
+            <li>
+              <a href="#">최신순</a>
+            </li>
+            <li>
+              <a href="#">인기순</a>
+            </li>
+            <li>
+              <a href="#">낮은 가격순</a>
+            </li>
+            <li>
+              <a href="#">높은 가격순</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="filter-tag-wrap on">
+      <ul class="filter-tag-ul">
+        <li>
+          <div>
+            <span>디오트</span>
+          </div>
+          <i class="close-btn"></i>
+        </li>
+        <li>
+          <div>
+            <span>모던시크</span>
+          </div>
+          <i class="close-btn"></i>
+        </li>
+        <li>
+          <div>
+            <span>여성</span>
+            <i></i>
+            <span>잡화</span>
+            <i></i>
+            <span>신발</span>
+          </div>
+          <i class="close-btn"></i>
+        </li>
+        <!-- 2022-11-15 EZP-6829 샘플지원 버블 추가 시작 -->
+        <li>
+          <div>
+            <span>샘플지원 상품보기</span>
+          </div>
+          <i class="close-btn"></i>
+        </li>
+        <!-- 2022-11-15 EZP-6829 샘플지원 버블 추가 끝 -->
+        <li class="init-btn">
+          <div>
+            <span>필터초기화</span>>
+            <i></i>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <ul class="prd-grid-wrap prd-grid7-wrap">
+      <li>
+        <div>
+          <div class="img-box">
+            <a href="#" style="background : url('../assets/images/goods-images/goods-img12.png')no-repeat 50% center / cover;"></a>
+            <div class="like-btn"></div>
+          </div>
+          <div class="text-box">
+            <a href="#" class="prd-cate">[디오트] 라이트워터</a>
+            <a href="#" class="prd-name">빈티지 캔버스 스니커즈 뮬</a>
+            <b class="prd-price">29,000</b>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div>
+          <div class="img-box">
+            <a href="#" style="background : url('../assets/images/goods-images/goods-img22.png')no-repeat 50% center / cover;"></a>
+            <div class="like-btn"></div>
+          </div>
+          <div class="text-box">
+            <a href="#" class="prd-cate">[디오트] 라이트워터</a>
+            <a href="#" class="prd-name">빈티지 캔버스 스니커즈 뮬</a>
+            <b class="prd-price">29,000</b>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div>
+          <div class="img-box sold-out">
+            <a href="#" style="background : url('../assets/images/goods-images/goods-img01.png')no-repeat 50% center / cover;"></a>
+            <div class="like-btn"></div>
+          </div>
+          <div class="text-box">
+            <a href="#" class="prd-cate">[디오트] 라이트워터</a>
+            <a href="#" class="prd-name">빈티지 캔버스 스니커즈 뮬</a>
+            <b class="prd-price">29,000</b>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div>
+          <div class="img-box">
+            <a href="#" style="background : url('../assets/images/goods-images/goods-img02.png')no-repeat 50% center / cover;"></a>
+            <div class="like-btn"></div>
+          </div>
+          <div class="text-box">
+            <a href="#" class="prd-cate">[디오트] 라이트워터</a>
+            <a href="#" class="prd-name">빈티지 캔버스 스니커즈 뮬</a>
+            <b class="prd-price">29,000</b>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div>
+          <div class="img-box">
+            <a href="#" style="background : url('../assets/images/goods-images/goods-img08.png')no-repeat 50% center / cover;"></a>
+            <div class="like-btn"></div>
+          </div>
+          <div class="text-box">
+            <a href="#" class="prd-cate">[디오트] 라이트워터</a>
+            <a href="#" class="prd-name">빈티지 캔버스 스니커즈 뮬</a>
+            <b class="prd-price">29,000</b>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div>
+          <div class="img-box">
+            <a href="#" style="background : url('../assets/images/goods-images/goods-img05.png')no-repeat 50% center / cover;"></a>
+            <div class="like-btn"></div>
+          </div>
+          <div class="text-box">
+            <a href="#" class="prd-cate">[디오트] 라이트워터</a>
+            <a href="#" class="prd-name">빈티지 캔버스 스니커즈 뮬</a>
+            <b class="prd-price">29,000</b>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div>
+          <div class="img-box">
+            <a href="#" style="background : url('../assets/images/goods-images/goods-img18.png')no-repeat 50% center / cover;"></a>
+            <div class="like-btn"></div>
+          </div>
+          <div class="text-box">
+            <a href="#" class="prd-cate">[디오트] 라이트워터</a>
+            <a href="#" class="prd-name">빈티지 캔버스 스니커즈 뮬</a>
+            <b class="prd-price">29,000</b>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div>
+          <div class="img-box">
+            <a href="#" style="background : url('../assets/images/goods-images/goods-img21.png')no-repeat 50% center / cover;"></a>
+            <div class="like-btn"></div>
+          </div>
+          <div class="text-box">
+            <a href="#" class="prd-cate">[디오트] 라이트워터</a>
+            <a href="#" class="prd-name">빈티지 캔버스 스니커즈 뮬</a>
+            <b class="prd-price">29,000</b>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div>
+          <div class="img-box">
+            <a href="#" style="background : url('../assets/images/goods-images/goods-img22.png')no-repeat 50% center / cover;"></a>
+            <div class="like-btn"></div>
+          </div>
+          <div class="text-box">
+            <a href="#" class="prd-cate">[디오트] 라이트워터</a>
+            <a href="#" class="prd-name">빈티지 캔버스 스니커즈 뮬</a>
+            <b class="prd-price">29,000</b>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div>
+          <div class="img-box">
+            <a href="#" style="background : url('../assets/images/goods-images/goods-img28.png')no-repeat 50% center / cover;"></a>
+            <div class="like-btn"></div>
+          </div>
+          <div class="text-box">
+            <a href="#" class="prd-cate">[디오트] 라이트워터</a>
+            <a href="#" class="prd-name">빈티지 캔버스 스니커즈 뮬</a>
+            <b class="prd-price">29,000</b>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div>
+          <div class="img-box">
+            <a href="#" style="background : url('../assets/images/goods-images/goods-img27.png')no-repeat 50% center / cover;"></a>
+            <div class="like-btn"></div>
+          </div>
+          <div class="text-box">
+            <a href="#" class="prd-cate">[디오트] 라이트워터</a>
+            <a href="#" class="prd-name">빈티지 캔버스 스니커즈 뮬</a>
+            <b class="prd-price">29,000</b>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div>
+          <div class="img-box">
+            <a href="#" style="background : url('../assets/images/goods-images/goods-img26.png')no-repeat 50% center / cover;"></a>
+            <div class="like-btn"></div>
+          </div>
+          <div class="text-box">
+            <a href="#" class="prd-cate">[디오트] 라이트워터</a>
+            <a href="#" class="prd-name">빈티지 캔버스 스니커즈 뮬</a>
+            <b class="prd-price">29,000</b>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div>
+          <div class="img-box">
+            <a href="#" style="background : url('../assets/images/goods-images/goods-img24.png')no-repeat 50% center / cover;"></a>
+            <div class="like-btn"></div>
+          </div>
+          <div class="text-box">
+            <a href="#" class="prd-cate">[디오트] 라이트워터</a>
+            <a href="#" class="prd-name">빈티지 캔버스 스니커즈 뮬</a>
+            <b class="prd-price">29,000</b>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div>
+          <div class="img-box">
+            <a href="#" style="background : url('../assets/images/goods-images/goods-img20.png')no-repeat 50% center / cover;"></a>
+            <div class="like-btn"></div>
+          </div>
+          <div class="text-box">
+            <a href="#" class="prd-cate">[디오트] 라이트워터</a>
+            <a href="#" class="prd-name">빈티지 캔버스 스니커즈 뮬</a>
+            <b class="prd-price">29,000</b>
+          </div>
+        </div>
+      </li>
+      <!-- 14 -->
+      <li>
+        <div>
+          <div class="img-box">
+            <a href="#" style="background : url('../assets/images/goods-images/goods-img12.png')no-repeat 50% center / cover;"></a>
+            <div class="like-btn"></div>
+          </div>
+          <div class="text-box">
+            <a href="#" class="prd-cate">[디오트] 라이트워터</a>
+            <a href="#" class="prd-name">빈티지 캔버스 스니커즈 뮬</a>
+            <b class="prd-price">29,000</b>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div>
+          <div class="img-box sold-out">
+            <a href="#" style="background : url('../assets/images/goods-images/goods-img28.png')no-repeat 50% center / cover;"></a>
+            <div class="like-btn"></div>
+          </div>
+          <div class="text-box">
+            <a href="#" class="prd-cate">[디오트] 라이트워터</a>
+            <a href="#" class="prd-name">빈티지 캔버스 스니커즈 뮬</a>
+            <b class="prd-price">29,000</b>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div>
+          <div class="img-box">
+            <a href="#" style="background : url('../assets/images/goods-images/goods-img24.png')no-repeat 50% center / cover;"></a>
+            <div class="like-btn"></div>
+          </div>
+          <div class="text-box">
+            <a href="#" class="prd-cate">[디오트] 라이트워터</a>
+            <a href="#" class="prd-name">빈티지 캔버스 스니커즈 뮬</a>
+            <b class="prd-price">29,000</b>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div>
+          <div class="img-box">
+            <a href="#" style="background : url('../assets/images/goods-images/goods-img21.png')no-repeat 50% center / cover;"></a>
+            <div class="like-btn"></div>
+          </div>
+          <div class="text-box">
+            <a href="#" class="prd-cate">[디오트] 라이트워터</a>
+            <a href="#" class="prd-name">빈티지 캔버스 스니커즈 뮬</a>
+            <b class="prd-price">29,000</b>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div>
+          <div class="img-box">
+            <a href="#" style="background : url('../assets/images/goods-images/goods-img15.png')no-repeat 50% center / cover;"></a>
+            <div class="like-btn"></div>
+          </div>
+          <div class="text-box">
+            <a href="#" class="prd-cate">[디오트] 라이트워터</a>
+            <a href="#" class="prd-name">빈티지 캔버스 스니커즈 뮬</a>
+            <b class="prd-price">29,000</b>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div>
+          <div class="img-box">
+            <a href="#" style="background : url('../assets/images/goods-images/goods-img13.png')no-repeat 50% center / cover;"></a>
+            <div class="like-btn"></div>
+          </div>
+          <div class="text-box">
+            <a href="#" class="prd-cate">[디오트] 라이트워터</a>
+            <a href="#" class="prd-name">빈티지 캔버스 스니커즈 뮬</a>
+            <b class="prd-price">29,000</b>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div>
+          <div class="img-box">
+            <a href="#" style="background : url('../assets/images/goods-images/goods-img12.png')no-repeat 50% center / cover;"></a>
+            <div class="like-btn"></div>
+          </div>
+          <div class="text-box">
+            <a href="#" class="prd-cate">[디오트] 라이트워터</a>
+            <a href="#" class="prd-name">빈티지 캔버스 스니커즈 뮬</a>
+            <b class="prd-price">29,000</b>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div>
+          <div class="img-box">
+            <a href="#" style="background : url('../assets/images/goods-images/goods-img09.png')no-repeat 50% center / cover;"></a>
+            <div class="like-btn"></div>
+          </div>
+          <div class="text-box">
+            <a href="#" class="prd-cate">[디오트] 라이트워터</a>
+            <a href="#" class="prd-name">빈티지 캔버스 스니커즈 뮬</a>
+            <b class="prd-price">29,000</b>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div>
+          <div class="img-box">
+            <a href="#" style="background : url('../assets/images/goods-images/goods-img10.png')no-repeat 50% center / cover;"></a>
+            <div class="like-btn"></div>
+          </div>
+          <div class="text-box">
+            <a href="#" class="prd-cate">[디오트] 라이트워터</a>
+            <a href="#" class="prd-name">빈티지 캔버스 스니커즈 뮬</a>
+            <b class="prd-price">29,000</b>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div>
+          <div class="img-box">
+            <a href="#" style="background : url('../assets/images/goods-images/goods-img11.png')no-repeat 50% center / cover;"></a>
+            <div class="like-btn"></div>
+          </div>
+          <div class="text-box">
+            <a href="#" class="prd-cate">[디오트] 라이트워터</a>
+            <a href="#" class="prd-name">빈티지 캔버스 스니커즈 뮬</a>
+            <b class="prd-price">29,000</b>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div>
+          <div class="img-box">
+            <a href="#" style="background : url('../assets/images/goods-images/goods-img14.png')no-repeat 50% center / cover;"></a>
+            <div class="like-btn"></div>
+          </div>
+          <div class="text-box">
+            <a href="#" class="prd-cate">[디오트] 라이트워터</a>
+            <a href="#" class="prd-name">빈티지 캔버스 스니커즈 뮬</a>
+            <b class="prd-price">29,000</b>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div>
+          <div class="img-box">
+            <a href="#" style="background : url('../assets/images/goods-images/goods-img16.png')no-repeat 50% center / cover;"></a>
+            <div class="like-btn"></div>
+          </div>
+          <div class="text-box">
+            <a href="#" class="prd-cate">[디오트] 라이트워터</a>
+            <a href="#" class="prd-name">빈티지 캔버스 스니커즈 뮬</a>
+            <b class="prd-price">29,000</b>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div>
+          <div class="img-box">
+            <a href="#" style="background : url('../assets/images/goods-images/goods-img18.png')no-repeat 50% center / cover;"></a>
+            <div class="like-btn"></div>
+          </div>
+          <div class="text-box">
+            <a href="#" class="prd-cate">[디오트] 라이트워터</a>
+            <a href="#" class="prd-name">빈티지 캔버스 스니커즈 뮬</a>
+            <b class="prd-price">29,000</b>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div>
+          <div class="img-box">
+            <a href="#" style="background : url('../assets/images/goods-images/goods-img27.png')no-repeat 50% center / cover;"></a>
+            <div class="like-btn"></div>
+          </div>
+          <div class="text-box">
+            <a href="#" class="prd-cate">[디오트] 라이트워터</a>
+            <a href="#" class="prd-name">빈티지 캔버스 스니커즈 뮬</a>
+            <b class="prd-price">29,000</b>
+          </div>
+        </div>
+      </li>
+      <!-- 14 -->
+      <li>
+        <div>
+          <div class="img-box">
+            <a href="#" style="background : url('../assets/images/goods-images/goods-img26.png')no-repeat 50% center / cover;"></a>
+            <div class="like-btn"></div>
+          </div>
+          <div class="text-box">
+            <a href="#" class="prd-cate">[디오트] 라이트워터</a>
+            <a href="#" class="prd-name">빈티지 캔버스 스니커즈 뮬</a>
+            <b class="prd-price">29,000</b>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div>
+          <div class="img-box">
+            <a href="#" style="background : url('../assets/images/goods-images/goods-img21.png')no-repeat 50% center / cover;"></a>
+            <div class="like-btn"></div>
+          </div>
+          <div class="text-box">
+            <a href="#" class="prd-cate">[디오트] 라이트워터</a>
+            <a href="#" class="prd-name">빈티지 캔버스 스니커즈 뮬</a>
+            <b class="prd-price">29,000</b>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div>
+          <div class="img-box sold-out">
+            <a href="#" style="background : url('../assets/images/goods-images/goods-img03.png')no-repeat 50% center / cover;"></a>
+            <div class="like-btn"></div>
+          </div>
+          <div class="text-box">
+            <a href="#" class="prd-cate">[디오트] 라이트워터</a>
+            <a href="#" class="prd-name">빈티지 캔버스 스니커즈 뮬</a>
+            <b class="prd-price">29,000</b>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div>
+          <div class="img-box">
+            <a href="#" style="background : url('../assets/images/goods-images/goods-img13.png')no-repeat 50% center / cover;"></a>
+            <div class="like-btn"></div>
+          </div>
+          <div class="text-box">
+            <a href="#" class="prd-cate">[디오트] 라이트워터</a>
+            <a href="#" class="prd-name">빈티지 캔버스 스니커즈 뮬</a>
+            <b class="prd-price">29,000</b>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div>
+          <div class="img-box">
+            <a href="#" style="background : url('../assets/images/goods-images/goods-img20.png')no-repeat 50% center / cover;"></a>
+            <div class="like-btn"></div>
+          </div>
+          <div class="text-box">
+            <a href="#" class="prd-cate">[디오트] 라이트워터</a>
+            <a href="#" class="prd-name">빈티지 캔버스 스니커즈 뮬</a>
+            <b class="prd-price">29,000</b>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div>
+          <div class="img-box">
+            <a href="#" style="background : url('../assets/images/goods-images/goods-img05.png')no-repeat 50% center / cover;"></a>
+            <div class="like-btn"></div>
+          </div>
+          <div class="text-box">
+            <a href="#" class="prd-cate">[디오트] 라이트워터</a>
+            <a href="#" class="prd-name">빈티지 캔버스 스니커즈 뮬</a>
+            <b class="prd-price">29,000</b>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div>
+          <div class="img-box">
+            <a href="#" style="background : url('../assets/images/goods-images/goods-img18.png')no-repeat 50% center / cover;"></a>
+            <div class="like-btn"></div>
+          </div>
+          <div class="text-box">
+            <a href="#" class="prd-cate">[디오트] 라이트워터</a>
+            <a href="#" class="prd-name">빈티지 캔버스 스니커즈 뮬</a>
+            <b class="prd-price">29,000</b>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div>
+          <div class="img-box">
+            <a href="#" style="background : url('../assets/images/goods-images/goods-img21.png')no-repeat 50% center / cover;"></a>
+            <div class="like-btn"></div>
+          </div>
+          <div class="text-box">
+            <a href="#" class="prd-cate">[디오트] 라이트워터</a>
+            <a href="#" class="prd-name">빈티지 캔버스 스니커즈 뮬</a>
+            <b class="prd-price">29,000</b>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div>
+          <div class="img-box">
+            <a href="#" style="background : url('../assets/images/goods-images/goods-img22.png')no-repeat 50% center / cover;"></a>
+            <div class="like-btn"></div>
+          </div>
+          <div class="text-box">
+            <a href="#" class="prd-cate">[디오트] 라이트워터</a>
+            <a href="#" class="prd-name">빈티지 캔버스 스니커즈 뮬</a>
+            <b class="prd-price">29,000</b>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div>
+          <div class="img-box">
+            <a href="#" style="background : url('../assets/images/goods-images/goods-img28.png')no-repeat 50% center / cover;"></a>
+            <div class="like-btn"></div>
+          </div>
+          <div class="text-box">
+            <a href="#" class="prd-cate">[디오트] 라이트워터</a>
+            <a href="#" class="prd-name">빈티지 캔버스 스니커즈 뮬</a>
+            <b class="prd-price">29,000</b>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div>
+          <div class="img-box">
+            <a href="#" style="background : url('../assets/images/goods-images/goods-img27.png')no-repeat 50% center / cover;"></a>
+            <div class="like-btn"></div>
+          </div>
+          <div class="text-box">
+            <a href="#" class="prd-cate">[디오트] 라이트워터</a>
+            <a href="#" class="prd-name">빈티지 캔버스 스니커즈 뮬</a>
+            <b class="prd-price">29,000</b>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div>
+          <div class="img-box">
+            <a href="#" style="background : url('../assets/images/goods-images/goods-img26.png')no-repeat 50% center / cover;"></a>
+            <div class="like-btn"></div>
+          </div>
+          <div class="text-box">
+            <a href="#" class="prd-cate">[디오트] 라이트워터</a>
+            <a href="#" class="prd-name">빈티지 캔버스 스니커즈 뮬</a>
+            <b class="prd-price">29,000</b>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div>
+          <div class="img-box">
+            <a href="#" style="background : url('../assets/images/goods-images/goods-img24.png')no-repeat 50% center / cover;"></a>
+            <div class="like-btn"></div>
+          </div>
+          <div class="text-box">
+            <a href="#" class="prd-cate">[디오트] 라이트워터</a>
+            <a href="#" class="prd-name">빈티지 캔버스 스니커즈 뮬</a>
+            <b class="prd-price">29,000</b>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div>
+          <div class="img-box">
+            <a href="#" style="background : url('../assets/images/goods-images/goods-img20.png')no-repeat 50% center / cover;"></a>
+            <div class="like-btn"></div>
+          </div>
+          <div class="text-box">
+            <a href="#" class="prd-cate">[디오트] 라이트워터</a>
+            <a href="#" class="prd-name">빈티지 캔버스 스니커즈 뮬</a>
+            <b class="prd-price">29,000</b>
+          </div>
+        </div>
+      </li>
+      <!-- 14 -->
+    </ul>
+    {% include("../_templates/default/pagination.njk") %}
+  </section>
+
+</div>
+
+<!-- none class 추가시 삭제되도록 css 했습니다 -->
+<div class="easypick-loading-full">
+  <svg id="load-regular" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40">
+    <rect id="base" width="40" height="40" fill="none"></rect>
+    <g id="spinners">
+      <path id="muted" d="M17.5,38.946a3.556,3.556,0,1,1,2.515,1.041A3.555,3.555,0,0,1,17.5,38.946ZM4.832,31.635a3.556,3.556,0,1,1,3.556,3.556A3.556,3.556,0,0,1,4.832,31.635Zm-3.79-9.1a3.555,3.555,0,1,1,2.514,1.041A3.555,3.555,0,0,1,1.042,22.533Zm32.876-.05a3.555,3.555,0,1,1,2.514,1.041A3.555,3.555,0,0,1,33.918,22.483ZM4.8,8.388a3.556,3.556,0,1,1,3.556,3.556A3.555,3.555,0,0,1,4.8,8.388Zm23.248-.035A3.556,3.556,0,1,1,31.6,11.908,3.555,3.555,0,0,1,28.045,8.353ZM17.455,6.07a3.555,3.555,0,1,1,2.515,1.042A3.555,3.555,0,0,1,17.455,6.07Z" fill="#d3d3d3"></path>
+      <path id="active" d="M3.556,0A3.556,3.556,0,1,0,7.111,3.556,3.555,3.555,0,0,0,3.556,0Z" transform="translate(28.08 28.044)" fill="#121212"></path>
+    </g>
+  </svg>
+</div>
+
+{% include("./modals/sub/index.njk") %}
+
+{% endblock %}

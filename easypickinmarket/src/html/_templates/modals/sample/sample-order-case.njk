@@ -1,0 +1,127 @@
+<div class="modal-pop sample-order-case" id="sample-order-case">
+    <div class="modal-dialog">
+        <div class="modal-inner w480">
+            <section class="modal-head">
+                <div class="modal-head-inner">
+                    <h1>엑셀양식 다운로드</h1>
+                    <a href="#" class="btn-manual" target="_blank" title="매뉴얼">매뉴얼</a>
+                </div>
+            </section>
+            <div class="modal-body direct-order-modal-case05">
+                <div class="txt-box">
+                    <p>다운로드하려는 양식을 선택해주세요.</p>
+                    <p>
+                        양식 선택 후 확장자를 클릭하시면 해당 파일로 다운로드 할 수 있습니다.<br>
+                        양식 선택 후 확장자를 클릭하시면    
+                    </p>
+                    <p>
+                        - 1개 파일에 최대 10,000개가 다운로드 되며, <br>
+                        - 10,000 개를 초과하는 경우 자동으로 파일이 나누어져서 다운로드 욉니다. 
+                    </p>    
+                </div>
+                <div class="xlsx-download-wrap">
+                    <ul>
+                        <li>
+                            <a href="javascript: void(0);">
+                                일반주문
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript: void(0);">
+                                바로주문
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="modal-footer-btn">
+                    <button type="button" name="button" class="btn btn-lg btn-point">저장</button>	
+                    <button type="button" name="button" class="btn btn-lg btn-darkgray page-close">취소</button>
+                </div>
+            </div>
+            <a href="javascript:void(0);" class="page-close"></a>
+        </div>
+    </div>
+    <div class="dim"></div>
+</div>
+
+<!-- 2023-01-02 EZP-6818 샘플제안 옵션 -->
+<div class="modal-pop sample-option-case" id="sample-option-case1">
+    <div class="modal-dialog">
+        <div class="modal-inner" style="width: 540px;">
+            <section class="modal-head">
+                <div class="modal-head-inner">
+                    <h1>옵션선택</h1>
+                    <a href="#" class="btn-manual" target="_blank" title="매뉴얼">매뉴얼</a>
+                </div>
+            </section>
+            <div class="modal-body direct-order-modal-case05">
+                <div class="option-area">
+                    <table class="tbl-register-row">
+                        <colgroup>
+                            <col style="width: 150px">
+                            <col style="width: auto">
+                        </colgroup>
+                        <tbody>
+                            <tr>
+                                <th>색상</th>
+                                <td>
+                                    <div>
+                                        <button type="button" class="btn on">블랙</button>
+                                        <button type="button" class="btn disabled">화이트</button>
+                                        <button type="button" class="btn dot-outline">오렌지</button>
+                                        <button type="button" class="btn">퍼플</button>
+                                        <button type="button" class="btn">아이보리</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>사이즈</th>
+                                <td>
+                                    <div>
+                                        <button type="button" class="btn">S</button>
+                                        <button type="button" class="btn">M</button>
+                                        <button type="button" class="btn">L</button>
+                                        <button type="button" class="btn on">XL</button>
+                                        <button type="button" class="btn disabled">XXL</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <ul class="option-btn-list-box">
+                    <li><span>블랙/S</span><a href="#" class="clear"></a></li>
+                    <li><span>아이보리/S</span><a href="#" class="clear"></a></li>
+                </ul>
+                <ul class="txt-list dash-list">
+                    <li>- 옵션별 무료샘플 1개를 신청할 수 있습니다.</li>
+                    <li>- 거래처의 사정에 따라 샘플이 제공되지 않을 수 있습니다.</li>
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <div class="modal-footer-btn">
+                    <button type="button" name="button" class="btn btn-lg btn-point">확인</button>	
+                    <button type="button" name="button" class="btn btn-lg btn-darkgray page-close">취소</button>
+                </div>
+            </div>
+            <a href="javascript:void(0);" class="page-close"></a>
+        </div>
+    </div>
+    <div class="dim"></div>
+</div>
+
+
+<script>
+    $(function(){
+        $('.direct-order-modal-case05 .xlsx-download-wrap ul li').click(function(){
+            $('.direct-order-modal-case05 .xlsx-download-wrap ul li').removeClass('active');
+            if($(this).hasClass('active') == true){
+                $(this).removeClass('active');
+            }else{
+                $(this).addClass('active');
+            }
+        })
+    })
+</script>

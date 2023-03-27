@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<meta name="format-detection" content="telephone=no">
+	<title>이지픽스퀘어</title>
+	<link rel="stylesheet" type="text/css" href="./css/mobile/jquery-ui.min.css">
+	<link href="css/mobile/style.css" rel="stylesheet">
+</head>
+
+<body>
+	<div class="eps-container -floating">
+		<!-- 2020-08-19 EZP-992  -->
+		<header>
+			<span class="back"><a href="#" title="이전"><svg class="svg-icon"><use xlink:href="#icon-arrow-hor1"></use></svg></a></span>
+			<h1><span>발주관리</span></h1>
+		</header>
+		<nav class="nav-tabs ex">
+			<ul>
+				<li class="selected"><a href="#">오늘</a></li>
+				<li class=""><a href="#">3일</a></li>
+				<li class=""><a href="#">7일</a></li>
+			</ul>
+			<a href="#" class="ico-filter pop-open" data-open="#popup">필터</a>
+		</nav>
+		<main class="order-management">
+			<div class="order-management-list">
+				<!-- 2022-09-30 EZP-5318 구조변경 
+				<p class="result">
+					[2020.12.08 ~ 2020.12.11] <span>검색결과</span> 10건
+				</p>
+				-->
+				<div class="top-result-wrap">
+					<!-- 2022-12-06 EZP-7448 : 스타일 변경 시작 -->
+					<strong class="count">검색결과 <em>10</em>건</strong><!-- 2022-12-06 EZP-7448 : 스타일 변경 끝 -->
+					<p>발주일 2020.12.09 ~ 2020.12.11</p>
+				</div>
+				<div class="list">
+					<div class="item">
+						<div class="top-info">
+							<!-- 2022-09-30 EZP-5318 워딩변경 시작 -->
+							<!-- 2022-12-21 EZP-7760 날짜 + 발주 에서 발주 워딩 제거 -->
+							<span>2020.12.04</span>
+							<div class="btn-wrap">
+								<button class="pop-open" data-open="#popup1">발주마감 처리</button>
+								<!-- 2022-09-30 EZP-5318 워딩변경 끝 -->
+							</div>
+						</div>
+<style>
+.eps-container main.order-management .list .item ul li span em{display: block; padding-left: 0; margin-top: 2px;}
+.eps-container main.order-management .list .item ul li span:last-child{margin-top:5px;}
+</style>
+						<ul>
+							<li>
+								<!-- 2022-09-30 EZP-5318 전체적으로 ui 변경 -->
+								<a href="#">
+									<!-- 2022-09-30 EZP-5318 구조변경
+									<span><strong>[추가발주]</strong> 입고대기</span>
+									-->
+									<div class="item-list-top-tit">
+										<strong>추가발주</strong>
+										<span>입고대기</span>
+									</div>
+									<!-- 2022-09-30 낮시장 / 밤시장 -> 아이콘으로 변경
+									<span>
+										낮시장 수동 발주
+										<em>2020-12-04 22:56:47 (사입삼촌02)</em>
+									 </span>
+									<span>
+										밤시간 수동 발주
+										<em>2020-12-04 22:56:47 (사입삼촌02)</em>
+									</span>
+									-->
+									<div class="item-list-bottom">
+										<div class="order-list">
+											<em class="day-ico afternoon-ico">낮</em>
+											<p>
+												<strong>2020.12.04 22:56:47 발주완료</strong>
+												<em>(강진수 : jskabg)</em>
+											</p>
+										</div>
+									</div>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<!-- 2022-09-30 EZP-5318 구조변경
+									<span><strong>[추가발주]</strong> 입고대기</span>
+									-->
+									<div class="item-list-top-tit">
+										<strong>정기발주</strong>
+										<!-- 2022-12-21 EZP-7760 날짜 ()제거 -->
+										<span>발주마감 2022.03.20 09:00:23</span>
+									</div>
+									<!-- 2022-09-30 낮시장 / 밤시장 -> 아이콘으로 변경
+									<span>
+										낮시장 수동 발주
+										<em>2020-12-04 22:56:47 (사입삼촌02)</em>
+									</span>
+									<span>밤시간 수동 발주
+										<em>-</em>
+									</span>
+									-->
+									<div class="item-list-bottom">
+										<div class="order-list">
+											<em class="day-ico afternoon-ico">낮</em>
+											<p>
+												<strong>2020.12.04 22:56:47 발주완료</strong>
+												<em>(방앗간관리자 길어지면 줄바꿈 : jskabg)</em>
+											</p>
+										</div>
+										<div class="order-list">
+											<em class="day-ico night-ico">밤</em>
+											<p>
+												<strong>2020.12.04 22:56:47 발주완료</strong>
+												<em>(자동생성)</em>
+											</p>
+										</div>
+									</div>
+								</a>
+							</li>
+						</ul>
+					</div>
+					<div class="item">
+						<!-- 2022-09-30 EZP-5318 구조변경
+						<div class="top-info">
+							<span>2020-12-04</span>
+							<span class="date">발주마감 2020-12-04 22:56:47</span>
+						</div>
+						-->
+						<div class="top-info">
+							<!-- 2022-12-21 EZP-7760 날짜 + 발주 에서 발주 워딩 제거 -->
+							<span>2020.12.04</span>
+							<!-- 2022-12-21 EZP-7760 날짜 형식 mm/dd 에서 변경 -->
+							<span class="dgreen">담당몰 발주마감 22.03.20 22:56:47</span>
+						</div>
+						
+						<ul>
+							<li>
+								<a href="#">
+									<!-- 2022-09-30 EZP-5318 구조변경
+									<span><strong>[정기발주]</strong> 발주마감 <em>2020-12-04 09:57:47</em> </span>
+									-->
+									<div class="item-list-top-tit">
+										<strong>정기발주</strong>
+										<!-- 2022-12-21 EZP-7760 날짜 ()제거 -->
+										<span>발주마감 2022.03.20 09:00:23</span>
+									</div>
+									<!-- 2022-09-30 낮시장 / 밤시장 -> 아이콘으로 변경
+									<span>
+										낮시장 수동 발주
+										<em>2020-12-04 22:56:47 (사입삼촌02)</em>
+									</span>
+									<span>밤시간 수동 발주
+										<em>-</em>
+									</span>
+									-->
+									<div class="item-list-bottom">
+										<div class="order-list">
+											<em class="day-ico afternoon-ico">낮</em>
+											<p>
+												<strong>2020.12.04 22:56:47 발주완료</strong>
+												<em>(방앗간관리자 : bon)</em>
+											</p>
+										</div>
+										<div class="order-list">
+											<em class="day-ico night-ico">밤</em>
+											<p>
+												<strong>2020.12.04 22:56:47 발주완료</strong>
+												<em>(자동생성)</em>
+											</p>
+										</div>
+									</div>
+								</a>
+							</li>
+							<!-- 2022-11-08 EZP-5318 화살표 없는 case 시작 -->
+							<li>
+								<a href="javascript: void(0);">
+									<div class="item-list-top-tit">
+										<strong>정기발주</strong>
+										<!-- arrow 없는 case는 none-arrow 추가해주시면됩니다. -->
+										<!-- 2022-12-21 EZP-7760 날짜 ()제거 -->
+										<span class="none-arrow">발주마감 2022.03.20 09:00:23</span>
+									</div>
+									<div class="item-list-bottom">
+										<div class="order-list">
+											<em class="day-ico afternoon-ico">낮</em>
+											<p>
+												<strong>2020.12.04 22:56:47 발주완료</strong>
+												<em>(방앗간관리자 : bon)</em>
+											</p>
+										</div>
+										<div class="order-list">
+											<em class="day-ico night-ico">밤</em>
+											<p>
+												<strong>2020.12.04 22:56:47 발주완료</strong>
+												<em>(자동생성)</em>
+											</p>
+										</div>
+									</div>
+								</a>
+							</li>
+							<!-- 2022-11-08 EZP-5318 화살표 없는 case 끝 -->
+							<!-- 2022-09-30 EZP-5318 제거
+							<li>
+								<a href="#">
+									<span><strong>[추가발주]</strong> 입고대기</span>
+									<span>
+										낮시장 수동 발주
+										<em>2020-12-04 22:56:47 (사입삼촌02)</em>
+									</span>
+									<span>밤시간 수동 발주
+										<em>-</em>
+									</span>
+								</a>
+							</li>
+							-->
+						</ul>
+						
+					</div>
+					<div class="item">
+						<!-- 2022-09-30 EZP-5318 구조변경
+						<div class="top-info">
+							<span>2020-12-04</span>
+							<span class="date">발주마감 2020-12-04 22:56:47</span>
+						</div>
+						-->
+						<div class="top-info">
+							<!-- 2022-12-21 EZP-7760 날짜 + 발주 에서 발주 워딩 제거 -->
+							<span>2020.12.04</span>
+							<span class="dgreen">담당몰 없음</span>
+						</div>
+						
+						<ul>
+							<li>
+								<a href="#">
+									<div class="item-list-top-tit">
+										<strong>정기발주</strong>
+										<span>입고대기</span>
+									</div>
+									<div class="item-list-bottom">
+										<div class="order-list">
+											<em class="day-ico night-ico">밤</em>
+											<p>
+												<strong>2020.12.04 22:56:47 발주완료</strong>
+												<em>(방앗간관리자 : bon)</em>
+											</p>
+										</div>
+									</div>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<div class="item-list-top-tit">
+										<strong>정기발주</strong>
+										<span>입고대기</span>
+									</div>
+									<div class="item-list-bottom">
+										<div class="order-list">
+											<em class="day-ico night-ico">밤</em>
+											<p>
+												<strong>2020.12.04 22:56:47 발주완료</strong>
+												<em>(방앗간관리자 : bon)</em>
+											</p>
+										</div>
+									</div>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<div class="item-list-top-tit">
+										<strong>정기발주</strong>
+										<!-- 2022-12-21 EZP-7760 날짜 ()제거 -->
+										<span>발주마감 2022.03.20 09:00:23</span>
+									</div>
+									<div class="item-list-bottom">
+										<div class="order-list">
+											<em class="day-ico afternoon-ico">낮</em>
+											<p>
+												<strong>2020.12.04 22:56:47 발주완료</strong>
+												<em>(방앗간관리자 : jskagb)</em>
+											</p>
+										</div>
+										<div class="order-list">
+											<em class="day-ico night-ico">밤</em>
+											<p>
+												<strong>2020.12.04 22:56:47 발주완료</strong>
+												<em>(자동생성)</em>
+											</p>
+										</div>
+									</div>
+								</a>
+							</li>
+						</ul>
+						
+					</div>
+				</div>
+				<div class="paging">
+					<a href="#" class="prev">이전</a>
+					<div class="num_list">
+						<a href="#" class="active">1</a>
+						<a href="#" class="">2</a>
+						<a href="#" class="">3</a>
+						<a href="#" class="">4</a>
+						<a href="#" class="">5</a>
+					</div>
+					<a href="#" class="next">다음</a>
+				</div>
+
+				<!-- 2021-07-28 EZP-3559 -->
+				<div class="no-data">검색 결과가 없습니다.</div>
+			</div>
+			<!-- 2022-12-13 EZP-7627 위치 이동 시작 -->
+			<div class="fixed-btns renew-f">
+				<!-- 2022-12-06 EZP-7448 : Top버튼 추가 시작 -->
+				<div class="floating-menu">
+					<div class="top"><a href="#" title="위로">TOP</a></div>
+				</div><!-- 2022-12-06 EZP-7448 : Top버튼 추가 끝 -->
+				<button type="button" class="on" onclick="window.location='order-management-add.html';">추가발주생성</button>
+				<!-- <button type="button" class="disabled"><em>추가발주생성</em></button> -->
+			</div><!-- 2022-12-13 EZP-7627 위치 이동 끝 -->
+		</main>
+
+		<!--2020-04-16 시작-->
+		<!-- <div class="floating-menu">
+			<div class="top"><a href="#" title="위로">TOP</a></div>
+		</div> -->
+		<!--2020-04-16 종료-->
+
+		<div class="alert-layer ex" id="alert-memo">
+			<!-- display class "on" -->
+			<div class="content">
+				<p>품목을 선택해주세요.</p>
+				<p>발주마감 품목은 처리 불가합니다.</p>
+				<p>일괄 적용 완료되었습니다.</p>
+				<div class="btns">
+					<button type="button" class="ok">확인</button>
+				</div>
+			</div>
+		</div>
+		<!-- 2020-06-01 EZP-739 종료 -->
+
+
+		<!-- 2020-05-04 시작 -->
+		<div class="alert-layer ex">
+			<!-- display class "on" -->
+			<div class="content">
+				<p>최소수량을 입력해주세요.</p>
+				<!-- <p>적용 완료되었습니다.</p> -->
+				<div class="btns">
+					<button type="button" class="ok">확인</button>
+				</div>
+			</div>
+		</div>
+		<!-- 2020-05-04 종료 -->
+
+
+		<div class="full-layer full-page common-pop filter-pop" id="popup">
+			<div class="pop-header">
+				<button type="button" class="reset">초기화</button>
+				<h2>검색필터</h2>
+				<button type="button" class="pop-close">닫기</button>
+			</div>
+			<div class="wrap">
+				<!-- 2020-12-02 EZP-1647 시작 -->
+				<div class="contents">
+					<strong class="title">발주일</strong>
+					<div class="btn-group-tab">
+						<button type="button" class="active">오늘</button>
+						<button type="button">3일</button>
+						<button type="button">7일</button>
+						<button type="button">15일</button>
+						<button type="button">1개월</button>
+						<button type="button">3개월</button>
+					</div>
+					<div class="calendar-wrap">
+						<input type="text" class="datepicker" value="2020.06.06" readonly>
+						~
+						<input type="text" class="datepicker" value="2020.06.06" readonly>
+					</div>
+					<strong class="title mt30">발주상태</strong>
+					<div class="btn-group-tab">
+						<button type="button" class="active">전체</button>
+						<button type="button">입고대기</button>
+						<button type="button">발주마감</button>
+					</div>
+					<strong class="title mt30">발주타입</strong>
+					<div class="btn-group-tab">
+						<button type="button" class="active">전체</button>
+						<button type="button">정기발주</button>
+						<button type="button">추가발주</button>
+					</div>
+				</div>
+			</div>
+			<div class="btns">
+				<button type="button" class="submit">검색하기</button>
+			</div>
+		</div>
+
+		<div class="full-layer full-page filter-pop" id="popup1">
+			<div class="pop-header">
+				<button type="button" class="reset" title="초기화">
+					<svg class="svg-icon">
+						<use xlink:href="#icon-refresh"></use>
+					</svg>
+				</button>
+				<!-- 2021-03-30 EZP-1903 -->
+				<h2>발주마감</h2>
+				<button type="button" class="pop-close">닫기</button>
+			</div>
+			<div class="wrap">
+				<!-- 2020-12-02 EZP-1647 시작 -->
+				<div class="contents">
+					<!-- 2021-02-23 EZP-1903 시작 -->
+					<div class="step-wrap step1">
+						<p class="noti">
+							발주마감을 진행할 쇼핑몰을 선택해주세요.<br>
+							발주서에 포함된 담당 쇼핑몰에 대해 발주마감이 가능합니다.
+						</p>
+						<div class="ex-ui-tab">
+							<ul class="tab-nav">
+								<li class="active"><a href="#">쇼핑몰선택</a></li>
+								<li><a href="#">쇼핑몰전체</a></li>
+							</ul>
+							<div class="tab-cont">
+								<div class="search-form">
+									<div class="keyword-search">
+										<!-- 2021-03-30 EZP-1903 -->
+										<input type="text" placeholder="검색"><button type="button">검색</button>
+									</div>
+									<!-- 2022-1-24 EZP-4997-->
+									<ul class="mall-list">
+										<li><a href="#"><span class="name">핫핑1</span></a></li>
+										<li><a href="#"><span class="name">핫핑2</span></a></li>
+										<li class="finish"><a href="#"><span class="name">핫핑3</span><em>(발주마감)</em></a></li>
+										<li><a href="#"><em class="secession">[탈퇴]</em><span class="name">핫핑4</span></a></li><!-- 2021-10-06 EZP-4258-->
+										<li><a href="#"><em class="secession">[중지]</em><span class="name">핫핑5</span></a></li><!-- 2021-10-06 EZP-4258-->
+										<li><a href="#"><em class="secession">[중지]</em><em class="secession">[팀미지정]</em><span class="name">일이삼사오육칠팔구십일이삼사오</span><em>(발주마감)</em></a></li><!-- 2022-1-20 EZP-4997-->
+										<li><a href="#"><em class="secession">[중지]</em><em class="secession">[팀미지정]</em><span class="name">일이삼사</span><em>(발주마감)</em></a></li><!-- 2022-1-20 EZP-4997-->
+										<li><a href="#"><em class="secession">[팀미지정]</em><span class="name">핫핑6</span></a></li><!-- 2022-1-20 EZP-4997-->
+										<li><a href="#"><span class="name">핫핑7</span></a></li>
+									</ul>
+									<div class="mall-select-list">
+										<a href="#"><span class="name">헤이지니1</span></a>
+										<a href="#"><span class="name">헤이지니2</span></a>
+										<a href="#"><span class="name">헤이지니3</span></a>
+									</div>
+								</div>
+							</div>
+							<div class="tab-cont"></div>
+						</div>
+					</div>
+					<!-- 2021-02-23 EZP-1903 종료 -->
+
+				</div>
+			</div>
+			<div class="btns">
+				<button type="button" class="submit pop-open" data-open="#mall-order-deadline">발주마감</button>
+			</div>
+		</div>
+
+		<!-- 2021-06-21 EZP-1765 -->
+		<div class="full-layer full-page add-order-pop" id="popup2">
+			<div class="pop-header">
+				<h2>추가발주생성</h2>
+				<button type="button" class="pop-close">닫기</button>
+			</div>
+			<div class="wrap">
+				<div class="contents">
+					<div class="fix">
+						<div class="add-info-top">
+							<strong>추가발주할 주문을 선택해주세요.</strong>
+							<span>※ 낮시장(23시), 밤시장(21시) 주문마감 시간 이후 접수된 주문건에 대해 추가발주가 가능합니다.<br>※ 추가발주 예약 시 정기발주 후 오후 10시부터 30분 단위로 일괄 전송됩니다.(발주 예정 건들은 선택이 불가능하며, 초록색 음영으로 표시됩니다.)</span><!--2022-07-05 EZP-5424-->
+						</div>
+						<div class="tab-wrap">
+							<ul class="nav">
+								<!-- 2021-07-30 EZP-3659 -->
+								<li class="active" data-search_type="N"><a href="#">정상 쇼핑몰</a></li>
+								<li data-search_type="R"><a href="#">휴일 쇼핑몰</a></li>
+							</ul>
+							<!-- 2021-07-30 EZP-3659 -->
+							<div class="status-wrap">
+								<div class="status">
+									<span class="checkbox">
+										<input type="checkbox" id="a1" class="chk-all btnAllChk" checked>
+										<label for="a1">전체</label>
+									</span>
+									<span class="checkbox">
+										<input type="checkbox" id="a2" class="btnChkGroup" checked>
+										<label for="a2">신규</label>
+									</span>
+									<span class="checkbox">
+										<input type="checkbox" id="a3" class="btnChkGroup" checked>
+										<label for="a3">미송(N)</label>
+									</span>
+									<span class="checkbox">
+										<input type="checkbox" id="a5" class="btnChkGroup" checked>
+										<label for="a5">샘플</label>
+									</span>
+									<span class="checkbox">
+										<input type="checkbox" id="a6" class="btnChkGroup" checked>
+										<label for="a6">반납</label>
+									</span>
+									<span class="checkbox">
+										<input type="checkbox" id="a4" class="btnChkGroup" checked>
+										<label for="a4">불량</label>
+									</span>
+									<span class="checkbox">
+										<input type="checkbox" id="a7" class="btnChkGroup" checked>
+										<label for="a7">제작신규</label>
+									</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="add-order-list">
+						<div class="tab-cont active">
+							<ul class="nodata">
+								<li>
+									주문건이 없습니다.
+								</li>
+							</ul>
+							<!-- 2021-10-06 EZP-4258-->
+							<ul>
+								<li>
+									<span class="order-num"><em class="blue">신규</em> 2020101900001948</span>
+									<strong class="name">
+										<span class="secession">[탈퇴]</span>쇼핑몰명최대15자까지가능쭉쭉쭉
+										<em class="red">[D]</em><em class="blue">[N]</em>
+									</strong>
+									<!-- 2022-12-21 EZP-7760 날짜 표시 형식 - 에서 변경 -->
+									<span class="order-date">주문일시 2020.12.06 21:50:44</span>
+									<div>
+										<strong>품목수 <em>5 개</em></strong>
+										<strong>주문수량 <em>5 개</em></strong>
+									</div>
+									<span class="bdr-flag-red">미매칭</span>
+								</li>
+								<li>
+									<span class="order-num"><em class="purple">샘플</em> 2020101900001948</span>
+									<strong class="name">
+										<span class="secession">[중지]</span>[쇼핑몰명최대15자까지가능쭉쭉쭉]
+										<em class="red">[D]</em><em class="blue">[N]</em>
+									</strong>
+									<!-- 2022-12-21 EZP-7760 날짜 표시 형식 - 에서 변경 -->
+									<span class="order-date">주문일시 2020.12.06 21:50:44</span>
+									<div>
+										<strong>품목수 <em>5 개</em></strong>
+										<strong>주문수량 <em>5 개</em></strong>
+									</div>
+								</li>
+								<li>
+									<span class="order-num"><em class="black">불량</em> 2020101900001948</span>
+									<strong class="name">
+										[쇼핑몰명최대15자까지가능쭉쭉쭉]
+										<em class="red">[D]</em><em class="blue">[N]</em>
+									</strong>
+									<!-- 2022-12-21 EZP-7760 날짜 표시 형식 - 에서 변경 -->
+									<span class="order-date">주문일시 2020.12.06 21:50:44</span>
+									<div>
+										<strong>품목수 <em>5 개</em></strong>
+										<strong>주문수량 <em>5 개</em></strong>
+									</div>
+								</li>
+								<li>
+									<span class="order-num"><em class="pink">제작신규</em> 2020101900001948</span>
+									<strong class="name">
+										[쇼핑몰명최대15자까지가능쭉쭉쭉]
+										<em class="red">[D]</em><em class="blue">[N]</em>
+									</strong>
+									<!-- 2022-12-21 EZP-7760 날짜 표시 형식 - 에서 변경 -->
+									<span class="order-date">주문일시 2020.12.06 21:50:44</span>
+									<div>
+										<strong>품목수 <em>5 개</em></strong>
+										<strong>주문수량 <em>5 개</em></strong>
+									</div>
+								</li>
+								<li>
+									<!-- 2021-07-30 EZP-3659 -->
+									<span class="order-num"><em class="sandy">반납</em> 2020101900001948</span>
+									<strong class="name">
+										[쇼핑몰명최대15자까지가능쭉쭉쭉]
+										<em class="red">[D]</em><em class="blue">[N]</em>
+									</strong>
+									<!-- 2022-12-21 EZP-7760 날짜 표시 형식 - 에서 변경 -->
+									<span class="order-date">주문일시 2020.12.06 21:50:44</span>
+									<div>
+										<strong>품목수 <em>5 개</em></strong>
+										<strong>주문수량 <em>5 개</em></strong>
+									</div>
+								</li>
+								<li>
+									<!-- 2021-07-30 EZP-3659 -->
+									<span class="order-num"><em class="green">미송(N)</em> 2020101900001948</span>
+									<strong class="name">
+										[쇼핑몰명최대15자까지가능쭉쭉쭉]
+										<em class="red">[D]</em><em class="blue">[N]</em>
+									</strong>
+									<!-- 2022-12-21 EZP-7760 날짜 표시 형식 - 에서 변경 -->
+									<span class="order-date">주문일시 2020.12.06 21:50:44</span>
+									<div>
+										<strong>품목수 <em>5 개</em></strong>
+										<strong>주문수량 <em>5 개</em></strong>
+									</div>
+								</li>
+							</ul>
+						</div>
+						<div class="tab-cont">
+							<div class="item">
+								<div class="mall-name">
+									<strong>쇼핑몰 A</strong>
+									<!-- 2021-07-19 EZP-3405 -->
+								</div>
+								<ul>
+									<li>
+										<span class="order-num"><em class="blue">신규</em></span>
+										<div>
+											<strong>품목수 <em>5개</em></strong>
+											<strong>주문수량 <em>5개</em></strong>
+											<em class="red">[D]</em><em class="blue">[N]</em>
+										</div>
+										<!-- 2022-12-21 EZP-7760 날짜 표시 형식 - 에서 변경 -->
+									<span class="order-date">주문일시 2020.12.06 21:50:44</span>
+									</li>
+									<li>
+										<span class="order-num"><em class="purple">샘플</em></span>
+										<div>
+											<strong>품목수 <em>5개</em></strong>
+											<strong>주문수량 <em>5개</em></strong>
+											<em class="red">[D]</em><em class="blue">[N]</em>
+										</div>
+										<!-- 2022-12-21 EZP-7760 날짜 표시 형식 - 에서 변경 -->
+									<span class="order-date">주문일시 2020.12.06 21:50:44</span>
+									</li>
+									<!-- 2021-07-19 EZP-3405 -->
+									<li>
+										<span class="order-prepayment">미송</span>
+										<div>
+											<strong>품목수 <em>5개</em></strong>
+											<em class="red">[D]</em><em class="blue">[N]</em>
+										</div>
+										<span class="order-date">주문일시 -</span>
+									</li>
+								</ul>
+							</div>
+							<div class="item">
+								<div class="mall-name">
+									<strong>쇼핑몰 C</strong>
+									<!-- 2021-07-19 EZP-3405 -->
+								</div>
+								<ul>
+									<li>
+										<span class="order-num"><em class="blue">신규</em></span>
+										<div>
+											<strong>품목수 <em>5개</em></strong>
+											<strong>주문수량 <em>5개</em></strong>
+											<em class="red">[D]</em><em class="blue">[N]</em>
+										</div>
+										<!-- 2022-12-21 EZP-7760 날짜 표시 형식 - 에서 변경 -->
+									<span class="order-date">주문일시 2020.12.06 21:50:44</span>
+									</li>
+									<li>
+										<span class="order-num"><em class="purple">샘플</em></span>
+										<div>
+											<strong>품목수 <em>5개</em></strong>
+											<strong>주문수량 <em>5개</em></strong>
+											<em class="red">[D]</em><em class="blue">[N]</em>
+										</div>
+										<!-- 2022-12-21 EZP-7760 날짜 표시 형식 - 에서 변경 -->
+									<span class="order-date">주문일시 2020.12.06 21:50:44</span>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="btns">
+				<button type="button" class="submit">추가발주생성</button>
+			</div>
+		</div>
+
+		<!-- 2021-02-23 EZP-1903 시작 -->
+		<div class="full-layer new-type" id="mall-order-deadline">
+			<div class="wrap">
+				<h2>발주마감 비밀번호 입력</h2>
+				<div class="contents">
+					<div class="txt-wrap">
+						<p>
+							비밀번호를 입력 후 [발주마감]을 선택하세요.
+						</p>
+						<span>
+							※ 발주마감 후 입고정보 변경은 불가 합니다.
+						</span>
+					</div>
+					<div class="password-box">
+						<input type="password" placeholder="계정 비밀번호 입력">
+						<!-- 2022-12-21 EZP-7760 날짜 표시형식 - 에서 변경 -->
+						<p>
+							발주마감일 : 2020.12.25<br>
+							발주일 : 2020.12.24<br>
+							대상 쇼핑몰 : <em>쇼핑몰명 길어지는 경우에는 말줄임..</em>
+						</p>
+					</div>
+				</div>
+				<div class="btns">
+					<button type="button" class="cancel">취소</button>
+					<button type="submit" class="submit">발주마감</button>
+				</div>
+			</div>
+		</div>
+
+		<div class="alert-layer" id="alert-order-deadline">
+			<!-- display class "on" -->
+			<div class="content">
+				<p>
+					발주마감 처리가 완료되었습니다.
+				</p>
+				<div class="btns">
+					<button type="button" class="ok">확인</button>
+				</div>
+			</div>
+			<!-- <div class="content">
+				<p>진행 건이 존재합니다.<br>발주마감 처리하시겠습니까?</p>
+				<div class="btns">
+					<button type="button" class="cancel">취소</button>
+					<button type="button" class="ok">확인</button>
+				</div>
+			</div>
+			<div class="content">
+				<p>발주마감 처리할 주문 건이 없거나,<br>이미 발주마감 되었습니다.</p>
+				<div class="btns">
+					<button type="button" class="ok">확인</button>
+				</div>
+			</div>
+			<div class="content">
+				<p>
+					미매칭 가게 발주 건이 존재합니다.<br>
+					가게 매칭 후 발주마감 가능합니다.
+				</p>
+				<div class="btns">
+					<button type="button" class="ok">확인</button>
+				</div>
+			</div>
+			<div class="content">
+				<p>
+					바로주문 전체 발주마감<br>
+					처리가 완료되었습니다.
+				</p>
+				<div class="btns">
+					<button type="button" class="ok">확인</button>
+				</div>
+			</div>
+			<div class="content">
+				<p>
+					바로주문 쇼핑몰 발주마감<br>처리가 완료되었습니다.
+				</p>
+				<div class="btns">
+					<button type="button" class="ok">확인</button>
+				</div>
+			</div> -->
+		</div>
+		<!-- 2021-02-23 EZP-1903 종료 -->
+
+		<div class="alert-layer" id="alert-test01">
+			<div class="content">
+				<p>발주마감이 완료되지 않았습니다.<br>취소하시겠습니까?</p>
+				<div class="btns">
+					<button class="cancel">취소</button>
+					<button class="ok">확인</button>
+				</div>
+			</div>
+		</div>
+
+		<!-- 2021-06-09 EZP-1902 -->
+		<div class="full-layer new-type change-pop" id="change-pop">
+			<div class="wrap">
+				<h2>고객수령일 설정</h2>
+				<div class="contents">
+					<p>
+						택배송 상품의 고객수령일 설정 시,
+						설정된 날짜에 상품 입고내역을 확인 할 수 있습니다.
+					</p>
+					<!-- 2021-07-20 EZP-3449 -->
+					<div class="list-scroll">
+						<ul>
+							<li>
+								<div>
+									<strong>츄</strong>
+									<span>기본라운드 티셔츠 등 N개 </span>
+								</div>
+								<div>
+									<span>도착예정일</span>
+									<input type="text" class="datepicker" value="2020.06.06" readonly>
+								</div>
+							</li>
+							<li class="bg-gray">
+								<div>
+									<strong><em class="secession">[탈퇴]</em>김용해</strong><!-- 2021-10-06 EZP-4258-->
+									<span>기본라운드 티셔츠 등 N개 제품명이 긴 경우 </span>
+								</div>
+								<div>
+									<span>도착예정일</span>
+									<input type="text" class="datepicker" value="2020.06.06" readonly>
+								</div>
+							</li>
+							<li>
+								<div>
+									<strong>핫핑</strong>
+									<span>기본라운드 티셔츠 등 N개 </span>
+								</div>
+								<div>
+									<span>도착예정일</span>
+									<input type="text" class="datepicker" value="2020.06.06" readonly>
+								</div>
+							</li>
+							<li>
+								<div>
+									<strong>츄</strong>
+									<span>기본라운드 티셔츠 등 N개 </span>
+								</div>
+								<div>
+									<span>도착예정일</span>
+									<input type="text" class="datepicker" value="2020.06.06" readonly>
+								</div>
+							</li>
+							<li class="bg-gray">
+								<div>
+									<strong><em class="secession">[탈퇴]</em>김용해</strong><!-- 2021-10-06 EZP-4258-->
+									<span>기본라운드 티셔츠 등 N개 제품명이 긴 경우 </span>
+								</div>
+								<div>
+									<span>도착예정일</span>
+									<input type="text" class="datepicker" value="2020.06.06" readonly>
+								</div>
+							</li>
+							<li>
+								<div>
+									<strong>핫핑</strong>
+									<span>기본라운드 티셔츠 등 N개 </span>
+								</div>
+								<div>
+									<span>도착예정일</span>
+									<input type="text" class="datepicker" value="2020.06.06" readonly>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="btns">
+					<button type="button" class="cancel">취소</button>
+					<button type="submit" class="submit">택배송마감실행</button>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<div id="modal"></div>
+
+	<!-- 2022-12-06 EZP-7448 : 하단 버튼 추가 시작 -->
+	<div class="renew-fixed">
+		<div class="btn-wrap">
+			<span class="home">
+				<a href="./" title="홈">
+					<svg class="svg-icon"><use xlink:href="#icon-home"></use></svg>
+				</a>
+			</span>
+			<span class="memo"><!-- 2021-08-18 EZP-3403 -->
+				<a href="./memo.html" title="메모">
+					<svg class="svg-icon"><use xlink:href="#icon-letter"></use></svg>
+					<em class="new">
+						<!-- 2022-12-19 EZP-7448, EZP-7627 : New icon 변경 -->
+						<!-- <img src="../assets/images/icon-new.png" alt="icon-new"> -->
+						N
+					</em>
+				</a>
+			</span>
+			<span class="notice">
+				<a href="./notice.html" title="알림">
+					<svg class="svg-icon"><use xlink:href="#icon-bell"></use></svg> 
+					<em class="new">
+						<!-- 2022-12-19 EZP-7448, EZP-7627 : New icon 변경 -->
+						<!-- <img src="../assets/images/icon-new.png" alt="icon-new"> -->
+						N
+					</em>
+				</a>
+			</span>
+		</div>
+	</div><!-- 2022-12-06 EZP-7448 : 하단 버튼 추가 끝 -->
+
+	<!-- ui check -->
+	<script type="text/javascript" src="./jquery-3.5.1.min.js"></script>
+	<script src="./ui.js"></script>
+	<script type="text/javascript" src="./jquery-ui.min.js"></script>
+	<script>
+		$(function() {
+			$('.add-order-pop .add-order-list ul li').click(function() {
+				$(this).toggleClass('selected');
+			})
+			$('.search-item.period-filter a').click(function() {
+				$('.search-item.period-filter a').removeClass('on');
+				$(this).addClass('on');
+			})
+			$(document).on('focusin', '.filter-pop .keyword-search input', function() {
+				$('.filter-pop .mall-list').addClass('on');
+			})
+			// 2021-06-23 EZP-1765
+			$('.filter-pop').on('click',function(event){
+				if( $(event.target).parents('.search-form').length != 0){
+
+					if( $(event.target).hasClass('mall-list') || $(event.target).parent().hasClass('keyword-search')){
+						$('.filter-pop .mall-list').addClass('on');
+					}else{
+						$('.filter-pop .mall-list').removeClass('on');
+					}
+				}else{
+					$('.filter-pop .mall-list').removeClass('on');
+				}
+			})
+			// 2021-06-18 EZP-1765
+			$(document).on('click', '.filter-pop .mall-list li a', function() {
+				// 2021-10-06 EZP-4258
+				$('.filter-pop .mall-select-list').append('<a href="#">' + $(this).html() + '</a>');
+			})
+
+			$(document).on('click', '.mall-select-list a', function() {
+				$(this).remove();
+			})
+			$(".datepicker").datepicker({
+				showMonthAfterYear: true,
+				dateFormat: "yy.mm.dd", // 텍스트 필드에 입력되는 날짜 형식.
+				dayNamesMin: ['SUN', 'MON', 'TUE', 'WED', 'THE', 'FRI', 'SAT'],
+				monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+				monthNames: ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"],
+				firstDay: 1,
+				// 2020-12-21 EZP-1917
+				minDate: 0,
+				beforeShow: function() {
+					$('#modal').show();
+				},
+				onClose: function() {
+					$('#modal').hide();
+				},
+				onSelect: function() {
+					var $input = $(this);
+					var idx = $input.index();
+					var isRange = $input.hasClass('range');
+					var $input = $input.parent().children('.datepicker');
+					var dateValue = $.map($input, function(el) {
+						return el.value
+					});
+
+					if (isRange && dateValue[0] > dateValue[1]) {
+						if (idx == 0) {
+							$input.eq(1).val(dateValue[0])
+						} else {
+							$input.eq(0).val(dateValue[1])
+						}
+					}
+				}
+			});
+
+			$('.btn-group-tab button').click(function() {
+				$(this).parent().find('button').removeClass('active');
+				$(this).addClass('active');
+			})
+
+			// 2021-02-23 EZP-1903 시작
+			$('.ui-tab li a').click(function() {
+				var idx = $(this).parent().index();
+				$(this).parents('.tab-nav').find('li').removeClass('active');
+				$(this).parent().addClass('active');
+				$(this).parents('.ui-tab').find('.tab-cont').hide();
+				$(this).parents('.ui-tab').find('.tab-cont').eq(idx).show();
+			})
+			// 2021-03-30 EZP-1903
+			$('.ex-ui-tab .tab-nav li a').click(function() {
+				$(this).parents('.tab-nav').find('li').removeClass('active');
+				$(this).parent().addClass('active');
+				var idx = $(this).parent().index();
+				$('.ex-ui-tab .tab-cont').hide();
+				$('.ex-ui-tab .tab-cont').eq(idx).show();
+			})
+
+			// 2021-06-18 EZP-1765
+			$('.tab-wrap .nav li a').click(function() {
+				var idx = $(this).parent().index();
+				$('.tab-wrap .nav li').removeClass('active');
+				$(this).parents('.contents').find('.tab-cont').removeClass('active');
+				$(this).parent().addClass('active');
+				$(this).parents('.contents').find('.tab-cont').eq(idx).addClass('active');
+
+				// 2021-07-30 EZP-3659
+				var sSearchType = $(this).parent().data('search_type');
+				if (sSearchType == 'R') {
+					if ($('#labelReserve').length < 1) {
+						var sHtml = '<span class="checkbox" id="labelReserve"><input type="checkbox" id="a8" value="reserve" checked="checked" class="btnChkGroup"><label for="a8">미송</label></span>';
+						$('.tab-wrap .status').append(sHtml);
+					}
+				} else {
+					$('#labelReserve').remove();
+				}
+				$('.status-wrap').scrollLeft(0); // x-scroll 초기화
+			});
+
+			// 2021-07-30 EZP-3659
+			/**
+			 * 폼의 전체 체크 버튼
+			 */
+			$('.btnAllChk').click(function () {
+				var aInput = $(this).closest('div').find('input');
+				$(aInput).prop('checked', $(this).prop('checked'));
+			});
+			/**
+			 * 폼의 체크 버튼 상태에 따라 전체 체크 버튼 활성/비활성
+			 */
+			$('.status').on('change', '.btnChkGroup', function (e) {
+				var oChkContainer = $(this).closest('.status');
+
+				if($(this).prop('checked') === false) {
+					// 체크박스가 한개라도 체크해제면 전체 버튼은 체크 해제
+					oChkContainer.find('.btnAllChk').prop('checked', false);
+					oChkContainer.find('.btnAllChk').closest('label').removeClass('eSelected');
+				} else if (oChkContainer.find('.btnChkGroup').length === oChkContainer.find('.btnChkGroup:checked').length) {
+					// 전체 버튼을 제외한 체크 박스 숫자와 체크된 체크 박스 숫자가 같으면 전체 버튼 체크
+					oChkContainer.find('.btnAllChk').prop('checked', true);
+					oChkContainer.find('.btnAllChk').closest('label').addClass('eSelected');
+				}
+			});
+		})
+	</script>
+
+	<!-- 퍼블 화면 확인용, 실제 사용하지 않는 부분 -->
+	<script>
+		$('#alert-test01').find('.ok').click(function () {
+			$('#alert-test01').removeClass('on');
+			$('#mall-order-deadline').removeClass('on');
+			if ($('.full-layer.on').length === 0 && $('.alert-layer.on').length === 0) {
+				$('body').removeClass('fixed');
+			}
+		});
+		$('#mall-order-deadline').find('.cancel').off('click');
+		$('#mall-order-deadline').find('.cancel').click(function () {
+			$('#alert-test01').addClass('on');
+		});
+	</script>
+	<!-- // 퍼블 화면 확인용, 실제 사용하지 않는 부분 -->
+
+</body>
+
+</html>

@@ -1,0 +1,1662 @@
+<!DOCTYPE html>
+<html lang="ko" data-livestyle-extension="available" class="js">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta content="lK0RWxdehsio/icXlDgOD1/0XccqggRiBvNtJOsCkmw=" name="csrf-token" />
+    <meta content="T" name="login-required" />
+    <link rel="shortcut icon" type="image/x-icon" href="https://easypick.co.kr/img/favicon/ezp.ico" />
+
+    <!-- css -->
+    <link rel="stylesheet" type="text/css" href="../../../../css/default.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../css/month.picker.css" />
+
+    <title>이지픽</title>
+  </head>
+
+  <body>
+    <!-- header// -->
+    <header></header>
+    <!-- //header -->
+
+    <!--container// -->
+    <div id="container" class="min-wid over-unset">
+      <!--2021-01-14 추가 / min-wid 클래스 추가-->
+      <div class="order-top">
+        <h2>주문 / 결제</h2>
+        <ul class="chapter">
+          <li class="finish">
+            <!--활성화 on, 완료 finish-->
+            <span>01</span>
+            <p>장바구니</p>
+          </li>
+          <li class="on">
+            <span>02</span>
+            <p>결제</p>
+          </li>
+          <li>
+            <span>03</span>
+            <p>주문완료</p>
+          </li>
+        </ul>
+      </div>
+      <!-- 2022-05-27 EZP-543 안내문구 신규 추가 시작-->
+      <div class="pay-guide">
+        <p>셀픽주문에 대한 주문/결제 중 입니다.</p>
+      </div>
+      <!-- 2022-05-27 EZP-543 안내문구 신규 추가 종료-->
+      <div class="order-info-wrap">
+        <div class="order-list">
+          <form id="frmOrder" name="frmOrder">
+            <input type="hidden" name="order_type" value="G" />
+            <input type="hidden" name="order_method" value="10" />
+            <input type="hidden" name="order_method_type" value="11" />
+            <input type="hidden" name="commission_rate" value="0" />
+            <input type="hidden" name="shipping_price" value="0.00" />
+            <input type="hidden" name="is_add_in" value="" />
+            <input type="hidden" name="arrival_date" value="" />
+            <p class="tit">구매자 정보</p>
+            <div class="table-wrap">
+              <table class="th-ver">
+                <colgroup>
+                  <col width="140px" />
+                  <col width="*" />
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <th>주문자명</th>
+                    <td>이지픽</td>
+                  </tr>
+                  <tr>
+                    <th><span class="essential">연락처</span></th><!--2022-08-17 EZP-5889 필수아이콘 추가-->
+                    <td>
+                      <div class="tel-wrap">
+                        <input type="hidden" name="buyer_cell_1" id="buyer_cell_1" value="010" />
+                        <div class="ui-select" data-target_id="#buyer_cell_1">
+                          <button type="button" data-target_id="#buyer_cell_1" data-value="">010</button>
+                          <ul>
+                            <li data-key="02">02</li>
+                            <li data-key="051">051</li>
+                            <li data-key="053">053</li>
+                            <li data-key="032">032</li>
+                            <li data-key="062">062</li>
+                            <li data-key="042">042</li>
+                            <li data-key="052">052</li>
+                            <li data-key="031">031</li>
+                            <li data-key="033">033</li>
+                            <li data-key="043">043</li>
+                            <li data-key="044">044</li>
+                            <li data-key="041">041</li>
+                            <li data-key="063">063</li>
+                            <li data-key="061">061</li>
+                            <li data-key="054">054</li>
+                            <li data-key="055">055</li>
+                            <li data-key="064">064</li>
+                            <li data-key="070">070</li>
+                            <li data-key="0502">0502</li>
+                            <li data-key="0503">0503</li>
+                            <li data-key="0504">0504</li>
+                            <li data-key="0505">0505</li>
+                            <li data-key="0506">0506</li>
+                            <li data-key="010" class="active">010</li>
+                            <li data-key="011">011</li>
+                            <li data-key="016">016</li>
+                            <li data-key="017">017</li>
+                            <li data-key="018">018</li>
+                            <li data-key="019">019</li>
+                          </ul>
+                        </div>
+                        <span>-</span>
+                        <input type="number" class="eNum" name="buyer_cell_2" value="2355" maxlength="4" required="" style="padding-right: 20px" />
+                        <!-- <div style="display:inline; position:relative;" class="add-clear-span">
+												<a href="#clear" style="display: none; color: rgb(204, 204, 204); text-decoration: none; overflow: hidden; position: absolute; right: 12px; top: 1px; line-height: 1;">✖</a>
+												</div> -->
+                        <span>-</span>
+                        <input type="number" class="eNum" name="buyer_cell_3" value="7643" maxlength="4" required="" style="padding-right: 20px" />
+                        <!-- <div style="display:inline; position:relative;" class="add-clear-span"><a href="#clear"
+													style="display: none; color: rgb(204, 204, 204); text-decoration: none; overflow: hidden; position: absolute; right: 12px; top: 1px; line-height: 1;">✖</a></div> -->
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="tit">픽업 정보<span class="notice">*수령방식을 선택하고 필수 입력값을 꼭 기입해 주세요!</span></p>
+            <div class="table-wrap">
+              <table class="th-ver">
+                <colgroup>
+                  <col width="140px" />
+                  <col width="*" />
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <th><span>수령방식</span></th>
+                    <td>
+                      <!--2022-08-24 EZP-6480 마크업 구조 변경 및 수정 //-->
+                      <div class="radio-box-wrap receipt-wrap">
+                        <span class="radio">
+                          <input type="radio" name="radio1" id="radio1-2">
+                          <label for="radio1-2">직접수령</label>
+                        </span>
+                        <span class="radio">
+                          <input type="radio" name="radio1" id="radio1-1">
+                          <label for="radio1-1">사입삼촌수령</label>
+                        </span>
+                        <div class="update-info" data-target_id="" data-toggle="#toggle-radio1-2">
+                          <span class="checkbox"><input type="checkbox" id="updateInfo" /><label for="updateInfo">사입삼촌 정보 업데이트</label>
+                           <div class="tip-wrap">
+                            <a href="javascript:;" class="btn-tip"></a>
+                            <div class="tip pb0" style="width: 430px; z-index: 4;">
+                              <p class="txt remove-underline">
+                                사입삼촌정보는 <span class="txt-black txt-bold">마이페이지 > 회원정보수정</span> 페이지에서 관리 가능합니다.<br><br>
+                                *등록된 사입삼촌 정보가 <span class="txt-black txt-bold">없는 경우</span> 체크 시
+                                <br>- 주문/결제 페이지에서 입력한 정보가 마이페이지에 저장됩니다.<br><br>
+                                *등록된 사입삼촌 정보가 <span class="txt-black txt-bold">있는 경우</span> 체크 시
+                                <br>- 주문/결제 페이지에서 입력한 정보로 마이페이지에 저장된 사입삼촌 정보가 업데이트 됩니다.
+                              </p>
+                            </div>
+                           </div>
+                            <button type="button" class="btn-info">사입삼촌정보</button></span>
+											  </div>
+										  </div>
+                      <!--// 2022-08-24 EZP-6480 마크업 구조 변경-->
+                    </td>
+                  </tr>
+                  <tr class="sellup-info">
+                    <th><span class="essential">이름</span></th>
+                    <td>
+                      <input type="text" name="shipping_receiver_name" style="" value="" required=""  placeholder="이름을 입력해주세요." />
+                    </td>
+                  </tr>
+                  <tr class="sellup-info">
+                    <th><span class="essential">연락처</span></th>
+                    <td>
+                      <div class="tel-wrap">
+                        <input type="hidden" name="shipping_cell_1" id="shipping_cell_1" value="010" />
+                        <div class="ui-select" data-target_id="#shipping_cell_1">
+                          <button type="button" data-target_id="#shipping_cell_1" data-value="">010</button>
+                          <ul>
+                            <li data-key="02">02</li>
+                            <li data-key="051">051</li>
+                            <li data-key="053">053</li>
+                            <li data-key="032">032</li>
+                            <li data-key="062">062</li>
+                            <li data-key="042">042</li>
+                            <li data-key="052">052</li>
+                            <li data-key="031">031</li>
+                            <li data-key="033">033</li>
+                            <li data-key="043">043</li>
+                            <li data-key="044">044</li>
+                            <li data-key="041">041</li>
+                            <li data-key="063">063</li>
+                            <li data-key="061">061</li>
+                            <li data-key="054">054</li>
+                            <li data-key="055">055</li>
+                            <li data-key="064">064</li>
+                            <li data-key="070">070</li>
+                            <li data-key="0502">0502</li>
+                            <li data-key="0503">0503</li>
+                            <li data-key="0504">0504</li>
+                            <li data-key="0505">0505</li>
+                            <li data-key="0506">0506</li>
+                            <li data-key="010" class="active">010</li>
+                            <li data-key="011">011</li>
+                            <li data-key="016">016</li>
+                            <li data-key="017">017</li>
+                            <li data-key="018">018</li>
+                            <li data-key="019">019</li>
+                          </ul>
+                        </div>
+                        <span>-</span>
+                        <input type="number" class="eNum" name="shipping_cell_2" value="2355" maxlength="4" required="" style="padding-right: 20px" />
+                        <span>-</span>
+                        <input type="number" class="eNum" name="shipping_cell_3" value="7643" maxlength="4" required="" style="padding-right: 20px" />
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="sellup-info">
+                    <th><span>이메일</span></th>
+                    <td>
+                      <!-- 2022-06-07 EZP-5433 이메일 형식 변경 시작 -->
+                      <div class="mail divUserId">
+                        <input type="text" placeholder="이메일을 입력해주세요." id="id" name="user_id" class="eEssn eCheckOverlap" data-type="id" style="width: 268px; padding-right: 20px;">
+                        <input type="hidden" name="email" id="email" value="naver.com">
+                        <div class="ui-select" data-target_id="#email" style="margin-left: 25px;"> <!--2022-07-08 EZP-5433-->
+                          <button type="button" data-target_id="#email" data-value="">네이버</button>
+                          <ul>
+                            <li data-key="direct">직접입력</li>
+                            <li data-key="naver.com" class="active">네이버</li>
+                            <li data-key="gmail.com">지메일</li>
+                            <li data-key="daum.net">다음</li>
+                            <li data-key="hanmail.net">한메일</li>
+                            <li data-key="hotmail.com">핫메일</li>
+                          </ul>
+                        </div>
+                        <input type="text" placeholder="" id="mail" name="email_direct" class="eCheckOverlap" data-type="id" style="width: 268px; display: none; padding-right: 20px;">
+                      </div>
+                      <!-- 2022-06-07 EZP-5433 이메일 형식 변경 종료 -->
+                    </td>
+                  </tr>
+                  <tr>
+                    <th></th>
+                    <td>
+                      <div class="email-explain sellup-info">
+                        <p><span>*</span>항목은 필수 값 입니다.</p>
+                        <p>사입삼촌이 가게에 방문하여 상품 픽업이 진행되는 방식입니다.</p>
+                        <p>사입삼촌은 등록해주신 정보의 연락처와 이메일로 주문 내용을 전달 받습니다.</p>
+                      </div>
+                      <div class="email-explain now-info" style="display: none;"> <!-- 2022-07-08 EZP-5433-->
+                        <p>가게에 직접 방문하여 상품을 픽업하는 방식입니다.</p>
+                        <p>셀픽주문현황 페이지에서 '포장완료' 상태로 변경되어 픽업 가능여부를 확인하실 수 있습니다.</p>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="tit sellup-info">배송지 정보</p>
+            <div class="table-wrap sellup-info">
+              <table class="th-ver">
+                <colgroup>
+                  <col width="140px" />
+                  <col width="*" />
+                </colgroup>
+                <tbody>
+                  <tr>
+                    <th><span class="essential">받는사람</span></th><!--2022-08-17 EZP-5889 필수아이콘 추가-->
+                    <td>
+                      <!--2021-01-14 수정 / input에 style width값 삭제-->
+                      <!-- <div style="display:inline; position:relative;" class="add-clear-span"><a href="#clear"
+												style="display: none; color: rgb(204, 204, 204); text-decoration: none; overflow: hidden; position: absolute; right: 12px; top: 1px; line-height: 1;">✖</a></div> -->
+                      <input type="text" name="shipping_receiver_name" style="" value="이지픽" required="" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <th><span class="essential">연락처</span></th><!--2022-08-17 EZP-5889 필수아이콘 추가-->
+                    <td>
+                      <div class="tel-wrap">
+                        <input type="hidden" name="shipping_cell_1" id="shipping_cell_1" value="010" />
+                        <div class="ui-select" data-target_id="#shipping_cell_1">
+                          <button type="button" data-target_id="#shipping_cell_1" data-value="">010</button>
+                          <ul>
+                            <li data-key="02">02</li>
+                            <li data-key="051">051</li>
+                            <li data-key="053">053</li>
+                            <li data-key="032">032</li>
+                            <li data-key="062">062</li>
+                            <li data-key="042">042</li>
+                            <li data-key="052">052</li>
+                            <li data-key="031">031</li>
+                            <li data-key="033">033</li>
+                            <li data-key="043">043</li>
+                            <li data-key="044">044</li>
+                            <li data-key="041">041</li>
+                            <li data-key="063">063</li>
+                            <li data-key="061">061</li>
+                            <li data-key="054">054</li>
+                            <li data-key="055">055</li>
+                            <li data-key="064">064</li>
+                            <li data-key="070">070</li>
+                            <li data-key="0502">0502</li>
+                            <li data-key="0503">0503</li>
+                            <li data-key="0504">0504</li>
+                            <li data-key="0505">0505</li>
+                            <li data-key="0506">0506</li>
+                            <li data-key="010" class="active">010</li>
+                            <li data-key="011">011</li>
+                            <li data-key="016">016</li>
+                            <li data-key="017">017</li>
+                            <li data-key="018">018</li>
+                            <li data-key="019">019</li>
+                          </ul>
+                        </div>
+                        <span>-</span>
+                        <input type="number" class="eNum" name="shipping_cell_2" value="2355" maxlength="4" required="" style="padding-right: 20px" />
+                        <span>-</span>
+                        <input type="number" class="eNum" name="shipping_cell_3" value="7643" maxlength="4" required="" style="padding-right: 20px" />
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th><span class="essential">주소</span></th><!--2022-08-17 EZP-5889 필수아이콘 추가-->
+                    <td>
+                      <!-- 2021-03-08 수정// -->
+                      <div class="address-wrap">
+                        <div class="mb10">
+                          <input type="text" style="max-width: 273px" class="txtShippingZipCode" name="shipping_zipcode" value="04568" readonly="" required="" />
+                          <button type="button" name="button" class="btn" id="aZipCode">우편번호 찾기</button>
+                        </div>
+                        <input type="text" style="" class="txtShippingAddr addclear2" name="shipping_addr" value="서울 중구 다산로 289 (신당동)" readonly="" required="" />
+                        <div class="mb10"></div>
+                        <!-- 2021-03-31 EZP-2562 -->
+                        <input type="text" style="" class="txtShippingStreet addclear2" name="shipping_street" placeholder="상세주소를 입력해주세요." required="" />
+                      </div>
+                      <!-- //2021-03-08 수정 -->
+                    </td>
+                  </tr>
+                  <!-- 2022-06-21 EZP-5433 -->
+                  <!-- <tr>
+                    <th>배송 메시지</th>
+                    <td>
+                      <input type="text" name="shipping_memo" placeholder="배송시 요청할 메시지를 작성해주세요." style="" class="addclear2" />
+                    </td>
+                  </tr> -->
+                  <tr>
+                    <th>사입삼촌 요청 메모</th>
+                    <td>
+                      <input type="text" name="uncle_memo" placeholder="사입삼촌에게 요청할 메모를 작성해주세요." style="" class="addclear2" />
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!--1. 신규 -->
+            <!-- 2022-09-23 EZP-5935 워딩수정 -->
+            <p class="tit">
+              주문상품 정보 <em class="Enfont">(9,999)</em>
+              <!--EZP-3157-->
+            </p>
+            <div class="table-wrap mb0 pay-order-items-list">
+              <table class="th-hor">
+                <colgroup>
+                  <!--
+                  <col width="370px">
+                  <col width="150px">
+                  <col width="128px">
+                  <col width="160px">
+                  <col width="100px">-->
+                  <col width="7%" />
+                  <col width="28%" />
+                  <col width="7%" />
+                  <col width="14%" />
+                  <col width="14%" />
+                  <col width="14%" />
+                  <col width="21%" /> <!--2022-07-25 EZP-3157 메모열 추가-->
+                  <!-- <col width="14%" /> -->
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th>유형정보</th>
+                    <th>상품정보</th>
+                    <th></th>
+                    <th>옵션</th>
+                    <th>주문수량</th> <!-- 2022-09-23 EZP-5935 워딩수정 -->
+                    <th>판매가 합계</th>
+                    <th>메모</th><!--2022-07-25 EZP-3157 메모열 추가-->
+                    <!-- <th>품절 처리 방식</th> -->
+                  </tr>
+                </thead>
+                <tbody id="tbodyOrder">
+                  <tr class="trItemNo4776">
+                    <input type="hidden" name="cart_no[]" value="" />
+                    <input type="hidden" name="item_no[]" value="4776" />
+                    <input type="hidden" name="item_price[]" value="13500.00" />
+                    <input type="hidden" name="min_order_qty[]" value="1" />
+                    <input type="hidden" name="is_reserved[]" value="F" />
+                    <td><span class="btn-type blue">신규</span></td>
+                    <td class="prd-detail">
+                      <span class="img"><img
+                          src="https://s3.ap-northeast-2.amazonaws.com/bakan/devsdkwms1001/productMain/2020/03/30/1fd957d98c8901692aaa2674908a48ae"
+                          alt="JC-NT-11226" /></span>
+                      <div>
+                        <!-- 2021-01-25 수정 -->
+                        <!-- 2021-05-10 EZP-2899 -->
+                        <p>JC APPAREL</p>
+                        <!-- 2021-09-17 EZP-3523 -->
+                        <p>
+                          <!-- 2021-06-15 EZP-2899 밑줄 제거시 underline 삭제 -->
+                          <a href="#" class="">
+                            <strong>JC-NT-11226</strong>
+                          </a>
+                          <!--
+            												<a href="javascript:;" class="eProductImgUrl" data-url="file:///C:/Users/7040_64bit/Desktop/KakaoTalk_20200115_111739154.jpg">
+            													<img src="../../../../img/common/ico_image.png">
+            												</a>-->
+                        </p>
+                        <!-- 2021-06-16 EZP-3188 -->
+                        <em class="price"><i>6,000</i>원</em>
+                      </div>
+                    </td>
+                    <td></td>
+                    <td class="size">
+                      <p>
+                        네이비
+
+                        <br />
+                        Free
+                      </p>
+                    </td>
+                    <!--//EZP-3157-->
+                    <td>
+                      <div class="amount">
+                        <button type="button" class="minus">-</button>
+                        <input type="number" name="order_qty[]" value="1" class="eNum eOrderQty" maxlength="4" required="" />
+                        <button type="button" class="plus">+</button>
+                      </div>
+                      <!-- 2021-04-27 EZP-2849 -->
+                      <em class="min-amount">최소주문수량 2개</em>
+                    </td>
+                    <!-- 2021-05-06 EZP-2955 -->
+                    <td class="cost tac pr0"><span>13,500</span>원</td>
+                    <!-- <td class="soldout">
+                      <button type="button" class="btn-noshipping btnReserve" data-is_reserved="T">미송</button>
+                      <button type="button" class="btn-refund btnRefund active" data-is_reserved="F">환불</button>
+                    </td> -->
+                    <td>
+                      <div class="full-len">
+                        <input type="text" value="1 " placeholder="품목 메모를 작성해주세요." />
+                      </div>
+                    </td> <!--2022-07-25 EZP-3157 메모열 추가-->
+                  </tr>
+                  <tr class="trItemNo4776">
+                    <input type="hidden" name="cart_no[]" value="" />
+                    <input type="hidden" name="item_no[]" value="4776" />
+                    <input type="hidden" name="item_price[]" value="13500.00" />
+                    <input type="hidden" name="min_order_qty[]" value="1" />
+                    <input type="hidden" name="is_reserved[]" value="F" />
+                    <td><span class="btn-type blue">신규</span></td>
+                    <td class="prd-detail">
+                      <span class="img"><img
+                          src="https://s3.ap-northeast-2.amazonaws.com/bakan/devsdkwms1001/productMain/2020/03/30/1fd957d98c8901692aaa2674908a48ae"
+                          alt="JC-NT-11226" /></span>
+                      <div>
+                        <!-- 2021-01-25 수정 -->
+                        <!-- 2021-05-10 EZP-2899 -->
+                        <p>JC APPAREL</p>
+                        <!-- 2021-09-17 EZP-3523 -->
+                        <p>
+                          <!-- 2021-06-15 EZP-2899 밑줄 제거시 underline 삭제 -->
+                          <a href="#" class="">
+                            <strong>JC-NT-11226</strong>
+                          </a>
+                          <!--
+                          <a href="javascript:;" class="eProductImgUrl" data-url="file:///C:/Users/7040_64bit/Desktop/KakaoTalk_20200115_111739154.jpg">
+                            <img src="../../../../img/common/ico_image.png">
+                          </a>-->
+                        </p>
+                        <!-- 2021-06-16 EZP-3188 -->
+                        <em class="price"><i>6,000</i>원</em>
+                      </div>
+                    </td>
+                    <td></td>
+                    <td class="size">
+                      <p>
+                        네이비
+
+                        <br />
+                        Free
+                      </p>
+                    </td>
+                    <!--//EZP-3157-->
+                    <td>
+                      <div class="amount">
+                        <button type="button" class="minus">-</button>
+                        <input type="number" name="order_qty[]" value="1" class="eNum eOrderQty" maxlength="4" required="" />
+                        <button type="button" class="plus">+</button>
+                      </div>
+                      <!-- 2021-04-27 EZP-2849 -->
+                      <em class="min-amount">최소주문수량 2개</em>
+                    </td>
+                    <!-- 2021-05-06 EZP-2955 -->
+                    <td class="cost tac pr0"><span>13,500</span>원</td>
+                    <!-- <td class="soldout">
+                      <button type="button" class="btn-noshipping btnReserve" data-is_reserved="T">미송</button>
+                      <button type="button" class="btn-refund btnRefund active" data-is_reserved="F">환불</button>
+                    </td> -->
+                    <td>
+                      <div class="full-len">
+                        <input type="text" value="1 " placeholder="품목 메모를 작성해주세요." />
+                      </div>
+                    </td>
+                    <!--2022-07-25 EZP-3157 메모열 추가-->
+                  </tr>
+                </tbody>
+              </table>
+              <!-- 2022-05-30 EZP-4381 페이지네이션 추가 시작 -->
+              <div class="pagination mt50">
+                <a href="#none;" class="first none" style="cursor:unset;">처음</a>
+                <a href="#none;" class="prev none" style="cursor:unset;">이전</a>
+                <a href="#none;" class="active">1</a>
+                <a href="#">2</a>
+                <a href="#">3</a>
+                <a href="#none" class="next none" style="cursor:unset;">다음</a>
+                <a href="#" class="last">다음</a>
+              </div>
+              <!--// 2022-05-30 EZP-4381 페이지네이션 추가 종료 -->
+            </div>
+            <div style="height: 40px"></div>
+
+            <!--2. 일반주문 -->
+            <!-- 2022-09-23 EZP-5935 워딩수정 -->
+            <p class="tit">
+              주문상품 정보 <em class="Enfont">(9,999)</em>
+              <!--EZP-3157-->
+            </p>
+
+            <div class="table-wrap mb0 pay-order-items-list">
+              <table class="th-hor">
+                <colgroup>
+                  <col width="7%" />
+                  <col width="28%" />
+                  <col width="10%" />
+                  <col width="10%" />
+                  <col width="7%" />
+                  <col width="35%" />
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th>유형</th>
+                    <th>상품정보</th>
+                    <th></th>
+                    <th>옵션</th>
+                    <th></th>
+                    <th>메모</th>
+                  </tr>
+                </thead>
+                <tbody id="tbodyOrder">
+                  <tr class="trItemNo4776">
+                    <input type="hidden" name="cart_no[]" value="" />
+                    <input type="hidden" name="item_no[]" value="4776" />
+                    <input type="hidden" name="item_price[]" value="13500.00" />
+                    <input type="hidden" name="min_order_qty[]" value="1" />
+                    <input type="hidden" name="is_reserved[]" value="F" />
+                    <td><span class="btn-type purple">샘플</span></td>
+
+                    <td class="prd-detail">
+                      <span class="img"><img
+                          src="https://s3.ap-northeast-2.amazonaws.com/bakan/devsdkwms1001/productMain/2020/03/30/1fd957d98c8901692aaa2674908a48ae"
+                          alt="JC-NT-11226" /></span>
+                      <div class="full">
+                        <p>JC APPAREL</p>
+                        <p>
+                          <a href="#" class="">
+                            <strong>JC-NT-11226</strong>
+                          </a>
+                        </p>
+                        <em class="price"><i>6,000</i>원</em>
+                      </div>
+                    </td>
+                    <td></td>
+                    <td class="size">
+                      <p>네이비 <br />Free</p>
+                    </td>
+                    <td></td>
+                    <td>
+                      <div class="full-len">
+                        <input type="text" value="1 " placeholder="품목 메모를 작성해주세요." />
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="trItemNo4776">
+                    <input type="hidden" name="cart_no[]" value="" />
+                    <input type="hidden" name="item_no[]" value="4776" />
+                    <input type="hidden" name="item_price[]" value="13500.00" />
+                    <input type="hidden" name="min_order_qty[]" value="1" />
+                    <input type="hidden" name="is_reserved[]" value="F" />
+                    <td>
+                      <span class="btn-type purple line2">유료<br />샘플</span>
+                    </td>
+
+                    <td class="prd-detail">
+                      <span class="img"><img
+                          src="https://s3.ap-northeast-2.amazonaws.com/bakan/devsdkwms1001/productMain/2020/03/30/1fd957d98c8901692aaa2674908a48ae"
+                          alt="JC-NT-11226" /></span>
+                      <div class="full">
+                        <p>JC APPAREL</p>
+                        <p>
+                          <a href="#" class="">
+                            <strong>JC-NT-11226</strong>
+                          </a>
+                        </p>
+                        <em class="price"><i>6,000</i>원</em>
+                      </div>
+                    </td>
+                    <td></td>
+                    <td class="size">
+                      <p>네이비 <br />Free</p>
+                    </td>
+                    <td></td>
+                    <td>
+                      <div class="full-len">
+                        <input type="text" value="" placeholder="품목 메모를 작성해주세요." />
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <!-- 2022-05-30 EZP-4381 페이지네이션 추가 시작 -->
+              <div class="pagination mt50">
+                <a href="#none;" class="first none" style="cursor:unset;">처음</a>
+                <a href="#none;" class="prev none" style="cursor:unset;">이전</a>
+                <a href="#none;" class="active">1</a>
+                <a href="#">2</a>
+                <a href="#">3</a>
+                <a href="#none" class="next none" style="cursor:unset;">다음</a>
+                <a href="#" class="last">다음</a>
+              </div>
+              <!--// 2022-05-30 EZP-4381 페이지네이션 추가 종료 -->
+            </div>
+
+            <!--3. 일반주문 > 반납 -->
+            <div style="height: 40px"></div>
+            <!-- 2022-09-23 EZP-5935 워딩수정 -->
+            <p class="tit">
+              주문상품 정보 <em class="Enfont">(9,999)</em>
+              <!--EZP-3157-->
+            </p>
+
+            <div class="table-wrap mb0 pay-order-items-list">
+              <table class="th-hor">
+                <colgroup>
+                  <col width="7%" />
+                  <col width="28%" />
+                  <col width="7%" />
+                  <col width="7%" />
+                  <col width="21%" />
+                  <col width="21%" />
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th>유형</th>
+                    <th>상품정보</th>
+                    <th></th>
+                    <th>옵션</th>
+                    <th>결제수량</th><!-- 2022-05-19 EZP-3157 워딩수정-->
+                    <th>메모</th>
+                  </tr>
+                </thead>
+                <tbody id="tbodyOrder">
+                  <tr class="trItemNo4776">
+                    <input type="hidden" name="cart_no[]" value="" />
+                    <input type="hidden" name="item_no[]" value="4776" />
+                    <input type="hidden" name="item_price[]" value="13500.00" />
+                    <input type="hidden" name="min_order_qty[]" value="1" />
+                    <input type="hidden" name="is_reserved[]" value="F" />
+                    <td><span class="btn-type yellow">반납</span></td>
+
+                    <td class="prd-detail">
+                      <span class="img"><img
+                          src="https://s3.ap-northeast-2.amazonaws.com/bakan/devsdkwms1001/productMain/2020/03/30/1fd957d98c8901692aaa2674908a48ae"
+                          alt="JC-NT-11226" /></span>
+                      <div class="full">
+                        <p>JC APPAREL</p>
+                        <p>
+                          <a href="#" class="">
+                            <strong>JC-NT-11226</strong>
+                          </a>
+                        </p>
+                        <em class="price"><i>6,000</i>원</em>
+                      </div>
+                    </td>
+                    <td></td>
+                    <td class="size">
+                      <p>네이비 <br />Free</p>
+                    </td>
+                    <td>
+                      <div class="amount">
+                        <button type="button" class="minus">-</button>
+                        <input type="number" name="order_qty[]" value="1" class="eNum eOrderQty" maxlength="4" required="" />
+                        <button type="button" class="plus">+</button>
+                      </div>
+                    </td>
+
+                    <td>
+                      <div class="full-len">
+                        <input type="text" value="" placeholder="품목 메모를 작성해주세요." />
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="trItemNo4776">
+                    <input type="hidden" name="cart_no[]" value="" />
+                    <input type="hidden" name="item_no[]" value="4776" />
+                    <input type="hidden" name="item_price[]" value="13500.00" />
+                    <input type="hidden" name="min_order_qty[]" value="1" />
+                    <input type="hidden" name="is_reserved[]" value="F" />
+                    <td><span class="btn-type yellow">반납</span></td>
+
+                    <td class="prd-detail">
+                      <span class="img"><img
+                          src="https://s3.ap-northeast-2.amazonaws.com/bakan/devsdkwms1001/productMain/2020/03/30/1fd957d98c8901692aaa2674908a48ae"
+                          alt="JC-NT-11226" /></span>
+                      <div class="full">
+                        <p>JC APPAREL</p>
+                        <p>
+                          <a href="#" class="">
+                            <strong>JC-NT-11226</strong>
+                          </a>
+                        </p>
+                        <em class="price"><i>6,000</i>원</em>
+                      </div>
+                    </td>
+                    <td></td>
+                    <td class="size">
+                      <p>네이비 <br />Free</p>
+                    </td>
+                    <td>
+                      <div class="amount">
+                        <button type="button" class="minus">-</button>
+                        <input type="number" name="order_qty[]" value="1" class="eNum eOrderQty" maxlength="4" required="" />
+                        <button type="button" class="plus">+</button>
+                      </div>
+                    </td>
+
+                    <td>
+                      <div class="full-len">
+                        <input type="text" value="" placeholder="품목 메모를 작성해주세요." />
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <!-- 2022-05-30 EZP-4381 페이지네이션 추가 시작 -->
+              <div class="pagination mt50">
+                <a href="#none;" class="first none" style="cursor:unset;">처음</a>
+                <a href="#none;" class="prev none" style="cursor:unset;">이전</a>
+                <a href="#none;" class="active">1</a>
+                <a href="#">2</a>
+                <a href="#">3</a>
+                <a href="#none" class="next none" style="cursor:unset;">다음</a>
+                <a href="#" class="last">다음</a>
+              </div>
+              <!--// 2022-05-30 EZP-4381 페이지네이션 추가 종료 -->
+            </div>
+
+            <!--4. 일반주문 > 샘플결제 -->
+            <div style="height: 40px"></div>
+            <!-- 2022-09-23 EZP-5935 워딩수정 -->
+            <p class="tit">
+              주문상품 정보 <em class="Enfont">(9,999)</em>
+              <!--EZP-3157-->
+            </p>
+
+            <div class="table-wrap mb0 pay-order-items-list">
+              <table class="th-hor">
+                <colgroup>
+                  <col width="7%" />
+                  <col width="28%" />
+                  <col width="7%" />
+                  <col width="7%" />
+                  <col width="21%" />
+                  <col width="21%" /><!-- 2022-05-19 EZP-3157 판매가 합계 열 추가-->
+                  <col width="21%" />
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th>유형</th>
+                    <th>상품정보</th>
+                    <th></th>
+                    <th>옵션</th>
+                    <th>결제수량</th><!-- 2022-05-19 EZP-3157 워딩수정-->
+                    <th>판매가 합계</th><!-- 2022-05-19 EZP-3157 판매가 합계 열 추가-->
+                    <th>메모</th>
+                  </tr>
+                </thead>
+                <tbody id="tbodyOrder">
+                  <tr class="trItemNo4776">
+                    <input type="hidden" name="cart_no[]" value="" />
+                    <input type="hidden" name="item_no[]" value="4776" />
+                    <input type="hidden" name="item_price[]" value="13500.00" />
+                    <input type="hidden" name="min_order_qty[]" value="1" />
+                    <input type="hidden" name="is_reserved[]" value="F" />
+                    <td>
+                      <span class="btn-type margenta line2">샘플<br />결제 </span>
+                    </td>
+
+                    <td class="prd-detail">
+                      <span class="img"><img
+                          src="https://s3.ap-northeast-2.amazonaws.com/bakan/devsdkwms1001/productMain/2020/03/30/1fd957d98c8901692aaa2674908a48ae"
+                          alt="JC-NT-11226" /></span>
+                      <div class="full">
+                        <p>JC APPAREL</p>
+                        <p>
+                          <a href="#" class="">
+                            <strong>JC-NT-11226</strong>
+                          </a>
+                        </p>
+                        <em class="price"><i>6,000</i>원</em>
+                      </div>
+                    </td>
+                    <td></td>
+                    <td class="size">
+                      <p>네이비 <br />Free</p>
+                    </td>
+                    <td>
+                      <div class="amount">
+                        <button type="button" class="minus">-</button>
+                        <input type="number" name="order_qty[]" value="1" class="eNum eOrderQty" maxlength="4" required="" />
+                        <button type="button" class="plus">+</button>
+                      </div>
+                      <!--em class="min-amount">판매가합계: 12,000원 </em-->
+                      <!-- 2022-05-19 EZP-3157 삭제 -->
+                    </td>
+
+                    <!-- 2022-05-19 EZP-3157 판매가 합계 열 추가-->
+                    <td class="saleTotal">
+                      <em class="price">6,528,500</em>원
+                    </td>
+                    <!--// 2022-05-19 EZP-3157 판매가 합계 열 추가-->
+
+                    <td>
+                      <div class="full-len">
+                        <input type="text" value="" placeholder="품목 메모를 작성해주세요." />
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="trItemNo4776">
+                    <input type="hidden" name="cart_no[]" value="" />
+                    <input type="hidden" name="item_no[]" value="4776" />
+                    <input type="hidden" name="item_price[]" value="13500.00" />
+                    <input type="hidden" name="min_order_qty[]" value="1" />
+                    <input type="hidden" name="is_reserved[]" value="F" />
+                    <td>
+                      <span class="btn-type margenta line2">샘플<br />결제 </span>
+                    </td>
+
+                    <td class="prd-detail">
+                      <span class="img"><img
+                          src="https://s3.ap-northeast-2.amazonaws.com/bakan/devsdkwms1001/productMain/2020/03/30/1fd957d98c8901692aaa2674908a48ae"
+                          alt="JC-NT-11226" /></span>
+                      <div class="full">
+                        <p>JC APPAREL</p>
+                        <p>
+                          <a href="#" class="">
+                            <strong>JC-NT-11226</strong>
+                          </a>
+                        </p>
+                        <em class="price"><i>6,000</i>원</em>
+                      </div>
+                    </td>
+                    <td></td>
+                    <td class="size">
+                      <p>네이비 <br />Free</p>
+                    </td>
+                    <td>
+                      <div class="amount">
+                        <button type="button" class="minus">-</button>
+                        <input type="number" name="order_qty[]" value="1" class="eNum eOrderQty" maxlength="4" required="" />
+                        <button type="button" class="plus">+</button>
+                      </div>
+                      <!--em class="min-amount">판매가합계: 12,000원 </em-->
+                      <!-- 2022-05-19 EZP-3157 삭제-->
+                    </td>
+
+                    <!-- 2022-05-19 EZP-3157 판매가 합계 열 추가-->
+                    <td class="saleTotal">
+                      <em class="price">6,528,500</em>원
+                    </td>
+                    <!--// 2022-05-19 EZP-3157 판매가 합계 열 추가-->
+
+                    <td>
+                      <div class="full-len">
+                        <input type="text" value="" placeholder="품목 메모를 작성해주세요." />
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <!-- 2022-05-30 EZP-4381 페이지네이션 추가 시작 -->
+              <div class="pagination mt50">
+                <a href="#none;" class="first none" style="cursor:unset;">처음</a>
+                <a href="#none;" class="prev none" style="cursor:unset;">이전</a>
+                <a href="#none;" class="active">1</a>
+                <a href="#">2</a>
+                <a href="#">3</a>
+                <a href="#none" class="next none" style="cursor:unset;">다음</a>
+                <a href="#" class="last">다음</a>
+              </div>
+              <!--// 2022-05-30 EZP-4381 페이지네이션 추가 종료 -->
+            </div>
+
+            <!-- 5. 불량  -->
+            <!-- 2022-09-23 EZP-5935 워딩수정 -->
+            <p class="tit">
+              주문상품 정보 <em class="Enfont">(9,999)</em>
+              <!--EZP-3157-->
+            </p>
+            <div class="table-wrap mb0 pay-order-items-list">
+              <table class="th-hor">
+                <colgroup>
+                  <!--
+                              <col width="370px">
+                              <col width="150px">
+                              <col width="128px">
+                              <col width="160px">
+                              <col width="100px">-->
+                  <col width="7%" />
+                  <col width="28%" />
+                  <col width="7%" />
+                  <col width="14%" />
+                  <col width="14%" />
+                  <col width="14%" />
+                  <col width="21%" /> <!--2022-07-25 EZP-3157 메모열 추가-->
+                  <!-- <col width="14%" /> -->
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th>유형정보</th>
+                    <th>상품정보</th>
+                    <th></th>
+                    <th>옵션</th>
+                    <th>불량수량</th>
+                    <th>판매가 합계</th>
+                    <th>메모</th> <!--2022-07-25 EZP-3157 메모열 추가-->
+                    <!-- <th>품절 처리 방식</th> -->
+                  </tr>
+                </thead>
+                <tbody id="tbodyOrder">
+                  <tr class="trItemNo4776">
+                    <input type="hidden" name="cart_no[]" value="" />
+                    <input type="hidden" name="item_no[]" value="4776" />
+                    <input type="hidden" name="item_price[]" value="13500.00" />
+                    <input type="hidden" name="min_order_qty[]" value="1" />
+                    <input type="hidden" name="is_reserved[]" value="F" />
+                    <td><span class="btn-type faulty">불량</span></td>
+                    <td class="prd-detail">
+                      <span class="img"><img
+                          src="https://s3.ap-northeast-2.amazonaws.com/bakan/devsdkwms1001/productMain/2020/03/30/1fd957d98c8901692aaa2674908a48ae"
+                          alt="JC-NT-11226" /></span>
+                      <div>
+                        <!-- 2021-01-25 수정 -->
+                        <!-- 2021-05-10 EZP-2899 -->
+                        <p>JC APPAREL</p>
+                        <!-- 2021-09-17 EZP-3523 -->
+                        <p>
+                          <!-- 2021-06-15 EZP-2899 밑줄 제거시 underline 삭제 -->
+                          <a href="#" class="">
+                            <strong>JC-NT-11226</strong>
+                          </a>
+                          <!--
+                        												<a href="javascript:;" class="eProductImgUrl" data-url="file:///C:/Users/7040_64bit/Desktop/KakaoTalk_20200115_111739154.jpg">
+                        													<img src="../../../../img/common/ico_image.png">
+                        												</a>-->
+                        </p>
+                        <!-- 2021-06-16 EZP-3188 -->
+                        <em class="price"><i>6,000</i>원</em>
+                      </div>
+                    </td>
+                    <td></td>
+                    <td class="size">
+                      <p>
+                        네이비
+
+                        <br />
+                        Free
+                      </p>
+                    </td>
+                    <!--//EZP-3157-->
+                    <td>
+                      <div class="amount">
+                        <button type="button" class="minus">-</button>
+                        <input type="number" name="order_qty[]" value="1" class="eNum eOrderQty" maxlength="4" required="" />
+                        <button type="button" class="plus">+</button>
+                      </div>
+                      <!-- 2021-04-27 EZP-2849 -->
+                      <!-- <em class="min-amount">최소주문수량 2개</em> -->
+                    </td>
+                    <!-- 2021-05-06 EZP-2955 -->
+                    <td class="cost tac pr0"><span>13,500</span>원</td>
+                    <!-- <td class="soldout">
+                                  <button type="button" class="btn-noshipping btnReserve" data-is_reserved="T">미송</button>
+                                  <button type="button" class="btn-refund btnRefund active" data-is_reserved="F">환불</button>
+                                </td> -->
+                    <td>
+                      <div class="full-len">
+                        <input type="text" value="1 " placeholder="품목 메모를 작성해주세요." />
+                      </div>
+                    </td> <!--2022-07-25 EZP-3157 메모열 추가-->
+                  </tr>
+                  <tr class="trItemNo4776">
+                    <input type="hidden" name="cart_no[]" value="" />
+                    <input type="hidden" name="item_no[]" value="4776" />
+                    <input type="hidden" name="item_price[]" value="13500.00" />
+                    <input type="hidden" name="min_order_qty[]" value="1" />
+                    <input type="hidden" name="is_reserved[]" value="F" />
+                    <td><span class="btn-type faulty">불량</span></td> <!-- 불량케이스 추가 -->
+                    <td class="prd-detail">
+                      <span class="img"><img
+                          src="https://s3.ap-northeast-2.amazonaws.com/bakan/devsdkwms1001/productMain/2020/03/30/1fd957d98c8901692aaa2674908a48ae"
+                          alt="JC-NT-11226" /></span>
+                      <div>
+                        <!-- 2021-01-25 수정 -->
+                        <!-- 2021-05-10 EZP-2899 -->
+                        <p>JC APPAREL</p>
+                        <!-- 2021-09-17 EZP-3523 -->
+                        <p>
+                          <!-- 2021-06-15 EZP-2899 밑줄 제거시 underline 삭제 -->
+                          <a href="#" class="">
+                            <strong>JC-NT-11226</strong>
+                          </a>
+                          <!--
+                                      <a href="javascript:;" class="eProductImgUrl" data-url="file:///C:/Users/7040_64bit/Desktop/KakaoTalk_20200115_111739154.jpg">
+                                        <img src="../../../../img/common/ico_image.png">
+                                      </a>-->
+                        </p>
+                        <!-- 2021-06-16 EZP-3188 -->
+                        <em class="price"><i>6,000</i>원</em>
+                      </div>
+                    </td>
+                    <td></td>
+                    <td class="size">
+                      <p>
+                        네이비
+
+                        <br />
+                        Free
+                      </p>
+                    </td>
+                    <!--//EZP-3157-->
+                    <td>
+                      <div class="amount">
+                        <button type="button" class="minus">-</button>
+                        <input type="number" name="order_qty[]" value="1" class="eNum eOrderQty" maxlength="4" required="" />
+                        <button type="button" class="plus">+</button>
+                      </div>
+                      <!-- 2021-04-27 EZP-2849 -->
+                      <!-- <em class="min-amount">최소주문수량 2개</em> -->
+                    </td>
+                    <!-- 2021-05-06 EZP-2955 -->
+                    <td class="cost tac pr0"><span>13,500</span>원</td>
+                    <!-- <td class="soldout">
+                                  <button type="button" class="btn-noshipping btnReserve" data-is_reserved="T">미송</button>
+                                  <button type="button" class="btn-refund btnRefund active" data-is_reserved="F">환불</button>
+                                </td> -->
+                    <td>
+                      <div class="full-len">
+                        <input type="text" value="1 " placeholder="품목 메모를 작성해주세요." />
+                      </div>
+                    </td> <!--2022-07-25 EZP-3157 메모열 추가-->
+                  </tr>
+                </tbody>
+              </table>
+              <!-- 2022-05-30 EZP-4381 페이지네이션 추가 시작 -->
+              <div class="pagination mt50">
+                <a href="#none;" class="first none" style="cursor:unset;">처음</a>
+                <a href="#none;" class="prev none" style="cursor:unset;">이전</a>
+                <a href="#none;" class="active">1</a>
+                <a href="#">2</a>
+                <a href="#">3</a>
+                <a href="#none" class="next none" style="cursor:unset;">다음</a>
+                <a href="#" class="last">다음</a>
+              </div>
+              <!--// 2022-05-30 EZP-4381 페이지네이션 추가 종료 -->
+            </div>
+            <div style="height: 40px"></div>
+            <div style="height: 40px"></div>
+
+            <!-- 6. 바로주문결제 -->
+            <div style="height: 40px"></div>
+            <!-- 2022-09-23 EZP-5935 워딩수정 -->
+            <p class="tit">
+              주문상품 정보
+              <em class="Enfont">(9,999)</em>
+            </p>
+
+            <div class="table-wrap mb0 pay-order-items-list">
+              <table class="th-hor">
+                <colgroup>
+                  <col width="10%" />
+                  <col width="25%" />
+                  <col width="10%" />
+                  <col width="10%" />
+                  <col width="10%" />
+                  <!--<col width="10%" />-->
+                  <col width="15%" />
+                  <col width="10%" />
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th>유형</th>
+                    <th>상품정보</th>
+                    <th>옵션</th>
+                    <th>주문수량</th> <!-- 2022-09-35 EZP-5935 워딩수정 -->
+                    <th>판매가합계</th>
+                    <!--<th>품질처리방식</th>-->
+                    <th>메모</th>
+                    <th>추가정보</th>
+                  </tr>
+                </thead>
+                <tbody id="tbodyOrder">
+                  <tr class="trItemNo4776">
+                    <input type="hidden" name="cart_no[]" value="" />
+                    <input type="hidden" name="item_no[]" value="4776" />
+                    <input type="hidden" name="item_price[]" value="13500.00" />
+                    <input type="hidden" name="min_order_qty[]" value="1" />
+                    <input type="hidden" name="is_reserved[]" value="F" />
+
+                    <td><span class="btn-type blue">신규 </span></td>
+
+                    <td class="prd-detail prd-detail-new">
+                      <div class="">
+                        <p>JC APPAREL</p>
+                        <p>
+                          <a href="#" class="">
+                            <strong> JC-NT-11226 </strong>
+                          </a>
+                        </p>
+                      </div>
+                    </td>
+
+                    <td class="size">
+                      <p>네이비 <br />Free</p>
+                    </td>
+                    <td class="Enfont">10</td>
+                    <td><em class="price">84,000</em>원</td>
+
+                    <!--<td>미송</td>-->
+                    <td class="prd-detail-new-memo">
+                      <p>
+                        입고되자마자 <br />
+                        보내주세요 ~
+                      </p>
+                    </td>
+                    <td>
+                      <p>귀엽뽀짝 롱드 p00000ABC</p>
+                    </td>
+                  </tr>
+                  <tr class="trItemNo4776">
+                    <input type="hidden" name="cart_no[]" value="" />
+                    <input type="hidden" name="item_no[]" value="4776" />
+                    <input type="hidden" name="item_price[]" value="13500.00" />
+                    <input type="hidden" name="min_order_qty[]" value="1" />
+                    <input type="hidden" name="is_reserved[]" value="F" />
+
+                    <td><span class="btn-type faulty">불량 </span></td>
+
+                    <td class="prd-detail prd-detail-new">
+                      <div class="">
+                        <p>JC APPAREL</p>
+                        <p>
+                          <a href="#" class="">
+                            <strong>
+                              JC-NT-11226
+                              <img src="../../../../img/common/ico_image.png" />
+                            </strong>
+                          </a>
+                        </p>
+                      </div>
+                    </td>
+
+                    <td class="size">
+                      <p>네이비 <br />Free</p>
+                    </td>
+                    <td class="Enfont">10</td>
+                    <td><em class="price">84,000</em>원</td>
+                    <!--<td>환불</td>-->
+                    <td class=""></td>
+                    <td></td>
+                  </tr>
+                  <tr class="trItemNo4776">
+                    <input type="hidden" name="cart_no[]" value="" />
+                    <input type="hidden" name="item_no[]" value="4776" />
+                    <input type="hidden" name="item_price[]" value="13500.00" />
+                    <input type="hidden" name="min_order_qty[]" value="1" />
+                    <input type="hidden" name="is_reserved[]" value="F" />
+
+                    <td><span class="btn-type purple">샘플 </span></td>
+
+                    <td class="prd-detail prd-detail-new">
+                      <div class="">
+                        <p>JC APPAREL</p>
+                        <p>
+                          <a href="#" class="">
+                            <strong> JC-NT-11226 </strong>
+                          </a>
+                        </p>
+                      </div>
+                    </td>
+
+                    <td class="size">
+                      <p>네이비 <br />Free</p>
+                    </td>
+                    <td class="Enfont">10</td>
+                    <td><em class="price">84,000</em>원</td>
+
+                    <!--<td>-</td>-->
+                    <td class=""></td>
+                    <td></td>
+                  </tr>
+                  <tr class="trItemNo4776">
+                    <input type="hidden" name="cart_no[]" value="" />
+                    <input type="hidden" name="item_no[]" value="4776" />
+                    <input type="hidden" name="item_price[]" value="13500.00" />
+                    <input type="hidden" name="min_order_qty[]" value="1" />
+                    <input type="hidden" name="is_reserved[]" value="F" />
+
+                    <td>
+                      <span class="btn-type purple line2">유료 <br />샘플 </span>
+                    </td>
+
+                    <td class="prd-detail prd-detail-new">
+                      <div class="">
+                        <p>JC APPAREL</p>
+                        <p>
+                          <a href="#" class="">
+                            <strong> JC-NT-11226 </strong>
+                          </a>
+                        </p>
+                      </div>
+                    </td>
+
+                    <td class="size">
+                      <p>네이비 <br />Free</p>
+                    </td>
+                    <td class="Enfont">10</td>
+                    <td><em class="price">84,000</em>원</td>
+
+                    <!--<td>-</td>-->
+                    <td class=""></td>
+                    <td></td>
+                  </tr>
+
+                  <tr class="trItemNo4776">
+                    <input type="hidden" name="cart_no[]" value="" />
+                    <input type="hidden" name="item_no[]" value="4776" />
+                    <input type="hidden" name="item_price[]" value="13500.00" />
+                    <input type="hidden" name="min_order_qty[]" value="1" />
+                    <input type="hidden" name="is_reserved[]" value="F" />
+
+                    <td><span class="btn-type yellow">반납 </span></td>
+
+                    <td class="prd-detail prd-detail-new">
+                      <div class="">
+                        <p>JC APPAREL</p>
+                        <p>
+                          <a href="#" class="">
+                            <strong> JC-NT-11226 </strong>
+                          </a>
+                        </p>
+                      </div>
+                    </td>
+
+                    <td class="size">
+                      <p>네이비 <br />Free</p>
+                    </td>
+                    <td class="Enfont">10</td>
+
+                    <td><em class="price">84,000</em>원</td>
+
+                    <!--<td>-</td>-->
+                    <td class=""></td>
+                    <td></td>
+                  </tr>
+
+                  <tr class="trItemNo4776">
+                    <input type="hidden" name="cart_no[]" value="" />
+                    <input type="hidden" name="item_no[]" value="4776" />
+                    <input type="hidden" name="item_price[]" value="13500.00" />
+                    <input type="hidden" name="min_order_qty[]" value="1" />
+                    <input type="hidden" name="is_reserved[]" value="F" />
+
+                    <td>
+                      <span class="btn-type pink line2">제작<br />신규 </span>
+                    </td>
+
+                    <td class="prd-detail prd-detail-new">
+                      <div class="">
+                        <p>JC APPAREL</p>
+                        <p>
+                          <a href="#" class="">
+                            <strong> JC-NT-11226 </strong>
+                          </a>
+                        </p>
+                      </div>
+                    </td>
+
+                    <td class="size">-</td>
+                    <td class="Enfont">10</td>
+                    <td><em class="price">84,000</em>원</td>
+
+                    <!--<td>매입</td>-->
+                    <td class=""></td>
+                    <td></td>
+                  </tr>
+                  <tr class="trItemNo4776">
+                    <input type="hidden" name="cart_no[]" value="" />
+                    <input type="hidden" name="item_no[]" value="4776" />
+                    <input type="hidden" name="item_price[]" value="13500.00" />
+                    <input type="hidden" name="min_order_qty[]" value="1" />
+                    <input type="hidden" name="is_reserved[]" value="F" />
+
+                    <td><span class="btn-type">미송 </span></td>
+
+                    <td class="prd-detail prd-detail-new">
+                      <div class="">
+                        <p>JC APPAREL</p>
+                        <p>
+                          <a href="#" class="">
+                            <strong> JC-NT-11226 </strong>
+                          </a>
+                        </p>
+                      </div>
+                    </td>
+
+                    <td class="size">-</td>
+                    <td class="Enfont">10</td>
+                    <td><em class="price">84,000</em>원</td>
+
+                    <!--<td>매입</td>-->
+                    <td class=""></td>
+                    <td></td>
+                  </tr>
+                  <tr class="trItemNo4776">
+                    <input type="hidden" name="cart_no[]" value="" />
+                    <input type="hidden" name="item_no[]" value="4776" />
+                    <input type="hidden" name="item_price[]" value="13500.00" />
+                    <input type="hidden" name="min_order_qty[]" value="1" />
+                    <input type="hidden" name="is_reserved[]" value="F" />
+
+                    <td>
+                      <span class="btn-type line2 margenta">샘플<br />결제 </span>
+                    </td>
+
+                    <td class="prd-detail prd-detail-new">
+                      <div class="">
+                        <p>JC APPAREL</p>
+                        <p>
+                          <a href="#" class="">
+                            <strong> JC-NT-11226 </strong>
+                          </a>
+                        </p>
+                      </div>
+                    </td>
+
+                    <td class="size">-</td>
+                    <td class="Enfont">10</td>
+                    <td><em class="price">84,000</em>원</td>
+
+                    <!--<td>-</td>-->
+                    <td class=""></td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+              <!-- 2022-05-30 EZP-4381 페이지네이션 추가 시작 -->
+              <div class="pagination mt50">
+                <a href="#none;" class="first none" style="cursor:unset;">처음</a>
+                <a href="#none;" class="prev none" style="cursor:unset;">이전</a>
+                <a href="#none;" class="active">1</a>
+                <a href="#">2</a>
+                <a href="#">3</a>
+                <a href="#none" class="next none" style="cursor:unset;">다음</a>
+                <a href="#" class="last">다음</a>
+              </div>
+              <!--// 2022-05-30 EZP-4381 페이지네이션 추가 종료 -->
+            </div>
+          </form>
+        </div>
+        <div class="total-cost-wrap">
+          <div class="total-cost">
+            <p class="tit"><a href="#"></a>주문금액</p>
+            <div class="cost-detail">
+              <div class="cost cost-tip">
+                <p><a href="javascript:;" class="btn-tip"></a>상품금액</p>
+                <span><i id="iOrderAmount">0<em style="font-weight: 400;">원</em></i></span>
+                <div class="tip">이지픽의 모든 상품은 도매회원가격으로<br />제공됩니다.</div>
+              </div>
+              <ul>
+                <li class="vat cost-tip">
+                  <p><a href="javascript:;" class="btn-tip"></a>부가가치세</p>
+                  <!-- 2022-11-01 EZP-6943 가격 태그추가 -->
+                  <span id="spnVatAmount"><i>0</i><em style="font-weight: 400;">원</em></span>
+                  <div class="tip">
+                    <p>상품의 부가가치세 입니다.</p>
+                    = 상품금액 x 10%
+                  </div>
+                </li>
+                <!-- 2022-08-29 EZP-6019 적립금사용 케이스 추가 //-->
+                <!-- <li> -->
+                  <!--적립금사용 없는 케이스 style="display: none" 추가 // 2022-08-22 EZP-6019-->
+                  <!-- <p>
+                    <a href="javascript:;" class="btn-tip"></a>적립금 사용
+                  </p>
+                  <div style="display: inline; position: relative" class="add-clear-span">
+                    <input type="text" class="eNum" id="txtBalanceUseAmount" name="balance_use_amount" value="0"
+                      style="padding-right: 20px" /> -->
+                    <!-- 2022-10-07 EZP-7048 워딩 변경 -->
+                    <!-- <em>(보유적립금 : <i>90,000,000</i>원)</em> -->
+                    <!-- 2022-10-11 EZP-6943 전액사용 버튼 추가 -->
+                    <!-- <div class="btn-wrap"><button type="button" class="all-clear-btn">전액사용</button></div>
+                  </div>
+                  <input type="hidden" id="hidCurrentRemainAmount" name="current_remain_amount" value="-22431701" />
+                  <div class="tip">결제 또는 환불 시 예치금이 적립되고,<br />다음 주문 시 현금처럼 사용하실 수 있는<br />보조결제 수단입니다.</div>
+                </li> -->
+                <!--// 2022-08-29 EZP-6019 적립금사용 케이스 추가 -->
+                <!--li>
+                  <p><a href="javascript:;" class="btn-tip"></a>서비스 이용료(0%)</p>
+                  <span id="spnCommissionAmount">0</span>
+                  <div class="tip">
+                    <p>상품금액과 부가가치세를 더한 합계금액에<br />서비스이용료를 부과하고 있습니다.</p>
+                    = (상품금액+부가가치세) x 0%
+                  </div>
+                </li>
+                <li>
+                  <p><a href="javascript:;" class="btn-tip"></a>배송비</p>
+                  <span>0</span>
+                  <div class="tip">이지픽은 주문량이나 지역에 상관없이 전국<br />어디나 동일한 배송비 0원을 부과하고<br />있습니다.</div>
+                </li>
+                <li-- style="display: none">
+                  <p>
+                    <a href="javascript:;" class="btn-tip"></a>예치금 사용
+                    <em
+                      >(사용 가능 금액 :
+                      <i>-22,431,701</i>
+                      원)</em
+                    >
+                  </p>
+                  <div style="display: inline; position: relative" class="add-clear-span">
+                    <div style="display: inline; position: relative" class="add-clear-span">
+                      <input type="text" class="eNum" id="txtBalanceUseAmount" name="balance_use_amount" value="0" style="padding-right: 20px" /><a
+                        href="#clear"
+                        style="display: none; color: rgb(204, 204, 204); text-decoration: none; overflow: hidden; position: absolute; right: 12px; top: 1px; line-height: 1"
+                        >✖</a
+                      >
+                    </div>
+                  </div>
+                  <input type="hidden" id="hidCurrentRemainAmount" name="current_remain_amount" value="-22431701" />
+                  <div class="tip">결제 또는 환불 시 예치금이 적립되고,<br />다음 주문 시 현금처럼 사용하실 수 있는<br />보조결제 수단입니다.</div>
+                </li-->
+              </ul>
+              <div class="cost total cost-tip">
+                <p><a href="javascript:;" class="btn-tip"></a>총 주문금액</p>
+                <!-- 2021-01-15 EZP-2079 -->
+                <span><i id="iPayAmount">1,495,400</i>원</span>
+                <button type="button" class="btn-shop-info ui-popup-open" id="popShopPrice">가게별 금액확인</button>
+                <!-- 20190515 BR 제거 -->
+                <div class="tip" style="width: 300px;">
+                  <p>총 주문금액은 상품금액, 부가가치세 금액 분으로<br />실제 주문하신 금액 입니다.</p>
+                  = 상품금액 + 부가가치세
+                </div>
+              </div>
+              <div class="making-mask" style="display: none;">
+                <h3>※ 제작상품 결제 안내</h3>
+                <div>
+                  <p>
+                    제작상품 결제는 검수완료 시<br />
+                    입고수량 만큼 정산에 합산됩니다.
+                  </p>
+                  <p>
+                    제작 주문 시<br />
+                    결제금액은 0원으로 처리되며,<br />
+                    입고 후 [주문관리 > 검수대기상품] 메뉴의<br />
+                    '정산예정금액'에서 합산되는 금액을<br />
+                    확인할 수 있습니다.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- 21-03-04 -->
+            <!-- 2021-09-28 EZP-3395 -->
+            <p class="notice-text">상기 금액은 공급처의 단가변경 및 상품의 수령 후 검수결과 등에 따라 일정 금액이 변경될 수 있습니다.</p>
+            <div class="sellpick-text">
+              <p class="orange">셀픽 주문건인 경우, 아래 내용을 꼭 확인해 주세요!</p>
+              <ol>
+                <li>가게에 직접 주문금액(상품금액, 부가가치세)를 결제해주세요.</li> <!--2022-07-21 EZP-5433-->
+                <li>상품 문의, 교환, 반품, 결제같은 전반적인 사항은 직접 부담해주셔야 합니다.</li>
+                <li>선택하신 수령방식에 따라 상품 픽업이 진행됩니다.</li>
+                <li class="orange">주문완료 시 가게와 사입삼촌에게 주문 내용이 전달됩니다.</li>
+              </ol>
+            </div>
+            <div class="pay-type">
+              <span>결제방식</span> <em>직접결제</em>
+              <button type="button" class="pay-type-change" id="btnPayMethod" style="display: none">변경</button>
+            </div>
+            <span class="checkbox"><input type="checkbox" id="chkAgree" /><label for="chkAgree">주문 내용을 확인하였습니다.</label></span>
+            <!-- 2022-11-11 EZP-7223 class .ui-popup-open / data-target 추가 -->
+            <a href="#" class="ui-popup-open btn point mt15" id="aOrdered" data-target="#addorder-pop">주문하기</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--//container -->
+
+    <!-- 2022-06-07 EZP-5433 사입삼촌 팝업 신규 //-->
+    <div id="pop_sellup_info" class="ui-popup">
+      <div class="content" style="width:520px;">
+        <div class="header">
+          <h3>사입삼촌정보</h3>
+        </div>
+        <div class="body no-line pt0">
+          <div class="table-wrap">
+            <table class="th-ver" style="border-top: 0;">
+              <colgroup>
+                <col width="80px">
+                <col width="*">
+              </colgroup>
+              <tbody>
+                <tr>
+                  <th>이름</th>
+                  <td class="sort keyword">홍길동</td>
+                </tr>
+                <tr>
+                  <th>연락처</th>
+                  <td>010-1234-5678</td>
+                </tr>
+                <tr>
+                  <th>이메일</th>
+                  <td class="sort">uncle@naver.com</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="btn_wrap mt40 tac">
+            <button type="button" class="btn point medium openLayerFindId btn_close" style="width:150px;">확인</button>
+          </div>
+        </div><!-- //body -->
+      </div>
+    </div>
+    <!-- //2022-06-07 EZP-5433 사입삼촌 팝업 신규 -->
+
+    <!-- 2022-11-11 EZP-7223 추가입고 등록 불가 팝업 추가 시작 -->
+    <div id="addorder-pop" class="ui-popup addorder-pop">
+      <div class="content" style="width:512px;" tabindex="-1">
+        <div class="header">
+          <h3>추가입고 등록 불가</h3>
+        </div>
+        <div class="body">
+          <p>
+            <strong>05/23 입고일</strong>에 <strong class="txt-red">검수완료</strong>된 거래처가 포함되어있습니다.<br>
+          </p>
+          <h4>05/23 입고일 검수완료 거래처</h4>
+          <ul>
+            <li>플래닛 (퀸즈스퀘어 3층 49호)</li>
+            <li>보네르(Bonheur) (디오트2층 F열 23호)</li>
+            <li>아도러블 (DDP(유어스) 2층 93호)</li>
+            <li>플래닛 (퀸즈스퀘어 3층 49호)</li>
+            <li>보네르(Bonheur) (디오트2층 F열 23호)</li>
+            <li>아도러블 (DDP(유어스) 2층 93호)</li>
+          </ul>
+
+          <p class="mt20 center">검수완료된 거래처에는 추가입고 등록이 불가능합니다.<br/>
+          <span class="txt-red">[확인] 클릭 시 해당 가게의 품목이 삭제됩니다.</span></p>
+          
+          <div class="btn_wrap tac">
+            <button type="button" class="btn point medium btn_close" style="width:190px;">확인</button>
+          </div>
+        </div><!-- //body -->
+      </div>
+    </div>
+    <!-- 2022-11-11 EZP-7223 추가입고 등록 불가 팝업 추가 끝 -->
+    
+    <!-- footer// -->
+    <footer></footer>
+    <!-- //footer -->
+
+    <!-- dashboard// -->
+    <div id="dashboard" class=""></div>
+    <!-- //dashboard -->
+
+    <!--
+	<script type="text/javascript" src="https://ssl.daumcdn.net/dmaps/map_js_init/postcode.v2.js" charset="utf-8"></script>
+	<script charset="UTF-8" type="text/javascript" src="https://t1.daumcdn.net/postcode/api/core/200421/1587459050284/200421.js"></script>
+
+	<script type="text/javascript"
+		src="https://easypick.co.kr/optimizer.php?filename=nZJBasQwDEX3g7c9h8iuPUR3vYBsKxkltuXKNpn09A20s5gGJknB2AjeQ_pGcJVIYHHCBL1ipFl0AqUiTR3BWIC712TG8gLPycYZ3QTjZyNdfp_OdOv5p3yJPChW-qtHKg_z9Rwq6YZi78M2TKscIIjDQGcMqzKXtUmpojhsVPrKjw5DYHvP0dhETgcd9N4FQj2h_LQxxamEYE-pZeZMemF6OyF9zETpHW8HFScxSjK9SqoH8PW39qHc7B5VrpJ3GR4SbEM824Tz25alVCeewGOL5l7tjWbbQgqifr0zLiv-DQ&amp;type=js&amp;k=312bf01a0eb9dee3092d3c59e6fa43cd55b822b5&amp;t=1587529960">
+	</script> -->
+
+    <!-- 21-01-18 수정-->
+    <script src="../../../../js/jquery.min.js"></script>
+    <!--jquery default-->
+    <script src="../../../../js/jquery-ui.min.js"></script>
+    <script src="../../../../js/swiper-ie9.min.js"></script>
+    <script src="../../../../js/default.input.js"></script><!-- 2022-10-04 -->
+    <script src="../../../../js/addclear.min.js"></script>
+    <script src="../../../../js/common.front.js"></script>
+    <script src="../../../../js/ui.js"></script>
+    <script src="../../../../js/pub.js"></script>
+    <script src="../../../../js/jquery.scrollbar.min.js"></script>
+
+    <!-- //21-01-18 수정-->
+
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $("header").load("../../../include/header.html");
+        $("footer").load("../../../include/footer.html");
+        $("#dashboard").load("../../../include/dashboard.html");
+      });
+    </script>
+    <!-- <script type="text/javascript">
+		LocalStorage.set("csrf-token", "zh7LaZZLzD+SlUWOzMz4RY45MpKqO/7BNSzegDLK4A8=", "ses");
+	</script> -->
+
+    <!-- 2021-01-15 EZP-2079 -->
+    <script>
+      $(function () {
+        if ($(".order-info-wrap .total-cost-wrap .cost.total span i").width() > 185) {
+          $(".order-info-wrap .total-cost-wrap .cost.total span").addClass("price-size");
+        }
+
+        // 픽업정보 라디오버튼 선택
+        $('input[type="radio"][id="radio1-1"]').on('click', function(){
+          var chkValue = $('input[type=radio][id="radio1-1"]:checked').val();
+          if(chkValue){
+              $('.radio-box-wrap').addClass('active');
+              $('.sellup-info').show();
+              $('.now-info').hide();
+          }else{
+              $('.radio-box-wrap').removeClass('active');
+              $('.sellup-info').hide();
+          }
+        });
+        $('input[type="radio"][id="radio1-2"]').on('click', function(){
+          var chkValue = $('input[type=radio][id="radio1-2"]:checked').val();
+          if(chkValue){
+              $('.radio-box-wrap').removeClass('active');
+              $('.email-explain').show();
+              $('.sellup-info').hide();
+          }
+        });
+      });
+
+      // 2022-07-08 EZP-5433
+      $('#popShopPrice').on('click', function () {
+          window.open('popShopPrice.html', 'popShopPrice', 'width=640, height=770, scrollbars=yes');
+        });
+    </script>
+
+    <div class="ui-load" style="display: none"><img src="https://easypick.co.kr/img/common/loading.svg" /></div>
+  </body>
+</html>

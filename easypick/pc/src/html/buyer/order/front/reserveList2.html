@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="ko" class="js">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="format-detection" content="telephone=no">
+	<meta content="lK0RWxdehsio/icXlDgOD1/0XccqggRiBvNtJOsCkmw=" name="csrf-token">
+	<meta content="T" name="login-required">
+	<link rel="shortcut icon" type="image/x-icon" href="https://easypick.co.kr/img/favicon/ezp.ico">
+
+	<!-- css -->
+	<link rel="stylesheet" type="text/css" href="../../../../css/default.css">
+	<link rel="stylesheet" type="text/css" href="../../../../css/month.picker.css">
+
+	<title>이지픽</title>
+</head>
+
+<body>
+	<!-- header// -->
+	<header></header>
+	<!-- //header -->
+
+	<!--container// -->
+	<div id="container-full" class="min-wid">
+		<div class="order-top list">
+			<a href="/buyer/order/front/index">
+				<h2>주문관리</h2>
+			</a>
+		</div>
+		<div class="order-list-wrap">
+			<!--listLeft-->
+			<div class="list-left">
+				<!--
+    enter-box 컬러 옵션 클래스
+    bg-purple
+    bg-blue
+    bg-green
+    bg-yellow
+    bg-orange
+    bg-pink
+    개인일 경우 : shop-initial
+    기업일 경우 : company 클래스 추가
+    한글일 경우 : kor 클래스 추가
+    컬러 옵션 클래스
+        purple
+        blue
+        green
+        yellow
+        orange
+        pink
+    -->
+				<div class="enter-box bg-purple">
+					<span class="shop-initial company bgwhite purple kor"><em>딜</em></span>
+					<p>딜라잇문</p>
+					<a href="/buyer/order/bulk/front/index" class="btn-quick-order">바로주문</a>
+				</div>
+				<!-- 2020-06-25 EZP-797 시작 -->
+				<div class="enter-price">
+					<span>적립금</span>
+					<p><em>-835,157,386</em> 원</p>
+				</div>
+				<ul class="enter-menu">
+					<li>
+						<dl>
+							<dt><a href="/buyer/order/front/list">주문/입고 관리</a></dt>
+							<dd><a href="/buyer/order/front/list">주문 현황</a></dd>
+							<dd><a href="/buyer/order/front/sampleList">샘플 주문 현황</a></dd>
+							<dd><a href="/buyer/order/front/todayList">오늘 입고 상품</a></dd>
+							<dd><a href="/buyer/order/front/inspectList">검수 대기 상품</a></dd>
+							<dd><a href="/buyer/order/front/inspectCompleteList">검수 완료 내역</a></dd>
+							<!-- 2020-07-06 EZP-759 -->
+							<dd><a href="/buyer/order/front/inspectRequestList">재확인 요청 현황</a></dd>
+						</dl>
+					</li>
+					<li>
+						<dl>
+							<dt><a href="/buyer/order/front/refundList">미송/매입/환불 관리</a></dt>
+							<dd class="active"><a href="/buyer/order/front/reserveList">미송 내역</a></dd>
+							<dd><a href="/buyer/settle/front/settleList">매입 내역</a></dd>
+							<dd><a href="/buyer/order/front/refundList">환불 내역</a></dd>
+						</dl>
+					</li>
+					<li>
+						<dl>
+							<dt><a href="/buyer/bad/front/orderList">불량/샘플 관리</a></dt>
+							<dd><a href="/buyer/bad/front/orderList">불량 주문 내역</a></dd>
+							<dd><a href="/buyer/bad/front/productList">불량 상품 현황</a></dd>
+							<dd><a href="/buyer/bad/front/procList">불량 처리 내역</a></dd>
+						</dl>
+					</li>
+					<li>
+						<dl>
+							<dt><a href="#">정산 관리</a></dt>
+							<dd><a href="#">적립금 내역</a></dd>
+							<dd><a href="#">정산 내역</a></dd>
+							<dd><a href="#">거래처 정산 내역</a></dd>
+						</dl>
+					</li>
+				</ul>
+				<!-- 2020-06-25 EZP-797 종료 -->
+			</div>
+			<!--listLeft-->
+			<div class="list-right">
+				<!--listTop-->
+				<ul class="list-top">
+					<li>
+						<a href="/buyer/order/front/list?custom_pay_status[]=10">
+							<h3>결제요청</h3><!--2022-07-01 EZP-3528 워딩변경-->
+							<p style="width: 210px;"><em>0</em>건 주문<br>
+								<span style="margin-right: -5px; font-size: 13px;">(0개 품목 / 0개 수량 )</span>
+							</p>
+						</a>
+					</li>
+					<li>
+						<a href="/buyer/order/front/list?custom_pay_status[]=20">
+							<h3>결제완료</h3>
+							<p class="orange" style="width: 210px;"><em>26</em>건 주문<br>
+								<span style="margin-right: -5px; color: #666; font-size: 13px;">(2,774개 품목 / 9,716개 수량 )</span>
+							</p>
+						</a>
+					</li>
+					<li>
+						<a href="/buyer/order/front/todayList">
+							<h3>오늘입고상품<span>(2020-03-10)</span></h3>
+							<p style="width: 210px;"><em>212</em>개 품목<br>
+								<span style="margin-right: -5px; font-size: 13px;">(233개 수량)</span>
+							</p>
+						</a>
+					</li>
+					<li>
+						<a href="/buyer/order/front/inspectList">
+							<h3>검수대기상품</h3>
+							<p style="width: 210px;"><em>197</em>개 품목<br>
+								<span style="margin-right: -5px; font-size: 13px;">(209개 수량)</span>
+							</p>
+						</a>
+					</li>
+				</ul>
+				<!--listTop-->
+				<div class="table-wrap mb0">
+					<p class="tit">미송 내역</p>
+					<form id="frmBuyerOrderReservelist" name="frmBuyerOrderReservelist" action="/buyer/order/front/reserveList">
+						<input type="hidden" name="order" id="order" value="order_ts">
+						<input type="hidden" name="sort" id="sort" value="descend">
+						<input type="hidden" id="limit" name="limit" value="10">
+						<input type="hidden" id="view_type" name="view_type" value="sum">
+						<table class="th-ver searchForm">
+							<colgroup>
+								<col width="140px">
+								<col width="*">
+							</colgroup>
+							<tbody>
+								<tr>
+									<th>기간조회</th>
+									<td>
+										<input type="hidden" name="date_type" id="selDateType" value="order_ts">
+										<div class="ui-select" data-target_id="#selDateType">
+											<button type="button" data-target_id="#selDateType" data-value="">주문일시</button>
+											<ul>
+												<li data-key="order_ts" class="active">주문일시</li>
+												<li data-key="completed_ts">처리완료일시</li>
+											</ul>
+										</div>
+										<ul class="period-filter">
+											<input type="hidden" name="period" value="30">
+											<li class=""><a href="javascript:;" data-period="0">오늘</a></li>
+											<li class=""><a href="javascript:;" data-period="7">1주일</a></li>
+											<li class="on"><a href="javascript:;" data-period="30">1개월</a></li>
+											<li class=""><a href="javascript:;" data-period="90">3개월</a></li>
+											<li class=""><a href="javascript:;" data-period="180">6개월</a></li>
+											<li class=""><a href="javascript:;" data-period="365">1년</a></li>
+										</ul>
+										<!-- 2021-04-05 EZP-2687 -->
+										<div class="single_button">
+											<a href="javascript:;" class="btn small line arrow" name="arrow_prev" data-arrow="-1">&lt;</a>
+										</div>
+										<div class="picker-wrap">
+											<div class="datepicker-wrap">
+												<img class="ui-datepicker-trigger" src="https://easypick.co.kr/img/common/calendar.png" alt="Select date" title="Select date"><input type="text" id="start_date" name="start_date" class="not-addclear datepicker from"
+													style="width: 98px;" value="2020-02-10" readonly="">
+											</div>
+											<span>~</span>
+											<div class="datepicker-wrap">
+												<img class="ui-datepicker-trigger" src="https://easypick.co.kr/img/common/calendar.png" alt="Select date" title="Select date"><input type="text" id="end_date" name="end_date" class="not-addclear datepicker to"
+													style="width: 98px;" value="2020-03-11" readonly="">
+											</div>
+										</div>
+										<div class="single_button">
+											<a href="javascript:;" class="btn small line arrow" name="arrow_next" data-arrow="1">&gt;</a>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<th>처리 상태</th>
+									<td>
+										<!-- 2020-04-14 전체선택 -->
+										<div class="check-box-wrap">
+											<span class="checkbox chkall">
+												<input type="checkbox" name="bad_status[]" id="chk-all" value="10" checked="checked">
+												<label for="chk-all">전체</label>
+											</span>
+											<span class="checkbox">
+												<input type="checkbox" name="reserve_status[]" id="reserve_status10" value="10" checked="checked">
+												<label for="reserve_status10">처리중</label>
+											</span> <span class="checkbox">
+												<input type="checkbox" name="reserve_status[]" id="reserve_status20" value="20">
+												<label for="reserve_status20">처리완료</label>
+											</span>
+											<span class="checkbox">
+												<input type="checkbox" name="reserve_status[]" id="reserve_status30" value="30">
+												<label for="reserve_status30">주문취소</label>
+											</span>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<th>검색</th>
+									<td>
+										<div class="list-searchBox">
+											<input type="hidden" name="search_key" id="search_key" value="">
+											<div class="ui-select" data-target_id="#search_key">
+												<button type="button" data-target_id="#search_key" data-value="">전체</button>
+												<ul>
+													<li data-key="" class="active">전체</li>
+													<li data-key="order_no">주문번호</li>
+													<li data-key="seller_name">거래처명</li>
+													<li data-key="product_name">상품명</li>
+													<li data-key="customer_product_name">쇼핑몰상품명</li>
+													<li data-key="customer_product_code">쇼핑몰상품코드</li>
+												</ul>
+											</div>
+											<div style="display:inline; position:relative;" class="add-clear-span">
+												<div style="display:inline; position:relative;" class="add-clear-span">
+													<input type="text" title="기본 입력란" name="search_value" value="" style="padding-right: 20px;"><a href="#clear"
+														style="display: none; color: rgb(204, 204, 204); text-decoration: none; overflow: hidden; position: absolute; right: 12px; top: 1px; line-height: 1;">✖</a></div><a href="#clear"
+													style="display: none; color: rgb(204, 204, 204); text-decoration: none; overflow: hidden; position: absolute; right: 12px; top: 1px; line-height: 1;">✖</a>
+											</div>
+											<button type="submit" class="btn small eSearch">조회하기</button>
+										</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</form>
+				</div>
+				<ul class="list-top-sub">
+					<li>총 미송 품목수<span><em>49</em>개</span>
+					</li>
+					<li>총 주문수량<span><em>1,024</em>개</span></li>
+					<li>총 미송수량<span><em>655</em>개</span></li>
+					<li>총 미송금액<span><em>9,242,000</em>원</span></li>
+				</ul>
+
+				<div class="table-wrap order-list mb0">
+					<!--2020-04-08 ex클레스 추가-->
+					<div class="tit wrap ex">
+						<div class="tit-left">
+							<ul class="tab-nav">
+								<li class="eReserveTab " data-view_type="all">
+									<a href="javascript:;">전체보기</a>
+								</li>
+								<li class="eReserveTab active" data-view_type="sum">
+									<a href="javascript:;">모아보기
+										<!-- 2022-12-02 EZP-5933 모아보기 옆 툴팁 추가 시작 -->
+										<div class="tip-wrap">
+											<button type="button" class="btn-tip"></button>
+											<!-- 2023-01-13 EZP-8021 거래처명,상품명,옵션 사이 띄어쓰기 추가 -->
+											<div class="tip" style="width: 480px;">
+											전체보기 탭의 검색결과를 기준으로 품목 단위로 수량을 합산해서 보는 기능입니다.<br/>
+										(거래처명, 상품명, 옵션 정보가 동일한 품목이 리스트에 여러개 존재하는 경우,<br/>
+									수량을 합산하여 하나로 표시합니다.)</div>
+										</div>
+										<!-- 2022-12-02 EZP-5933 모아보기 옆 툴팁 추가 끝 -->
+									</a>
+								</li>
+							</ul>
+						</div>
+						<div class="tit-right">
+							<input type="hidden" name="limit" id="hidRowCount" value="10">
+							<div class="ui-select" data-target_id="#hidRowCount">
+							<!-- 2022-12-29 EZP-7830 기본값 200에서 변경 -->
+							<button type="button" data-target_id="#hidRowCount" data-value="">50개씩 보기</button>
+							<ul>
+								<!-- 2022-12-29 EZP-7830 class active 100개씩에서 50개씩으로 이동 -->
+								<li data-key="10">10개씩 보기</li>
+								<li data-key="30">30개씩 보기</li>
+								<li data-key="50" class="active">50개씩 보기</li>
+								<li data-key="100">100개씩 보기</li>
+								<li data-key="200">200개씩 보기</li>
+								<li data-key="300">300개씩 보기</li>
+								<!-- 2022-12-29 EZP-7830 500개보기 list 추가 -->
+								<li data-key="500">500개씩 보기</li>
+							</ul>
+							</div> <button type="button" class="btn small btnExcelDown" href="/buyer/order/front/reserveListExcel" data-concat_reserve_no="">
+								엑셀다운로드
+							</button>
+							<!-- 2022-09-05 EZP-4011 설정 btn 추가 -->
+							<button type="button" class="btn small btnSetting" onclick="window.open('excel_item_setting_case02.html', '_blank', 'width=640, height=960, toolbar=no, menubar=no, scrollbars=yes, resizable=no, copyhistory=no');">설정</button>
+						</div>
+					</div>
+					<!-- 2020-08-20 EZP-870 시작 -->
+					<table class="th-hor" style="border-top : 0px;">
+						<!-- 21-02-23 수정 / colgroup -->
+						<!-- 2021-03-11 -->
+						<colgroup>
+							<col width="*">
+							<col width="*">
+							<col width="100">
+							<!-- 2022-09-15 EZP-4011 판매가 col 제거
+							<col width="80">
+							-->
+							<col width="80">
+							<col width="80">
+							<col width="80">
+							<col width="80">
+							<col width="80">
+							<col width="80">
+							<col width="80">
+							<col width="105">
+						</colgroup>
+						<!--// 21-02-23 수정 / colgroup -->
+						<thead>
+							<tr>
+								<th rowspan="2">거래처명</th>
+								<th rowspan="2">상품명</th>
+								<th rowspan="2">옵션</th>
+								<!-- EZP-4011 판매가 제거 
+									<th rowspan="2">판매가</th>
+								-->
+								<th colspan="7" class="small-th">수량</th>
+								<th rowspan="2">전체보기</th>
+							</tr>
+							<tr>
+								<th class="small-th">주문</th>
+								<th class="small-th">입고</th>
+								<th class="small-th">환불</th>
+								<th class="small-th">매입</th>
+								<th class="small-th">폐기</th>
+								<th class="small-th">옵션변경</th>
+								<!-- 2021-06-15 EZP-3159 -->
+								<th class="small-th">잔여</th>
+							</tr>
+
+						</thead>
+						<tbody class="eListArea">
+							<tr>
+								<!-- 2021-03-11 -->
+								<td>
+									<!-- 2021-05-07 EZP-2928 -->
+									<!-- 2021-10-05 EZP-4159 -->
+									<div class="prd-wrap">
+										<!-- 2023-03-10 EZP-8809 말줄임말 제거로 class 추가 eProductName -->
+										<!-- 2023-03-18 개발팀요청 eProductName -> n-ellipsis로 변경 -->
+										<p class="prd ex n-ellipsis">
+											더모스트
+										</p>
+										<div class="tip-wrap">
+											<div class="tip">
+												<span>디오트 3층 F열 11호 (010-0000-0000)</span>
+											</div>
+										</div>
+									</div>	
+								</td>
+								<!-- 2021-04-08 EZP-2689 -->
+								<td>
+									<!-- 2021-06-15 EZP-2899 밑줄 제거시 underline 삭제 -->
+									<!-- 2023-03-18 개발팀요청 eProductName -> n-ellipsis로 변경 -->
+									<p class="prd ex n-ellipsis">
+										<!-- 2021-06-15 EZP-7713 .underline 삭제 -->
+									  <a href="#" class="">기본 T 롱 원피스</a>
+									  <!-- 2023-03-18 개발팀 요청으로 eProductImgUrl -> ico-img 로 변경 -->
+									  <a href="javascript:;" class="ico-img" data-url="file:///C:/Users/7040_64bit/Desktop/KakaoTalk_20200115_111739154.jpg">
+									    <img src="../../../../img/common/ico_image.png">
+									  </a>
+									</p>
+									<p style="font-size:12px; margin-top:1px; color:#848484;">
+										[쇼핑몰상품명] 찰랑롱OPS
+									</p>
+									<p style="font-size:12px; margin-top:1px; color:#848484;">
+										[쇼핑몰상품코드] OPS_L_123
+									</p>
+								</td>
+
+								<td class="option" title="2월말 출고예정 / -">2월말 출고예정 <span class="color">-</span></td>
+								<!-- 2022-09-14 EZP-4011 판매가 제거
+								<td><em class="price">22,000</em>원</td>
+								-->
+								<td class="Enfont">30</td>
+								<td class="Enfont">0</td>
+								<td class="Enfont">0</td>
+								<td class="Enfont">0</td>
+								<td class="Enfont">0</td>
+								<td class="Enfont">0</td>
+								<td class="Enfont green">30</td>
+								<td><button type="button" class="btn-order eReserveAll" data-concat_reserve_no="13665,13935">전체보기</button></td>
+							</tr>
+							<tr>
+								<!-- 2021-03-11 -->
+								<td>
+									<!-- 2021-05-07 EZP-2928 -->
+									<!-- 2021-10-05 EZP-4159 -->
+									<div class="prd-wrap">
+										<!-- 2023-03-10 EZP-8809 말줄임말 제거로 class 추가 eProductName -->
+										<!-- 2023-03-18 개발팀요청 eProductName -> n-ellipsis로 변경 -->
+										<p class="prd ex n-ellipsis">
+											더모스트
+										</p>
+										<div class="tip-wrap">
+											<div class="tip">
+												<span>디오트 3층 F열 11호 (010-0000-0000)</span>
+											</div>
+										</div>
+									</div>	
+								</td>
+								<!-- 2021-03-11 -->
+								<td>
+									<p class="prd ex underline">밑단청 자켓</p>
+								</td>
+								<td class="option" title="Skyblue / -">Skyblue <span class="color">-</span></td>
+								<!-- 2022-09-14 EZP-4011 판매가 제거
+								<td><em class="price">12,000</em>원</td>
+								-->
+								<td class="Enfont">2</td>
+								<td class="Enfont">0</td>
+								<td class="Enfont">0</td>
+								<td class="Enfont">0</td>
+								<td class="Enfont">0</td>
+								<td class="Enfont">0</td>
+								<td class="Enfont green">2</td>
+								<td><button type="button" class="btn-order eReserveAll" data-concat_reserve_no="14617">전체보기</button></td>
+							</tr>
+							<tr>
+								<!-- 2021-03-11 -->
+								<td>
+									<!-- 2021-05-07 EZP-2928 -->
+									<!-- 2021-10-05 EZP-4159 -->
+									<div class="prd-wrap">
+										<!-- 2023-03-10 EZP-8809 말줄임말 제거로 class 추가 eProductName -->
+										<!-- 2023-03-18 개발팀요청 eProductName -> n-ellipsis로 변경 -->
+										<p class="prd ex n-ellipsis">
+											더모스트더모스트더모스트더모스트
+										</p>
+										<div class="tip-wrap">
+											<div class="tip">
+												<span>디오트 3층 F열 11호디오트 3층 F열 11호디오트 3층 F열 11호디오트 3층 F열 11호 (010-0000-0000)</span>
+											</div>
+										</div>
+									</div>	
+								</td>
+								<!-- 2021-03-11 -->
+								<td>
+									<p class="prd ex">밑단청 자켓</p>
+								</td>
+								<td class="option" title="Ivory / -">Ivory <span class="color">-</span></td>
+								<!-- 2022-09-14 EZP-4011 판매가 제거
+								<td><em class="price">13,000</em>원</td>
+								-->
+								<td class="Enfont">15</td>
+								<td class="Enfont">15</td>
+								<td class="Enfont">0</td>
+								<td class="Enfont">0</td>
+								<td class="Enfont">0</td>
+								<td class="Enfont">0</td>
+								<td class="Enfont green">0</td>
+								<td><button type="button" class="btn-order eReserveAll" data-concat_reserve_no="14440,14325">전체보기</button></td>
+							</tr>
+						</tbody>
+					</table>
+					<!-- 2020-08-20 EZP-870 종료 -->
+					<div class="pagination"><a href="#none;" class="first none" style="cursor:unset;">처음</a><a href="#none;" class="prev none" style="cursor:unset;">이전</a><a href="#none;" class="active">1</a> <a
+							href="/buyer/order/front/reserveList?page=2&amp;order=order_ts&amp;sort=descend&amp;limit=10&amp;view_type=sum&amp;date_type=order_ts&amp;period=30&amp;start_date=2020-02-09&amp;end_date=2020-03-10&amp;reserve_status%5B0%5D=10&amp;shop_name=%EB%94%9C%EB%9D%BC%EC%9E%87%EB%AC%B8&amp;user_type=B&amp;user_ip=211.110.58.242&amp;buyer_no=991">2</a>
+						<a
+							href="/buyer/order/front/reserveList?page=3&amp;order=order_ts&amp;sort=descend&amp;limit=10&amp;view_type=sum&amp;date_type=order_ts&amp;period=30&amp;start_date=2020-02-09&amp;end_date=2020-03-10&amp;reserve_status%5B0%5D=10&amp;shop_name=%EB%94%9C%EB%9D%BC%EC%9E%87%EB%AC%B8&amp;user_type=B&amp;user_ip=211.110.58.242&amp;buyer_no=991">3</a>
+						<a
+							href="/buyer/order/front/reserveList?page=4&amp;order=order_ts&amp;sort=descend&amp;limit=10&amp;view_type=sum&amp;date_type=order_ts&amp;period=30&amp;start_date=2020-02-09&amp;end_date=2020-03-10&amp;reserve_status%5B0%5D=10&amp;shop_name=%EB%94%9C%EB%9D%BC%EC%9E%87%EB%AC%B8&amp;user_type=B&amp;user_ip=211.110.58.242&amp;buyer_no=991">4</a>
+						<a href="#none" class="next none" style="cursor:unset;">다음</a><a
+							href="/buyer/order/front/reserveList?page=4&amp;order=order_ts&amp;sort=descend&amp;limit=10&amp;view_type=sum&amp;date_type=order_ts&amp;period=30&amp;start_date=2020-02-09&amp;end_date=2020-03-10&amp;reserve_status%5B0%5D=10&amp;shop_name=%EB%94%9C%EB%9D%BC%EC%9E%87%EB%AC%B8&amp;user_type=B&amp;user_ip=211.110.58.242&amp;buyer_no=991"
+							class="last">다음</a></div>
+				</div>
+			</div>
+			<!--listRight-->
+		</div>
+	</div>
+
+	<!-- 미송 이력 레이어 -->
+	<div id="layer_reserve_history" class="ui-popup yscroll-pop">
+		<div class="content" style="width:840px;" tabindex="-1">
+			<div class="header">
+				<h3>미송 현황</h3>
+			</div>
+			<div class="body reconfirm mt40">
+				<div style="text-align: right" class="mr10 mb10">
+					<span class="Enfont">처리상태</span>:&nbsp;
+					<span class="" id="spnReserveStatus">-</span>
+				</div>
+				<div class="txt-cont enter">
+					<div class="table-wrap order-list mb0">
+						<table class="th-hor">
+							<colgroup>
+								<col width="60px">
+								<col width="60px">
+								<col width="80px">
+								<col width="50px">
+								<col width="50px">
+								<col width="50px">
+								<col width="60px">
+								<col width="50px">
+								<col width="*">
+								<col width="*">
+							</colgroup>
+							<thead>
+								<tr>
+									<th>처리일</th>
+									<th>발주일</th>
+									<th>구분</th>
+									<th>발주<br>수량</th>
+									<th>입고<br>수량</th>
+									<th>환불<br>수량</th>
+									<th>누적<br>수량</th>
+									<th>미송<br>수량</th>
+									<th>구매자 메모</th>
+									<th>입고 메모</th>
+								</tr>
+							</thead>
+							<tbody id="tbodyReserveHistory">
+								<!-- 리스트 영역 -->
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div><!-- //body -->
+			<div class="btn_wrap mt40 mb40 tac">
+				<button type="button" class="btn point medium btn_close" style="width:150px;">확인</button>
+			</div>
+			<button type="button" class="btn_close reconfirm eClose"><span>닫기</span></button>
+		</div>
+	</div>
+
+	<!-- 환불 요청 레이어 -->
+	<div id="layer_refund_request" class="ui-popup">
+		<div class="content" style="width:412px;" tabindex="-1">
+			<div class="body">
+				<div class="txt-cont refund">
+					<h1>환불요청</h1>
+					<p class="">
+						미송 상품 환불은 <strong class="bold">'도매업체', '관리자'</strong> 승인 후 <br> 확정되며 상황에 따라 환불이 제한될 수 있습니다.<br> <em>환불 처리 확정 시 예치금으로 즉시 환불됩니다.<br></em>
+						<span>미송 상품을 환불요청 하시겠습니까?</span>
+					</p>
+				</div>
+				<div class="btn_wrap tac mt25">
+					<button type="button" class="btn medium btn_close" style="width:150px;">취소</button>
+					<button type="button" class="btn point medium" style="width:150px;">확인</button>
+				</div>
+			</div>
+			<button type="button" class="btn_close"><span>닫기</span></button>
+		</div>
+	</div>
+
+	<!-- 주문 메모 변경 레이어 -->
+	<div id="layerOrderMemoModified" class="ui-popup">
+		<div class="content" style="width:560px;" tabindex="-1">
+			<div class="header">
+				<h3>구매자 메모</h3>
+			</div>
+			<div class="body reconfirm mt20">
+				<div class="txt-cont">
+					<div class="txt-cont reorder">
+						<form id="frmLayerOrderMemoModified" name="frmLayerOrderMemoModified">
+							<input type="hidden" name="reserve_no">
+							<p class="line">
+								<textarea name="order_memo" style="width:100%; height:100px;">&nbsp;</textarea>
+							</p>
+							<p>
+								- 구매자메모 내용을 수정할 시, 다음 미송 내역의 구매자 메모에 반영됩니다.<br> - 구매자메모를 수정하지 않을 시, 다음 미송 내역에 구매자 메모가 표시되지 않습니다.
+							</p>
+						</form>
+					</div>
+				</div>
+				<div class="btn_wrap mt40 tac">
+					<button type="button" class="btn medium btn_close" style="width:150px;">취소</button>
+					<button type="button" class="btn point medium btnSave" style="width:150px;" href="/buyer/order/action/orderMemoModified">수정</button>
+				</div>
+			</div><!-- //body -->
+			<button type="button" class="btn_close reconfirm"><span>닫기</span></button>
+		</div>
+	</div>
+	<!--//container -->
+
+	<!-- footer// -->
+	<footer></footer>
+	<!-- //footer -->
+
+	<!-- dashboard// -->
+	<div id="dashboard" class=""></div>
+	<!-- //dashboard -->
+
+	<!-- <script type="text/javascript"
+		src="https://easypick.co.kr/optimizer.php?filename=lZJLbsMwDAX3qbY5B5FlD9FdLqDPs0NbEl3KqpOevg7aLpoAlQ0IEkDM8IEC6SIJ5OxoM3VqExbRkRRFqnpQ5cn6kYb3Cr39PCdzWo8ZypH2y4fEvdoZj3riEOKDPxSqM0dyKkuBmjKL2v5Jxef012GK7H7zKpvEeaNjQ_ARVnco3zGmeJUY3S61LDxBD4zXHdJ5AfKbvW5UvKQk2XQqed6Ar7_VhqbqWlS5yNRkuM_0PMR_m9BxnNdFaDYOeFF4bBj53hVXj9giXb1BSTSs91qHfsBELveELw&amp;type=js&amp;k=7dba139e7e40ce3bb7b47eddd0ae22de1022a0f8&amp;t=1582704537">
+	</script> -->
+
+	<!-- 21-01-18 수정-->
+	<script src="../../../../js/jquery.min.js"></script>
+	<!--jquery default-->
+	<script src="../../../../js/jquery-ui.min.js"></script>
+	<script src="../../../../js/swiper-ie9.min.js"></script>
+	<script src="../../../../js/default.input.js"></script><!-- 2022-10-04 -->
+	<script src="../../../../js/addclear.min.js"></script>
+	<script src="../../../../js/common.front.js"></script>
+	<script src="../../../../js/ui.js"></script>
+	<script src="../../../../js/pub.js"></script>
+	<script src="../../../../js/jquery.scrollbar.min.js"></script>
+
+	<!-- //21-01-18 수정-->
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('header').load('../../../include/header.html');
+			$('footer').load('../../../include/footer.html');
+			$('#dashboard').load('../../../include/dashboard.html');
+		});
+	</script>
+	<script type="text/javascript">
+		// LocalStorage.set("csrf-token", "4KQw584zj0BMGdzDx8MSoT2fgbGgXtnOADuN5RRQaks=", "ses");
+		$(document).ready(function() {
+			$('body').on('click', '.period-filter a.eDateAll', function() {
+				$('input[name="is_all_selected"]').val($(this).data('is_all'));
+				if ($(this).data('is_all') == 'all') {
+					$('.datepicker-wrap input').attr('disabled', 'disabled');
+				} else if ($(this).data('is_all') == 'not_all') {
+					$('.datepicker-wrap input').attr('disabled', false);
+				}
+			});
+			var sIsAllSelected = $('.period-filter input[name="is_all_selected"]').val();
+			if (sIsAllSelected == 'all') {
+				$('.datepicker-wrap input').attr('disabled', 'disabled');
+			} else if (sIsAllSelected == 'not_all') {
+				$('.datepicker-wrap input').attr('disabled', false);
+			}
+			$('body').on('click', '.period-filter a', function(e) {
+				var iPeriod = parseInt($(this).data('period'));
+				if (isNaN(iPeriod) === false) {
+					var sToday = $.datepicker.formatDate('yy-mm-dd', new Date());
+					$('#end_date').val(sToday);
+					var sBaseDate = new Date($('#end_date').datepicker('getDate'));
+					var sStartDate = '';
+					var sYear = '' + sBaseDate.getFullYear();
+					var sMonth = '' + parseInt(sBaseDate.getMonth());
+					var sDay = '' + sBaseDate.getDate();
+					sStartDate = new Date(sYear, sMonth, sDay - iPeriod);
+					sStartDate = $.datepicker.formatDate('yy-mm-dd', sStartDate);
+					$('#start_date').datepicker('setDate', sStartDate);
+					var iPeriod = $(this).data('period');
+					$(this).closest('.period-filter').find('input[name="period"]').val(iPeriod);
+				}
+			});
+			$('#start_date, #end_date').change(function() {
+				if ($('#start_date').datepicker('getDate') > $('#end_date').datepicker('getDate')) {
+					$('#end_date').datepicker('setDate', $('#start_date').datepicker('getDate'));
+					SHOP.showLayerAlert({
+						sContents: '기간 설정이 잘못되었습니다.<br>선택하신 날짜를 다시 확인해주세요.'
+					});
+					return false;
+				}
+				$('.period-filter li').removeClass('on');
+				$('.period-filter input[name="period"]').val(-1);
+			});
+			$('.eDateArrow').click(function(e) {
+				var iPeriod = parseInt($(this).data('arrow'));
+				if (isNaN(iPeriod) === false) {
+					var sStartDate = '';
+					var sEndDate = '';
+					var sSdate = new Date($('#start_date').datepicker('getDate'));
+					var sYear = '' + sSdate.getFullYear();
+					var sMonth = '' + parseInt(sSdate.getMonth());
+					var sDay = parseInt(sSdate.getDate());
+					sStartDate = new Date(sYear, sMonth, '' + (sDay + iPeriod));
+					sStartDate = $.datepicker.formatDate('yy-mm-dd', sStartDate);
+					var sEdate = new Date($('#end_date').datepicker('getDate'));
+					sYear = '' + sEdate.getFullYear();
+					sMonth = '' + parseInt(sEdate.getMonth());
+					sDay = parseInt(sEdate.getDate());
+					sEndDate = new Date(sYear, sMonth, '' + (sDay + iPeriod));
+					sEndDate = $.datepicker.formatDate('yy-mm-dd', sEndDate);
+					$('#start_date').datepicker('setDate', sStartDate);
+					$('#end_date').datepicker('setDate', sEndDate);
+				}
+			});
+		});
+	</script>
+
+	<div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+		<div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+	</div>
+	<div class="ui-load" style="display:none"><img src="https://easypick.co.kr/img/common/loading.svg"></div>
+</body>
+
+</html>

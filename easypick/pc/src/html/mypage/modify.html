@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ko" class="js">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="format-detection" content="telephone=no">
+	<meta content="7GTEAaj9OHm/B6t8WELAc+6jTv9Fwyjj4nGViJpKFoc=" name="csrf-token">
+	<meta content="T" name="login-required">
+	<link rel="shortcut icon" type="image/x-icon" href="/img/favicon/ezp.ico">
+
+	<link rel="stylesheet" type="text/css" href="../../css/default.css">
+	<link rel="stylesheet" type="text/css" href="../../css/month.picker.css">
+
+	<title>이지픽</title>
+</head>
+
+<body>
+
+	<!-- header// -->
+	<header></header>
+	<!-- //header -->
+
+	<!--container// -->
+	<div id="container" class="mypage_wrap">
+		<h2>마이페이지</h2>
+		<div class="mypage-top-box">
+			<div class="left">
+				<!--
+		        한글일 경우 : kor 클래스 추가
+		        컬러 옵션 클래스
+		            purple
+		            blue
+		            green
+		            yellow
+		            orange
+		            pink
+		        -->
+				<span class="shop-initial company purple"><em>공</em></span>
+				<span class="id">공식테스트계정</span>
+				<em></em>
+				<div class="link-wrap">
+					<!-- 2023-02-13 EZP-6415 카페24 계정연동 추가 시작 -->
+					<!-- 연동이 완료시 class="on" 붙여주시면됩니다. -->
+					<a href="javascript: void(0);" class="txt-btn on ui-popup-open" data-target="#cafe24-unlink-alert1">카페24 계정 연동</a>
+					<!-- 2023-02-13 EZP-6415 카페24 계정연동 추가 끝 -->
+					<a href="#" class="mb5">회원 정보 관리</a>
+					<a href="#">큐레이션 정보 관리</a>
+				</div>
+			</div>
+			<div class="right">
+				<ul>
+					<li>
+						<span>픽샵</span>
+						<em><a href="#">22</a></em>
+					</li>
+					<li>
+						<span>픽템</span>
+						<em><a href="#">5</a></em>
+					</li>
+					<li>
+						<span>최근 본 상품</span>
+						<em><a href="#">153</a></em>
+					</li>
+					<li>
+						<span>내 판매 상품</span>
+						<em><a href="#">3456</a></em>
+					</li>
+					<!-- 2023-01-20 EZP-6415 / EZP-6818 마이페이지 nav 안맞는거 조정 시작 -->
+					<li class="border-none">
+						<!-- 샘플 제안 관리에 class on으로 내역 있음 / 없음 조정가능 -->
+						<a href="#" class="sample on">샘플 제안 관리</a>
+						<a href="#" class="matching gray">매칭정보관리</a>
+						<a href="#" class="order_matching gray">주문매칭관리</a>
+					</li>
+					<!-- 2023-01-20 EZP-6415 / EZP-6818  마이페이지 nav 안맞는거 조정 시작 -->
+				</ul>
+			</div>
+		</div>
+		<!-- 2022-05-27 EZP-5433 워딩 수정 및 신규추가 시작 -->
+		<div class="link">
+			<a href="#" class="on">회원 정보</a>
+			<a href="#">큐레이션 정보</a>
+			<a href="#">셀픽주문 사입삼촌 정보</a>
+			<a href="#">회원탈퇴</a>
+		</div>
+		<!--// 2022-05-27 EZP-5433 워딩 수정 및 신규추가 종료 -->
+		<div class="member-join">
+			<form id="frmUserModifyCheck" name="frmUserModifyCheck">
+				<div class="form-wrap">
+					<div class="stitle checkpw">
+						<h3>고객님의 개인정보 보호를 위해 비밀번호를 다시 한번 입력해 주시기 바랍니다.</h3>
+					</div>
+					<div class="row-group">
+						<div class="join-row">
+							<span class="join-title"><label for="name">비밀번호</label></span>
+							<input type="password" placeholder="비밀번호를 입력하세요."  id="user_password" name="user_password" maxlength="20" style="width: 268px; padding-right: 20px;" value="">
+						</div>
+					</div>
+				</div>
+				<div class="mem-btn-wrap tac">
+					<span><button type="button" class="btn point eModifyPassword">확인</button></span>
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<!-- cafe24 계정연동 alert -->
+	<div id="cafe24-unlink-alert1" class="ui-popup alert">
+		<!-- 1. 연동해제 가능할시 -->
+		<div class="content" style="min-width:412px; max-width: 700px;" tabindex="-1">
+		  <div class="body">
+			<div class="txt-cont">
+			  <p>
+				카페24와 연동하여 내 쇼핑몰에 상품등록하기 등<br/>
+				다양한 연동 기능을 이용해 보세요.
+			  </p>
+			  <p>
+				<strong class="mt0 mb0">연동된 카페24 계정</strong>
+				<em>ectezp001</em>
+			  </p>
+			</div>
+			<div class="btn_wrap mt30 tac">
+			  <button type="button" class="btn medium btn_close" style="width:150px;">취소</button>
+			  <button type="button" class="btn point medium btn_close ui-popup-open" style="width:150px;" data-target="#cafe24-unlink-alert2">연동해제</button>
+			</div>
+		  </div>
+		</div>
+
+		<!-- 2. 연동해제 불가할 시  -->
+		<div class="content" style="min-width:412px; max-width: 700px;" tabindex="-1">
+			<div class="body">
+			  <div class="txt-cont">
+				<p>
+				  카페24와 연동하여 내 쇼핑몰에 상품등록하기 등<br/>
+				  다양한 연동 기능을 이용해 보세요.
+				</p>
+				<p>
+				  <strong class="mt0 mb0">연동된 카페24 계정</strong>
+				  <em>ectezp001</em>
+				</p>
+			  </div>
+			  <div class="btn_wrap mt30 tac">
+				<button type="button" class="btn point medium btn_close" style="width:150px;">확인</button>
+			  </div>
+			</div>
+		  </div>
+	   </div>
+
+	<!-- cafe24 계정연동 > 연동해제 후 alert -->
+	<div id="cafe24-unlink-alert2" class="ui-popup alert">
+		<div class="content" style="min-width:412px; max-width: 700px;" tabindex="-1">
+		  <div class="body">
+			<div class="txt-cont">
+			  <p>
+				연동 해제 시 쇼핑몰 상품등록 기능을<br/>
+				사용하실 수 없습니다.<br/><br/>
+				연동 해제하시겠습니까?
+			  </p>
+			</div>
+			<div class="btn_wrap mt30 tac">
+			  <button type="button" class="btn medium btn_close" style="width:150px;">취소</button>
+			  <button type="button" class="btn point medium btn_close ui-popup-open" style="width:150px;" data-target="#cafe24-unlink-alert3">확인</button>
+			</div>
+		  </div>
+		</div>
+	   </div>
+
+	<!-- cafe24 계정연동 > 연동해제 > 확인 후 alert -->
+	<div id="cafe24-unlink-alert3" class="ui-popup alert">
+		<div class="content" style="min-width:412px; max-width: 700px;" tabindex="-1">
+		  <div class="body">
+			<div class="txt-cont">
+			  <p>
+				카페24 계정이 연동 해제되었습니다.
+			  </p>
+			</div>
+			<div class="btn_wrap mt30 tac">
+			  <button type="button" class="btn point medium btn_close" style="width:150px;">확인</button>
+			</div>
+		  </div>
+		</div>
+	   </div>
+	<!--//container -->
+
+	<!-- footer// -->
+	<footer></footer>
+	<!-- //footer -->
+
+	<!-- dashboard// -->
+	<div id="dashboard" class=""></div>
+	<!-- //dashboard -->
+<!-- 
+	<script type="text/javascript"
+		src="https://www.easypick.co.kr/optimizer.php?filename=nZJNasQwDEb3g7c9h8iuPUR3vYB_lIwS23JlmzQ9fQ0zXUwDk7hg8OY9pE98cOWAYPSiI4yiA64sCwhmrmIR5gw0vEY15xd4TlZK2i4wf1aU7f4Namjvn_Il0CS64F89YH7YbyRfUHYUOef3YWohD56t9thjGOE1tyG5sOhpp-J3enQIPJnfHJVUoHjS0c5Zj1o6lNsYla2w96ZLzSsllAvhW4f0sSLGd_11UrEcAkc1CsdyAm_XOoZSNUdUvnI6ZGiKsA_xrAldbbMsCEm4cNkSdkhHi5u6oUBtlYTAjsatCT8&amp;type=js&amp;k=dd10db0765774f4e2b64a302479b422891aca571&amp;t=1606970103">
+	</script> -->
+	
+	<!-- 21-01-18 수정-->
+	<script src="../../js/jquery.min.js"></script><!--jquery default-->
+	<script src="../../js/jquery-ui.min.js"></script>
+	<script src="../../js/swiper-ie9.min.js"></script>
+	<script src="../../js/default.input.js"></script><!-- 2022-10-04 -->
+	<script src="../../js/addclear.min.js"></script>
+	<script src="../../js/common.front.js"></script>
+	<script src="../../js/ui.js"></script>
+	<script src="../../js/pub.js"></script>
+	<script src="../../js/jquery.scrollbar.min.js"></script>
+	<!-- //21-01-18 수정-->
+	
+	<script type="text/javascript">
+		// LocalStorage.set("csrf-token", "W6E0oH3t4wT2GdhCFCEk7jG/VApmgdrGCUPqKNv4wz4=", "ses");
+		$(document).ready(function(){
+			$('header').load('../include/header.html');
+			$('footer').load('../include/footer.html');
+			$('#dashboard').load('../include/dashboard.html');
+		});
+	</script>
+
+	<div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+		<div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+	</div>
+	<div class="ui-load" style="display:none"><img src="https://www.easypick.co.kr/img/common/loading.svg"></div>
+</body>
+
+</html>

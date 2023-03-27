@@ -1,0 +1,1260 @@
+{% extends "../_templates/layout.njk" %}
+{% block content %}
+   
+<div class="wrapper" id="wrap">
+    <div class="content" id="content">
+        <div class="content-head">
+            <div class="page-title">
+                <h3 class="h3-tit">정산내역</h3>
+                <a href="#" class="btn-manual" target="_blank" title="매뉴얼">매뉴얼</a>
+                <div class="form-box">
+                    <form onsubmit="return submitHandler();">
+                        <fieldset>
+                            <legend class="skip">통합검색</legend>
+                            <label for="total-search" class="skip">검색어 입력</label>
+                            <input type="search" name="total-search" id="total-search" title="검색어 입력" class="text"
+                                placeholder="상품을 검색해보세요.">
+                            <input type="submit" value="검색" class="submit">
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+            <div class="cont-info-right">
+                <ul class="breadcrumb">
+                    <li>공급</li>
+                    <li>정산관리</li>
+                    <li class="now" title="현재 페이지">정산내역</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="tab-top-round">
+            <ul class="tab-rounds tab">
+                <li class="active">
+                    <a href="./account-list.html"><span>정산내역</span></a>
+                </li>
+                <li>
+                    <a href="./cor-account-list.html">거래처정산내역</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="detail-cont-info" style="margin-top: 0;">
+            <div class="title-area dflex sel-algin-type">
+                <div class="title">정산정보</div>
+                <span class="label label-bg41">정산진행</span>
+                <span class="label label-bg81">정산완료</span>
+                <!-- 2022-09-20 EZP-6321 수동정산 case 추가 -->
+                <a class="label label-tooltip manual-settlement">
+                    수동정산
+                    <div class="tip">
+                        <span class="tit">수동정산</span>
+                        <p>관리자에 의해 수동으로<br/>
+                        등록/처리된 정산내역입니다.</p>
+                    </div>
+                </a>
+            </div>
+            <div class="btns-multi">
+                <a href="./account-list.html" class="btn btn-sm btn-outline-gray">
+                    목록으로
+                    </button>
+                    <a href="javascript: void(0);" class="btn btn-sm btn-point"
+                        onclick="window.open('../popup/popup-case05.html','거래처별 정산','width=1120,height=800,location=no,status=no,scrollbars=yes');">
+                        정산확인하기
+                    </a>
+            </div>
+        </div>
+        <div class="tround-box detail-tbl detail-tbl-type01">
+            <div class="tbl-round">
+                <div class="tbl-info-area">
+                    <div class="tbl-txt-inline">
+                        <span class="txt-inline">
+                            입고<strong>2022-04-05</strong>
+                        </span>
+                        <span class="txt-inline">
+                            최근 검수완료<strong>2022-04-05 16:14:36</strong>
+                        </span>
+                        <span class="txt-inline">
+                            최근 정산확정<strong>2022-04-05 16:14:36</strong>
+                        </span>
+                    </div>
+                </div>
+                <!--그리드테이블-->
+                <table class="tbl-list-view">
+                    <caption>정산정보</caption>
+                    <colgroup>
+                        <col style="width: calc(100% / 3);">
+                        <col style="width: calc(100% / 3);">
+                        <col style="width: calc(100% / 3);">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="title">정산금액</div>
+                                <div class="total-price">
+                                    <strong>5,625,400</strong>원
+                                </div>
+                                <div class="info-wrap">
+                                    <div class="info">
+                                        <div class="tit">결제금액</div>
+                                        <div class="price">
+                                            <strong>5,658,400</strong> 원
+                                        </div>
+                                    </div>
+                                    <div class="info">
+                                        <div class="tit">조정금액</div>
+                                        <div class="price">
+                                            <strong>0</strong> 원
+                                        </div>
+                                    </div>
+                                    <div class="info">
+                                        <div class="tit">기타금액</div>
+                                        <div class="price ftpointcolor1">
+                                            <strong>-33,000</strong> 원
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="title">선결제금액</div>
+                                <div class="total-price">
+                                    <strong>0</strong>원
+                                </div>
+                                <div class="info-wrap">
+                                    <div class="info">
+                                        <!-- 2022-10-24 EZP-4654 워딩변경 -->
+                                        <div class="tit">선입금금액</div>
+                                        <div class="price">
+                                            <strong>0</strong> 원
+                                        </div>
+                                    </div>
+                                    <div class="info">
+                                        <div class="tit">적립금사용액</div>
+                                        <div class="price">
+                                            <strong>0</strong> 원
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="title">최종정산금액</div>
+                                <div class="total-price ftpointcolor final-info-ico">
+                                    <strong>440,000</strong>원
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <!--//그리드테이블-->
+                <div class="tbl-price-area">
+                    <div class="price-info">
+                        <div class="price-inline minus-info-ico">
+                            입금금액 <strong><span>0</span>원</strong>
+                        </div>
+                        <div class="price-inline final-info-ico">
+                            미결제금액 <strong class="ftpointcolor"><span>5,635,400</span>원</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="detail-cont-info">
+            <div class="title-area dflex sel-algin-type">
+                <div class="title">기타금액</div>
+                <span class="price-info ftpointcolor1">
+                    <strong>-33,000</strong>원
+                </span>
+            </div>
+        </div>
+
+        <div class="gridTableArea">
+            <div class="tround-box">
+                <div class="tbl-round ">
+                    <div class="mGridTable tbl-type03">
+                        <table id="eMultiTable" class="eChkColor">
+                            <thead>
+                                <tr>
+                                    <th scope="col" style="width: 292px;" class="resizable">등록일</th>
+                                    <th scope="col" style="width: 272px;" class="resizable">유형</th>
+                                    <th scope="col" style="width: 272px;" class="resizable">공급가액</th>
+                                    <th scope="col" style="width: 272px;" class="resizable">부가세</th>
+                                    <th scope="col" style="width: 272px;" class="resizable">합계</th>
+                                    <th scope="col" style="width: 292px;">사유</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="state-refund">
+                                    <td>4/6</td>
+                                    <td>기타사유</td>
+                                    <td class="text-ar">- 20,000</td>
+                                    <td class="text-ar">- 2,000</td>
+                                    <td class="text-ar">- 22,000</td>
+                                    <td class="overflow-unset">환불 건</td>
+                                </tr>
+                                <tr>
+                                    <td>4/5</td>
+                                    <td>배송비</td>
+                                    <td class="text-ar">- 10,000</td>
+                                    <td class="text-ar">- 1,000</td>
+                                    <td class="text-ar">- 11,000</td>
+                                    <td class="overflow-unset">사유가 길경우 사유가 길경우 사유가 길경우 사유가 길경우</td>
+                                </tr>
+                                <tr class="sum">
+                                    <td colspan="2">합계</td>
+                                    <td class="text-ar">- 30,000</td>
+                                    <td class="text-ar">- 3,000</td>
+                                    <td class="text-ar">- 33,000</td>
+                                    <td class="overflow-unset"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="detail-cont-info">
+            <div class="title-area dflex sel-algin-type">
+                <div class="title">결제금액</div>
+                <span class="price-info ftpointcolor">
+                    <strong>5,658,400</strong>원
+                </span>
+                <div class="plus">+</div>
+                <div class="title">조정금액</div>
+                <span class="price-info ftpointcolor">
+                    <strong>0</strong>원
+                </span>
+            </div>
+            <div class="btns-multi">
+                <a href="javascript: void(0);" class="btn btn-sm btn-point"
+                    onclick="window.open('../popup/popup-case05.html','거래처별 정산','width=1120,height=600,location=no,status=no,scrollbars=yes');">
+                    거래처별보기
+                </a>
+            </div>
+        </div>
+
+        <div class="tround-box detail-tbl detail-tbl-type02">
+            <div class="tbl-round overScroll">
+                <table class="tbl-list-view">
+                    <colgroup>
+                        <!-- 2022-11-09 EZP-7403 전체 col width 수정 -->
+                        <col style="width: 121px;">
+                        <col style="width: 220px;">
+                        <col style="width: 220px;">
+                        <col style="width: 220px;">
+                        <col style="width: 220px;">
+                        <col style="width: 220px;">
+                        <col style="width: 220px;">
+                        <col style="width: 220px;"><!-- 2022-11-09 EZP-7403 조정금액 추가 -->
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th rowspan="2">구분</th>
+                            <th rowspan="2">
+                                <!-- 2022 08 16 a link underline 수정 -->
+                                <a href="#">신규주문</a>
+                                <div class="tool-tip-wrap tool-gray">
+                                    <a href="javascript:void(0)" class="tool-tip">툴팁</a>
+                                    <div class="renewal-tool-tip-area tool-tip-area">
+                                        <section class="tool-tip-title">
+                                            <h1>신규주문</h1>
+                                            <div class="tool-tip-inner">
+                                                <!-- 2022 08 16 tool-tip-renewal (dot크기, 위치조정) -->
+                                                <h2 class="second-line dot">
+                                                    "신규, 유료샘플, 샘플결제" 유형 품목의<br>
+                                                    (판매가 x 발주수량) 총합
+                                                </h2>
+                                            </div>
+                                        </section>
+                                        <button type="button" class="tool-tip-close">닫기</button>
+                                    </div>
+                                </div>
+                            </th>
+                            <th colspan="5">
+                                <!-- 기본 -->
+                                <span class="fnsize16">
+                                    총 결제금액
+                                    <span class="ftpointcolor">
+                                        <strong>7,443,700</strong> 원
+                                    </span>
+                                    <span class="fnsize13">
+                                        (공급가 기준 <span class="ftpointcolor"><strong>6,767,000</strong>원</span>)
+                                    </span>
+                                </span>
+
+                                <br>
+                                <br>
+                                <!-- 반품 매입금 적립 시 -->
+                                <span class="fnsize16">
+                                    총 결제금액
+                                    <span class="easy-pick-text notice">
+                                        <strong>-330</strong> 원
+                                    </span>
+                                </span>
+                                <span class="fnsize13">
+                                    (공급가 기준 <span class="ftpointcolor"><strong>0</strong>원</span>)
+                                </span>
+                                <br>
+                                <!-- 2022-10-24 EZP-4654 tooltip 추가로 구조변경
+                                <span class="easy-pick-text gray fnsize12">
+                                    = 합계 -33,330원 + 매입금적립금액 반영 33,000원 (상품금액30,000원 + 부가세3,000원)
+                                </span>
+                                <br/>
+                                -->
+                                <!-- 2022-10-24 EZP-4654 tooltip add -->
+                                <div class="with-tooltip">
+                                    <span class="easy-pick-text gray fnsize12">
+                                    = 합계 -33,330원 + 매입금적립금액 반영 33,000원 (상품금액30,000원 + 부가세3,000원)
+                                    </span>
+
+                                    <div class="tool-tip-wrap tool-gray m-l-4">
+                                    <a href="javascript:void(0)" class="tool-tip">툴팁</a>
+                                    <div class="tool-tip-area">
+                                        <section class="tool-tip-title">
+                                        <h1>매입금 적립금액 반영?</h1>
+                                        <div class="tool-tip-inner">
+                                            <h2 class="dot easy-pick-dot">
+                                            거래처별 결제하실 금액이 0원 이하인 경우에<br />
+                                            결제 금액을 매입금으로 적립해드립니다.
+                                            </h2>
+                                            <p class="text-in">
+                                            (매입금 적립 시에는 공급가액 기준으로 적립되지만,<br />
+                                            실제 매입금 사용 시에 부가세가 자동으로 사용됩니다.<br />
+                                            따라서 매입금 적립금액 반영 시에도 부가세 포함 금액으로 적용됩니다.)
+                                            </p>
+                                        </div>
+                                        </section>
+                                        <button type="button" class="tool-tip-close">닫기</button>
+                                    </div>
+                                    </div>
+                                </div>
+                            </th>
+                            <!-- 2022-11-09 EZP-7403 조정금액 추가 -->
+                            <th rowspan="2">조정금액</th>
+                        </tr>
+                        <tr>
+                            <th>
+                                <a href="#">신규입고</a>
+                                <div class="tool-tip-wrap tool-gray">
+                                    <a href="javascript:void(0)" class="tool-tip">툴팁</a>
+                                    <div class="renewal-tool-tip-area tool-tip-area">
+                                        <section class="tool-tip-title">
+                                            <h1>신규입고</h1>
+                                            <div class="tool-tip-inner">
+                                                <h2 class="second-line dot">
+                                                    "신규 또는 제작신규,제작미송" 유형 품목의<br>
+                                                    (판매가 x 입고수량) 총합
+                                                </h2>
+                                            </div>
+                                        </section>
+                                        <button type="button" class="tool-tip-close">닫기</button>
+                                    </div>
+                                </div>
+                            </th>
+                            <th class="plus-info-ico">
+                                <a href="#">신규미송</a>
+                                <div class="tool-tip-wrap tool-gray">
+                                    <a href="javascript:void(0)" class="tool-tip">툴팁</a>
+                                    <div class="renewal-tool-tip-area tool-tip-area">
+                                        <section class="tool-tip-title">
+                                            <h1>신규미송</h1>
+                                            <div class="tool-tip-inner">
+                                                <h2 class="second-line dot">
+                                                    “신규” 유형 품목 중 품절처리방식이 “미송 또는<br>
+                                                    옵션변경”인 품목의 (판매가 x 잔여수량) 총합
+                                                </h2>
+                                            </div>
+                                        </section>
+                                        <button type="button" class="tool-tip-close">닫기</button>
+                                    </div>
+                                </div>
+                            </th>
+                            <th class="plus-info-ico">
+                                <a href="#">샘플입고</a>
+                                <div class="renewal-tool-tip-area tool-tip-wrap tool-gray">
+                                    <a href="javascript:void(0)" class="tool-tip">툴팁</a>
+                                    <div class="tool-tip-area">
+                                        <section class="tool-tip-title">
+                                            <h1>샘플입고</h1>
+                                            <div class="tool-tip-inner">
+                                                <h2 class="second-line dot">
+                                                    "유료샘플, 샘플결제" 유형 품목의<br>
+                                                    (판매가 x 입고수량) 총합
+                                                </h2>
+                                            </div>
+                                        </section>
+                                        <button type="button" class="tool-tip-close">닫기</button>
+                                    </div>
+                                </div>
+                            </th>
+                            <th class="minus-info-ico">
+                                <a href="#">반품</a>
+                                <div class="tool-tip-wrap tool-gray">
+                                    <a href="javascript:void(0)" class="tool-tip">툴팁</a>
+                                    <div class="renewal-tool-tip-area tool-tip-area w-auto">
+                                        <section class="tool-tip-title">
+                                            <h1>반품</h1>
+                                            <div class="tool-tip-inner">
+                                                <!-- 2022 08 19 text 수정 -->
+                                                <h2 class="second-line dot re-dot">
+                                                    "불량,미송" 유형 품목 중 품절처리방식이 "환불"인 품목의<br>
+                                                    (판매가 x 잔여수량) 총합<br>
+                                                    +<br>
+                                                    "신규,불량,미송" 유형 품목 중 품절처리방식이 "수동환불"인 품목의<br>
+                                                    (판매가 x 환불수량) 총합
+                                                </h2>
+
+                                            </div>
+                                        </section>
+                                        <button type="button" class="tool-tip-close">닫기</button>
+                                    </div>
+                                </div>
+                            </th>
+                            <th class="minus-info-ico">
+                                매입환불
+                                <div class="tool-tip-wrap tool-gray">
+                                    <a href="javascript:void(0)" class="tool-tip">툴팁</a>
+                                    <div class="renewal-tool-tip-area tool-tip-area">
+                                        <section class="tool-tip-title">
+                                            <h1>매입환불</h1>
+                                            <div class="tool-tip-inner">
+                                                <h2 class="second-line dot">
+                                                    매입내역에 누적된 매입잔액 중<br>
+                                                    거래처별로 환불처리가 가능한 금액 합계
+                                                </h2>
+                                            </div>
+                                        </section>
+                                        <button type="button" class="tool-tip-close">닫기</button>
+                                    </div>
+                                </div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>상품금액</td>
+                            <td class="text-ar">17,503,000원</td>
+                            <td class="text-ar">5,211,000원</td>
+                            <td class="text-ar">1,684,000원</td>
+                            <td class="text-ar">1,684,000원</td>
+                            <td class="text-ar">117,000원</td>
+                            <td class="text-ar">11,000원</td>
+                            <td class="text-ar">100,000원</td> <!-- 2022-11-09 EZP-7403 조정금액 추가 -->
+                        </tr>
+                        <tr>
+                            <td>부가세</td>
+                            <td class="text-ar">1,750,300원</td>
+                            <td class="text-ar">521,100원</td>
+                            <td class="text-ar">168,400원</td>
+                            <td class="text-ar">168,400원</td>
+                            <td class="text-ar">11,700원</td>
+                            <td class="text-ar">1,100원</td>
+                            <td class="text-ar">10,000원</td> <!-- 2022-11-09 EZP-7403 조정금액 추가 -->
+                        </tr>
+                        <tr>
+                            <td>서비스이용료</td>
+                            <td class="text-ar">0원</td>
+                            <td class="text-ar">0원</td>
+                            <td class="text-ar">0원</td>
+                            <td class="text-ar">0원</td>
+                            <td class="text-ar">0원</td>
+                            <td class="text-ar">-</td>
+                            <td class="text-ar">-</td> <!-- 2022-11-09 EZP-7403 조정금액 추가 -->
+                        </tr>
+                        <tr>
+                            <td>배송료</td>
+                            <td class="text-ar">0원</td>
+                            <td class="text-ar">0원</td>
+                            <td class="text-ar">-</td>
+                            <td class="text-ar">-</td>
+                            <td class="text-ar">-</td>
+                            <td class="text-ar">-</td>
+                            <td class="text-ar">-</td> <!-- 2022-11-09 EZP-7403 조정금액 추가 -->
+                        </tr>
+                        <tr class="sum">
+                            <td>합계</td>
+                            <td class="text-ar">19,253,300원</td>
+                            <td class="text-ar">5,732,100원</td>
+                            <td class="text-ar">1,852,400원</td>
+                            <td class="text-ar">1,852,400원</td>
+                            <td class="text-ar">128,700원</td>
+                            <td class="text-ar">12,100원</td>
+                            <td class="text-ar">100,000원</td> <!-- 2022-11-09 EZP-7403 조정금액 추가 -->
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+
+        <div class="detail-cont-info">
+            <div class="title-area dflex sel-algin-type">
+                <div class="title">상세품목정보</div>
+            </div>
+        </div>
+
+        <div class="mSearchEngine folder mb20">
+            <div class="tborder-box">
+                <div class="tbl-top-search">
+                    <div class="table-row">
+                        <table class="tbl-top">
+                            <colgroup>
+                                <col style="width:120px;">
+                                <col style="width: calc(100% - 120px);">
+                            </colgroup>
+                            <tbody>
+                                <tr class="rowFix rowFold">
+                                    <th>정산상태</th>
+                                    <td>
+                                        <div class="form-inline">
+                                            <div class="form-control">
+                                                <label>
+                                                    <input type="checkbox">
+                                                    <span>전체</span>
+                                                </label>
+                                            </div>
+                                            <div class="form-control">
+                                                <label>
+                                                    <input type="checkbox">
+                                                    <span>정산요청</span>
+                                                </label>
+                                            </div>
+                                            <div class="form-control">
+                                                <label>
+                                                    <input type="checkbox">
+                                                    <span>정산보류</span>
+                                                </label>
+                                            </div>
+                                            <div class="form-control">
+                                                <label>
+                                                    <input type="checkbox">
+                                                    <span>정산확인</span>
+                                                </label>
+                                            </div>
+                                            <div class="form-control">
+                                                <label>
+                                                    <input type="checkbox">
+                                                    <span>정산확정</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="rowFold">
+                                    <th>유형</th>
+                                    <td>
+                                        <div class="form-inline">
+                                            <div class="form-control">
+                                                <label>
+                                                    <input type="checkbox">
+                                                    <span>전체</span>
+                                                </label>
+                                            </div>
+                                            <div class="form-control">
+                                                <label>
+                                                    <input type="checkbox">
+                                                    <span>신규</span>
+                                                </label>
+                                            </div>
+                                            <div class="form-control">
+                                                <label>
+                                                    <input type="checkbox">
+                                                    <span>미송</span>
+                                                </label>
+                                            </div>
+                                            <div class="form-control">
+                                                <label>
+                                                    <input type="checkbox">
+                                                    <span>불량</span>
+                                                </label>
+                                            </div>
+                                            <div class="form-control">
+                                                <label>
+                                                    <input type="checkbox">
+                                                    <span>샘플</span>
+                                                </label>
+                                            </div>
+                                            <div class="form-control">
+                                                <label>
+                                                    <input type="checkbox">
+                                                    <span>유료샘플</span>
+                                                </label>
+                                            </div>
+                                            <div class="form-control">
+                                                <label>
+                                                    <input type="checkbox">
+                                                    <span>샘플결제</span>
+                                                </label>
+                                            </div>
+                                            <div class="form-control">
+                                                <label>
+                                                    <input type="checkbox">
+                                                    <span>샘플반납</span>
+                                                </label>
+                                            </div>
+                                            <div class="form-control">
+                                                <label>
+                                                    <input type="checkbox">
+                                                    <span>재작신규</span>
+                                                </label>
+                                            </div>
+                                            <div class="form-control">
+                                                <label>
+                                                    <input type="checkbox">
+                                                    <span>제작미송</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="rowFold">
+                                    <th>품절처리방식</th>
+                                    <td>
+                                        <div class="form-inline">
+                                            <div class="form-control">
+                                                <label>
+                                                    <input type="checkbox">
+                                                    <span>전체</span>
+                                                </label>
+                                            </div>
+                                            <div class="form-control">
+                                                <label>
+                                                    <input type="checkbox">
+                                                    <span>미송</span>
+                                                </label>
+                                            </div>
+                                            <div class="form-control">
+                                                <label>
+                                                    <input type="checkbox">
+                                                    <span>환불</span>
+                                                </label>
+                                            </div>
+                                            <div class="form-control">
+                                                <label>
+                                                    <input type="checkbox">
+                                                    <span>매입</span>
+                                                </label>
+                                            </div>
+                                            <div class="form-control">
+                                                <label>
+                                                    <input type="checkbox">
+                                                    <span>폐기</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="rowFold">
+                                    <th>검색</th>
+                                    <td>
+                                        <div class="form-inline">
+                                            <div class="select-control">
+                                                <button type="button" class="btn-sel">전체</button>
+                                                <ul class="sel-panel">
+                                                    <li>전체</li>
+                                                    <li>주문번호</li>
+                                                    <li>거래처명</li>
+                                                    <li>상품명</li>
+                                                    <li>쇼핑몰상품명</li>
+                                                    <li>쇼핑몰상품코드</li>
+                                                </ul>
+                                            </div>
+                                            <div class="form-control ml4">
+                                                <input type="text" class="search-input-w1">
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="top-btn-search">
+                        <button type="button" name="button" class="btn btn-lg btn-point">검색</button>
+                        <div class="search-btns">
+                            <a href="#" class="serchsortbtn">
+                                <button type="button" class="btn btn-lg btn-sub-primary sarchsortbtn">검색관리</button>
+                                <div class="top-search-sort">
+                                    <button type="button" class="reset"><i class="ico ico-reset"></i>초기화</button>
+                                    <div class="top-search-depth">
+                                        <button type="button" class="add-search-save"><i
+                                                class="ico ico-plus-blue"></i>검색조건 저장</button>
+                                        <ul class="add-search-element">
+                                            <li class="dflex">
+                                                <div class="form-control">
+                                                    <input type="text" value="저장1">
+                                                </div>
+                                                <div class="s-search-btns">
+                                                    <button type="button" class="btn btn-write">쓰기</button>
+                                                    <button type="button" class="btn btn-del">삭제</button>
+                                                </div>
+                                            </li>
+                                            <li class="dflex">
+                                                <div class="form-control">
+                                                    <input type="text" value="저장1">
+                                                </div>
+                                                <div class="s-search-btns">
+                                                    <button type="button" class="btn btn-write">쓰기</button>
+                                                    <button type="button" class="btn btn-del">삭제</button>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="gridTableArea">
+            <div class="tround-box">
+                <div class="tbl-round ">
+                    <div class="tbl-info-area">
+                        <div class="btns-multi f-right">
+                            <button type="button" name="button" class="btn btn-sm btn-outline-gray"><i
+                                    class="ico ico-excel"></i>엑셀다운로드</button>
+                            <button type="button" name="button" class="btn btn-ico btn-outline-gray"><i
+                                    class="ico ico-sort"></i>설정</button>
+                        </div>
+                    </div>
+                    <!-- 그리드 테이블-->
+                    <div class="mGridTable tbl-height01 tbl-type07">
+                        <table id="eMultiTable1" class="eChkColor account-view-table">
+                            <thead>
+                                <tr>
+                                    <th scope="col" style="width:82px;" class="resizable">
+                                        유형
+                                    </th>
+                                    <th scope="col" style="width:173px;" class="resizable">
+                                        입고일
+                                    </th>
+                                    <th scope="col" style="width:376px;" class="resizable">
+                                        상품명
+                                    </th>
+                                    <th scope="col" style="width:188px;" class="resizable">
+                                        옵션
+                                    </th>
+                                    <th scope="col" style="width:168px;" class="resizable">
+                                        판매가
+                                    </th>
+                                    <th scope="col" style="width:168px;" class="resizable">
+                                        입고수량
+                                    </th>
+                                    <th scope="col" style="width:168px;" class="resizable">
+                                        상품금액
+                                    </th>
+                                    <th scope="col" style="width:168px;" class="resizable">
+                                        잔여수량
+                                    </th>
+                                    <th scope="col" style="width:180px;">
+                                        품절처리방식
+                                    </th>
+                                </tr>
+                            </thead>
+                            <!-- 
+                                  2022 08 02 상단 4개 상품명 들어가는부분에 4가지 케이스 추가하였습니다.
+                                  각 td 상단부분에 case n 으로 주석걸어놓았습니다.
+                            -->
+                            <tbody>
+                                <!-- 2022-08-03 정산 일자 품목 없을 시 노출되는 문구 -->
+                                <tr class="tr-caption">
+                                    <td class="force-visible" colspan="9">
+                                        <div class="easy-pick-catpion-wrap">
+                                            <div class="caption-left">
+                                                <strong class="ftpointcolor1">정산요청</strong>
+                                                아티스 (남평화 3층 81호, 010-0000-0000)
+                                            </div>
+                                            <div class="btns-multi">
+                                                <button type="button" name="button" class="btn btn-sm btn-outline-gray"
+                                                    onclick="targetModalPopup('account-popup-case01-3')">정산보류</button>
+                                                <button type="button" name="button"
+                                                    class="btn btn-sm btn-primary">정산확인</button>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="tr-empty">
+                                    <td colspan="9">
+                                        <div class="txt">
+                                            <i><img src="../../img/guide-ico.png" alt="guide-icon"></i>
+                                            <span>해당 정산 일자에 품목이 없습니다.</span>
+                                        </div>
+                                    </td>
+                                </tr><!-- 2022-08-03 정산 일자 품목 없을 시 노출되는 문구 -->
+                                {% for list in account %}
+                                {% if list.tr %}
+                                <tr class="tr-caption">
+                                    <td class="force-visible" colspan="9">
+                                        <div class="easy-pick-catpion-wrap">
+                                            {% if list.tr.title === "정산요청" %}
+                                            <div class="caption-left">
+                                                <strong class="ftpointcolor1">{{ list.tr.title }}</strong>
+                                                {{ list.tr.subtitle }}
+                                            </div>
+                                            <div class="btns-multi">
+                                                <button type="button" name="button" class="btn btn-sm btn-outline-gray"
+                                                    onclick="targetModalPopup('account-popup-case01-3')">정산보류</button>
+                                                <button type="button" name="button"
+                                                    class="btn btn-sm btn-primary">정산확인</button>
+                                            </div>
+                                            {% elif list.tr.title === "정산확정" %}
+                                            <div class="caption-left">
+                                                <strong>{{ list.tr.title }}</strong>
+                                                {{ list.tr.subtitle }}
+                                            </div>
+                                            <div class="caption-right">
+                                                정산확정 : <span>2022-04-05 16:18:49</span>
+                                            </div>
+                                            {% elif list.tr.title === "정산확인" %}
+                                            <div class="caption-left">
+                                                <strong>{{ list.tr.title }}</strong>
+                                                {{ list.tr.subtitle }}
+                                            </div>
+                                            <div class="btns-multi">
+                                                <button type="button" name="button" class="btn btn-sm btn-outline-gray"
+                                                    onclick="targetModalPopup('account-popup-case01-3')">정산보류</button>
+                                            </div>
+                                            {% elif list.tr.title === "정산보류" %}
+                                            <div class="caption-left caption-flex">
+                                                <strong>{{ list.tr.title }}</strong>
+                                                <div class="with-tooltip">
+                                                    <div class="tool-tip-wrap tool-caption">
+                                                        <a href="javascript:void(0)" class="tool-tip">툴팁</a>
+                                                        <!-- 2022 08 05 -->
+                                                        <div
+                                                            class="tool-tip-area renewal-tool-tip-area white-space-initial left1">
+                                                            <section class="tool-tip-title">
+                                                                <h1>정산보류 사유</h1>
+                                                                <div class="tool-tip-inner">
+                                                                    <h2>
+                                                                        정산보류 사유가 표시됩니다.
+                                                                        정산보류 했을 때 입력한 내용이 표시됩니다.
+                                                                        최대 50자가 표시됩니다.
+                                                                    </h2>
+                                                                </div>
+                                                            </section>
+                                                            <button type="button" class="tool-tip-close">닫기</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                {{ list.tr.subtitle }}
+                                            </div>
+                                            <div class="btns-multi">
+                                                <button type="button" name="button"
+                                                    class="btn btn-sm btn-primary">정산확인</button>
+                                            </div>
+                                            {% else %}
+                                            <div class="caption-left">
+                                                <strong>{{ list.tr.title }}</strong>
+                                                {{ list.tr.subtitle }}
+                                            </div>
+                                            {% endif %}
+                                        </div>
+                                    </td>
+                                </tr>
+                                {% endif %}
+                                <tr>
+                                    <!-- 2023-01-06 EZP-7970 품목앞 빨간띠 case 추가 -->
+                                    {% if list.caseAcc === "line" %}
+                                    <td class="re-red-line">
+                                    {% else %}
+                                    <td>
+                                    {% endif %}
+                                        {% if list.case === "제작신규" %}
+                                        <div class="easy-pick-case">
+                                            <span class="new-produce no-br">
+                                                제작신규
+                                            </span>
+                                        </div>
+                                        {% elif list.case === "미송" %}
+                                        <div class="easy-pick-case">
+                                            <span class="undeliver">
+                                                {{list.case}}
+                                            </span>
+                                        </div>
+                                        {% elif list.case === "신규" %}
+                                        <div class="easy-pick-case">
+                                            <span class="new">
+                                                {{list.case}}
+                                            </span>
+                                        </div>
+                                        {% elif list.case === "불량" %}
+                                        <div class="easy-pick-case">
+                                            <span class="failure">
+                                                {{list.case}}
+                                            </span>
+                                        </div>
+                                        {% elif list.case === "샘플" %}
+                                        <div class="easy-pick-case">
+                                            <span class="sample">
+                                                {{list.case}}
+                                            </span>
+                                        </div>
+                                        {% elif list.case === "반납" %}
+                                        <div class="easy-pick-case">
+                                            <span class="return">
+                                                {{list.case}}
+                                            </span>
+                                        </div>
+                                        {% elif list.case === "유료샘플" %}
+                                        <div class="easy-pick-case">
+                                            <span class="sample no-br">
+                                                유료샘플
+                                            </span>
+                                        </div>
+                                        {% elif list.case === "샘플결제" %}
+                                        <div class="easy-pick-case">
+                                            <span class="sample-payment no-br">
+                                                샘플결제
+                                            </span>
+                                        </div>
+                                        <!-- 2022-10-12 EZP-5896 재확인 case 시작 -->
+                                        {% elseif list.case === "재확인" %}
+                                        <div class="easy-pick-case reorder-ico">
+                                            <span class="return">
+                                            반납
+                                            </span>
+                                        </div>
+                                        <!-- 2022-10-12 EZP-5896 재확인 case 끝 -->
+                                        {% else %}
+                                        <div class="easy-pick-case">
+                                            <span class="sample">
+                                                {{list.case}}
+                                            </span>
+                                        </div>
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        <span>
+                                            <span class="easy-pick-text">{{list.date}}</span>
+                                            <br />
+                                            ({{list.ordernum}})
+                                        </span>
+                                    </td>
+                                    <td class="overflow-unset">
+                                        <!-- case 1 -->
+                                        {% if list.namelink === "deco link" %}
+                                        <a href="#">
+                                            <span class="txt-link deco-link">
+                                                {{list.name}}{{list.name}}{{list.name}}{{list.name}}{{list.name}}
+                                            </span>
+                                        </a>
+                                        <!-- case 2 -->
+                                        {% elseif list.namelink === "no deco no link" %}
+                                        <span class="txt-link no-deco-no-link">
+                                            {{list.name}}{{list.name}}{{list.name}}{{list.name}}{{list.name}}
+                                        </span>
+                                        <!-- case 3 -->
+                                        {% elseif list.namelink === "option deco link" %}
+                                        <a href="#">
+                                            <span class="txt-link deco-link">{{list.name}}</span><br>
+                                            <span class="txt-link deco-link">[쇼핑몰상품명]쇼핑몰상품명1</span><br>
+                                            <span class="txt-link deco-link">[쇼핑몰상품코드]쇼핑몰상품코드</span>
+                                        </a>
+                                        <!-- case 4 -->
+                                        {% elseif list.namelink === "option no deco no link" %}
+                                        <span class="txt-link no-deco-no-link">{{list.name}}</span><br>
+                                        <span class="txt-link no-deco-no-link">[쇼핑몰상품명]쇼핑몰상품명1</span><br>
+                                        <span class="txt-link no-deco-no-link">[쇼핑몰상품코드]쇼핑몰상품코드</span>
+                                        {% else %}
+                                        <a href="#">
+                                            <span class="txt-link">
+                                                {{list.name}}
+                                            </span>
+                                        </a>
+                                        {% endif %}
+                                    </td>
+                                    <!-- 2022 08 29 tooltip 추가 -->
+                                    <td class="overflow-unset">
+                                        <div class="hover-box re-opction-hover-box">
+                                            <a href="javascript: void(0);" class="re-opction-tooltip hover-btn">
+                                                <span>
+                                                    {{list.option}}
+                                                </span>
+                                            </a>
+                                            <div class="info-box">
+                                                <span class="shop-name">
+                                                    {{list.option}}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="text-ar">
+                                        <!-- 2022-10-12 EZP-5896 재확인 case 시작 -->
+                                        {% if list.case === "재확인" %}
+                                        <strong class="ftpointcolor1">{{list.price1}}원</strong>
+                                        <!-- 2022-10-12 EZP-5896 재확인 case 끝 -->
+                                        {% else %}
+                                        <strong>{{list.price1}}원</strong>
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        {% if list.no === "9" %}
+                                        <span class="ftpointcolor1">{{list.cnt1}}</span>
+                                        <!-- 2022-10-12 EZP-5896 재확인 case 시작 -->
+                                        {% elseif list.case === "재확인" %}
+                                        <span class="ftpointcolor1">{{list.cnt1}}</span>
+                                        <!-- 2022-10-12 EZP-5896 재확인 case 끝 -->
+                                        {% else %}
+                                        <span>{{list.cnt1}}</span>
+                                        {% endif %}
+                                    </td>
+                                    <td class="text-ar">
+                                        {{list.price2}}원
+                                    </td>
+                                    <td class="overflow-unset">
+                                        {% if list.no === "12" %}
+                                        {{list.cnt2}}<br>
+                                        <div class="hover-box">
+                                            <button type="button" name="button"
+                                                class="quantity-btn hover-btn">···</button>
+                                            <!-- 2022 08 05 기존 info box 삭제 후 tool-tip으로 변경 -->
+                                            <!-- 2022 08 25 info-box type 추가-->
+                                            <div class="tool-tip-area info-box info-box-type2">
+                                                <section class="tool-tip-title">
+                                                    <h1>부분처리 상세</h1>
+                                                    <div class="tool-tip-inner">
+                                                        <div class="table-inner">
+                                                            <table class="tbl-col easy-pick-inner-table">
+                                                                <col width: 120px />
+                                                                <col width: 120px />
+                                                                <col width: 120px />
+                                                                <col width: 120px />
+                                                                <thead>
+                                                                    <th>미송</th>
+                                                                    <th>
+                                                                        <span class="easy-pick-text  red">
+                                                                            환불
+                                                                        </span>
+                                                                    </th>
+                                                                    <th>매입</th>
+                                                                    <th>폐기</th>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td>1개</td>
+                                                                        <td>
+                                                                            <span class="easy-pick-text  red">
+                                                                                1개
+                                                                            </span>
+                                                                        </td>
+                                                                        <!-- 2022-10-18 EZP-7210 -영역 bg추가로 인한 class추가 -->
+                                                                        <td class="null-bg">-</td>
+                                                                        <td class="null-bg">-</td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+
+                                                        <p class="desc-text m-l-5 m-t-7">
+                                                            - 미송 : 다음 발주 시 미송 수량 만큼 발주됩니다.<br />
+                                                            - 환불, 매입, 폐기 : 검수완료 시 처리됩니다.
+                                                            <br>
+                                                        </p>
+                                                    </div>
+                                                </section>
+                                                <!-- <button type="button" class="tool-tip-close">닫기</button> -->
+                                            </div>
+                                        </div>
+                                        {% elseif list.no === "9" %}
+                                        {{list.cnt2}}<br>
+                                        <div class="hover-box">
+                                            <button type="button" name="button"
+                                                class="quantity-btn hover-btn">···</button>
+                                            <!-- 2022 08 05 기존 info box 삭제 후 tool-tip으로 변경 -->
+                                            <div class="tool-tip-area info-box info-box-type2">
+                                                <section class="tool-tip-title">
+                                                    <h1>부분처리 상세</h1>
+                                                    <div class="tool-tip-inner">
+                                                        <div class="table-inner">
+                                                            <table class="tbl-col easy-pick-inner-table">
+                                                                <col width: 120px />
+                                                                <col width: 120px />
+                                                                <col width: 120px />
+                                                                <col width: 120px />
+                                                                <thead>
+                                                                    <th>미송</th>
+                                                                    <th>
+                                                                        <span class="easy-pick-text  red">
+                                                                            환불
+                                                                        </span>
+                                                                    </th>
+                                                                    <th>매입</th>
+                                                                    <th>폐기</th>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td>1개</td>
+                                                                        <td>
+                                                                            <span class="easy-pick-text  red">
+                                                                                1개
+                                                                            </span>
+                                                                        </td>
+                                                                        <!-- 2022-10-18 EZP-7210 -영역 bg추가로 인한 class추가 -->
+                                                                        <td class="null-bg">-</td>
+                                                                        <td class="null-bg">-</td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+
+                                                        <p class="desc-text m-l-5 m-t-7">
+                                                            - 미송 : 다음 발주 시 미송 수량 만큼 발주됩니다.<br />
+                                                            - 환불, 매입, 폐기 : 검수완료 시 처리됩니다.
+                                                            <br>
+                                                        </p>
+                                                    </div>
+                                                </section>
+                                                <!-- <button type="button" class="tool-tip-close">닫기</button> -->
+                                            </div>
+                                        </div>
+                                        {% else %}
+                                        {{list.cnt2}}
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        {% if list.method2 === "부분처리" %}
+                                        <span style="text-decoration: line-through;">{{list.method1}}</span><br>
+                                        {{list.method2}}
+                                        {% else %}
+                                        {% if list.method1 === "환불" %}
+                                        <span class="ftpointcolor1">{{list.method1}}</span><br>
+                                        {{list.method2}}
+                                        {% else %}
+                                        <span>{{list.method1}}</span><br>
+                                        {{list.method2}}
+                                        {% endif %}
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!-- //그리드 테이블-->
+            </div>
+            {% include("../_templates/default/pagination.njk") %}
+        </div>
+
+        <!-- 2022 08 11 검색결과 없을시 -->
+        <div class="gridTableArea">
+            <div class="tround-box">
+                <div class="tbl-round ">
+                    <div class="tbl-info-area">
+                        <div class="btns-multi f-right">
+                            <button type="button" name="button" class="btn btn-sm btn-outline-gray"><i
+                                    class="ico ico-excel"></i>엑셀다운로드</button>
+                            <button type="button" name="button" class="btn btn-ico btn-outline-gray"><i
+                                    class="ico ico-sort"></i>설정</button>
+                        </div>
+                    </div>
+                    <!-- 그리드 테이블-->
+                    <div class="mGridTable tbl-height01">
+                        <table id="eMultiTable2" class="eChkColor account-view-table">
+                            <thead>
+                                <tr>
+                                    <th scope="col" style="width:82px;" class="resizable">
+                                        유형
+                                    </th>
+                                    <th scope="col" style="width:173px;" class="resizable">
+                                        입고일
+                                    </th>
+                                    <th scope="col" style="width:376px;" class="resizable">
+                                        상품명
+                                    </th>
+                                    <th scope="col" style="width:188px;" class="resizable">
+                                        옵션
+                                    </th>
+                                    <th scope="col" style="width:168px;" class="resizable">
+                                        판매가
+                                    </th>
+                                    <th scope="col" style="width:168px;" class="resizable">
+                                        입고수량
+                                    </th>
+                                    <th scope="col" style="width:168px;" class="resizable">
+                                        상품금액
+                                    </th>
+                                    <th scope="col" style="width:168px;" class="resizable">
+                                        잔여수량
+                                    </th>
+                                    <th scope="col" style="width:180px;">
+                                        품절처리방식
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- 2022-08-03 정산 일자 품목 없을 시 노출되는 문구 -->
+                                <!-- 2022-11-17 EZP-7409 .tr-empty에 .noData 추가 -->
+                                <!-- 2022-11-29 EZP-7409 no-resize 속성이 있다면 테이블을 리사이징 하지 않음, tr .noData제거 -->
+                                <tr class="tr-empty" no-resize>
+                                    <!-- 2022-11-29 EZP-7409 td colspan 추가 -->
+                                    <td colspan="34">
+                                        <div class="txt">
+                                            <i><img src="../assets/images/guide-ico.png" alt="guide-icon"></i>
+                                            <span>검색 결과가 없습니다.</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!-- //그리드 테이블-->
+            </div>
+            {% include("../_templates/default/pagination.njk") %}
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('#eMultiTable').fixResize({
+            colResize: true,
+            resizeVer: 'flex'
+        });
+        $('#eMultiTable1').fixResize({
+            colResize: true,
+            resizeVer: 'flex'
+        });
+
+        // 2022 08 11 검색결과 없을시
+        $('#eMultiTable2').fixResize({
+            colResize: true,
+            resizeVer: 'flex'
+        });
+
+        // 2022 08 11 검색결과 없을시
+        // 2022-11-17 EZP-7409 element 변경으로 주석 후 다시 작성
+        // const emptyTh = $('.tr-empty').parents('table').find('thead tr th').length;
+        // const emptyMt = $('.tr-empty').parents('table').css('margin-top').replace('-', '');
+        // const emptyMg = emptyMt.replace('px', '');
+        // $('.tr-empty td').attr('colspan', emptyTh);
+        // $('.tr-empty').parents('table').css('height', `calc(100% + ${emptyMg}px)`);
+
+
+        // 2022-11-17 EZP-7409 element 변경으로 주석 후 다시 작성 시작
+        // const emptyTh = $('.tr-empty.noData').parents('table').find('thead tr th').length;
+        // const emptyMt = $('.tr-empty.noData').parents('table').css('margin-top').replace('-', '');
+        // const emptyMg = emptyMt.replace('px', '');
+        // $('.tr-empty.noData td').attr('colspan', emptyTh);
+        // $('.tr-empty.noData').parents('table').css('height', `calc(100% + ${emptyMg}px)`);
+        // 2022-11-17 EZP-7409 element 변경으로 주석 후 다시 작성 끝
+
+        // 2022-11-29 EZP-7409 (개발에서 기존소스를 같이 쓸 경우 오류가 있어 변경해준내용 그대로 작성) 시작
+        const emptyTh = $('.tr-empty[no-resize=""]').parents('table').find('thead tr th').length;
+        const emptyMt = $('.tr-empty[no-resize=""]').parents('table').css('margin-top').replace('-', '');
+        const emptyMg = emptyMt.replace('px', '');
+        $('.tr-empty[no-resize=""] td').attr('colspan', emptyTh);
+        $('.tr-empty[no-resize=""]').parents('table').css('height', `calc(100% + ${emptyMg}px)`);
+        // 2022-11-17 EZP-7409 (개발에서 기존소스를 같이 쓸 경우 오류가 있어 변경해준내용 그대로 작성) 끝
+        
+    });
+</script>
+
+
+{% include("./modals/account/account-popup-case01.njk") %}
+
+{% endblock %}

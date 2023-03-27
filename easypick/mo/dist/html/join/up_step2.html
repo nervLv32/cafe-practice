@@ -1,0 +1,1368 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="format-detection" content="telephone=no">
+  <meta content="lK0RWxdehsio/icXlDgOD1/0XccqggRiBvNtJOsCkmw=" name="csrf-token">
+  <meta content="T" name="login-required">
+  <link rel="shortcut icon" type="image/x-icon" href="https://easypick.co.kr/img/favicon/ezp.ico">
+
+  <link rel="stylesheet" href="../../css/mobile/swiper.css">
+  <link rel="stylesheet" href="../../css/mobile/default.css">
+  <script src="../../js/lib/jquery-3.5.1.min.js" type="text/javascript"></script>
+  <script src="../../js/lib/jquery-ui.min.js" type="text/javascript"></script>
+  <script src="../../js/lib/swiper.js" type="text/javascript"></script>
+  <script src="../../js/ui/common_front.js" type="text/javascript"></script>
+  <script src="../../js/ui/ui.js" type="text/javascript"></script>
+  <script src="../../js/ui/pub.js" type="text/javascript"></script>
+
+  <title>이지픽 mobile > 회원가입</title>
+</head>
+
+<body>
+  <!-- header// -->
+  <header class="sub">
+    <h1>회원가입</h1>
+    <button type="button" name="button" class="btn-back">뒤로</button> <!--21-02-22 주석 제거 -->
+    <button type="button" name="button" class="btn-cancel ui-popup-call" data-target="#pop_join_cancel">취소</button><!-- 2021-02-19 추가 -->
+  </header>
+  <!-- //header -->
+
+  <!-- fnb// -->
+  <!-- 21-02-02 -->
+  <!-- <nav class="type1">
+    <button type="button" name="button" class="btn-top">TOP</button>
+    <ul>
+      <li class="home"><a href="#" class="active"><i class="icon"><img src="../../img/mobile/icons/icon-home.svg" alt="홈"></i></a></li>
+      <li class="category"><a href="#"><i class="icon"><img src="../../img/mobile/icons/icon-category.svg" alt="카테고리"></i></a></li>
+      <li class="search"><a href="#"><i class="icon"><img src="../../img/mobile/icons/icon-search.svg" alt="통합검색"></i></a></li>
+      <li class="pick"><a href="#"><i class="icon"><img src="../../img/mobile/icons/icon-pick.svg" alt="MYPICK"></i></a></li>
+      <li class="my"><a href="#"><i class="icon"><img src="../../img/mobile/icons/icon-my.svg" alt="MYPAGE"></i></a></li>
+    </ul>
+  </nav> -->
+  <!-- //fnb -->
+
+  <!--container// -->
+  <div id="container" class="sub-content">
+    <div class="memjoin_wrap">
+      <div class="stepview">
+        <span class="on"><i>01</i>이용약관 동의</span>
+        <span class="active"><i>02</i>가입정보 입력<em>현재 위치</em></span>
+        <span><i>03</i>가입신청 완료</span>
+      </div>
+      <div class="mypage-mem-wrap">
+        <div class="mypage-mem-tit">
+          <h2>사업자 정보</h2>
+          <span>*표시는 필수 입력 정보입니다.</span>
+        </div>
+        <div class="mypage-mem-form">
+          <div class="sec_title">사업자 구분 <em>필수입력</em></div>
+          <div class="ui-tab small item2">
+            <div class="tab-nav">
+              <ul>
+                <li data-tab-target="#tab_01" class="active">개인 사업자</li>
+                <li data-tab-target="#tab_02" class="">법인 사업자</li>
+              </ul>
+            </div>
+            <!--21-02-08 수정 / 전체 input 마크업 수정 / search 클래스 추가, 버튼 추가-->
+            <div class="tab-content">
+              <div id="tab_01" class="active">
+                <!-- 21-01-25 -->
+                <label for="mmf12">쇼핑몰명 <em>필수입력</em></label>
+                <div class="input mt6 search"> <!--21-02-08 수정-->
+                  <input type="text" name="" value="" id="mmf12" placeholder="쇼핑몰명 입력" required>
+                  <button type="button" name="button"><i class="icon">삭제</i></button>
+                  <i class="icon"></i>
+                </div>
+                <!-- //21-01-25 -->
+                <label for="mmf01_1">대표자명 <em>필수입력</em></label>
+                <div class="input mt6 search"> <!--21-02-08 수정-->
+                  <input type="text" name="" value="" id="mmf01_1" placeholder="대표자명 입력" required>
+                  <button type="button" name="button"><i class="icon">삭제</i></button>
+                  <i class="icon"></i>
+                </div>
+                <label for="mmf01_2">상호 <em>필수입력</em></label>
+                <div class="input mt6 search"><!--21-02-08 수정-->
+                  <input type="text" name="" value="" id="mmf01_2" placeholder="상호명 입력" required>
+                  <button type="button" name="button"><i class="icon">삭제</i></button>
+                  <i class="icon"></i>
+                </div>
+              </div>
+              <div id="tab_02">
+                <!-- 21-01-25 -->
+                <label for="mmf12">쇼핑몰명 <em>필수입력</em></label>
+                <div class="input mt6 search"><!--21-02-08 수정-->
+                  <input type="text" name="" value="" id="mmf12" placeholder="쇼핑몰명 입력" required>
+                  <button type="button" name="button"><i class="icon">삭제</i></button>
+                  <i class="icon"></i>
+                </div>
+                <!-- //21-01-25 -->
+                <label for="mmf02_1">법인명 <em>필수입력</em></label>
+                <div class="input mt6 search"><!--21-02-08 수정-->
+                  <input type="text" name="" value="" id="mmf02_1" placeholder="법인명 입력" required>
+                  <button type="button" name="button"><i class="icon">삭제</i></button>
+                  <i class="icon"></i>
+                </div>
+                <label for="mmf02_2">법인등록번호 <em>필수입력</em></label>
+                <div class="input-wrap col mt6">
+                  <div class="divide">
+                    <div class="input search"><!--21-02-08 수정-->
+                      <input type="text" name="" value="" id="mmf02_2" placeholder="" required>
+                      <button type="button" name="button"><i class="icon">삭제</i></button>
+                      <i class="icon"></i>
+                    </div>
+                    <span>-</span>
+                    <div class="input search"><!--21-02-08 수정-->
+                      <input type="text" name="" value="" id="mmf02_3" placeholder="" required>
+                      <button type="button" name="button"><i class="icon">삭제</i></button>
+                      <i class="icon"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- tab-->
+          <label for="mmf03_1">사업자등록번호 <em>필수입력</em></label>
+          <div class="input-wrap col mt6 error">
+            <!-- success, error 클래스 명 입력  메세지 alret 표시-->
+            <div class="divide">
+              <div class="input search"><!--21-02-08 수정-->
+                <!-- 2023-01-31 EZP-7883 placeholder 추가 -->
+                <input type="text" name="" value="" id="mmf03_1" placeholder="사업자등록번호 입력" required>
+                <button type="button" name="button"><i class="icon">삭제</i></button>
+                <i class="icon"></i>
+              </div>
+            </div>
+            <!--21-02-04 수정-->
+            <div class="alert-box">
+              <button type="button" name="button" class="link-btn">조회하기</button>
+              <!-- 21-02-01 -->
+              <p>유효하지 않은 사업자등록번호입니다.</p>
+              <!-- //21-02-01 -->
+            </div>
+            <!--// 21-02-04 수정-->
+          </div>
+          <label for="mmf04_1">사업장 주소 <em>필수입력</em></label>
+          <!-- 2021-02-22수정 -->
+          <div class="input post-code mt6">
+            <input type="text" name="" value="" id="mmf04_1" placeholder="우편번호" required="">
+            <button type="button" name="button" class="delete"><i class="icon">삭제</i></button>
+            <button type="button" name="button" class="search"><i class="icon">검색</i></button>
+          </div>
+          <div class="input mt6">
+            <input type="text" name="" value="" id="mmf04_2" placeholder="주소" readonly>
+          </div>
+          <div class="input mt6 search"><!--21-02-08 수정-->
+            <input type="text" name="" value="" id="mmf04_3" placeholder="상세주소 입력" required>
+            <button type="button" name="button"><i class="icon">삭제</i></button>
+          </div>
+          <!-- //2021-02-22수정 -->
+          <label for="mmf05">사업자등록증 첨부 <em>필수입력</em></label>
+          <!-- 21-02-05 -->
+          <div class="ui-file mt6" data-preview="true" data-limit="1">
+            <div class="quantity-area">
+              <strong class="quantity">0</strong>
+              <span>/1</span>
+            </div>
+            <div class="btn">
+              <label>찾아보기<input type="file" multiple /></label>
+            </div>
+            <ul class="list"></ul>
+          </div>
+          <!-- //21-02-05 -->
+          <label for="mmf06_1">환불 계좌 정보</label>
+          <div class="input-wrap col mt6">
+            <div class="divide">
+              <div class="input">
+                <div class="ui-select">
+                  <button type="button">은행 선택</button>
+                  <ul>
+                    <li>은행 선택</li>
+                    <li>광주은행</li>
+                    <li>국민은행</li>
+                    <li>기업은행</li>
+                    <li>농협</li>
+                    <li>대구은행</li>
+                    <li>부산은행</li>
+                    <li>산업은행</li>
+                    <li>상호저축은행</li>
+                    <li>새마을금고</li>
+                    <li>수협중앙회</li>
+                    <li>SC제일은행</li>
+                    <li>신한은행</li>
+                    <li>신협</li>
+                    <li>우리은행</li>
+                    <li>우체국</li>
+                    <li>전북은행</li>
+                    <li>제주은행</li>
+                    <li>카카오뱅크</li>
+                    <li>케이뱅크</li>
+                    <li>하나은행</li>
+                    <li>한국씨티은행</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="input search"><!--21-02-08 수정-->
+                <input type="text" name="" value="" id="mmf06_1" placeholder="예금주 입력" required>
+                <button type="button" name="button"><i class="icon">삭제</i></button>
+                <i class="icon"></i>
+              </div>
+            </div>
+          </div>
+          <div class="input mt6 search"><!--21-02-08 수정-->
+            <input type="text" name="" value="" id="mmf06_2" placeholder="계좌번호 입력" required>
+            <button type="button" name="button"><i class="icon">삭제</i></button>
+            <i class="icon"></i>
+          </div>
+        </div>
+        <!-- //mypage-mem-form -->
+        <div class="mypage-mem-tit">
+          <h2>계정 정보</h2>
+        </div>
+        <div class="mypage-mem-form">
+          <label for="mmf07_1">아이디(이메일) <em>필수입력</em></label>
+          <div class="input-wrap col mt6 error">
+            <!-- success, error 클래스 명 입력  메세지 alret 표시-->
+            <div class="divide">
+              <div class="input search"><!--21-02-08 수정-->
+                <input type="text" name="" value="" id="mmf07_1" placeholder="아이디 입력" required>
+                <button type="button" name="button"><i class="icon">삭제</i></button>
+                <i class="icon"></i>
+              </div>
+              <span>@</span>
+              <div class="input">
+                <div class="ui-select">
+                  <button type="button">이메일 선택</button>
+                  <ul>
+                    <li>이메일 선택</li>
+                    <li>네이버</li>
+                    <li>지메일</li>
+                    <li>다음</li>
+                    <li>한메일</li>
+                    <li>핫메일</li>
+                    <li>직접입력</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <!--21-02-04 수정 / 직접입력 영역 추가 / 비활성화 해제시 disabled 클래스 삭제-->
+            <div class="input mt6 search"><!--21-02-08 수정-->
+              <input type="text" name="" value="" id="mmf07_1" placeholder="" required>
+              <button type="button" name="button"><i class="icon">삭제</i></button>
+              <i class="icon"></i>
+            </div>
+            <!--21-02-04 수정-->
+            <div class="alert-box">
+              <button type="button" name="button" class="link-btn">중복체크</button>
+              <p>이메일 형식이 잘못되었습니다. 다시 확인해주세요.</p>
+            </div>
+            <!--// 21-02-04 수정-->
+          </div>
+          <label for="mmf08">비밀번호 <em>필수입력</em></label>
+          <p class="info_tip">※ 영문 대소문자, 숫자, 특수문자 중 2가지 이상 조합(6~16자리로 생성)</p>
+          <div class="input mt6 search"><!--21-02-08 수정-->
+            <input type="password" name="" value="" id="mmf08" placeholder="비밀번호 입력" required>
+            <button type="button" name="button"><i class="icon">삭제</i></button>
+            <i class="icon"></i>
+          </div>
+          <!--21-02-04 수정 / 문구만 있을 경우, error-txt or success-txt 추가-->
+          <p class="error-txt">사용할 수 없는 비밀번호입니다. 비밀번호 생성 기준을 다시 확인해 주세요.</p>
+          <label for="mmf09">비밀번호 확인 <em>필수입력</em></label>
+          <div class="input mt6 search"><!--21-02-08 수정-->
+            <input type="password" name="" value="" id="mmf09" placeholder="비밀번호 확인" required>
+            <button type="button" name="button"><i class="icon">삭제</i></button>
+            <i class="icon"></i>
+          </div>
+          <!--21-02-04 수정 / 문구만 있을 경우, error-txt or success-txt 추가-->
+          <p class="success-txt">비밀번호가 일치합니다.</p>
+          <!-- 2022-12-05 EZP-6415 카페24 계정연동 추가 시작 -->
+          <!-- 2023-01-17 EZP-6415 카페24 계정연동 제거
+            <div class="cafe24-btn mt40">
+            <div>
+              <span>카페24 계정</span>
+              <a href="javascript: void(0);" class="btn small-blue">연동하기</a>
+            </div>
+            <p class="blue-txt mt10">내 쇼핑몰에 상품등록하기 등 다양한 연동기능을 이용해 보세요.</p>
+            <div class="login-box">
+              <div class="input mt6 search">
+                <input type="text" name="" value="" id="mmf09" placeholder="대표운영자 아이디 입력">
+                <button type="button" name="button"><i class="icon">삭제</i></button>
+                <i class="icon"></i>
+              </div>
+              <div class="input mt6 search">
+                <input type="text" name="" value="" id="mmf09" placeholder="대표운영자 비밀번호 입력">
+                <button type="button" name="button"><i class="icon">삭제</i></button>
+                <i class="icon"></i>
+              </div>
+              <div class="info-txt input-wrap">
+                <div class="alert-box">
+                  <p class="error-txt">아이디 또는 비밀번호를 확인해주세요.</p>
+                  <p class="error-txt">인증 실패했습니다. 다시 시도해주세요.</p>
+                  <button type="button" name="button" class="link-btn ui-popup-call" data-target="#cafe24-alert">인증하기</button>
+                </div>
+                <ul class="info_tip mt12">
+                  <li>※ 쇼핑몰 관리자 계정(쇼핑몰아이디)을 입력해주세요.</li>
+                  <li>※ 쇼핑몰아이디는 대표운영자 계정으로만 인증할 수 있습니다.</li>
+                  <li>※ <a href="#" class="t-underline">쇼핑몰 ID/PW 찾기</a></li>
+                </ul>
+              </div>
+            </div>
+          </div> -->
+          <!-- case2. 카페24 계정 연동 되었을 시 -->
+          <!-- 2023-01-17 EZP-6415 카페24 계정연동 제거
+            <div class="cafe24-btn mt40">
+            <div>
+              <span>카페24 계정</span>
+              <a href="javascript: void(0);" class="btn small-blue line">연동해제</a>
+            </div>
+            <p class="info_tip">ectezp001@cafe24.com</p>
+          </div> -->
+          <!-- 2022-12-05 EZP-6415 카페24 계정연동 추가 끝 -->
+
+
+          <!--21-03-04 수정-->
+          <div class="mypage-mem-tit">
+            <h2>담당자 정보</h2>
+          </div>
+           <!--//21-03-04 수정-->
+          <label for="mmf10">이름 <em>필수입력</em></label>
+          <p class="info_tip">※ 아이디/비밀번호 찾기 시 해당 정보 인증 필요</p>
+          <div class="input mt6 search"><!--21-02-08 수정-->
+            <input type="text" name="" value="" id="mmf10" placeholder="이름 입력" required>
+            <button type="button" name="button"><i class="icon">삭제</i></button>
+            <i class="icon"></i>
+          </div>
+          <label for="mmf11_1">휴대폰 번호 <em>필수입력</em></label>
+          <p class="info_tip">※ 아이디/비밀번호 찾기 시 해당 정보 인증 필요</p>
+          <div class="input-wrap col mt6 success">
+            <!-- success, error 클래스 명 입력  메세지 alret 표시-->
+            <div class="divide">
+              <div class="input">
+                <div class="ui-select">
+                  <button type="button">010</button>
+                  <ul>
+                    <li>010</li>
+                    <li>011</li>
+                    <li>016</li>
+                    <li>017</li>
+                    <li>018</li>
+                    <li>019</li>
+                  </ul>
+                </div>
+              </div>
+              <span>-</span>
+              <div class="input search"><!--21-02-08 수정-->
+                <input type="text" name="" value="" id="mmf11_1" placeholder="" required>
+                <button type="button" name="button"><i class="icon">삭제</i></button>
+                <i class="icon"></i>
+              </div>
+              <span>-</span>
+              <div class="input search"><!--21-02-08 수정-->
+                <input type="text" name="" value="" id="mmf11_2" placeholder="" required>
+                <button type="button" name="button"><i class="icon">삭제</i></button>
+                <i class="icon"></i>
+              </div>
+              <!-- 21-02-05 <button type="button" name="button" class="btn large lookup">조회</button> -->
+            </div>
+            <!-- 2021-05-24 EZP-3068 -->
+            <p>사용 가능한 번호입니다.</p>
+            <!-- <div class="alert-box">
+              <button type="button" name="button" class="link-btn">중복체크</button>
+              <p>사용 가능한 번호입니다.</p>
+            </div> -->
+            <!--// 21-02-04 수정-->
+          </div>
+        </div>
+        <!-- //mypage-mem-form -->
+        <div class="mypage-mem-tit">
+          <h2>배송지 정보</h2>
+        </div>
+        <div class="mypage-mem-form">
+          <!-- 21-01-25 -->
+          <!-- 2022-11-15 EZP-7016 워딩 공통적용으로 변경 (기존 : 기본 배송지) -->
+          <div class="sec_title">주소
+            <span class="checkbox small">
+              <input type="checkbox" name="" id="a2222">
+              <label for="a2222">사업장 주소와 동일</label>
+            </span>
+            <span class="check"></span>
+          </div>
+          <!-- //21-01-25 -->
+        <!-- 2021-02-22수정 -->
+          <div class="input post-code mt6">
+            <input type="text" name="" value="" id="mmf13_1" placeholder="우편번호" required="">
+            <button type="button" name="button" class="delete"><i class="icon">삭제</i></button>
+            <button type="button" name="button" class="search"><i class="icon">검색</i></button>
+          </div>
+          <div class="input mt6">
+            <input type="text" name="" value="" id="mmf13_2" placeholder="주소" readonly>
+          </div>
+          <div class="input search mt6 search"><!--21-02-08 수정-->
+            <input type="text" name="" value="" id="mmf13_3" placeholder="상세주소 입력" required>
+            <button type="button" name="button"><i class="icon">삭제</i></button>
+            <i class="icon"></i>
+          </div>
+        </div>
+        <!-- //2021-02-22수정 -->
+        <!-- //mypage-mem-form -->
+        <div class="mypage-mem-tit">
+          <h2>큐레이션 정보</h2>
+        </div>
+        <div class="mypage-mem-form mt">
+          <div class="sec_title">자주가는 마켓<em>필수입력</em>
+            <span>※ 최대 3개까지 선택 가능</span>
+          </div>
+          <button type="button" name="button" class="btn_arrow mt6 ui-popup-call" data-target="#market_pop">마켓
+            선택</button>
+          <div class="label">
+            <button type="button">남평화</button>
+            <button type="button">디오트</button>
+            <button type="button">디자이너클럽</button>
+          </div>
+          <div class="sec_title">연령대 <em>필수입력</em>
+            <span>※ 최대 2개까지 선택 가능</span>
+          </div>
+          <ul class="select-list mt6">
+            <!-- 21-02-02 -->
+            <li>
+              <span class="checkbox">
+                <input type="checkbox" name="" id="a1">
+                <label for="a1">전연령</label>
+              </span>
+            </li>
+            <li>
+              <span class="checkbox">
+                <input type="checkbox" name="" id="a2" checked>
+                <label for="a2">10대</label>
+              </span>
+            </li>
+            <li>
+              <span class="checkbox">
+                <input type="checkbox" name="" id="a3">
+                <label for="a3">20대</label>
+              </span>
+            </li>
+            <li>
+              <span class="checkbox">
+                <input type="checkbox" name="" id="a4" checked>
+                <label for="a4">30대</label>
+              </span>
+            </li>
+            <li>
+              <span class="checkbox">
+                <input type="checkbox" name="" id="a5">
+                <label for="a5">40대</label>
+              </span>
+            </li>
+            <li>
+              <span class="checkbox">
+                <input type="checkbox" name="" id="a6">
+                <label for="a6">50대 이상</label>
+              </span>
+            </li>
+          </ul>
+          <div class="sec_title">상품 유형 <em>필수입력</em>
+            <span>※ 중복 선택 가능</span>
+          </div>
+          <ul class="select-list mt6 prod-style-btn">
+            <li>
+              <span class="checkbox">
+                <input type="checkbox" name="" id="b1" checked>
+                <label for="b1">여성</label>
+              </span>
+            </li>
+            <li>
+              <span class="checkbox">
+                <input type="checkbox" name="" id="a2">
+                <label for="b2">남성</label>
+              </span>
+            </li>
+            <li>
+              <span class="checkbox">
+                <input type="checkbox" name="" id="b3" checked>
+                <label for="b3">유아동</label>
+              </span>
+            </li>
+          </ul>
+          <div class="sec_title">스타일 <em>필수입력</em>
+            <span>※ 최대 3개까지 선택 가능</span>
+          </div>
+          <span class="prod-style mt6">상품유형을 먼저 선택해 주세요.</span>
+          <ul class="select-list mt6 prod-style-list hide">
+            <li>
+              <span class="checkbox">
+                <input type="checkbox" name="" id="c1">
+                <label for="c1">캐주얼</label>
+              </span>
+            </li>
+            <li>
+              <span class="checkbox">
+                <input type="checkbox" name="" id="c2" checked>
+                <label for="c2">베이직</label>
+              </span>
+            </li>
+            <li>
+              <span class="checkbox">
+                <input type="checkbox" name="" id="c3">
+                <label for="c3">모던시크</label>
+              </span>
+            </li>
+            <li>
+              <span class="checkbox">
+                <input type="checkbox" name="" id="c4">
+                <label for="c4">클래식</label>
+              </span>
+            </li>
+            <li>
+              <span class="checkbox">
+                <input type="checkbox" name="" id="c5">
+                <label for="c5">스트릿</label>
+              </span>
+            </li>
+            <li>
+              <span class="checkbox">
+                <input type="checkbox" name="" id="c6">
+                <label for="c6">스포티</label>
+              </span>
+            </li>
+            <li>
+              <span class="checkbox">
+                <input type="checkbox" name="" id="c7" checked>
+                <label for="c7">레트로</label>
+              </span>
+            </li>
+            <li>
+              <span class="checkbox">
+                <input type="checkbox" name="" id="c8">
+                <label for="c8">러블리</label>
+              </span>
+            </li>
+            <li>
+              <span class="checkbox">
+                <input type="checkbox" name="" id="c9" checked>
+                <label for="c9">페미닌</label>
+              </span>
+            </li>
+            <li>
+              <span class="checkbox">
+                <input type="checkbox" name="" id="c10">
+                <label for="c10">오피스</label>
+              </span>
+            </li>
+            <li>
+              <span class="checkbox">
+                <input type="checkbox" name="" id="c11">
+                <label for="c11">유니섹스</label>
+              </span>
+            </li>
+            <li>
+              <span class="checkbox">
+                <input type="checkbox" name="" id="c12">
+                <label for="c12">섹시글램</label>
+              </span>
+            </li>
+          </ul>
+          <div class="sec_title">주력 카테고리 <em>필수입력</em>
+            <span>※ 최대 10개까지 선택 가능</span>
+          </div>
+          <button type="button" name="button" class="btn_arrow mt6 ui-popup-call" data-target="#category_pop">카테고리 선택</button>
+          <div class="label">
+            <button type="button">여성<span>&gt;</span>아우터<span>&gt;</span>코트</button>
+            <button type="button">여성<span>&gt;</span>홈·언더웨어<span>&gt;</span>홈 웨어</button>
+            <button type="button">유아동<span>&gt;</span>신발<span>&gt;</span>운동화</button>
+          </div>
+        </div>
+        <!-- //mypage-mem-form -->
+      </div>
+      <!-- 21-02-02 -->
+      <div class="btn-wrap only-fixed __only-fixed">
+        <button type="button" name="button" class="btn fill large ui-popup-call" data-target="#agree_pop_alert">다음</button>
+      </div>
+    </div>
+    <!-- //memjoin_wrap -->
+  </div>
+
+  <!-- 이용약관 동의 alret popup-->
+  <div class="ui-popup alert" id="agree_pop_alert">
+    <div class="content">
+      <div class="header">
+        <h1>가입정보 입력</h1>
+      </div>
+      <div class="body">
+        <div class="inner">
+          <p class="tac">필수 입력 정보를 모두 입력해주세요.</p>
+        </div>
+        <div class="btn-wrap">
+          <button type="button" name="button" class="btn fill btn-close">확인</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- //이용약관 동의 alret popup-->
+
+  <!-- 마켓 선택 popup-->
+  <div class="ui-popup fullpop" id="market_pop">
+    <div class="content">
+      <div class="header">
+        <h1>자주가는 마켓</h1>
+        <button type="button" class="btn-close">닫기</button>
+      </div>
+      <div class="body">
+        <div class="inner">
+          <h2>마켓 선택</h2>
+          <!-- 21-01-26 수정 'ex' 추가-->
+          <div class="scrollbox_y ex">
+            <ul class="select-list">
+              <li>
+                <!-- 선택시 active-->
+                <span class="checkbox">
+                  <input type="checkbox" name="" id="a1">
+                  <label for="a1">APM</label>
+                </span>
+              </li>
+              <li>
+                <span class="checkbox">
+                  <input type="checkbox" name="" id="a1">
+                  <label for="a1">APM플레이스</label>
+                </span>
+              </li>
+              <li>
+                <span class="checkbox">
+                  <input type="checkbox" name="" id="a1">
+                  <label for="a1">DDP(유어스)</label>
+                </span>
+              </li>
+              <li>
+                <span class="checkbox">
+                  <input type="checkbox" name="" id="a1">
+                  <label for="a1">DWP</label>
+                </span>
+              </li>
+              <li>
+                <span class="checkbox">
+                  <input type="checkbox" name="" id="a1">
+                  <label for="a1">남평화</label>
+                </span>
+              </li>
+              <li>
+                <span class="checkbox">
+                  <input type="checkbox" name="" id="a1">
+                  <label for="a1">누죤</label>
+                </span>
+              </li>
+              <li>
+                <span class="checkbox">
+                  <input type="checkbox" name="" id="a1">
+                  <label for="a1">동평화</label>
+                </span>
+              </li>
+              <li>
+                <span class="checkbox">
+                  <input type="checkbox" name="" id="a1">
+                  <label for="a1">디오트</label>
+                </span>
+              </li>
+              <li>
+                <span class="checkbox">
+                  <input type="checkbox" name="" id="a1">
+                  <label for="a1">디자이너클럽</label>
+                </span>
+              </li>
+              <li>
+                <span class="checkbox">
+                  <input type="checkbox" name="" id="a1">
+                  <label for="a1">무궁화회관</label>
+                </span>
+              </li>
+              <li>
+                <span class="checkbox">
+                  <input type="checkbox" name="" id="a1">
+                  <label for="a1">벨포스트</label>
+                </span>
+              </li>
+              <li>
+                <span class="checkbox">
+                  <input type="checkbox" name="" id="a1">
+                  <label for="a1">스튜디오W</label>
+                </span>
+              </li>
+              <li>
+                <span class="checkbox">
+                  <input type="checkbox" name="" id="a1">
+                  <label for="a1">신발상가 A동</label>
+                </span>
+              </li>
+              <li>
+                <span class="checkbox">
+                  <input type="checkbox" name="" id="a1">
+                  <label for="a1">신발상가 B동</label>
+                </span>
+              </li>
+              <li>
+                <span class="checkbox">
+                  <input type="checkbox" name="" id="a1">
+                  <label for="a1">신발상가 C동</label>
+                </span>
+              </li>
+              <li>
+                <span class="checkbox">
+                  <input type="checkbox" name="" id="a1">
+                  <label for="a1">신발상가 D동</label>
+                </span>
+              </li>
+              <li>
+                <span class="checkbox">
+                  <input type="checkbox" name="" id="a1">
+                  <label for="a1">신평화</label>
+                </span>
+              </li>
+              <li>
+                <span class="checkbox">
+                  <input type="checkbox" name="" id="a1">
+                  <label for="a1">제일평화</label>
+                </span>
+              </li>
+              <li>
+                <span class="checkbox">
+                  <input type="checkbox" name="" id="a1">
+                  <label for="a1">청계상가</label>
+                </span>
+              </li>
+              <li>
+                <span class="checkbox">
+                  <input type="checkbox" name="" id="a1">
+                  <label for="a1">청평화</label>
+                </span>
+              </li>
+              <li>
+                <span class="checkbox">
+                  <input type="checkbox" name="" id="a1">
+                  <label for="a1">퀸즈스퀘어</label>
+                </span>
+              </li>
+              <li>
+                <span class="checkbox">
+                  <input type="checkbox" name="" id="a1">
+                  <label for="a1">테크노</label>
+                </span>
+              </li>
+              <li>
+                <span class="checkbox">
+                  <input type="checkbox" name="" id="a1">
+                  <label for="a1">평화시장</label>
+                </span>
+              </li>
+              <li>
+                <span class="checkbox">
+                  <input type="checkbox" name="" id="a1">
+                  <label for="a1">프로모션</label>
+                </span>
+              </li>
+              <li>
+                <span class="checkbox">
+                  <input type="checkbox" name="" id="a1">
+                  <label for="a1">테스트</label>
+                </span>
+              </li>
+              <li>
+                <span class="checkbox">
+                  <input type="checkbox" name="" id="a1">
+                  <label for="a1">테스트</label>
+                </span>
+              </li>
+              <li>
+                <span class="checkbox">
+                  <input type="checkbox" name="" id="a1">
+                  <label for="a1">테스트</label>
+                </span>
+              </li>
+              <li>
+                <span class="checkbox">
+                  <input type="checkbox" name="" id="a1">
+                  <label for="a1">테스트</label>
+                </span>
+              </li>
+              <li>
+                <span class="checkbox">
+                  <input type="checkbox" name="" id="a1">
+                  <label for="a1">테스트</label>
+                </span>
+              </li>
+              <li>
+                <span class="checkbox">
+                  <input type="checkbox" name="" id="a1">
+                  <label for="a1">테스트</label>
+                </span>
+              </li>
+              <li>
+                <span class="checkbox">
+                  <input type="checkbox" name="" id="a1">
+                  <label for="a1">테스트</label>
+                </span>
+              </li>
+              <li>
+                <span class="checkbox">
+                  <input type="checkbox" name="" id="a1">
+                  <label for="a1">테스트</label>
+                </span>
+              </li>
+              <li>
+                <span class="checkbox">
+                  <input type="checkbox" name="" id="a1">
+                  <label for="a1">테스트</label>
+                </span>
+              </li>
+              <li>
+                <span class="checkbox">
+                  <input type="checkbox" name="" id="a1">
+                  <label for="a1">테스트</label>
+                </span>
+              </li>
+              <li>
+                <span class="checkbox">
+                  <input type="checkbox" name="" id="a1">
+                  <label for="a1">테스트</label>
+                </span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <!-- 21-02-17 -->
+        <div class="btn-wrap fixed"><!-- 2021-02-18 수정 / 클래스 추가 -->
+          <button type="button" name="button" class="btn fill large ui-popup-call" data-target="#market_pop_alert">확인</button>
+          <!-- 최대 3개 alret 일 경우 ui-popup-call 클래스명과 data-target="#market_pop_alert" 추가 / 기본 확인은 btn-close 클래스명 추가 -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- //마켓 선택 popup-->
+
+  <!-- 최대 3개까지 선택 마켓 alret popup-->
+  <div class="ui-popup alert" id="market_pop_alert">
+    <div class="content">
+      <div class="header">
+        <h1>마켓 선택</h1>
+      </div>
+      <div class="body">
+        <div class="inner">
+          <p class="tac">최대 3개까지 선택 가능합니다.</p>
+        </div>
+        <div class="btn-wrap">
+          <button type="button" name="button" class="btn fill btn-close">확인</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- //최대 3개까지 선택 마켓 alret popup-->
+
+  <!-- 카테고리 선택 popup-->
+  <div class="ui-popup fullpop" id="category_pop">
+    <div class="content">
+      <div class="header">
+        <h1>주력 카테고리</h1>
+        <button type="button" class="btn-close">닫기</button>
+      </div>
+      <div class="body">
+        <div class="inner">
+          <div class="scrollbox_y">
+            <ul class="ui-tree" data-sync="true">
+              <li class="group first">
+                <div class="top">
+                  <button type="button" class="btn-toggle">여성</button>
+                </div>
+                <ul class="sub" data-sync="true">
+                  <li class="group">
+                    <div class="top">
+                      <button type="button" class="btn-toggle">아우터</button>
+                    </div>
+                    <ul class="sub" data-sync="true">
+                      <li><span class="checkbox">
+                          <input type="checkbox" name="" id="a_01_1">
+                          <label for="a_01_1">코트</label>
+                        </span></li>
+                      <li><span class="checkbox">
+                          <input type="checkbox" name="" id="a_01_2">
+                          <label for="a_01_2">재킷</label>
+                        </span></li>
+                      <li><span class="checkbox">
+                          <input type="checkbox" name="" id="a_01_3">
+                          <label for="a_01_3">데님</label>
+                        </span></li>
+                      <li><span class="checkbox">
+                          <input type="checkbox" name="" id="a_01_4">
+                          <label for="a_01_4">패딩</label>
+                        </span></li>
+                    </ul>
+                  </li>
+                  <li class="group">
+                    <div class="top">
+                      <button type="button" class="btn-toggle">상의</button>
+                    </div>
+                    <ul class="sub" data-sync="true">
+                      <li><span class="checkbox">
+                          <input type="checkbox" name="" id="a_02_1">
+                          <label for="a_02_1">상의1</label>
+                        </span></li>
+                      <li><span class="checkbox">
+                          <input type="checkbox" name="" id="a_02_2">
+                          <label for="a_02_2">상의2</label>
+                        </span></li>
+                    </ul>
+                  </li>
+                  <li class="group">
+                    <div class="top">
+                      <button type="button" class="btn-toggle">블라우스·셔츠</button>
+                    </div>
+                    <ul class="sub" data-sync="true">
+                      <li><span class="checkbox">
+                          <input type="checkbox" name="" id="a_03_1">
+                          <label for="a_03_1">블라우스·셔츠1</label>
+                        </span></li>
+                      <li><span class="checkbox">
+                          <input type="checkbox" name="" id="a_03_2">
+                          <label for="a_03_2">블라우스·셔츠2</label>
+                        </span></li>
+                    </ul>
+                  </li>
+                  <li class="group">
+                    <div class="top">
+                      <button type="button" class="btn-toggle">원피스</button>
+                    </div>
+                    <ul class="sub" data-sync="true">
+                      <li><span class="checkbox">
+                          <input type="checkbox" name="" id="a_04_1">
+                          <label for="a_04_1">원피스1</label>
+                        </span></li>
+                      <li><span class="checkbox">
+                          <input type="checkbox" name="" id="a_04_2">
+                          <label for="a_04_2">원피스2</label>
+                        </span></li>
+                    </ul>
+                  </li>
+                  <li class="group">
+                    <div class="top">
+                      <button type="button" class="btn-toggle">니트</button>
+                    </div>
+                    <ul class="sub" data-sync="true">
+                      <li><span class="checkbox">
+                          <input type="checkbox" name="" id="a_05_1">
+                          <label for="a_05_1">니트</label>
+                        </span></li>
+                      <li><span class="checkbox">
+                          <input type="checkbox" name="" id="a_05_2">
+                          <label for="a_05_2">니트</label>
+                        </span></li>
+                    </ul>
+                  </li>
+                  <li class="group">
+                    <div class="top">
+                      <button type="button" class="btn-toggle">팬츠</button>
+                    </div>
+                    <ul class="sub" data-sync="true">
+                      <li><span class="checkbox">
+                          <input type="checkbox" name="" id="a_06_1">
+                          <label for="a_06_1">팬츠</label>
+                        </span></li>
+                      <li><span class="checkbox">
+                          <input type="checkbox" name="" id="a_06_2">
+                          <label for="a_06_2">팬츠</label>
+                        </span></li>
+                    </ul>
+                  </li>
+                  <li class="group">
+                    <div class="top">
+                      <button type="button" class="btn-toggle">스커트</button>
+                    </div>
+                    <ul class="sub" data-sync="true">
+                      <li><span class="checkbox">
+                          <input type="checkbox" name="" id="a_07_1">
+                          <label for="a_07_1">스커트</label>
+                        </span></li>
+                      <li><span class="checkbox">
+                          <input type="checkbox" name="" id="a_07_2">
+                          <label for="a_07_2">스커트</label>
+                        </span></li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+
+              <li class="group first">
+                <div class="top">
+                  <button type="button" class="btn-toggle">남성</button>
+                </div>
+                <ul class="sub" data-sync="true">
+                  <li class="group">
+                    <div class="top">
+                      <button type="button" class="btn-toggle">아우터</button>
+                    </div>
+                    <ul class="sub" data-sync="true">
+                      <li><span class="checkbox">
+                          <input type="checkbox" name="" id="b_01_1">
+                          <label for="b_01_1">코트</label>
+                        </span></li>
+                      <li><span class="checkbox">
+                          <input type="checkbox" name="" id="b_01_2">
+                          <label for="b_01_2">재킷</label>
+                        </span></li>
+                      <li><span class="checkbox">
+                          <input type="checkbox" name="" id="b_01_3">
+                          <label for="b_01_3">데님</label>
+                        </span></li>
+                      <li><span class="checkbox">
+                          <input type="checkbox" name="" id="b_01_4">
+                          <label for="b_01_4">패딩</label>
+                        </span></li>
+                    </ul>
+                  </li>
+                  <li class="group">
+                    <div class="top">
+                      <button type="button" class="btn-toggle">상의</button>
+                    </div>
+                    <ul class="sub" data-sync="true">
+                      <li><span class="checkbox">
+                          <input type="checkbox" name="" id="b_02_1">
+                          <label for="b_02_1">상의1</label>
+                        </span></li>
+                      <li><span class="checkbox">
+                          <input type="checkbox" name="" id="b_02_2">
+                          <label for="b_02_2">상의2</label>
+                        </span></li>
+                    </ul>
+                  </li>
+                  <li class="group">
+                    <div class="top">
+                      <button type="button" class="btn-toggle">블라우스·셔츠</button>
+                    </div>
+                    <ul class="sub" data-sync="true">
+                      <li><span class="checkbox">
+                          <input type="checkbox" name="" id="b_03_1">
+                          <label for="b_03_1">블라우스·셔츠1</label>
+                        </span></li>
+                      <li><span class="checkbox">
+                          <input type="checkbox" name="" id="b_03_2">
+                          <label for="b_03_2">블라우스·셔츠2</label>
+                        </span></li>
+                    </ul>
+                  </li>
+                  <li class="group">
+                    <div class="top">
+                      <button type="button" class="btn-toggle">원피스</button>
+                    </div>
+                    <ul class="sub" data-sync="true">
+                      <li><span class="checkbox">
+                          <input type="checkbox" name="" id="b_04_1">
+                          <label for="b_04_1">원피스1</label>
+                        </span></li>
+                      <li><span class="checkbox">
+                          <input type="checkbox" name="" id="b_04_2">
+                          <label for="b_04_2">원피스2</label>
+                        </span></li>
+                    </ul>
+                  </li>
+                  <li class="group">
+                    <div class="top">
+                      <button type="button" class="btn-toggle">니트</button>
+                    </div>
+                    <ul class="sub" data-sync="true">
+                      <li><span class="checkbox">
+                          <input type="checkbox" name="" id="b_05_1">
+                          <label for="b_05_1">니트</label>
+                        </span></li>
+                      <li><span class="checkbox">
+                          <input type="checkbox" name="" id="b_05_2">
+                          <label for="b_05_2">니트</label>
+                        </span></li>
+                    </ul>
+                  </li>
+                  <li class="group">
+                    <div class="top">
+                      <button type="button" class="btn-toggle">팬츠</button>
+                    </div>
+                    <ul class="sub" data-sync="true">
+                      <li><span class="checkbox">
+                          <input type="checkbox" name="" id="b_06_1">
+                          <label for="b_06_1">팬츠</label>
+                        </span></li>
+                      <li><span class="checkbox">
+                          <input type="checkbox" name="" id="b_06_2">
+                          <label for="b_06_2">팬츠</label>
+                        </span></li>
+                    </ul>
+                  </li>
+                  <li class="group">
+                    <div class="top">
+                      <button type="button" class="btn-toggle">스커트</button>
+                    </div>
+                    <ul class="sub" data-sync="true">
+                      <li><span class="checkbox">
+                          <input type="checkbox" name="" id="b_07_1">
+                          <label for="b_07_1">스커트</label>
+                        </span></li>
+                      <li><span class="checkbox">
+                          <input type="checkbox" name="" id="b_07_2">
+                          <label for="b_07_2">스커트</label>
+                        </span></li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+
+              <li class="group first">
+                <div class="top">
+                  <button type="button" class="btn-toggle">유아동</button>
+                </div>
+                <ul class="sub" data-sync="true">
+                  <li class="group">
+                    <div class="top">
+                      <button type="button" class="btn-toggle">아우터</button>
+                    </div>
+                    <ul class="sub">
+                      <li><span class="checkbox">
+                          <input type="checkbox" name="" id="c_01_1">
+                          <label for="c_01_1">코트</label>
+                        </span></li>
+                      <li><span class="checkbox">
+                          <input type="checkbox" name="" id="c_01_2">
+                          <label for="c_01_2">재킷</label>
+                        </span></li>
+                      <li><span class="checkbox">
+                          <input type="checkbox" name="" id="c_01_3">
+                          <label for="c_01_3">데님</label>
+                        </span></li>
+                      <li><span class="checkbox">
+                          <input type="checkbox" name="" id="c_01_4">
+                          <label for="c_01_4">패딩</label>
+                        </span></li>
+                    </ul>
+                  </li>
+                  <li class="group">
+                    <div class="top">
+                      <button type="button" class="btn-toggle">상의</button>
+                    </div>
+                    <ul class="sub" data-sync="true">
+                      <li><span class="checkbox">
+                          <input type="checkbox" name="" id="c_02_1">
+                          <label for="c_02_1">상의1</label>
+                        </span></li>
+                      <li><span class="checkbox">
+                          <input type="checkbox" name="" id="c_02_2">
+                          <label for="c_02_2">상의2</label>
+                        </span></li>
+                    </ul>
+                  </li>
+                  <li class="group">
+                    <div class="top">
+                      <button type="button" class="btn-toggle">블라우스·셔츠</button>
+                    </div>
+                    <ul class="sub" data-sync="true">
+                      <li><span class="checkbox">
+                          <input type="checkbox" name="" id="c_03_1">
+                          <label for="c_03_1">블라우스·셔츠1</label>
+                        </span></li>
+                      <li><span class="checkbox">
+                          <input type="checkbox" name="" id="c_03_2">
+                          <label for="c_03_2">블라우스·셔츠2</label>
+                        </span></li>
+                    </ul>
+                  </li>
+                  <li class="group">
+                    <div class="top">
+                      <button type="button" class="btn-toggle">원피스</button>
+                    </div>
+                    <ul class="sub" data-sync="true">
+                      <li><span class="checkbox">
+                          <input type="checkbox" name="" id="c_04_1">
+                          <label for="c_04_1">원피스1</label>
+                        </span></li>
+                      <li><span class="checkbox">
+                          <input type="checkbox" name="" id="c_04_2">
+                          <label for="c_04_2">원피스2</label>
+                        </span></li>
+                    </ul>
+                  </li>
+                  <li class="group">
+                    <div class="top">
+                      <button type="button" class="btn-toggle">니트</button>
+                    </div>
+                    <ul class="sub" data-sync="true">
+                      <li><span class="checkbox">
+                          <input type="checkbox" name="" id="c_05_1">
+                          <label for="c_05_1">니트</label>
+                        </span></li>
+                      <li><span class="checkbox">
+                          <input type="checkbox" name="" id="c_05_2">
+                          <label for="c_05_2">니트</label>
+                        </span></li>
+                    </ul>
+                  </li>
+                  <li class="group">
+                    <div class="top">
+                      <button type="button" class="btn-toggle">팬츠</button>
+                    </div>
+                    <ul class="sub" data-sync="true">
+                      <li><span class="checkbox">
+                          <input type="checkbox" name="" id="c_06_1">
+                          <label for="c_06_1">팬츠</label>
+                        </span></li>
+                      <li><span class="checkbox">
+                          <input type="checkbox" name="" id="c_06_2">
+                          <label for="c_06_2">팬츠</label>
+                        </span></li>
+                    </ul>
+                  </li>
+                  <li class="group">
+                    <div class="top">
+                      <button type="button" class="btn-toggle">스커트</button>
+                    </div>
+                    <ul class="sub" data-sync="true">
+                      <li><span class="checkbox">
+                          <input type="checkbox" name="" id="c_07_1">
+                          <label for="c_07_1">스커트</label>
+                        </span></li>
+                      <li><span class="checkbox">
+                          <input type="checkbox" name="" id="c_07_2">
+                          <label for="c_07_2">스커트</label>
+                        </span></li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+        <!-- 21-02-17 -->
+        <div class="btn-wrap fixed"><!-- 2021-02-18 수정 / 클래스 추가 -->
+          <button type="button" name="button" class="btn fill large btn-close">확인</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- //카테고리 선택 popup-->
+
+
+  <!-- 파일첨부 팝업 21-02-04 -->
+  <div class="ui-popup alert" id="alert-type1">
+    <div class="content">
+      <div class="body">
+        <div class="inner">
+          <!--21-02-16 수정 / 워딩 수정-->
+          <p class="tac">파일 사이즈가 10MB를 초과하여<br> 등록할 수 없습니다.</p>
+        </div>
+        <div class="btn-wrap">
+          <button type="button" name="button" class="btn fill btn-close">확인</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ui-popup alert" id="alert-type2">
+    <div class="content">
+      <div class="body">
+        <div class="inner">
+          <!--21-02-16 수정 / 워딩 수정-->
+          <p class="tac">10MB 이하의 png,jpg,jpeg,gif 파일만<br>등록 가능합니다.</p>
+        </div>
+        <div class="btn-wrap">
+          <button type="button" name="button" class="btn fill btn-close">확인</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 파일첨부 팝업 21-02-04// -->
+
+  <!-- 회원가입 취소 팝업 21-02-19 -->
+  <div class="ui-popup alert" id="pop_join_cancel">
+    <div class="content">
+      <div class="header">
+        <h1>회원가입 취소</h1>
+      </div>
+      <div class="body">
+        <div class="inner">
+          <p class="tac">회원 가입을 취소하시겠습니까?<br>
+            취소 시, 입력 정보가 모두 초기화되어<br>
+            로그인 화면으로 이동합니다.</p>
+        </div>
+        <div class="btn-wrap pop-btn-wrap">
+          <button type="button" name="button" class="btn btn-close">취소</button>
+          <button type="button" name="button" class="btn fill" onclick="location.href='http://devweb.eluocnc.com/cafe24/easypick/2021/mobile/html/html/로그인/로그인.html'">확인</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--//회원가입 취소 팝업 -->
+
+  <!-- 2022-12-05 EZP-6415 카페24연동 알럿창 -->
+  <div class="ui-popup alert" id="cafe24-alert">
+    <div class="content">
+      <div class="body">
+        <div class="inner pt10 pb30">
+          <!-- case1. 정상 -->
+          <p class="tac">인증되었습니다.</p>
+          <!-- case2. 이미 다른 계정 연동 되었을 시 -->
+          <p class="tac">해당 계정은 이미 다른 이지픽 계정에<br/> 연동되어 있습니다.<br/> 다른 계정으로 인증 진행해주세요.</p>
+        </div>
+        <div class="btn-wrap">
+          <button type="button" name="button" class="btn fill btn-close">확인</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 2022-12-05 EZP-6415 카페24연동 알럿창 -->
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+
+      //nav_category menu check
+      var category_check = '.nav_category > li > ul > li';
+      $(category_check).on('click', function() {
+        if ($(this).hasClass()) {
+          $(this).siblings('li').removeClass('active');
+          $(this).addClass('active');
+        } else {
+          $(this).toggleClass('active');
+        }
+      });
+
+      // include
+      // $("footer").load("../footer.html");
+
+      //21-02-01
+      // $('.ui-tree .sub li .checkbox').on('click',function(){
+      //     $('.ui-tree .sub li .checkbox').not($(this)).find('input').prop("checked", false);
+      // })
+
+      $('.ui-tree .first').on('click', function() {
+        var $tree = $(this).not('.active');
+        $tree.find('.group').removeClass('active');
+        $tree.find('.sub').hide();
+        $tree.find('.sub li .checkbox input').prop("checked", false);
+      });
+
+      //미리보기 링크 21-02-03
+      $(document).on('click', ".preview-img-link", function() {
+        var url = "첨부파일미리보기.html";
+        window.open(url, "_blank");
+      });
+
+      // EZP-5398...
+      $("input[type=text], input[type=password]").each(function(){
+        $(this).bind("focus", function() {
+          $(".__only-fixed").css("display", "none");
+        });
+
+        $(this).bind("blur",function() {
+          $(".__only-fixed").css("display", "");
+        });
+      });
+
+    });
+  </script>
+</body>
+
+</html>

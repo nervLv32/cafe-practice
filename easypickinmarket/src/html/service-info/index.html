@@ -1,0 +1,206 @@
+{% extends "../_templates/layout.njk" %}
+{% block content %}
+
+<div class="wrapper" id="wrap">
+    <div class="content" id="content">
+        <div class="content-head">
+            <div class="page-title">
+                <h3 class="h3-tit">서비스상담신청</h3>
+                <a href="#" class="btn-manual" target="_blank" title="매뉴얼">매뉴얼</a>
+                <div class="form-box">
+                    <form onsubmit="return submitHandler();">
+                        <fieldset>
+                            <legend class="skip">통합검색</legend>
+                            <label for="total-search" class="skip">검색어 입력</label>
+                            <input type="search" name="total-search" id="total-search" title="검색어 입력" class="text"
+                                placeholder="상품을 검색해보세요.">
+                            <input type="submit" value="검색" class="submit">
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+            <div class="cont-info-right">
+                <ul class="breadcrumb">
+                    <li>공급</li>
+                    <li class="now" title="현재 페이지">서비스상담신청</li>
+                </ul>
+            </div>
+        </div>
+
+        
+        <div class="easypick-case3-wrap">
+            <div class="banner-wrap">
+                <i><img src="../assets/images/easypick-case3-banner-logo.png" alt="case3 banner logo"></i>
+                <h6>이지픽 사입삼촌이 픽업해주는 [이지픽주문]부터  [입고 검수], [미송관리], [정산], [세금계산서 발행] 까지</h6>
+                <h2>
+                    고객님의 사입 업무가 더욱 편리해지는 서비스들이 준비되어있어요! <br />
+                    상담 후 사입이 더욱 쉬워지는 <b>이지픽의 특별한 기능들을 모두 이용해보세요!</b>
+                </h2>
+                <p>(이지픽의 모든 기능을 사용할 수 있는 [이지픽주문] 서비스는 '서비스 상담 신청' 후 사용 가능합니다.)</p>
+            </div>
+        </div>
+
+        <div class="service-info-wrap">
+            <div class="service-info-inner">
+                <div class="info-box">
+                    <div class="require-info-box">
+                        <h6>필수 정보</h6>
+                        <dl>
+                            <dt>쇼핑몰명</dt>
+                            <dd>이지클로젯</dd>
+                        </dl>
+                        <dl>
+                            <dt>휴대폰 번호<span class="red-star"> *</span></dt>
+                            <dd>
+                                <div class="hp-input-wrap">
+                                    <div class="form-inline">
+                                        <div class="select-control">
+                                            <button type="button" class="btn-sel">010</button>
+                                            <ul class="sel-panel" style="display: none;">
+                                                <li selected="" value="010">010</li>
+                                                <li value="011">011</li>
+                                                <li value="016">016</li>
+                                                <li value="017">017</li>
+                                                <li value="018">018</li>
+                                                <li value="019">019</li>
+                                            </ul>
+                                        </div>
+                                        <div class="form-control">
+                                            <i class="number-hypen"></i>
+                                            <input type="text" placeholder="">
+                                            <i class="number-hypen"></i>
+                                            <input type="text" placeholder="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>상담가능시간 <span class="red-star"> *</span></dt>
+                            <dd>
+                                <div class="info-select-wrap">
+                                    <div class="select-control easypick-select-control">
+                                        <button type="button" class="btn-sel gray-sel">상시가능</button>
+                                        <ul class="sel-panel">
+                                            <li class="active">상시가능</li>
+                                            <li>선택1</li>
+                                            <li class="disabled">disabled 선택2</li>
+                                            <li>선택3</li>
+                                            <li>선택4</li>
+                                            <li>선택5</li>
+                                            <li>선택6</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="additional-info-box">
+                        <h6>부가 정보</h6>
+                        <dl>
+                            <dt>쇼핑몰 주소 URL</dt>
+                            <dd>
+                                <div class="form-control">
+									<input type="text" placeholder="쇼핑몰 사이트 주소(URL)를 입력해주세요.">
+								</div>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>배송지역</dt>
+                            <dd>
+                                <div class="info-select-wrap">
+                                    <div class="select-control easypick-select-control">
+                                        <button type="button" class="btn-sel gray-sel">배송지역 선택</button>
+                                        <ul class="sel-panel">
+                                            <li class="active">배송지역 선택</li>
+                                            <li>선택1</li>
+                                            <li class="disabled">disabled 선택2</li>
+                                            <li>선택3</li>
+                                            <li>선택4</li>
+                                            <li>선택5</li>
+                                            <li>선택6</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>월 매출액</dt>
+                            <dd>
+                                <div class="info-select-wrap">
+                                    <div class="select-control easypick-select-control">
+                                        <button type="button" class="btn-sel">월 매출액 선택</button>
+                                        <ul class="sel-panel">
+                                            <li class="active">월 매출액 선택</li>
+                                            <li>선택1</li>
+                                            <li class="disabled">disabled 선택2</li>
+                                            <li>선택3</li>
+                                            <li>선택4</li>
+                                            <li>선택5</li>
+                                            <li>선택6</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>월 사입액</dt>
+                            <dd>
+                                <div class="info-select-wrap">
+                                    <div class="select-control easypick-select-control">
+                                        <button type="button" class="btn-sel gray-sel">월 사입액 선택</button>
+                                        <ul class="sel-panel">
+                                            <li class="active">선택해주세요</li>
+                                            <li>선택1</li>
+                                            <li class="disabled">disabled 선택2</li>
+                                            <li>선택3</li>
+                                            <li>선택4</li>
+                                            <li>선택5</li>
+                                            <li>선택6</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+                <div class="agree-box">
+                    <div class="form-control">
+                        <label>
+                            <input type="checkbox" class="custom-control-input">
+                            <span>개인정보수집 및 이용 동의</span>
+                        </label>
+                    </div>
+                    <div class="agree-con-box">
+                        <ul>
+                            <li>1. 개인정보의 수집 및 이용 목적 : 사입 서비스 제공을 위한 상담 진행</li>
+                            <!-- 2022-12-15 EZP-6938 전화번호에서 워딩변경 -->
+                            <li>2. 수집하는 개인정보 항목 : 휴대폰 번호</li>
+                            <li>3. 개인정보의 보유 및 이용기간 : 신청일로부터 3개월</li>
+                        </ul>
+                        <p>*해당 동의를 거부할 수 있으나, 거부 시 서비스 이용에 제한이 있을 수 있습니다.</p>
+                    </div>
+                </div>
+                <!-- 2022-11-04 EZP-6938 약관문구추가 시작 -->
+                <div class="agree-info-box">
+                    <p>상담 신청을 하시면, 상담의 기초자료로 사용하기 위하여 아래와 같은 쇼핑몰의 통계 정보가 제공됩니다.</p>
+                    <ul>
+                        <li>제공 항목 : 최근 1년 기준 월 평균 주문수와 순매출 정보</li>
+                        <li>제공받는 자 : 제이씨어패럴(주) (이지픽 서비스 제공자)</li>
+                        <li>보관기간 : 상담 신청 후 3개월</li>
+                    </ul>
+                    <p>아래의 "서비스 상담 신청"버튼을 누르시면 이에 동의하는 것입니다.</p>
+                </div>
+                <!-- 2022-11-04 EZP-6938 약관문구추가 끝 -->
+                <h6 class="last-msg">
+                    서비스 상담 신청을 하시면, 상담 신청 후 1~3일 이내에 기재하신 번호로 상담원이 연락드립니다. <br />
+                    순차적으로 확인 후 연락 드리니 신청 후 조금만 기다려주세요!
+                </h6>
+            </div>
+        </div>
+        
+</div>
+
+{% include ("../_templates/content-footer/easypick-setting-footer-case2.njk") %}
+
+{% endblock %}

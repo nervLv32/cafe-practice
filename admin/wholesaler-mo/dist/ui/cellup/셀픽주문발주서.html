@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="format-detection" content="telephone=yes">
+	<link rel="stylesheet" href="../../css/orderbook.css">
+	<script src="../../js/libs/jquery.min.js"></script>
+	<script src="../../js/common_front.js"></script>
+	<script src="../../js/ui.js"></script>
+	<title>사입삼촌주문서</title>
+</head>
+
+<body class="list">
+	<header>
+		<button type="button" name="button" id="back" class="btn-back"><img src="../../img/orderbook/btn-back.png" alt="뒤로"></button>
+		<h1>
+			<span class="header-title"><em class="txt-red">[중지]</em>{쇼핑몰명} 주문서</span><!--2022-07-21 EZP-5433-->
+		</h1>
+		<span class="logo"><img src="../../img/orderbook/logo.png" alt="EASYPICK"></span>
+	</header>
+
+	<!--container// -->
+	<div id="container">
+		<!-- 2020-06-10 EZP-761 시작 -->
+		<div class="cellup-list">
+			<div class="state-wrap bg-gray">
+				<p class="item">
+					<span class="txt-red">대기</span>
+					<span class="num">9,999</span>
+				</p>
+				<p class="item">
+					<span>진행</span>
+					<span class="num">9,999</span>
+				</p>
+				<p class="item">
+					<span>완료</span>
+					<span class="num">9,999</span>
+				</p>
+				<!--2022-08-25 EZP-6719-->
+				<p class="item">
+					<span style="color: #999;">취소</span><!--2022-08-25 EZP-5719-->
+					<span class="num">9,999</span> 
+				</p>
+			</div>
+
+			<div class="sellpick-order">
+				<div class="order-info">
+					<p class="total">총 <span class="txt-red">N</span> 건</p>
+					<button type="button" name="button" class="filter ui-popup-open" data-target="#filter-pop">필터</button>
+				</div>
+				
+				<div class="shop-list-wrap">
+					<div class="item">
+						<p class="message-empty"><span>검색 결과가 없습니다.</span></p><!--2022-07-09 EZP-5433 워딩변경-->
+					</div>
+					<div class="item">
+						<h3>2022-04-08 (목)
+							<span class="checkbox only all-chk">
+								<input type="checkbox" name="" id="c1">
+								<label for="c1">체크</label>
+							</span>
+						</h3>
+						<ul class="shop-info">
+							<li class="shop">
+								<p class="name"><span class="bg-red">대기</span>달트</p>
+								<p class="date">11:00 주문</p>
+								<a class="link" href=""></a>
+								<span class="checkbox only">
+									<input type="checkbox" name="" id="c1">
+									<label for="c1">체크</label>
+								</span>
+							</li>
+							<li class="shop">
+								<p class="name"><span class="bg-red">대기</span>달트달트</p>
+								<p class="date">3:00 주문</p>
+								<a class="link" href=""></a>
+								<span class="checkbox only ">
+									<input type="checkbox" name="" id="c1">
+									<label for="c1">체크</label>
+								</span>
+							</li>
+							<li class="shop">
+								<p class="name"><span class="bg-gray">취소</span>메이크라이트</p><!--2022-08-25 EZP-5719-->
+								<p class="date">11:00 주문</p>
+								<a class="link" href=""></a>
+								<span class="checkbox only ">
+									<input type="checkbox" name="" id="c1">
+									<label for="c1">체크</label>
+								</span>
+							</li>
+							<li class="shop">
+								<p class="name"><span class="bg-darker">완료</span>로리앤콜린스나이퍼</p>
+								<p class="date">1:25 주문</p>
+								<a class="link" href=""></a>
+								<span class="checkbox only ">
+									<input type="checkbox" name="" id="c1">
+									<label for="c1">체크</label>
+								</span>
+							</li>
+						</ul>
+					</div>
+					<div class="item">
+						<h3>2022-04-08 (목)
+							<span class="checkbox only all-chk">
+								<input type="checkbox" name="" id="c1">
+								<label for="c1">체크</label>
+							</span>
+						</h3>
+						<ul class="shop-info">
+							<li class="shop">
+								<p class="name"><span class="bg-sky">진행</span>달트</p>
+								<p class="date">1:00 주문</p>
+								<a class="link" href=""></a>
+								<span class="checkbox only ">
+									<input type="checkbox" name="" id="c1">
+									<label for="c1">체크</label>
+								</span>
+							</li>
+							<li class="shop">
+								<p class="name"><span class="bg-darker">완료</span>핫핑</p>
+								<p class="date">1:00 주문</p>
+								<a class="link" href=""></a>
+								<span class="checkbox only ">
+									<input type="checkbox" name="" id="c1">
+									<label for="c1">체크</label>
+								</span>
+							</li>
+							<li class="shop">
+								<p class="name"><span class="bg-darker">완료</span>메이크라이트</p>
+								<p class="date">1:00 주문</p>
+								<a class="link" href=""></a>
+								<span class="checkbox only ">
+									<input type="checkbox" name="" id="c1">
+									<label for="c1">체크</label>
+								</span>
+							</li>
+							<li class="shop">
+								<p class="name"><span class="bg-red">대기</span>로리앤콜린스나이퍼</p>
+								<p class="date">1:00 주문</p>
+								<a class="link" href=""></a>
+								<span class="checkbox only ">
+									<input type="checkbox" name="" id="c1">
+									<label for="c1">체크</label>
+								</span>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+	</div>
+	<!--//container -->
+
+	<!-- footer// -->
+
+	<footer class="pickup-select-wrap">
+		<div class="btn-pickup-wrap" style="display: none;">
+			<button type="button" class="btn-pickup ui-popup-open" data-target="#pop-pickup">선택주문 픽업시작</button> <!--2022-08-22 EZP-6326 워딩변경-->
+			<button type="button" class="btn-close"></button>
+		</div>
+		<button type="button" class="btn-select btn-green">주문<br>선택</button>
+	</footer>
+	<!-- //footer -->
+
+	<!-- 2022-05-27 EZP-5433 공지사항 팝업 -->
+	<div id="popup1" class="ui-popup alert">
+		<div class="content" style="width:320px;">
+			<div class="header pop-tl">
+				<h1>공지사항</h1>
+				<button type="button" class="btn_close icon_close">닫기</button>
+			</div>
+			<div class="body" style="max-height: 250px;"><!--2020-03-26-->
+				<p style="color:#333333">
+					직접 동대문에 가야만 사입할 수 있던 다양한 최신 트렌드 의류를 간편하게 만나볼 수 있어 편리함은 물론, 성공적인 비즈니스를 목표로 하는 고객들을 위한 온라인 사입 서비스입니다. <br>
+					아직도 발품 팔고 계신가요? 이지픽은 전문화된 의류 상품
+					과 쉬운 사입 서비스를 통하여 고객에게 최상의 사입 경험
+					과 비즈니스 파트너로서의 성공 을 제공하고자 합니다.<br>
+					<br>
+					직접 동대문에 가야만 사입할 수 있던 다양한 최신 트렌드 의류를 간편하게 만나볼 수 있어 편리함은 물론, 성공적인 비즈니스를 목표로 하는 고객들을 위한 온라인 사입 서비<br>
+					스입니다. 아직도 발품 팔고 계신가요? 이지픽은 전문화된 의류 상품과 쉬운 사입 서비스를 통하여 고객에게 최상의 사입 경험과 비즈니스 파트너로서의 성공을 제공하고자 합니다.
+				</p>
+			</div>
+			<div>
+				<div class="btn-wrap">
+					<button type="button" class="btn btn_close">닫기</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- 2022-05-27 EZP-5433 [검색필터] 팝업 시작 -->
+	<div class="ui-popup full product-list" id="filter-pop">
+        <div class="content">
+			<div class="header pop-tl">
+				<button type="button" class="btn_close icon_close">닫기</button>
+				<h1>검색필터</h1>
+				<button type="button" class="reset txt-green">초기화</button>
+            </div>
+				<div class="body">
+					<div class="prd-info-wrap">
+						<div class="sec1">
+							<strong class="title">기간</strong>
+							<div class="btn-group-tab">
+								<button type="button" class="active">오늘</button>
+								<button type="button">3일</button>
+								<button type="button">7일</button>
+								<button type="button">15일</button>
+							</div>
+
+							<div class="calendar-wrap">
+								<input type="text" class="datepicker" value="2020.06.06" readonly>
+								~
+								<input type="text" class="datepicker" value="2020.06.06" readonly>
+							</div>
+						</div>
+
+						<div class="sec3 type-chk">
+							<strong calss="s-title">진행상태</strong>
+							<div class="modal-box">
+								<div>
+									<input type="checkbox" id="chk1">
+									<label for="chk1">전체</label>
+								</div>
+								<div>
+									<input type="checkbox" id="chk2">
+									<label for="chk2">대기</label>
+								</div>
+								<div>
+									<input type="checkbox" id="chk3">
+									<label for="chk3">진행</label>
+								</div>
+								<div>
+									<input type="checkbox" id="chk4">
+									<label for="chk4">완료</label>
+								</div>
+								<!--2022-08-25 EZP-5719-->
+								<div>
+									<input type="checkbox" id="chk5">
+									<label for="chk5">취소</label>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			<div class="btn-wrap btn-bottom">
+				<button type="button" class="btn submit point w100">검색하기</button>
+			</div>
+		</div>
+	</div>
+	
+
+	<!-- 2022-05-27 EZP-5433 주문타입안내 신규 팝업 시작 -->
+	<div class="ui-popup full order-type-pop" id="orderType">
+        <div class="content">
+			<div class="header pop-tl">
+				<h1>주문타입 안내</h1>
+				<button type="button" class="btn_close icon_close">닫기</button>
+            </div>
+			<div class="body">
+				<div class="item sellpick">
+					<h3>셀픽주문<span>*수수료 무료</span></h3>
+					<div class="pop-wrap">
+						<div class="icon-area">
+							<p>이지픽 서비스를 이용하여<br>
+								주문 후 가게와<br> 
+								직접 거래하는<br> 
+								셀프픽업 주문방식</p>
+						</div>
+						<ul class="txt-cont">
+							<li>
+								<h4>거래방식</h4>
+								<p>가게와 직거래 방식</p>
+							</li>
+							<li>
+								<h4>결제</h4>
+								<p>직접결제</p>
+							</li>
+							<li>
+								<h4>상품픽업</h4>
+								<p>직접수령 또는 <br>
+									계약맺고 있는 <br>
+									사입삼촌수령</p>
+							</li>
+							<li>
+								<h4>특징</h4>
+								<p>주문 후 입고, <br>
+									미송/환불/불량관리, <br>
+									정산 등<br>
+									전반적인 관리 <br>
+									쇼핑몰 부담</p>
+							</li>
+							<li>
+								<p class="red">주문완료 시 가게와 <br>
+									사입삼촌에게 주문 내용이 <br>
+									전달됩니다.</p>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="item easypick">
+					<h3>이지픽주문<span>*수수료 부과</span></h3>
+					<div class="pop-wrap">
+						<div class="icon-area">
+							<p>주문만 하면 사입부터<br> 
+								정산까지<br> 
+								이지픽 서비스에서<br>
+							대행해드리는 주문방식</p>
+						</div>
+						<ul class="txt-cont">
+							<li>
+								<h4>거래방식</h4>
+								<p>이지픽 사입팀 대행</p>
+							</li>
+							<li>
+								<h4>결제</h4>
+								<p>무통장입금</p>
+								<p class="gray">*선결제 쇼핑몰의 경우<br>
+									적립금 사용이 가능합니다.</p>
+							</li>
+							<li>
+								<h4>상품픽업</h4>
+								<p>이지픽사입팀이 <br>
+									상품 수령 후 발송</p>
+							</li>
+							<li>
+								<h4>특징</h4>
+								<p>상품입고, <br>
+									미송/환불/불량관리,<br>
+									정산, 세금계산서 등 <br>
+									모든 관리 가능</p>
+							</li>
+							<li>
+								<p class="red">주문서는 저녁9-10시 경 <br>
+									가게에 전송되어 <br>
+									픽업이 진행됩니다.</p>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="btn-wrap">
+				<button type="button" class="btn btn_close w100">닫기</button>
+			</div>
+		</div>
+	</div>
+	<!--//2022-05-27 EZP-5433 주문타입안내 신규 팝업 종료-->
+
+	<div id="pop-pickup" class="ui-popup">
+		<div class="content" style="width:350px;">
+			<div class="header">
+			</div>
+			<div class="body no-line cont-txt" style="height: auto;">
+				<p>픽업을 진행할 리스트를<br>선택해주세요.</p>
+			</div>
+			<div class="btn-wrap tac">
+				<!-- <button type="button" class="btn medium btn_close" style="width:110px;">취소</button> -->
+				<button type="button" class="btn point medium btn_close" style="width:110px;">확인</button>
+			</div>
+		</div>
+	</div>
+
+	<div id="modal"></div>
+	<!-- ui check -->
+	<script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
+	<script src="../../js/jquery-ui.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="../../css/jquery-ui.min.css">
+
+	<script>
+	$(document).ready(function() {
+		$('.tab-list a').click(function(){
+			$('.tab-list a').removeClass('active');
+			$(this).addClass('active');
+			var idx = $(this).index();
+			$('.tab-cont').removeClass('active');
+			$('.tab-cont').eq(idx).addClass('active');
+		});
+		$('.checkbox').attr("disabled");
+		//주문버튼 관련
+        $('.btn-select').click(function(){
+			$('.checkbox').css("display", "flex");
+			$('.checkbox').removeAttr("disabled");
+			$('.shop .link').hide();
+			$('li.shop .date').addClass('pr27'); // 2023-03-15 기획팀요청으로 js추가
+			
+			if($('.btn-pickup-wrap').css("display") == "none"){
+				$('.btn-pickup-wrap').show();
+				$('.btn-select').hide();
+
+			} else {
+				$('.btn-pickup-wrap').hide();
+				$('.btn-select').show();
+			}
+        });
+
+		$(".shop-info .shop").click(function () {
+			$(this).find(".checkbox input").is(":checked") == true ? $(this).addClass("active") : $(this).removeClass("active");
+			$(this).find(".checkbox input").is(":checked") == false ? $(this).removeClass("active") : $(this).addClass("active");
+		});
+
+        $('.btn-close').click(function(){
+			$('.checkbox').hide();
+			$('.shop .link').show();
+			$('li.shop .date').removeClass('pr27'); // 2023-03-15 기획팀요청으로 js추가
+
+			if($('.btn-pickup-wrap').css("display") == "none"){
+				$('.btn-pickup-wrap').show();
+				$('.btn-close').hide();
+			} else {
+				$('.btn-pickup-wrap').hide();
+				$('.btn-select').show();
+			}
+        });
+
+		$('#back').on('click', function() {
+			window.history.back();
+		});
+	});
+
+	$(function() {
+		$('.add-order-pop .add-order-list ul li').click(function() {
+			$(this).toggleClass('selected');
+		})
+		$('.search-item.period-filter a').click(function() {
+			$('.search-item.period-filter a').removeClass('on');
+			$(this).addClass('on');
+		})
+		$(document).on('focusin', '.filter-pop .keyword-search input', function() {
+			$('.filter-pop .mall-list').addClass('on');
+		})
+		// 2021-06-23 EZP-1765
+		$('.filter-pop').on('click',function(event){
+			if( $(event.target).parents('.search-form').length != 0){
+
+				if( $(event.target).hasClass('mall-list') || $(event.target).parent().hasClass('keyword-search')){
+					$('.filter-pop .mall-list').addClass('on');
+				}else{
+					$('.filter-pop .mall-list').removeClass('on');
+				}
+			}else{
+				$('.filter-pop .mall-list').removeClass('on');
+			}
+		})
+
+		$(".datepicker").datepicker({
+			showMonthAfterYear: true,
+			dateFormat: "yy.mm.dd", // 텍스트 필드에 입력되는 날짜 형식.
+			dayNamesMin: ['SUN', 'MON', 'TUE', 'WED', 'THE', 'FRI', 'SAT'],
+			monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+			monthNames: ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"],
+			firstDay: 1,
+			// 2020-12-21 EZP-1917
+			minDate: 0,
+			beforeShow: function() {
+				$('#modal').show();
+			},
+			onClose: function() {
+				$('#modal').hide();
+			},
+			onSelect: function() {
+				var $input = $(this);
+				var idx = $input.index();
+				var isRange = $input.hasClass('range');
+				var $input = $input.parent().children('.datepicker');
+				var dateValue = $.map($input, function(el) {
+					return el.value
+				});
+
+				if (isRange && dateValue[0] > dateValue[1]) {
+					if (idx == 0) {
+						$input.eq(1).val(dateValue[0])
+					} else {
+						$input.eq(0).val(dateValue[1])
+					}
+				}
+			}
+		});
+
+		$('.btn-group-tab button').click(function() {
+			$(this).parent().find('button').removeClass('active');
+			$(this).addClass('active');
+		})
+
+		$('.btn-allPick').click(function () {
+			$(this).toggleClass("on off");
+			$(this).hasClass("on") == false ? $(this).text("출고 ON") : $(this).text("출고 OFF");
+			$(this).hasClass("on") == false ? $(".select-wrap, .ico-memo").show() : $(".select-wrap, .ico-memo").hide();
+			$(this).hasClass("on") == true ? $(".btn-cancel").show() : $(".btn-cancel").hide();
+			$(this).hasClass("on") == true ? $(".pcs .num").addClass("line") : $(".pcs .num").removeClass("line");
+		});
+
+	})
+	</script>
+</body>
+
+</html>

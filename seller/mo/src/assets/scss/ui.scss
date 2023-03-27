@@ -1,0 +1,762 @@
+@charset "utf-8";
+
+/*! TREE */
+
+.ui-tree {
+  position: relative;
+
+  .sub {
+    display: none;
+
+    &.preview {
+      display: block !important;
+      overflow: hidden;
+    }
+  }
+
+  .top {
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    .btn-toggle {
+      position: absolute;
+      width: 49px;
+      right: 0;
+      top: 0;
+      height: 100%;
+    }
+
+    &:after {
+      content: "";
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      top: 50%;
+      right: 0;
+      border-top: 2px solid #000;
+      border-right: 2px solid #000;
+      transform: translate(-50%, -50%) rotate(135deg);
+    }
+  }
+
+  .active > .top:after {
+    transform: translateX(-50%) rotate(-45deg);
+  }
+}
+
+/*! POPUP */
+
+[data-popup-target] {
+  cursor: pointer;
+}
+
+.ui-popup {
+  visibility: hidden;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 900;
+  background-color: rgba(0, 0, 0, 0.5);
+  text-align: center;
+  font-size: 0;
+
+  .heightAuto {
+    height: auto !important;
+  }
+
+  &.active {
+    visibility: visible;
+  }
+
+  &:before {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+  }
+
+  .content {
+    display: inline-flex;
+    flex-direction: column;
+    position: relative;
+    width: calc(100% - 40px);
+    max-height: 100%;
+    background-color: #fff;
+    text-align: left;
+    vertical-align: middle;
+    overflow: hidden;
+    font-size: 16px;
+  }
+
+  .body {
+    height: 100%;
+    overflow-y: auto;
+    box-sizing: border-box;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .content > .btn-group {
+    display: flex;
+
+    button {
+      flex: 1;
+      height: 60px;
+      font-size: 17px;
+      color: #fff;
+
+      &.case-01 {
+        background: #666;
+      }
+
+      &.case-02 {
+        background: #36C25D;
+      }
+    }
+  }
+
+  &.message .content > .btn-group button.case-01 {
+    background: #EFEFEF;
+    color: #666;
+  }
+
+  .btn-footer {
+    display: flex;
+    padding: 0 !important;
+
+    button {
+      flex: 1;
+      height: 60px;
+      line-height: 60px;
+      text-align: center;
+      font-size: 17px;
+      color: #fff;
+
+      &.case-01 {
+        background: #666;
+      }
+
+      &.case-02 {
+        background: #36C25D;
+      }
+
+      &.case-03 {
+        background: #CECECE;
+      }
+      &.case-04 {
+        /*! 2023-01-09 EZP-6818 버튼 case 추가 */
+        background: #fff;
+        border: 1px solid #000;
+        color: #000;
+        box-sizing: border-box;
+      }
+    }
+  }
+
+  &.message {
+    .content {
+      max-width: 335px;
+    }
+
+    .body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      min-height: 148px;
+      font-size: 15px;
+      padding: 30px;
+      line-height: 1.53;
+
+      .tit {
+        display: block;
+        padding-bottom: 15px;
+        line-height: 1;
+
+        + p {
+          max-width: 100%;
+          text-overflow: ellipsis;
+          overflow: hidden;
+        }
+      }
+
+      .emphasis {
+        margin-top: 12px;
+
+        &:before {
+          content: "* ";
+          color: #FF4800;
+        }
+      }
+    }
+  }
+
+  &.full {
+    .content {
+      width: 100%;
+      height: 100%;
+    }
+
+    .header {
+      position: relative;
+      background: #fff;
+      line-height: 50px;
+
+      &:after {
+        content: "";
+        display: table;
+        clear: both;
+      }
+
+      > strong {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 18px;
+        font-weight: normal;
+
+        /*! 2022-07-29 EZP-6282 */
+        width: calc(100% - 165px);
+        text-align: center;
+        padding: 0 20px;
+        line-height: 20px;
+      }
+
+      .btn-close {
+        float: left;
+        position: relative;
+        width: 26px;
+        height: 26px;
+        padding: 12px;
+        box-sizing: content-box;
+        font-size: 0;
+        z-index: 1;
+
+        &:before {
+          content: "";
+          position: absolute;
+          width: 40%;
+          height: 1px;
+          left: 50%;
+          top: 50%;
+          background: #000;
+          transform: translate(-50%, -50%) rotate(45deg);
+        }
+
+        &:after {
+          content: "";
+          position: absolute;
+          width: 40%;
+          height: 1px;
+          left: 50%;
+          top: 50%;
+          background: #000;
+          transform: translate(-50%, -50%) rotate(45deg);
+          transform: translate(-50%, -50%) rotate(-45deg);
+        }
+      }
+
+      .btn-link {
+        float: right;
+        font-size: 13px;
+        font-weight: bold;
+        color: #36C25D;
+        padding: 0 20px;
+      }
+
+      .logo {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 16px;
+
+        img {
+          width: 135px;
+          vertical-align: middle;
+        }
+
+        strong {
+          color: #36C25D;
+        }
+      }
+    }
+  }
+
+  &.responsive .content {
+    height: auto;
+    max-height: 100%;
+    vertical-align: top;
+  }
+
+  &.search {
+    top: 50px;
+    height: calc(100% - 50px);
+
+    .dim {
+      /*! 2022-11-10 EZP-7404 시작 */
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      /*! 2022-11-10 EZP-7404 끝 */
+  }
+
+
+    .content {
+      width: 100%;
+      /*! 2022-11-10 EZP-7404 height !important 추가 시작 */
+      height: auto !important;
+      /*! 2022-11-10 EZP-7404 height !important 추가 끝 */
+      max-height: 100%;
+      vertical-align: top;
+    }
+
+    .input-search {
+      padding: 15px 22px;
+    }
+  }
+}
+
+/*! 2020-01-12 EZP-1500 */
+
+/*! 2021-04-15 EZP-2852 */
+
+/*! .ui-popup.full {
+    overflow-y: auto;
+    -webkit-overflow-scrolling:touch;
+}
+
+.ui-popup.full .content {
+    padding: 50px 0 60px;
+    box-sizing: border-box;
+    height: auto;
+    overflow: visible;
+    max-height: none;
+}
+
+.ui-popup.full .body {
+    height: auto;
+    overflow: visible;
+}
+.ui-popup.full .header {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+}
+.ui-popup.full .body + * {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: 100;
+}
+.ui-popup.full .content.keyboard .body + * {
+    position: absolute;
+} */
+
+/*! datepicker */
+
+#modal {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 900;
+  background: rgba(0, 0, 0, 0.6);
+
+  &.active {
+    display: block;
+  }
+}
+
+.datepicker {
+  border: 0;
+  background: #EFEFEF url(../../img/mobile/icon_cal.png) right 15px center no-repeat;
+  background-size: 12px auto;
+  border-radius: 5px;
+  font-size: 13px;
+  color: #9D9D9D;
+  padding: 0 15px;
+  width: 120px;
+  height: 36px;
+  box-sizing: border-box;
+}
+
+input.datepicker:disabled {
+  background-color: #efefef !important;
+}
+
+#ui-datepicker-div {
+  &.ui-datepicker {
+    position: fixed !important;
+    width: calc(100% - 40px) !important;
+    max-width: 335px !important;
+    left: 50% !important;
+    top: 50% !important;
+    border-radius: 10px !important;
+    transform: translate(-50%, -164px);
+    padding: 23px 27px 27px !important;
+    box-sizing: border-box;
+    z-index: 1000 !important;
+  }
+
+  &.ui-widget.ui-widget-content {
+    border: 0;
+    padding: 0;
+  }
+
+  &.ui-datepicker {
+    .ui-datepicker-header {
+      position: relative;
+      padding: 0;
+      border: 0;
+      text-align: center;
+      background: #fff;
+      width: 160px;
+      margin: 0 auto;
+    }
+
+    .ui-datepicker-title {
+      margin: 0;
+      height: 27px;
+      line-height: 27px;
+      padding: 0 0 21px;
+      font-size: 0;
+
+      span {
+        font-size: 18px;
+        font-weight: bold;
+
+        &.ui-datepicker-year:after {
+          content: ".";
+        }
+      }
+    }
+
+    .ui-datepicker-prev {
+      background: url(../../img/mobile/icon_arrow_month.png) no-repeat;
+      background-size: cover;
+      width: 27px;
+      height: 27px;
+      top: 0;
+    }
+
+    .ui-datepicker-next {
+      background: url(../../img/mobile/icon_arrow_month.png) no-repeat;
+      background-size: cover;
+      width: 27px;
+      height: 27px;
+      top: 0;
+      transform: rotate(180deg);
+    }
+
+    table {
+      table-layout: fixed;
+      margin: 0;
+    }
+
+    th {
+      padding: 0 0 15px 0;
+      font-size: 13px;
+    }
+
+    td {
+      position: relative;
+      padding: 14.2857% 0 0 0;
+      font-size: 0;
+
+      a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        width: 90%;
+        height: 90%;
+        left: 5%;
+        top: 5%;
+        border: 0;
+        background: #fff;
+        text-align: center;
+        line-height: 40px;
+        border-radius: 50%;
+        font-size: 14px;
+      }
+
+      &.ui-datepicker-today a {
+        color: #36C25D;
+        border: 1px solid #36C25D;
+        background: #fff;
+        box-sizing: border-box;
+      }
+
+      a.ui-state-active {
+        font-weight: bold;
+        color: #fff;
+        background: #36C25D;
+      }
+
+      span {
+        padding: 0;
+      }
+    }
+  }
+}
+
+.ui-datepicker td a {
+  padding: 0;
+}
+
+/*! 2020-12-21 EZP-1917 */
+
+#ui-datepicker-div.ui-datepicker td.ui-state-disabled span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  width: 90%;
+  height: 90%;
+  left: 5%;
+  top: 5%;
+  border: 0;
+  background: #fff;
+  text-align: center;
+  line-height: 40px;
+  border-radius: 50%;
+  font-size: 14px;
+}
+
+/*! TAB */
+
+.ui-tab .tab-content > div {
+  display: none;
+
+  &.active {
+    display: block;
+  }
+}
+
+/*! TOOLTIP */
+
+.ui-tooltip {
+  position: relative;
+  z-index: 10;
+
+  .tooltip {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    background-color: #000;
+    color: #fff;
+    font-size: 13px;
+    color: #D9D9D9;
+    padding: 7px 10px;
+    white-space: nowrap;
+    margin-top: 10px;
+    border-radius: 3px;
+
+    &.active {
+      display: block;
+    }
+
+    &:before {
+      content: "";
+      position: absolute;
+      left: 10px;
+      top: 0;
+      width: 0;
+      height: 0;
+      border-left: 7px solid transparent;
+      border-right: 7px solid transparent;
+      border-bottom: 7px solid #000;
+      transform: translateY(-100%);
+    }
+  }
+}
+
+/*! SELECT 2021-11-22 EZP-4287 */
+
+.ui-select {
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  vertical-align: top;
+  user-select: none;
+
+  &.active {
+    /*! 2023-01-30 EZP-6818 active시 z-index 2 -> 11으로 변경 (2로 원복) */
+    z-index: 2;
+
+    button:before {
+      transform: rotate(180deg);
+    }
+
+    > ul {
+      display: block;
+    }
+  }
+
+  > {
+    button {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      height: 48px;
+      border: 1px solid #D3D3D3;
+      border-radius: 3px;
+      width: 100%;
+      padding-left: 15px;
+      text-align: left;
+      color: #121212;
+      font-size: 14px;
+
+      &:before {
+        display: block;
+        content: '';
+        width: 24px;
+        height: 24px;
+        background-image: url("../../img/mobile/icons/icon-arrow-small-down.svg");
+        opacity: .64;
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        margin-top: -12px;
+      }
+    }
+
+    ul {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      border: 1px solid #D3D3D3;
+      border-top: 0;
+      box-sizing: border-box;
+      overflow-y: auto;
+      background-color: #fff;
+      padding: 5px 0;
+      border-radius: 5px;
+      box-shadow: 0 0 10px 0 rgba(18, 18, 18, 0.08);
+      max-height: 250px;
+
+      &.above {
+        top: auto !important;
+        bottom: 100%;
+      }
+
+      > li {
+        text-align: left;
+        padding: 7px 10px 9px;
+        font-size: 14px;
+
+        &.active {
+          color: #36C25D;
+        }
+      }
+    }
+  }
+}
+
+.re-select-title {
+  /*! 2023-01-11 EZP-6818 필터쪽 select title 영역 새로 추가 */
+  width: 110px;
+  margin-bottom: 15px;
+  .ui-select {
+    button {
+      /*! 2023-01-11 EZP-6818 필터쪽 select title 영역 새로 추가 */
+      border: none;
+      padding-left: 0px;
+      height: auto;
+      font-size: 16px;
+      font-weight: 700;
+    }
+    >ul {
+      /*! 2023-01-11 EZP-6818 필터쪽 select title 영역 새로 추가 */
+      top: 35px;
+      border-top: 1px solid #d3d3d3;
+    }
+  }
+}
+
+/*! 2022-09-13 EZP-5417 popup -> page 변경으로 css 변경 시작 */
+
+.menu-wrapper.full {
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .btn-back {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+      display: block;
+      width: 26px;
+      height: 26px;
+      padding: 12px;
+      font-size: 0;
+
+      &:after {
+        content: "";
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        left: 50%;
+        top: 50%;
+        border-left: 2px solid #000000;
+        border-bottom: 2px solid #000000;
+        transform: translate(-50%, -100%) rotate(45deg);
+        transform-origin: 0 bottom;
+      }
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 135px;
+    }
+
+    .alarm-btn {
+      /*! 2022-11-03 EZP-5110 알림설정 버튼 */
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+        display: block;
+        width: 50px;
+        height: 50px;
+        padding: 15px;
+        box-sizing: border-box;
+        text-indent: -9999em;
+        background: url('../../img/mobile/icon-setting.png') no-repeat 50% 50%;
+    }
+  }
+
+  .content {
+    width: 100%;
+    height: 100%;
+    padding-top: 50px;
+  }
+}
+
+/*! 2022-09-13 EZP-5417 popup -> page 변경으로 css 변경 끝 */

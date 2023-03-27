@@ -1,0 +1,938 @@
+/*! TREE */
+
+.ui-tree {
+  position: relative;
+}
+
+.ui-tree .sub {
+  display: none;
+}
+
+.ui-tree .sub.preview {
+  display: block !important;
+  overflow: hidden;
+}
+
+.ui-tree .top {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -moz-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: relative;
+}
+
+.ui-tree .top .btn-toggle {
+  position: absolute;
+  width: 49px;
+  right: 0;
+  top: 0;
+  height: 100%;
+}
+
+.ui-tree .top:after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  top: 50%;
+  right: 0;
+  border-top: 2px solid #000;
+  border-right: 2px solid #000;
+  -webkit-transform: translate(-50%, -50%) rotate(135deg);
+  -moz-transform: translate(-50%, -50%) rotate(135deg);
+  -ms-transform: translate(-50%, -50%) rotate(135deg);
+  transform: translate(-50%, -50%) rotate(135deg);
+}
+
+.ui-tree .active>.top:after {
+  -webkit-transform: translateX(-50%) rotate(-45deg);
+  -moz-transform: translateX(-50%) rotate(-45deg);
+  -ms-transform: translateX(-50%) rotate(-45deg);
+  transform: translateX(-50%) rotate(-45deg);
+}
+
+/*! POPUP */
+
+[data-popup-target] {
+  cursor: pointer;
+}
+
+.ui-popup {
+  visibility: hidden;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 900;
+  background-color: rgba(0,0,0,.5);
+  text-align: center;
+  font-size: 0;
+}
+
+.ui-popup .heightAuto {
+  height: auto !important;
+}
+
+.ui-popup.active {
+  visibility: visible;
+}
+
+.ui-popup:before {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+}
+
+.ui-popup .content {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -moz-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -moz-box-orient: vertical;
+  -moz-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  position: relative;
+  width: -webkit-calc(100% - 40px);
+  width: -moz-calc(100% - 40px);
+  width: calc(100% - 40px);
+  max-height: 100%;
+  background-color: #fff;
+  text-align: left;
+  vertical-align: middle;
+  overflow: hidden;
+  font-size: 16px;
+}
+
+.ui-popup .body {
+  height: 100%;
+  overflow-y: auto;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-overflow-scrolling: touch;
+}
+
+.ui-popup .content>.btn-group {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.ui-popup .content>.btn-group button {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -moz-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  height: 60px;
+  font-size: 17px;
+  color: #fff;
+}
+
+.ui-popup .content>.btn-group button.case-01 {
+  background: #666;
+}
+
+.ui-popup .content>.btn-group button.case-02 {
+  background: #36c25d;
+}
+
+.ui-popup.message .content>.btn-group button.case-01 {
+  background: #efefef;
+  color: #666;
+}
+
+.ui-popup .btn-footer {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 0 !important;
+}
+
+.ui-popup .btn-footer button {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -moz-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+  font-size: 17px;
+  color: #fff;
+}
+
+.ui-popup .btn-footer button.case-01 {
+  background: #666;
+}
+
+.ui-popup .btn-footer button.case-02 {
+  background: #36c25d;
+}
+
+.ui-popup .btn-footer button.case-03 {
+  background: #cecece;
+}
+
+.ui-popup .btn-footer button.case-04 {
+  /*! 2023-01-09 EZP-6818 버튼 case 추가 */
+  background: #fff;
+  border: 1px solid #000;
+  color: #000;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.ui-popup.message .content {
+  max-width: 335px;
+}
+
+.ui-popup.message .body {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -moz-box-orient: vertical;
+  -moz-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -moz-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -moz-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 148px;
+  font-size: 15px;
+  padding: 30px;
+  line-height: 1.53;
+}
+
+.ui-popup.message .body .tit {
+  display: block;
+  padding-bottom: 15px;
+  line-height: 1;
+}
+
+.ui-popup.message .body .tit+p {
+  max-width: 100%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.ui-popup.message .body .emphasis {
+  margin-top: 12px;
+}
+
+.ui-popup.message .body .emphasis:before {
+  content: "* ";
+  color: #ff4800;
+}
+
+.ui-popup.full .content {
+  width: 100%;
+  height: 100%;
+}
+
+.ui-popup.full .header {
+  position: relative;
+  background: #fff;
+  line-height: 50px;
+}
+
+.ui-popup.full .header:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.ui-popup.full .header>strong {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  font-size: 18px;
+  font-weight: normal;
+  /*! 2022-07-29 EZP-6282 */
+  width: -webkit-calc(100% - 165px);
+  width: -moz-calc(100% - 165px);
+  width: calc(100% - 165px);
+  text-align: center;
+  padding: 0 20px;
+  line-height: 20px;
+}
+
+.ui-popup.full .header .btn-close {
+  float: left;
+  position: relative;
+  width: 26px;
+  height: 26px;
+  padding: 12px;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  font-size: 0;
+  z-index: 1;
+}
+
+.ui-popup.full .header .btn-close:before {
+  content: "";
+  position: absolute;
+  width: 40%;
+  height: 1px;
+  left: 50%;
+  top: 50%;
+  background: #000;
+  -webkit-transform: translate(-50%, -50%) rotate(45deg);
+  -moz-transform: translate(-50%, -50%) rotate(45deg);
+  -ms-transform: translate(-50%, -50%) rotate(45deg);
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.ui-popup.full .header .btn-close:after {
+  content: "";
+  position: absolute;
+  width: 40%;
+  height: 1px;
+  left: 50%;
+  top: 50%;
+  background: #000;
+  -webkit-transform: translate(-50%, -50%) rotate(45deg);
+  -moz-transform: translate(-50%, -50%) rotate(45deg);
+  -ms-transform: translate(-50%, -50%) rotate(45deg);
+  transform: translate(-50%, -50%) rotate(45deg);
+  -webkit-transform: translate(-50%, -50%) rotate(-45deg);
+  -moz-transform: translate(-50%, -50%) rotate(-45deg);
+  -ms-transform: translate(-50%, -50%) rotate(-45deg);
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.ui-popup.full .header .btn-link {
+  float: right;
+  font-size: 13px;
+  font-weight: bold;
+  color: #36c25d;
+  padding: 0 20px;
+}
+
+.ui-popup.full .header .logo {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  font-size: 16px;
+}
+
+.ui-popup.full .header .logo img {
+  width: 135px;
+  vertical-align: middle;
+}
+
+.ui-popup.full .header .logo strong {
+  color: #36c25d;
+}
+
+.ui-popup.responsive .content {
+  height: auto;
+  max-height: 100%;
+  vertical-align: top;
+}
+
+.ui-popup.search {
+  top: 50px;
+  height: -webkit-calc(100% - 50px);
+  height: -moz-calc(100% - 50px);
+  height: calc(100% - 50px);
+}
+
+.ui-popup.search .dim {
+  /*! 2022-11-10 EZP-7404 시작 */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /*! 2022-11-10 EZP-7404 끝 */
+}
+
+.ui-popup.search .content {
+  width: 100%;
+  /*! 2022-11-10 EZP-7404 height !important 추가 시작 */
+  height: auto !important;
+  /*! 2022-11-10 EZP-7404 height !important 추가 끝 */
+  max-height: 100%;
+  vertical-align: top;
+}
+
+.ui-popup.search .input-search {
+  padding: 15px 22px;
+}
+
+/*! 2020-01-12 EZP-1500 */
+
+/*! 2021-04-15 EZP-2852 */
+
+/*! .ui-popup.full {
+    overflow-y: auto;
+    -webkit-overflow-scrolling:touch;
+}
+
+.ui-popup.full .content {
+    padding: 50px 0 60px;
+    box-sizing: border-box;
+    height: auto;
+    overflow: visible;
+    max-height: none;
+}
+
+.ui-popup.full .body {
+    height: auto;
+    overflow: visible;
+}
+.ui-popup.full .header {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+}
+.ui-popup.full .body + * {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: 100;
+}
+.ui-popup.full .content.keyboard .body + * {
+    position: absolute;
+} */
+
+/*! datepicker */
+
+#modal {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 900;
+  background: rgba(0,0,0,.6);
+}
+
+#modal.active {
+  display: block;
+}
+
+.datepicker {
+  border: 0;
+  background: #efefef url("../../img/mobile/icon_cal.png") right 15px center no-repeat;
+  -moz-background-size: 12px auto;
+  background-size: 12px auto;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  font-size: 13px;
+  color: #9d9d9d;
+  padding: 0 15px;
+  width: 120px;
+  height: 36px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+input.datepicker:disabled {
+  background-color: #efefef !important;
+}
+
+#ui-datepicker-div.ui-datepicker {
+  position: fixed !important;
+  width: -webkit-calc(100% - 40px) !important;
+  width: -moz-calc(100% - 40px) !important;
+  width: calc(100% - 40px) !important;
+  max-width: 335px !important;
+  left: 50% !important;
+  top: 50% !important;
+  -webkit-border-radius: 10px !important;
+  -moz-border-radius: 10px !important;
+  border-radius: 10px !important;
+  -webkit-transform: translate(-50%, -164px);
+  -moz-transform: translate(-50%, -164px);
+  -ms-transform: translate(-50%, -164px);
+  transform: translate(-50%, -164px);
+  padding: 23px 27px 27px !important;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  z-index: 1000 !important;
+}
+
+#ui-datepicker-div.ui-widget.ui-widget-content {
+  border: 0;
+  padding: 0;
+}
+
+#ui-datepicker-div.ui-datepicker .ui-datepicker-header {
+  position: relative;
+  padding: 0;
+  border: 0;
+  text-align: center;
+  background: #fff;
+  width: 160px;
+  margin: 0 auto;
+}
+
+#ui-datepicker-div.ui-datepicker .ui-datepicker-title {
+  margin: 0;
+  height: 27px;
+  line-height: 27px;
+  padding: 0 0 21px;
+  font-size: 0;
+}
+
+#ui-datepicker-div.ui-datepicker .ui-datepicker-title span {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+#ui-datepicker-div.ui-datepicker .ui-datepicker-title span.ui-datepicker-year:after {
+  content: ".";
+}
+
+#ui-datepicker-div.ui-datepicker .ui-datepicker-prev {
+  background: url("../../img/mobile/icon_arrow_month.png") no-repeat;
+  -moz-background-size: cover;
+  background-size: cover;
+  width: 27px;
+  height: 27px;
+  top: 0;
+}
+
+#ui-datepicker-div.ui-datepicker .ui-datepicker-next {
+  background: url("../../img/mobile/icon_arrow_month.png") no-repeat;
+  -moz-background-size: cover;
+  background-size: cover;
+  width: 27px;
+  height: 27px;
+  top: 0;
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+#ui-datepicker-div.ui-datepicker table {
+  table-layout: fixed;
+  margin: 0;
+}
+
+#ui-datepicker-div.ui-datepicker th {
+  padding: 0 0 15px 0;
+  font-size: 13px;
+}
+
+#ui-datepicker-div.ui-datepicker td {
+  position: relative;
+  padding: 14.2857% 0 0 0;
+  font-size: 0;
+}
+
+#ui-datepicker-div.ui-datepicker td a {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -moz-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -moz-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  position: absolute;
+  width: 90%;
+  height: 90%;
+  left: 5%;
+  top: 5%;
+  border: 0;
+  background: #fff;
+  text-align: center;
+  line-height: 40px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  font-size: 14px;
+}
+
+#ui-datepicker-div.ui-datepicker td.ui-datepicker-today a {
+  color: #36c25d;
+  border: 1px solid #36c25d;
+  background: #fff;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+#ui-datepicker-div.ui-datepicker td a.ui-state-active {
+  font-weight: bold;
+  color: #fff;
+  background: #36c25d;
+}
+
+#ui-datepicker-div.ui-datepicker td span {
+  padding: 0;
+}
+
+.ui-datepicker td a {
+  padding: 0;
+}
+
+/*! 2020-12-21 EZP-1917 */
+
+#ui-datepicker-div.ui-datepicker td.ui-state-disabled span {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -moz-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -moz-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  position: absolute;
+  width: 90%;
+  height: 90%;
+  left: 5%;
+  top: 5%;
+  border: 0;
+  background: #fff;
+  text-align: center;
+  line-height: 40px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  font-size: 14px;
+}
+
+/*! TAB */
+
+.ui-tab .tab-content>div {
+  display: none;
+}
+
+.ui-tab .tab-content>div.active {
+  display: block;
+}
+
+/*! TOOLTIP */
+
+.ui-tooltip {
+  position: relative;
+  z-index: 10;
+}
+
+.ui-tooltip .tooltip {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 100%;
+  background-color: #000;
+  color: #fff;
+  font-size: 13px;
+  color: #d9d9d9;
+  padding: 7px 10px;
+  white-space: nowrap;
+  margin-top: 10px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+
+.ui-tooltip .tooltip.active {
+  display: block;
+}
+
+.ui-tooltip .tooltip:before {
+  content: "";
+  position: absolute;
+  left: 10px;
+  top: 0;
+  width: 0;
+  height: 0;
+  border-left: 7px solid rgba(0,0,0,0);
+  border-right: 7px solid rgba(0,0,0,0);
+  border-bottom: 7px solid #000;
+  -webkit-transform: translateY(-100%);
+  -moz-transform: translateY(-100%);
+  -ms-transform: translateY(-100%);
+  transform: translateY(-100%);
+}
+
+/*! SELECT 2021-11-22 EZP-4287 */
+
+.ui-select {
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  vertical-align: top;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.ui-select.active {
+  /*! 2023-01-30 EZP-6818 active시 z-index 2 -> 11으로 변경 (2로 원복) */
+  z-index: 2;
+}
+
+.ui-select.active button:before {
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+.ui-select.active>ul {
+  display: block;
+}
+
+.ui-select>button {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 48px;
+  border: 1px solid #d3d3d3;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  width: 100%;
+  padding-left: 15px;
+  text-align: left;
+  color: #121212;
+  font-size: 14px;
+}
+
+.ui-select>button:before {
+  display: block;
+  content: "";
+  width: 24px;
+  height: 24px;
+  background-image: url("../../img/mobile/icons/icon-arrow-small-down.svg");
+  opacity: .64;
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  margin-top: -12px;
+}
+
+.ui-select>ul {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  border: 1px solid #d3d3d3;
+  border-top: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  overflow-y: auto;
+  background-color: #fff;
+  padding: 5px 0;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 0 10px 0 rgba(18,18,18,.08);
+  -moz-box-shadow: 0 0 10px 0 rgba(18,18,18,.08);
+  box-shadow: 0 0 10px 0 rgba(18,18,18,.08);
+  max-height: 250px;
+}
+
+.ui-select>ul.above {
+  top: auto !important;
+  bottom: 100%;
+}
+
+.ui-select>ul>li {
+  text-align: left;
+  padding: 7px 10px 9px;
+  font-size: 14px;
+}
+
+.ui-select>ul>li.active {
+  color: #36c25d;
+}
+
+.re-select-title {
+  /*! 2023-01-11 EZP-6818 필터쪽 select title 영역 새로 추가 */
+  width: 110px;
+  margin-bottom: 15px;
+}
+
+.re-select-title .ui-select button {
+  /*! 2023-01-11 EZP-6818 필터쪽 select title 영역 새로 추가 */
+  border: none;
+  padding-left: 0px;
+  height: auto;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.re-select-title .ui-select>ul {
+  /*! 2023-01-11 EZP-6818 필터쪽 select title 영역 새로 추가 */
+  top: 35px;
+  border-top: 1px solid #d3d3d3;
+}
+
+/*! 2022-09-13 EZP-5417 popup -> page 변경으로 css 변경 시작 */
+
+.menu-wrapper.full .header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #fff;
+  height: 50px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -moz-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -moz-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.menu-wrapper.full .header .btn-back {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  display: block;
+  width: 26px;
+  height: 26px;
+  padding: 12px;
+  font-size: 0;
+}
+
+.menu-wrapper.full .header .btn-back:after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  left: 50%;
+  top: 50%;
+  border-left: 2px solid #000;
+  border-bottom: 2px solid #000;
+  -webkit-transform: translate(-50%, -100%) rotate(45deg);
+  -moz-transform: translate(-50%, -100%) rotate(45deg);
+  -ms-transform: translate(-50%, -100%) rotate(45deg);
+  transform: translate(-50%, -100%) rotate(45deg);
+  -webkit-transform-origin: 0 bottom;
+  -moz-transform-origin: 0 bottom;
+  -ms-transform-origin: 0 bottom;
+  transform-origin: 0 bottom;
+}
+
+.menu-wrapper.full .header .logo {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -moz-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -moz-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 135px;
+}
+
+.menu-wrapper.full .header .alarm-btn {
+  /*! 2022-11-03 EZP-5110 알림설정 버튼 */
+  position: absolute;
+  top: 50%;
+  right: 0;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  display: block;
+  width: 50px;
+  height: 50px;
+  padding: 15px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  text-indent: -9999em;
+  background: url("../../img/mobile/icon-setting.png") no-repeat 50% 50%;
+}
+
+.menu-wrapper.full .content {
+  width: 100%;
+  height: 100%;
+  padding-top: 50px;
+}
+
+/*! 2022-09-13 EZP-5417 popup -> page 변경으로 css 변경 끝 */

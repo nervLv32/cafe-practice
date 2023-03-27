@@ -1,0 +1,1487 @@
+<!DOCTYPE html>
+<html lang="ko" class="js">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="format-detection" content="telephone=no">
+	<meta content="ZmEqWoY7EMkTNPemq5oIBLa1uoGzaWc2LUCSIQfPcjk=" name="csrf-token">
+	<link rel="shortcut icon" type="image/x-icon" href="/img/favicon/ezp.ico">
+	<title>easypick-square</title>
+
+	<link rel="stylesheet" type="text/css" href="../css/default.css">
+	<link rel="stylesheet" type="text/css" href="../css/default.custom.css">
+</head>
+
+<body>
+
+	<!-- header// -->
+	<header>
+		<div class="inner">
+			<h1>
+				<a href="/order/front/list">
+					<img src="https://square.easypick.co.kr/img/square/logo.png" alt="이지픽스퀘어">
+				</a>
+			</h1>
+			<!-- 2021-02-23 EZP-1903 -->
+			<!-- 2022-10-28 EZP-6245 픽업예정목록 추가 및 전체 경로 변경 시작 -->
+			<div id="gnb">
+				<ul>
+					<li>
+						<a href="../html/all.html">주문픽업</a>
+					</li>
+					<li>
+						<a href="../html/미매칭픽업.html" class="">미매칭픽업</a>
+					</li>
+					<li>
+						<a href="../html/발주관리.html" class="">발주관리</a>
+					</li>
+					<li>
+						<a href="../html/가게정보관리.html" class="">가게정보관리</a>
+					</li>
+					<li>
+						<a id="btnMenuPickup" href="#">픽업순서설정</a>
+					</li>
+					<!-- <li>
+						<a href="/order/front/list" class="">내담당픽업관리</a>
+					</li> -->
+					<li>
+						<a href="../html/pickUp-expected-list.html" class="active">픽업예정목록</a>
+					</li>
+				</ul>
+			</div>
+			<!-- 2022-10-28 EZP-6245 픽업예정목록 추가 및 전체 경로 변경 끝 -->
+			<div class="util">
+				<strong>사입삼촌01 님</strong>
+				<button type="button" name="button" onclick="javascript:location.href='/sign/front/out';">로그아웃
+				</button>
+			</div>
+		</div>
+	</header>
+	<!-- //header -->
+
+	<!--container// -->
+	<div id="container" class="pick-up-list">
+		<div class="search-wrap">
+			<div class="inner">
+				<form id="frmOrderListSearch" name="frmOrderListSearch" action="/order/front/all" method="get">
+
+					<input name="list_type" type="hidden" value="all">
+					<input name="selected_date" type="hidden" value="2020-05-05">
+
+					<!-- 1번째 줄 -->
+					<div class="search-item date-wrap search-with-order">
+						<div class="divInline">
+							<strong>주문분류</strong>
+							<span class="checkbox">
+								<input class="btnAllChk" type="checkbox" id="order_type0" name="order_type[]" value="" checked="">
+								<label for="order_type0">전체</label>
+							</span>
+							<span class="checkbox">
+								<input type="checkbox" id="order_type10" name="order_type[]" value="10" checked="">
+								<label for="order_type10">신규</label>
+							</span>
+							<span class="checkbox">
+								<input type="checkbox" id="order_type20" name="order_type[]" value="20" checked="">
+								<label for="order_type20">미송</label>
+							</span>
+							<span class="checkbox">
+								<input type="checkbox" id="order_type30" name="order_type[]" value="30" checked="">
+								<label for="order_type30">불량</label>
+							</span>
+							<span class="checkbox">
+								<input type="checkbox" id="order_type40" name="order_type[]" value="40" checked="">
+								<label for="order_type40">샘플</label>
+							</span>
+							<!--EZP-3157-->
+							<span class="checkbox">
+								<input type="checkbox" id="order_type45" name="order_type[]" value="45" checked="">
+								<label for="order_type50">유료샘플</label>
+							</span>
+							<!--//EZP-3157-->
+							<span class="checkbox">
+								<input type="checkbox" id="order_type50" name="order_type[]" value="50" checked="">
+								<label for="order_type50">샘플반납</label><!--2022-07-19 EZP-3157 워딩변경-->
+							</span>
+							<span class="checkbox">
+								<input type="checkbox" id="order_type60" name="order_type[]" value="50" checked="">
+								<label for="order_type50">제작신규</label>
+							</span>
+							<span class="checkbox">
+								<input type="checkbox" id="order_type70" name="order_type[]" value="50" checked="">
+								<label for="order_type50">제작미송</label>
+							</span>
+						</div>
+
+						<div class="search-item mr0">
+							<strong>검색</strong>
+							<div class="ui-select mr5 ex" style="width:100px;">
+								<input type="hidden" name="search_key" id="selSearchKey" value="">
+								<div class="ui-select" data-target_id="#selSearchKey" id="sel_selSearchKey" style="width:100px;">
+									<button type="button" id="btn_selSearchKey" data-value="">전체</button>
+									<ul>
+										<li data-key="" class="active" tabindex="0">전체</li>
+										<li data-key="seller_name" tabindex="0">가게</li>
+										<li data-key="buyer_name" tabindex="0">쇼핑몰</li>
+										<li data-key="seller_addr" tabindex="0">주소</li>
+									</ul>
+								</div>
+							</div>
+							<div class="input-search">
+								<input type="text" class="fText height-adjust" placeholder="검색어를 입력해 주세요." name="search_value" id="search_value" style="width:230px;" value="">
+							</div>
+						</div>
+						<button id="form-submit" name="button" class="btn small filter-search">검색</button>
+						<button id="btnReset" type="button" name="button" class="filter-reset"></button>
+					</div>
+
+
+					<!-- 3번째 줄 -->
+					<div class="search-item">
+						<div class="search-item mr30">
+							<strong>낮/밤</strong>
+							<div id="divIsOpened" class="ui-select" style="width: 100px;">
+								<input name="is_opened" type="hidden" value="">
+								<button type="button">전체</button>
+								<ul class="select_ul mt0">
+									<li data-value="" class="active" tabindex="0">전체</li>
+									<li data-value="D" tabindex="0">낮시장</li>
+									<li data-value="N" tabindex="0">밤시장</li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="search-item mr30">
+							<strong>마켓</strong>
+							<div id="divMarketNo" class="ui-select">
+								<input name="market_no" type="hidden" value="">
+								<button type="button">전체</button>
+								<div class="select_search">
+									<input type="text" placeholder="마켓 검색">
+									<button class="search-btn">검색</button>
+								</div>
+								<ul class="select_ul">
+									<li data-value="" tabindex="0">전체</li>
+									<li class="" data-value="40" data-is_opened="N" tabindex="0">APM</li>
+									<li class="" data-value="36" data-is_opened="N" tabindex="0">APM럭스</li>
+									<li class="" data-value="46" data-is_opened="N" tabindex="0">APM플레이스</li>
+									<li class="" data-value="48" data-is_opened="N" tabindex="0">DDP(유어스)</li>
+									<li class="" data-value="34" data-is_opened="D" tabindex="0">DWP</li>
+									<li class="" data-value="30" data-is_opened="D" tabindex="0">남평화</li>
+									<li class="" data-value="32" data-is_opened="N" tabindex="0">누죤</li>
+									<li class="" data-value="19" data-is_opened="D" tabindex="0">동평화</li>
+									<li class="" data-value="16" data-is_opened="D" tabindex="0">디오트</li>
+									<li class="" data-value="31" data-is_opened="N" tabindex="0">디자이너클럽</li>
+									<li class="" data-value="49" data-is_opened="D" tabindex="0">맥스타일</li>
+									<li class="" data-value="51" data-is_opened="N" tabindex="0">벨포스트</li>
+									<li class="" data-value="43" data-is_opened="N" tabindex="0">스튜디오W</li>
+									<li class="" data-value="58" data-is_opened="D" tabindex="0">신발상가 B동</li>
+									<li class="" data-value="59" data-is_opened="D" tabindex="0">신발상가 C동</li>
+									<li class="" data-value="60" data-is_opened="D" tabindex="0">신발상가 D동</li>
+									<li class="" data-value="37" data-is_opened="D" tabindex="0">신평화</li>
+									<li class="" data-value="44" data-is_opened="N" tabindex="0">제일평화</li>
+									<li class="" data-value="17" data-is_opened="D" tabindex="0">청평화</li>
+									<li class="" data-value="39" data-is_opened="N" tabindex="0">퀸즈스퀘어(광희)</li>
+									<li class="" data-value="18" data-is_opened="D" tabindex="0">테크노</li>
+									<li class="" data-value="41" data-is_opened="N" tabindex="0">팀204</li>
+									<li class="" data-value="38" data-is_opened="D" tabindex="0">평화시장</li>
+									<li class="" data-value="1" data-is_opened="D" tabindex="0">프로모션</li>
+									<li class="" data-value="45" data-is_opened="D" tabindex="0">혜양엘리시움</li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="search-item mr30">
+							<strong>가게</strong>
+							<div id="divSellerNo" class="ui-select">
+								<input name="seller_no" type="hidden" value="">
+								<button type="button">전체</button>
+								<div class="select_search">
+									<input type="text" placeholder="가게 검색">
+									<button class="search-btn">검색</button>
+								</div>
+								<ul class="select_ul">
+									<li class="eSelectTooltip" data-value="" tabindex="0">전체</li>
+									<li class="eSelectTooltip " data-over_msg="APM플레이스 1층 7호" data-value="1492" data-market_no="46" data-is_opened="N" data-buyer_no_list="1388" tabindex="0">101문</li>
+									<li class="eSelectTooltip " data-over_msg="APM 2층 62호" data-value="1541" data-market_no="40" data-is_opened="N" data-buyer_no_list="2154,1388" tabindex="0">140에비뉴</li>
+									<li class="eSelectTooltip " data-over_msg="디오트 1층 H열 7호" data-value="3131" data-market_no="16" data-is_opened="D" data-buyer_no_list="3267" tabindex="0">1969문</li>
+									<li class="eSelectTooltip " data-over_msg="테크노 3층 22호" data-value="23" data-market_no="18" data-is_opened="D" data-buyer_no_list="2478,3267,2963,1338" tabindex="0">1프로</li>
+									<li class="eSelectTooltip " data-over_msg="DWP 외곽 1층 A열 2호" data-value="878" data-market_no="34" data-is_opened="D" data-buyer_no_list="2963" tabindex="0">가가</li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="search-item divSearchStore mr30">
+							<strong>쇼핑몰</strong>
+							<div id="divBuyerNo" class="ui-select">
+								<button type="button" name="button">전체</button>
+								<div class="select_search">
+									<input type="text" placeholder="쇼핑몰 검색" autocomplete="off">
+									<button type="button" name="button" class="search-btn btnSearch">검색</button>
+								</div>
+								<ul class="select_ul">
+									<li class="" data-key="2046" tabindex="0">그레이스유</li>
+									<li class="" data-key="1351" tabindex="0">달트</li>
+								</ul>
+							</div>
+						</div>
+						<div class="search-item mr30">
+							<strong>배송구분</strong>
+							<div class="ui-select">
+								<button type="button" id="btn_date_range" data-value="">전체</button>
+								<ul>
+									<li data-key="1" class="active" tabindex="0">전체</li>
+									<li data-key="2" tabindex="0">직배송</li>
+									<li data-key="3" tabindex="0">택배송</li>
+								</ul>
+							</div>
+						</div>
+
+					</div>
+					<!-- 쇼핑몰 멀티 셀렉트 리스트 -->
+					<div class="divSearchStore" style="position: relative;">
+						<div id="divSelectArea" class="tag-area">
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+
+		<!-- 데이터가 있는 날짜의 버튼 리스트 -->
+
+		<div class="date-tab mb30"></div>
+
+		<!-- 테이블 상단 데이터 합계와 버튼 리스트 -->
+		<div class="search-result-wrap">
+			<div class="mb20">
+				<a href="javascript:;" id="btnOrderUncleMemo" style="color:#50C258;">
+					<img src="https://square.easypick.co.kr/img/square/icon_uncle_memo.png" style="height: 20px;">
+					확인메모 (0) </a>
+			</div>
+
+			<div class="result">
+				<ul>
+					<li>
+						<span>총 수량</span> <strong>1,1000</strong> <em>개</em>
+					</li>
+					<li>
+						<span>총 품목</span> <strong>60</strong> <em>개</em>
+					</li>
+					<li>
+						<span>가게</span> <strong>3</strong> <em>곳</em>
+					</li>
+					<li>
+						<span>쇼핑몰</span> <strong>2</strong> <em>곳</em>
+					</li>
+				</ul>
+			</div>
+
+			<div class="btn-wrap">
+				<button class="btn smaller ui-popup-open" data-target="#matching-pop">일괄매칭</button>
+				<button type="button" class="btn smaller line btnExcelDown" href="/order/front/allExcel">
+					<img src="https://square.easypick.co.kr/img/square/excel_black.png">
+				</button>
+				<button type="button" class="btn smaller line printer" id="btnPrint" href="/order/front/print">
+					<img src="https://square.easypick.co.kr/img/square/printer_black.png">
+				</button>
+			</div>
+		</div>
+
+		<div class="result-table">
+			<table cellpadding="1" cellspacing="1" >
+				<colgroup>
+					<!-- 2022-11-09 EZP-6245 제거 
+					<col width="40px">
+					-->
+					<col width="60px" >
+					<col width="*" >
+					<col width="240px">
+					<col width="170px">
+					<col width="100px">
+					<col width="260px">
+					<col width="418px">
+				</colgroup>
+				<thead>
+					<tr>
+						<!-- 2022-11-09 EZP-6245 colspan 변경 -->
+						<th colspan="2"><span class="checkbox"><input type="checkbox" class="check-all"><label for="check11">상품명</label></span></th>
+						<th>옵션</th>
+						<th>판매가</th>
+						<th>발주수량</th>
+						<th>품절처리</th>
+						<th>구매자 메모</th>
+					</tr>
+				</thead>
+				<tbody id="eListArea">
+					<tr class="empty-wrap">
+						<!-- 2022-11-09 EZP-6245 colspan 변경 -->
+						<td colspan="7">
+						검색 결과가 없습니다.
+						</td>
+					</tr>
+					<tr class="opener trOpener seller">
+						<!-- 2022-11-09 EZP-6245 colspan 변경 -->
+						<td colspan="7" style="border-bottom: none;">
+							<div class="text-group">
+								<span class="checkbox">
+									<input type="checkbox" class="sellerList" id="seller3037">
+									<label for="seller3037">
+										<em class="txt-red">(미매칭)</em>
+										<em>미매칭가게명</em>
+										(주소 / 010-3389-0213)
+									</label>
+								</span>
+								<button name="button" class="btn state ml10 ui-popup-open" data-target="#matching-pop">매칭하기</button>
+							</div>
+							<div class="btn-group">
+								<button class="btn-opener" data-type="seller">열기/닫기</button>
+							</div>
+						</td>
+					</tr>
+					<tr class="opener trOpener buyer">
+						<!-- 2022-11-09 EZP-6245 colspan 변경 -->
+						<td colspan="7" class="tdBuyerHeader">
+							<div class="text-group">
+								<label>
+									<em><strong><i class="ico-delivery">택</i>유니크온</strong></em>
+									<strong class="vertical-bar">발주금액 : 22,000원</strong>
+								</label>
+							</div>
+							<div class="btn-group"> <button class="btn-opener" data-type="buyer">열기/닫기</button> </div>
+						</td>
+					</tr>
+					<tr>
+						<!-- 2022-11-09 EZP-6245 제거 
+						<td class="tac">
+							<span class="checkbox">
+								<label>
+									<input type="checkbox">
+								</label>
+							</span>
+						</td>
+						-->
+						<td class="tac">9</td>
+						<td class="detail">
+							<span class="badge"><i class="type1">미송</i></span>
+							<span class="pr5">
+								상품명
+							</span>
+						</td>
+						<td class="option">
+							<p>색상<span>사이즈</span></p>
+						</td>
+						<td class="tar re-tar">22,000</td>
+						<td class="tac">
+							<span>5</span>
+						</td>
+						<td>
+							<span>미송</span>
+						</td>
+						<!-- 2022-11-28 EZP-6245 tooltip 영역 재설정을 위해 제거
+							 <td class="view_memo" data-memo_tooltip="!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" style=""></td> -->
+						<!-- 2022-11-28 EZP-6245 tooltip 영역 재설정 시작 -->
+						<td class="overflow-unset">
+							<div class="hover-box">
+								<p class="view_memo">!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!</p>
+								<div class="info-box">
+									<span>!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!</span>
+								</div>
+							</div>
+						</td>
+						<!-- 2022-11-28 EZP-6245 tooltip 영역 재설정 끝 -->
+					</tr>
+					<tr>
+						<!-- 2022-11-09 EZP-6245 제거 
+						<td class="tac">
+							<span class="checkbox">
+								<label>
+									<input type="checkbox">
+								</label>
+							</span>
+						</td>
+						-->
+						<td class="tac">10</td>
+						<td class="detail">
+							<span class="badge"><i class="new">신규</i></span>
+							<span class="pr5">
+								상품명
+							</span>
+						</td>
+						<td class="option">
+							<p>색상<span>사이즈</span></p>
+						</td>
+						<td class="tar re-tar">22,000</td>
+						<td class="tac">
+							<span>5</span>
+						</td>
+						<td>
+							<span>미송</span>
+						</td>
+						<td></td>
+					</tr>
+					<tr class="last-tr">
+						<!-- 2022-11-09 EZP-6245 제거 
+						<td class="tac">
+							<span class="checkbox">
+								<label>
+									<input type="checkbox">
+								</label>
+							</span>
+						</td>
+						-->
+						<td class="tac">11</td>
+						<td class="detail">
+							<span class="badge"><i class="new">신규</i></span>
+							<span class="pr5">
+								상품명
+							</span>
+						</td>
+						<td class="option">
+							<p>색상<span>사이즈</span></p>
+						</td>
+						<td class="tar re-tar">22,000</td>
+						<td class="tac">
+							<span>5</span>
+						</td>
+						<td>
+							<span>오늘차감</span>
+						</td>
+						<td></td>
+					</tr>
+					<tr class="opener trOpener seller">
+						<!-- 2022-11-09 EZP-6245 colspan 변경 -->
+						<td colspan="7">
+							<div class="text-group">
+								<span class="checkbox">
+									<!-- 2022-11-09 EZP-6245 disabled 처리 -->
+									<input type="checkbox" class="sellerList" id="seller3037" disabled>
+									<label for="seller3037">
+										<em>가게명</em>
+										(주소 / 010-3389-0213)
+									</label>
+								</span>
+								<!-- 2022-11-16 EZP-6245 밤시장 텍스트 추가 시작 -->
+								<strong class="vertical-bar">밤시장</strong>
+								<!-- 2022-11-16 EZP-6245 밤시장 텍스트 추가 끝 -->
+							</div>
+							<div class="btn-group">
+								<button class="btn-opener" data-type="seller">열기/닫기</button>
+							</div>
+						</td>
+					</tr>
+					<tr class="opener trOpener buyer">
+						<!-- 2022-11-09 EZP-6245 colspan 변경 -->
+						<td colspan="7" class="tdBuyerHeader">
+							<div class="text-group">
+								<label>
+									<em><strong><i class="ico-delivery">택</i>쇼핑몰명</strong></em>
+									<strong class="vertical-bar">발주금액 : 300,000원</strong>
+								</label>
+							</div>
+							<div class="btn-group"> <button class="btn-opener" data-type="buyer">열기/닫기</button> </div>
+						</td>
+					</tr>
+					<tr>
+						<!-- 2022-11-09 EZP-6245 제거 
+						<td class="tac">
+							<span class="checkbox">
+								<label>
+									<input type="checkbox">
+								</label>
+							</span>
+						</td>
+						-->
+						<td class="tac">1</td>
+						<td class="detail">
+							<span class="badge"><i class="new">신규</i></span>
+							<span class="pr5">
+								상품명
+							</span>
+						</td>
+						<td class="option">
+							<p>색상<span>사이즈</span></p>
+						</td>
+						<td class="tar re-tar">22,000</td>
+						<td class="tac">
+							<span>5</span>
+						</td>
+						<td>
+							<span>미송</span>
+						</td>
+						<td></td>
+					</tr>
+					<tr>
+						<!-- 2022-11-09 EZP-6245 제거 
+						<td class="tac">
+							<span class="checkbox">
+								<label>
+									<input type="checkbox">
+								</label>
+							</span>
+						</td>
+						-->
+						<td class="tac">2</td>
+						<td class="detail">
+							<span class="badge"><i class="type3">샘플</i></span>
+							<span class="pr5">
+								상품명
+							</span>
+						</td>
+						<td class="option">
+							<p>색상<span>사이즈</span></p>
+						</td>
+						<td class="tar re-tar">22,000</td>
+						<td class="tac">
+							<span>5</span>
+						</td>
+						<td>
+							<span>미송</span>
+						</td>
+						<td></td>
+					</tr>
+					<tr>
+						<!-- 2022-11-09 EZP-6245 제거 
+						<td class="tac">
+							<span class="checkbox">
+								<label>
+									<input type="checkbox">
+								</label>
+							</span>
+						</td>
+						-->
+						<td class="tac">3</td>
+						<td class="detail">
+							<span class="badge"><i class="type4">반납</i></span>
+							<span class="pr5">
+								상품명
+							</span>
+						</td>
+						<td class="option">
+							<p>색상<span>사이즈</span></p>
+						</td>
+						<td class="tar re-tar">22,000</td>
+						<td class="tac">
+							<span>5</span>
+						</td>
+						<td>
+							<span>오늘차감</span>
+						</td>
+						<td></td>
+					</tr>
+					<tr class="last-tr">
+						<!-- 2022-11-09 EZP-6245 제거 
+						<td class="tac">
+							<span class="checkbox">
+								<label>
+									<input type="checkbox">
+								</label>
+							</span>
+						</td>
+						-->
+						<td class="tac">4</td>
+						<td class="detail">
+							<span class="badge"><i class="type2">불량</i></span>
+							<span class="pr5">
+								상품명
+							</span>
+						</td>
+						<td class="option">
+							<p>색상<span>사이즈</span></p>
+						</td>
+						<td class="tar re-tar">22,000</td>
+						<td class="tac">
+							<span>5</span>
+						</td>
+						<td>
+							<span>오늘차감</span>
+						</td>
+						<td></td>
+					</tr>
+					<tr class="opener trOpener buyer">
+						<!-- 2022-11-09 EZP-6245 colspan 변경 -->
+						<td colspan="7" class="tdBuyerHeader">
+							<div class="text-group">
+								<label>
+									<em><strong><i class="ico-delivery blue">직</i>쇼핑몰명</strong></em>
+									<strong class="vertical-bar">발주금액 : 300,000원</strong>
+									<!-- 2022-11-16 EZP-6245 팀미지정 텍스트 추가 시작 -->
+									<strong class="vertical-bar txt-red">팀미지정</strong>
+									<!-- 2022-11-16 EZP-6245 팀미지정 텍스트 추가 끝 -->
+								</label>
+							</div>
+							<div class="btn-group"> <button class="btn-opener" data-type="buyer">열기/닫기</button> </div>
+						</td>
+					</tr>
+					<tr>
+						<!-- 2022-11-09 EZP-6245 제거 
+						<td class="tac">
+							<span class="checkbox">
+								<label>
+									<input type="checkbox">
+								</label>
+							</span>
+						</td>
+						-->
+						<td class="tac">5</td>
+						<td class="detail">
+							<span class="badge"><i class="new">신규</i></span>
+							<span class="pr5">
+								상품명
+							</span>
+						</td>
+						<td class="option">
+							<p>색상<span>사이즈</span></p>
+						</td>
+						<td class="tar re-tar">22,000</td>
+						<td class="tac">
+							<span>5</span>
+						</td>
+						<td>
+							<span>미송</span>
+						</td>
+						<td></td>
+					</tr>
+					<tr>
+						<!-- 2022-11-09 EZP-6245 제거 
+						<td class="tac">
+							<span class="checkbox">
+								<label>
+									<input type="checkbox">
+								</label>
+							</span>
+						</td>
+						-->
+						<td class="tac">6</td>
+						<td class="detail">
+							<span class="badge"><i class="type3">샘플</i></span>
+							<span class="pr5">
+								상품명
+							</span>
+						</td>
+						<td class="option">
+							<p>색상<span>사이즈</span></p>
+						</td>
+						<td class="tar re-tar">22,000</td>
+						<td class="tac">
+							<span>5</span>
+						</td>
+						<td>
+							<span>미송</span>
+						</td>
+						<td></td>
+					</tr>
+					<tr>
+						<!-- 2022-11-09 EZP-6245 제거 
+						<td class="tac">
+							<span class="checkbox">
+								<label>
+									<input type="checkbox">
+								</label>
+							</span>
+						</td>
+						-->
+						<td class="tac">7</td>
+						<td class="detail">
+							<span class="badge"><i class="type4">반납</i></span>
+							<span class="pr5">
+								상품명
+							</span>
+						</td>
+						<td class="option">
+							<p>색상<span>사이즈</span></p>
+						</td>
+						<td class="tar re-tar">22,000</td>
+						<td class="tac">
+							<span>5</span>
+						</td>
+						<td>
+							<span>오늘차감</span>
+						</td>
+						<td></td>
+					</tr>
+					<tr>
+						<!-- 2022-11-09 EZP-6245 제거 
+						<td class="tac">
+							<span class="checkbox">
+								<label>
+									<input type="checkbox">
+								</label>
+							</span>
+						</td>
+						-->
+						<td class="tac">8</td>
+						<td class="detail">
+							<span class="badge"><i class="type2">불량</i></span>
+							<span class="pr5">
+								상품명
+							</span>
+						</td>
+						<td class="option">
+							<p>색상<span>사이즈</span></p>
+						</td>
+						<td class="tar re-tar">22,000</td>
+						<td class="tac">
+							<span>5</span>
+						</td>
+						<td>
+							<span>오늘차감</span>
+						</td>
+						<td></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<div class="mt30">
+			<div class="pagination"><a href="#none;" class="first none">처음</a><a href="#none;" class="prev none">이전</a><a href="#none;" class="active">1</a> <a
+					href="/order/front/all?page=2&amp;session_uncle_no=50&amp;list_type=all&amp;start_date=2020-05-04&amp;end_date=2020-05-06&amp;buyer_pickup_status%5B0%5D=10&amp;buyer_pickup_status%5B1%5D=20&amp;buyer_pickup_status%5B2%5D=30&amp;buyer_pickup_status%5B3%5D=50&amp;order_type%5B0%5D=10&amp;order_type%5B1%5D=20&amp;order_type%5B2%5D=30&amp;order_type%5B3%5D=40&amp;order_type%5B4%5D=50&amp;date_range=2&amp;limit=500&amp;selected_date=2020-05-05">2</a>
+				<a
+					href="/order/front/all?page=3&amp;session_uncle_no=50&amp;list_type=all&amp;start_date=2020-05-04&amp;end_date=2020-05-06&amp;buyer_pickup_status%5B0%5D=10&amp;buyer_pickup_status%5B1%5D=20&amp;buyer_pickup_status%5B2%5D=30&amp;buyer_pickup_status%5B3%5D=50&amp;order_type%5B0%5D=10&amp;order_type%5B1%5D=20&amp;order_type%5B2%5D=30&amp;order_type%5B3%5D=40&amp;order_type%5B4%5D=50&amp;date_range=2&amp;limit=500&amp;selected_date=2020-05-05">3</a>
+				<a
+					href="/order/front/all?page=4&amp;session_uncle_no=50&amp;list_type=all&amp;start_date=2020-05-04&amp;end_date=2020-05-06&amp;buyer_pickup_status%5B0%5D=10&amp;buyer_pickup_status%5B1%5D=20&amp;buyer_pickup_status%5B2%5D=30&amp;buyer_pickup_status%5B3%5D=50&amp;order_type%5B0%5D=10&amp;order_type%5B1%5D=20&amp;order_type%5B2%5D=30&amp;order_type%5B3%5D=40&amp;order_type%5B4%5D=50&amp;date_range=2&amp;limit=500&amp;selected_date=2020-05-05">4</a>
+				<a
+					href="/order/front/all?page=5&amp;session_uncle_no=50&amp;list_type=all&amp;start_date=2020-05-04&amp;end_date=2020-05-06&amp;buyer_pickup_status%5B0%5D=10&amp;buyer_pickup_status%5B1%5D=20&amp;buyer_pickup_status%5B2%5D=30&amp;buyer_pickup_status%5B3%5D=50&amp;order_type%5B0%5D=10&amp;order_type%5B1%5D=20&amp;order_type%5B2%5D=30&amp;order_type%5B3%5D=40&amp;order_type%5B4%5D=50&amp;date_range=2&amp;limit=500&amp;selected_date=2020-05-05">5</a>
+				<a
+					href="/order/front/all?page=6&amp;session_uncle_no=50&amp;list_type=all&amp;start_date=2020-05-04&amp;end_date=2020-05-06&amp;buyer_pickup_status%5B0%5D=10&amp;buyer_pickup_status%5B1%5D=20&amp;buyer_pickup_status%5B2%5D=30&amp;buyer_pickup_status%5B3%5D=50&amp;order_type%5B0%5D=10&amp;order_type%5B1%5D=20&amp;order_type%5B2%5D=30&amp;order_type%5B3%5D=40&amp;order_type%5B4%5D=50&amp;date_range=2&amp;limit=500&amp;selected_date=2020-05-05">6</a>
+				<a
+					href="/order/front/all?page=7&amp;session_uncle_no=50&amp;list_type=all&amp;start_date=2020-05-04&amp;end_date=2020-05-06&amp;buyer_pickup_status%5B0%5D=10&amp;buyer_pickup_status%5B1%5D=20&amp;buyer_pickup_status%5B2%5D=30&amp;buyer_pickup_status%5B3%5D=50&amp;order_type%5B0%5D=10&amp;order_type%5B1%5D=20&amp;order_type%5B2%5D=30&amp;order_type%5B3%5D=40&amp;order_type%5B4%5D=50&amp;date_range=2&amp;limit=500&amp;selected_date=2020-05-05">7</a>
+				<a
+					href="/order/front/all?page=8&amp;session_uncle_no=50&amp;list_type=all&amp;start_date=2020-05-04&amp;end_date=2020-05-06&amp;buyer_pickup_status%5B0%5D=10&amp;buyer_pickup_status%5B1%5D=20&amp;buyer_pickup_status%5B2%5D=30&amp;buyer_pickup_status%5B3%5D=50&amp;order_type%5B0%5D=10&amp;order_type%5B1%5D=20&amp;order_type%5B2%5D=30&amp;order_type%5B3%5D=40&amp;order_type%5B4%5D=50&amp;date_range=2&amp;limit=500&amp;selected_date=2020-05-05">8</a>
+				<a
+					href="/order/front/all?page=9&amp;session_uncle_no=50&amp;list_type=all&amp;start_date=2020-05-04&amp;end_date=2020-05-06&amp;buyer_pickup_status%5B0%5D=10&amp;buyer_pickup_status%5B1%5D=20&amp;buyer_pickup_status%5B2%5D=30&amp;buyer_pickup_status%5B3%5D=50&amp;order_type%5B0%5D=10&amp;order_type%5B1%5D=20&amp;order_type%5B2%5D=30&amp;order_type%5B3%5D=40&amp;order_type%5B4%5D=50&amp;date_range=2&amp;limit=500&amp;selected_date=2020-05-05">9</a>
+				<a
+					href="/order/front/all?page=10&amp;session_uncle_no=50&amp;list_type=all&amp;start_date=2020-05-04&amp;end_date=2020-05-06&amp;buyer_pickup_status%5B0%5D=10&amp;buyer_pickup_status%5B1%5D=20&amp;buyer_pickup_status%5B2%5D=30&amp;buyer_pickup_status%5B3%5D=50&amp;order_type%5B0%5D=10&amp;order_type%5B1%5D=20&amp;order_type%5B2%5D=30&amp;order_type%5B3%5D=40&amp;order_type%5B4%5D=50&amp;date_range=2&amp;limit=500&amp;selected_date=2020-05-05">10</a>
+				<a href="/order/front/all?page=11&amp;session_uncle_no=50&amp;list_type=all&amp;start_date=2020-05-04&amp;end_date=2020-05-06&amp;buyer_pickup_status%5B0%5D=10&amp;buyer_pickup_status%5B1%5D=20&amp;buyer_pickup_status%5B2%5D=30&amp;buyer_pickup_status%5B3%5D=50&amp;order_type%5B0%5D=10&amp;order_type%5B1%5D=20&amp;order_type%5B2%5D=30&amp;order_type%5B3%5D=40&amp;order_type%5B4%5D=50&amp;date_range=2&amp;limit=500&amp;selected_date=2020-05-05"
+					class="next">다음</a><a
+					href="/order/front/all?page=11&amp;session_uncle_no=50&amp;list_type=all&amp;start_date=2020-05-04&amp;end_date=2020-05-06&amp;buyer_pickup_status%5B0%5D=10&amp;buyer_pickup_status%5B1%5D=20&amp;buyer_pickup_status%5B2%5D=30&amp;buyer_pickup_status%5B3%5D=50&amp;order_type%5B0%5D=10&amp;order_type%5B1%5D=20&amp;order_type%5B2%5D=30&amp;order_type%5B3%5D=40&amp;order_type%5B4%5D=50&amp;date_range=2&amp;limit=500&amp;selected_date=2020-05-05"
+					class="last">다음</a></div>
+		</div>
+	</div>
+
+	<!-- 2020-09-03 EZP-1062 시작 -->
+	<!-- Alert Layer -->
+	<div id="alert-order-deadline" class="ui-popup">
+		<!-- 발주마감 대기 건 유무 : 없음 -->
+		<div class="content" style="min-width:412px; max-width: 700px;" tabindex="-1">
+			<div class="body">
+				<div class="txt-cont">
+					<div class="txt-cont result order">
+						<div class="confirm">
+							<p>
+								발주마감 처리할 주문 건이 없거나,<br>이미 발주마감 되었습니다.
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="btn_wrap mt40 tac">
+					<span class="commLayerConfirm"><button type="button" class="btn point medium btn_close" style="width:100px; min-width:100px;">확인</button></span>
+				</div>
+			</div>
+		</div>
+		<!-- 발주마감 대기 건 유무 : 있음 -->
+		<div class="content" style="min-width:412px; max-width: 700px;" tabindex="-1">
+			<div class="body">
+				<div class="txt-cont">
+					<div class="txt-cont result order">
+						<div class="confirm">
+							<p>
+								미매칭 가게 발주 건이 존재합니다.<br>가게 매칭 후 발주마감 가능합니다.
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="btn_wrap mt40 tac">
+					<span class="commLayerConfirm"><button type="button" class="btn point medium btn_close" style="width:100px; min-width:100px;">확인</button></span>
+				</div>
+			</div>
+		</div>
+		<!-- 발주마감 완료 -->
+		<div class="content" style="min-width:412px; max-width: 700px;" tabindex="-1">
+			<div class="body">
+				<div class="txt-cont">
+					<div class="txt-cont result order">
+						<div class="confirm">
+							<p>바로주문 전체 발주마감<br>처리가 완료되었습니다.</p>
+						</div>
+					</div>
+				</div>
+				<div class="btn_wrap mt40 tac">
+					<span class="commLayerConfirm"><button type="button" class="btn point medium btn_close" style="width:100px; min-width:100px;">확인</button></span>
+				</div>
+			</div>
+		</div>
+		<!-- 입고예정일 필수 품목 : 미입력 건 있음 -->
+		<div class="content" style="min-width:412px; max-width: 700px;" tabindex="-1">
+			<div class="body">
+				<div class="txt-cont">
+					<div class="txt-cont result order">
+						<div class="confirm">
+							<p>
+								신규/미송 미입고 건의<br>
+								입고예정일이 지정되지 않았습니다.<br>
+								발주마감 처리하시겠습니까?
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="btn_wrap mt40 tac">
+					<button type="button" class="btn medium btn_close" style="width:100px; min-width:100px;">취소</button>
+					<span class="commLayerConfirm"><button type="button" class="btn point medium btn_close" style="width:100px; min-width:100px;">확인</button></span>
+				</div>
+			</div>
+		</div>
+		<!-- 입고예정일 필수 품목 : 미입력 건 있음 - 미완료 건 있을 경우 -->
+		<div class="content" style="min-width:412px; max-width: 700px;" tabindex="-1">
+			<div class="body">
+				<div class="txt-cont">
+					<div class="txt-cont result order">
+						<div class="confirm">
+							<p>
+								진행 건이 존재합니다.<br>
+								발주마감 처리하시겠습니까?
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="btn_wrap mt40 tac">
+					<button type="button" class="btn medium btn_close" style="width:100px; min-width:100px;">취소</button>
+					<span class="commLayerConfirm"><button type="button" class="btn point medium btn_close" style="width:100px; min-width:100px;">확인</button></span>
+				</div>
+			</div>
+		</div>
+		<!-- 쇼핑몰 선택 여부 : 미선택 -->
+		<div class="content" style="min-width:412px; max-width: 700px;" tabindex="-1">
+			<div class="body">
+				<div class="txt-cont">
+					<div class="txt-cont result order">
+						<div class="confirm">
+							<p>
+								쇼핑몰을 선택해주세요.
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="btn_wrap mt40 tac">
+					<button type="button" class="btn medium btn_close" style="width:100px; min-width:100px;">취소</button>
+					<span class="commLayerConfirm"><button type="button" class="btn point medium btn_close" style="width:100px; min-width:100px;">확인</button></span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="all-order-deadline" class="ui-popup">
+		<div class="content" style="min-width:412px; width: 500px;" tabindex="-1">
+			<div class="body">
+				<div class="txt-cont">
+					<div class="txt-cont result order">
+						<h3>[바로주문] 발주마감 비밀번호 입력</h3>
+						<div class="confirm">
+							<div class="text-wrap">
+								<p>
+									비밀번호를 입력 후 [발주마감]을 선택하세요.
+								</p>
+								<span>※ 마감 시 입고정보 변경 및 취소 불가 ※</span>
+								<em>※ 'JC어패럴' 주문 은 [일반주문]으로, 발주마감 처리되지 않습니다.</em>
+							</div>
+							<div class="password-box">
+								<input type="password" placeholder="계정 비밀번호 입력">
+							</div>
+							<ul>
+								<li>
+									<span>발주마감일</span>
+									<em>2020-12-25</em>
+								</li>
+								<li>
+									<span>발주일</span>
+									<em>2020-12-25</em>
+								</li>
+								<li>
+									<span>대상 쇼핑몰</span>
+									<em>(전체)</em>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="btn_wrap mt40 tac">
+					<button type="button" class="btn medium btn_close" style="width:100px; min-width:100px;">취소</button>
+					<span class="commLayerConfirm"><button type="button" class="btn point medium btn_close" style="width:100px; min-width:100px;">확인</button></span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="mall-order-deadline" class="ui-popup">
+		<div class="content" style="width:500px;" tabindex="-1">
+			<div class="body">
+				<div class="txt-cont">
+					<div class="txt-cont result order">
+						<h3>[바로주문] 발주마감 비밀번호 입력</h3>
+						<div class="confirm">
+							<div class="text-wrap">
+								<p>
+									비밀번호를 입력 후 [발주마감]을 선택하세요.
+								</p>
+								<span>※ 마감 시 입고정보 변경 및 취소 불가 ※</span>
+								<em>※ 'JC어패럴' 주문 은 [일반주문]으로, 발주마감 처리되지 않습니다.</em>
+							</div>
+							<div class="password-box">
+								<input type="password" placeholder="계정 비밀번호 입력">
+							</div>
+							<ul>
+								<li>
+									<span>발주마감일</span>
+									<em>2020-12-25</em>
+								</li>
+								<li>
+									<span>발주일</span>
+									<em>2020-12-25</em>
+								</li>
+								<li>
+									<span>대상 쇼핑몰</span>
+									<em class="ellipsis" title="핫핑, 츄, 엔비룩, 체리코코, 오늘의집, 텐바이텐, 에브리모닝, 제이엘프, 젝시믹스, 뮬라웨어">핫핑, 츄, 엔비룩, 체리코코, 오늘의집, 텐바이텐, 에브리모닝, 제이엘프, 젝시믹스, 뮬라웨어, ...</em>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="btn_wrap mt40 tac">
+					<button type="button" class="btn medium btn_close" style="width:100px; min-width:100px;">취소</button>
+					<span class="commLayerConfirm"><button type="button" class="btn point medium btn_close" style="width:200px;">쇼핑몰 발주마감</button></span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- 미매칭 발주건 유무  -->
+	<div id="popup1" class="ui-popup alert-pop">
+		<div class="content" style="width:484px; max-width: 700px;" tabindex="-1">
+			<div class="body">
+				<div class="txt-cont">
+					<div class="txt-cont result order">
+						<div class="confirm">
+							<p class="scroll-cont">
+								쇼핑몰1, 쇼핑몰2, 쇼핑몰3, 쇼핑몰4<br />
+								쇼핑몰 발주건에 미매칭 도매처가 존재합니다.<br />
+								해당 쇼핑몰은 제외하고 발주마감 처리하시겠습니까?<br />
+								쇼핑몰1, 쇼핑몰2, 쇼핑몰3, 쇼핑몰4<br />
+								쇼핑몰 발주건에 미매칭 도매처가 존재합니다.<br />
+								해당 쇼핑몰은 제외하고 발주마감 처리하시겠습니까?
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="btn_wrap mt40 tac">
+					<button type="button" class="btn medium btn_close" style="width:100px; min-width:100px;">취소</button>
+					<span class="commLayerConfirm"><button type="button" class="btn point medium btn_close" style="width:100px; min-width:100px;">확인</button></span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- 2020-09-03 EZP-1062 종료 -->
+
+	<div id="layerOrderAssign" class="ui-popup-open" data-target="#orderAssign" hidden=""></div>
+	<div id="orderAssign" class="ui-popup">
+		<div class="content" style="width:412px;" tabindex="-1">
+			<div class="body">
+				<h3 class="mb20">담당자 지정</h3>
+				<div class="txt-cont mb20">
+					<div class="txt-cont result order">
+						<div class="table-wrap">
+							<table id="tblSellerList">
+								<colgroup>
+									<col width="50%">
+									<col>
+								</colgroup>
+								<thead>
+									<tr>
+										<th>도매처명</th>
+										<th>담당삼촌</th>
+									</tr>
+								</thead>
+								<tbody>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+				<div class="toss">
+					<p>선택한 도매처의 담당자를</p>
+					<input type="hidden" name="" id="layerUncleNo" value="50">
+					<div class="ui-select" data-scroll="3" data-target_id="#layerUncleNo" id="sel_layerUncleNo">
+						<button type="button" id="btn_layerUncleNo" data-value="">사입삼촌01</button>
+						<ul style="height: 123px; overflow: auto;">
+							<li data-key="">선택</li>
+							<li data-key="50" class="active">사입삼촌01</li>
+							<li data-key="75">김건일</li>
+							<li data-key="87">노현우</li>
+							<li data-key="62">문경민</li>
+							<li data-key="68">박상욱</li>
+							<li data-key="63">박성철</li>
+							<li data-key="60">박수인</li>
+							<li data-key="81">박주하</li>
+							<li data-key="51">사입삼촌02</li>
+							<li data-key="59">여인기</li>
+							<li data-key="84">유지운영</li>
+							<li data-key="74">육성규</li>
+							<li data-key="64">이용우</li>
+							<li data-key="58">이태호</li>
+							<li data-key="83">임승철</li>
+							<li data-key="86">전상민</li>
+							<li data-key="82">지석준</li>
+							<li data-key="88">채현규</li>
+							<li data-key="61">최용조</li>
+							<li data-key="56">최현태</li>
+							<li data-key="57">홍재영</li>
+						</ul>
+					</div> <span>으로 지정합니다.</span>
+				</div>
+				<div class="btn-wrap btns2">
+					<button type="button" class="btn medium btn_close">취소</button>
+					<button id="btnOrderChargeModify" class="btn point medium btn_close">확인</button>
+				</div>
+			</div>
+			<button type="button" class="btn_close"><span>닫기</span></button>
+		</div>
+	</div>
+	<div id="layerChargeHistory" class="ui-popup-open" data-target="#manager" hidden=""></div>
+	<div id="manager" class="ui-popup">
+		<div class="content" style="width:412px;" tabindex="-1">
+			<div class="body">
+				<h3>담당자 이력</h3>
+				<div class="manager">
+					<table id="tblHistory">
+						<colgroup>
+							<col width="200px">
+							<col>
+						</colgroup>
+						<thead>
+							<tr>
+								<th>일자</th>
+								<th>담당자</th>
+							</tr>
+						</thead>
+						<tbody>
+						</tbody>
+					</table>
+				</div>
+				<div class="btn-wrap">
+					<button class="btn point medium btn_close">확인</button>
+				</div>
+			</div>
+			<button class="btn_close"><span>닫기</span></button>
+		</div>
+	</div>
+	<div id="layerOrderUncleMemo" class="ui-popup-open" data-target="#targetOrderUncleMemo" hidden=""></div>
+	<div id="targetOrderUncleMemo" class="ui-popup">
+		<div class="content" style="width:800px;" tabindex="-1">
+			<div class="body">
+				<h3>확인 메모</h3>
+				<div style="font-size:14px;">총 메모 <span style="color:#50C258;">9</span> 건</div>
+				<div class="manager">
+					<table>
+						<colgroup>
+							<col width="80px">
+							<col width="200px">
+							<col>
+						</colgroup>
+						<thead>
+							<tr>
+								<th>No</th>
+								<th>쇼핑몰(상호)</th>
+								<th>메모 내용</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>9</td>
+								<td>러브썸원<br>(러브썸원)</td>
+								<td style="text-align:left; white-space: normal;">교환x차감으로 처리부탁드려요(반발심한 업체는 교환으로 해주세요)</td>
+							</tr>
+							<tr>
+								<td>8</td>
+								<td>러브썸원<br>(러브썸원)</td>
+								<td style="text-align:left; white-space: normal;">교환x 차감으로 진행해주세요. 반발이 심한 업체는 교환으로 처리해주세요 </td>
+							</tr>
+							<tr>
+								<td>7</td>
+								<td>러브썸원<br>(러브썸원)</td>
+								<td style="text-align:left; white-space: normal;">교환x차감으로 처리해주세요(반발이 심한업체는 교환으로 처리해주세요)</td>
+							</tr>
+							<tr>
+								<td>6</td>
+								<td>러브썸원<br>(러브썸원)</td>
+								<td style="text-align:left; white-space: normal;">교환X차감으로 처리해주세요. 반발이 심한업체는 교환으로 해주세요 </td>
+							</tr>
+							<tr>
+								<td>5</td>
+								<td>러브썸원<br>(러브썸원)</td>
+								<td style="text-align:left; white-space: normal;">차감으로 처리 요청드리며,반발이 심한 업체는 교환으로 처리 부탁드려요</td>
+							</tr>
+							<tr>
+								<td>4</td>
+								<td>러브썸원<br>(러브썸원)</td>
+								<td style="text-align:left; white-space: normal;">교환x차감처리해주세요.반발이 심한업체만 교환으로 처리+메모부탁드려요</td>
+							</tr>
+							<tr>
+								<td>3</td>
+								<td>러브썸원<br>(러브썸원)</td>
+								<td style="text-align:left; white-space: normal;">교환x차감으로처리해주세요</td>
+							</tr>
+							<tr>
+								<td>2</td>
+								<td>러브썸원<br>(러브썸원)</td>
+								<td style="text-align:left; white-space: normal;">교환x차감으로 처리 부탁드립니다 </td>
+							</tr>
+							<tr>
+								<td>1</td>
+								<td>불량소녀<br>(2068693080)</td>
+								<td style="text-align:left; white-space: normal;">KDG 연락받으셨으면 픽업부탁드려요</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="btn-wrap">
+					<button class="btn point medium btn_close">확인</button>
+				</div>
+			</div>
+			<button class="btn_close"><span>닫기</span></button>
+		</div>
+	</div>
+	<!-- 2020-05-04 시작 -->
+	<div id="targetItemSoldoutStatus" class="ui-popup">
+		<div class="content" style="width:486px;" tabindex="-1">
+			<input type="hidden" id="eItemSoldoutStatusSsItemNo">
+			<button class="btn_close"><span>닫기</span></button>
+			<div class="body">
+				<h3>상품상태</h3>
+				<div class="manager divCustomCheckToggle new">
+					<button class="btn btnItemSoldoutStatusList" data-value="1">품절</button><button class="btn btnItemSoldoutStatusList" data-value="2">색상품절</button><button class="btn btnItemSoldoutStatusList" data-value="3">사이즈품절</button><button
+						class="btn btnItemSoldoutStatusList" data-value="4">낱장불가</button>
+				</div>
+				<div class="min-count" style="display:none;">
+					<input type="text" value="0">
+					<button class="btn">최소 10개</button>
+					<button class="btn">최소 20개</button>
+					<button class="btn">최소 30개</button>
+				</div>
+				<p class="notice">* 상품상태 선택 시, 품절처리방식은 오늘차감으로 자동 변경됩니다.</p>
+				<div class="btn-wrap">
+					<button class="btn small btn_close"> 취소</button>
+					<button id="layerAlertOpen" class="ui-popup-open btn point small btn_close" data-target="#layerAlert"> 확인</button>
+				</div>
+				<button class="btn_close" hidden=""></button>
+			</div>
+		</div>
+	</div>
+
+	<!-- Alert Layer -->
+	<div id="layerAlert" class="ui-popup">
+		<div class="content" style="min-width:412px; max-width: 700px;" tabindex="-1">
+			<div class="body">
+				<div class="txt-cont">
+					<div class="txt-cont result order">
+						<h3 id="commLayerTitle"></h3>
+						<div class="confirm">
+							<p id="commLayerContents">적용 완료되었습니다.</p>
+							<!-- <p id="commLayerContents">최소수량을 입력해주세요.</p> -->
+						</div>
+					</div>
+				</div>
+				<div class="btn_wrap mt40 tac">
+					<span class="commLayerConfirm"><button type="button" class="btn point medium btn_close" style="width:100px; min-width:100px;">확인</button></span>
+				</div>
+			</div>
+			<button type="button" class="btn_close">
+				<div class="commLayerConfirm"><span>닫기</span></div>
+			</button>
+		</div>
+	</div>
+
+	<!-- 2020-05-04 종료 -->
+
+
+
+	<div class="divExpectedDateContainer" id="divExpectedDate">
+		<div class="head">입고예정일</div>
+		<button class="btn_close" style="position: absolute; top: 12px; right: 20px; font-weight: bold"><span>X</span>
+		</button>
+		<div class="body">
+			<div>
+				<button class="btnDate" data-value="2020-05-08">05/08(금)</button> <button class="btnDate" data-value="2020-05-09">05/09(토)</button> <button class="btnDate" data-value="2020-05-10">05/10(일)</button> <button class="btnDate"
+					data-value="2020-05-11">05/11(월)</button> <button class="btnDate" data-value="2020-05-12">05/12(화)</button> <button class="btnDate" data-value="2020-05-13">05/13(수)</button> <button class="btnDate" data-value="0000-00-00">다음주 중 </button>
+				<button class="btnDate none" data-value="">선택안함</button>
+			</div>
+		</div>
+	</div>
+
+
+	<div id="matching-pop" class="ui-popup matching-pop">
+		<div class="content" style="width:1000px;" tabindex="-1">
+			<button class="btn_close"><span>닫기</span></button>
+			<div class="body">
+				<h3>가게 매칭</h3>
+				<div class="cont">
+					<!-- 2021-06-17 EZP-1765 -->
+					<div class="info">
+						<span class="result">검색결과 <em>3,333</em>건</span>
+						<span class="matching-type">
+							<button type="button" class="btn xsmall active">단일매칭</button>
+							<button type="button" class="btn xsmall">멀티매칭</button>
+						</span>
+					</div>
+					<div class="left">
+						<table cellpadding="1" cellspacing="1" >
+							<!-- 2020-06-18 EZP-778 -->
+							<colgroup>
+								<col width="50%">
+								<col width="*">
+							</colgroup>
+							<thead>
+								<tr>
+									<th>미매칭가게명</th>
+									<th>매칭가게명</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr class="complete">
+									<td>
+										<div>
+											<strong>미매칭 가게명</strong>
+											<span>미매칭주소 2</span>
+											<span>연락처 2</span>
+											<button type="button" class="complete">매칭완료</button>
+										</div>
+									</td>
+									<td>
+										<div>
+											<strong>반야인터트리</strong>
+											<span>디오트 2층 B열 101호</span>
+											<span>010-1004-1004</span>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<div>
+											<strong>미매칭 가게명</strong>
+											<span>미매칭주소 2</span>
+											<span>연락처 2</span>
+											<button type="button" class="">매칭대기</button>
+										</div>
+									</td>
+									<td>
+										가게 매칭이 필요합니다.
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<div>
+											<strong>미매칭 가게명</strong>
+											<span>미매칭주소 2</span>
+											<span>연락처 2</span>
+											<button type="button" class="">매칭대기</button>
+										</div>
+									</td>
+									<td>
+										가게 매칭이 필요합니다.
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<div>
+											<strong>미매칭 가게명</strong>
+											<span>미매칭주소 2</span>
+											<span>연락처 2</span>
+											<button type="button" class="">매칭대기</button>
+										</div>
+									</td>
+									<td>
+										<div>
+											<strong>반야인터트리</strong>
+											<span>디오트 2층 B열 101호</span>
+											<span>010-1004-1004</span>
+										</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="right">
+						<h4>가게 검색</h4>
+						<div class="search-item mr0">
+							<!-- 2021-08-17 EZP-3943 -->
+							<div class="ui-select mr5" style="width:auto;">
+								<div class="ui-select">
+									<button type="button" id="btn_selSellerSearchKey" data-value="">전체</button>
+									<ul>
+										<li data-key="" class="active" tabindex="0">전체</li>
+										<li data-key="seller_name" tabindex="0">도매처</li>
+										<li data-key="buyer_name" tabindex="0">쇼핑몰</li>
+										<li data-key="seller_addr" tabindex="0">주소</li>
+									</ul>
+								</div>
+							</div>
+							<div class="input-search">
+								<input type="text" class="fText height-adjust" placeholder="검색어를 입력해 주세요." name="search_value" id="seller_search_value" value="">
+							</div>
+							<button type="button" class="btn small filter-search">검색</button>
+						</div>
+
+						<ul class="search-list">
+							<li>
+								<strong>반양인더트리1번</strong>
+								<p>
+									디오트 2층 101호 / 010-1233-1233
+								</p>
+								<button type="button" class="btn small state">매칭</button>
+							</li>
+							<li>
+								<strong>반양인더트리1번</strong>
+								<p>
+									디오트 2층 101호 / 010-1233-1233
+								</p>
+								<button type="button" class="btn small state">매칭</button>
+							</li>
+							<li>
+								<strong>반양인더트리1번</strong>
+								<p>
+									디오트 2층 101호 / 010-1233-1233
+								</p>
+								<button type="button" class="btn small state">매칭</button>
+							</li>
+							<li>
+								<strong>반양인더트리1번</strong>
+								<p>
+									디오트 2층 101호 / 010-1233-1233
+								</p>
+								<button type="button" class="btn small state">매칭</button>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<!-- <div class="btn-wrap">
+					<button class="btn small btn_close"> 취소</button>
+					<button class="btn point small btn_close" > 확인</button>
+				</div> -->
+				<button class="btn_close" hidden=""></button>
+			</div>
+		</div>
+	</div>
+
+	<!-- 2021-06-04 EZP-2903 -->
+	<div id="pop-full-stock" class="ui-popup pop-full-stock">
+		<div class="content" style="min-width:412px; max-width: 700px;" tabindex="-1">
+			<div class="body">
+				<div class="txt-cont">
+					<p id="commLayerContents">선택된 품목을 전량입고 처리하시겠습니까?</p>
+					<p class="notice">
+						* 수량 개별 입력한 품목 제외<br>
+						* 전량입고 처리완료된 품목 제외
+					</p>
+				</div>
+				<div class="btn_wrap mt40 tac">
+					<button type="button" class="btn medium btn_close" style="width:100px; min-width:100px;">취소</button>
+					<span class="commLayerConfirm"><button type="button" class="btn point medium btn_close" style="width:100px; min-width:100px;">확인</button></span>
+				</div>
+			</div>
+			<button type="button" class="btn_close">
+				<div class="commLayerConfirm"><span>닫기</span></div>
+			</button>
+		</div>
+	</div>
+	<!--//container -->
+
+	<!-- footer// -->
+	<footer>
+		Copyright ⓒ 2019 EasyPickSquare. All Rights Reserved.
+	</footer><!-- //footer -->
+
+	<script type="text/javascript" src="../js/ui/lib/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="../js/ui/lib/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="./script.js"></script> <!-- 2022-11-01 EZP-6245 추가해서 tr.opner 작동함 -->
+	<script type="text/javascript" src="../js/ui/common_front.js"></script>
+	<script type="text/javascript" src="../js/ui/ui.js"></script>
+	<script type="text/javascript" src="../js/ui/pub.js"></script>
+	
+
+	<script type="text/javascript">
+		// LocalStorage.set("csrf-token", "ZmEqWoY7EMkTNPemq5oIBLa1uoGzaWc2LUCSIQfPcjk=", "uncle");
+		$('#btn_date_range').click(function() {
+			$(this).data('value', $('#date_range').val());
+		});
+		$('#sel_date_range li').click(function() {
+			var sPrevValue = $('#btn_date_range').data('value');
+			var sThisValue = $(this).data('key');
+			let sTarget = $(this).closest('.ui-select').data('target_id');
+			$(sTarget).val(sThisValue);
+			if (sPrevValue != sThisValue) {
+				$(sTarget).trigger('change');
+			}
+		});
+		$('#btn_selSearchKey').click(function() {
+			$(this).data('value', $('#selSearchKey').val());
+		});
+		$('#sel_selSearchKey li').click(function() {
+			var sPrevValue = $('#btn_selSearchKey').data('value');
+			var sThisValue = $(this).data('key');
+			let sTarget = $(this).closest('.ui-select').data('target_id');
+			$(sTarget).val(sThisValue);
+			if (sPrevValue != sThisValue) {
+				$(sTarget).trigger('change');
+			}
+		});
+		$('#btn_layerUncleNo').click(function() {
+			$(this).data('value', $('#layerUncleNo').val());
+		});
+		$('#sel_layerUncleNo li').click(function() {
+			var sPrevValue = $('#btn_layerUncleNo').data('value');
+			var sThisValue = $(this).data('key');
+			let sTarget = $(this).closest('.ui-select').data('target_id');
+			$(sTarget).val(sThisValue);
+			if (sPrevValue != sThisValue) {
+				$(sTarget).trigger('change');
+			}
+		});
+		// 2021-01-06 EZP-1765
+		$(function(){
+			// 2021-06-22 EZP-1765
+			$('.matching-type button').click(function(){
+				$('.matching-type button').removeClass('active');
+				$(this).addClass('active');
+				var idx = $('.matching-type button.active').index();
+				if(idx == 0){
+					$(this).parents('.cont').find('tr').removeClass('complete');
+					$(this).parents('.cont').find('tbody tr:first').addClass('complete');
+				}
+			})
+			$('.matching-pop .left table td').click(function(){
+				var idx = $('.matching-type button.active').index();
+				if(idx == 0){
+					$(this).parents('table').find('tr').removeClass('complete');
+					$(this).parent().toggleClass('complete');
+				}else{
+					$(this).parent().toggleClass('complete')
+				}
+			})
+
+			// 2021-06-04	EZP-2903
+			$('.all-in button').click(function(){
+				$(this).parent().toggleClass('on');
+			})
+
+			$('.layer-all-in li button').click(function(){
+				$(this).parent().toggleClass('selected');
+			})
+		})
+
+		// 2021-08-06 EZP-3726
+		$('.search-item.period-filter a').click(function(){
+			$('.search-item.period-filter a').removeClass('on');
+			$(this).addClass('on');
+		});
+
+	</script>
+
+
+</body>
+
+</html>

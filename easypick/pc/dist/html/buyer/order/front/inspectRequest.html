@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="format-detection" content="telephone=no">
+	<meta content="lK0RWxdehsio/icXlDgOD1/0XccqggRiBvNtJOsCkmw=" name="csrf-token">
+	<meta content="T" name="login-required">
+	<link rel="shortcut icon" type="image/x-icon" href="/img/favicon/ezp.ico">
+
+	<!-- css -->
+	<link rel="stylesheet" type="text/css" href="../../../../css/default.css">
+	<link rel="stylesheet" type="text/css" href="../../../../css/month.picker.css">
+
+	<title>재확인 일괄요청 엑셀 업로드</title>
+</head>
+
+<body id="inspectRequest">
+	<div class="header">
+		<h1>재확인 일괄 요청</h1> <!--2022-07-12 EZP-5872 워딩변경-->
+	</div>
+
+	<div class="body">
+		<div class="file-upload">
+			<h2>
+				엑셀 업로드
+				<button type="button" name="button" class="btn-tip"></button>
+				<div class="tip">
+					<h3>재확인 요청 엑셀 업로드 방법</h3>
+					<ol>
+						<li>[이지픽 > 주문관리 > 오늘입고상품] 또는 [이지픽 > 주문관리 > 검수대기상품]에서 [엑셀다운로드 > 재확인 요청 양식]을 다운로드 받으세요.</li>
+						<li>주문 내용을 확인하여 재확인 요청이 필요한 품목은 재확인 요청 열에 요청내용을 기입하고 작성하세요.</li>
+						<li>[이지픽 > 주문관리 > 검수대기상품]에서 [재확인 요청 업로드] 버튼을 클릭하세요.</li>
+						<li>본 팝업에서 요청내용이 입력된 엑셀 파일을 [파일찾기] 버튼을 통해 불러온 뒤 업로드해주세요.</li>
+					</ol>
+
+					<h3>유의사항</h3>
+					<ul>
+						<li>[재확인 요청 양식]인 경우에만 업로드 시 매칭이 가능합니다.</li>
+						<!-- 2021-02-08 EZP-2255 -->
+						<li>최대 1,000건 까지 등록가능합니다.</li>
+						<li>xlsx 또는 xls 파일 형식만 업로드가 가능합니다.</li>
+						<li>업로드 후 실패 건이 있는 경우 재확인요청 [적용]이 불가합니다.<br>실패건의 오류상태를 확인하여, 엑셀을 수정하여 다시 업로드해주세요.</li>
+					</ul>
+				</div>
+			</h2>
+
+			<div class="input-file">
+				<div class="list"></div>
+				<div class="btn">
+					<label>파일찾기<input type="file"></label>
+				</div>
+			</div>
+
+			<button type="button" name="button" class="btn point small">업로드</button>
+			<!-- 2021-02-08 EZP-2255 -->
+			<span class="file-sort">- 첨부파일: xls, xlsx 확장자, 최대 1,000건</span>
+		</div>
+
+		<div class="ui-tab" data-active-idx="0">
+			<ul class="tab-nav">
+				<li><a href="#tab-con1">업로드 건 전체보기 (125)</a></li>
+				<li>
+					<a href="#tab-con2">재확인 요청 건만 보기 (52)</a>
+					<div class="radio-group">
+						<span class="checkbox"><input type="checkbox" id="123"><label for="123">성공예상 <strong class="green">7</strong>건</label></span>
+						<span class="checkbox"><input type="checkbox" id="234"><label for="234">실패예상 <strong class="red">5</strong>건</label></span>
+					</div>
+				</li>
+			</ul>
+			<div class="tab-content">
+				<div id="tab-con1">
+					<table>
+						<colgroup>
+							<col width="50px">
+							<col width="50px">
+							<col width="150px">
+							<col width="100px">
+							<col width="">
+							<col width="80px">
+							<col width="80px">
+							<col width="80px">
+							<col width="80px">
+							<col width="80px">
+							<col width="80px">
+							<col width="130px">
+						</colgroup>
+						<thead>
+							<tr>
+								<th rowspan="2">번호</th>
+								<th rowspan="2">결과</th>
+								<th rowspan="2">주문번호<br>(상세주문번호)</th>
+								<th rowspan="2">거래처명</th>
+								<th rowspan="2"><strong>상품명</strong><br>옵션</th>
+								<th colspan="2">판매가</th>
+								<!-- 2021-02-08 EZP-2255 -->
+								<th colspan="2">입고수량</th>
+								<th colspan="2">품절처리방식</th>
+								<th rowspan="2">실패사유</th>
+							</tr>
+							<tr>
+								<th>기존</th>
+								<th>재확인</th>
+								<th>기존</th>
+								<th>재확인</th>
+								<th>기존</th>
+								<th>재확인</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr class="bg-green">
+								<td>1</td>
+								<td class="green">성공</td>
+								<td>2019121100000298<br>(PJ-SPL07298)</td>
+								<td>웁스(APM)(x)디오트 </td>
+								<td><strong>세인트체크자켓(국내제작,봄신상)</strong><br>dfadfsdfasdfsdfasfasdfsdfasddsfdsfdsfaddfasdf</td>
+								<td>50,000</td>
+								<td class="deep">50,000</td>
+								<td>100</td>
+								<td class="deep">80</td>
+								<td>미송</td>
+								<td class="deep">환불</td>
+								<td></td>
+							</tr>
+							<tr class="">
+								<td>1</td>
+								<td class="">성공</td>
+								<td>2019121100000298<br>(PJ-SPL07298)</td>
+								<td>웁스(APM)(x)디오트 </td>
+								<td><strong>세인트체크자켓(국내제작,봄신상)</strong><br>[Orange (오렌지)-모델착용컬러-F(44-66)]</td>
+								<td>50,000</td>
+								<td class="deep">50,000</td>
+								<td>100</td>
+								<td class="deep">80</td>
+								<td>미송</td>
+								<td class="deep">환불</td>
+								<td>판매가 재확인은 1회에 한함</td>
+							</tr>
+							<tr class="bg-red">
+								<td>1</td>
+								<td class="red">성공</td>
+								<td>2019121100000298<br>(PJ-SPL07298)</td>
+								<td>웁스(APM)(x)디오트 </td>
+								<td><strong>세인트체크자켓(국내제작,봄신상)</strong><br>[Orange (오렌지)-모델착용컬러-F(44-66)]</td>
+								<td>50,000</td>
+								<td class="deep">50,000</td>
+								<td>100</td>
+								<td class="deep">80</td>
+								<td>미송</td>
+								<td class="deep">환불</td>
+								<td class="red">판매가 재확인은 1회에 한함</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div id="tab-con2">
+					<table>
+						<colgroup>
+							<col width="50px">
+							<col width="50px">
+							<col width="150px">
+							<col width="100px">
+							<col width="">
+							<col width="80px">
+							<col width="80px">
+							<col width="80px">
+							<col width="80px">
+							<col width="80px">
+							<col width="80px">
+							<col width="130px">
+						</colgroup>
+						<thead>
+							<tr>
+								<th rowspan="2">번호</th>
+								<th rowspan="2">결과</th>
+								<th rowspan="2">주문번호<br>(상세주문번호)</th>
+								<th rowspan="2">거래처명</th>
+								<th rowspan="2"><strong>상품명</strong><br>옵션</th>
+								<th colspan="2">판매가</th>
+								<th colspan="2">수량</th>
+								<th colspan="2">품절처리방식</th>
+								<th rowspan="2">실패사유</th>
+							</tr>
+							<tr>
+								<th>기존</th>
+								<th>재확인</th>
+								<th>기존</th>
+								<th>재확인</th>
+								<th>기존</th>
+								<th>재확인</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr class="bg-green">
+								<td>1</td>
+								<td class="green">성공</td>
+								<td>2019121100000298<br>(PJ-SPL07298)</td>
+								<td>웁스(APM)(x)디오트 </td>
+								<td><strong>세인트체크자켓(국내제작,봄신상)</strong><br>[Orange (오렌지)-모델착용컬러-F(44-66)]</td>
+								<td>50,000</td>
+								<td class="deep">50,000</td>
+								<td>100</td>
+								<td class="deep">80</td>
+								<td>미송</td>
+								<td class="deep">환불</td>
+								<td></td>
+							</tr>
+							<tr class="bg-red">
+								<td>1</td>
+								<td class="red">성공</td>
+								<td>2019121100000298<br>(PJ-SPL07298)</td>
+								<td>웁스(APM)(x)디오트 </td>
+								<td><strong>세인트체크자켓(국내제작,봄신상)</strong><br>[Orange (오렌지)-모델착용컬러-F(44-66)]</td>
+								<td>50,000</td>
+								<td class="deep">50,000</td>
+								<td>100</td>
+								<td class="deep">80</td>
+								<td>미송</td>
+								<td class="deep">환불</td>
+								<td class="red">판매가 재확인은 1회에 한함</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+
+		<div id="footer">
+        	<button type="button" class="btn small line" onclick="window.close();" style="width:100px;">닫기</button>
+			<button type="button" class="btn small eRegistSettleHoldInstant" style="width:100px;">적용</button>
+		</div>
+	</div>
+
+	<!-- <script type="text/javascript" src="https://easypick.co.kr/optimizer.php?filename=lZI9bsMwDEb3WGvPQWTsIbrlAvqhHdqSqFJWneT0FZBkaAJUMiCAy3uk-IFw5oBg9KIjjKIDbiwLCGYuYhEKJW0XmL8LyvVRjupYn5rzB-yXD4Em0Su-6oGc8y_-nKGs5MEIbxlF5ZVFT28q3tJfh8CTec4rpALFTkc7Zz1q2aHcx6hshb03u9S8UUI5EH7ukE4bYvzSl07Fcggc1Sgc1w68ptWGUjEtKp85NRmaIrwv8d8ljOTXegjNxg4HQYvtlSk6vDxD6mJr_Iu_DgZzZ_OI25CEXbGdwj2AAX96_1-hXw&amp;type=js&amp;k=52f88d67db49b9949093a3fee1fc770c1172da4f&amp;t=1581568389"></script> -->
+	<!-- 21-01-18 수정-->
+	<script src="../../../../js/jquery.min.js"></script><!--jquery default-->
+	<script src="../../../../js/jquery-ui.min.js"></script>
+	<script src="../../../../js/swiper-ie9.min.js"></script>
+	<script src="../../../../js/default.input.js"></script><!-- 2022-10-04 -->
+	<script src="../../../../js/addclear.min.js"></script>
+	<script src="../../../../js/common.front.js"></script>
+	<script src="../../../../js/ui.js"></script>
+	<script src="../../../../js/pub.js"></script>
+	<script src="../../../../js/jquery.scrollbar.min.js"></script>
+
+	<!-- //21-01-18 수정-->
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('.btn-tip').on('mouseover', function() {
+				$('.tip').show();
+			});
+			$('.btn-tip').on('mouseleave', function() {
+				$('.tip').hide();
+			});
+		});
+	</script>
+
+</body>
+
+</html>

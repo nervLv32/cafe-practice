@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="ko" class="js">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="format-detection" content="telephone=no">
+	<meta content="lK0RWxdehsio/icXlDgOD1/0XccqggRiBvNtJOsCkmw=" name="csrf-token">
+	<meta content="T" name="login-required">
+	<link rel="shortcut icon" type="image/x-icon" href="https://easypick.co.kr/img/favicon/ezp.ico">
+
+	<!-- css -->
+	<link rel="stylesheet" type="text/css" href="../../../../css/default.css">
+	<link rel="stylesheet" type="text/css" href="../../../../css/month.picker.css">
+
+	<title>이지픽</title>
+</head>
+
+<body>
+	<!-- header// -->
+	<header></header>
+	<!-- //header -->
+
+	<!--container// -->
+	<div id="container-full">
+		<div class="order-top list">
+			<a href="/buyer/order/front/index">
+				<h2>주문관리</h2>
+			</a>
+		</div>
+		<div class="order-list-wrap">
+			<!-- listLeft -->
+			<div class="list-left">
+				<!--
+    enter-box 컬러 옵션 클래스
+    bg-purple
+    bg-blue
+    bg-green
+    bg-yellow
+    bg-orange
+    bg-pink
+    개인일 경우 : shop-initial
+    기업일 경우 : company 클래스 추가
+    한글일 경우 : kor 클래스 추가
+    컬러 옵션 클래스
+        purple
+        blue
+        green
+        yellow
+        orange
+        pink
+    -->
+				<div class="enter-box bg-purple">
+					<span class="shop-initial company bgwhite purple kor"><em>딜</em></span>
+					<p>딜라잇문</p>
+					<a href="/buyer/order/bulk/front/index" class="btn-quick-order">바로주문</a>
+				</div>
+				<div class="enter-price">
+					<span>예치금</span>
+					<p><em>-841,115,536</em> 원</p>
+				</div>
+				<ul class="enter-menu">
+					<li>
+						<dl>
+							<dt><a href="/buyer/order/front/list">주문조회</a></dt>
+							<dd><a href="/buyer/order/front/list">주문 현황</a></dd>
+							<dd><a href="/buyer/order/front/sampleList">샘플 주문 현황</a></dd>
+							<dd><a href="/buyer/order/front/todayList">오늘 입고 상품</a></dd>
+							<dd><a href="/buyer/order/front/inspectList">검수 대기 상품</a></dd>
+							<dd><a href="/buyer/order/front/inspectCompleteList">검수 완료 내역</a></dd>
+							<dd><a href="/buyer/order/front/inspectRequestList">재확인 요청</a></dd>
+						</dl>
+					</li>
+					<li>
+						<dl>
+							<dt><a href="/buyer/order/front/refundList">품절처리</a></dt>
+							<dd><a href="/buyer/order/front/refundList">환불 내역</a></dd>
+							<dd><a href="/buyer/order/front/reserveList">미송 내역</a></dd>
+							<dd><a href="/buyer/settle/front/settleList">매입 내역</a></dd>
+						</dl>
+					</li>
+					<li>
+						<dl>
+							<dt><a href="/buyer/bad/front/orderList">불량처리</a></dt>
+							<dd><a href="/buyer/bad/front/orderList">불량 주문 내역</a></dd>
+							<dd><a href="/buyer/bad/front/productList">불량 상품 현황</a></dd>
+							<dd><a href="/buyer/bad/front/procList">불량 처리 내역</a></dd>
+						</dl>
+					</li>
+					<li>
+						<dl>
+							<dt><a href="/buyer/balance/front/list">예치금/매입금</a></dt>
+							<dd class="active"><a href="/buyer/balance/front/list">예치금 내역</a></dd>
+							<dd><a href="/buyer/settle/front/list">매입금 내역</a></dd>
+						</dl>
+					</li>
+				</ul>
+			</div>
+			<!-- listLeft -->
+			<div class="list-right">
+				<!-- listTop -->
+				<ul class="list-top">
+					<li>
+						<a href="/buyer/order/front/list?custom_pay_status[]=10">
+							<h3>결제요청</h3><!--2022-07-01 EZP-3528 워딩변경-->
+							<p style="width: 210px;"><em>0</em>건 주문<br>
+								<span style="margin-right: -5px; font-size: 13px;">(0개 품목 / 0개 수량 )</span>
+							</p>
+						</a>
+					</li>
+					<li>
+						<a href="/buyer/order/front/list?custom_pay_status[]=20">
+							<h3>결제완료</h3>
+							<p class="orange" style="width: 210px;"><em>26</em>건 주문<br>
+								<span style="margin-right: -5px; color: #666; font-size: 13px;">(2,855개 품목 / 10,327개 수량 )</span>
+							</p>
+						</a>
+					</li>
+					<li>
+						<a href="/buyer/order/front/todayList">
+							<h3>오늘입고상품<span>(2020-03-12)</span></h3>
+							<p style="width: 210px;"><em>181</em>개 품목<br>
+								<span style="margin-right: -5px; font-size: 13px;">(282개 수량)</span>
+							</p>
+						</a>
+					</li>
+					<li>
+						<a href="/buyer/order/front/inspectList">
+							<h3>검수대기상품</h3>
+							<p style="width: 210px;"><em>181</em>개 품목<br>
+								<span style="margin-right: -5px; font-size: 13px;">(282개 수량)</span>
+							</p>
+						</a>
+					</li>
+				</ul> <!-- listTop -->
+				<div class="table-wrap mb0">
+					<p class="tit">예치금 내역</p>
+					<form id="frmSearch" name="frmSearch" action="/buyer/balance/front/list">
+						<input type="hidden" name="order" id="order" value="">
+						<input type="hidden" name="sort" id="sort" value="">
+						<input type="hidden" id="limit" name="limit" value="10">
+						<table class="th-ver searchForm">
+							<colgroup>
+								<col width="140px">
+								<col width="*">
+							</colgroup>
+							<tbody>
+								<tr>
+									<th>기간조회</th>
+									<td>
+										<ul class="period-filter">
+											<input type="hidden" name="period" value="30">
+											<li class=""><a href="javascript:;" data-period="0">오늘</a></li>
+											<li class=""><a href="javascript:;" data-period="7">1주일</a></li>
+											<li class="on"><a href="javascript:;" data-period="30">1개월</a></li>
+											<li class=""><a href="javascript:;" data-period="90">3개월</a></li>
+											<li class=""><a href="javascript:;" data-period="180">6개월</a></li>
+											<li class=""><a href="javascript:;" data-period="365">1년</a></li>
+										</ul>
+										<div class="picker-wrap">
+
+											<div class="datepicker-wrap">
+												<img class="ui-datepicker-trigger" src="https://easypick.co.kr/img/common/calendar.png" alt="Select date" title="Select date"><input type="text" id="start_date" name="start_date" class="not-addclear datepicker hasDatepicker" style="width: 98px;"
+													value="2020-02-11" readonly="">
+											</div>
+											<span>~</span>
+											<div class="datepicker-wrap">
+												<img class="ui-datepicker-trigger" src="https://easypick.co.kr/img/common/calendar.png" alt="Select date" title="Select date"><input type="text" id="end_date" name="end_date" class="not-addclear datepicker hasDatepicker" style="width: 98px;"
+													value="2020-03-12" readonly="">
+											</div>
+
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<th>구분</th>
+									<td>
+										<span class="checkbox"><input type="checkbox" name="inout_type[]" id="inout_typeplus" value="plus" checked="checked"><label for="inout_typeplus">적립</label></span><span class="checkbox"><input type="checkbox" name="inout_type[]"
+												id="inout_typeminus" value="minus" checked="checked"><label for="inout_typeminus">사용</label></span> </td>
+								</tr>
+								<tr>
+									<th>유형</th>
+									<td>
+										<span class="checkbox"><input type="checkbox" name="custom_inout_method[]" id="custom_inout_method10" value="10" checked="checked"><label for="custom_inout_method10">결제</label></span><span class="checkbox"><input type="checkbox"
+												name="custom_inout_method[]" id="custom_inout_method20" value="20" checked="checked"><label for="custom_inout_method20">주문</label></span><span class="checkbox"><input type="checkbox" name="custom_inout_method[]"
+												id="custom_inout_method30" value="30" checked="checked"><label for="custom_inout_method30">주문취소</label></span><span class="checkbox"><input type="checkbox" name="custom_inout_method[]" id="custom_inout_method40" value="40"
+												checked="checked"><label for="custom_inout_method40">검수환불</label></span><span class="checkbox"><input type="checkbox" name="custom_inout_method[]" id="custom_inout_method50" value="50" checked="checked"><label
+												for="custom_inout_method50">관리자환불</label></span><span class="checkbox"><input type="checkbox" name="custom_inout_method[]" id="custom_inout_method60" value="60" checked="checked"><label
+												for="custom_inout_method60">관리자정산</label></span>
+										<button type="button" class="btn small" id="btnSearch">조회하기</button>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</form>
+				</div>
+				<ul class="list-top-sub">
+					<li>총 예치금 적립<span><em>98,250,885</em>원</span></li>
+					<li>총 예치금 사용<span><em>204,436,470</em>원</span></li>
+					<li>잔액<span><em>-841,115,536</em>원</span></li>
+				</ul>
+				<div class="table-wrap order-list mb0">
+					<div class="tit wrap">
+						<div class="tit-right">
+							<input type="hidden" name="limit" id="hidRowCount" value="10">
+							<div class="ui-select" data-target_id="#hidRowCount">
+								<button type="button" data-target_id="#hidRowCount" data-value="">10개씩 보기</button>
+								<ul>
+									<li data-key="10" class="active">10개씩 보기</li>
+									<li data-key="30">30개씩 보기</li>
+									<li data-key="50">50개씩 보기</li>
+									<li data-key="100">100개씩 보기</li>
+									<li data-key="200">200개씩 보기</li>
+									<li data-key="300">300개씩 보기</li>
+								</ul>
+							</div> <button type="button" class="btn small btnExcelDown" href="/buyer/balance/front/listExcel">
+								엑셀다운로드
+							</button>
+						</div>
+					</div>
+					<table class="th-hor deposit">
+						<colgroup>
+							<col width="125px">
+							<col width="275px">
+							<col width="275px">
+							<col width="275px">
+							<col width="*">
+						</colgroup>
+						<thead>
+							<tr>
+								<th>유형</th>
+								<th>발생일시</th>
+								<th>주문번호</th>
+								<th>금액</th>
+								<th>잔액</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>주문</td>
+								<td class="Enfont">2020-03-11 20:03:28</td>
+								<td class="Enfont">2020031100004046</td>
+								<td class="Enfont red bg-red" style="height:auto;">-6,528,500</td>
+								<td><em class="price">-841,115,536</em>원</td>
+							</tr>
+							<tr>
+								<td>주문취소</td>
+								<td class="Enfont">2020-03-11 20:01:49</td>
+								<td class="Enfont">2020031100004045</td>
+								<td class="Enfont green bg-gr" style="height:auto;">+6,528,500</td>
+								<td><em class="price">-834,587,036</em>원</td>
+							</tr>
+							<tr>
+								<td>주문</td>
+								<td class="Enfont">2020-03-11 19:59:56</td>
+								<td class="Enfont">2020031100004045</td>
+								<td class="Enfont red bg-red" style="height:auto;">-6,528,500</td>
+								<td><em class="price">-841,115,536</em>원</td>
+							</tr>
+							<tr>
+								<td>검수환불</td>
+								<td class="Enfont">2020-03-11 17:58:53</td>
+								<td class="Enfont">-</td>
+								<td class="Enfont green bg-gr" style="height:auto;"><a href="/buyer/order/front/inspectCompleteDetail?bs_complete_no=17325" style="color:#36c25d">+2,827,000</a></td>
+								<td><em class="price">-834,587,036</em>원</td>
+							</tr>
+							<tr>
+								<td>주문</td>
+								<td class="Enfont">2020-03-10 20:28:55</td>
+								<td class="Enfont">2020031000004009</td>
+								<td class="Enfont red bg-red" style="height:auto;">-6,528,500</td>
+								<td><em class="price">-837,414,036</em>원</td>
+							</tr>
+							<tr>
+								<td>주문취소</td>
+								<td class="Enfont">2020-03-10 20:26:31</td>
+								<td class="Enfont">2020031000004008</td>
+								<td class="Enfont green bg-gr" style="height:auto;">+7,144,610</td>
+								<td><em class="price">-830,885,536</em>원</td>
+							</tr>
+							<tr>
+								<td>주문</td>
+								<td class="Enfont">2020-03-10 20:25:58</td>
+								<td class="Enfont">2020031000004008</td>
+								<td class="Enfont red bg-red" style="height:auto;">-7,144,610</td>
+								<td><em class="price">-838,030,146</em>원</td>
+							</tr>
+							<tr>
+								<td>검수환불</td>
+								<td class="Enfont">2020-03-10 18:48:18</td>
+								<td class="Enfont">-</td>
+								<td class="Enfont green bg-gr" style="height:auto;"><a href="/buyer/order/front/inspectCompleteDetail?bs_complete_no=17311" style="color:#36c25d">+4,271,850</a></td>
+								<td><em class="price">-830,885,536</em>원</td>
+							</tr>
+							<tr>
+								<td>주문</td>
+								<td class="Enfont">2020-03-09 19:03:43</td>
+								<td class="Enfont">2020030900003969</td>
+								<td class="Enfont red bg-red" style="height:auto;">-13,648,250</td>
+								<td><em class="price">-835,157,386</em>원</td>
+							</tr>
+							<tr>
+								<td>주문취소</td>
+								<td class="Enfont">2020-03-09 19:01:58</td>
+								<td class="Enfont">2020030900003966</td>
+								<td class="Enfont green bg-gr" style="height:auto;">+13,624,050</td>
+								<td><em class="price">-821,509,136</em>원</td>
+							</tr>
+						</tbody>
+					</table>
+					<div class="pagination"><a href="#none;" class="first none" style="cursor:unset;">처음</a><a href="#none;" class="prev none" style="cursor:unset;">이전</a><a href="#none;" class="active">1</a> <a
+							href="/buyer/balance/front/list?page=2&amp;shop_name=%EB%94%9C%EB%9D%BC%EC%9E%87%EB%AC%B8&amp;user_type=B&amp;user_ip=211.110.58.242&amp;buyer_no=991&amp;period=30&amp;start_date=2020-02-11&amp;end_date=2020-03-12&amp;limit=10">2</a> <a
+							href="/buyer/balance/front/list?page=3&amp;shop_name=%EB%94%9C%EB%9D%BC%EC%9E%87%EB%AC%B8&amp;user_type=B&amp;user_ip=211.110.58.242&amp;buyer_no=991&amp;period=30&amp;start_date=2020-02-11&amp;end_date=2020-03-12&amp;limit=10">3</a> <a
+							href="/buyer/balance/front/list?page=4&amp;shop_name=%EB%94%9C%EB%9D%BC%EC%9E%87%EB%AC%B8&amp;user_type=B&amp;user_ip=211.110.58.242&amp;buyer_no=991&amp;period=30&amp;start_date=2020-02-11&amp;end_date=2020-03-12&amp;limit=10">4</a> <a
+							href="/buyer/balance/front/list?page=5&amp;shop_name=%EB%94%9C%EB%9D%BC%EC%9E%87%EB%AC%B8&amp;user_type=B&amp;user_ip=211.110.58.242&amp;buyer_no=991&amp;period=30&amp;start_date=2020-02-11&amp;end_date=2020-03-12&amp;limit=10">5</a> <a
+							href="/buyer/balance/front/list?page=6&amp;shop_name=%EB%94%9C%EB%9D%BC%EC%9E%87%EB%AC%B8&amp;user_type=B&amp;user_ip=211.110.58.242&amp;buyer_no=991&amp;period=30&amp;start_date=2020-02-11&amp;end_date=2020-03-12&amp;limit=10">6</a> <a
+							href="#none" class="next none" style="cursor:unset;">다음</a><a
+							href="/buyer/balance/front/list?page=6&amp;shop_name=%EB%94%9C%EB%9D%BC%EC%9E%87%EB%AC%B8&amp;user_type=B&amp;user_ip=211.110.58.242&amp;buyer_no=991&amp;period=30&amp;start_date=2020-02-11&amp;end_date=2020-03-12&amp;limit=10"
+							class="last">다음</a></div>
+				</div>
+			</div>
+			<!--listRight-->
+		</div>
+	</div>
+	<!--//container -->
+
+	<!-- footer// -->
+	<footer></footer>
+	<!-- //footer -->
+	<!-- dashboard// -->
+	<div id="dashboard" class=""></div>
+	<!-- //dashboard -->
+	<!-- <script type="text/javascript"
+		src="https://easypick.co.kr/optimizer.php?filename=lZI9bsMwDEb3VGvOQWTsIbrlApREO7Spn1IWnOT0VdB2aAJUNiBAgPjeR1AgXFIgsDhjhEEx0Jp0BqWSqjqCyhndDNNnJb39XCdzasdM5Qj75UPgUXGhZz2w9_LkTwXqwgJW01pITVmS4vii0j3_dRiE7W-_yiZw3Oig904IdYfy3cYUp0nE7lLLypn0wPS-QzqvRPEDrxsVl0JI0Qya4rIBb7_Vh3K1PapcUu4yPEZ4HeK_TRhYlrYI3WBPb0qONoz8SKWrI-mRtt5IW00wtgfh8sj-Ag&amp;type=js&amp;k=74a5340758ce99022e16d6e5abbf81b1f0ee500c&amp;t=1582704537">
+	</script> -->
+
+	     <!-- 21-01-18 수정-->
+		<script src="../../../../js/jquery.min.js"></script><!--jquery default-->
+		<script src="../../../../js/jquery-ui.min.js"></script>
+		<script src="../../../../js/swiper-ie9.min.js"></script>
+		<script src="../../../../js/default.input.js"></script> <!-- 2022-10-04 -->
+		<script src="../../../../js/addclear.min.js"></script>
+		<script src="../../../../js/common.front.js"></script>
+		<script src="../../../../js/ui.js"></script>
+		<script src="../../../../js/pub.js"></script>
+		<script src="../../../../js/jquery.scrollbar.min.js"></script>
+		
+		<!-- //21-01-18 수정-->
+		
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('header').load('../../../include/header.html');
+			$('footer').load('../../../include/footer.html');
+			$('#dashboard').load('../../../include/dashboard.html');
+		});
+	</script>
+	<script type="text/javascript">
+		LocalStorage.set("csrf-token", "tZDTfmn9ZGAkHTMgD9gIbQty/zzNzwCK1jwS7u+MaDk=", "ses");
+		$(document).ready(function() {
+			$('body').on('click', '.period-filter a.eDateAll', function() {
+				$('input[name="is_all_selected"]').val($(this).data('is_all'));
+				if ($(this).data('is_all') == 'all') {
+					$('.datepicker-wrap input').attr('disabled', 'disabled');
+				} else if ($(this).data('is_all') == 'not_all') {
+					$('.datepicker-wrap input').attr('disabled', false);
+				}
+			});
+			var sIsAllSelected = $('.period-filter input[name="is_all_selected"]').val();
+			if (sIsAllSelected == 'all') {
+				$('.datepicker-wrap input').attr('disabled', 'disabled');
+			} else if (sIsAllSelected == 'not_all') {
+				$('.datepicker-wrap input').attr('disabled', false);
+			}
+			$('body').on('click', '.period-filter a', function(e) {
+				var iPeriod = parseInt($(this).data('period'));
+				if (isNaN(iPeriod) === false) {
+					var sToday = $.datepicker.formatDate('yy-mm-dd', new Date());
+					$('#end_date').val(sToday);
+					var sBaseDate = new Date($('#end_date').datepicker('getDate'));
+					var sStartDate = '';
+					var sYear = '' + sBaseDate.getFullYear();
+					var sMonth = '' + parseInt(sBaseDate.getMonth());
+					var sDay = '' + sBaseDate.getDate();
+					sStartDate = new Date(sYear, sMonth, sDay - iPeriod);
+					sStartDate = $.datepicker.formatDate('yy-mm-dd', sStartDate);
+					$('#start_date').datepicker('setDate', sStartDate);
+					var iPeriod = $(this).data('period');
+					$(this).closest('.period-filter').find('input[name="period"]').val(iPeriod);
+				}
+			});
+			$('#start_date, #end_date').change(function() {
+				if ($('#start_date').datepicker('getDate') > $('#end_date').datepicker('getDate')) {
+					$('#end_date').datepicker('setDate', $('#start_date').datepicker('getDate'));
+					SHOP.showLayerAlert({
+						sContents: '기간 설정이 잘못되었습니다.<br>선택하신 날짜를 다시 확인해주세요.'
+					});
+					return false;
+				}
+				$('.period-filter li').removeClass('on');
+				$('.period-filter input[name="period"]').val(-1);
+			});
+			$('.eDateArrow').click(function(e) {
+				var iPeriod = parseInt($(this).data('arrow'));
+				if (isNaN(iPeriod) === false) {
+					var sStartDate = '';
+					var sEndDate = '';
+					var sSdate = new Date($('#start_date').datepicker('getDate'));
+					var sYear = '' + sSdate.getFullYear();
+					var sMonth = '' + parseInt(sSdate.getMonth());
+					var sDay = parseInt(sSdate.getDate());
+					sStartDate = new Date(sYear, sMonth, '' + (sDay + iPeriod));
+					sStartDate = $.datepicker.formatDate('yy-mm-dd', sStartDate);
+					var sEdate = new Date($('#end_date').datepicker('getDate'));
+					sYear = '' + sEdate.getFullYear();
+					sMonth = '' + parseInt(sEdate.getMonth());
+					sDay = parseInt(sEdate.getDate());
+					sEndDate = new Date(sYear, sMonth, '' + (sDay + iPeriod));
+					sEndDate = $.datepicker.formatDate('yy-mm-dd', sEndDate);
+					$('#start_date').datepicker('setDate', sStartDate);
+					$('#end_date').datepicker('setDate', sEndDate);
+				}
+			});
+		});
+	</script>
+
+
+	<div id="ui-datepicker-div" class="ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all"></div>
+	<div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+		<div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+	</div>
+	<div class="ui-load" style="display:none"><img src="https://easypick.co.kr/img/common/loading.svg"></div>
+</body>
+
+</html>

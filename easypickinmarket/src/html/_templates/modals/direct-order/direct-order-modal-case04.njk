@@ -1,0 +1,71 @@
+<div class="modal-pop" id="direct-order-modal-case04">
+    <div class="modal-dialog">
+        <div class="modal-inner w480">
+            <section class="modal-head">
+                <div class="modal-head-inner">
+                    <h1>엑셀 업로드</h1>
+                    <a href="#" class="btn-manual" target="_blank" title="매뉴얼">매뉴얼</a>
+                </div>
+            </section>
+            <div class="modal-body direct-order-modal-case04">
+                <div class="tit">엑셀파일을 업로드하여 상품을 등록할 수 있습니다.</div>
+                <div class="list-box">
+                    <ul>
+                        <li>먼저 엑셀 등록 양식을 설정해 주세요.</li>
+                        <li>엑셀 양식을 다운로드 받은 후 양식에 맞춰 주문 정보를 입력해 주세요.</li>
+                        <!-- 2022 08 18 텍스트 수정 -->
+                        <li>파일찾기 버튼을 클릭하여 주문 정보가 입력된 파일을 선택해 주세요.</li>
+                        <li>'엑셀업로드' 버튼을 클릭해 주세요.</li>
+                    </ul>
+                </div>
+                <div class="info-txt">
+                    <p>
+                        <strong>주문 정보가 잘못된 경우 주문을 진행할 수 없습니다.</strong><br>
+                        엑셀 업로드 후 오류 상태를 확인하시어 주문 정보를 수정해 주세요.
+                    </p>
+                </div>
+                <div class="file-route-box">
+                    <!-- 2022 08 16 인풋 수정, 버튼 추가 -->
+                    <input type="text" readonly="readonly" id="file-route" class="file_txt" placeholder="파일을 등록해주세요">
+                    <button class="delete-btn"></button>
+                    <label>
+                        파일찾기
+                        <input type="file" id="" name="">
+                    </label> 
+                </div>
+                <span class="guide-txt">확장자 : csv, xls, xlsx / 용량 : 최대 2M 까지 업로드 가능</span>
+            </div>
+            <div class="modal-footer">
+                <div class="modal-footer-btn">
+                    <button type="button" name="button" class="btn btn-lg btn-point page-close">엑셀업로드</button>	
+                    <button type="button" name="button" class="btn btn-lg btn-darkgray page-close">취소</button>	
+                </div>
+            </div>
+            <a href="javascript:void(0);" class="page-close"></a>
+        </div>
+    </div>
+    <div class="dim"></div>
+</div>
+
+<!-- 2022 08 16 스크립트 추가 -->
+<script>
+    window.addEventListener('DOMContentLoaded', function (){
+
+        const delFileBtn = document.querySelector("#direct-order-modal-case04 .delete-btn");
+        const fileInput = document.querySelector("#direct-order-modal-case04 input[type='file']");
+        
+        function handlerFile(){
+            document.getElementById('file-route').value=this.value
+            delFileBtn.classList.add('visible');
+        }
+        
+        function handlerClick(){
+            document.getElementById('file-route').value = "";
+            delFileBtn.classList.remove('visible');
+        }   
+
+        delFileBtn.addEventListener('click', handlerClick)
+        fileInput.addEventListener('change', handlerFile)
+
+    })
+</script>

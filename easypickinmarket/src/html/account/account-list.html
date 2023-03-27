@@ -1,0 +1,623 @@
+{% extends "../_templates/layout.njk" %}
+{% block content %}
+
+<div class="wrapper" id="wrap">
+    <div class="content" id="content">
+        <div class="content-head">
+            <div class="page-title">
+                <h3 class="h3-tit">정산내역</h3>
+                <a href="#" class="btn-manual" target="_blank" title="매뉴얼">매뉴얼</a>
+                <div class="form-box">
+                    <form onsubmit="return submitHandler();">
+                        <fieldset>
+                            <legend class="skip">통합검색</legend>
+                            <label for="total-search" class="skip">검색어 입력</label>
+                            <input type="search" name="total-search" id="total-search" title="검색어 입력" class="text"
+                                placeholder="상품을 검색해보세요.">
+                            <input type="submit" value="검색" class="submit">
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+            <div class="cont-info-right">
+                <ul class="breadcrumb">
+                    <li>공급</li>
+                    <li>정산관리</li>
+                    <li class="now" title="현재 페이지">정산내역</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="tab-top-round">
+            <ul class="tab-rounds tab">
+                <li class="active">
+                    <a href="./account-list.html"><span>정산내역</span></a>
+                </li>
+                <li>
+                    <a href="./cor-account-list.html">거래처정산내역</a>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="notice-wrap db renewal">
+            <p class="ico-notice fnsize13">
+                입고일별 정산내역을 확인 할 수 있습니다.
+            </p>
+            <ul class="mt5">
+                <li>상세페이지에서는 상세내역을 확인하고 정산요청된 내역들을 '정산확인' 또는 '정산보류' 처리 할 수 있습니다.</li>
+            </ul>
+        </div>
+        
+        <div class="mSearchEngine folder">
+            <div class="tborder-box">
+                <div class="tbl-top-search">
+                    <div class="table-row">
+                        <table class="tbl-top">
+                            <colgroup>
+                                <col style="width:120px;">
+                                <col style="width:42%;">
+                                <col style="width:25px;">
+                                <col style="width:120px;">
+                                <col style="width:42%">
+                            </colgroup>
+                            <tbody>
+                                <tr class="rowFix rowFold">
+                                    <th>기간</th>
+                                    <td>
+                                        <div class="form-inline">
+                                            <div class="sel-date-type ml0">
+                                                <button type="button" class="label-date active">1개월</button>
+                                                <ul class="sel-date-list">
+                                                    <li class="label-date">오늘</li>
+                                                    <li class="label-date">3일</li>
+                                                    <li class="label-date">7일</li>
+                                                    <li class="label-date active">1개월</li>
+                                                    <li class="label-date">3개월</li>
+                                                    <li class="label-date">6개월</li>
+                                                    <li class="label-date">1년</li>
+                                                    <li class="label-date">선택</li>
+                                                </ul>
+                                            </div>
+                                            <div class="calendar-box time">
+                                                <div class="form-inline">
+                                                    <div class="form-control">
+                                                        <input type="text" class="cal-input" data-range="cal02" value="2022-03-13">
+                                                    </div>
+                                                    <div class="wave-txt">~</div>
+                                                    <div class="form-control">
+                                                        <input type="text" class="cal-input" data-range="cal02" value="2022-04-12">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td></td>
+                                    <th>검색</th>
+                                    <td>
+                                        <div class="form-inline">
+                                            <div class="select-control">
+                                                <button type="button" class="btn-sel">전체</button>
+                                                <ul class="sel-panel">
+                                                    <li>전체</li>
+                                                    <li>주문번호</li>
+                                                    <li>거래처명</li>
+                                                    <li>상품명</li>
+                                                    <li>쇼핑몰상품명</li>
+                                                    <li>쇼핑몰상품코드</li>
+                                                </ul>
+                                            </div>
+                                            <div class="form-control ml4">
+                                                <input type="text" class="search-input-w1">
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="rowFold">
+                                    <th>정산상태</th>
+                                    <td>
+                                        <div class="form-inline">
+                                            <div class="form-control">
+                                                <label>
+                                                    <input type="checkbox">
+                                                    <span>전체</span>
+                                                </label>
+                                            </div>
+                                            <div class="form-control">
+                                                <label>
+                                                    <input type="checkbox">
+                                                    <span>정산진행</span>
+                                                </label>
+                                            </div>
+                                            <div class="form-control">
+                                                <label>
+                                                    <input type="checkbox">
+                                                    <span>정산완료</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td></td>
+                                    <th>입금상태</th>
+                                    <td>
+                                        <div class="form-inline">
+                                            <div class="form-control">
+                                                <label>
+                                                    <input type="checkbox">
+                                                    <span>전체</span>
+                                                </label>
+                                            </div>
+                                            <div class="form-control">
+                                                <label>
+                                                    <input type="checkbox">
+                                                    <span>입금대기</span>
+                                                </label>
+                                            </div>
+                                            <div class="form-control">
+                                                <label>
+                                                    <input type="checkbox">
+                                                    <span>입금완료</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="top-btn-search">
+                        <button type="button" name="button" class="btn btn-lg btn-point">검색</button>
+                        <div class="search-btns">
+                            <a href="#" class="serchsortbtn">
+                                <button type="button" class="btn btn-lg btn-sub-primary sarchsortbtn">검색관리</button>
+                                <div class="top-search-sort">
+                                    <button type="button" class="reset"><i class="ico ico-reset"></i>초기화</button>
+                                    <div class="top-search-depth">
+                                        <button type="button" class="add-search-save"><i class="ico ico-plus-blue"></i>검색조건 저장</button>
+                                        <ul class="add-search-element">
+                                            <li class="dflex">
+                                                <div class="form-control">
+                                                    <input type="text" value="저장1">
+                                                </div>
+                                                <div class="s-search-btns">
+                                                    <button type="button" class="btn btn-write">쓰기</button>
+                                                    <button type="button" class="btn btn-del">삭제</button>
+                                                </div>
+                                            </li>
+                                            <li class="dflex">
+                                                <div class="form-control">
+                                                    <input type="text" value="저장1">
+                                                </div>
+                                                <div class="s-search-btns">
+                                                    <button type="button" class="btn btn-write">쓰기</button>
+                                                    <button type="button" class="btn btn-del">삭제</button>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="gridTableArea">
+            <div class="table-top-info">
+                <div class="top-txt-inline">
+                    <span class="txt-inline">정산진행 <strong><span class="txt-link-blue">1,000</span></strong>건 (<strong><span class="txt-link-blue">200,000</span></strong>원)</span>
+                    <span class="txt-inline">정산완료 <strong><span class="txt-link-blue">1,000</span></strong>건 (<strong><span class="txt-link-blue">200,000</span></strong>원)</span>
+                </div>
+
+                <div class="sort-sel-area">
+                    <select id="list_limit" class="default-select">
+                        <option value="20" selected="selected">20개씩 보기</option>
+                        <option value="30">30개씩 보기</option>
+                        <option value="50">50개씩 보기</option>
+                        <option value="100">100개씩 보기</option>
+                        <option value="200">200개씩 보기</option>
+                        <!-- 2023-02-17 EZP-7830 보기 옵션 추가 시작 -->
+                        <option value="300">300개씩 보기</option>
+                        <option value="500">500개씩 보기</option>
+                        <!-- 2023-02-17 EZP-7830 보기 옵션 추가 끝 -->
+                    </select>
+                </div>
+            </div>
+            <div class="tround-box">
+                <div class="tbl-round">
+                    <div class="tbl-info-area">
+                        <div class="btns-multi f-left">
+                            <button type="button" name="button" class="btn btn-sm btn-outline-gray">정산확인하기</button>
+                        </div>
+                        <div class="btns-multi f-right">
+                            <button type="button" name="button" class="btn btn-sm btn-outline-gray">
+                                <i class="ico ico-excel"></i>
+                                엑셀다운로드
+                            </button>
+                            <button type="button" name="button" class="btn btn-ico btn-outline-gray">
+                                <i class="ico ico-sort"></i>
+                                설정
+                            </button>
+                        </div>
+                    </div>
+                    <!--그리드테이블-->
+                    <div class="mGridTable tbl-height01 tbl-th-two">
+                        <table class="eChkColor" id="eMultiTable">
+                            <caption>정산내역</caption>
+                            <thead>
+                                <tr>
+                                    <th scope="col" rowspan="2" style="width: 50px;" class="resizebar">
+                                        <div class="form-control check-one">
+                                            <label>
+                                                <input type="checkbox">
+                                                <span>체크</span>
+                                            </label>
+                                        </div>
+                                    </th>
+                                    <th scope="col" rowspan="2" style="width: 147px;" class="resizebar">입고일</th>
+                                    <th scope="col" rowspan="2" style="width: 147px;" class="resizebar">
+                                        가게수<br>
+                                        <span class="fnsize11">(정산확정/검수완료/전체)</span>
+                                    </th>
+                                    <th scope="col" colspan="3" style="width: 441px;" class="resizebar bar-center">정산금액</th>
+                                    <th scope="col" rowspan="2" style="width: 147px;" class="resizebar">선결제금액</th>
+                                    <th scope="col" rowspan="2" style="width: 147px;" class="resizebar">최종정산금액</th>
+                                    <th scope="col" rowspan="2" style="width: 147px;" class="resizebar">입금금액</th>
+                                    <th scope="col" rowspan="2" style="width: 147px;" class="resizebar">미결제금액</th>
+                                    <th scope="col" rowspan="2" style="width: 147px;" class="resizebar">정산상태</th>
+                                    <th scope="col" rowspan="2" style="width: 151px;">입금상태</th>
+                                </tr>
+                                <tr>
+                                    <th scope="col" style="width: 147px;">결제금액</th>
+                                    <th scope="col" style="width: 147px;">조정금액</th>
+                                    <th scope="col" style="width: 147px;">기타금액</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="form-control check-one">
+                                            <label>
+                                                <input type="checkbox">
+                                                <span>체크</span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td>4/12</td>
+                                    <td>
+                                        <a href="./account-view.html" class="txt-link">135 / 137 / 137 개</a>
+                                    </td>
+                                    <td class="text-ar">7,923,300원</td>
+                                    <td class="text-ar">
+                                        <span>0원</span>
+                                    </td>
+                                    <td class="text-ar">
+                                        <span>0원</span>
+                                    </td>
+                                    <td class="text-ar">5,000,000원</td>
+                                    <td class="text-ar">7,923,300원</td>
+                                    <td class="text-ar">0원</td>
+                                    <td class="text-ar">7,923,300원</td>
+                                    <td>
+                                        <span class="state ftpointcolor1">정산진행</span>
+                                    </td>
+                                    <td>
+                                        <span class="state ftpointcolor1">입금대기</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="form-control check-one">
+                                            <label>
+                                                <input type="checkbox">
+                                                <span>체크</span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td>4/12</td>
+                                    <td>
+                                        <!-- 2022-09-20 EZP-6321 수동정산 case 추가 
+                                        <a href="./account-view.html" class="txt-link">135 / 137 / 137 개</a>
+                                        -->
+                                        <a href="./account-view.html" class="txt-link">135 / - / 137 개</a>
+                                        <p class="add-small-txt">(관리자수동정산)</p>
+                                    </td>
+                                    <td class="text-ar">14,248,500원</td>
+                                    <td class="text-ar">
+                                        <span>- 48,000원</span>
+                                    </td>
+                                    <td class="text-ar">
+                                        <span>500원</span>
+                                    </td>
+                                    <td class="text-ar">0원</td>
+                                    <td class="text-ar">14,201,000원</td>
+                                    <td class="text-ar">0원</td>
+                                    <td class="text-ar">14,201,000원</td>
+                                    <td>
+                                        <span class="state ftpointcolor1">정산진행</span>
+                                    </td>
+                                    <td>
+                                        <span class="state ftpointcolor1">입금대기</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="form-control check-one">
+                                            <label>
+                                                <input type="checkbox">
+                                                <span>체크</span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td>4/12</td>
+                                    <td>
+                                        <a href="./account-view.html" class="txt-link">135 / 137 / 137 개</a>
+                                    </td>
+                                    <td class="text-ar">7,823,000원</td>
+                                    <td class="text-ar">
+                                        <span>30,000원</span>
+                                    </td>
+                                    <td class="text-ar">
+                                        <span>0원</span>
+                                    </td>
+                                    <td class="text-ar">0원</td>
+                                    <td class="text-ar">7,853,000원</td>
+                                    <td class="text-ar">0원</td>
+                                    <td class="text-ar">7,853,000원</td>
+                                    <td>
+                                        <span class="state">정산완료</span>
+                                    </td>
+                                    <td>
+                                        <span class="state ftpointcolor1">입금대기</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="form-control check-one">
+                                            <label>
+                                                <input type="checkbox">
+                                                <span>체크</span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td>4/12</td>
+                                    <td>
+                                        <a href="./account-view.html" class="txt-link">135 / 137 / 137 개</a>
+                                    </td>
+                                    <td class="text-ar">6,516,000원</td>
+                                    <td class="text-ar">
+                                        <span>0원</span>
+                                    </td>
+                                    <td class="text-ar">
+                                        <span>24,000원</span>
+                                    </td>
+                                    <td class="text-ar">0원</td>
+                                    <td class="text-ar">6,540,000원</td>
+                                    <td class="text-ar">0원</td>
+                                    <td class="text-ar">6,540,000원</td>
+                                    <td>
+                                        <span class="state">정산완료</span>
+                                    </td>
+                                    <td>
+                                        <span class="state ftpointcolor1">입금대기</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="form-control check-one">
+                                            <label>
+                                                <input type="checkbox">
+                                                <span>체크</span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td>4/12</td>
+                                    <td>
+                                        <a href="./account-view.html" class="txt-link">135 / 137 / 137 개</a>
+                                    </td>
+                                    <td class="text-ar">13,330,900원</td>
+                                    <td class="text-ar">
+                                        <span>0원</span>
+                                    </td>
+                                    <td class="text-ar">
+                                        <span>- 30,000원</span>
+                                    </td>
+                                    <td class="text-ar">400,000원</td>
+                                    <td class="text-ar">13,300,900원</td>
+                                    <td class="text-ar">13,300,900원</td>
+                                    <td class="text-ar">0원</td>
+                                    <td>
+                                        <span class="state">정산완료</span>
+                                    </td>
+                                    <td>
+                                        <span class="state">입금완료</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="form-control check-one">
+                                            <label>
+                                                <input type="checkbox">
+                                                <span>체크</span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td>4/12</td>
+                                    <td>
+                                        <a href="./account-view.html" class="txt-link">135 / 137 / 137 개</a>
+                                    </td>
+                                    <td class="text-ar">7,443,700원</td>
+                                    <td class="text-ar">
+                                        <span>0원</span>
+                                    </td>
+                                    <td class="text-ar">
+                                        <span>0원</span>
+                                    </td>
+                                    <td class="text-ar">0원</td>
+                                    <td class="text-ar">7,843,700원</td>
+                                    <td class="text-ar">7,843,700원</td>
+                                    <td class="text-ar">0원</td>
+                                    <td>
+                                        <span class="state">정산완료</span>
+                                    </td>
+                                    <td>
+                                        <span class="state">입금완료</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="form-control check-one">
+                                            <label>
+                                                <input type="checkbox">
+                                                <span>체크</span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td>4/12</td>
+                                    <td>
+                                        <a href="./account-view.html" class="txt-link">135 / 137 / 137 개</a>
+                                    </td>
+                                    <td class="text-ar">11,920,500원</td>
+                                    <td class="text-ar">
+                                        <span class="ftpointcolor1">- 33,000원</span>
+                                    </td>
+                                    <td class="text-ar">
+                                        <span class="ftpointcolor1">- 20,000원</span>
+                                    </td>
+                                    <td class="text-ar">0원</td>
+                                    <td class="text-ar">11,900,500원</td>
+                                    <td class="text-ar">11,900,500원</td>
+                                    <td class="text-ar">0원</td>
+                                    <td>
+                                        <span class="state">정산완료</span>
+                                    </td>
+                                    <td>
+                                        <span class="state">입금완료</span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!--//그리드테이블-->
+                </div>
+            </div>
+            {% include("../_templates/default/pagination.njk") %}
+        </div>
+
+        <!-- 데이터 없을시 -->
+        <div class="gridTableArea">
+            <div class="table-top-info">
+                <div class="top-txt-inline">
+                    <span class="txt-inline">정산진행 <strong><span class="txt-link-blue">1,000</span></strong>건 (<strong><span class="txt-link-blue">200,000</span></strong>원)</span>
+                    <span class="txt-inline">정산완료 <strong><span class="txt-link-blue">1,000</span></strong>건 (<strong><span class="txt-link-blue">200,000</span></strong>원)</span>
+                </div>
+
+                <div class="sort-sel-area">
+                    <select id="list_limit" class="default-select">
+                        <option value="20" selected="selected">20개씩 보기</option>
+                        <option value="30">30개씩 보기</option>
+                        <option value="50">50개씩 보기</option>
+                        <option value="100">100개씩 보기</option>
+                        <option value="200">200개씩 보기</option>
+                        <!-- 2023-02-17 EZP-7830 보기 옵션 추가 시작 -->
+                        <option value="300">300개씩 보기</option>
+                        <option value="500">500개씩 보기</option>
+                        <!-- 2023-02-17 EZP-7830 보기 옵션 추가 끝 -->
+                    </select>
+                </div>
+            </div>
+            <div class="tround-box">
+                <div class="tbl-round">
+                    <div class="tbl-info-area">
+                        <div class="btns-multi f-left">
+                            <button type="button" name="button" class="btn btn-sm btn-outline-gray">정산확인하기</button>
+                        </div>
+                        <div class="btns-multi f-right">
+                            <button type="button" name="button" class="btn btn-sm btn-outline-gray">
+                                <i class="ico ico-excel"></i>
+                                엑셀다운로드
+                            </button>
+                            <button type="button" name="button" class="btn btn-ico btn-outline-gray">
+                                <i class="ico ico-sort"></i>
+                                설정
+                            </button>
+                        </div>
+                    </div>
+                    <!--그리드테이블-->
+                    <div class="mGridTable tbl-height01 tbl-th-two">
+                        <table class="eChkColor" id="eMultiTable1">
+                            <caption>정산내역</caption>
+                            <thead>
+                                <tr>
+                                    <th scope="col" rowspan="2" style="width: 50px;" class="resizebar">
+                                        <div class="form-control check-one">
+                                            <label>
+                                                <input type="checkbox">
+                                                <span>체크</span>
+                                            </label>
+                                        </div>
+                                    </th>
+                                    <th scope="col" rowspan="2" style="width: 147px;" class="resizebar">입고일</th>
+                                    <th scope="col" rowspan="2" style="width: 147px;" class="resizebar">
+                                        가게수<br>
+                                        <span class="fnsize11">(정산확정/검수완료/전체)</span>
+                                    </th>
+                                    <th scope="col" colspan="3" style="width: 441px;" class="resizebar bar-center">정산금액</th>
+                                    <th scope="col" rowspan="2" style="width: 147px;" class="resizebar">선결제금액</th>
+                                    <th scope="col" rowspan="2" style="width: 147px;" class="resizebar">최종정산금액</th>
+                                    <th scope="col" rowspan="2" style="width: 147px;" class="resizebar">입금금액</th>
+                                    <th scope="col" rowspan="2" style="width: 147px;" class="resizebar">미결제금액</th>
+                                    <th scope="col" rowspan="2" style="width: 147px;" class="resizebar">정산상태</th>
+                                    <th scope="col" rowspan="2" style="width: 151px;">입금상태</th>
+                                </tr>
+                                <tr>
+                                    <th scope="col" style="width: 147px;">결제금액</th>
+                                    <th scope="col" style="width: 147px;">조정금액</th>
+                                    <th scope="col" style="width: 147px;">기타금액</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="tr-empty">
+                                    <td>
+                                      <div class="txt">
+                                        <i><img src="../assets/images/guide-ico.png" alt="guide-icon"></i>
+                                        <span>검색 결과가 없습니다.</span>
+                                      </div>
+                                    </td>
+                                  </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!--//그리드테이블-->
+                </div>
+            </div>
+            {% include("../_templates/default/pagination.njk") %}
+        </div>
+                
+    </div>
+</div>
+
+<script>
+    $(document).ready(function() {
+        $('#eMultiTable').fixResize({
+            colResize: true,
+            resizeVer: 'flex'
+        });
+
+        // 데이터 없을시 새로운 테이블
+        $('#eMultiTable1').fixResize({
+            colResize: true,
+            resizeVer: 'flex'
+        });
+
+        // 검색결과 없을때 tr 높이 조절
+        const emptyTh = $('.tr-empty').parents('table').find('thead tr th').length;
+        const emptyMt = $('.tr-empty').parents('table').css('margin-top').replace('-', '');
+        const emptyMg = emptyMt.replace('px', '');
+        $('.tr-empty td').attr('colspan', emptyTh);
+        $('.tr-empty').parents('table').css('height', `calc(100% + ${emptyMg}px)`);
+        
+    });
+</script>
+
+{% endblock %}

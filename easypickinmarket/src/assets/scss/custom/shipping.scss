@@ -1,0 +1,1742 @@
+/* ***************** 간편해외배송처리 ***************** */
+.overseas-shipping-wrap {
+    width: 100%;
+    height: auto;
+    letter-spacing: -0.01em;
+
+    /* ***** 상단 오늘 처리현황 ***** */
+    .processing-status {
+        width: 100%;
+        height: auto;
+        padding: 15px 27px;
+        background-color: #ffffff;
+        border: 1px solid #e6ecef;
+        display: flex;
+
+        .txt {
+            font-size: 14px;
+            font-weight: 700;
+            color: #333333;
+            margin-right: 12px;
+            padding-left: 20px;
+            position: relative;
+
+            &::after {
+                content: '';
+                display: block;
+                width: 13px;
+                height: 13px;
+                background: url('../img/overseas-shipping/status-icon.png') no-repeat center / cover;
+                position: absolute;
+                left: 0;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+        }
+
+        .info {
+            font-size: 14px;
+            font-weight: 500;
+            color: #666666;
+
+            .quantity {
+                font-family: 'Roboto', sans-serif;
+                font-weight: 800;
+                color: #195cff;
+            }
+        }
+    }
+
+    /* ***** 타이틀디자인1 ***** */
+    .title-type01 {
+        h3 {
+            font-size: 28px;
+            font-weight: 500;
+            color: #333333;
+
+            .count {
+                color: #4b7cdd;
+            }
+        }
+
+        padding-left: 40px;
+        position: relative;
+
+        .text {
+            display: inline-block;
+            font-size: 14px;
+            font-weight: 400;
+            color: #666666;
+            margin-left: 10px;
+        }
+
+        &.d-flex {
+            display: flex;
+            align-items: flex-end;
+        }
+
+
+        &.title-ico01 {
+            &::after {
+                content: '';
+                display: block;
+                width: 26px;
+                height: 28px;
+                background: url('../img/overseas-shipping/title-icon01.png') no-repeat center / cover;
+                position: absolute;
+                left: 0;
+                top: 0;
+            }
+        }
+
+        &.title-ico02 {
+            &::after {
+                content: '';
+                display: block;
+                width: 26px;
+                height: 28px;
+                background: url('../img/overseas-shipping/title-icon02.png') no-repeat center / cover;
+                position: absolute;
+                left: 0;
+                top: 0;
+            }
+        }
+    }
+
+    /* ***** 타이틀디자인2 ***** */
+    .title-type02 {
+        width: 100%;
+        height: auto;
+        margin-bottom: 30px;
+
+        h3 {
+            font-size: 22px;
+            font-weight: 500;
+            color: #333333;
+        }
+    }
+
+    /* ***** 타이틀디자인3 ***** */
+    .title-type03 {
+        width: 100%;
+        height: auto;
+        margin-bottom: 22px;
+        padding-left: 14px;
+        position: relative;
+
+        &::after {
+            content: '';
+            display: block;
+            width: 4px;
+            height: 4px;
+            background-color: #333;
+            position: absolute;
+            left: 0;
+            top: 7px;
+        }
+
+        h4 {
+            font-size: 15px;
+            font-weight: 500;
+            color: #333333;
+        }
+
+        .btn-type02 {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    }
+
+    /* ***** 텝박스디자인1 ***** */
+    .tab-box-type01 {
+        width: 100%;
+        height: auto;
+        margin-top: 20px;
+
+        ul {
+            width: 100%;
+            height: auto;
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+
+            &::after {
+                content: '';
+                display: block;
+                width: 6px;
+                height: 1px;
+                background-color: #e6ecef;
+                position: absolute;
+                left: 50%;
+                bottom: 0;
+                transform: translateX(-50%);
+            }
+
+            li {
+                width: calc(100% / 2 - 3px);
+                height: auto;
+
+                a {
+                    display: block;
+                    width: 100%;
+                    height: 110px;
+                    padding: 0 38px;
+                    background-color: #fff;
+                    position: relative;
+
+                    &::before {
+                        content: '';
+                        display: block;
+                        width: 100%;
+                        height: 100%;
+                        border: 1px solid #e6ecef;
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                    }
+
+                    .box {
+                        width: 100%;
+                        height: 100%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+
+                        dl {
+                            display: flex;
+                            align-items: center;
+                            flex-wrap: wrap;
+
+                            .title {
+                                font-size: 26px;
+                                font-weight: 700;
+                                line-height: 1;
+                                color: #999999;
+                                margin-right: 14px;
+                                padding-left: 45px;
+                                position: relative;
+
+                                .num {
+                                    display: block;
+                                    width: 35px;
+                                    height: 35px;
+                                    line-height: 33px; // 2022-08-10 숫자 가운데 정렬 수정
+                                    border-radius: 50%;
+                                    border: 2px solid #999999;
+                                    font-family: 'Slika', sans-serif;
+                                    font-size: 22px;
+                                    font-weight: 700;
+                                    text-align: center;
+                                    color: #999999;
+                                    position: absolute;
+                                    left: 0;
+                                    top: 50%;
+                                    transform: translateY(-50%);
+                                }
+                            }
+
+                            .text {
+                                font-size: 16px;
+                                line-height: 1;
+                                font-weight: 400;
+                                color: #666666;
+                                margin-top: 9px;
+                            }
+                        }
+
+                        .count-info {
+                            .count {
+                                display: inline-block;
+                                height: 29px;
+                                line-height: 29px;
+                                padding: 0 13px;
+                                font-size: 16px;
+                                font-weight: 700;
+                                color: #ffffff;
+                                text-align: center;
+                                background-color: #aaaaaa;
+                                border-radius: 14.5px;
+
+                                &.on {
+                                    background-color: #ff4033;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                &.active {
+                    a {
+                        &::before {
+                            border-bottom: 0;
+                        }
+
+                        &::after {
+                            content: '';
+                            display: block;
+                            width: 100%;
+                            height: 3px;
+                            background-color: #198cff;
+                            position: absolute;
+                            left: 0;
+                            top: 0;
+                        }
+
+                        .box {
+                            dl {
+                                .title {
+                                    color: #198cff;
+
+                                    .num {
+                                        background-color: #198cff;
+                                        border: 1px solid #198cff;
+                                        color: #ffffff;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    /* ***** 텝박스디자인2 ***** */
+    .tap-box-type02 {
+        width: 100%;
+        height: auto;
+        margin-top: 30px;
+
+        ul {
+            width: 100%;
+            height: auto;
+            display: flex;
+
+            li {
+                width: 25%;
+                height: auto;
+                background-color: #ffffff;
+                position: relative;
+
+                a {
+                    display: block;
+                    width: 100%;
+                    height: 153px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    padding: 30px;
+                    position: relative;
+
+                    .title {
+                        font-size: 18px;
+                        line-height: 1;
+                        font-weight: 700;
+                        color: #333333;
+
+                        span {
+                            display: block;
+                            font-size: 12px;
+                            line-height: 1;
+                            font-weight: 500;
+                            color: #333333;
+                            margin-top: 5px;
+                        }
+                    }
+
+                    .count {
+                        font-family: 'Silka', sans-serif;
+                        font-size: 40px;
+                        line-height: 1;
+                        font-weight: 700;
+                        position: relative;
+                        z-index: 9;
+                    }
+
+                    // 2022-08-16 구분선 추가
+                    &::before {
+                        content: '';
+                        display: block;
+                        width: 100%;
+                        height: 100%;
+                        border: 1px solid #dddddd;
+                        border-left: 0;
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        box-sizing: border-box;
+                    }
+
+                    &::after {
+                        content: '';
+                        display: block;
+                        width: 25px;
+                        height: 18px;
+                        background: url('../img/overseas-shipping/check-icon1.png') no-repeat center / cover;
+                        position: absolute;
+                        right: 33px;
+                        bottom: 37px;
+                        opacity: 0;
+                    }
+
+                    &:hover {
+                        &::after {
+                            opacity: 1;
+                        }
+                    }
+                }
+
+                &.fastbox-btn {
+                    border: 0;
+
+                    &::after {
+                        width: 0;
+                        border-color: #fff transparent;
+                        border-style: solid;
+                        border-width: 14px 14px 0 14px;
+                        content: '';
+                        display: block;
+                        position: absolute;
+                        left: 50%;
+                        bottom: -13px;
+                        transform: translateX(-50%);
+                        z-index: 99;
+                    }
+
+                    &::before {
+                        content: '';
+                        display: block;
+                        width: 0;
+                        border-color: #198cff transparent;
+                        border-style: solid;
+                        border-width: 14px 14px 0 14px;
+                        position: absolute;
+                        left: 50%;
+                        bottom: -14px;
+                        transform: translateX(-50%);
+                        z-index: 98;
+                        animation: opacity 0.5s infinite linear alternate;
+                    }
+
+                    a {
+                        &::before {
+                            content: '';
+                            display: block;
+                            width: 100%;
+                            height: 100%;
+                            border: 1px solid #198cff;
+                            position: absolute;
+                            left: 0;
+                            top: 0;
+                            z-index: 9;
+                            box-sizing: border-box;
+                            animation: opacity 0.5s infinite linear alternate;
+                        }
+                    }
+
+                    &.disable {
+                        &::before {
+                            border-color: #ddd transparent;
+                            animation: unset;
+                        }
+
+                        a {
+                            &::before {
+                                border: 1px solid #ddd;
+                                animation: unset;
+                            }
+                        }
+                    }
+
+                    &.active {
+                        &::before {
+                            display: none;
+                        }
+
+                        &::after {
+                            border-color: #198cff transparent;
+                        }
+
+                        a {
+                            &::before {
+                                display: none;
+                            }
+                        }
+                    }
+                }
+
+                &.active {
+                    background-color: #198cff;
+
+                    a {
+
+                        .title {
+                            color: #ffffff;
+
+                            span {
+                                color: #ffffff;
+                            }
+                        }
+
+                        .count {
+                            color: #ffffff;
+                        }
+
+                        // 2022-08-16 구분선 추가
+                        &::before {
+                            width: 1px;
+                            height: calc(100% + 2px);
+                            border: 0;
+                            background-color: #ffffff;
+                            position: absolute;
+                            left: -1px;
+                            top: 50%;
+                            transform: translateY(-50%);
+                        }
+
+                        &::after {
+                            opacity: 1;
+                            background: url('../img/overseas-shipping/check-icon2.png') no-repeat center / cover;
+                        }
+                    }
+                }
+
+                &.disable {
+                    a {
+                        .title {
+                            color: #cccccc;
+
+                            span {
+                                color: #cccccc;
+                            }
+                        }
+
+                        .count {
+                            color: #cccccc;
+                        }
+
+                        &::after {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    /* ***** 툴팁디자인1 ***** */
+    .tooltip-wrap {
+        position: relative;
+        z-index: 99;
+
+        .tooltip-icon {
+            display: block;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: url('../img/overseas-shipping/guide-icon.png') no-repeat center / cover;
+            margin-left: 5px;
+            cursor: pointer;
+        }
+
+        .tooltip-box {
+            display: none;
+            position: absolute;
+            left: 50%;
+            top: calc(100% + 14px);
+            transform: translateX(-50%);
+            background-color: #ffffff;
+            border: 1px solid #333333;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.08);
+            border-radius: 6px;
+            white-space: nowrap;
+            padding: 12px 20px;
+            text-align: left;
+
+            &.active {
+                display: block;
+            }
+
+            h6 {
+                font-size: 12px;
+                font-weight: 700;
+                color: #333333;
+            }
+
+            ul {
+                width: 100%;
+                height: auto;
+                margin-top: 10px;
+
+                li {
+                    font-size: 12px;
+                    font-weight: 400;
+                    color: #333333;
+                    padding-left: 7px;
+                    position: relative;
+
+                    &::after {
+                        content: '';
+                        display: block;
+                        width: 3px;
+                        height: 1px;
+                        background-color: #333333;
+                        position: absolute;
+                        left: 0;
+                        top: 7px;
+                    }
+                }
+            }
+
+            .list-box {
+                width: 100%;
+                height: auto;
+                margin-top: 10px;
+
+                dl {
+                    width: 100%;
+                    height: auto;
+                    margin-bottom: 10px;
+
+                    dt {
+                        display: inline-block;
+                        padding: 4px;
+                        background: #EBEBEB;
+                        border-radius: 4px;
+                        font-size: 12px;
+                        font-weight: 500;
+                        color: #333333;
+                        margin-bottom: 10px;
+                    }
+
+                    dd {
+                        font-size: 12px;
+                        font-weight: 400;
+                        color: #333333;
+                    }
+                }
+            }
+        }
+    }
+
+    /* 2022-08-10 hover-box 추가 */
+    /* ***** 호버박스디자인1 ***** */
+    .hover-wrap {
+        position: relative;
+
+        .hover-box {
+            display: none;
+            padding: 12px 20px;
+            background-color: #ffffff;
+            border: 1px solid #333333;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 400;
+            color: #333333;
+            white-space: nowrap;
+            position: absolute;
+            left: 0;
+            top: calc(100% + 16px);
+
+            &.right {
+                left: unset;
+                right: 0;
+            }
+
+            &.top16 {
+                top: calc(100% - 16px);
+            }
+
+            &.active {
+                display: block;
+            }
+        }
+
+        &:hover {
+            .hover-box {
+                display: block;
+            }
+        }
+    }
+
+    /* ***** 버튼디자인1 ***** */
+    .btn-type01 {
+        display: inline-block;
+        height: 60px;
+        line-height: 60px;
+        padding: 0 40px;
+        text-align: center;
+        border-radius: 30px;
+        background-color: #198cff;
+        font-size: 22px;
+        font-weight: 700;
+        color: #ffffff;
+    }
+
+    /* ***** 버튼디자인2 ***** */
+    .btn-type02 {
+        display: inline-block;
+        height: 32px;
+        line-height: 30px;
+        padding: 0 13px;
+        border: 1px solid #333333;
+        border-radius: 3px;
+        background-color: #ffffff;
+        font-family: 'Noto Sans KR', sans-serif;
+        font-size: 13px;
+        font-weight: 400;
+        color: #333333;
+        text-align: center;
+        cursor: pointer;
+
+        img {
+            display: inline-block;
+            vertical-align: middle;
+        }
+    }
+
+    /* ***** 테이블디자인1 ***** */
+    .tbl-type01 {
+        width: 100%;
+        height: auto;
+        margin-top: 10px;
+
+        table {
+            width: 100%;
+            height: auto;
+
+            thead {
+                tr {
+                    th {
+                        font-size: 14px;
+                        font-weight: 400;
+                        color: #333333;
+                        text-align: center;
+                        padding: 10px;
+
+                        .info {
+                            font-size: 12px;
+                            font-weight: 500;
+                            color: #999999;
+                        }
+                    }
+                }
+            }
+
+            tbody {
+                border-top: 1px solid #999999;
+
+                tr {
+                    th {
+                        font-size: 14px;
+                        font-weight: 400;
+                        color: #333333;
+                        text-align: center;
+                        border-bottom: 1px solid #dddddd;
+                        border-right: 1px solid #dddddd;
+                        padding: 10px 50px;
+
+                        &.text-le {
+                            text-align: left;
+                        }
+
+                        &.pd-0 {
+                            padding: 10px 0;
+                        }
+
+                        &.pd-20 {
+                            padding: 10px 20px;
+                        }
+                    }
+
+                    td {
+                        font-size: 14px;
+                        font-weight: 400;
+                        color: #333333;
+                        text-align: center;
+                        border-bottom: 1px solid #dddddd;
+                        border-right: 1px solid #dddddd;
+                        padding: 10px;
+
+                        &:last-child {
+                            border-right: 0;
+                        }
+
+                        .discount1 {
+                            display: inline-block;
+                            font-size: 13px;
+                            font-weight: 400;
+                            color: #00b091;
+                            margin-left: 5px;
+                            padding-left: 13px;
+                            position: relative;
+
+                            &::after {
+                                content: '';
+                                display: block;
+                                width: 9px;
+                                height: 8px;
+                                background: url('../img/overseas-shipping/arrow-down01.png') no-repeat center / cover;
+                                position: absolute;
+                                left: 0;
+                                top: 4px;
+                            }
+                        }
+
+                        .discount2 {
+                            display: inline-block;
+                            color: #198cff;
+                            margin-left: 8px;
+                            padding-left: 13px;
+                            position: relative;
+
+                            &::after {
+                                content: '';
+                                display: block;
+                                width: 9px;
+                                height: 8px;
+                                background: url('../img/overseas-shipping/arrow-down02.png') no-repeat center / cover;
+                                position: absolute;
+                                left: 0;
+                                top: 6px;
+                            }
+                        }
+
+                        .info {
+                            font-size: 12px;
+                            font-weight: 500;
+                            color: #999999;
+                        }
+
+                        strong {
+                            display: block;
+                            font-size: 16px;
+                            font-weight: 700;
+                            color: #333333;
+                        }
+
+                        .product-name {
+                            font-weight: 700;
+                            color: #198cff;
+                        }
+
+                        input {
+                            width: 100%;
+                            height: 32px;
+                            font-size: 14px;
+                            font-weight: 400;
+                            color: #333333;
+                            padding: 0 10px;
+                            background-color: #fff;
+                            border: 1px solid #cccccc;
+                            border-radius: 3px;
+
+                            &::-webkit-inner-spin-button {
+                                appearance: none;
+                                -moz-appearance: none;
+                                -webkit-appearance: none;
+                            }
+
+                            &.w342 {
+                                width: 342px;
+                            }
+                        }
+
+                        select {
+                            width: 100%;
+                            height: 32px;
+                            font-size: 14px;
+                            font-weight: 400;
+                            color: #333333;
+                            padding: 0 10px;
+                            border: 1px solid #cccccc;
+                            border-radius: 3px;
+                            background: url('../img/overseas-shipping/select-arrow.png') no-repeat right 13px center #ffffff;
+                        }
+
+                        .search-box {
+                            width: 100%;
+                            height: auto;
+                            display: flex;
+                            justify-content: space-between;
+
+                            input {
+                                width: calc(100% - 110px);
+                            }
+
+                            button {
+                                width: 103px;
+                                height: 32px;
+                                font-size: 13px;
+                                font-weight: 400;
+                                color: #333333;
+                                border: 1px solid #333333;
+                                border-radius: 3px;
+                                padding: 0;
+                                position: relative;
+
+                                &.search-btn {
+                                    padding-right: 12px;
+
+                                    &::after {
+                                        content: '';
+                                        display: block;
+                                        width: 3px;
+                                        height: 7px;
+                                        background: url('../img/overseas-shipping/arrow-right01.png') no-repeat center / cover;
+                                        position: absolute;
+                                        right: 12px;
+                                        top: 50%;
+                                        transform: translateY(-50%);
+                                    }
+                                }
+                            }
+                        }
+
+                        .search-input {
+                            position: relative;
+                            padding: 0 34px 0 10px;
+                            background: url('../img/overseas-shipping/search-icon.png') no-repeat center right 8px;
+                        }
+
+                        &.text-le {
+                            text-align: left;
+                        }
+
+                        .invoice-number {
+                            display: inline-block;
+                            margin-right: 10px;
+                        }
+                    }
+
+                    &.p23 {
+                        td {
+                            padding: 23px 10px;
+                        }
+                    }
+
+                    &.info-tr {
+                        td {
+                            padding: 15px 0;
+                            background-color: #f6fbff;
+                            color: #666666;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    /* ***** 박스디자인1 ***** */
+    .box-type01 {
+        width: 100%;
+        height: auto;
+        padding: 50px;
+        background-color: #fcfcfc;
+        border: 1px solid #e5e5e5e5;
+        border-radius: 4px;
+
+        &:not(:first-child) {
+            margin-top: 30px;
+        }
+
+        .box-section {
+            width: 100%;
+            height: auto;
+
+            &:not(:first-child) {
+                margin-top: 40px;
+            }
+        }
+
+        .info-text {
+            width: 100%;
+            height: auto;
+            display: flex;
+            align-items: flex-end;
+            margin-top: 35px;
+
+            h5 {
+                font-size: 18px;
+                line-height: 1;
+                font-weight: 700;
+                color: #198cff;
+                margin-right: 12px;
+            }
+
+            span {
+                display: inline-block;
+                font-size: 14px;
+                line-height: 1;
+                font-weight: 400;
+                color: #666666;
+            }
+        }
+    }
+
+    .logistics-wrap {
+        width: 100%;
+        height: auto;
+        background-color: #fff;
+        border: 1px solid #e6ecef;
+        border-top: 0;
+        padding: 45px 40px 100px;
+
+        .fastbox {
+            width: 100%;
+            height: auto;
+            margin-top: 20px;
+            padding: 35px;
+            background-color: #fcfcfc;
+            border: 1px solid #e5e5e5;
+            opacity: 0.5;
+            border-radius: 4px;
+            position: relative;
+
+            &.on {
+                background-color: #f6fbff;
+                border: 1px solid #198cff;
+                opacity: 1;
+
+                &::before {
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    right: 0;
+                    top: 0;
+                    width: 0;
+                    height: 0;
+                    border-top: 30px solid #198cff;
+                    border-right: 30px solid #198cff;
+                    border-bottom: 30px solid transparent;
+                    border-left: 30px solid transparent;
+                }
+
+                &::after {
+                    content: '';
+                    display: block;
+                    width: 16px;
+                    height: 11px;
+                    background: url('../img/overseas-shipping/check-icon3.png') no-repeat center / cover;
+                    position: absolute;
+                    right: 10px;
+                    top: 13px;
+                }
+            }
+
+            .text-info {
+                width: 100%;
+                height: auto;
+                display: flex;
+
+                h4 {
+                    font-family: 'Roboto', sans-serif;
+                    font-size: 19px;
+                    line-height: 1;
+                    font-weight: 700;
+                    color: #198cff;
+                    margin-right: 8px;
+                    padding-right: 8px;
+                    position: relative;
+
+                    &::after {
+                        content: '';
+                        display: block;
+                        width: 1px;
+                        height: 13px;
+                        background-color: #99c1e8;
+                        position: absolute;
+                        right: 0;
+                        top: 1px;
+                    }
+                }
+
+                span {
+                    font-size: 15px;
+                    line-height: 1;
+                    font-weight: 400;
+                    color: #198cff;
+
+                    strong {
+                        color: #ff4033;
+                    }
+
+                    .info {
+                        font-size: 13px;
+                        font-weight: 400;
+                        color: #999999;
+                    }
+
+                    .discount-amount {
+                        font-size: 18px;
+                        font-weight: 700;
+                        color: #ff4033;
+                    }
+                }
+            }
+
+            .text-deco {
+                width: 100%;
+                height: auto;
+                margin-top: 15px;
+                font-size: 13px;
+                font-weight: 400;
+                color: #888888;
+            }
+
+            p {
+                font-size: 15px;
+                font-weight: 400;
+                color: #333333;
+                margin-top: 8px;
+            }
+        }
+
+        .customs-information {
+            width: 100%;
+            height: auto;
+            margin-top: 60px;
+        }
+
+        .agree-box {
+            display: flex;
+            align-items: center;
+            margin-top: 17px;
+
+            .check-type01 {
+                width: 18px;
+                height: 18px;
+                border: 1px solid #dddddd;
+                border-radius: 3px;
+                position: relative;
+                cursor: pointer;
+
+                &:checked {
+                    background-color: #198cff;
+                    border: 1px solid #198cff;
+
+                    &::after {
+                        content: '';
+                        display: block;
+                        width: 9px;
+                        height: 6px;
+                        background: url('../img/overseas-shipping/checkbox-icon.png') no-repeat center / cover;
+                        position: absolute;
+                        left: 50%;
+                        top: 50%;
+                        transform: translate(-50%, -50%);
+                    }
+                }
+            }
+
+            span {
+                display: inline-block;
+                font-size: 14px;
+                font-weight: 400;
+                color: #666666;
+                margin-left: 9px;
+            }
+        }
+
+        .btn-wrap {
+            width: 100%;
+            height: auto;
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        .guide-tip {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        &.tab-arrow-none {
+            .tap-box-type02 {
+                ul {
+                    li {
+                        &.fastbox-btn {
+                            &::before {
+                                display: none;
+                            }
+
+                            &::after {
+                                display: none;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .agree-box {
+                margin-top: 28px;
+            }
+        }
+
+        .logistics-info {
+            width: 100%;
+            height: auto;
+            margin-top: 60px;
+
+            .info-box {
+                width: 100%;
+                height: auto;
+                padding: 40px 40px 50px;
+                background-color: #f6fbff;
+                border: 1px solid #e1ebf3;
+
+                &.type02 {
+                    margin-top: 60px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+
+                    dl {
+                        display: flex;
+                        align-items: center;
+
+                        dt {
+                            width: 60px;
+                            height: 60px;
+                            line-height: 54px;
+                            border-radius: 50%;
+                            border: 2px solid #333333;
+                            text-align: center;
+                            background-color: #ffffff;
+                            margin-right: 20px;
+
+                            img {
+                                display: inline-block;
+                                vertical-align: middle;
+                            }
+                        }
+
+                        dd {
+                            font-size: 28px;
+                            font-weight: 500;
+                            color: #333333;
+
+                            span {
+                                display: block;
+                                font-size: 16px;
+                                font-weight: 400;
+                                color: #333333;
+                                margin-top: 10px;
+                            }
+                        }
+                    }
+
+                    .btn-wrap {
+                        width: auto;
+                        margin-top: 0;
+                    }
+                }
+
+                .title {
+                    width: 100%;
+                    height: auto;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin-bottom: 40px;
+
+                    h4 {
+                        font-size: 20px;
+                        font-weight: 500;
+                        color: #333333;
+                        margin-right: 10px;
+                    }
+                }
+
+                .info-contents {
+                    width: 100%;
+                    height: auto;
+                    max-width: 1272px;
+                    margin: 0 auto;
+
+                    ul {
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+
+                        li {
+                            dl {
+                                text-align: center;
+
+                                dt {
+                                    width: 364px;
+                                    height: 364px;
+                                    background-color: #ffffff;
+                                    margin-bottom: 25px;
+                                    position: relative;
+
+                                    &::after {
+                                        content: '';
+                                        display: block;
+                                        width: 18px;
+                                        height: 36px;
+                                        background: url('../img/overseas-shipping/arrow-right02.png') no-repeat center / cover;
+                                        position: absolute;
+                                        right: -54px;
+                                        top: 50%;
+                                        transform: translateY(-50%);
+                                    }
+
+                                    video {
+                                        width: 100%;
+                                    }
+
+                                    .box {
+                                        width: 100%;
+                                        height: 100%;
+                                        position: absolute;
+                                        left: 0;
+                                        top: 0;
+                                        transition: all ease 0.3s;
+
+                                        &.hide {
+                                            opacity: 0;
+                                            z-index: -1;
+                                        }
+
+                                        &.show {
+                                            opacity: 1;
+                                            z-index: 9;
+                                        }
+
+                                        &.thumbnail1 {
+                                            background: url('../img/overseas-shipping/video-thumbnail1.png') no-repeat center / cover;
+                                        }
+
+                                        &.thumbnail2 {
+                                            background: url('../img/overseas-shipping/video-thumbnail2.png') no-repeat center / cover;
+                                        }
+
+                                        &.thumbnail3 {
+                                            background: url('../img/overseas-shipping/video-thumbnail3.png') no-repeat center / cover;
+                                        }
+
+                                        .play-btn {
+                                            width: 80px;
+                                            height: 80px;
+                                            background: url('../img/overseas-shipping/play-btn.png') no-repeat center / cover;
+                                            position: absolute;
+                                            left: 50%;
+                                            top: 50%;
+                                            transform: translate(-50%, -50%);
+                                        }
+                                    }
+                                }
+
+                                dd {
+                                    font-size: 14px;
+                                    font-weight: 400;
+                                    color: #333333;
+                                }
+                            }
+
+                            &:last-child {
+                                dl {
+                                    dt {
+                                        &::after {
+                                            display: none;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .section {
+            width: 100%;
+            height: auto;
+            margin-top: 60px;
+        }
+    }
+
+    /* ***** 샘플영상 보기 ***** */
+    .ml10 {
+        margin-left: 10px;
+    }
+
+    .video-wrap {
+        #video-box {
+            display: none;
+            width: 100%;
+            height: 100vh;
+            position: fixed;
+            left: 0;
+            top: 0;
+            z-index: 9999;
+
+            &.active {
+                display: block;
+            }
+
+            .box-wrap {
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                padding: 30px 30px 50px;
+                background-color: #fff;
+                z-index: 9;
+
+                h5 {
+                    font-size: 24px;
+                    font-weight: 500;
+                    color: #333;
+                    margin-bottom: 30px;
+                    text-align: left;
+                }
+
+                .close-btn {
+                    position: absolute;
+                    right: 30px;
+                    top: 30px;
+                }
+
+                #video-play-box {
+                    width: 1023px;
+                    height: 575px;
+                    margin-bottom: 48px;
+
+                    .thumbnail-box {
+                        width: 100%;
+                        height: 100%;
+                        background: url('../assets/images/overseas-shipping/thumbnail01.png') no-repeat center / cover;
+                        position: relative;
+
+                        &::after {
+                            content: '';
+                            display: block;
+                            width: 80px;
+                            height: 80px;
+                            background: url('../assets/images/overseas-shipping/play-btn.png') no-repeat center / cover;
+                            position: absolute;
+                            left: 50%;
+                            top: 50%;
+                            transform: translate(-50%, -50%);
+                        }
+                    }
+
+                    .box {
+                        display: none;
+                        width: 100%;
+                        height: 100%;
+
+                        iframe {
+                            width: 100% !important;
+                            height: 100% !important;
+                        }
+                    }
+
+                    &.on {
+                        .thumbnail-box {
+                            display: none;
+                        }
+
+                        .box {
+                            display: block;
+                        }
+                    }
+                }
+
+                ul {
+                    display: flex;
+                    margin: 0 -7.5px;
+
+                    li {
+                        width: calc(100% / 3);
+                        height: auto;
+                        padding: 0 7.5px;
+
+                        dl {
+                            width: 100%;
+                            height: auto;
+
+                            dt {
+                                width: 100%;
+                                height: 186px;
+                                position: relative;
+                                cursor: pointer;
+
+                                &::before {
+                                    content: '';
+                                    display: none;
+                                    width: 100%;
+                                    height: 100%;
+                                    border: 5px solid #198CFF;
+                                    position: absolute;
+                                    left: 0;
+                                    top: 0;
+                                }
+
+                                &::after {
+                                    content: '';
+                                    display: block;
+                                    width: 40px;
+                                    height: 40px;
+                                    background: url('../assets/images/overseas-shipping/play-btn.png') no-repeat center / cover;
+                                    position: absolute;
+                                    left: 50%;
+                                    top: 50%;
+                                    transform: translate(-50%, -50%);
+                                }
+                            }
+
+                            #video-play-btn01 {
+                                background: url('../assets/images/overseas-shipping/thumbnail01.png') no-repeat center / cover;
+                            }
+
+                            #video-play-btn02 {
+                                background: url('../assets/images/overseas-shipping/thumbnail02.png') no-repeat center / cover;
+                            }
+
+                            #video-play-btn03 {
+                                background: url('../assets/images/overseas-shipping/thumbnail03.png') no-repeat center / cover;
+                            }
+
+                            dd {
+                                font-size: 15px;
+                                font-weight: 500;
+                                color: #333;
+                                margin-top: 13px;
+                            }
+                        }
+
+                        &.on {
+                            dl {
+                                dt {
+                                    &::before {
+                                        display: block;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .box-bg {
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.6);
+            }
+        }
+    }
+}
+
+/* ***** 반짝이는 animation ***** */
+@keyframes opacity {
+    from {
+        opacity: 0.2;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* ***** 팝업디자인1 ***** */
+.popup-wrap-type01 {
+    display: none;
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 9999;
+
+    &.active {
+        display: block;
+    }
+
+    .popup-box {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #ffffff;
+        border-radius: 10px;
+        padding: 30px;
+
+        &.pd60 {
+            padding: 60px;
+        }
+
+        .close-btn {
+            width: 18px;
+            height: 18px;
+            background: url('../img/overseas-shipping/close-btn.png') no-repeat center / cover;
+            position: absolute;
+            right: 30px;
+            top: 30px;
+        }
+
+        .title {
+            font-size: 24px;
+            font-weight: 500;
+            color: #333333;
+        }
+
+        .text {
+            width: 100%;
+            height: auto;
+            margin-top: 50px;
+            text-align: center;
+
+            p {
+                font-size: 16px;
+                font-weight: 400;
+                color: #333333;
+
+                b {
+                    font-weight: 700;
+                }
+            }
+
+            span {
+                display: block;
+                width: 100%;
+                height: auto;
+                margin-top: 8px;
+                font-size: 13px;
+                font-weight: 400;
+                color: #888888;
+            }
+        }
+
+        .info {
+            width: 100%;
+            height: auto;
+            margin-top: 40px;
+            font-size: 18px;
+            font-weight: 700;
+            color: #333333;
+            text-align: center;
+        }
+
+        .btn-wrap {
+            width: 100%;
+            height: auto;
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+
+            .btn {
+                display: inline-block;
+                width: calc(50% - 10px);
+                height: auto;
+                padding: 14px 0;
+                font-size: 16px;
+                font-weight: 700;
+                color: #333333;
+                border-radius: 10px;
+                text-align: center;
+                background-color: #f0f0f0;
+
+                span {
+                    display: block;
+                    margin-top: 3px;
+                    font-size: 12px;
+                    font-weight: 400;
+                    color: #888888;
+                }
+
+                &.point {
+                    background-color: #198cff;
+                    color: #ffffff;
+
+                    span {
+                        color: #ffffff;
+                    }
+                }
+            }
+        }
+
+        dl {
+            width: 100%;
+            height: auto;
+            text-align: center;
+
+            dt {
+                margin-bottom: 20px;
+
+                img {
+                    display: inline-block;
+                }
+            }
+
+            dd {
+                font-size: 17px;
+                font-weight: 500;
+                color: #333333;
+            }
+        }
+
+        p {
+            font-size: 13px;
+            font-weight: 400;
+            color: #666666;
+            margin-top: 4px;
+            text-align: center;
+        }
+    }
+
+    .popup-bg {
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.6);
+    }
+}
+
+// 2022-08-10 상단 tab 박스 window 사이즈 작을 시 하단으로 떨어지게 수정.
+@media all and (max-width: 1750px) {
+    .overseas-shipping-wrap {
+        .tab-box-type01 {
+            ul {
+                li {
+                    a {
+                        dl {
+                            .text {
+                                width: 100%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media all and (max-height: 1200px) {
+    .overseas-shipping-wrap {
+        .video-wrap {
+            #video-box {
+                .box-wrap {
+                    #video-play-box {
+                        width: 910px;
+                        height: 450px;
+                        margin-bottom: 30px;
+                    }
+
+                    ul {
+                        li {
+                            dl {
+                                dt {
+                                    height: 150px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

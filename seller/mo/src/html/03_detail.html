@@ -1,0 +1,1411 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="utf-8">
+  <!--EZP-5398-->
+	<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width, viewport-fit=cover">
+  <link rel="stylesheet" type="text/css" href="../css/mobile/swiper-bundle.min.css">
+  <link rel="stylesheet" type="text/css" href="../css/mobile/jquery-ui.min.css">
+  <link rel="stylesheet" type="text/css" href="../css/mobile/default.import.css">
+  <link rel="stylesheet" type="text/css" href="../css/mobile/ui.css">
+  <link rel="stylesheet" type="text/css" href="../css/mobile/style.css">
+
+  <script type="text/javascript" src="../js/mobile/jquery-3.5.1.min.js"></script>
+  <script type="text/javascript" src="../js/mobile/jquery-ui.min.js"></script>
+  <script type="text/javascript" src="../js/mobile/swiper-bundle.min.js"></script>
+  <script type="text/javascript" src="../js/mobile/common_front.js"></script>
+  <script type="text/javascript" src="../js/mobile/ui.js"></script>
+  <!-- 2020-09-21 EZP-1356 -->
+  <script type="text/javascript" src="../js/mobile/sortable.js"></script>
+</head>
+
+<body>
+  <!-- 2022-10-14 EZP-5609 body > banner + #wrap > header로 변경 -->
+  
+  <div id="wrap" class="proudct_detail">
+    <!-- 2022-10-14 EZP-5609 header 위치 변경 (body안에서 #wrap안으로) -->
+    <header>
+      <div class="back">
+        <a href="#">뒤로가기</a>
+      </div>
+      <div class="title">
+        <span class="title-inner">
+          상품상세
+        </span>
+      </div>
+      <div class="util">
+        <button type="button" class="search" data-popup-target="#popup_search">검색</button>
+        <button type="button" class="easytalk active">EASYTALK</button>
+        <button type="button" class="noti active" data-popup-target="#popup_notice_message">알림</button>
+        <!-- 2022-09-13 EZP-5417 onclick add -->
+        <button type="button" class="more" onclick="location.href='09_01_menu.html' ">더보기</button>
+        <!-- 20.07.28 추가 -->
+        <div class="ui-popup search" id="popup_search" data-popup-unlock="true" data-popup-lock="false">
+          <!-- 2022-11-10 EZP-7404 .dim 추가 -->
+          <div class="dim"></div>
+          <div class="content">
+            <div class="search-wrap">
+              <div class="input-search">
+                <input type="text" placeholder="상품명/상품코드 입력" />
+                <button type="button">검색</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- //20.07.28 추가 -->
+      </div>
+    </header>
+    <section class="content">
+      <div class="img-wrap">
+        <div class="swiper-container">
+          <!-- 판매안함일시 <div class="swiper-container soldout"> -->
+          <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="../img/mobile/temp_product_detail_01.png" /></div>
+            <div class="swiper-slide"><img src="../img/mobile/temp_product_detail_01.png" /></div>
+            <div class="swiper-slide"><img src="../img/mobile/temp_product_detail_01.png" /></div>
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+        <div class="info">
+          <div class="status clear">
+            <span class="case-01">진열함</span>
+            <span class="case-02">판매함</span>
+            <!--20220318 EZP-1526-->
+            <span class="case-05">샘플지원</span>
+            <!--// 20220318 EZP-1526-->
+            <!-- 케이스@ 반려사유, 등록반려 -->
+            <p class="fr">
+              <span class="case-04" data-popup-target="#popup_message_01"><i></i>반려사유</span>
+              <span class="case-03">수정대기</span>
+              <span class="case-03">등록대기</span>
+              <span class="case-03">등록반려</span>
+            </p
+            <!-- //케이스@ 반려사유, 등록반려 -->
+          </div>
+          <div class="date">
+            <!-- 2021-06-30 EZP-1680 -->
+            <span>등록일 : 2020.11.15 <i>(↑)</i></span>
+            <span>최종수정일 : 2020.11.21</span>
+          </div>
+          <ul class="category clear">
+            <li>상의</li>
+            <li>티셔츠</li>
+          </ul>
+          <span class="name">스카이 블루 플로럴 원피스</span>
+          <span class="code">
+            E006001076
+            <!-- 2020-08-25 EZP-1147 -->
+            <a href="#" class="more">구매자 화면보기</a>
+          </span>
+          <strong class="price">
+            57,000 <em>원</em>
+            <a class="btn-modify-screen" data-popup-target="#product_modify">수정요청 화면보기</a>
+          </strong>
+          <!-- 케이스@ 수정요청 화면 -->
+          <div class="btn-wrap">
+            <button class="btn b-green" type="button" data-popup-target="">재수정</button>
+            <button class="btn b-red" type="button" data-popup-target="">수정취소</button>
+          </div>
+
+        </div>
+      </div>
+      <div class="authority-wrap">
+        <!--// 2022-07-18 EZP-3157 샘플아이콘 추가 -->
+        <label data-popup-target="#product_regist_modify">
+          <input type="checkbox" disabled />
+          <i class="icon-modify"></i>
+          <span>수정</span>
+        </label>
+        <label>
+          <input type="checkbox" disabled checked />
+          <i class="icon-exhibition"></i>
+          <span>진열함</span><!--2022-07-18 EZP-3157-->
+        </label>
+        <label data-popup-target="#popup_message_02">
+          <input type="checkbox" disabled />
+          <i class="icon-soldout"></i> <!-- 20.07.21 수정 -->
+          <!-- 20.07.28 클래스 재확인 -->
+          <span>판매안함</span>
+        </label>
+        <!-- 2022-07-18 EZP-3157 샘플아이콘 추가 //-->
+        <label data-popup-target="#popup_message_04">
+          <input type="checkbox" disabled checked />
+          <i class="icon-sample"></i>
+          <span>지원함</span>
+        </label>
+        <label data-popup-target="#popup_message_03">
+          <input type="checkbox" disabled />
+          <i class="icon-delete"></i>
+          <span>삭제</span>
+        </label>
+        <!-- @케이스
+                <label data-popup-target="#product_regist_modify">
+                    <input type="checkbox" disabled>
+                    <i class="icon-modify"></i>
+                    <span>재수정</span>
+                </label>
+
+                <label>
+                    <input type="checkbox" disabled>
+                    <i class="icon-done"></i>
+                    <span>등록취소</span>
+                </label>
+                -->
+      </div>
+      <div class="info-wrap">
+        <p class="head">상품정보</p>
+        <dl class="clear">
+          <dt>색상</dt>
+          <dd>라임 / 베이지 / 아이보리 / 연퍼플</dd>
+          <dt>사이즈</dt>
+          <dd>Free</dd>
+          <dt>소재</dt>
+          <dd>
+            <!-- 2021-05-21 EZP-2816 -->
+            <span>겉감 : 아크릴 100%</span><br>
+            <span>안감 : 폴리에스테르 100%</span>
+          </dd>
+          <dt>제조국</dt>
+          <dd>대한민국</dd>
+          <dt>상품부가정보</dt>
+          <dd>
+            <ul>
+              <li>착용감 : 루즈핏</li>
+              <li>신축성 : 없음</li>
+              <li>두께감 : 얇음</li>
+              <li>비침 : 비침없음</li>
+            </ul>
+          </dd>
+        </dl>
+        <!-- 21-02-22 수정 -->
+        <!-- <em class="tip">* 상품부가정보는 이지픽 (구매자 사이트)에 표시되지 않습니다.</em> -->
+      </div>
+      <div class="laundry-wrap">
+        <p class="head">상세설명</p>
+        <div class="way">
+          <dl>
+            <dt>세탁방법</dt>
+            <dd>
+              <div class="items clear">
+                <label>
+                  <input type="checkbox" disabled>
+                  <div class="img">
+                    <img src="../img/mobile/icon_laundry_01.png" alt="">
+                    <img src="../img/mobile/icon_laundry_01_active.png" alt="" class="active">
+                  </div>
+                  <span>단독손세탁</span>
+                </label>
+                <label>
+                  <input type="checkbox" disabled>
+                  <div class="img">
+                    <img src="../img/mobile/icon_laundry_02.png" alt="">
+                    <img src="../img/mobile/icon_laundry_02_active.png" alt="" class="active">
+                  </div>
+                  <span>기계세탁가능</span>
+                </label>
+                <label>
+                  <input type="checkbox" disabled>
+                  <div class="img">
+                    <img src="../img/mobile/icon_laundry_03.png" alt="">
+                    <img src="../img/mobile/icon_laundry_03_active.png" alt="" class="active">
+                  </div>
+                  <span>비틀기금지</span>
+                </label>
+                <label>
+                  <input type="checkbox" disabled>
+                  <div class="img">
+                    <img src="../img/mobile/icon_laundry_04.png" alt="">
+                    <img src="../img/mobile/icon_laundry_04_active.png" alt="" class="active">
+                  </div>
+                  <span>표백금지</span>
+                </label>
+                <label>
+                  <input type="checkbox" disabled>
+                  <div class="img">
+                    <img src="../img/mobile/icon_laundry_05.png" alt="">
+                    <img src="../img/mobile/icon_laundry_05_active.png" alt="" class="active">
+                  </div>
+                  <span>그늘에건조</span>
+                </label>
+                <label>
+                  <input type="checkbox" disabled>
+                  <div class="img">
+                    <img src="../img/mobile/icon_laundry_06.png" alt="">
+                    <img src="../img/mobile/icon_laundry_06_active.png" alt="" class="active">
+                  </div>
+                  <span>중성세제</span>
+                </label>
+                <label>
+                  <input type="checkbox" disabled>
+                  <div class="img">
+                    <img src="../img/mobile/icon_laundry_07.png" alt="">
+                    <img src="../img/mobile/icon_laundry_07_active.png" alt="" class="active">
+                  </div>
+                  <span>드라이크리닝</span>
+                </label>
+                <label>
+                  <input type="checkbox" disabled>
+                  <div class="img">
+                    <img src="../img/mobile/icon_laundry_08.png" alt="">
+                    <img src="../img/mobile/icon_laundry_08_active.png" alt="" class="active">
+                  </div>
+                  <span>천대고다림질</span>
+                </label>
+                <label>
+                  <input type="checkbox" disabled>
+                  <div class="img">
+                    <img src="../img/mobile/icon_laundry_09.png" alt="">
+                    <img src="../img/mobile/icon_laundry_09_active.png" alt="" class="active">
+                  </div>
+                  <span>전용세제</span>
+                </label>
+              </div>
+            </dd>
+            <!-- 2021-04-15 EZP-2520 -->
+            <dt>상품특성</dt>
+            <dd>
+              <ul class="dot-list">
+                <li><span>스타일</span> 캐주얼, 모던시크, 베이직</li>
+                <li><span>패턴</span> 무지</li>
+                <li><span>디테일</span> V넥</li>
+              </ul>
+            </dd>
+            <dt>상품상세정보</dt>
+            <dd>
+              <span class="tip">자수로고는 원단 특성상 정확한 모양으로 찍히기에 어려움이 있어 조금씩 다를 수 있습니다. 상세 컷 확인 부탁드립니다.</span>
+            </dd>
+          </dl>
+
+          <span class="contact">A/S정보 및 담당자 : 고객센터 / <a href="tel:02-6296-8794">02-6296-8794</a></span>
+        </div>
+        <a href="#" class="btn">목록</a>
+      </div>
+    </section>
+    
+    <!-- 2022-09-07 EZP-5592 top버튼 정산관리 페이지에서만 적용하기 위해 삭제
+    <a href="#" class="quick-top-btn">TOP</a>
+    -->
+  </div>
+
+  <!-- 팝업@ 상품수정 -->
+  <div class="ui-popup full popup_product_regist" id="product_regist_modify">
+    <div class="content">
+      <div class="header">
+        <button type="button" class="btn-close"></button>
+        <strong>상품수정</strong>
+      </div>
+      <div class="body">
+        <!-- 대표이미지, 상세 이미지 -->
+        <div class="img-regist">
+          <div class="file main">
+            <p class="head"><strong class="tit require">대표 이미지</strong></p>
+            <div class="file-group">
+              <label><input type="file" /></label>
+              <!-- 파일 추가시 썸네일 2020.07.21 수정
+              <div class="list">
+                  <ul>
+                      <li>
+                          <img src="../img/mobile/temp_product_regist_02.png"/>
+                          <button type="button" class="delete"></button>
+                      </li>
+                  </ul>
+              </div>
+              //파일 추가시 썸네일 2020.07.21 수정 -->
+            </div>
+          </div>
+          <div class="file sub">
+            <p class="head"><strong class="tit">상세 이미지</strong></p>
+            <div class="file-group">
+              <label>
+                <input type="file" />
+                <span><em>0</em>/10</span>
+              </label>
+              <!-- 파일 추가시 썸네일 2020.07.21 수정
+              <div class="list">
+                  <ul>
+                      <li>
+                          <img src="../img/mobile/temp_product_regist_02.png"/>
+                          <button type="button" class="delete"></button>
+                      </li>
+                      <li>
+                          <img src="../img/mobile/temp_product_regist_03.png"/>
+                          <button type="button" class="delete"></button>
+                      </li>
+                      <li>
+                          <img src="../img/mobile/temp_product_regist_02.png"/>
+                          <button type="button" class="delete"></button>
+                      </li>
+                      <li>
+                          <img src="../img/mobile/temp_product_regist_03.png"/>
+                          <button type="button" class="delete"></button>
+                      </li>
+                  </ul>
+              </div>
+              //파일 추가시 썸네일 2020.07.21 수정 -->
+            </div>
+          </div>
+        </div>
+
+        <!-- 기본정보 -->
+        <div class="info-basic">
+          <p class="head">
+            <strong class="tit require">기본정보</strong>
+          </p>
+          <input type="text" placeholder="상품명 입력 (필수)">
+          <input type="text" placeholder="대표판매가 입력 (필수)">
+          <input type="text" placeholder="카테고리 선택 (필수)" class="arrow" readonly data-popup-target="#product_category">
+        </div>
+
+        <!-- 색상, 사이즈 -->
+        <div class="color-size">
+          <div class="color">
+            <p class="head">
+              <strong class="tit require">색상</strong>
+              <label class="btn-edit">
+                <input type="checkbox" /><span></span>
+                <!-- 저장버튼 토글
+                                <input type="checkbox" checked/><span></span>
+                                -->
+              </label>
+            </p>
+            <div class="item-wrap">
+              <!-- 항목 선택시 -->
+              <!-- 20.07.31 수정 -->
+              <div class="item-group">
+                <div class="text-group">
+                  <div class="select-items">
+                    <!-- <span>화이트<button type="button"></button></span>
+                                        <span>블랙<button type="button"></button></span> -->
+                  </div>
+                  <div class="text-wrap">
+                    <input type="text" placeholder="직접입력 (,로 구분)">
+                  </div>
+                </div>
+                <button type="button" class="btn-enable">적용</button>
+              </div>
+              <!-- //20.07.31 수정 -->
+              <div class="input-label">
+                <!-- 편집버튼 토글시 toggleClass('is-delete') -->
+                <label>
+                  <input type="checkbox">
+                  <span>화이트</span>
+                </label>
+                <label>
+                  <input type="checkbox">
+                  <span>블랙</span>
+                </label>
+                <label>
+                  <input type="checkbox">
+                  <span>그레이</span>
+                </label>
+                <label>
+                  <input type="checkbox">
+                  <span>크림</span>
+                </label>
+                <label>
+                  <input type="checkbox">
+                  <span>아이보리</span>
+                </label>
+                <label>
+                  <input type="checkbox">
+                  <span>레드</span>
+                </label>
+                <label>
+                  <input type="checkbox">
+                  <span>와인</span>
+                </label>
+                <label>
+                  <input type="checkbox">
+                  <span>핑크</span>
+                </label>
+                <label>
+                  <input type="checkbox">
+                  <span>코랄</span>
+                </label>
+                <label>
+                  <input type="checkbox">
+                  <span>오프화이트</span>
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="size">
+            <p class="head">
+              <strong class="tit require">사이즈</strong>
+              <label class="btn-edit">
+                <input type="checkbox" /><span></span>
+                <!-- 저장버튼 토글
+                                <input type="checkbox" checked/><span></span>
+                                -->
+              </label>
+            </p>
+            <div class="item-wrap">
+              <!-- 항목선택시 -->
+              <!-- 20.07.31 수정 -->
+              <div class="item-group">
+                <div class="text-group">
+                  <div class="select-items">
+                    <!-- <span>Free<button type="button"></button></span>
+                                        <span>S<button type="button"></button></span> -->
+                  </div>
+                  <div class="text-wrap">
+                    <input type="text" placeholder="직접입력 (,로 구분)">
+                  </div>
+                </div>
+                <button type="button" class="btn-enable">적용</button>
+              </div>
+              <!-- //20.07.31 수정 -->
+              <div class="input-label">
+                <!-- 편집버튼 토글시 toggleClass('is-delete') -->
+                <label>
+                  <input type="checkbox">
+                  <span>Free</span>
+                </label>
+                <label>
+                  <input type="checkbox">
+                  <span>S</span>
+                </label>
+                <label>
+                  <input type="checkbox">
+                  <span>M</span>
+                </label>
+                <label>
+                  <input type="checkbox">
+                  <span>L</span>
+                </label>
+                <label>
+                  <input type="checkbox">
+                  <span>XL</span>
+                </label>
+                <label>
+                  <input type="checkbox">
+                  <span>XS</span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 옵션별 단가설정 -->
+        <div class="option-price">
+          <div class="ui-tree">
+            <div class="group">
+              <div class="top">
+                <strong>옵션별 단가설정</strong>
+              </div>
+              <div class="sub">
+                <input type="text" class="price" value="50,000" />
+                <table>
+                  <!-- 20.08.07 수정 -->
+                  <colgroup>
+                    <col style="width: auto" />
+                    <col style="width: auto" />
+                    <col style="width: 32%" />
+                    <col style="width: 27%" />
+                  </colgroup>
+                  <!-- //20.08.07 수정 -->
+                  <thead>
+                    <tr>
+                      <th>색상</th>
+                      <th>사이즈</th>
+                      <th>옵션가</th>
+                      <th>최소주문수량</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>화이트</td>
+                      <td>Free</td>
+                      <td><input type="tel" value="314,000" /></td>
+                      <td><input type="tel" value="1446" /></td>
+                    </tr>
+                    <tr>
+                      <td>화이트</td>
+                      <td>Free</td>
+                      <td><input type="tel" value="314,000" /></td>
+                      <td><input type="tel" value="1446" /></td>
+                    </tr>
+                    <tr>
+                      <td>화이트</td>
+                      <td>Free</td>
+                      <td><input type="tel" value="314,000" /></td>
+                      <td><input type="tel" value="1446" /></td>
+                    </tr>
+                    <tr>
+                      <td>화이트</td>
+                      <td>Free</td>
+                      <td><input type="tel" value="314,000" /></td>
+                      <td><input type="tel" value="1446" /></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 옵션별 판매/진열상태 설정 -->
+        <div class="option-price option-settings">
+          <div class="ui-tree">
+            <div class="group">
+              <div class="top">
+                <strong>옵션별 판매/진열상태 설정</strong>
+              </div>
+              <div class="sub">
+                <ul class="desc">
+                  <li>판매함 : 옵션의 품절(Sold out)표시 여부를 설정합니다.</li>
+                  <li>진열함 : 옵션의 쇼핑몰 진열(노출)여부를 설정합니다.</li>
+                </ul>
+                <table>
+                  <colgroup>
+                    <col style="width: auto" />
+                    <col style="width: auto" />
+                    <col style="width: 27%" />
+                    <col style="width: 25%" />
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th>색상</th>
+                      <th>사이즈</th>
+                      <th>옵션가</th>
+                      <th>최소주문수량</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>화이트</td>
+                      <td>S</td>
+                      <td class="center">
+                        <label class="checkbox"><input type="checkbox" checked /><span></span></label>
+                      </td>
+                      <td class="center">
+                        <label class="checkbox"><input type="checkbox" checked /><span></span></label>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>화이트</td>
+                      <td>Free</td>
+                      <td class="center">
+                        <label class="checkbox"><input type="checkbox" /><span></span></label>
+                      </td>
+                      <td class="center">
+                        <label class="checkbox"><input type="checkbox" checked /><span></span></label>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>화이트</td>
+                      <td>S</td>
+                      <td class="center">
+                        <label class="checkbox"><input type="checkbox" checked /><span></span></label>
+                      </td>
+                      <td class="center">
+                        <label class="checkbox"><input type="checkbox" checked /><span></span></label>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>화이트</td>
+                      <td>Free</td>
+                      <td class="center">
+                        <label class="checkbox"><input type="checkbox" /><span></span></label>
+                      </td>
+                      <td class="center">
+                        <label class="checkbox"><input type="checkbox" checked /><span></span></label>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 소재정보 -->
+        <div class="material">
+          <div class="ui-tree">
+            <div class="group active">
+              <div class="top">
+                <strong>소재정보</strong>
+              </div>
+              <div class="sub">
+                <dl>
+                  <dt class="require">겉감</dt>
+                  <dd class="input-label">
+                    <!-- 선택시 상세 설정 -->
+                    <!-- 2021-07-14 EZP-3483 -->
+                    <ul class="select-input" data-name="out_material"></ul>
+                    <div class="items clear">
+                      <label>
+                        <input type="checkbox" />
+                        <span>캐시미어</span>
+                      </label>
+                      <label>
+                        <input type="checkbox" />
+                        <span>아크릴</span>
+                      </label>
+                      <label>
+                        <input type="checkbox" />
+                        <span>레이온</span>
+                      </label>
+                      <label>
+                        <input type="checkbox" />
+                        <span>면</span>
+                      </label>
+                      <label>
+                        <input type="checkbox" />
+                        <span>폴리에스터</span>
+                      </label>
+                      <label>
+                        <input type="checkbox" />
+                        <span>모달</span>
+                      </label>
+                      <label>
+                        <input type="checkbox" />
+                        <span>리오셀</span>
+                      </label>
+                      <label>
+                        <input type="checkbox" />
+                        <span>리넨</span>
+                      </label>
+                      <label>
+                        <input type="checkbox" />
+                        <span>모</span>
+                      </label>
+                      <label>
+                        <input type="checkbox" />
+                        <span>스판덱스</span>
+                      </label>
+                    </div>
+                  </dd>
+                  <dt>안감</dt>
+                  <dd class="input-label">
+                    <!-- 선택시 상세 설정 -->
+                    <!-- 2021-07-14 EZP-3483 -->
+                    <ul class="select-input" data-name="in_material"></ul>
+                    <div class="items clear">
+                      <label>
+                        <input type="checkbox" />
+                        <span>캐시미어</span>
+                      </label>
+                      <label>
+                        <input type="checkbox" />
+                        <span>아크릴</span>
+                      </label>
+                      <label>
+                        <input type="checkbox" />
+                        <span>레이온</span>
+                      </label>
+                      <label>
+                        <input type="checkbox" />
+                        <span>면</span>
+                      </label>
+                      <label>
+                        <input type="checkbox" />
+                        <span>폴리에스터</span>
+                      </label>
+                      <label>
+                        <input type="checkbox" />
+                        <span>모달</span>
+                      </label>
+                      <label>
+                        <input type="checkbox" />
+                        <span>리오셀</span>
+                      </label>
+                      <label>
+                        <input type="checkbox" />
+                        <span>리넨</span>
+                      </label>
+                      <label>
+                        <input type="checkbox" />
+                        <span>모</span>
+                      </label>
+                      <label>
+                        <input type="checkbox" />
+                        <span>스판덱스</span>
+                      </label>
+                    </div>
+                  </dd>
+                </dl>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 세탁정보 -->
+        <div class="laundry-wrap">
+          <p class="head">
+            <strong class="tit">세탁정보</strong>
+          </p>
+          <div class="items clear">
+            <label>
+              <input type="checkbox" />
+              <div class="img">
+                <img src="../img/mobile/icon_laundry_01.png" alt="">
+                <img src="../img/mobile/icon_laundry_01_active.png" alt="" class="active">
+              </div>
+              <span>단독손세탁</span>
+            </label>
+            <label>
+              <input type="checkbox" />
+              <div class="img">
+                <img src="../img/mobile/icon_laundry_02.png" alt="">
+                <img src="../img/mobile/icon_laundry_02_active.png" alt="" class="active">
+              </div>
+              <span>기계세탁가능</span>
+            </label>
+            <label>
+              <input type="checkbox" />
+              <div class="img">
+                <img src="../img/mobile/icon_laundry_03.png" alt="">
+                <img src="../img/mobile/icon_laundry_03_active.png" alt="" class="active">
+              </div>
+              <span>비틀기금지</span>
+            </label>
+            <label>
+              <input type="checkbox" />
+              <div class="img">
+                <img src="../img/mobile/icon_laundry_04.png" alt="">
+                <img src="../img/mobile/icon_laundry_04_active.png" alt="" class="active">
+              </div>
+              <span>표백금지</span>
+            </label>
+            <label>
+              <input type="checkbox" />
+              <div class="img">
+                <img src="../img/mobile/icon_laundry_05.png" alt="">
+                <img src="../img/mobile/icon_laundry_05_active.png" alt="" class="active">
+              </div>
+              <span>그늘에건조</span>
+            </label>
+            <label>
+              <input type="checkbox" />
+              <div class="img">
+                <img src="../img/mobile/icon_laundry_06.png" alt="">
+                <img src="../img/mobile/icon_laundry_06_active.png" alt="" class="active">
+              </div>
+              <span>중성세제</span>
+            </label>
+            <label>
+              <input type="checkbox" />
+              <div class="img">
+                <img src="../img/mobile/icon_laundry_07.png" alt="">
+                <img src="../img/mobile/icon_laundry_07_active.png" alt="" class="active">
+              </div>
+              <span>드라이크리닝</span>
+            </label>
+            <label>
+              <input type="checkbox" />
+              <div class="img">
+                <img src="../img/mobile/icon_laundry_08.png" alt="">
+                <img src="../img/mobile/icon_laundry_08_active.png" alt="" class="active">
+              </div>
+              <span>천대고다림질</span>
+            </label>
+            <label>
+              <input type="checkbox" />
+              <div class="img">
+                <img src="../img/mobile/icon_laundry_09.png" alt="">
+                <img src="../img/mobile/icon_laundry_09_active.png" alt="" class="active">
+              </div>
+              <span>전용세제</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- 제조국정보 -->
+        <div class="made">
+          <p class="head">
+            <strong class="tit require">제조국정보</strong>
+          <div class="input-label">
+            <label>
+              <input type="radio" name="made" checked />
+              <span>대한민국</span>
+            </label>
+            <label>
+              <input type="radio" name="made" />
+              <span>중국</span>
+            </label>
+            <label>
+              <input type="radio" name="made" />
+              <span>베트남</span>
+            </label>
+            <label>
+              <input type="radio" name="made" />
+              <span>기타국가</span>
+            </label>
+          </div>
+          </p>
+        </div>
+
+        <!-- 상품 상세정보 -->
+        <div class="info-detail">
+          <p class="head">
+            <strong class="tit">상품 상세정보</strong>
+            <textarea rows="5" placeholder="상품상세정보 입력"></textarea>
+          </p>
+        </div>
+
+        <!-- 계절, 착용감 신축성 ... -->
+        <div class="info-add">
+          <ul class="desc">
+            <li>추후 이지픽에서 상세검색 및 큐레이션 기능이 오픈 예정입니다.</li>
+            <li>상품홍보를 위해 아래 상품 부가정보 등록을 권장합니다.</li>
+          </ul>
+          <div class="input-label">
+            <strong>계절</strong>
+            <label><input type="radio" name="add_01" /><span>봄가을</span></label>
+            <label><input type="radio" name="add_01" /><span>여름</span></label>
+            <label><input type="radio" name="add_01" /><span>겨울</span></label>
+            <label><input type="radio" name="add_01" /><span>사계절</span></label>
+          </div>
+          <div class="input-label">
+            <strong>착용감</strong>
+            <label><input type="radio" name="add_02" /><span>슬림핏</span></label>
+            <label><input type="radio" name="add_02" /><span>적당함</span></label>
+            <label><input type="radio" name="add_02" /><span>루즈핏</span></label>
+          </div>
+          <div class="input-label">
+            <strong>신축성</strong>
+            <label><input type="radio" name="add_03" /><span>없음</span></label>
+            <label><input type="radio" name="add_03" /><span>적당함</span></label>
+            <label><input type="radio" name="add_03" /><span>좋음</span></label>
+          </div>
+          <div class="input-label">
+            <strong>두께감</strong>
+            <label><input type="radio" name="add_04" /><span>없음</span></label>
+            <label><input type="radio" name="add_04" /><span>적당함</span></label>
+            <label><input type="radio" name="add_04" /><span>무거움</span></label>
+          </div>
+          <div class="input-label">
+            <strong>비침</strong>
+            <label><input type="radio" name="add_05" /><span>비침없음</span></label>
+            <label><input type="radio" name="add_05" /><span>조금비침</span></label>
+            <label><input type="radio" name="add_05" /><span>비침</span></label>
+          </div>
+        </div>
+
+        <!-- 판매상태 설정 -->
+        <div class="set-status">
+          <p class="head">
+            <strong class="tit require">판매상태 설정</strong>
+          </p>
+          <div class="input-label">
+            <span class="desc">상품의 품절(Sold out)표시 여부를 설정합니다.</span>
+            <label><input type="radio" name="status_01" checked /><span>판매함</span></label>
+            <label><input type="radio" name="status_01" /><span>판매안함</span></label>
+          </div>
+        </div>
+
+        <!-- 진열상태 설정 -->
+        <div class="set-status">
+          <p class="head">
+            <strong class="tit require">진열상태 설정</strong>
+          </p>
+          <div class="input-label">
+            <span class="desc">상품의 쇼핑몰 진열(노출)여부를 설정합니다.</span> <!-- 2020.07.20 수정 -->
+            <label><input type="radio" name="status_02" checked /><span>진열함</span></label>
+            <label><input type="radio" name="status_02" /><span>진열안함</span></label>
+          </div>
+        </div>
+
+        <!-- 공개방식 설정 -->
+        <div class="set-discolusre">
+          <p class="head">
+            <strong class="tit require">공개방식 설정</strong>
+          </p>
+          <ul class="radio-group">
+            <li><label><input type="radio" name="discolusre" checked /><span>전체공개</span></label></li>
+            <li><label><input type="radio" name="discolusre" /><span>거래처만 공개</span></label></li>
+            <li>
+              <label><input type="radio" name="discolusre" /><span>거래처만 공개</span></label>
+              <input type="text" class="datepicker" value="2020.06.06" readonly disabled />
+              <span>일 후 전체 공개</span> <!-- 2020.07.20 수정 -->
+            </li>
+          </ul>
+          <ul class="desc">
+            <li>타 도매사이트의 이미지 업로드시 상품등록, 노출 등의 제한이 있을 수 있습니다.</li>
+            <li>이지픽은 지적재산권을 침해할 수 있는 상품에 대해 어떠한 책임도 지지 않습니다.</li>
+            <li>실제 상품이 아닐 경우 소매화면에 노출되지 않을 수 있습니다.</li>
+          </ul>
+        </div>
+        <div class="btn-group">
+          <button type="button" class="case-02">상품수정</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 팝업@ 수정요청 화면 -->
+  <!-- 2020-09-21 EZP-1356 시작 -->
+  <div class="ui-popup full popup_product_regist popup_product_modify" id="product_modify">
+    <div class="content">
+      <div class="header">
+        <button type="button" class="btn-close"></button>
+        <strong>수정요청상세</strong>
+      </div>
+      <div class="body">
+        <!-- 대표이미지, 상세 이미지 -->
+        <div class="img-regist">
+          <div class="file main">
+            <p class="head"><strong class="tit require">대표 이미지</strong></p>
+            <!-- 2020-09-21 EZP-1356 시작 -->
+            <div class="file-group ex">
+              <div class="list">
+                <ul>
+                  <li data-popup-target="#popup_04" style="background:url('../img/mobile/temp_product_detail_01.png') center center no-repeat; background-size:cover;"></li>
+                </ul>
+              </div>
+              <!-- 2020-09-21 EZP-1356 종료 -->
+              <!-- //케이스@ 파일 추가시 썸네일 20.08.06 -->
+            </div>
+          </div>
+          <div class="file sub">
+            <p class="head"><strong class="tit">상세 이미지</strong></p>
+            <!-- 2020-09-01 EZP-1139 -->
+            <div class="file-group ex">
+              <label>
+                <input type="file" />
+                <span><em>0</em>/10</span>
+              </label>
+
+              <!-- 케이스@ 비활성 20.08.06
+                            <label class="disabled">
+                                <input type="file" disabled/>
+                            </label>
+                            -->
+
+
+              <div class="list">
+                <!-- 2020-09-21 EZP-1356 -->
+                <ul id="sortable" style="display:flex;">
+                  <li class="ui-sortable-helper" data-popup-target="#popup_03" style="background:url('../img/mobile/temp_product_regist_01.png') center center no-repeat; background-size:cover;">
+                  </li>
+                  <li class="ui-sortable-helper" data-popup-target="#popup_03" style="background:url('../img/mobile/temp_product_regist_02.png') center center no-repeat; background-size:cover;">
+
+                  </li>
+                  <li class="ui-sortable-helper" data-popup-target="#popup_03" style="background:url('../img/mobile/temp_product_list_01.png') center center no-repeat; background-size:cover;">
+
+                  </li>
+                  <li class="ui-sortable-helper" data-popup-target="#popup_03" style="background:url('../img/mobile/temp_product_list_02.png') center center no-repeat; background-size:cover;">
+
+                  </li>
+                  <li class="ui-sortable-helper" data-popup-target="#popup_03" style="background:url('../img/mobile/temp_product_list_03.png') center center no-repeat; background-size:cover;">
+
+                  </li>
+                  <li class="ui-sortable-helper" data-popup-target="#popup_03" style="background:url('../img/mobile/temp_product_list_04.png') center center no-repeat; background-size:cover;">
+
+                  </li>
+                  <li class="ui-sortable-helper" data-popup-target="#popup_03" style="background:url('../img/mobile/temp_product_list_05.png') center center no-repeat; background-size:cover;">
+
+                  </li>
+                  <li class="ui-sortable-helper" data-popup-target="#popup_03" style="background:url('../img/mobile/temp_product_regist_01.png') center center no-repeat; background-size:cover;">
+
+                  </li>
+                </ul>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- 기본정보 -->
+        <div class="info-basic">
+          <p class="head">
+            <!-- 2021-03-04 info-basic 삭제 -->
+            <strong class="tit emphasis">기본정보</strong>
+          </p>
+          <dl class="detail">
+            <dt>상품명</dt>
+            <dd>버튼슬릿원피스</dd>
+            <dt>대표판매가</dt>
+            <dd>50,000원</dd>
+            <!-- 2021-03-04 -->
+            <!-- <dt>카테고리</dt>
+            <dd>원피스 > 미니</dd> -->
+          </dl>
+        </div>
+
+        <!-- 2021-03-04 시작 -->
+        <!-- 상품분류 -->
+        <div>
+          <p class="head">
+            <strong class="tit">상품분류</strong>
+          </p>
+          <p class="detail">
+            여성 > 아우터 > 재킷<br>
+            남성 > 아우터 > 재킷<br>
+            유/아동 > 아우터 > 재킷
+          </p>
+        </div>
+        <!-- 스타일 -->
+        <div>
+          <p class="head">
+            <strong class="tit">스타일</strong>
+          </p>
+          <p class="detail">
+            캐주얼, 모던시크, 베이직
+          </p>
+        </div>
+        <!-- 연령대 -->
+        <div>
+          <p class="head">
+            <strong class="tit">연령대</strong>
+          </p>
+          <p class="detail">
+            10대, 20대
+          </p>
+        </div>
+        <!-- 2021-03-04 종료 -->
+        <!-- 색상, 사이즈 -->
+        <div class="color-size">
+          <div class="color">
+            <p class="head">
+              <!-- 2021-03-04 info-basic 삭제 -->
+              <strong class="tit">색상</strong>
+            </p>
+            <p class="detail">블랙, 화이트</p>
+          </div>
+          <div class="size">
+            <p class="head">
+              <!-- 2021-03-04 info-basic 삭제 -->
+              <strong class="tit ">사이즈</strong>
+            </p>
+            <p class="detail">Free, S, M, L</p>
+          </div>
+        </div>
+
+        <!-- 옵션별 단가설정 -->
+        <div class="option-price">
+          <p class="head">
+            <!-- 2021-03-04 info-basic 삭제 -->
+            <strong class="tit">옵션별 단가</strong>
+          </p>
+          <p class="detail">블랙 Free, 50,500 / 블랙 S, 50,500 / 화이트 Free, 50, 500 /화이트 S, 50,500</p>
+        </div>
+
+        <!-- 옵션별 판매/진열상태 설정 -->
+        <div class="option-price option-settings">
+          <p class="head">
+            <!-- 2021-03-04 info-basic 삭제 -->
+            <strong class="tit">옵션별 판매/진열상태</strong>
+          </p>
+          <p class="detail">블랙 Free, 판매함, 진열함 / 블랙 S, 판매함, 진열함 / 화이트 Free, 판매함, 진열함 / 화이트 S, 판매함, 진열함</p>
+        </div>
+
+        <!-- 소재정보 -->
+        <div class="material">
+          <p class="head">
+            <!-- 2021-03-04 info-basic 삭제 -->
+            <strong class="tit emphasis">소재정보</strong>
+          </p>
+          <dl class="detail">
+            <dt>겉감</dt>
+            <dd>아크릴 100%</dd>
+            <dt>안감</dt>
+            <dd>폴리에스테르 100%</dd>
+          </dl>
+        </div>
+        <!-- 2021-03-04 -->
+        <!-- 상품특성 -->
+        <div>
+          <p class="head">
+            <strong class="tit">상품특성</strong>
+          </p>
+          <dl class="detail">
+            <dt>패턴</dt>
+            <dd>무지</dd>
+            <dt>디테일</dt>
+            <dd>벨트, 셔링, 집업</dd>
+          </dl>
+        </div>
+
+        <!-- 세탁정보 -->
+        <div class="laundry-wrap">
+          <p class="head">
+            <strong class="tit">세탁정보</strong>
+          </p>
+          <div class="items clear">
+            <label>
+              <input type="checkbox" disabled />
+              <div class="img">
+                <img src="../img/mobile/icon_laundry_01.png" alt="">
+                <img src="../img/mobile/icon_laundry_01_active.png" alt="" class="active">
+              </div>
+              <span>단독손세탁</span>
+            </label>
+            <label>
+              <input type="checkbox" disabled />
+              <div class="img">
+                <img src="../img/mobile/icon_laundry_02.png" alt="">
+                <img src="../img/mobile/icon_laundry_02_active.png" alt="" class="active">
+              </div>
+              <span>기계세탁가능</span>
+            </label>
+            <label>
+              <input type="checkbox" disabled />
+              <div class="img">
+                <img src="../img/mobile/icon_laundry_03.png" alt="">
+                <img src="../img/mobile/icon_laundry_03_active.png" alt="" class="active">
+              </div>
+              <span>비틀기금지</span>
+            </label>
+            <label>
+              <input type="checkbox" disabled />
+              <div class="img">
+                <img src="../img/mobile/icon_laundry_04.png" alt="">
+                <img src="../img/mobile/icon_laundry_04_active.png" alt="" class="active">
+              </div>
+              <span>표백금지</span>
+            </label>
+            <label>
+              <input type="checkbox" disabled />
+              <div class="img">
+                <img src="../img/mobile/icon_laundry_05.png" alt="">
+                <img src="../img/mobile/icon_laundry_05_active.png" alt="" class="active">
+              </div>
+              <span>그늘에건조</span>
+            </label>
+            <label>
+              <input type="checkbox" disabled />
+              <div class="img">
+                <img src="../img/mobile/icon_laundry_06.png" alt="">
+                <img src="../img/mobile/icon_laundry_06_active.png" alt="" class="active">
+              </div>
+              <span>중성세제</span>
+            </label>
+            <label>
+              <input type="checkbox" disabled />
+              <div class="img">
+                <img src="../img/mobile/icon_laundry_07.png" alt="">
+                <img src="../img/mobile/icon_laundry_07_active.png" alt="" class="active">
+              </div>
+              <span>드라이크리닝</span>
+            </label>
+            <label>
+              <input type="checkbox" disabled />
+              <div class="img">
+                <img src="../img/mobile/icon_laundry_08.png" alt="">
+                <img src="../img/mobile/icon_laundry_08_active.png" alt="" class="active">
+              </div>
+              <span>천대고다림질</span>
+            </label>
+            <label>
+              <input type="checkbox" disabled />
+              <div class="img">
+                <img src="../img/mobile/icon_laundry_09.png" alt="">
+                <img src="../img/mobile/icon_laundry_09_active.png" alt="" class="active">
+              </div>
+              <span>전용세제</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- 제조국정보 -->
+        <div class="made">
+          <p class="head">
+            <strong class="tit">제조국정보</strong>
+          </p>
+          <p class="detail">대한민국</p>
+        </div>
+
+        <!-- 상품 상세정보 -->
+        <div class="info-detail">
+          <p class="head">
+            <strong class="tit">상품상세정보</strong>
+          </p>
+          <p class="detail">자수로고는 원단 특성상 정확한 모양으로 찍히기에 어려움이 있어 조금씩 다를 수 있습니다. 상세 컷 확인 부탁드립니다.</p>
+        </div>
+        <!-- 2021-03-04 -->
+        <!-- 해시태그 -->
+        <div>
+          <p class="head">
+            <strong class="tit">해시태그</strong>
+          </p>
+          <p class="detail">
+            #핏좋은, #안감기모, #데이트룩
+          </p>
+        </div>
+
+        <!-- 계절, 착용감 신축성 ... -->
+        <div class="info-add">
+          <p class="head">
+            <!-- 2021-03-04 info-basic 삭제 -->
+            <strong class="tit">상품부가정보</strong>
+          </p>
+          <dl class="detail">
+            <!-- 21-03-05 -->
+            <dt>계절감</dt>
+            <dd>봄/여름</dd>
+            <dt>착용감</dt>
+            <dd>루즈핏</dd>
+            <dt>신축성</dt>
+            <dd>없음</dd>
+            <dt>두께감</dt>
+            <dd>얇음</dd>
+            <dt>비침</dt>
+            <dd>비침없음</dd>
+          </dl>
+        </div>
+
+        <!-- 판매상태 설정 -->
+        <div class="set-status">
+          <p class="head">
+            <strong class="tit">판매상태 설정</strong>
+          </p>
+          <p class="detail">판매함</p>
+        </div>
+
+        <!-- 진열상태 설정 -->
+        <div class="set-status">
+          <p class="head">
+            <strong class="tit">진열상태 설정</strong>
+          </p>
+          <p class="detail">진열함</p>
+        </div>
+<!--20220318 EZP-1526 -->
+        <!-- 샘플지원 설정 -->
+        <div class="set-status">
+          <p class="head">
+            <strong class="tit">샘플지원 설정</strong>
+          </p>
+          <p class="detail">지원함</p>
+        </div>
+<!--// 20220318 EZP-1526 -->
+        <!-- 공개방식 설정 -->
+        <div class="set-discolusre">
+          <p class="head">
+            <strong class="tit">공개방식 설정</strong>
+          </p>
+          <p class="detail">전체공개</p>
+        </div>
+      </div>
+
+      <div class="btn-group">
+        <button type="button" class="case-01" data-popup-close>수정취소</button>
+        <button type="button" class="case-02" data-popup-close>재수정</button>
+      </div>
+    </div>
+  </div>
+  <!-- 2020-09-21 EZP-1356 종료 -->
+  <!-- 팝업@ 반려 메시지 -->
+  <div class="ui-popup message" id="popup_message_01">
+    <div class="content">
+      <div class="body">
+        <strong class="tit">반려사유</strong>
+        <!-- 2021-04-15 EZP-2852 -->
+        <p>
+          등록한 이미지가 잘못 등록되어<br>
+          반려처리되었습니다.<br>
+          상품이미지 수정 후<br>
+          다시 등록요청 부탁드립니다.
+        </p>
+
+      </div>
+      <div class="btn-group">
+        <button type="button" class="case-02" data-popup-close>확인</button> <!-- 20.07.28 수정 -->
+      </div>
+    </div>
+  </div>
+
+  <!-- 팝업@ 상태변경 메시지 -->
+  <div class="ui-popup message" id="popup_message_02">
+    <div class="content">
+      <div class="body">
+        상품을 판매안함 상태로 변경하시겠습니까?
+      </div>
+      <div class="btn-group">
+        <button type="button" class="case-01" data-popup-close>취소</button>
+        <button type="button" class="case-02" data-popup-close>확인</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 팝업@ 삭제 메시지 -->
+  <div class="ui-popup message" id="popup_message_03">
+    <div class="content">
+      <div class="body">
+        삭제되었습니다.
+      </div>
+      <div class="btn-group">
+        <button type="button" class="case-02" data-popup-close>확인</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 팝업@ 샘플 상태변경 메시지 -->
+  <div class="ui-popup message" id="popup_message_04">
+    <div class="content">
+      <div class="body">
+        샘플 지원안함 상태로 변경하시겠습니까?
+      </div>
+      <div class="btn-group">
+        <button type="button" class="case-01" data-popup-close>취소</button>
+        <button type="button" class="case-02" data-popup-close>확인</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2020-09-21 EZP-1356 -->
+  <div class="ui-popup full" id="popup_03">
+    <div class="content">
+      <div class="header">
+        <button type="button" class="btn-close"></button>
+        <strong>미리보기</strong>
+      </div>
+      <div class="body">
+        <div class="swiper-container">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="../img/mobile/temp_product_detail_01.png" /></div>
+            <div class="swiper-slide"><img src="../img/mobile/temp_product_detail_01.png" /></div>
+            <div class="swiper-slide"><img src="../img/mobile/temp_product_detail_01.png" /></div>
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+      <div class="btn-group">
+        <button type="button" class="case-02" data-popup-close>확인</button>
+      </div>
+    </div>
+  </div>
+  <div class="ui-popup full" id="popup_04">
+    <div class="content">
+      <div class="header">
+        <button type="button" class="btn-close"></button>
+        <strong>미리보기</strong>
+      </div>
+      <div class="body">
+        <div class="swiper-container2">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="../img/mobile/temp_product_detail_01.png" /></div>
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+      <div class="btn-group">
+        <button type="button" class="case-02" data-popup-close>확인</button>
+      </div>
+    </div>
+  </div>
+  <script>
+    // 2020-09-21 EZP-1356
+    $(function() {
+      // var sortable = document.getElementById('sortable')
+      // var sortable_type1 = new Sortable(sortable, {
+      //   animation: 150,
+      //   delay:300
+      // });
+      var swiper = new Swiper('#popup_03 .swiper-container', {
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+      });
+      $('#sortable li').click(function() {
+        var idx = $(this).index() - 1;
+        swiper.slideTo(idx,1);
+      })
+    })
+  </script>
+</body>
+
+</html>
