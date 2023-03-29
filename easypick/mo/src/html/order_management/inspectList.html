@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="ko">
+<!DOCTYPE html><html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta
@@ -187,8 +186,13 @@
             <div class="order-info ex">
               <div class="ui-accordion prd-list" data-head=">button">
                 <div class="acc-item active">
-                  <div class="acc-head">
+                  <div class="acc-head space-between">
                     <a href="#none" class="ui-popup-call tit-place" data-target="#pop_place_info">보네르(Bonheur)</a>
+                    <div class="btn-box">
+                      <button type="button" class="btn-open menu-bar-btn ui-popup-call" data-target="#complete-btn-box">
+                        검수완료
+                      </button>
+                    </div>
                     <button type="button" name="button" class="arrow-bottom">
                       열기
                     </button>
@@ -554,11 +558,16 @@
                 </div>
 
                 <div class="acc-item active">
-                  <div class="acc-head">
+                  <div class="acc-head space-between">
                     <span>
                       <a href="#none" class="ui-popup-call tit-place" data-target="#pop_place_info">가게명 입력 영역입니다. 가게명이 긴경우 말줄임 처리가게명
                       입력 영역입니다. 가게명이 긴경우 말줄임 처리</a></span
                     >
+                    <div class="btn-box">
+                      <button type="button" class="btn-open menu-bar-btn ui-popup-call" data-target="#complete-btn-box">
+                        검수완료
+                      </button>
+                    </div>
                     <button type="button" name="button" class="arrow-bottom">
                       열기
                     </button>
@@ -1141,6 +1150,36 @@
       </div>
     </div>
     <!--//메모 popup -->
+
+     <!-- 검수완료 popup -->
+     <div class="ui-popup pop-memo alert" id="complete-btn-box">
+      <div class="content complete-btn-1">
+        <div class="body">
+          <div class="inner pop-memo-box">
+              <!-- case1. 정상 -->
+              <p>관리자 승인 대기 중인 품목이 있어 <br /> 
+                검수완료가 불가합니다.</p>
+              <!-- case2. 오래된 입고일 아닌 경우  -->
+              <p>가장 오래된 날부터 <br />
+              차례대로 검수완료가 가능합니다.
+              <br/><br/>
+              가장 오래된 입고일부터 
+              <br />
+              검수완료를 진행해주세요.
+              </p>
+              <!-- case3. 검수완료불가상품 포함 -->
+              <p>관리자 승인 대기 중인 품목이 있어 <br /> 
+                검수완료가 불가합니다.</p>
+            </div>
+          <div class="btn-wrap">
+            <button type="button" name="button" class="btn fill btn-close">
+              확인
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--//검수완료 popup -->
 
     <!-- 부분처리 상세 popup -->
     <div class="ui-popup alert" id="pop_part_detail">
